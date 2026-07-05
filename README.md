@@ -37,7 +37,7 @@ TDRs extend the [ADR](https://adr.github.io/) lineage with gratitude — MADR ge
 
 ## Acknowledgement
 
-This standard emerged from the *Decision Debt* article series <!-- link on launch -->. Its development was supported by Digital Transformation Advisory. The standard itself is neutral, open, and belongs to whoever finds it useful.
+This standard emerged from the *Decision Debt* article series. Its development was supported by Digital Transformation Advisory. The standard itself is neutral, open, and belongs to whoever finds it useful.
 
 ## Author
 
