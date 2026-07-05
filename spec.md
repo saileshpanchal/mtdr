@@ -1,6 +1,6 @@
 # Transformation Decision Record (TDR) — Specification
 
-**Version:** 1.0.0 · **Licence:** MIT · **Author:** Sailesh Panchal
+**Version:** 1.1.0 · **Licence:** MIT · **Author:** Sailesh Panchal
 
 **TDR** is the standard: the record, its fields, and its accountability semantics.
 **MTDR** — Markdown Transformation Decision Record — is the markdown reference format of TDRs described in this repository, as MADR is to ADR.
@@ -21,7 +21,7 @@ A TDR preserves the judgement, at the moment it is exercised.
 
 TDRs work **alongside** existing practice, not instead of it:
 
-- **ADR / MADR.** TDRs extend the Architecture Decision Record lineage with gratitude. MADR 4.0 already generalised *scope* to any decision; the TDR's contribution is **accountability semantics** — a named accountable owner, stated confidence, evidence completeness, foreclosed options, and decision lineage. A TDR may cite an ADR as its architecture evidence.
+- **ADR / MADR.** TDRs extend the Architecture Decision Record lineage (Michael Nygard, 2011) with gratitude. MADR 3.0 already generalised *scope* to any decision; the TDR's contribution is **accountability semantics** — a named accountable owner, stated confidence, evidence completeness, foreclosed options, and decision lineage. A TDR may cite an ADR as its architecture evidence.
 - **Enterprise tools.** SAP LeanIX Architecture Decisions, Confluence pages, GRC platforms and PMO records remain where they are. A TDR references them as evidence locations; it does not replace them.
 
 ## 3. When to write a TDR — the proportionality rule
@@ -55,6 +55,8 @@ A TDR is a single markdown file: YAML frontmatter for machine-readable fields, m
 | `supersedes` | Yes | `TDR-nnnn` (one or more) or `none` |
 | `derived_from` | Yes | `TDR-nnnn` (one or more) or `none` |
 | `confirmed_by_outcome` | Full, Minimal | `pending — <review trigger>`, or a date plus evidence reference, or `none` |
+
+A JSON Schema for these frontmatter fields is provided at [`schema/tdr.schema.json`](schema/tdr.schema.json) — see [TDR-0006](decisions/TDR-0006-json-schema-for-frontmatter.md). It validates the frontmatter only; the body below is human judgement and is deliberately unconstrained.
 
 ### 4.2 Body sections
 

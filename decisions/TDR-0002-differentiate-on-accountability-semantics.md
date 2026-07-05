@@ -16,7 +16,7 @@ confirmed_by_outcome: pending — review at spec v1.1
 
 ## Context — what was known at the time
 
-The obvious positioning for a new decision-record standard is scope: "ADRs cover architecture; this covers *any organisational decision*." That ground was already taken. MADR 4.0 renamed itself "Markdown **Any** Decision Records" — the existing community had generalised scope before this standard existed.
+The obvious positioning for a new decision-record standard is scope: "ADRs cover architecture; this covers *any organisational decision*." That ground was already taken. MADR 3.0 renamed itself "Markdown **Any** Decision Records" — the existing community had generalised scope before this standard existed.
 
 What no existing standard carried was the semantics a governance or regulatory test actually asks for:
 
@@ -41,7 +41,7 @@ The TDR differentiates on accountability semantics. Scope is inherited gratefull
 - **Operations** — evidence dimensions give reviewers a completeness check ("regulatory dimension not assessed") instead of a false sense of rigour from prose volume.
 - **Customer** — the customer evidence dimension forces decisions that affect customers to say so explicitly, at decision time.
 - **Data** — explicit fields make records queryable; prose-only records are not.
-- **External** — the renaming of MADR 4.0 is itself evidence that scope-based differentiation was exhausted.
+- **External** — the renaming of MADR 3.0 is itself evidence that scope-based differentiation was exhausted.
 
 ## Alternatives rejected
 
