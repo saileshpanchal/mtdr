@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/saileshpanchal/mtdr/blob/main/schema/tdr.schema.json",
+  "title": "Transformation Decision Record — frontmatter",
+  "description": "Schema for the YAML frontmatter of a Transformation Decision Record (TDR), per spec.md §4.1. It validates the machine-readable fields only; the markdown body is human judgement and is deliberately not schema-constrained. See TDR-0006.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "status",
+    "template",
+    "decision_date",
+    "accountable_owner",
+    "supersedes",
+    "derived_from"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^TDR-[0-9]+$",
+      "description": "TDR-nnnn, unique within the owning organisation or repository."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Imperative or declarative statement of the decision."
+    },
+    "status": {
+      "enum": ["proposed", "accepted", "superseded", "rejected"]
+    },
+    "template": {
+      "enum": ["full", "minimal", "bare"]
+    },
+    "decision_date": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "description": "ISO 8601 date, YYYY-MM-DD. Frontmatter is validated as JSON: a YAML parser may load an unquoted date as a native date type, so normalise it to an ISO-8601 string before validation."
+    },
+    "accountable_owner": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A named individual — not a committee."
+    },
+    "confidence": {
+      "enum": ["low", "medium", "high"],
+      "description": "The owner's stated confidence at decision time. Required for full and minimal templates."
+    },
+    "maturity": {
+      "enum": ["proposed", "adopted", "validated"],
+      "description": "Optional lifecycle maturity."
+    },
+    "supersedes": {
+      "$ref": "#/$defs/tdrRefList"
+    },
+    "derived_from": {
+      "$ref": "#/$defs/tdrRefList"
+    },
+    "confirmed_by_outcome": {
+      "type": "string",
+      "minLength": 1,
+      "description": "`pending — <review trigger>`, a date plus evidence reference, or `none`. Required for full and minimal templates."
+    }
+  },
+  "$defs": {
+    "tdrRefList": {
+      "type": "string",
+      "pattern": "^(none|TDR-[0-9]+(,[ ]?TDR-[0-9]+)*)$",
+      "description": "One or more TDR ids (comma-separated), or the literal `none`."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "template": { "enum": ["full", "minimal"] } }
+      },
+      "then": {
+        "required": ["confidence", "confirmed_by_outcome"]
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Contributing
 
-Contributions are welcome — including, and especially, disagreement.
+Contributions are welcome — including, and especially, disagreement. Participation is governed by our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## The mechanic
 

@@ -16,12 +16,12 @@ confirmed_by_outcome: pending — review 2026-10-05
 
 ## Context — what was known at the time
 
-Organisations accumulate decision debt: judgement made without preserving why, on what evidence, against which alternatives, and under whose accountability. Regulatory direction (in UK financial services: SM&CR "reasonable steps", Consumer Duty, and the FCA's 2026 review of AI in retail financial services) increasingly tests whether a *named individual* can demonstrate the judgement exercised at the time — a test that scattered fragments in decks, minutes and email do not pass.
+Organisations accumulate decision debt: judgement made without preserving why, on what evidence, against which alternatives, and under whose accountability. Regulatory direction (in UK financial services: SM&CR "reasonable steps", Consumer Duty, and the FCA's 2026 Mills Review into the long-term impact of AI on retail financial services) increasingly tests whether a *named individual* can demonstrate the judgement exercised at the time — a test that scattered fragments in decks, minutes and email do not pass.
 
 At the date of decision:
 
 - "Transformation Decision Record" was unclaimed as a standard.
-- MADR 4.0 had renamed itself "Markdown Any Decision Records" — the *scope* of decision records was already generalised by the existing community.
+- MADR 3.0 had renamed itself "Markdown Any Decision Records" — the *scope* of decision records was already generalised by the existing community.
 - Enterprise tools (SAP LeanIX Architecture Decisions, Confluence, GRC platforms) manage decision documentation inside their own boundaries.
 - No existing standard carried accountability semantics: confidence, evidence completeness, provenance, foreclosed options, and a named accountable owner.
 

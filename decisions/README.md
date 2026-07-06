@@ -13,6 +13,7 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0003](TDR-0003-ship-skills-alongside-spec.md) | Ship practice skills alongside the specification | Minimal — significant but revisable |
 | [TDR-0004](TDR-0004-markdown-yaml-serialisation.md) | Markdown with YAML frontmatter as the serialisation | Bare — reversible with tooling |
 | [TDR-0005](TDR-0005-repo-name-mtdr.md) | Name the repository MTDR | Minimal |
+| [TDR-0006](TDR-0006-json-schema-for-frontmatter.md) | Provide a JSON Schema for the frontmatter | Minimal — significant but revisable |
 
 ## Challenging a decision
 

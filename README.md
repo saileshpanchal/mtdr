@@ -20,7 +20,7 @@ A TDR preserves the judgement at the moment it is exercised: context as it stood
 
 | Path | Contents |
 |---|---|
-| [`spec.md`](spec.md) | The specification, v1.0 |
+| [`spec.md`](spec.md) | The specification |
 | [`/templates`](templates/) | Full, minimal and bare record templates |
 | [`/skills`](skills/) | Problem Framing & Decision Capture · Evidence Review · Governance Review |
 | [`/examples`](examples/) | Fictional worked examples (full and minimal) |
