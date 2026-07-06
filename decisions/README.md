@@ -14,6 +14,7 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0004](TDR-0004-markdown-yaml-serialisation.md) | Markdown with YAML frontmatter as the serialisation | Bare — reversible with tooling |
 | [TDR-0005](TDR-0005-repo-name-mtdr.md) | Name the repository MTDR | Minimal |
 | [TDR-0006](TDR-0006-json-schema-for-frontmatter.md) | Provide a JSON Schema for the frontmatter | Minimal — significant but revisable |
+| [TDR-0007](TDR-0007-add-decision-identification-skill.md) | Add a decision-identification skill in front of the capture skill | Bare — cheap to reverse |
 
 ## Challenging a decision
 

@@ -22,7 +22,7 @@ A TDR preserves the judgement at the moment it is exercised: context as it stood
 |---|---|
 | [`spec.md`](spec.md) | The specification |
 | [`/templates`](templates/) | Full, minimal and bare record templates |
-| [`/skills`](skills/) | Problem Framing & Decision Capture · Evidence Review · Governance Review |
+| [`/skills`](skills/) | Decision Identification · Problem Framing & Decision Capture · Evidence Review · Governance Review |
 | [`/examples`](examples/) | Fictional worked examples (full and minimal) |
 | [`/decisions`](decisions/) | **This standard's own design decisions, recorded as TDRs** |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | How to challenge a decision — by superseding it |
