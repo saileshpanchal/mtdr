@@ -1,9 +1,11 @@
 # Transformation Decision Record (TDR) — Specification
 
-**Version:** 1.2.0 · **Licence:** MIT · **Author:** Sailesh Panchal
+**Version:** 1.3.0 · **Licence:** MIT · **Author:** Sailesh Panchal
 
 **TDR** is the standard: the record, its fields, and its accountability semantics.
 **MTDR** — Markdown Transformation Decision Record — is the markdown reference format of TDRs described in this repository, as MADR is to ADR.
+
+The TDR has a sibling record: the **Value Record (VR)** — the TDR records the decision; the VR records the value case and its life. See [`spec-value-record.md`](spec-value-record.md). For what a TDR is *not* — consent receipts, identity claims, runtime logs, model traces — see the [boundary FAQ](FAQ.md).
 
 ---
 

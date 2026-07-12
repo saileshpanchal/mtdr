@@ -56,6 +56,14 @@ The envelope is vocabulary, not schema — it adds no fields to the TDR format a
 - A drafted record with thin evidence → **Evidence Review**.
 - A record heading for acceptance → **Governance Review**.
 
+## Journey changes and dispositions
+
+Customer and staff journey changes arrive disguised as improvement ideas rather than decisions. Treat them with three rules:
+
+- **Every journey change starts with a value thesis.** Someone believes the change buys something. That thesis is recordable as a Value Record (`spec-value-record.md`, skill in `skills/value-record/`) — with a baseline and a reconcile-by date — before the change is treated as decided.
+- **Every journey change receives a disposition on the reversibility axis** — the same test as step 4: is this an experiment held cheaply reversible, or a commitment? The disposition is itself a decision, and is recorded as one at the matching template tier.
+- **Promotion follows a ladder.** A change promoted from experiment towards commitment (exploration → pilot → production, in the VR's stage taxonomy) moves one rung at a time, and **every promotion is a superseding record** stating what is now known that was not known at the previous rung. A pilot that drifts into production without a promotion record is the quiet-default failure from step 1, at portfolio scale.
+
 ## What is not a TDR
 
 Name these explicitly so "no record needed" is a confident answer, not a shrug:

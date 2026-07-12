@@ -1,6 +1,6 @@
 # MTDR — Markdown Transformation Decision Record
 
-**TDR** is a standard for recording significant organisational decisions with accountability semantics: what was known at the time, by whom, with what confidence. **MTDR** is its markdown reference format — as MADR is to ADR.
+**TDR** is a standard for recording significant organisational decisions with accountability semantics: what was known at the time, by whom, with what confidence. **MTDR** is its markdown reference format — as MADR is to ADR. Since v1.3.0 the TDR has a sibling record, the **Value Record (VR)**: the TDR records the decision; the VR records the value case and its life — the claim and the reconciliation as one record.
 
 MIT licensed. Tool-neutral. Regulator-neutral. Works alongside what you already run.
 
@@ -20,9 +20,11 @@ A TDR preserves the judgement at the moment it is exercised: context as it stood
 
 | Path | Contents |
 |---|---|
-| [`spec.md`](spec.md) | The specification |
-| [`/templates`](templates/) | Full, minimal and bare record templates |
-| [`/skills`](skills/) | Decision Identification · Problem Framing & Decision Capture · Evidence Review · Governance Review |
+| [`spec.md`](spec.md) | The TDR specification |
+| [`spec-value-record.md`](spec-value-record.md) | The Value Record specification — the TDR's sibling record |
+| [`FAQ.md`](FAQ.md) | Boundary FAQ — what a TDR is not |
+| [`/templates`](templates/) | Full, minimal and bare TDR templates, and the VR template |
+| [`/skills`](skills/) | Decision Identification · Problem Framing & Decision Capture · Evidence Review · Governance Review · Value Record |
 | [`/examples`](examples/) | Fictional worked examples (full and minimal) |
 | [`/decisions`](decisions/) | **This standard's own design decisions, recorded as TDRs** |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | How to challenge a decision — by superseding it |
