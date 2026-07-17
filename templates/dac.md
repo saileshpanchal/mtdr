@@ -50,9 +50,8 @@ supersedes: none
 
 ## Risk vector
 
-<!-- severity · likelihood · exposure volume · velocity · concentration · detectability ·
-     reversibility · control confidence · cohort distribution · time horizon — each with basis.
-     Trend: improving | deteriorating | stabilising | oscillating. NEVER a composite score. -->
+<!-- The ten-axis vector of spec-decision-assurance §6, each axis with its basis, plus the trend.
+     NEVER a composite score. -->
 
 ## Decision debt
 
@@ -66,7 +65,7 @@ supersedes: none
 
 ## Learning obligations
 
-<!-- hypotheses · experiments · evidence required · review date. -->
+<!-- hypotheses · experiments · evidence required — examined at the case's review_date. -->
 
 ## Disposition
 

@@ -7,7 +7,7 @@ description: Treat a decision as something an adversary will actively study and 
 
 Wider than traditional threat modelling: it asks how a criminal, a customer's agent, a merchant
 agent or a compromised internal actor behaves *because this decision changed what is profitable or
-possible*. Read `spec-decision-assurance.md` for where the output lands in the case.
+possible*. Read `spec-decision-assurance.md` §5 for where the output lands.
 
 ## The one rule
 

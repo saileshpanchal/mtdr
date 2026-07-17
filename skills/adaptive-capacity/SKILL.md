@@ -7,8 +7,8 @@ description: Assess whether a decision creates the conditions in which the organ
 
 A system question, never an individual-mindset question: it does not ask whether people possess a
 growth mindset — that would reduce a system property to a training need. It asks whether the
-*decision* leaves the organisation able to learn. Read `spec-decision-assurance.md` for where the
-output lands.
+*decision* leaves the organisation able to learn. Read `spec-decision-assurance.md` §5 for where
+the output lands.
 
 ## The one rule
 

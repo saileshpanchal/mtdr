@@ -7,7 +7,7 @@ description: Prevent a decision record from becoming a well-written justificatio
 
 Runs *before* acceptance, against the judgement; **evidence-review** runs against the record's
 completeness. Both exist because a record can be complete and still be a rationalisation. Read
-`spec-decision-assurance.md` for where the output lands.
+`spec-decision-assurance.md` §5 for where the output lands.
 
 ## The one rule
 
@@ -25,9 +25,10 @@ falsify the preferred option — or say plainly that nothing would, which is its
 3. **Separate assumptions from facts.** Every load-bearing claim is either evidenced (where?) or
    an assumption (stated as one, with its confidence). Assumptions dressed as facts are the
    primary mechanism of predetermined answers.
-4. **Grade the evidence.** For each item: quality, provenance, age, and whether it was produced to
-   inform the decision or to support it. Name the missing or inaccessible evidence and what it
-   would have settled.
+4. **Grade the evidence.** Quality, provenance and age are the **evidence-review** skill's
+   discipline — apply it rather than re-deriving it here — then add the one test it does not run:
+   was each item produced to *inform* the decision, or to *support* it? Name the missing or
+   inaccessible evidence and what it would have settled.
 5. **Test the causality.** Could the claimed benefits occur anyway, without this decision? What
    competing causal explanations exist for the evidence presented?
 6. **Set the falsifiers.** What observed outcome would prove the preferred option wrong — and what

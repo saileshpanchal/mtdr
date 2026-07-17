@@ -6,7 +6,7 @@ description: Predict how a decision's system behaves over time and under change 
 # Systems Dynamics
 
 Systems thinking identifies interactions. Systems dynamics predicts behaviour. Different questions;
-this skill answers the second. Read `spec-decision-assurance.md` for where the output lands.
+this skill answers the second. Read `spec-decision-assurance.md` §5 for where the output lands.
 
 ## The one rule
 

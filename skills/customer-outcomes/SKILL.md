@@ -1,12 +1,12 @@
 ---
 name: customer-outcomes
-description: Project a decision — and every one of its protective controls — through the outcomes customers will actually receive, at decision time rather than as an after-the-fact compliance check. Use this skill inside a Decision Assurance Case whenever any customer, member or cohort is affected, and always alongside fraud-and-adversarial-thinking: the controls that pass reduce losses may themselves create exclusion, distress, delay or inaccessible journeys.
+description: Project a decision — and every one of its protective controls — through the outcomes customers will actually receive, at decision time rather than as an after-the-fact compliance check. Use this skill inside a Decision Assurance Case whenever any customer, member or cohort is affected, and always alongside fraud-and-adversarial-thinking — the controls that pass reduce losses may themselves create exclusion, distress, delay or inaccessible journeys.
 ---
 
 # Customer Outcomes
 
 The assurance question is not "does this comply" but "who receives a worse outcome, even when
-everything works as designed". Read `spec-decision-assurance.md` for where the output lands.
+everything works as designed". Read `spec-decision-assurance.md` §5 for where the output lands.
 
 ## The one rule
 

@@ -75,7 +75,6 @@ assurance:
     evidence_required:
       - "Cohort-differentiated outcomes at week 6 and week 12"
       - "Displacement telemetry from the card channel over the same window"
-    review_date: 2026-10-02
   constraints:
     - "No cap increase before the assistive-technology revocation evidence lands (due 2026-08-15)"
     - "New enrolments pause automatically if coercion-flag threshold breaches"
@@ -92,10 +91,8 @@ assurance:
 ---
 
 > **Fictional worked example.** Halford & Vane Bank, its people and its numbers are invented. The
-> example shows a full Decision Assurance Case for the decision this standard expects to be its
-> hardest early test: an **agentic payment journey** — delegated authority, consent, identity,
-> fraud incentives, customer outcomes, machine execution and contested liability in one decision.
-> Identifiers follow the bank's own numbering.
+> example shows a full Decision Assurance Case for an **agentic payment journey** — the standard's
+> natural first proving ground (spec §8). Identifiers follow the bank's own numbering.
 
 # DAC-0007 — Assure the delegated agent-initiated payments decision before pilot execution
 

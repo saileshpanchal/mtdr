@@ -1,6 +1,6 @@
 ---
 name: problem-framing-and-decision-capture
-description: Frame a significant organisational decision and capture it as a Transformation Decision Record (TDR) at the moment it is made. Use this skill whenever a decision is being taken, discussed, or prepared — a supplier selection, an architecture choice, a policy change, a channel closure, a migration, an investment — and especially whenever someone says "let's decide", "we've agreed", "the steering group approved", or asks to write up a decision. Use it during the meeting, not after it: the value of the record collapses when it is reconstructed.
+description: Frame a significant organisational decision and capture it as a Transformation Decision Record (TDR) at the moment it is made. Use this skill whenever a decision is being taken, discussed, or prepared — a supplier selection, an architecture choice, a policy change, a channel closure, a migration, an investment — and especially whenever someone says "let's decide", "we've agreed", "the steering group approved", or asks to write up a decision. Use it during the meeting, not after it — the value of the record collapses when it is reconstructed.
 ---
 
 # Problem Framing & Decision Capture

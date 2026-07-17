@@ -70,9 +70,13 @@ Proportionality governs assurance exactly as it governs recording (TDR spec §3)
 Routing: for any decision requiring a DAC, three skills always run — **systems-thinking**,
 **counterfactual-and-evidence**, **accumulated-and-resultant-risk**. The others are routed by what
 the decision declares: adversarial thinking when the decision changes the economics or mechanics
-an adversary could exploit; customer-outcomes when any customer, member or cohort is affected;
+an adversary could exploit (money movement, identity, consent, authority, delegation, data);
+customer-outcomes when any customer, member or cohort is affected — and always when the
+adversarial pass proposed controls, because controls are product decisions too (§2, question 3);
 systems-dynamics when behaviour under growth or stress matters; adaptive-capacity when the
-decision constrains future learning or reversal. **assurance-synthesis** always closes.
+decision constrains future learning or reversal, or execution capability (§5.2 item 5) is in
+doubt. **assurance-synthesis** always closes. This paragraph is the normative routing rule; the
+skills apply it, they do not extend it.
 
 ## 5. Record structure
 
@@ -128,9 +132,11 @@ its review date passes unexamined, or a monitoring trigger fires — a stale cas
    the TDR, narrow authority, suspend, redesign). This is the design-time authoring of the
    decision's monitorable contract: the case writes it once; runtime assurance reads it.
 10. **Learning obligations** — every case closes by creating future learning: hypotheses,
-    experiments, evidence required, review date. A decision that teaches the organisation nothing
-    was assured in name only.
+    experiments, evidence required — examined at the case's `review_date`. A decision that teaches
+    the organisation nothing was assured in name only.
 11. **Disposition** — one of the six, with constraints and conditions stated as testable bounds.
+    `proceed-with-constraints` is valid only when the constraints are named, each with an owner
+    and a measure — a constraint no one owns is not a constraint.
 
 ## 6. The risk vector — no composite score
 
@@ -139,16 +145,17 @@ A single score creates false precision and conceals the reason to stop. The case
 **severity · likelihood · exposure volume · velocity · concentration · detectability ·
 reversibility · control confidence · customer-cohort distribution · time horizon**
 
-— each with a stated basis, plus a **trend** (`improving` \| `deteriorating` \| `stabilising` \|
-`oscillating`). Trend is often more important than today's absolute value: a decision may be low
+— all ten reported: the first eight each with a stated level and its basis; cohort distribution
+and time horizon stated descriptively — plus a **trend** (`improving` \| `deteriorating` \|
+`stabilising` \| `oscillating`). Trend is often more important than today's absolute value: a decision may be low
 severity and individually tolerable, yet high velocity, poorly detectable and concentrated on one
 vulnerable cohort — a composite amber would hide exactly why it should be stopped.
 
 ## 7. Lifecycle and the loop
 
-`proposed → accepted → superseded`, with `stale` as the standing-loss state (§5.1). Like every
-record in this standard, an accepted case is never edited — a changed assessment is a superseding
-case stating what is now known. The full loop the DAC closes:
+`proposed → accepted → superseded`, with `stale` as the standing-loss state (§5.1). Lineage and
+immutability follow the TDR's rules exactly (spec §§6–7): an accepted case is never edited — a
+changed assessment is a superseding case stating what is now known. The full loop the DAC closes:
 
 > **decide → predict → constrain → test → operate → observe → learn → reconsider**
 

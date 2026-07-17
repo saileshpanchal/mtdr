@@ -15,15 +15,10 @@ to catch the places where two projections disagree about the same decision.
 
 ## Routing
 
-For any decision that requires a DAC (spec §4): **systems-thinking**, **counterfactual-and-
-evidence** and **accumulated-and-resultant-risk** always run. Route the rest by what the decision
-declares: **fraud-and-adversarial-thinking** when the decision changes economics or mechanics an
-adversary could exploit (money movement, identity, consent, authority, delegation, data);
-**customer-outcomes** when any customer or cohort is affected — and *always* when the adversarial
-pass proposed controls; **systems-dynamics** when growth, scale or stress behaviour matters;
-**adaptive-capacity** when the decision constrains learning or reversal, or execution capability
-is in doubt. Record which skills ran and why the others were not material — an honest "not
-material" beats a padded pass (the seven-dimensions rule, applied to assurance).
+The routing rule is normative in `spec-decision-assurance.md` §4 — the three always-run skills,
+the declared triggers for the rest, this skill always closing. Apply it from there; do not
+re-derive or extend it. Record which skills ran and why the others were not material — an honest
+"not material" beats a padded pass (the seven-dimensions rule, applied to assurance).
 
 ## The contradiction hunt
 

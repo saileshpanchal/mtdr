@@ -10,16 +10,18 @@
     "id": { "type": "string", "pattern": "^DAC-[0-9]+$" },
     "tdr_id": { "type": "string", "pattern": "^TDR-[0-9]+$", "description": "The decision under test." },
     "title": { "type": "string", "minLength": 1 },
-    "status": { "enum": ["proposed", "accepted", "superseded", "stale"], "description": "`stale` is the standing-loss state: the linked TDR was superseded, the review date passed unexamined, or a monitoring trigger fired. A stale case authorises nothing." },
+    "status": { "enum": ["proposed", "accepted", "superseded", "stale"], "description": "`stale` is the standing-loss state (spec §5.1): a stale case authorises nothing." },
     "disposition": { "$ref": "#/$defs/disposition" },
-    "assessed_at": { "type": "string", "format": "date", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
-    "accountable_owner": { "type": "string", "minLength": 1, "description": "A named individual — never a committee." },
-    "review_date": { "type": "string", "format": "date", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$", "description": "When the case must be re-examined even if no trigger fires." },
-    "confidence": { "enum": ["low", "medium", "high"], "description": "Confidence in the assessment itself." },
+    "assessed_at": { "$ref": "#/$defs/date" },
+    "accountable_owner": { "type": "string", "minLength": 1, "description": "A named individual — not a committee." },
+    "review_date": { "$ref": "#/$defs/date", "description": "When the case must be re-examined even if no trigger fires." },
+    "confidence": { "$ref": "#/$defs/level", "description": "Confidence in the assessment itself." },
     "supersedes": { "type": "string", "pattern": "^(none|DAC-[0-9]+)$" },
     "assurance": { "$ref": "#/$defs/assurance" }
   },
   "$defs": {
+    "date": { "type": "string", "format": "date", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+    "level": { "enum": ["low", "medium", "high"] },
     "disposition": {
       "enum": ["proceed", "proceed-with-constraints", "experiment-within-bounded-authority", "escalate", "defer-pending-evidence", "stop"],
       "description": "Design-time assurance dispositions (distinct from any runtime disposition vocabulary an adopter uses)."
@@ -33,9 +35,9 @@
         "risk_delta": { "$ref": "#/$defs/riskDelta" },
         "risk_vector": { "$ref": "#/$defs/riskVector" },
         "decision_debt": { "type": "array", "items": { "$ref": "#/$defs/debtItem" } },
-        "monitoring_contract": { "type": "array", "items": { "$ref": "#/$defs/harmHypothesis" }, "description": "The design-time authoring of the decision's monitorable contract: the case writes it once; runtime assurance reads it." },
+        "monitoring_contract": { "type": "array", "items": { "$ref": "#/$defs/harmHypothesis" }, "description": "The design-time authoring of the decision's monitorable contract — see spec §5.2 item 9." },
         "learning": { "$ref": "#/$defs/learning" },
-        "constraints": { "type": "array", "items": { "type": "string" }, "description": "Required non-empty when disposition is proceed-with-constraints." },
+        "constraints": { "type": "array", "items": { "type": "string" }, "description": "Non-empty when disposition is proceed-with-constraints and this block is present. The rule itself is spec §5.2 item 11; a frontmatter-only case carries its constraints in the body." },
         "skills_run": { "type": "array", "items": { "type": "string" }, "description": "Which reasoning skills ran; non-material skills are recorded as such, not silently skipped." }
       }
     },
@@ -69,8 +71,8 @@
     "riskVector": {
       "type": "object",
       "additionalProperties": false,
-      "description": "Never collapsed into a composite score: a single number conceals the axis that should stop the decision.",
-      "required": ["severity", "likelihood", "velocity", "detectability", "reversibility", "trend"],
+      "description": "All ten axes plus trend, per spec §6. Never collapsed into a composite score: a single number conceals the axis that should stop the decision.",
+      "required": ["severity", "likelihood", "exposure_volume", "velocity", "concentration", "detectability", "reversibility", "control_confidence", "cohort_distribution", "time_horizon", "trend"],
       "properties": {
         "severity": { "$ref": "#/$defs/axis" },
         "likelihood": { "$ref": "#/$defs/axis" },
@@ -80,8 +82,8 @@
         "detectability": { "$ref": "#/$defs/axis" },
         "reversibility": { "$ref": "#/$defs/axis" },
         "control_confidence": { "$ref": "#/$defs/axis" },
-        "cohort_distribution": { "type": "string", "description": "Which customer cohorts carry the exposure, and how unevenly." },
-        "time_horizon": { "type": "string" },
+        "cohort_distribution": { "type": "string", "description": "Descriptive axis: which customer cohorts carry the exposure, and how unevenly." },
+        "time_horizon": { "type": "string", "description": "Descriptive axis." },
         "trend": { "enum": ["improving", "deteriorating", "stabilising", "oscillating"], "description": "Trend is often more important than today's absolute value." }
       }
     },
@@ -90,7 +92,7 @@
       "additionalProperties": false,
       "required": ["level", "basis"],
       "properties": {
-        "level": { "enum": ["low", "medium", "high"] },
+        "level": { "$ref": "#/$defs/level" },
         "basis": { "type": "string", "minLength": 1, "description": "What the level rests on — evidence, analysis or stated judgement." }
       }
     },
@@ -102,7 +104,7 @@
         "item": { "type": "string" },
         "kind": { "enum": ["deferred-evidence", "temporary-assumption", "known-unknown", "manual-mitigation", "review-commitment"] },
         "owner": { "type": "string", "description": "A named individual." },
-        "due": { "type": "string", "format": "date", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
+        "due": { "$ref": "#/$defs/date" }
       }
     },
     "harmHypothesis": {
@@ -122,18 +124,18 @@
     "learning": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["hypotheses", "evidence_required", "review_date"],
+      "description": "Examined at the case's top-level review_date — no separate date field.",
+      "required": ["hypotheses", "evidence_required"],
       "properties": {
         "hypotheses": { "type": "array", "items": { "type": "string" } },
         "experiments": { "type": "array", "items": { "type": "string" } },
-        "evidence_required": { "type": "array", "items": { "type": "string" } },
-        "review_date": { "type": "string", "format": "date", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
+        "evidence_required": { "type": "array", "items": { "type": "string" } }
       }
     }
   },
   "allOf": [
     {
-      "if": { "properties": { "disposition": { "const": "proceed-with-constraints" }, "assurance": { "type": "object" } }, "required": ["assurance"] },
+      "if": { "properties": { "disposition": { "const": "proceed-with-constraints" } }, "required": ["assurance"] },
       "then": { "properties": { "assurance": { "required": ["constraints"], "properties": { "constraints": { "minItems": 1 } } } } }
     }
   ]

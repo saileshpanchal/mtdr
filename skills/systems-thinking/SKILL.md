@@ -6,7 +6,7 @@ description: Widen a decision from the immediate feature or change to the system
 # Systems Thinking
 
 This skill identifies interactions; its sibling **systems-dynamics** predicts behaviour. Read
-`spec-decision-assurance.md` for where the output lands in the case.
+`spec-decision-assurance.md` §5 for where the output lands.
 
 ## The one rule
 
