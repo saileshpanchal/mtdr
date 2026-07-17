@@ -1,12 +1,12 @@
 # Decision Assurance Case (DAC) — Specification
 
-**Version:** 1.4.0 · **Licence:** MIT · **Author:** Sailesh Panchal
+**Version:** 1.5.0 · **Licence:** MIT · **Author:** Sailesh Panchal
 
 The TDR has a second sibling record. Where the **TDR** records organisational judgement and the
 **VR** records the value case, the **Decision Assurance Case (DAC)** records the organisational
-reasoning that tests whether that judgement is fit to execute.
+reasoning that challenges that judgement's consequences.
 
-> The TDR proves what the organisation decided. The DAC tests what that decision could cause.
+> A TDR preserves the judgement. It does not prove the consequences are acceptable.
 
 They are different artefacts with different lifecycles: a TDR is immutable judgement, superseded
 when the judgement changes; a DAC is a *challenge* to that judgement, re-run when the world
@@ -54,8 +54,10 @@ Operation               — runtime evidence flows back against the DAC's monito
 
 The skills are reusable; the DAC is what they compile into. This is a compiler model, not a
 checklist model: the same skills run against any decision, and the case they produce is specific,
-falsifiable and owned. A decision's record may be accepted while its assurance case says **stop**
-— the record captures judgement; the case governs execution.
+falsifiable and owned. Skill outputs are **advisory evidence** contributing to the case, never
+verdicts — the synthesis produces the one disposition, and its named owner signs it. A decision's
+record may be accepted while its assurance case says **stop** — the record captures judgement; the
+case governs execution.
 
 ## 4. When to write a DAC — proportionality and routing
 
@@ -77,6 +79,10 @@ systems-dynamics when behaviour under growth or stress matters; adaptive-capacit
 decision constrains future learning or reversal, or execution capability (§5.2 item 5) is in
 doubt. **assurance-synthesis** always closes. This paragraph is the normative routing rule; the
 skills apply it, they do not extend it.
+
+Adoption is progressive, and each rung is useful without the next: records alone (TDR) → assurance
+on material decisions (TDR + DAC) → organisational risk context → a decision graph computing the
+resultant position → continuous assurance. Nothing in this standard requires a graph.
 
 ## 5. Record structure
 
@@ -120,13 +126,20 @@ its review date passes unexamined, or a monitoring trigger fires — a stale cas
 6. **Risk delta and declared interactions** — inherent risk, proposed controls, local residual
    risk; what this decision increases, decreases, transfers and leaves unknown; declared
    interactions (shared controls, shared identity/authority mechanisms, concentration, correlated
-   failures, exception accumulation). The case records the **delta**; computing the accumulated
-   and resultant organisational position is graph work, outside this standard — but the case must
-   declare the interactions a graph would need.
+   failures, exception accumulation). The delta is **temporal**: the case declares what risk the
+   decision is expected to change, from when (`effective_from`), for how long
+   (`expected_duration`), on what trajectory (a transition may duplicate risk before reducing it;
+   exposure may grow only as adoption scales), and under what conditions
+   (`dependency_conditions` — another decision landing, a threshold being crossed). The case
+   records the delta; computing the accumulated and resultant organisational position **at any
+   point in time** is graph work, outside this standard — but the case must declare the
+   interactions and the temporal shape a graph would need.
 7. **Risk vector** — see §6. Never a single score.
 8. **Decision debt** — deferred evidence, temporary assumptions, known unknowns, manual
-   mitigations, and future review commitments, each with an owner and a date. Undeclared decision
-   debt is how temporary uncertainty quietly becomes permanent architecture.
+   mitigations, and future review commitments, each with an owner and a date. The debt lies in
+   the evidence required to sustain confidence in execution, not necessarily in the decision
+   itself. Undeclared decision debt is how temporary uncertainty quietly becomes permanent
+   architecture.
 9. **Monitoring contract** — each risk or harm hypothesis converted to something observable:
    hypothesis, counter-hypothesis, test, metric, threshold, named owner, and the trigger (reopen
    the TDR, narrow authority, suspend, redesign). This is the design-time authoring of the
@@ -136,7 +149,10 @@ its review date passes unexamined, or a monitoring trigger fires — a stale cas
     the organisation nothing was assured in name only.
 11. **Disposition** — one of the six, with constraints and conditions stated as testable bounds.
     `proceed-with-constraints` is valid only when the constraints are named, each with an owner
-    and a measure — a constraint no one owns is not a constraint.
+    and a measure — a constraint no one owns is not a constraint. `defer-pending-evidence` and
+    `experiment-within-bounded-authority` are never standing states: each names its resolving
+    evidence as dated, owned decision-debt items, and the review date or a monitoring trigger
+    reopens the disposition — there is always a machine-readable route out.
 
 ## 6. The risk vector — no composite score
 

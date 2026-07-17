@@ -55,12 +55,20 @@
     "riskDelta": {
       "type": "object",
       "additionalProperties": false,
-      "description": "The case records the DELTA; computing the accumulated and resultant organisational position is graph work outside this standard. Declared interactions are what that graph needs.",
+      "description": "The case records the DELTA and its temporal shape (spec §5.2 item 6); computing the accumulated and resultant organisational position at any point in time is graph work outside this standard. Declared interactions are what that graph needs.",
       "properties": {
         "increases": { "type": "array", "items": { "type": "string" } },
         "decreases": { "type": "array", "items": { "type": "string" } },
         "transfers": { "type": "array", "items": { "type": "string" }, "description": "Risk moved, with destination: channel, cohort, process or institution." },
         "unknowns": { "type": "array", "items": { "type": "string" } },
+        "effective_from": { "$ref": "#/$defs/date", "description": "When the declared change takes effect — not necessarily the decision date." },
+        "expected_duration": { "type": "string", "description": "How long the declared change is expected to hold — e.g. \"12-week pilot\", \"until migration completes\", \"permanent\"." },
+        "expected_trajectory": { "type": "string", "description": "How the delta is expected to evolve — e.g. temporary duplication during transition, decreasing after cutover, increasing as adoption scales." },
+        "dependency_conditions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Conditions under which the declared change materialises or changes shape — another decision landing, adoption crossing a threshold, a control being retired."
+        },
         "declared_interactions": {
           "type": "array",
           "items": { "type": "string" },

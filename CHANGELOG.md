@@ -2,6 +2,19 @@
 
 All notable changes to the TDR standard (and its MTDR markdown reference format) are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the standard adheres to [Semantic Versioning](https://semver.org/). The *reasoning* behind each significant change lives in [`/decisions`](decisions/) as a TDR — this file is the index to it.
 
+## [1.5.0] — 2026-07-17
+
+### Added
+- **Temporal risk delta** — `riskDelta` gains optional `effective_from`, `expected_duration`, `expected_trajectory` and `dependency_conditions`: the case declares what risk the decision is expected to change, *when*, and under what conditions; a decision graph determines the accumulated and resultant position at any point in time. A migration that duplicates exposure before reducing it, or concentration that materialises only when a sibling decision lands, is now expressible. See [TDR-0010](decisions/TDR-0010-temporal-risk-delta.md). The worked example populates the new fields.
+- **Progressive-adoption ladder** (spec §4): TDR → TDR + DAC → organisational risk context → decision graph → continuous assurance — each rung useful without the next; nothing in the standard requires a graph. The accumulated-and-resultant-risk skill now states explicitly that a graphless adopter's required output is the declared delta and interactions, with the computed resultant position out of scope.
+- **No standing states** (spec §5.2.11): `defer-pending-evidence` and `experiment-within-bounded-authority` name their resolving evidence as dated, owned decision-debt items; the review date or a monitoring trigger reopens the disposition.
+
+### Changed
+- **Object semantics sharpened** (spec §3): skill outputs are advisory evidence contributing to the case, never verdicts — the synthesis produces the one disposition and its named owner signs it.
+- **Headline framing**: "tests whether the decision is fit to execute" replaced with "a TDR preserves the judgement; it does not prove the consequences are acceptable" across spec, DAC spec and README — assurance challenges consequences; it cannot prove safety or fitness.
+- Decision-debt definition clarified (spec §5.2.8): the debt lies in the evidence required to sustain confidence in execution, not necessarily in the decision itself. The rejected alternative of renaming it "assurance debt" is recorded in TDR-0010.
+- `spec.md` and `spec-decision-assurance.md` bumped to 1.5.0. Additive: all v1.4.0 records still validate.
+
 ## [1.4.0] — 2026-07-17
 
 ### Added

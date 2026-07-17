@@ -17,6 +17,7 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0007](TDR-0007-add-decision-identification-skill.md) | Add a decision-identification skill in front of the capture skill | Bare — cheap to reverse |
 | [TDR-0008](TDR-0008-add-value-record-as-sibling-record.md) | Add the Value Record as the TDR's sibling record | Minimal — significant but revisable |
 | [TDR-0009](TDR-0009-decision-assurance-case.md) | Add the Decision Assurance Case as the second sibling record | Minimal — significant but revisable |
+| [TDR-0010](TDR-0010-temporal-risk-delta.md) | Make the risk delta temporal; sharpen DAC object semantics | Minimal — significant but revisable |
 
 ## Challenging a decision
 
