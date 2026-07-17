@@ -14,6 +14,9 @@ All notable changes to the TDR standard (and its MTDR markdown reference format)
 ### Changed
 - `spec.md` bumped to 1.4.0; the sibling-record line now names both the VR and the DAC. README and decisions index updated. Additive: no TDR field, schema or template changes; every v1.x record still validates.
 
+### Fixed
+- Invalid YAML frontmatter in two previously released skill descriptions — an unquoted `:` mid-sentence made the frontmatter unparseable to strict YAML readers in [`skills/problem-framing-and-decision-capture`](skills/problem-framing-and-decision-capture/SKILL.md) (since 1.0.0) and [`skills/decision-identification`](skills/decision-identification/SKILL.md) (since 1.2.0). Corrected in place under the typo/clarity exemption in `CONTRIBUTING.md` — no judgement changed (the MADR-correction precedent, v1.1.0).
+
 ## [1.3.0] — 2026-07-12
 
 ### Added
