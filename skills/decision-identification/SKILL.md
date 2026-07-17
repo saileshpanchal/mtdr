@@ -1,6 +1,6 @@
 ---
 name: decision-identification
-description: Recognise when a conversation, document, meeting, incident or piece of work contains a decision that should become a Transformation Decision Record (TDR) — and route it to the right template tier or to no record at all. Use this skill when reviewing meeting notes, project plans, RFCs, incident retrospectives, strategy papers or chat threads, when someone asks "do we need a decision record for this?", or when work is starting and nobody is sure whether a decision has actually been made. It sits in front of the other three skills: it finds the decision; they capture and review it.
+description: Recognise when a conversation, document, meeting, incident or piece of work contains a decision that should become a Transformation Decision Record (TDR) — and route it to the right template tier or to no record at all. Use this skill when reviewing meeting notes, project plans, RFCs, incident retrospectives, strategy papers or chat threads, when someone asks "do we need a decision record for this?", or when work is starting and nobody is sure whether a decision has actually been made. It sits in front of the other three skills — it finds the decision; they capture and review it.
 ---
 
 # Decision Identification

@@ -2,6 +2,18 @@
 
 All notable changes to the TDR standard (and its MTDR markdown reference format) are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the standard adheres to [Semantic Versioning](https://semver.org/). The *reasoning* behind each significant change lives in [`/decisions`](decisions/) as a TDR — this file is the index to it.
 
+## [1.4.0] — 2026-07-17
+
+### Added
+- **Decision Assurance Case (DAC) specification** ([`spec-decision-assurance.md`](spec-decision-assurance.md)) — the TDR's second sibling record: the TDR records organisational judgement; the DAC records the reasoning that tests whether that judgement is fit to execute. Four questions (exploitability; who is harmed even working-as-designed; whether the controls themselves create poor outcomes; what evidence would disprove the assumptions); a compiler model (reusable reasoning skills compile into one case, one disposition, one owner); six dispositions; a ten-axis **risk vector with trend** and a no-composite-score rule; explicit **uncertainty**, **decision debt** and **learning obligations** blocks; `stale` as the standing-loss state; an explicit **non-goal** (a DAC never proves correctness — it proves systematic challenge). Proportionality governs: bare decisions never need a case. See [TDR-0009](decisions/TDR-0009-decision-assurance-case.md).
+- **Eight assurance reasoning skills** ([`/skills`](skills/)) — systems-thinking, systems-dynamics, fraud-and-adversarial-thinking, customer-outcomes, adaptive-capacity (including execution capability: can *this* organisation run this safely), accumulated-and-resultant-risk (the delta is recorded; the resultant position is graph work; interactions are declared for it), counterfactual-and-evidence, and assurance-synthesis (routing + the contradiction hunt + the disposition).
+- **DAC template** ([`templates/dac.md`](templates/dac.md)) and **JSON Schema** ([`schema/decision-assurance.schema.json`](schema/decision-assurance.schema.json)) validating the frontmatter and the optional structured `assurance` block.
+- **Worked example** ([`examples/example-assurance-agentic-payment.md`](examples/example-assurance-agentic-payment.md)) — a fictional agentic payment journey (delegated authority, consent, fraud incentives, customer outcomes, machine execution) carried through all four projections to a constrained disposition; its structured block validates against the schema.
+- An **extension model** (spec §9): domain *patterns* and regulator *profiles* as future layers that keep regulation out of the core — Consumer Duty, HM Treasury's agentic-payments trust framework and BCBS 239 appear as worked examples only.
+
+### Changed
+- `spec.md` bumped to 1.4.0; the sibling-record line now names both the VR and the DAC. README and decisions index updated. Additive: no TDR field, schema or template changes; every v1.x record still validates.
+
 ## [1.3.0] — 2026-07-12
 
 ### Added
