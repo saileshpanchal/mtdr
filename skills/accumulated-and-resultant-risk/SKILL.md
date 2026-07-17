@@ -27,9 +27,12 @@ that ends institutions is the one no single approval contained.
    | Accumulated risk | Combined contribution of related active decisions |
    | Resultant position | Net organisational exposure after interactions, concentration and transfer |
 
-2. **Record the delta.** By risk type (adversarial, customer harm, operational, conduct,
-   technology, data, third party, workforce): what this decision **increases**, **decreases**,
-   **transfers** (to which channel, cohort or process) and leaves **unknown**.
+2. **Record the delta — with its temporal shape.** By risk type (adversarial, customer harm,
+   operational, conduct, technology, data, third party, workforce): what this decision
+   **increases**, **decreases**, **transfers** (to which channel, cohort or process) and leaves
+   **unknown** — and *when*: from what date the change takes effect, for how long, on what
+   trajectory (a migration may duplicate risk before reducing it; exposure may appear only as
+   adoption scales), and conditional on what (another decision landing, a threshold crossing).
 3. **Declare the interactions** — the effects a conventional register misses:
    multiple decisions relying on the same control; several agents sharing one identity or
    authority mechanism; concentration in one supplier, model, data source or platform; controls
@@ -40,7 +43,11 @@ that ends institutions is the one no single approval contained.
 4. **State the resultant position as far as it can be known** — by risk type, cohort, journey,
    capability, agent and supplier — with its **trend**: `improving`, `deteriorating`,
    `stabilising` or `oscillating`. Trend against appetite matters more than today's snapshot: five
-   tolerable decisions on a deteriorating trend are an intolerable sixth.
+   tolerable decisions on a deteriorating trend are an intolerable sixth. For an adopter without a
+   decision graph, "as far as it can be known" is doing real work: the skill still runs, its
+   required output is the declared delta and interactions, and the computed resultant position is
+   explicitly out of scope — declaring honestly what cannot yet be aggregated is the point, not a
+   failure to conform.
 5. **Check appetite.** Is the resultant position inside the organisation's declared boundaries —
    and who is accountable for the aggregate, as opposed to the parts?
 

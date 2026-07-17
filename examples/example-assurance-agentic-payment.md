@@ -31,6 +31,12 @@ assurance:
       - "fraud pressure moves from card-not-present to mandate-enrolment (channel transfer, monitored)"
     unknowns:
       - "aggregate exposure if agents are later granted merchant-initiated top-ups"
+    effective_from: 2026-07-14
+    expected_duration: "90-day pilot"
+    expected_trajectory: "Enrolment-scam exposure front-loaded in weeks 1-4 while mandate mechanics are novel; operational benefit accrues from week 2; concentration risk grows if either sibling pilot scales"
+    dependency_conditions:
+      - "Concentration exposure changes shape if either of the two sibling delegated-authority pilots converts to product on the shared identity provider"
+      - "Delta is void if the mandate registry caps are raised — a cap increase requires a superseding case"
     declared_interactions:
       - "shares the step-up authentication control with the existing remote-onboarding journey"
       - "shares the mandate registry with two other delegated-authority pilots (concentration)"

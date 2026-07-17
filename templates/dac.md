@@ -45,8 +45,10 @@ supersedes: none
 ## Risk delta and declared interactions
 
 <!-- Inherent risk → controls → local residual. Increases / decreases / transfers / unknowns.
-     Declared interactions: shared controls, shared identity/authority mechanisms, concentration,
-     correlated failures, exception accumulation. The graph computes the resultant position. -->
+     Temporal shape: effective_from · expected_duration · expected_trajectory ·
+     dependency_conditions. Declared interactions: shared controls, shared identity/authority
+     mechanisms, concentration, correlated failures, exception accumulation. The graph computes
+     the resultant position at any point in time. -->
 
 ## Risk vector
 

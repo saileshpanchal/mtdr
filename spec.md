@@ -1,11 +1,11 @@
 # Transformation Decision Record (TDR) — Specification
 
-**Version:** 1.4.0 · **Licence:** MIT · **Author:** Sailesh Panchal
+**Version:** 1.5.0 · **Licence:** MIT · **Author:** Sailesh Panchal
 
 **TDR** is the standard: the record, its fields, and its accountability semantics.
 **MTDR** — Markdown Transformation Decision Record — is the markdown reference format of TDRs described in this repository, as MADR is to ADR.
 
-The TDR has two sibling records: the **Value Record (VR)** — the TDR records the decision; the VR records the value case and its life ([`spec-value-record.md`](spec-value-record.md)) — and the **Decision Assurance Case (DAC)** — the DAC records the reasoning that tests whether the decision is fit to execute ([`spec-decision-assurance.md`](spec-decision-assurance.md)). For what a TDR is *not* — consent receipts, identity claims, runtime logs, model traces — see the [boundary FAQ](FAQ.md).
+The TDR has two sibling records: the **Value Record (VR)** — the TDR records the decision; the VR records the value case and its life ([`spec-value-record.md`](spec-value-record.md)) — and the **Decision Assurance Case (DAC)** — a TDR preserves the judgement, it does not prove the consequences are acceptable; the DAC records the reasoning that challenges those consequences ([`spec-decision-assurance.md`](spec-decision-assurance.md)). For what a TDR is *not* — consent receipts, identity claims, runtime logs, model traces — see the [boundary FAQ](FAQ.md).
 
 ---
 
