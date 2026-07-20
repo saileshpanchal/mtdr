@@ -2,6 +2,19 @@
 
 All notable changes to the TDR standard (and its MTDR markdown reference format) are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the standard adheres to [Semantic Versioning](https://semver.org/). The *reasoning* behind each significant change lives in [`/decisions`](decisions/) as a TDR — this file is the index to it.
 
+## [1.11.0] — 2026-07-24
+
+### Added
+- **Routing by materiality, not category** (DAC spec §4) — the first refinements drawn from applying the assurance skills **at scale in the field**, against a corpus of machine-derived, thin decision records. The trigger lists are illustrative, not auto-firing: a lens is routed by whether the decision *materially* changes what that lens governs, not by whether a keyword appears. A decision that concentrates data or touches authority but creates no new external economics still runs the adversarial lens — as an **internal-integrity and reconciliation-abuse pass** — and may honestly conclude "lightly material, because …". Customer-outcomes runs on indirect effects too, but lightly, recording why. An honest "not material, because …" is a complete pass; a padded one is not. This reconciles §4 with the fraud-and-adversarial skill's own "no new economics — say so and stop" gate, which had been pulling the other way. The normative rule itself is left intact, so every prior record still conforms. See [TDR-0016](decisions/TDR-0016-routing-and-disposition-refinements-from-field-application.md).
+- **Compound and thin records** (assurance-synthesis skill) — two shapes that recur in practice and are now handled explicitly rather than averaged. A record fusing two decisions of different risk is **split, not blended**. A thin or machine-derived record names its absent inputs as dated, owned decision-debt rather than inventing them, and any control the contradiction hunt must reason about but the record never proposed is **declared as inferred** — never averaged into a comfortable disposition.
+- **Vacant-owner disposition** (DAC spec §5.2 item 11) — where the record under test names no accountable owner at all, the first constraint is to name one; a case that cannot name an owner for the decision itself cannot be `proceed-with-constraints`, and defers.
+- **Internal-integrity variant** (fraud-and-adversarial skill) and the **indirect-effect pass** plus a **fair-lending signpost** (customer-outcomes skill): where a decision automates eligibility, pricing or credit, the cohort analysis *is* the indirect-discrimination test — thin-file, data-poor and protected-characteristic-correlated cohorts are where the foreseeable harm sits.
+- **Trend versus trajectory** (DAC spec §6) — a cross-reference clarifying that the trend is a point-in-time direction, while non-monotonic shapes (risk that duplicates before it reduces, or grows only as adoption scales) are carried by `expected_trajectory` (§5.2.6), not compressed into the trend value.
+- **Architecture overview brought level with v1.10.0** ([`ARCHITECTURE.md`](ARCHITECTURE.md)) — it had stood unchanged since v1.7.0 and predated the three-layer responsibility split and the projection concept. It now shows **projection** between the register and its consumers, and says per layer who enforces what: the record enforces nothing, the store controls access within its administrative domain, and a consumer assembles authorised projections. The boundary claim is unchanged; it is the enforcement picture that was missing.
+
+### Changed
+- `spec.md` and `spec-decision-assurance.md` bumped to 1.11.0. Additive throughout: no field, template or schema change; every prior record still validates.
+
 ## [1.10.0] — 2026-07-24
 
 ### Added

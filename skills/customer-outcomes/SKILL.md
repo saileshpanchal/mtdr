@@ -13,12 +13,19 @@ everything works as designed". Read `spec-decision-assurance.md` §5 for where t
 **Controls are product decisions too.** Every protective measure is experienced by far more
 legitimate customers than abusers — assure it as the product feature it is.
 
+Customers are affected directly or indirectly. Where a decision reaches them only second-hand — a
+supplier choice, an internal platform, an organisational change — run this pass *lightly* and
+record why it is largely not material, rather than skipping it or padding it out. Route by material
+effect, not by whether a customer appears in the decision's words (DAC spec §4).
+
 ## Process
 
 1. **Name the cohorts, not the average.** Target market; excluded cohorts; customers with
    characteristics of vulnerability; the digitally excluded; those using assistive technology or
    intermediaries. Averages conceal the harm — differential outcomes between cohorts are the
-   finding.
+   finding. Where the decision automates eligibility, pricing or credit, this cohort analysis *is*
+   the fair-lending and indirect-discrimination test: thin-file, data-poor and
+   protected-characteristic-correlated cohorts are where the foreseeable harm sits.
 2. **Project the decision as designed.** Even working perfectly: who pays more, waits longer,
    understands less, or loses access? Financial and non-financial harm both count.
 3. **Project every control** (take the list from the adversarial pass): false-positive denials;

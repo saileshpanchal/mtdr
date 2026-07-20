@@ -48,6 +48,20 @@ the monitoring contract (every hypothesis observable); the learning obligations;
 accountable owner for the case itself. A case missing any of these is not complete — it is
 `defer-pending-evidence` on itself.
 
+## Compound and thin records
+
+Two record shapes recur and are handled explicitly, never averaged:
+
+- **Compound decision.** A record that fuses two decisions of different risk (a tool adopted *and*
+  the authority to build on it; a platform chosen *and* the data consolidated onto it) is
+  decomposed, not blended. Recommend **split** — route each part to its own case, as
+  decision-identification does at capture — rather than assuring the mixture.
+- **Thin or machine-derived record.** When the decision under test is sparse — a
+  transcript-extracted note with no stated owner, evidence or alternatives — name those absent
+  inputs as dated, owned decision-debt; do not invent them. Where the contradiction hunt must
+  reason about controls the record never proposed, declare them as *inferred* and assure the
+  inference. An inferred control is never averaged into a comfortable disposition.
+
 ## Anti-patterns
 
 - **Averaging** — blending a red projection and three greens into amber. The vector, never a score.
