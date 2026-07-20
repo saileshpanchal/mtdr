@@ -18,8 +18,12 @@ happened.
 ## Process
 
 1. **Price the new opportunity.** What does this decision make cheaper, faster, more scalable or
-   less observable for an abuser? A decision that creates no new economics needs little from this
-   skill — say so and stop.
+   less observable for an abuser? A decision that creates no new external economics needs little
+   from this skill — say so and stop. But a decision that changes internal correctness or
+   concentrates data or authority, without new external economics, still earns a short
+   *internal-integrity* pass: reconciliation gaming, insider abuse of the new concentration, and
+   error-as-attack. Route by whether the decision materially changes what an adversary can do, not
+   by whether a keyword (money, data, authority) is present — see the DAC spec §4 routing rule.
 2. **Enumerate the actors.** Criminal, opportunistic customer, insider, merchant, supplier, and —
    increasingly — the delegated agent: manipulated, colluding, or operating on compromised
    authority. Each with incentive and capability.

@@ -1,6 +1,6 @@
 # Decision Assurance Case (DAC) — Specification
 
-**Version:** 1.5.0 · **Licence:** MIT · **Author:** Sailesh Panchal
+**Version:** 1.6.0 · **Licence:** MIT · **Author:** Sailesh Panchal
 
 The TDR has a second sibling record. Where the **TDR** records organisational judgement and the
 **VR** records the value case, the **Decision Assurance Case (DAC)** records the organisational
@@ -80,6 +80,17 @@ decision constrains future learning or reversal, or execution capability (§5.2 
 doubt. **assurance-synthesis** always closes. This paragraph is the normative routing rule; the
 skills apply it, they do not extend it.
 
+**Materiality, not category.** The trigger lists above are illustrative, not auto-firing: a lens
+is routed by whether the decision *materially* changes what that lens governs, not by whether a
+keyword is present. A decision that touches customer data or authority yet changes no economics an
+adversary could exploit — an internal-correctness change, a data-at-rest consolidation, a
+procurement, or a decision *not* to build — still runs the adversarial lens, but as an
+internal-integrity and reconciliation-abuse pass, and may honestly conclude "lightly material,
+because …". Customer-outcomes runs wherever customers are affected, including indirectly through
+delivery quality or a B2B or internal decision; where the effect is purely second-order, run it
+lightly and record why, rather than skipping or padding it. An honest "not material, because …" is
+a complete pass; a padded one is not — the seven-dimensions discipline, applied to routing.
+
 Adoption is progressive, and each rung is useful without the next: records alone (TDR) → assurance
 on material decisions (TDR + DAC) → organisational risk context → a decision graph computing the
 resultant position → continuous assurance. Nothing in this standard requires a graph.
@@ -149,7 +160,9 @@ its review date passes unexamined, or a monitoring trigger fires — a stale cas
     the organisation nothing was assured in name only.
 11. **Disposition** — one of the six, with constraints and conditions stated as testable bounds.
     `proceed-with-constraints` is valid only when the constraints are named, each with an owner
-    and a measure — a constraint no one owns is not a constraint. `defer-pending-evidence` and
+    and a measure — a constraint no one owns is not a constraint. Where the record under test names
+    no accountable owner at all, the first constraint is to name one; a case that cannot name an
+    owner for the decision itself cannot be `proceed-with-constraints`, and defers. `defer-pending-evidence` and
     `experiment-within-bounded-authority` are never standing states: each names its resolving
     evidence as dated, owned decision-debt items, and the review date or a monitoring trigger
     reopens the disposition — there is always a machine-readable route out.
@@ -165,7 +178,10 @@ reversibility · control confidence · customer-cohort distribution · time hori
 and time horizon stated descriptively — plus a **trend** (`improving` \| `deteriorating` \|
 `stabilising` \| `oscillating`). Trend is often more important than today's absolute value: a decision may be low
 severity and individually tolerable, yet high velocity, poorly detectable and concentrated on one
-vulnerable cohort — a composite amber would hide exactly why it should be stopped.
+vulnerable cohort — a composite amber would hide exactly why it should be stopped. The trend is a
+point-in-time direction, not the shape of the change over time: non-monotonic shapes — risk that
+duplicates before it reduces, or grows only as adoption scales — are carried by
+`expected_trajectory` (§5.2.6), not compressed into the trend value.
 
 ## 7. Lifecycle and the loop
 

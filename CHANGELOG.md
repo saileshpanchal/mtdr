@@ -2,6 +2,36 @@
 
 All notable changes to the TDR standard (and its MTDR markdown reference format) are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the standard adheres to [Semantic Versioning](https://semver.org/). The *reasoning* behind each significant change lives in [`/decisions`](decisions/) as a TDR — this file is the index to it.
 
+## [1.6.0] — 2026-07-20
+
+Refinements from the first at-scale field application of the assurance skills — run as agents over
+a corpus of thin, machine-derived decision records. Additive: all v1.5.0 records still validate.
+The reasoning, and the rejected alternatives, live in [TDR-0011](decisions/TDR-0011-routing-and-disposition-refinements-from-field-application.md).
+
+### Added
+- **Internal-integrity variant** of fraud-and-adversarial-thinking (step 1): a decision that
+  changes internal correctness or concentrates data/authority without new external economics still
+  earns a short pass — reconciliation gaming, insider abuse of the new concentration, error-as-attack.
+- **Indirect-effect pass and fair-lending signpost** in customer-outcomes: run the pass lightly and
+  say why where customers are affected only second-hand; and for automated eligibility, pricing or
+  credit, the cohort analysis *is* the indirect-discrimination test.
+- **Compound and thin records** guidance in assurance-synthesis: a fused record is **split**, not
+  blended; a thin record's absent inputs are named as decision-debt, and inferred controls are
+  declared as inferred, never averaged into a comfortable disposition.
+
+### Changed
+- **Routing is by materiality, not category** (DAC spec §4). The trigger lists are illustrative,
+  not auto-firing — a lens is routed by whether the decision *materially* changes what it governs.
+  This reconciles §4 with the fraud-and-adversarial skill's own "a decision that creates no new
+  economics needs little from this skill — say so and stop." The normative routing rule is left
+  intact; materiality enters as clarifying guidance beside it.
+- **Vacant-owner disposition** (DAC spec §5.2.11): where a record names no accountable owner, the
+  first constraint is to name one; a case that cannot name an owner defers rather than proceeds.
+- **Trend vs trajectory** (DAC spec §6): a cross-reference clarifying that non-monotonic transition
+  shapes are carried by `expected_trajectory` (§5.2.6), not the point-in-time trend value.
+- `spec.md` and `spec-decision-assurance.md` bumped to 1.6.0. Additive: no field, schema or
+  template changes; every v1.x record still validates.
+
 ## [1.5.0] — 2026-07-17
 
 ### Added
