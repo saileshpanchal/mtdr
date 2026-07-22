@@ -2,6 +2,15 @@
 
 All notable changes to the TDR standard (and its MTDR markdown reference format) are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the standard adheres to [Semantic Versioning](https://semver.org/). The *reasoning* behind each significant change lives in [`/decisions`](decisions/) as a TDR — this file is the index to it.
 
+## [1.6.0] — 2026-07-22
+
+### Added
+- **Agent deployment pack** ([`/agents`](agents/)) — the release that makes the standard machine-deployable. v1.0.0 made the skills applicable by AI assistants; the major agent runtimes now load the `SKILL.md` format natively, so this release adds the missing layer: vendor-neutral **agent instructions** and a deployment model ([`agents/README.md`](agents/README.md)) — instructions as the enforcement layer, skills loaded natively as method, specifications and templates as reference knowledge, with guidance for runtime memory and multi-agent topologies (specialist outputs are advisory evidence, never verdicts); a first **worked deployment** for Microsoft Copilot Studio ([`agents/copilot-studio.md`](agents/copilot-studio.md)) — runtimes are worked examples, never dependencies, the spec §8 discipline applied to vendors; and **six conformance probes** ([`agents/conformance.md`](agents/conformance.md)) any deployed agent must pass — identification and proportionality, the named-owner refusal, no-baseline-no-claim, assurance routing and the contradiction hunt, the composite-score refusal, supersede-don't-edit. Decided in [TDR-0011](decisions/TDR-0011-agent-deployment-pack.md), which also records why this is a minor release and not a "v2": nothing in the accountability core changes, and the versioning discipline is itself part of the standard.
+- First field evidence noted in TDR-0011: an independent runtime (Copilot Studio, reasoning model) applied the unmodified skills to a live steering-committee pack — decisions identified and distinguished from requests and plans, full-template drafts produced, and both held at `proposed` for the named-owner rule, unprompted.
+
+### Changed
+- `spec.md` bumped to 1.6.0; README gains the `/agents` row. Additive: no field, template or schema changes; every v1.x record still validates.
+
 ## [1.5.0] — 2026-07-17
 
 ### Added
