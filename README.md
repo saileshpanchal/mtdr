@@ -20,6 +20,7 @@ A TDR preserves the judgement at the moment it is exercised: context as it stood
 
 | Path | Contents |
 |---|---|
+| [`ARCHITECTURE.md`](ARCHITECTURE.md) | The layered architecture in one diagram — and where the standard ends |
 | [`spec.md`](spec.md) | The TDR specification |
 | [`spec-value-record.md`](spec-value-record.md) | The Value Record specification — the TDR's sibling record |
 | [`spec-decision-assurance.md`](spec-decision-assurance.md) | The Decision Assurance Case specification — challenges a decision's consequences before execution |
