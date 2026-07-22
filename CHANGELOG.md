@@ -2,6 +2,14 @@
 
 All notable changes to the TDR standard (and its MTDR markdown reference format) are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the standard adheres to [Semantic Versioning](https://semver.org/). The *reasoning* behind each significant change lives in [`/decisions`](decisions/) as a TDR — this file is the index to it.
 
+## [1.7.0] — 2026-07-22
+
+### Added
+- **Architecture overview** ([`ARCHITECTURE.md`](ARCHITECTURE.md)) — a single-diagram view of the standard's layers whose load-bearing claim is a boundary: *the standard ends at the decision register.* Everything above the register (runtime → skills → records → register) is the standard; the decision graph and any reasoning layer over it are optional consumers, out of scope, and named by whoever builds them — the neutrality the specs give regulators and runtimes, now extended to graph technology. Descriptive, not normative: it draws boundaries [DAC spec §4](spec-decision-assurance.md) (progressive adoption), [spec §6](spec.md) (graph-ready lineage fields) and the record-is-not-the-runtime-object discipline already define. See [TDR-0012](decisions/TDR-0012-architecture-overview.md).
+
+### Changed
+- `spec.md` bumped to 1.7.0; README gains the architecture row. Additive: no field, template or schema changes; every v1.x record still validates.
+
 ## [1.6.0] — 2026-07-22
 
 ### Added
