@@ -2,6 +2,14 @@
 
 All notable changes to the TDR standard (and its MTDR markdown reference format) are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the standard adheres to [Semantic Versioning](https://semver.org/). The *reasoning* behind each significant change lives in [`/decisions`](decisions/) as a TDR — this file is the index to it.
 
+## [1.8.0] — 2026-07-22
+
+### Added
+- **Practice guides** ([`/practice`](practice/)) — how to run the discipline day to day, drawn from real practice and kept vendor- and adopter-neutral. A [quick start](practice/quickstart.md) (start with one bounded area, the authoring loop, the three rules that never bend); a [practice operating model](practice/operating-model.md) (read the source before you record it — internal policies are decision collections, external rules are obligation collections; the inner and outer loops, with deterministic validation in code and one semantic curator that proposes and never mutates; the immutability and relationship-index rule, including that there is no `contradicts` record field; the assurance chain from obligation to a named person's attestation, and the line that the tooling never attests; turning on search by coverage rather than count; and governing one's own adoption with a TDR, DAC and VR); and an [administration and assurance guide](practice/administration-and-assurance.md) (scoped-not-flat knowledge, the structured lineage review, the deterministic validator, a three-tier assurance harness with known-answer tests, and reference prompts). Descriptive, not normative. See [TDR-0013](decisions/TDR-0013-practice-guides.md).
+
+### Changed
+- `spec.md` bumped to 1.8.0; README gains the `/practice` row. Additive: no field, template or schema change; every v1.x record still validates.
+
 ## [1.7.0] — 2026-07-22
 
 ### Added

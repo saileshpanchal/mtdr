@@ -1,6 +1,6 @@
 # Transformation Decision Record (TDR) — Specification
 
-**Version:** 1.7.0 · **Licence:** MIT · **Author:** Sailesh Panchal
+**Version:** 1.8.0 · **Licence:** MIT · **Author:** Sailesh Panchal
 
 **TDR** is the standard: the record, its fields, and its accountability semantics.
 **MTDR** — Markdown Transformation Decision Record — is the markdown reference format of TDRs described in this repository, as MADR is to ADR.
