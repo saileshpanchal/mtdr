@@ -1,6 +1,6 @@
 # Transformation Decision Record (TDR) — Specification
 
-**Version:** 1.8.0 · **Licence:** MIT · **Author:** Sailesh Panchal
+**Version:** 1.9.0 · **Licence:** MIT · **Author:** Sailesh Panchal
 
 **TDR** is the standard: the record, its fields, and its accountability semantics.
 **MTDR** — Markdown Transformation Decision Record — is the markdown reference format of TDRs described in this repository, as MADR is to ADR.
@@ -59,6 +59,8 @@ A TDR is a single markdown file: YAML frontmatter for machine-readable fields, m
 | `confirmed_by_outcome` | Full, Minimal | `pending — <review trigger>`, or a date plus evidence reference, or `none` |
 
 A JSON Schema for these frontmatter fields is provided at [`schema/tdr.schema.json`](schema/tdr.schema.json) — see [TDR-0006](decisions/TDR-0006-json-schema-for-frontmatter.md). It validates the frontmatter only; the body below is human judgement and is deliberately unconstrained.
+
+An optional authoring lens for these fields — a natural-language grammar that compiles into them — is offered in [`practice/decision-grammar.md`](practice/decision-grammar.md). It is a candidate aid, not part of the normative format.
 
 ### 4.2 Body sections
 
