@@ -27,6 +27,7 @@ A TDR preserves the judgement at the moment it is exercised: context as it stood
 | [`FAQ.md`](FAQ.md) | Boundary FAQ — what a TDR is not |
 | [`/templates`](templates/) | Full, minimal and bare TDR templates, the VR template and the DAC template |
 | [`/skills`](skills/) | Recording: Decision Identification · Problem Framing & Decision Capture · Evidence Review · Governance Review · Value Record. Assurance: Systems Thinking · Systems Dynamics · Fraud & Adversarial Thinking · Customer Outcomes · Adaptive Capacity · Accumulated & Resultant Risk · Counterfactual & Evidence · Assurance Synthesis |
+| [`/practice`](practice/) | Practice guides: a quick start, the operating model, administration & assurance, and the Consequential Decision Grammar |
 | [`/agents`](agents/) | Deploy the standard as an agent: vendor-neutral instructions, worked deployments, conformance probes |
 | [`/examples`](examples/) | Fictional worked examples (full and minimal) |
 | [`/decisions`](decisions/) | **This standard's own design decisions, recorded as TDRs** |

@@ -11,6 +11,14 @@ This skill produces a TDR at the moment of decision. It is written for humans an
 
 **The record is drafted before the decision meeting ends.** A TDR written a week later is a reconstruction, and reconstructions inherit exactly the gaps this format exists to prevent.
 
+## The grammar — six lines first
+
+Before working the process below, draft the decision as six spoken lines — it makes the missing pieces obvious, and it compiles straight into the fields:
+
+> **Under** (the authority) · **Given** (the context and evidence) · **We decide** (the choice and the rejected alternatives) · **This means** (what bindingly changes) · **Unless** (the exceptions) · **Until** (the review trigger, expiry, or "until superseded").
+
+The clause you cannot fill is the part that was not really decided. Full guidance, the field mapping and worked examples are in [`practice/decision-grammar.md`](../../practice/decision-grammar.md). The steps below are the same discipline in long form: *Under* is step 4 (the named owner), *Given* is step 3, *We decide* is steps 1 and 5, *This means* is step 6, *Until* is step 8.
+
 ## Process
 
 ### 1. Frame the actual question

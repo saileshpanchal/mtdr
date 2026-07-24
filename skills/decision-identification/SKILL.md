@@ -80,6 +80,7 @@ Name these explicitly so "no record needed" is a confident answer, not a shrug:
 - Is every `supersedes` / `derived_from` candidate a real id in the record set, not a guess?
 - Does the proportionality reasoning name the actual reversal cost, not a feeling?
 - If the outcome is `not_a_tdr`, does the reason cite one of the categories above?
+- Can you fill both **We decide** (a real choice) and **This means** (a binding consequence)? If not, it is a status update, plan or aspiration, not a decision — see [`practice/decision-grammar.md`](../../practice/decision-grammar.md).
 
 ## Anti-patterns
 
