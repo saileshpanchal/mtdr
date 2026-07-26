@@ -59,6 +59,9 @@ The exceptions and the applicability boundary: where the decision does *not* app
 which it is set aside. An exception with no stated authority to invoke it is not an exception; it is a
 loophole.
 
+*Unless* is applicability, not visibility: it says where the decision binds, never who may read it. Those are
+two of the four scopes the specification separates ([spec §4.4](../spec.md)).
+
 ### Until — validity
 
 When the decision must be revisited: a review trigger, an expiry, or a superseding condition. **This clause

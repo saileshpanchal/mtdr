@@ -13,6 +13,14 @@ the machinery.
 - **Provenance over duplication.** Cite document ID, version, owner, section, effective date and retrieval
   date; include a short extract only where it is needed. Do not copy whole confidential passages into every
   record.
+- **Redaction inside a connected set is not concealment.** Identifier gaps, lineage references and downstream
+  constraints disclose that a record exists and roughly what it concerned, even to a reader who cannot open it
+  ([spec §10](../spec.md)). Where existence itself must be concealed, the record belongs in a separate
+  register with no cross-references — and you accept that it is absent from the connected memory.
+- **An assistant reading broadly can leak narrowly-held content.** The risk is not the assistant quoting a
+  protected record verbatim; it is a protected fact arriving, paraphrased and unattributed, in a record held
+  at a lower boundary. Scoped sources and provenance-over-copying are the controls; a reviewer confirming
+  where each fact came from is the backstop.
 
 ## Reviewing the set before drafting
 

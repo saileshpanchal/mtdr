@@ -22,6 +22,7 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0012](TDR-0012-architecture-overview.md) | Publish an architecture overview fixing the boundary at the register | Minimal — significant but revisable |
 | [TDR-0013](TDR-0013-practice-guides.md) | Add practice guides for building decision memory | Minimal — significant but revisable |
 | [TDR-0014](TDR-0014-consequential-decision-grammar.md) | Publish the Consequential Decision Grammar as a candidate authoring aid | Minimal — significant but revisable |
+| [TDR-0015](TDR-0015-visibility-and-effectiveness.md) | Visibility stays out of the record; open an `x-` namespace; defer effectiveness fields | Full — a reserved prefix and a boundary commitment are one-way doors |
 
 ## Challenging a decision
 

@@ -2,6 +2,22 @@
 
 All notable changes to the TDR standard (and its MTDR markdown reference format) are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the standard adheres to [Semantic Versioning](https://semver.org/). The *reasoning* behind each significant change lives in [`/decisions`](decisions/) as a TDR — this file is the index to it.
 
+## [1.10.0] — 2026-07-24
+
+### Added
+- **Four kinds of scope** (spec §4.4) — applicability, authority, visibility and impact are four different questions, and conflating them is a common error. An exception is an applicability boundary, not a visibility rule; a restricted decision is not a narrowly-applicable one.
+- **What this format does not conceal** (spec §10) — the standard now states its own disclosure limits plainly. **The unit of visibility is the register, not the record**: access is enforced by whatever holds the records, never by markdown, and a label in a portable file is a claim rather than a control. Identifier gaps, lineage references and downstream constraints disclose that a record exists and roughly what it concerned, so **redaction within a connected register is not concealment** — concealing existence requires compartmentation, at the real cost of breaking the lineage that would have explained it.
+- **What this format does not yet compute** (spec §11) — `decision_date` says when a judgement was made, not when it took force; there is no effective-from, effective-until, suspended state or jurisdictional applicability. A body of TDRs therefore *supports* the current position without computing it. Also states the governed-vs-realised distinction: what was decided, implemented, controlled and actually happened are four different things.
+- **Adopter extension namespace** (spec §4.3, [`schema/tdr.schema.json`](schema/tdr.schema.json)) — frontmatter fields prefixed `x-` now validate, so an organisation can carry its own classification, effective date or legal entity without forking the schema. The standard defines no vocabulary for them and no expectation of portability; anything broadly useful should be proposed for the core by superseding TDR.
+
+### Changed
+- `schema/tdr.schema.json` — the only schema change is a **relaxation**: `patternProperties` accepts `^x-`, while `additionalProperties: false` still holds for everything else, so a misspelled core field (`desicion_date`) continues to fail. Strictly more documents validate; no record that validated before stops.
+- Practice guides gain the compartmentation limit and the assistant-leakage caution; the grammar notes that *Unless* is applicability, not visibility.
+- `spec.md` bumped to 1.10.0. **No new field**; existing sections were not renumbered.
+
+### Decided
+- [TDR-0015](decisions/TDR-0015-visibility-and-effectiveness.md) — keeps visibility out of the record (a classification field would collide with every adopter's scheme, enforce nothing, and invite the belief that the label is the control), opens the `x-` namespace, and **defers** effective-from/until, a suspended state and jurisdictional applicability pending named adopter evidence. Recorded as a full record because the choice is hard to reverse: the reserved prefix and the register-not-record commitment both bind future releases.
+
 ## [1.9.0] — 2026-07-23
 
 ### Added

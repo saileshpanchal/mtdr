@@ -2,9 +2,14 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/saileshpanchal/mtdr/blob/main/schema/tdr.schema.json",
   "title": "Transformation Decision Record — frontmatter",
-  "description": "Schema for the YAML frontmatter of a Transformation Decision Record (TDR), per spec.md §4.1. It validates the machine-readable fields only; the markdown body is human judgement and is deliberately not schema-constrained. See TDR-0006.",
+  "description": "Schema for the YAML frontmatter of a Transformation Decision Record (TDR), per spec.md §4.1. It validates the machine-readable fields only; the markdown body is human judgement and is deliberately not schema-constrained. Adopter-specific fields are permitted under the `x-` namespace (spec §4.3) — the standard defines no vocabulary for them. See TDR-0006, TDR-0015.",
   "type": "object",
   "additionalProperties": false,
+  "patternProperties": {
+    "^x-": {
+      "description": "Adopter extension namespace. The standard defines no meaning for these fields and no adopter should expect them to be portable. Anything that proves broadly useful should be proposed for the core by superseding TDR (spec §4.3, TDR-0015)."
+    }
+  },
   "required": [
     "id",
     "title",

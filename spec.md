@@ -1,6 +1,6 @@
 # Transformation Decision Record (TDR) — Specification
 
-**Version:** 1.9.0 · **Licence:** MIT · **Author:** Sailesh Panchal
+**Version:** 1.10.0 · **Licence:** MIT · **Author:** Sailesh Panchal
 
 **TDR** is the standard: the record, its fields, and its accountability semantics.
 **MTDR** — Markdown Transformation Decision Record — is the markdown reference format of TDRs described in this repository, as MADR is to ADR.
@@ -77,6 +77,35 @@ An optional authoring lens for these fields — a natural-language grammar that 
 
 **Bare template:** Decision, Why, Reversible (how, and at what cost).
 
+### 4.3 Adopter extensions — the `x-` namespace
+
+Organisations carry data the standard deliberately does not define: a sensitivity classification in their own
+scheme, a legal entity, an effective date, a local register key. Frontmatter fields prefixed `x-` are
+permitted and ignored by the standard — `x-classification`, `x-effective-from`, `x-legal-entity`. The
+standard defines no vocabulary and no meaning for them, and no adopter should expect them to be portable to
+another organisation.
+
+Two rules keep the namespace honest. Core field names remain closed, so a misspelling (`desicion_date`) still
+fails validation rather than passing as an extension. And an extension that proves broadly useful should be
+proposed for the core by a superseding TDR, with the adopter evidence that justifies it — the namespace is an
+evidence pipeline, not a permanent annexe. See [TDR-0015](decisions/TDR-0015-visibility-and-effectiveness.md).
+
+### 4.4 Four kinds of scope
+
+"Scope" carries four distinct meanings in a decision record, and conflating them is a common and consequential
+error:
+
+| Scope | Asks | Where it lives |
+|---|---|---|
+| **Applicability** | Where, and to whom, does this decision bind? | The Decision and Context prose — the grammar's *Unless* clause |
+| **Authority** | Who may exercise this decision, or invoke an exception to it? | `accountable_owner`, and the authority named in Context — the grammar's *Under* clause |
+| **Visibility** | Who may know this decision exists, read it, read its reasoning, or reach its evidence? | **Not a property of the record** — see §10 |
+| **Impact** | What does this decision affect — capabilities, controls, customers, other decisions? | Options foreclosed, lineage, and the assurance case |
+
+An exception ("*unless* the incident authority extends the window") is an applicability boundary, not a
+visibility rule. A restricted decision is not a narrowly-applicable one. Keeping the four apart is what lets a
+reader answer "does this bind me?" separately from "may I see it?".
+
 ## 5. The seven evidence dimensions
 
 Evidence in a full TDR is assessed across seven dimensions. For each, the record states what evidence was considered and where it lives — or declares the dimension **not material to this decision**, with a one-line justification. An honest "not material" is worth more than padded prose; a silent omission is worth less than either.
@@ -121,6 +150,29 @@ Organisations outside financial services, and outside the UK, will recognise the
 ## 9. Versioning
 
 This specification follows semantic versioning. Additive field changes are minor versions. Removal or weakening of the accountability core (named owner, time-of-decision context, confidence, evidence, foreclosure, lineage) would constitute a different standard, not a new version — see [TDR-0002](decisions/TDR-0002-differentiate-on-accountability-semantics.md).
+
+## 10. What this format does not conceal
+
+**The unit of visibility is the register, not the record.** Access is enforced by whatever holds the records — repository, document library, GRC platform — and never by the markdown. A field cannot enforce anything: a record labelled restricted, sitting where it can be read, advertises rather than protects.
+
+A lineage-connected register discloses more than its readable contents:
+
+- **Sequential identifiers disclose gaps.** A reader who sees TDR-0041 and TDR-0043 knows TDR-0042 exists.
+- **Lineage fields disclose existence and subject.** `supersedes: TDR-0042` reveals that a record exists, that it concerned the same subject, and that it was replaced.
+- **Downstream records disclose substance.** A readable decision that cites a restricted one for its authority or its constraint leaks the substance of what was restricted.
+- **Indexes are disclosure surfaces by construction** — anything that lists records to make them navigable also makes them enumerable.
+
+It follows that **redaction within a connected register is not concealment**. Where the existence of a decision must genuinely be concealed, it belongs in a separate register with no cross-references into the readable one: compartmentation, not field-level restriction. That is a real cost — a compartmented decision is absent from the organisation's connected memory, and the lineage that would have explained it is broken by design. Choosing it is itself a decision worth recording.
+
+Two consequences for practice, developed in [`practice/administration-and-assurance.md`](practice/administration-and-assurance.md): connect scoped record sets rather than one flat corpus, and remember that an assistant reading broadly can carry protected content into a less-protected record.
+
+## 11. What this format does not yet compute
+
+The lineage fields (§6) establish what was decided, by whom, and how each record relates to those before and after it. They do not establish what is **in force at a given moment**: the core record carries `decision_date` (when the judgement was made) but no effective-from or effective-until, no suspended state, and no jurisdictional or legal-entity applicability. A decision agreed in March and effective from April is indistinguishable from one effective immediately.
+
+So a body of TDRs supports the current position; it does not compute it. Establishing what is in force is the work of whatever layer an adopter builds above the register, from the records and their lineage — and, until the standard settles the question, from whatever effectiveness data the adopter carries in the `x-` namespace (§4.3). Whether any of it belongs in the core is deliberately open: see [TDR-0015](decisions/TDR-0015-visibility-and-effectiveness.md).
+
+A related caution: the governed position is not the realised position. What was decided, what was implemented, what is controlled and what actually happens are four different things, joined by evidence and closed by a named person's attestation — never by the record alone.
 
 ---
 
