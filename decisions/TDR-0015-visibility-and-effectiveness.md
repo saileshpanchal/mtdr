@@ -41,10 +41,13 @@ responsibility ends.
 
 ## Decision
 
-1. **Visibility is not enforced by the record, and no classification vocabulary enters the core.** A
-   classification label is metadata an enforcement layer may act on, not a control in itself. Spec §10 states
-   this, together with what the format cannot conceal, and why separation — not redaction — is what conceals
-   existence, while noting that separation is necessary rather than sufficient.
+1. **Neither access nor disclosure is enforced by the record, and no classification vocabulary enters the
+   core.** A classification label is metadata an enforcement layer may act on, not a control in itself. Spec
+   §4.4 separates *access* (who may know and rely on a decision) from *disclosure* (who may be told, through
+   which channel, after which event); spec §10 states what the format cannot conceal, and why separation —
+   not redaction — is what conceals existence, while noting that separation is necessary rather than
+   sufficient. A disclosure condition remains recordable *as a decision*, which is the standard's business;
+   applying it is not.
 2. **Open an adopter extension namespace, with a contract.** Frontmatter fields prefixed `x-` validate; core
    field names stay closed so misspellings still fail. Extensions are named `x-<owner>-<field>` to avoid
    collision, preserved rather than dropped by round-tripping tools, ignored rather than rejected when
@@ -87,6 +90,26 @@ responsibility ends.
   means nobody is blocked meanwhile.
 - **Say nothing until the question is settled.** Rejected: silence leaves the four scopes conflated and the
   inference-leakage limit undocumented, which is the more dangerous state.
+
+## What this decision allocates elsewhere
+
+Stated explicitly, because the boundary is otherwise assumed and repeatedly re-litigated. Each of these is a
+real requirement for an organisation using a decision register at scale. None is answered by a record format,
+and each is allocated to the consumer an adopter builds above the register:
+
+| Concern | Allocated to |
+|---|---|
+| Computing what is **in force** for a participant at a moment — effectiveness, applicability, supersession resolved together | The consuming layer, from the records and their lineage (spec §11) |
+| **Authorised views** — assembling a projection specific to participant, purpose, audience and time | The consuming layer (spec §10) |
+| **Inference and aggregation control** — that a conclusion derived from protected sources inherits their protection, and that combining permitted facts can exceed what any of them disclosed | The consuming layer |
+| **Participant and actor identity** — who is asking, on whose behalf, under what mandate, and with what expiry; the distinction between a human, a machine acting for a human, and a machine acting for the organisation | The consuming layer and the adopter's identity architecture |
+| **Enforcement of any of the above** at query time or output time | The store, the projection layer, and the runtime |
+
+The relevant disciplines are mature but disjoint — identity and delegation, attribute-based access control,
+usage control, purpose limitation, information-flow control, temporal declassification, inference control,
+records management. No widely adopted standard unites them around an organisation's consequential decisions,
+which is precisely why this allocation is written down rather than assumed. A record format that implied it
+covered them would be actively misleading: the failure mode is an adopter believing a field is a control.
 
 ## Options foreclosed
 

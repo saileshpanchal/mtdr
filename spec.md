@@ -95,23 +95,39 @@ evidence pipeline, not a permanent annexe. See [TDR-0015](decisions/TDR-0015-vis
 that round-trips records should preserve `x-` fields it does not recognise rather than dropping them, and a
 reader that meets an unknown extension should ignore it, never reject the record. One caution deserves
 stating plainly: **schema validity implies nothing about security.** A record can validate perfectly while
-carrying a classification that nothing in its environment enforces.
+carrying a classification that nothing in its environment enforces. The namespace is an extension mechanism,
+never an enforcement mechanism.
 
-### 4.4 Four kinds of scope
+### 4.4 Five kinds of scope
 
-"Scope" carries four distinct meanings in a decision record, and conflating them is a common and consequential
+"Scope" carries five distinct meanings in a decision record, and conflating them is a common and consequential
 error:
 
 | Scope | Asks | Where it lives |
 |---|---|---|
 | **Applicability** | Where, and to whom, does this decision bind? | The Decision and Context prose — the grammar's *Unless* clause |
 | **Authority** | Under what authority was it made — and who may exercise, delegate or except it? | The authority named in Context — the grammar's *Under* clause. `accountable_owner` names who owns the **judgement**; it does not by itself say who may exercise, delegate, suspend or grant an exception to the decision. |
-| **Visibility** | Who may know this decision exists, read it, read its reasoning, or reach its evidence? | **Not a property of the record** — see §10 |
+| **Access** | Who may know this decision exists, read it, read its reasoning, reach its evidence, and rely on it? | **Not enforced by the record** — see §10 |
+| **Disclosure** | Who may be *told*, through which channel, for which purpose, and after which event? | **Not enforced by the record**, but the condition itself is usually a decision — see below |
 | **Impact** | What does this decision affect — capabilities, controls, customers, other decisions? | Options foreclosed, lineage, and the assurance case |
 
-An exception ("*unless* the incident authority extends the window") is an applicability boundary, not a
-visibility rule. A restricted decision is not a narrowly-applicable one. Keeping the four apart is what lets a
-reader answer "does this bind me?" separately from "may I see it?".
+An exception ("*unless* the incident authority extends the window") is an applicability boundary, not an
+access rule. A restricted decision is not a narrowly-applicable one. Keeping these apart is what lets a
+reader answer "does this bind me?" separately from "may I see it?" and "may I say it?".
+
+**Access and disclosure are different policies.** That someone may read a decision does not settle whether it
+may be repeated, to whom, or when; information being true, and already held somewhere in the organisation,
+does not make every onward flow appropriate. A third question sits between them — whether knowledge may
+*influence action* even where it may not be stated — and that too is drawn by the enforcement layer, not by a
+field in a record.
+
+The disclosure condition, though, is frequently **a decision in its own right**: *communicate the closure to
+affected customers only once the authorised customer communication has been issued* has an owner, an
+authority, a trigger and consequences. This standard does not enforce such a condition; it exists so the
+condition can be **recorded, attributed and connected** to the decision it governs. That is often the honest
+way to split what looks like one decision: closing a site, beginning preparation, communicating to customers
+after a defined event, and offering affected staff redeployment are four decisions with different owners,
+timings and audiences — and §3's proportionality test applies to each.
 
 ## 5. The seven evidence dimensions
 
@@ -173,13 +189,17 @@ A lineage-connected register discloses more than its readable contents:
 
 It follows that **redaction within a connected set is not concealment**. Where existence itself must be concealed, the record has to be separated from the readable set — physically, in a distinct register, or logically, by a store that discloses it in no index, identifier sequence, relationship or derived output. Separation is necessary but not sufficient: caches, exports, logs and any projection built from the records must respect the same boundary, or the disclosure simply moves. And separation costs something real — a concealed decision is absent from the organisation's connected memory, and the lineage that would have explained it is broken by design. Choosing that is itself a decision worth recording.
 
-One consequence falls inside this standard's scope, because it happens at capture: an assistant reading broadly can carry protected content into a less-protected record. See [`practice/administration-and-assurance.md`](practice/administration-and-assurance.md). Everything else — authorised views, entitlement resolution, runtime enforcement — sits above the register and is out of scope here.
+The same holds for disclosure, and more sharply. Access and disclosure are separate policies (§4.4), and what any participant — human or machine — actually receives is not the register but a **projection** of it, assembled above the register and specific to that participant, that purpose, that audience and that moment. Building and authorising such projections is the work of the layer an adopter puts above the register. This standard neither performs it nor specifies how it should be done; it exists so that the judgements the projection must respect have been captured, attributed and connected in the first place.
+
+One consequence falls inside this standard's scope, because it happens at capture: an assistant reading broadly can carry protected content into a less-protected record. See [`practice/administration-and-assurance.md`](practice/administration-and-assurance.md). Everything else — authorised views, entitlement resolution, inference control, runtime enforcement — sits above the register and is out of scope here.
 
 ## 11. What this format does not yet compute
 
 The lineage fields (§6) establish what was decided, by whom, and how each record relates to those before and after it. They do not establish what is **in force at a given moment**: the core record carries `decision_date` (when the judgement was made) but no effective-from or effective-until, no suspended state, and no jurisdictional or legal-entity applicability. A decision agreed in March and effective from April is indistinguishable from one effective immediately.
 
 So a body of TDRs supports the current position; it does not compute it. Establishing what is in force is the work of whatever layer an adopter builds above the register, from the records and their lineage — and, until the standard settles the question, from whatever effectiveness data the adopter carries in the `x-` namespace (§4.3). Whether any of it belongs in the core is deliberately open: see [TDR-0015](decisions/TDR-0015-visibility-and-effectiveness.md).
+
+Time is also more than one date. A single change may carry several distinct moments: when the judgement was made, when it begins to govern internal activity, when operational preparation may begin, when communication is authorised, when communication actually occurs, and when the information becomes generally disclosable. These rarely coincide, and a condition expressed as an event ("once the authorised communication has been issued") is not the same as one expressed as a date — if the communication slips, the event has not happened. As §4.4 notes, these moments are frequently separate decisions rather than fields on one, which is the more faithful way to capture them.
 
 A related caution: the governed position is not the realised position. What was decided, what was implemented, what is controlled and what actually happens are four different things, joined by evidence and closed by a named person's attestation — never by the record alone.
 
