@@ -97,19 +97,29 @@ Stated explicitly, because the boundary is otherwise assumed and repeatedly re-l
 real requirement for an organisation using a decision register at scale. None is answered by a record format,
 and each is allocated to the consumer an adopter builds above the register:
 
-| Concern | Allocated to |
-|---|---|
-| Computing what is **in force** for a participant at a moment — effectiveness, applicability, supersession resolved together | The consuming layer, from the records and their lineage (spec §11) |
-| **Authorised views** — assembling a projection specific to participant, purpose, audience and time | The consuming layer (spec §10) |
-| **Inference and aggregation control** — that a conclusion derived from protected sources inherits their protection, and that combining permitted facts can exceed what any of them disclosed | The consuming layer |
-| **Participant and actor identity** — who is asking, on whose behalf, under what mandate, and with what expiry; the distinction between a human, a machine acting for a human, and a machine acting for the organisation | The consuming layer and the adopter's identity architecture |
-| **Enforcement of any of the above** at query time or output time | The store, the projection layer, and the runtime |
+| Responsibility | MTDR (this standard) | Register / store | Downstream platform or runtime |
+|---|---|---|---|
+| Capture the decision, its reasoning, its stated authority basis and its lineage | **Yes** | Preserves | Consumes |
+| Enforce direct access and compartment boundaries | No | **Yes** | May request through a controlled interface |
+| Resolve identity, mandate and entitlement | No | Supplies protected sources where applicable | **Yes** |
+| Compute applicability and effectiveness — what is in force, for whom, now | Records the available judgement and evidence | Preserves | **Yes** |
+| Construct authorised projections — participant, purpose, audience, moment | No | May participate | **Yes** |
+| Control use, disclosure, aggregation and inference | No | Protects stored material | **Yes** |
+
+Two consequences follow, and both are easy to get wrong:
+
+- **A record's `status` is never proof of operability, authority or permission to disclose.** `accepted` means
+  a judgement was recorded and stands unsuperseded. It does not mean the decision is currently effective, that
+  the reader may act on it, or that its content may be repeated to anyone.
+- **Capture confers nothing.** Recording a disclosure condition does not authorise a disclosure; recording an
+  authority basis does not grant that authority.
 
 The relevant disciplines are mature but disjoint — identity and delegation, attribute-based access control,
 usage control, purpose limitation, information-flow control, temporal declassification, inference control,
-records management. No widely adopted standard unites them around an organisation's consequential decisions,
-which is precisely why this allocation is written down rather than assumed. A record format that implied it
-covered them would be actively misleading: the failure mode is an adopter believing a field is a control.
+records management. **This review did not identify, as of July 2026 and within the scope reviewed, a single
+adopted standard uniting them around an organisation's consequential decisions** — which is precisely why
+this allocation is written down rather than assumed. A record format that implied it covered them would be
+actively misleading: the failure mode is an adopter believing a field is a control.
 
 ## Options foreclosed
 
