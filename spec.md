@@ -81,7 +81,7 @@ An optional authoring lens for these fields — a natural-language grammar that 
 
 Organisations carry data the standard deliberately does not define: a sensitivity classification in their own
 scheme, a legal entity, an effective date, a local register key. Frontmatter fields prefixed `x-` are
-permitted and ignored by the standard — `x-classification`, `x-effective-from`, `x-legal-entity`. The
+permitted and ignored by the standard — `x-acme-classification`, `x-acme-effective-from`. The
 standard defines no vocabulary and no meaning for them, and no adopter should expect them to be portable to
 another organisation.
 
@@ -89,6 +89,13 @@ Two rules keep the namespace honest. Core field names remain closed, so a misspe
 fails validation rather than passing as an extension. And an extension that proves broadly useful should be
 proposed for the core by a superseding TDR, with the adopter evidence that justifies it — the namespace is an
 evidence pipeline, not a permanent annexe. See [TDR-0015](decisions/TDR-0015-visibility-and-effectiveness.md).
+
+**The extension contract.** Name extensions `x-<owner>-<field>` — `x-acme-classification`, not
+`x-classification` — so two organisations' extensions cannot collide in a shared or merged register. A tool
+that round-trips records should preserve `x-` fields it does not recognise rather than dropping them, and a
+reader that meets an unknown extension should ignore it, never reject the record. One caution deserves
+stating plainly: **schema validity implies nothing about security.** A record can validate perfectly while
+carrying a classification that nothing in its environment enforces.
 
 ### 4.4 Four kinds of scope
 
@@ -98,7 +105,7 @@ error:
 | Scope | Asks | Where it lives |
 |---|---|---|
 | **Applicability** | Where, and to whom, does this decision bind? | The Decision and Context prose — the grammar's *Unless* clause |
-| **Authority** | Who may exercise this decision, or invoke an exception to it? | `accountable_owner`, and the authority named in Context — the grammar's *Under* clause |
+| **Authority** | Under what authority was it made — and who may exercise, delegate or except it? | The authority named in Context — the grammar's *Under* clause. `accountable_owner` names who owns the **judgement**; it does not by itself say who may exercise, delegate, suspend or grant an exception to the decision. |
 | **Visibility** | Who may know this decision exists, read it, read its reasoning, or reach its evidence? | **Not a property of the record** — see §10 |
 | **Impact** | What does this decision affect — capabilities, controls, customers, other decisions? | Options foreclosed, lineage, and the assurance case |
 
@@ -133,7 +140,7 @@ Any tool can later assemble records into a connected decision history. No tool i
 ## 7. Status and lifecycle
 
 - Records are **never edited or deleted once accepted**. They are **superseded**.
-- **Status transitions** (`proposed → accepted`, `accepted → superseded`) and `confirmed_by_outcome` updates are made in place — they are lifecycle facts, not changes of judgement.
+- **Status transitions** (`proposed → accepted`, `proposed → rejected`, `accepted → superseded`) and `confirmed_by_outcome` updates are made in place — they are lifecycle facts, not changes of judgement. A record `rejected` at proposal was never accepted, so nothing is superseded; it stays as evidence that the question was asked and answered.
 - **Changes to decision content require a superseding TDR** stating what is now known that was not known at the time.
 
 This is what makes a body of TDRs organisational memory rather than documentation: the reasoning trail survives its own corrections.
@@ -153,7 +160,9 @@ This specification follows semantic versioning. Additive field changes are minor
 
 ## 10. What this format does not conceal
 
-**The unit of visibility is the register, not the record.** Access is enforced by whatever holds the records — repository, document library, GRC platform — and never by the markdown. A field cannot enforce anything: a record labelled restricted, sitting where it can be read, advertises rather than protects.
+This standard specifies how decisions are **captured**. What is subsequently done with a body of records — who may see which of them, how a view is assembled and authorised, how any of it is enforced when people and machines use it — belongs to the systems an adopter builds above the register. This section states only what the format itself does and does not do.
+
+**A record does not enforce its own visibility.** Enforcement belongs to whatever stores, queries and projects the records; markdown carries no access semantics and cannot acquire any. A classification label is *metadata for an enforcement layer to act on* — legitimate and often useful, but a claim rather than a control. A record marked restricted, sitting where it can be read, advertises rather than protects.
 
 A lineage-connected register discloses more than its readable contents:
 
@@ -162,9 +171,9 @@ A lineage-connected register discloses more than its readable contents:
 - **Downstream records disclose substance.** A readable decision that cites a restricted one for its authority or its constraint leaks the substance of what was restricted.
 - **Indexes are disclosure surfaces by construction** — anything that lists records to make them navigable also makes them enumerable.
 
-It follows that **redaction within a connected register is not concealment**. Where the existence of a decision must genuinely be concealed, it belongs in a separate register with no cross-references into the readable one: compartmentation, not field-level restriction. That is a real cost — a compartmented decision is absent from the organisation's connected memory, and the lineage that would have explained it is broken by design. Choosing it is itself a decision worth recording.
+It follows that **redaction within a connected set is not concealment**. Where existence itself must be concealed, the record has to be separated from the readable set — physically, in a distinct register, or logically, by a store that discloses it in no index, identifier sequence, relationship or derived output. Separation is necessary but not sufficient: caches, exports, logs and any projection built from the records must respect the same boundary, or the disclosure simply moves. And separation costs something real — a concealed decision is absent from the organisation's connected memory, and the lineage that would have explained it is broken by design. Choosing that is itself a decision worth recording.
 
-Two consequences for practice, developed in [`practice/administration-and-assurance.md`](practice/administration-and-assurance.md): connect scoped record sets rather than one flat corpus, and remember that an assistant reading broadly can carry protected content into a less-protected record.
+One consequence falls inside this standard's scope, because it happens at capture: an assistant reading broadly can carry protected content into a less-protected record. See [`practice/administration-and-assurance.md`](practice/administration-and-assurance.md). Everything else — authorised views, entitlement resolution, runtime enforcement — sits above the register and is out of scope here.
 
 ## 11. What this format does not yet compute
 

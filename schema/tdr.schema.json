@@ -7,7 +7,7 @@
   "additionalProperties": false,
   "patternProperties": {
     "^x-": {
-      "description": "Adopter extension namespace. The standard defines no meaning for these fields and no adopter should expect them to be portable. Anything that proves broadly useful should be proposed for the core by superseding TDR (spec §4.3, TDR-0015)."
+      "description": "Adopter extension namespace. Name extensions `x-<owner>-<field>` to avoid collision. The standard defines no meaning for these fields, no expectation of portability, and schema validity implies nothing about security — a record may validate while carrying a classification nothing enforces. Anything broadly useful should be proposed for the core by superseding TDR (spec §4.3, TDR-0015)."
     }
   },
   "required": [

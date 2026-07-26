@@ -31,15 +31,24 @@ The schema is closed. An adopter needing a sensitivity label, an effective date 
 today cannot add one and still validate — they must fork the schema, put the value in prose where nothing can
 query it, or fail validation. "Leave it to the adopter" was not actually available.
 
+A scope boundary governs the whole answer, and is stated here because reviewers reasonably keep pressing
+against it: **this standard specifies capture.** How a body of records is subsequently used — authorised
+views, entitlement resolution across human and machine participants, protection against inference across
+compartments, runtime enforcement — belongs to the systems an adopter builds above the register. Those
+concerns are real and, for some adopters, urgent; they are not answered by a record format, and a format that
+pretended to answer them would mislead. The standard's contribution is to be honest about where its
+responsibility ends.
+
 ## Decision
 
-1. **Visibility is not a property of the record, and no classification vocabulary enters the core.** The unit
-   of visibility is the register; enforcement belongs to whatever holds the records. Spec §10 states this,
-   together with what the format cannot conceal and why compartmentation — not redaction — is the only
-   mechanism that conceals existence.
-2. **Open an adopter extension namespace.** Frontmatter fields prefixed `x-` validate; core field names stay
-   closed so misspellings still fail. The standard defines no meaning for them and no expectation of
-   portability (spec §4.3).
+1. **Visibility is not enforced by the record, and no classification vocabulary enters the core.** A
+   classification label is metadata an enforcement layer may act on, not a control in itself. Spec §10 states
+   this, together with what the format cannot conceal, and why separation — not redaction — is what conceals
+   existence, while noting that separation is necessary rather than sufficient.
+2. **Open an adopter extension namespace, with a contract.** Frontmatter fields prefixed `x-` validate; core
+   field names stay closed so misspellings still fail. Extensions are named `x-<owner>-<field>` to avoid
+   collision, preserved rather than dropped by round-tripping tools, ignored rather than rejected when
+   unknown — and schema validity implies nothing about security (spec §4.3).
 3. **Separate the four scopes explicitly** in spec §4.4: applicability, authority, visibility, impact.
 4. **Defer effectiveness to evidence.** No `effective_from`, `effective_until`, `suspended` state or
    jurisdiction field enters the core in this release. Spec §11 states plainly what the format therefore does
