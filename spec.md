@@ -1,6 +1,6 @@
 # Transformation Decision Record (TDR) — Specification
 
-**Version:** 1.9.0 · **Licence:** MIT · **Author:** Sailesh Panchal
+**Version:** 1.10.0 · **Licence:** MIT · **Author:** Sailesh Panchal
 
 **TDR** is the standard: the record, its fields, and its accountability semantics.
 **MTDR** — Markdown Transformation Decision Record — is the markdown reference format of TDRs described in this repository, as MADR is to ADR.
@@ -37,6 +37,10 @@ Not every decision deserves a record. The test is **reversibility**:
 | Reversible, conventional, low-stakes | **Bare** — or no record at all |
 
 If reversing the decision would cost less than writing the record, do not write the record. Nobody needs a decision record for choosing the coffee machine — and pretending otherwise turns an accountability instrument into box-ticking.
+
+**Where the boundaries fall.** Proportionality answers *does this deserve a record*. A second question follows: *is this one record or several?* Create a separate record where a distinct accountable judgement can be **accepted, rejected, changed or superseded independently, without changing the remaining judgement**. Different owners, authority bases, rationales, applicability, outcomes or conditions are strong separation signals. Separately available evidence is not: almost any part of a decision has evidence of its own, and splitting on that alone shatters a single judgement into fragments nobody decided. **Execution events are evidence or triggers, not decisions, unless a further judgement was actually exercised.**
+
+Closing a site illustrates both. *Close the site*, *authorise preparation*, *approve the customer communication and its release conditions*, *approve redeployment arrangements* and *authorise complaints-handling guidance* are five decisions, with different owners, timings and audiences. *Consultation completed* and *communication sent* are events — evidence that a decision was carried out, and often the triggers other decisions wait on. Whether the closure is currently effective is neither: it is a state computed from those decisions and events (§11).
 
 ## 4. Record structure
 
@@ -77,6 +81,70 @@ An optional authoring lens for these fields — a natural-language grammar that 
 
 **Bare template:** Decision, Why, Reversible (how, and at what cost).
 
+### 4.3 Adopter extensions — the `x-` namespace
+
+Organisations carry data the standard deliberately does not define: a sensitivity classification in their own
+scheme, a legal entity, an effective date, a local register key. Frontmatter fields prefixed `x-` are
+permitted and ignored by the standard — `x-acme-classification`, `x-acme-effective-from`. The
+standard defines no vocabulary and no meaning for them, and no adopter should expect them to be portable to
+another organisation.
+
+Two rules keep the namespace honest. Core field names remain closed, so a misspelling (`desicion_date`) still
+fails validation rather than passing as an extension. And an extension that proves broadly useful should be
+proposed for the core by a superseding TDR, with the adopter evidence that justifies it — the namespace is an
+evidence pipeline, not a permanent annexe. See [TDR-0015](decisions/TDR-0015-visibility-and-effectiveness.md).
+
+**The extension contract.** Name extensions `x-<owner>-<field>` — `x-acme-classification`, not
+`x-classification` — so two organisations' extensions cannot collide in a shared or merged register. A tool
+that round-trips records should preserve `x-` fields it does not recognise rather than dropping them, and a
+reader that meets an unknown extension should ignore it, never reject the record. One caution deserves
+stating plainly: **schema validity implies nothing about security.** A record can validate perfectly while
+carrying a classification that nothing in its environment enforces. The namespace is an extension mechanism,
+never an enforcement mechanism.
+
+### 4.4 Five recurring scope questions
+
+"Scope" carries several distinct meanings in a decision record, and conflating them is a common and
+consequential error. These five questions recur often enough to be worth asking of any material decision.
+They are prompts, not a complete or orthogonal ontology:
+
+| Question | Asks | Where it lives |
+|---|---|---|
+| **Applicability** | Where, and to whom, does this decision bind? | The Decision and Context prose — the grammar's *Unless* clause |
+| **Authority** | Under what authority was it made — and who may exercise, delegate or except it? | The authority named in Context — the grammar's *Under* clause. `accountable_owner` names who owns the **judgement**; it does not by itself say who may exercise, delegate, suspend or grant an exception to the decision. |
+| **Access** | Who may know this decision exists, and retrieve its conclusion, its reasoning or its evidence? | **Not enforced by the record** — see §10 |
+| **Disclosure** | Which audience may receive information about it — for which purpose, through which channel, and after which condition? | **Not enforced by the record**, but the condition itself is usually a decision — see below |
+| **Impact** | What does this decision affect — capabilities, controls, customers, other decisions? | Options foreclosed, lineage, and the assurance case |
+
+They group naturally: **operating scope** (applicability, authority, impact) describes how the decision
+governs; **information scope** (access, disclosure) describes what may be known and what may be said. A third,
+purely **runtime distinction** sits outside the record entirely — *use*: whether knowledge, once held, may
+influence an action. Access does not grant use, and use does not grant disclosure. A consequential
+restriction on use may itself be captured as a linked decision, but no field in a record enforces one.
+
+An exception ("*unless* the incident authority extends the window") is an applicability boundary, not an
+access rule. A restricted decision is not a narrowly-applicable one. Keeping these apart is what lets a reader
+answer "does this bind me?" separately from "may I see it?", "may I act on it?" and "may I say it?".
+
+**Access and disclosure are different policies.** That someone may read a decision does not settle whether it
+may be repeated, to whom, or when; information being true, and already held somewhere in the organisation,
+does not make every onward flow appropriate.
+
+Access is not one level, either. Knowing that a decision exists, receiving its conclusion, reading the
+reasoning behind it and reaching the underlying evidence are four different things, and they need not share
+an audience: a team may legitimately be told that a decision has been taken and what it requires of them,
+without access to the deliberation or the evidence that produced it.
+
+The disclosure condition is frequently **a decision in its own right**: *communicate the closure to affected
+customers only once colleague notification is complete* has an owner, an authority, a trigger and
+consequences. Note that a workable condition is **prior to and independent of** the act it gates — "after the
+customer communication is issued" would be circular, and unusable as a trigger. This standard does not
+enforce such a condition; it exists so the condition can be **recorded, attributed and connected** to the
+decision it governs. Recording a disclosure decision is not itself an authorisation to disclose: capture
+never confers authority.
+
+That is also the honest way to split what looks like one decision — see §3.
+
 ## 5. The seven evidence dimensions
 
 Evidence in a full TDR is assessed across seven dimensions. For each, the record states what evidence was considered and where it lives — or declares the dimension **not material to this decision**, with a one-line justification. An honest "not material" is worth more than padded prose; a silent omission is worth less than either.
@@ -104,7 +172,7 @@ Any tool can later assemble records into a connected decision history. No tool i
 ## 7. Status and lifecycle
 
 - Records are **never edited or deleted once accepted**. They are **superseded**.
-- **Status transitions** (`proposed → accepted`, `accepted → superseded`) and `confirmed_by_outcome` updates are made in place — they are lifecycle facts, not changes of judgement.
+- **Status transitions** (`proposed → accepted`, `proposed → rejected`, `accepted → superseded`) and `confirmed_by_outcome` updates are made in place — they are lifecycle facts, not changes of judgement. A record `rejected` at proposal was never accepted, so nothing is superseded; it stays as evidence that the question was asked and answered.
 - **Changes to decision content require a superseding TDR** stating what is now known that was not known at the time.
 
 This is what makes a body of TDRs organisational memory rather than documentation: the reasoning trail survives its own corrections.
@@ -121,6 +189,43 @@ Organisations outside financial services, and outside the UK, will recognise the
 ## 9. Versioning
 
 This specification follows semantic versioning. Additive field changes are minor versions. Removal or weakening of the accountability core (named owner, time-of-decision context, confidence, evidence, foreclosure, lineage) would constitute a different standard, not a new version — see [TDR-0002](decisions/TDR-0002-differentiate-on-accountability-semantics.md).
+
+## 10. What this format does not conceal
+
+This standard specifies how decisions are **captured**. What is subsequently done with a body of records — who may see which of them, how a view is assembled and authorised, how any of it is enforced when people and machines use it — belongs to the systems an adopter builds above the register. This section states only what the format itself does and does not do.
+
+**A record does not enforce its own visibility.** Enforcement belongs to whatever stores, queries and projects the records; markdown carries no access semantics and cannot acquire any. A classification label is *metadata for an enforcement layer to act on* — legitimate and often useful, but a claim rather than a control. A record marked restricted, sitting where it can be read, advertises rather than protects.
+
+A lineage-connected register discloses more than its readable contents:
+
+- **Sequential identifiers disclose gaps.** A reader who sees TDR-0041 and TDR-0043 knows TDR-0042 exists.
+- **Lineage fields disclose existence and subject.** `supersedes: TDR-0042` reveals that a record exists, that it concerned the same subject, and that it was replaced.
+- **Downstream records disclose substance.** A readable decision that cites a restricted one for its authority or its constraint leaks the substance of what was restricted.
+- **Indexes are disclosure surfaces by construction** — anything that lists records to make them navigable also makes them enumerable.
+
+It follows that **redaction within a connected set is not concealment**, and that responsibility divides across three layers:
+
+- **The record captures the decision and its declared relationships. It enforces nothing.**
+- **The register or store controls storage, existence visibility, retrieval, direct access and compartment boundaries — within its own administrative domain.** Where existence itself must be restricted, the record is separated from the readable set: physically, in a distinct register, or logically, by a store that discloses it in no index, identifier sequence, relationship or derived output.
+- **A downstream consumer evaluates identity, mandate, entitlement, applicability and effectiveness; constructs authorised projections; and governs system-mediated use, disclosure, aggregation and release.** What any participant — human or machine — actually receives is not the register but a **projection** of it, specific to that participant, that purpose, that audience and that moment. That layer manages inference risk; it does not abolish it. Building and authorising projections is its work, and this standard neither performs it nor specifies how it should be done.
+
+**No layer can guarantee concealment, and none governs every subsequent human use of information once it has been disclosed.** Separation reduces direct leakage; operational effects, permitted information and ordinary inference may still reveal that something was decided, and a person who has legitimately read a decision can carry it anywhere. Separation also costs something real — a concealed decision is absent from the organisation's connected memory, and the lineage that would have explained it is broken by design. Choosing that is itself a decision worth recording.
+
+What this standard contributes is upstream of all of it: the judgements a projection must respect have been captured, attributed and connected in the first place.
+
+One consequence falls inside this standard's scope, because it happens at capture: an assistant reading broadly can carry protected content into a less-protected record. See [`practice/administration-and-assurance.md`](practice/administration-and-assurance.md). Everything else — authorised views, entitlement resolution, inference control, runtime enforcement — sits above the register and is out of scope here.
+
+## 11. What this format does not yet compute
+
+The lineage fields (§6) establish what was decided, by whom, and how each record relates to those before and after it. They do not establish what is **in force at a given moment**: the core record carries `decision_date` (when the judgement was made) but no effective-from or effective-until, no suspended state, and no jurisdictional or legal-entity applicability. A decision agreed in March and effective from April is indistinguishable from one effective immediately.
+
+So a body of TDRs supports the current position; it does not compute it. Establishing what is in force is the work of whatever layer an adopter builds above the register, from the records and their lineage — and, until the standard settles the question, from whatever effectiveness data the adopter carries in the `x-` namespace (§4.3). Whether any of it belongs in the core is deliberately open: see [TDR-0015](decisions/TDR-0015-visibility-and-effectiveness.md).
+
+Time is also more than one date, and the moments are not all of the same kind. A single change carries **decisions** (the closure itself; authorising preparation; approving the communication and its release conditions), **events** that evidence or trigger them (consultation completed; communication sent), and **states computed from both** — whether the closure is now effective, and whether the information is *currently authorised for disclosure to this audience, for this purpose, through this channel, at this time, subject to this condition*. Note that a disclosure state is always contextual in that way: there is no context-free "now public" unless a separately accountable decision has genuinely removed those constraints, in which case that removal is itself a decision to record. These moments rarely coincide, and confusing the three kinds is how a register becomes untrustworthy: an event recorded as a decision implies a judgement nobody made, and a computed state stored as a fact goes stale the moment its inputs change.
+
+A condition expressed as an event is also not one expressed as a date — if the communication slips, the event has not happened, and any date written alongside it is now wrong. Capture the decisions (§3), keep the events as evidence, and leave the states to be computed.
+
+A related caution: the governed position is not the realised position. What was decided, what was implemented, what is controlled and what actually happens are four different things, joined by evidence and closed by a named person's attestation — never by the record alone.
 
 ---
 
