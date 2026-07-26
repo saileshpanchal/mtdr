@@ -38,7 +38,7 @@ Not every decision deserves a record. The test is **reversibility**:
 
 If reversing the decision would cost less than writing the record, do not write the record. Nobody needs a decision record for choosing the coffee machine — and pretending otherwise turns an accountability instrument into box-ticking.
 
-**Where the boundaries fall.** Proportionality answers *does this deserve a record*. A second question follows: *is this one record or several?* Create a separate record wherever an independently accountable judgement can be made, challenged, superseded or evidenced separately — particularly where the owner, the authority basis, the rationale or the governing condition differs. **Execution events are evidence or triggers, not decisions, unless a further judgement was actually exercised.**
+**Where the boundaries fall.** Proportionality answers *does this deserve a record*. A second question follows: *is this one record or several?* Create a separate record where a distinct accountable judgement can be **accepted, rejected, changed or superseded independently, without changing the remaining judgement**. Different owners, authority bases, rationales, applicability, outcomes or conditions are strong separation signals. Separately available evidence is not: almost any part of a decision has evidence of its own, and splitting on that alone shatters a single judgement into fragments nobody decided. **Execution events are evidence or triggers, not decisions, unless a further judgement was actually exercised.**
 
 Closing a site illustrates both. *Close the site*, *authorise preparation*, *approve the customer communication and its release conditions*, *approve redeployment arrangements* and *authorise complaints-handling guidance* are five decisions, with different owners, timings and audiences. *Consultation completed* and *communication sent* are events — evidence that a decision was carried out, and often the triggers other decisions wait on. Whether the closure is currently effective is neither: it is a state computed from those decisions and events (§11).
 
@@ -112,7 +112,7 @@ They are prompts, not a complete or orthogonal ontology:
 |---|---|---|
 | **Applicability** | Where, and to whom, does this decision bind? | The Decision and Context prose — the grammar's *Unless* clause |
 | **Authority** | Under what authority was it made — and who may exercise, delegate or except it? | The authority named in Context — the grammar's *Under* clause. `accountable_owner` names who owns the **judgement**; it does not by itself say who may exercise, delegate, suspend or grant an exception to the decision. |
-| **Access** | Who may know this decision exists, and retrieve its decision, reasoning or evidence? | **Not enforced by the record** — see §10 |
+| **Access** | Who may know this decision exists, and retrieve its conclusion, its reasoning or its evidence? | **Not enforced by the record** — see §10 |
 | **Disclosure** | Which audience may receive information about it — for which purpose, through which channel, and after which condition? | **Not enforced by the record**, but the condition itself is usually a decision — see below |
 | **Impact** | What does this decision affect — capabilities, controls, customers, other decisions? | Options foreclosed, lineage, and the assurance case |
 
@@ -129,6 +129,11 @@ answer "does this bind me?" separately from "may I see it?", "may I act on it?" 
 **Access and disclosure are different policies.** That someone may read a decision does not settle whether it
 may be repeated, to whom, or when; information being true, and already held somewhere in the organisation,
 does not make every onward flow appropriate.
+
+Access is not one level, either. Knowing that a decision exists, receiving its conclusion, reading the
+reasoning behind it and reaching the underlying evidence are four different things, and they need not share
+an audience: a team may legitimately be told that a decision has been taken and what it requires of them,
+without access to the deliberation or the evidence that produced it.
 
 The disclosure condition is frequently **a decision in its own right**: *communicate the closure to affected
 customers only once colleague notification is complete* has an owner, an authority, a trigger and
@@ -200,11 +205,11 @@ A lineage-connected register discloses more than its readable contents:
 
 It follows that **redaction within a connected set is not concealment**, and that responsibility divides across three layers:
 
-- **The markdown record enforces nothing.** It carries judgement, not controls.
-- **The register or store enforces possession, direct access and compartment boundaries.** Where existence itself must be restricted, the record is separated from the readable set — physically, in a distinct register, or logically, by a store that discloses it in no index, identifier sequence, relationship or derived output.
-- **A downstream consumer constructs authorised projections and governs use and release.** What any participant — human or machine — actually receives is not the register but a **projection** of it, specific to that participant, that purpose, that audience and that moment. Building and authorising projections is that layer's work; this standard neither performs it nor specifies how it should be done.
+- **The record captures the decision and its declared relationships. It enforces nothing.**
+- **The register or store controls storage, existence visibility, retrieval, direct access and compartment boundaries — within its own administrative domain.** Where existence itself must be restricted, the record is separated from the readable set: physically, in a distinct register, or logically, by a store that discloses it in no index, identifier sequence, relationship or derived output.
+- **A downstream consumer evaluates identity, mandate, entitlement, applicability and effectiveness; constructs authorised projections; and governs system-mediated use, disclosure, aggregation and release.** What any participant — human or machine — actually receives is not the register but a **projection** of it, specific to that participant, that purpose, that audience and that moment. That layer manages inference risk; it does not abolish it. Building and authorising projections is its work, and this standard neither performs it nor specifies how it should be done.
 
-Separation reduces direct leakage; it does not guarantee concealment. **The format cannot promise that a decision stays unknown**: operational effects, permitted information and ordinary inference may still reveal that something was decided. Separation also costs something real — a concealed decision is absent from the organisation's connected memory, and the lineage that would have explained it is broken by design. Choosing that is itself a decision worth recording.
+**No layer can guarantee concealment, and none governs every subsequent human use of information once it has been disclosed.** Separation reduces direct leakage; operational effects, permitted information and ordinary inference may still reveal that something was decided, and a person who has legitimately read a decision can carry it anywhere. Separation also costs something real — a concealed decision is absent from the organisation's connected memory, and the lineage that would have explained it is broken by design. Choosing that is itself a decision worth recording.
 
 What this standard contributes is upstream of all of it: the judgements a projection must respect have been captured, attributed and connected in the first place.
 
@@ -216,7 +221,7 @@ The lineage fields (§6) establish what was decided, by whom, and how each recor
 
 So a body of TDRs supports the current position; it does not compute it. Establishing what is in force is the work of whatever layer an adopter builds above the register, from the records and their lineage — and, until the standard settles the question, from whatever effectiveness data the adopter carries in the `x-` namespace (§4.3). Whether any of it belongs in the core is deliberately open: see [TDR-0015](decisions/TDR-0015-visibility-and-effectiveness.md).
 
-Time is also more than one date, and the moments are not all of the same kind. A single change carries **decisions** (the closure itself; authorising preparation; approving the communication and its release conditions), **events** that evidence or trigger them (consultation completed; communication sent), and **states computed from both** (whether the closure is now effective; whether the information is yet generally disclosable). These rarely coincide, and confusing the three is how a register becomes untrustworthy: an event recorded as a decision implies a judgement nobody made, and a computed state stored as a fact goes stale the moment its inputs change.
+Time is also more than one date, and the moments are not all of the same kind. A single change carries **decisions** (the closure itself; authorising preparation; approving the communication and its release conditions), **events** that evidence or trigger them (consultation completed; communication sent), and **states computed from both** — whether the closure is now effective, and whether the information is *currently authorised for disclosure to this audience, for this purpose, through this channel, at this time, subject to this condition*. Note that a disclosure state is always contextual in that way: there is no context-free "now public" unless a separately accountable decision has genuinely removed those constraints, in which case that removal is itself a decision to record. These moments rarely coincide, and confusing the three kinds is how a register becomes untrustworthy: an event recorded as a decision implies a judgement nobody made, and a computed state stored as a fact goes stale the moment its inputs change.
 
 A condition expressed as an event is also not one expressed as a date — if the communication slips, the event has not happened, and any date written alongside it is now wrong. Capture the decisions (§3), keep the events as evidence, and leave the states to be computed.
 

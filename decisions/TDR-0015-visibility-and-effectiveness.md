@@ -99,12 +99,18 @@ and each is allocated to the consumer an adopter builds above the register:
 
 | Responsibility | MTDR (this standard) | Register / store | Downstream platform or runtime |
 |---|---|---|---|
-| Capture the decision, its reasoning, its stated authority basis and its lineage | **Yes** | Preserves | Consumes |
-| Enforce direct access and compartment boundaries | No | **Yes** | May request through a controlled interface |
-| Resolve identity, mandate and entitlement | No | Supplies protected sources where applicable | **Yes** |
+| Capture the decision, its reasoning, its stated authority basis and its declared relationships | **Yes** | Preserves | Consumes |
+| Control storage, existence visibility, retrieval, direct access and compartment boundaries *within its administrative domain* | No | **Yes** | May request through a controlled interface |
+| Evaluate identity, mandate and entitlement | No | Supplies protected sources where applicable | **Yes** |
 | Compute applicability and effectiveness — what is in force, for whom, now | Records the available judgement and evidence | Preserves | **Yes** |
 | Construct authorised projections — participant, purpose, audience, moment | No | May participate | **Yes** |
-| Control use, disclosure, aggregation and inference | No | Protects stored material | **Yes** |
+| Govern *system-mediated* use, disclosure, aggregation and release; manage inference risk | No | Protects stored material | **Yes** |
+
+The verbs are deliberately narrow. A store controls what it holds and serves, not what happens to information
+after it leaves; a runtime governs the flows it mediates and *manages* inference risk rather than eliminating
+it. **No layer can guarantee concealment, and none governs subsequent human use once information has been
+disclosed** — a person who legitimately read a decision can carry it anywhere, and no amount of architecture
+changes that. Any claim to the contrary would be false comfort.
 
 Two consequences follow, and both are easy to get wrong:
 
@@ -114,12 +120,14 @@ Two consequences follow, and both are easy to get wrong:
 - **Capture confers nothing.** Recording a disclosure condition does not authorise a disclosure; recording an
   authority basis does not grant that authority.
 
-The relevant disciplines are mature but disjoint — identity and delegation, attribute-based access control,
-usage control, purpose limitation, information-flow control, temporal declassification, inference control,
-records management. **This review did not identify, as of July 2026 and within the scope reviewed, a single
-adopted standard uniting them around an organisation's consequential decisions** — which is precisely why
-this allocation is written down rather than assumed. A record format that implied it covered them would be
-actively misleading: the failure mode is an adopter believing a field is a control.
+The relevant disciplines are mature but disjoint. **A review in July 2026 of the identity-and-delegation,
+attribute-based access control, usage-control, purpose-limitation, information-flow-control, temporal
+declassification, inference-control and records-management literature did not identify a single adopted
+standard uniting them around an organisation's consequential decisions.** That is the scope of the claim, so
+that it can be challenged: a reader who knows of such a standard has everything needed to say so, and this
+record should then be superseded. The gap is why the allocation above is written down rather than assumed —
+a record format that implied it covered these concerns would be actively misleading, and the failure mode is
+an adopter believing a field is a control.
 
 ## Options foreclosed
 
