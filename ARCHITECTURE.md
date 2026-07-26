@@ -18,9 +18,13 @@ flowchart TD
     Reg["Decision register — records as a versioned, lineage-connected body (e.g. a git repo)"]
     G["Decision graph — optional consumer"]
     TI["Reasoning layer over the graph — optional, out of scope, named by whoever builds it"]
+    P["Authorised projection — what a participant actually receives<br/>specific to participant · purpose · audience · moment"]
 
     R --> S --> Rec --> Reg
     Reg -.->|optional| G -.->|optional| TI
+    G -.-> P
+    TI -.-> P
+    P -.->|serves| R
 
     subgraph STD ["The standard"]
         S
@@ -31,14 +35,17 @@ flowchart TD
 
 ## The layers
 
-| Layer | What it is | In the standard? |
-|---|---|---|
-| **AI runtime** | The environment that applies the skills — any agent runtime that loads the open skill format, or a human with the templates. Interchangeable by design (see [`/agents`](agents/)). | No — the standard is runtime-neutral |
-| **Skills** | The [thirteen skills](skills/) as a portable execution model: each transforms the artefact — a raw transcript becomes an identified decision, becomes a framed record, becomes an evidenced and governed one, becomes (where material) an assured one. Passes, not prompts. | **Yes** |
-| **Records** | The three record types — [TDR](spec.md), [VR](spec-value-record.md), [DAC](spec-decision-assurance.md) — as complete, valid markdown files. | **Yes** |
-| **Decision register** | The records held as a versioned body with lineage — a git repository, a documents system, a wiki. This is where a conforming implementation ends. | **Yes — the boundary** |
-| **Decision graph** | An optional consumer that assembles the register's records (via the `supersedes` / `derived_from` / `confirmed_by_outcome` lineage fields, spec §6) into a queryable graph — to answer "what did this decision govern?", "what would superseding it invalidate?", "what is the accumulated risk position?". | No — an implementation choice that *enhances* the standard |
-| **Reasoning layer** | An optional higher-order capability operating over the graph. Out of scope for the standard; named and owned by whoever builds it. | No — built on top |
+| Layer | What it is | In the standard? | What it enforces |
+|---|---|---|---|
+| **AI runtime** | The environment that applies the skills — any agent runtime that loads the open skill format, or a human with the templates. Interchangeable by design (see [`/agents`](agents/)). | No — the standard is runtime-neutral | Nothing; it receives a projection and acts within it |
+| **Skills** | The [thirteen skills](skills/) as a portable execution model: each transforms the artefact — a raw transcript becomes an identified decision, becomes a framed record, becomes an evidenced and governed one, becomes (where material) an assured one. Passes, not prompts. | **Yes** | Nothing — method, not control |
+| **Records** | The three record types — [TDR](spec.md), [VR](spec-value-record.md), [DAC](spec-decision-assurance.md) — as complete, valid markdown files. | **Yes** | **Nothing.** A record carries judgement, not controls (spec §10) |
+| **Decision register** | The records held as a versioned body with lineage — a git repository, a documents system, a wiki. This is where a conforming implementation ends. | **Yes — the boundary** | Storage, existence visibility, retrieval, direct access and compartments — *within its administrative domain* |
+| **Decision graph** | An optional consumer that assembles the register's records (via the `supersedes` / `derived_from` / `confirmed_by_outcome` lineage fields, spec §6) into a queryable graph — to answer "what did this decision govern?", "what would superseding it invalidate?", "what is the accumulated risk position?". | No — an implementation choice that *enhances* the standard | Nothing by itself; it is a consumer, and is itself served through projections |
+| **Reasoning layer** | An optional higher-order capability operating over the graph. Out of scope for the standard; named and owned by whoever builds it. | No — built on top | Evaluates identity, mandate, entitlement, applicability and effectiveness; governs *system-mediated* use, disclosure and release; *manages* inference risk |
+| **Authorised projection** | Not a layer so much as what every consumer actually hands onward: a view specific to participant, purpose, audience and moment. No participant receives "the register". | No — out of scope, but the reason the boundary matters | The point at which access and disclosure decisions are applied |
+
+**No layer guarantees concealment, and none governs what a person does with information once they have legitimately read it** (spec §10). The diagram shows where responsibility sits, not where risk ends.
 
 ## Why the boundary sits at the register
 
