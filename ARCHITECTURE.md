@@ -71,6 +71,11 @@ a single row: it already splits authority between the store (existence visibilit
 and the downstream consumer (identity, mandate, entitlement). Anything that folds "who may" into "what is
 held" loses that split, and with it the reason the boundary is where it is.
 
+**Access is not authority, either.** Controlling what a participant may see or which system actions they may
+invoke is a different question from whose speech counts as having decided, and under what mandate. A system
+that can answer the first and believes it has answered the second will treat a permission grant as an
+organisational mandate — which is how accountability quietly detaches from the people who hold it.
+
 Meaning is not enforcement, and neither is memory: that a record *means* a decision was taken is exactly why
 it can neither confer authority nor establish that the decision is in force (§10, §11).
 

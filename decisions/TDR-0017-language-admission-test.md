@@ -24,6 +24,10 @@ confirmed_by_outcome: pending — review when the evidence named under Consequen
 > accepted, it has standing whatever its branch says. Here nothing had. Superseding in that state would have
 > manufactured lineage implying the standard once held a narrower published position that no reader ever saw,
 > and false lineage is the worse failure.
+>
+> Nothing is lost by this. **The repository history retains the earlier proposal; the decision register does
+> not represent it as an accepted prior position.** Those are two different kinds of truth and both are kept:
+> version control records how a proposal evolved, and lineage records the positions that acquired standing.
 
 ## Context — what was known at the time
 
@@ -142,8 +146,18 @@ The criterion is bounded by what the language itself defines — "every valid st
 the language says what a valid statement is, which is criteria 1 and 2 doing their work. Within that bound,
 the semantic domains a language must close over are:
 
-**applicability · temporal effectiveness · supersession · consistency · conflict · composition ·
-inheritance · unresolved and indeterminate states**
+**applicability · temporal effectiveness · supersession · consistency · conflict, precedence and
+resolution · composition · inheritance · unresolved and indeterminate states**
+
+**Detecting a conflict is not the same as knowing which statement governs**, and precedence is not a special
+case of supersession — supersession is one record replacing another over time, whereas precedence decides
+between records that are both standing. The domain must cover the specific statement governing over the
+general, the inherited constraint against the locally asserted one, records of equal standing that
+disagree, and the case where narrower scope or stronger authority decides. It does **not** require every
+conflict to resolve automatically. It requires the language to say which of four outcomes obtains:
+**governed** (one statement prevails, by a stated rule), **conflicted**, **indeterminate**, or **externally
+adjudicated** — the last being a legitimate answer, not a failure, provided the language says so rather than
+leaving an implementer to invent a tie-break.
 
 **The last domain is the one most easily mistaken.** Completeness does **not** mean every question yields
 true or false. A language is complete over indeterminacy by defining *when a result is unknown,
@@ -166,8 +180,13 @@ test asks.
 
 ### Two independent axes
 
-The test above measures **what a language is**. It must not be confused with **what standing a language has**
-— whether it is a candidate, a proposal, ratified, or settled convention within some organisation.
+The test above measures **semantic capability** — what a language can express, and what a conforming
+interpreter can determine from it. That must not be confused with **institutional standing** — whether the
+language is a candidate, a proposal, ratified, or settled convention within some organisation.
+
+*Capability* and *standing* are the precise names. "Maturity" is serviceable prose but ambiguous here,
+because the seven criteria are themselves a maturity assessment — of capability specifically, and of nothing
+else.
 
 These are orthogonal, and keeping them so matters in both directions. A body of records can be formally
 ratified and still be a thin vocabulary; treating ratification as evidence of completeness is how an
@@ -179,7 +198,7 @@ So a maturity claim and a standing claim are made separately, and each is eviden
 governance ladder by which an organisation confers standing is that organisation's business and is not
 specified here.
 
-One caution about the maturity side. The seven criteria are **not a state machine**, and meeting them is not
+One caution about the capability axis. The seven criteria are **not a state machine**, and meeting them is not
 a sequence to be walked in order. A language may have a grammar with incomplete semantics, or settled
 semantics never expressed as a formal grammar, or a specification covering only part of what it defines, or
 several conforming serialisations of a single abstract syntax. Read the criteria as an **indicative
