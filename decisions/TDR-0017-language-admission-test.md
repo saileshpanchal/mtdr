@@ -14,12 +14,16 @@ confirmed_by_outcome: pending — review when the evidence named under Consequen
 
 # TDR-0017 — Adopt a language admission test, and defer this standard's language specification to evidence
 
-> **Amended before release.** This record was broadened from a test of *this standard* to a test of any
-> candidate language, and gained a seventh criterion, while v1.12.0 was still unreleased and the record had
-> not entered the register. It is therefore an amendment, not a superseding record. This is **not** precedent
-> for editing an accepted record: §7 protects records admitted to the register, and superseding an unreleased
-> one would have manufactured lineage implying the standard once held a narrower published position that no
-> reader ever saw. False lineage is the worse failure.
+> **Amended before release and admission.** This record was materially amended — broadened from a test of
+> *this standard* to a test of any candidate language, and given a seventh criterion. **No superseding record
+> is created because the earlier proposal never acquired standing, and nothing had relied on it as an
+> accepted record.**
+>
+> Both conditions are required, and the wider one alone would not do. That a record is merely unmerged, or
+> merely unreleased, does **not** license rewriting it without trace: once anything has relied on a record as
+> accepted, it has standing whatever its branch says. Here nothing had. Superseding in that state would have
+> manufactured lineage implying the standard once held a narrower published position that no reader ever saw,
+> and false lineage is the worse failure.
 
 ## Context — what was known at the time
 
@@ -125,20 +129,40 @@ following hold. They are recorded so that a reader can check such a claim rather
 | 4 | **Speech acts** | What counts as having decided, superseded, or rejected — as distinct from who is permitted to do so, which is not the language's business |
 | 5 | **Composition** | Whether and how two records combine, and what a conflict between them means |
 | 6 | **Interpretation contract** | What a conforming interpreter must compute from a body of records, stated normatively |
-| 7 | **Complete evaluation semantics** | A conforming interpreter can evaluate any valid statement using only the published semantics — **without inventing any** |
+| 7 | **Complete evaluation semantics** | A conforming interpreter can evaluate **every valid statement and relationship the language defines**, using only the published semantics, **without introducing unstated rules** |
 
 **Criterion 7 is the closure check over the other six, not a seventh item beside them.** Criteria 1 to 6 can
 all be satisfied while an implementer still has to invent meaning at the first real conflict, and two
-conforming implementations then disagree while both remain conforming. Concretely, 7 asks whether
-applicability, supersession, consistency, conflict, composition and inheritance are each decidable from what
-is published. **It is what makes criterion 6 decidable rather than aspirational**: 6 states what an
-interpreter must compute, 7 states that the language gives it enough to compute it. A language meeting 1
-through 6 but not 7 is a specification with holes in it, and the holes are exactly where interoperability
-fails.
+conforming implementations then disagree while both remain conforming. **It is what makes criterion 6
+decidable rather than aspirational**: 6 states what an interpreter must compute, 7 states that the language
+gives it enough to compute it. A language meeting 1 through 6 but not 7 is a specification with holes in it,
+and the holes are exactly where interoperability fails.
+
+The criterion is bounded by what the language itself defines — "every valid statement" is meaningless unless
+the language says what a valid statement is, which is criteria 1 and 2 doing their work. Within that bound,
+the semantic domains a language must close over are:
+
+**applicability · temporal effectiveness · supersession · consistency · conflict · composition ·
+inheritance · unresolved and indeterminate states**
+
+**The last domain is the one most easily mistaken.** Completeness does **not** mean every question yields
+true or false. A language is complete over indeterminacy by defining *when a result is unknown,
+underdetermined, out of scope, or contingent on evidence the records do not carry* — and saying so in its
+semantics rather than leaving an implementer to guess. A criterion 7 that demanded an answer to every
+question would demand **false certainty**, and would put itself in direct conflict with §11 and with the
+deferral discipline of [TDR-0015](TDR-0015-visibility-and-effectiveness.md).
+
+This standard already has the right instinct here, expressed informally: **§11 is a prose ancestor of an
+indeterminacy rule.** It states plainly what the format does not compute, rather than pretending to compute
+it. That is what this domain asks for, and the gap is that §11 is prose rather than semantics — not that the
+position is wrong.
 
 Note what criterion 7 does *not* say. It is a completeness property **of the semantics**, discharged **by an
 interpreter**. It does not make a record executable, and nothing in this test licenses the belief that a
-record does anything. Capture still confers nothing (§10).
+record does anything. Capture still confers nothing (§10). Nor does it establish that two independent
+implementers would in fact agree: closure is a property of the published semantics, whereas **reproducibility
+is a property demonstrated by independent implementation**, and it is a further and later question than this
+test asks.
 
 ### Two independent axes
 
@@ -155,17 +179,29 @@ So a maturity claim and a standing claim are made separately, and each is eviden
 governance ladder by which an organisation confers standing is that organisation's business and is not
 specified here.
 
+One caution about the maturity side. The seven criteria are **not a state machine**, and meeting them is not
+a sequence to be walked in order. A language may have a grammar with incomplete semantics, or settled
+semantics never expressed as a formal grammar, or a specification covering only part of what it defines, or
+several conforming serialisations of a single abstract syntax. Read the criteria as an **indicative
+progression** — a description of what completeness consists of, not a route by which it must be reached.
+
 ### This standard, scored
 
-| # | Criterion | State at v1.12.0 |
-|---|---|---|
-| 1 | Abstract syntax | **Not met.** §4 defines a file; §6 gives portable lineage, which is a weaker property |
-| 2 | Defined vocabulary | **Met.** §4.1, `schema/tdr.schema.json`, the `x-` namespace contract at §4.3 |
-| 3 | Static rules | **Enumerated, not formalised.** The checklist exists in `practice/administration-and-assurance.md`; no grammar, no reference implementation |
-| 4 | Speech acts | **Partly met.** Amendment is not a legal move; only supersession is. A superseding record must state what is now known that was not known. A named individual, never a committee. Not named as a taxonomy, and delegation is unspecified |
-| 5 | Composition | **Not met, and declined.** See TDR-0016 and `practice/operating-model.md` |
-| 6 | Interpretation contract | **Not met.** §11 states what the format does not compute; it does not yet say what an interpreter must |
-| 7 | Complete evaluation semantics | **Not met**, and the furthest away. Applicability and conflict are unspecified by decision; **inheritance has no representation in this standard at all** |
+The score records **only what exists**. Why a capability is absent — whether nobody has written it yet or the
+standard decided against it — belongs in the second column, never in the first. That separation is the
+two-axis discipline above, applied inside the test: a capability declined on principle and a capability
+merely unbuilt score identically, because a reader assessing what an interpreter can rely on is not helped by
+knowing which it was.
+
+| # | Criterion | State | Evidence / disposition |
+|---|---|---|---|
+| 1 | Abstract syntax | **Not met** | §4 defines a file; §6 gives portable lineage, which is a weaker property. Open — see §11 |
+| 2 | Defined vocabulary | **Met** | §4.1, `schema/tdr.schema.json`, the `x-` namespace contract at §4.3 |
+| 3 | Static rules | **Partly met** | Enumerated as the validator checklist in `practice/administration-and-assurance.md`; no grammar and no reference implementation |
+| 4 | Speech acts | **Partly met** | Amendment is not a legal move, only supersession; a superseding record must state what is now known that was not known; a named individual, never a committee. Not stated as a taxonomy; delegation unspecified |
+| 5 | Composition | **Not met** | Explicitly **declined** for this version by [TDR-0016](TDR-0016-routing-and-disposition-refinements-from-field-application.md); `practice/operating-model.md` |
+| 6 | Interpretation contract | **Not met** | §11 states what the format does not compute; it does not yet state what an interpreter must. Deferred by this record |
+| 7 | Complete evaluation semantics | **Not met** | The furthest away. Applicability and conflict unspecified; §11 is a prose ancestor of the indeterminacy domain; **inheritance has no representation in this standard at all** |
 
 One met, two partial, four unmet. Adding criterion 7 made the test harder and this standard's score worse.
 That is the intended direction: a test is only worth publishing if it can be failed.
@@ -258,10 +294,12 @@ either meeting the test and saying so, or not meeting it and continuing to say t
 - **Interpretation (criterion 6).** At least one implementation that computes a current position from a body
   of records, with its rules written down — so the interpretation contract is specified from something that
   runs rather than from something drawn.
-- **Complete evaluation semantics (criterion 7).** Two independent implementations agreeing on the same body
-  of records without their authors having conferred. Until that has happened at least once the criterion is
-  unproven whatever a specification claims — which is why it is stated as a property to be demonstrated
-  rather than asserted.
+- **Complete evaluation semantics (criterion 7).** A worked pass over the eight domains in which each is
+  either given semantics or **explicitly given indeterminate semantics** — a statement of when the answer is
+  unknown, underdetermined, out of scope or contingent on external evidence. The criterion is failed by
+  silence, not by uncertainty: an honest "undetermined, because …" discharges it; a gap does not. Whether two
+  independent implementers would then actually reach the same conclusions from the specification alone is a
+  further question, later than this test, and not answered by satisfying criterion 7.
 - **Speech acts (criterion 4).** The delegation question: whether a decision recorded by one named
   individual on another's authority is one act or two. This is the open half of the criterion, and it is not
   answerable from this repository alone.

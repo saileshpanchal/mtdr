@@ -54,16 +54,25 @@ live* — and reading it that way is what keeps a future specification honest:
 
 | | Layer | Reads as |
 |---|---|---|
-| **Semantics** | Records | What the acts *mean* — what it is to have decided, superseded, rejected |
-| **Persistence** | Decision register | What is held, and who may reach it |
-| **Reasoning** | Graph and anything above it | What is computed from the held records — applicability, position, conflict |
+| **Meaning** | Records | What the acts *mean* — what it is to have decided, superseded, rejected |
+| **Memory** | Decision register | What was said, preserved exactly as it was said |
+| **Reasoning** | Graph and anything above it | What is computed from the preserved records — applicability, position, conflict |
 | **Behaviour** | Runtime, and the organisation around it | What is actually done, under a projection |
 
-Stated as one line: **the standard defines the meaning of the acts; the register or store enforces who may
-perform them; a downstream consumer computes the position.** This is the enforcement split of spec §10 read
-from the other side, and the two must not be conflated. Meaning is not enforcement: that a record *means*
-a decision was taken is exactly why it can neither confer authority nor establish that the decision is in
-force (§10, §11).
+**Authority does not appear as a row, and that is deliberate.** It is not a stage in the pipeline and it does
+not emerge from storage: a store can preserve records perfectly while enforcing nothing about who was
+entitled to write them. Authority is an **orthogonal governance plane** that cuts across every layer —
+
+> **Meaning** — what the language says · **Authority** — who is entitled to say it · **Memory** — preserve
+> exactly what was said · **Reasoning** — compute the current position · **Behaviour** — act.
+
+The allocation table in [TDR-0015](decisions/TDR-0015-visibility-and-effectiveness.md) shows why it cannot be
+a single row: it already splits authority between the store (existence visibility, retrieval, compartments)
+and the downstream consumer (identity, mandate, entitlement). Anything that folds "who may" into "what is
+held" loses that split, and with it the reason the boundary is where it is.
+
+Meaning is not enforcement, and neither is memory: that a record *means* a decision was taken is exactly why
+it can neither confer authority nor establish that the decision is in force (§10, §11).
 
 The practical consequence is the reason this reading is written down. Should the standard ever specify a
 language rather than a format, that specification defines **what a conforming interpreter must compute — it

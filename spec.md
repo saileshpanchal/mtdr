@@ -226,6 +226,11 @@ Time is also more than one date, and the moments are not all of the same kind. A
 
 A condition expressed as an event is also not one expressed as a date — if the communication slips, the event has not happened, and any date written alongside it is now wrong. Capture the decisions (§3), keep the events as evidence, and leave the states to be computed.
 
+Stating what is *not* computed is itself the honest form of the answer, not an evasion of it. A body of
+records is more useful, not less, for saying where it goes silent — unknown, underdetermined, out of scope,
+or contingent on evidence the records do not carry. The failure mode is silence about the silence, which
+leaves a reader to supply a certainty nobody recorded.
+
 A related caution: the governed position is not the realised position. What was decided, what was implemented, what is controlled and what actually happens are four different things, joined by evidence and closed by a named person's attestation — never by the record alone.
 
 One further limit is structural rather than temporal, and belongs here because it is regularly mistaken for something the standard already has. **This specification defines a serialisation, not a representation-independent model of a record.** §4 describes a markdown file with YAML frontmatter; the schema validates that frontmatter; §6 establishes that lineage is portable and graph-ready without graph tooling. Portability of lineage is not independence of representation, and the two are easy to conflate. The practical consequence: conformance is currently defined against markdown-with-YAML, and a third party cannot write a conforming parser from this specification alone, because the specification does not describe a record except as a file. Whether the standard should define an abstract syntax — with markdown-with-YAML as one binding of it — is open, and is the first of **seven** criteria in the language admission test recorded at [TDR-0017](decisions/TDR-0017-language-admission-test.md). That test is stated for any candidate language, not just this one; this standard is scored against it there, meets one criterion of the seven, and makes no claim to specify a *language* today.
