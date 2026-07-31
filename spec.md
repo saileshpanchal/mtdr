@@ -1,6 +1,6 @@
 # Transformation Decision Record (TDR) — Specification
 
-**Version:** 1.11.0 · **Licence:** MIT · **Author:** Sailesh Panchal
+**Version:** 1.12.0 · **Licence:** MIT · **Author:** Sailesh Panchal
 
 **TDR** is the standard: the record, its fields, and its accountability semantics.
 **MTDR** — Markdown Transformation Decision Record — is the markdown reference format of TDRs described in this repository, as MADR is to ADR.
@@ -173,6 +173,7 @@ Any tool can later assemble records into a connected decision history. No tool i
 
 - Records are **never edited or deleted once accepted**. They are **superseded**.
 - **Status transitions** (`proposed → accepted`, `proposed → rejected`, `accepted → superseded`) and `confirmed_by_outcome` updates are made in place — they are lifecycle facts, not changes of judgement. A record `rejected` at proposal was never accepted, so nothing is superseded; it stays as evidence that the question was asked and answered.
+- **`rejected` is terminal for that record.** There is no transition out of it: a rejected record is never revived, promoted or superseded, because nothing was ever decided for a later record to replace. Where the question is reopened — because the answer was wrong, or because the circumstances changed — it is reopened by a **new** record that cites the rejected one in `derived_from`. The rejection stays as evidence of what was asked, and when, and by whom it was declined.
 - **Changes to decision content require a superseding TDR** stating what is now known that was not known at the time.
 
 This is what makes a body of TDRs organisational memory rather than documentation: the reasoning trail survives its own corrections.
@@ -226,6 +227,8 @@ Time is also more than one date, and the moments are not all of the same kind. A
 A condition expressed as an event is also not one expressed as a date — if the communication slips, the event has not happened, and any date written alongside it is now wrong. Capture the decisions (§3), keep the events as evidence, and leave the states to be computed.
 
 A related caution: the governed position is not the realised position. What was decided, what was implemented, what is controlled and what actually happens are four different things, joined by evidence and closed by a named person's attestation — never by the record alone.
+
+One further limit is structural rather than temporal, and belongs here because it is regularly mistaken for something the standard already has. **This specification defines a serialisation, not a representation-independent model of a record.** §4 describes a markdown file with YAML frontmatter; the schema validates that frontmatter; §6 establishes that lineage is portable and graph-ready without graph tooling. Portability of lineage is not independence of representation, and the two are easy to conflate. The practical consequence: conformance is currently defined against markdown-with-YAML, and a third party cannot write a conforming parser from this specification alone, because the specification does not describe a record except as a file. Whether the standard should define an abstract syntax — with markdown-with-YAML as one binding of it — is open, and is one of six criteria recorded in [TDR-0017](decisions/TDR-0017-language-maturity-and-the-admission-test.md) against which any future claim that this standard specifies a *language* can be checked. It does not make that claim today.
 
 ---
 

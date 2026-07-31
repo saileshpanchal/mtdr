@@ -24,6 +24,7 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0014](TDR-0014-consequential-decision-grammar.md) | Publish the Consequential Decision Grammar as a candidate authoring aid | Minimal — significant but revisable |
 | [TDR-0015](TDR-0015-visibility-and-effectiveness.md) | Visibility stays out of the record; open an `x-` namespace; defer effectiveness fields | Full — a reserved prefix and a boundary commitment are one-way doors |
 | [TDR-0016](TDR-0016-routing-and-disposition-refinements-from-field-application.md) | Refine DAC routing and disposition from the first at-scale field application | Minimal — significant but revisable |
+| [TDR-0017](TDR-0017-language-maturity-and-the-admission-test.md) | Adopt an admission test for the language claim; defer the language specification to evidence | Full — a published test and a boundary commitment are one-way doors |
 
 ## Challenging a decision
 

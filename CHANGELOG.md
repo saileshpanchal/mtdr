@@ -2,6 +2,17 @@
 
 All notable changes to the TDR standard (and its MTDR markdown reference format) are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the standard adheres to [Semantic Versioning](https://semver.org/). The *reasoning* behind each significant change lives in [`/decisions`](decisions/) as a TDR — this file is the index to it.
 
+## [1.12.0] — 2026-07-31
+
+### Added
+- **An admission test for the language claim** ([TDR-0017](decisions/TDR-0017-language-maturity-and-the-admission-test.md)) — a review asked whether the standard has become a *language* rather than a record format. It has not, and this release records the six criteria under which a future release could say otherwise: an abstract syntax, a defined vocabulary, mechanically checkable static rules, speech acts, composition, and an interpretation contract. Two are met, one is enumerated but not formalised, one is half-met, one is **declined** by [TDR-0016](decisions/TDR-0016-routing-and-disposition-refinements-from-field-application.md), and one is unmet. The test is published *because* the standard currently fails it: a stated test it does not pass is more useful than an unstated one it could be argued into passing, and it makes the claim falsifiable in both directions.
+- **The rule that keeps such a specification inside the boundary**, recorded in the same TDR: **a language specification defines what a conforming interpreter must compute; it does not compute.** Three of the six criteria otherwise read as demands that the standard resolve authority, compute effectiveness and detect contradiction — which would require abandoning the three-layer contract shipped in v1.10.0. Stated as an obligation on *interpreters*, they do not. The allocation table in [TDR-0015](decisions/TDR-0015-visibility-and-effectiveness.md) stands unchanged, extended by one line: the standard defines the meaning of the acts, the store enforces who may perform them, a consumer computes the position.
+- **`rejected` is terminal** (`spec.md` §7) — closing a gap [TDR-0015](decisions/TDR-0015-visibility-and-effectiveness.md) had itself flagged: `rejected` was in the status enum but in no transition rule. A rejected record is never revived, promoted or superseded, because nothing was decided for a later record to replace; the question is reopened by a **new** record citing the rejected one in `derived_from`. No schema change — the enum already carried the value.
+- **The abstract-syntax limit, stated plainly** (`spec.md` §11) — the standard defines a serialisation, not a representation-independent model of a record. §6's portable, graph-ready lineage is a real property but a weaker and different one, and the two are regularly conflated. Consequence, written down: conformance is defined against markdown-with-YAML, and a third party cannot write a conforming parser from the specification alone.
+
+### Changed
+- `spec.md` bumped to 1.12.0. Additive throughout: no field, template or schema change; `schema/` and `templates/` are byte-unchanged, and every prior record still validates.
+
 ## [1.11.0] — 2026-07-24
 
 ### Added
