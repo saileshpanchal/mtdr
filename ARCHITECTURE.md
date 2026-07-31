@@ -47,6 +47,30 @@ flowchart TD
 
 **No layer guarantees concealment, and none governs what a person does with information once they have legitimately read it** (spec §10). The diagram shows where responsibility sits, not where risk ends.
 
+### The same layers, read semantically
+
+The table above answers *who enforces what*. The same stack answers a second question — *where does meaning
+live* — and reading it that way is what keeps a future specification honest:
+
+| | Layer | Reads as |
+|---|---|---|
+| **Semantics** | Records | What the acts *mean* — what it is to have decided, superseded, rejected |
+| **Persistence** | Decision register | What is held, and who may reach it |
+| **Reasoning** | Graph and anything above it | What is computed from the held records — applicability, position, conflict |
+| **Behaviour** | Runtime, and the organisation around it | What is actually done, under a projection |
+
+Stated as one line: **the standard defines the meaning of the acts; the register or store enforces who may
+perform them; a downstream consumer computes the position.** This is the enforcement split of spec §10 read
+from the other side, and the two must not be conflated. Meaning is not enforcement: that a record *means*
+a decision was taken is exactly why it can neither confer authority nor establish that the decision is in
+force (§10, §11).
+
+The practical consequence is the reason this reading is written down. Should the standard ever specify a
+language rather than a format, that specification defines **what a conforming interpreter must compute — it
+does not compute**, in the same way a language standard defines required behaviour without being an
+implementation. The semantics layer may grow; the boundary does not move. See
+[TDR-0017](decisions/TDR-0017-language-admission-test.md).
+
 ## Why the boundary sits at the register
 
 Three properties of the standard already draw this line; this page only makes it visible.
