@@ -16,7 +16,8 @@ confirmed_by_outcome: pending — review when the evidence named under Consequen
 
 > **Amended before release and admission.** This record was materially amended — broadened from a test of
 > *this standard* to a test of any candidate language, and given a seventh criterion. **No superseding record
-> is created because the earlier proposal never acquired standing, and nothing had relied on it as an
+> is created because the earlier proposal never acquired standing within the accepted register, and nothing
+> had relied on it as an
 > accepted record.**
 >
 > Both conditions are required, and the wider one alone would not do. That a record is merely unmerged, or
@@ -146,8 +147,15 @@ The criterion is bounded by what the language itself defines — "every valid st
 the language says what a valid statement is, which is criteria 1 and 2 doing their work. Within that bound,
 the semantic domains a language must close over are:
 
-**applicability · temporal effectiveness · supersession · consistency · conflict, precedence and
-resolution · composition · inheritance · unresolved and indeterminate states**
+**applicability · temporal validity and effectiveness · supersession · consistency · conflict, precedence
+and resolution · composition · inheritance · unresolved and indeterminate states**
+
+**Validity and effectiveness are not one property**, which is why the domain names both. A statement may
+*exist*, be *valid*, be *in force*, and be *currently applicable* — four distinct states, and a language that
+compresses them will eventually be unable to express a decision that is validly made but not yet in force, or
+in force but not applicable here. The fourth is where this domain meets the applicability domain: *in force*
+is a temporal question, *applies to this situation* is a scope question, and only their conjunction makes a
+statement govern a given case.
 
 **Detecting a conflict is not the same as knowing which statement governs**, and precedence is not a special
 case of supersession — supersession is one record replacing another over time, whereas precedence decides
@@ -201,8 +209,9 @@ specified here.
 One caution about the capability axis. The seven criteria are **not a state machine**, and meeting them is not
 a sequence to be walked in order. A language may have a grammar with incomplete semantics, or settled
 semantics never expressed as a formal grammar, or a specification covering only part of what it defines, or
-several conforming serialisations of a single abstract syntax. Read the criteria as an **indicative
-progression** — a description of what completeness consists of, not a route by which it must be reached.
+several conforming serialisations of a single abstract syntax. Read the criteria as a **commonly observed
+progression** — these capabilities often emerge in roughly this order, but need not. It is a description of
+what completeness consists of, not a route by which it must be reached.
 
 ### This standard, scored
 
