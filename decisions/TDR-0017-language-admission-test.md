@@ -69,12 +69,19 @@ record enforces nothing. ARCHITECTURE.md puts the reasoning layer outside the fo
 the *standard* to compute a current position, resolve who may act, or detect contradiction would require
 abandoning the three-layer contract shipped eight days ago.
 
-**Composition between records was declined, not merely omitted.** [TDR-0016](TDR-0016-routing-and-disposition-refinements-from-field-application.md)
-considered a `same_decision_as` lineage relation and left it out, on the ground that the standard stays
-neutral on how records are produced. `practice/operating-model.md` states flatly that there is no
-`contradicts` field and that contradiction is a review finding and an index entry, never record frontmatter.
-So composition operators cannot arrive as an additive edit; under this repository's own rules
-(§7) reversing a recorded decision requires a superseding record.
+**Composition between records is unspecified, and two different things are easily confused here.**
+[TDR-0016](TDR-0016-routing-and-disposition-refinements-from-field-application.md) considered a
+`same_decision_as` lineage relation and left it out, on the ground that the standard stays neutral on how
+records are produced. That is a **provenance-identity** relation, and the question it answers is *how are
+records created*. Semantic composition answers a different question — *given two valid records, what does
+combining them mean* — which is a matter of interpretation, not production. **TDR-0016 therefore does not
+constrain composition, and remains in force.**
+
+The genuine constraint falls elsewhere, and only on part of the criterion: `practice/operating-model.md`
+states flatly that there is no `contradicts` field and that contradiction is a review finding and an index
+entry, never record frontmatter. That bears on **conflict**, not on composition. So the criterion divides —
+composition may be specified by a new decision record, while conflict and precedence remain constrained by a
+recorded position that this record does not disturb.
 
 **The static rules a validator would enforce are already enumerated, but nowhere formalised.**
 `practice/administration-and-assurance.md` lists them as the deterministic validator's checklist: lineage
@@ -114,8 +121,10 @@ but appears in no §7 transition rule.
    defines. Two criteria have running implementations to specify against and five do not, and a standard
    should specify what has been built rather than promote what has been drawn.
 
-6. **Composition, if it arrives, arrives by superseding TDR-0016** — not as an additive field. Recorded here
-   so that a later release cannot treat it as a minor addition.
+6. **Composition, if admitted, will be specified in a new decision record.** TDR-0016 remains in force,
+   because semantic composition concerns the interpretation of records rather than their production. Not an
+   additive field either — recorded here so that a later release can treat it as neither a minor addition nor
+   a reversal of something that was never decided.
 
 7. **Fix the two defects this test exposes, now**, because both are worth fixing whatever happens to the
    language question: the `rejected` transition gap (§7) and the undocumented absence of an abstract syntax
@@ -227,7 +236,7 @@ knowing which it was.
 | 2 | Defined vocabulary | **Met** | §4.1, `schema/tdr.schema.json`, the `x-` namespace contract at §4.3 |
 | 3 | Static rules | **Partly met** | Enumerated as the validator checklist in `practice/administration-and-assurance.md`; no grammar and no reference implementation |
 | 4 | Speech acts | **Partly met** | Amendment is not a legal move, only supersession; a superseding record must state what is now known that was not known; a named individual, never a committee. Not stated as a taxonomy; delegation unspecified |
-| 5 | Composition | **Not met** | Explicitly **declined** for this version by [TDR-0016](TDR-0016-routing-and-disposition-refinements-from-field-application.md); `practice/operating-model.md` |
+| 5 | Composition | **Not met** | Constraint composition is demonstrated in a reference implementation but **not specified by the language**; conflict and precedence remain unspecified and are constrained by `practice/operating-model.md`. [TDR-0016](TDR-0016-routing-and-disposition-refinements-from-field-application.md) declined a provenance-identity relation, which is a different question |
 | 6 | Interpretation contract | **Not met** | §11 states what the format does not compute; it does not yet state what an interpreter must. Deferred by this record |
 | 7 | Complete evaluation semantics | **Not met** | The furthest away. Applicability and conflict unspecified; §11 is a prose ancestor of the indeterminacy domain; **inheritance has no representation in this standard at all** |
 
@@ -246,8 +255,8 @@ That is the intended direction: a test is only worth publishing if it can be fai
   one-way, and an empty constraint set is distinguished from an absent one — **17 passing tests** across its
   two suites — together with a decision calculus whose binding, composition and partial-evaluation
   operations and whose authorisation gate carry **36 passing tests** and a demonstration that calls them.
-  This is the strongest evidence in the whole test, and it is evidence for the criterion the standard has
-  formally declined.
+  This is the strongest evidence in the whole test, and it is evidence for a criterion the standard has **not
+  yet specified** — implementation running ahead of specification, which is the harder case to hold honestly.
 - **Operations (counter-evidence, and the reason for the deferral).** In that same implementation, the
   entailment and contradiction relations, contradiction detection, applicability computation and
   "current position" are **designed and unbuilt** — scoped honestly in the design record, with no code.
@@ -283,16 +292,18 @@ That is the intended direction: a test is only worth publishing if it can be fai
 - **Fold standing into the maturity ladder** — treat a ratified record set as thereby a mature language.
   Rejected: it makes the test unfalsifiable by governance, and it is the specific error that lets an
   organisation believe a question is settled while implementers are still inventing semantics.
-- **Claim the language, or the domain-specific language, now.** Rejected. Four criteria are unmet, one is
-  actively declined, and the claim would fail the standard's own discipline on its first contact with a
-  reader who checked.
+- **Claim the language, or the domain-specific language, now.** Rejected. Four criteria are unmet — one of
+  them with implementation evidence but no specification — and the claim would fail the standard's own
+  discipline on its first contact with a reader who checked.
 - **Say nothing, and leave the question to the reader.** Rejected: silence is the state that lets the claim
   drift upward by implication. A stated test that the standard currently fails is more useful, and more
   honest, than an unstated one it might be argued into passing.
-- **Add composition operators quietly as an additive minor.** Rejected: TDR-0016 decided against a
-  composition relation on the record, and `practice/operating-model.md` states the position on contradiction
-  in terms. Reversing that by addition rather than by supersession would break §7 in the standard's own
-  repository.
+- **Add composition operators quietly as an additive minor.** Rejected, though not for the reason first
+  recorded. Composition reverses nothing: TDR-0016 declined a provenance-identity relation, which is a
+  different question, so there is no earlier decision here to supersede. What composition needs is a **new**
+  decision record making the semantics explicit — not an additive edit that would let a substantive
+  interpretation rule arrive without ever being decided. `practice/operating-model.md` separately holds the
+  position on contradiction, which constrains conflict rather than composition.
 
 ## Options foreclosed
 
@@ -317,7 +328,7 @@ either meeting the test and saying so, or not meeting it and continuing to say t
   file. This is the one criterion that needs no adopter evidence to *begin*: it needs the specification
   writing.
 - **Composition (criterion 5).** At least one register in which two records genuinely combine or conflict in
-  a way an adopter had to resolve, and a statement of how they resolved it — which is what a superseding
+  a way an adopter had to resolve, and a statement of how they resolved it — which is what a new composition
   TDR would be written against.
 - **Interpretation (criterion 6).** At least one implementation that computes a current position from a body
   of records, with its rules written down — so the interpretation contract is specified from something that
