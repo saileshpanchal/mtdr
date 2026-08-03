@@ -109,6 +109,14 @@ but appears in no §7 transition rule.
    - **The register or store enforces who may perform them.**
    - **A downstream consumer computes the position.**
 
+   Within that, meaning and computation are themselves separate questions, and conflating them is how a
+   language acquires an imagined dependency on some particular engine. *What does this statement mean* is a
+   question for the language. *What is the result of combining these statements* is a question for a
+   conforming interpreter. *What should the organisation now do, given the whole corpus* is a question for
+   something above both. **The semantics define what is available to any conforming interpreter; an
+   implementation that computes organisational state is a consumer of those semantics, not a dependency of
+   them.**
+
    Specifying an interpretation contract therefore adds a normative obligation on *interpreters*, not a
    capability of the record. Nothing here moves enforcement, entitlement or effectiveness into the format,
    and TDR-0015's allocation table stands.
@@ -236,7 +244,7 @@ knowing which it was.
 | 2 | Defined vocabulary | **Met** | §4.1, `schema/tdr.schema.json`, the `x-` namespace contract at §4.3 |
 | 3 | Static rules | **Partly met** | Enumerated as the validator checklist in `practice/administration-and-assurance.md`; no grammar and no reference implementation |
 | 4 | Speech acts | **Partly met** | Amendment is not a legal move, only supersession; a superseding record must state what is now known that was not known; a named individual, never a committee. Not stated as a taxonomy; delegation unspecified |
-| 5 | Composition | **Not met** | Constraint composition is demonstrated in a reference implementation but **not specified by the language**; conflict and precedence remain unspecified and are constrained by `practice/operating-model.md`. [TDR-0016](TDR-0016-routing-and-disposition-refinements-from-field-application.md) declined a provenance-identity relation, which is a different question |
+| 5 | Composition | **Not met** | Constraint composition has demonstrated a coherent **candidate semantic model** through a tested reference implementation, but is **not specified by the language**; conflict and precedence remain unspecified and are constrained by `practice/operating-model.md`. [TDR-0016](TDR-0016-routing-and-disposition-refinements-from-field-application.md) declined a provenance-identity relation, which is a different question |
 | 6 | Interpretation contract | **Not met** | §11 states what the format does not compute; it does not yet state what an interpreter must. Deferred by this record |
 | 7 | Complete evaluation semantics | **Not met** | The furthest away. Applicability and conflict unspecified; §11 is a prose ancestor of the indeterminacy domain; **inheritance has no representation in this standard at all** |
 
@@ -255,8 +263,14 @@ That is the intended direction: a test is only worth publishing if it can be fai
   one-way, and an empty constraint set is distinguished from an absent one — **17 passing tests** across its
   two suites — together with a decision calculus whose binding, composition and partial-evaluation
   operations and whose authorisation gate carry **36 passing tests** and a demonstration that calls them.
-  This is the strongest evidence in the whole test, and it is evidence for a criterion the standard has **not
-  yet specified** — implementation running ahead of specification, which is the harder case to hold honestly.
+  Stated precisely, because the temptation to overstate it is real: this demonstrates a coherent **candidate
+  semantic model** for composition, through one tested reference implementation. It is the strongest evidence
+  in the test, and it is evidence for a criterion the standard has **not yet specified** — implementation
+  running ahead of specification, which is the harder case to hold honestly. It establishes one
+  implementation, one algebra, one interpretation. It does **not** establish **interoperability**,
+  **independent convergence**, or the composition of conforming **records of this standard** — the tests
+  compose constraints inside a reference implementation, not MTDR records. Those are three further and later
+  questions, and the last of them is what criterion 5's own review trigger asks for.
 - **Operations (counter-evidence, and the reason for the deferral).** In that same implementation, the
   entailment and contradiction relations, contradiction detection, applicability computation and
   "current position" are **designed and unbuilt** — scoped honestly in the design record, with no code.
