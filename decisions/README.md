@@ -27,6 +27,12 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0017](TDR-0017-language-admission-test.md) | Adopt a language admission test; defer this standard's language specification to evidence | Full — a published test and a boundary commitment are one-way doors |
 | [TDR-0018](TDR-0018-interpretation-skills-and-the-artefact-boundary.md) | Admit vendor-neutral interpretation skills; fix the standard's boundary at the artefact | Full — a scope clarification is a one-way door |
 | [TDR-0019](TDR-0019-value-record-v2-operational-value-commitment.md) | Value Record v2 — specify the Operational Value Commitment; separate epistemic state from value state | Full — new required fields and a changed enum are a one-way door |
+| [TDR-0020](TDR-0020-open-organisational-record-repository-boundary.md) | State the repository boundary — an open organisational-records standard with no knowledge of its consumers | Full — a published identity commitment is a one-way door |
+| [TDR-0021](TDR-0021-record-package-architecture.md) | Record-package architecture — packages follow organisational languages; dependent artefacts live with the language they serve | Full — the extraction promise and the classification test are one-way doors |
+| [TDR-0022](TDR-0022-fragment-contribution-interchange-architecture.md) | Ratify the fragment-and-contribution interchange model as repository architecture | Minimal — ratifies shipped architecture at repository level |
+| [TDR-0023](TDR-0023-portable-skill-architecture.md) | Portable skill architecture — skills live with record semantics; shared skills must be demonstrably record-neutral | Minimal — significant but revisable |
+| [TDR-0024](TDR-0024-packaging-independence.md) | Packaging independence — packagings are distribution adapters, never normative architecture | Minimal — significant but revisable |
+| [TDR-0025](TDR-0025-conformance-architecture.md) | Conformance architecture — schema validation alone is insufficient; the layered test surface | Minimal — significant but revisable |
 
 ## Challenging a decision
 
