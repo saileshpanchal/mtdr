@@ -146,8 +146,8 @@ for f in glob.glob('records/**/*.md', recursive=True) + glob.glob('specification
 note('consumer-names', "normative artefacts clean")
 
 # 9 — every fixture carries a must-not section (TDR-0025)
-fixtures = glob.glob('records/*/fixtures/FIX-*.md') + glob.glob('tests/conformance/FIX-*.md') \
-         + glob.glob('tests/corpus/CORPUS-*.md')
+fixtures = glob.glob('records/*/fixtures/**/FIX-*.md', recursive=True) \
+         + glob.glob('tests/conformance/FIX-*.md') + glob.glob('tests/corpus/CORPUS-*.md')
 for f in fixtures:
     if '## Must not' not in open(f, encoding='utf-8').read():
         fail('fixture', f"{f}: no must-not section — a fixture without one is non-conforming")

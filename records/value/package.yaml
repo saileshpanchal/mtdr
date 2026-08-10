@@ -3,6 +3,9 @@ name: value
 language: value
 primary_record: VR
 object: ovc                      # the Operational Value Commitment; the record is its governed memory
+specifications:
+  supporting:
+    - specification/value-contribution.md   # the recovery vocabulary (TDR-0026)
 records:
   - id: VR
     specification: specification/vr.md

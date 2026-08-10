@@ -13,10 +13,11 @@ retained only in migration and alias tests.
 | Artefact | Location |
 |---|---|
 | VR specification (v2.0.0) | [`specification/vr.md`](specification/vr.md) |
+| Recovery vocabulary — contribution classes, boundaries, the completeness view | [`specification/value-contribution.md`](specification/value-contribution.md) |
 | Schema | [`schema/vr.schema.json`](schema/vr.schema.json) |
 | Template | [`templates/vr.md`](templates/vr.md) |
 | Worked example | [`examples/example-value-record-practice-skills.md`](examples/example-value-record-practice-skills.md) |
-| Conformance fixtures | [`fixtures/`](fixtures/) — FIX-001 (six-source assembly) · FIX-003 (proximity is never identity) · FIX-005 (protected value) · FIX-006 (qualitative) · FIX-007 (normative) · FIX-008 (environmental) · FIX-009 (conflicting commitments) |
+| Conformance fixtures | [`fixtures/`](fixtures/) — 15 fixtures across six value classes and three recovery conditions; see [`fixtures/README.md`](fixtures/README.md) |
 | Semantic roles (interpretation) | [`validation/semantic-roles.md`](validation/semantic-roles.md) |
 | Admissibility test | [`validation/admission.md`](validation/admission.md) |
 

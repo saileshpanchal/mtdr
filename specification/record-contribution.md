@@ -45,6 +45,7 @@ be, and would have lost the second and third readings of the sentence above.
 | `interpreted_at` | Yes | When the reading was made |
 | `extraction_confidence` | Yes | Did I read these words correctly? |
 | `epistemic_confidence` | Yes | How strong is the underlying evidence for the claim? |
+| `derivation` | No | `explicit` — read directly from the referenced span(s) — or `inferred` — derived across spans or from context. Optional and additive ([TDR-0026](../decisions/TDR-0026-value-recovery-vocabulary.md)); reported alongside completeness, never folded into it |
 
 The two confidences are different facts and must never be merged — see
 [`uncertainty.md`](uncertainty.md).

@@ -84,6 +84,13 @@
     "epistemic_confidence": {
       "$ref": "#/$defs/confidence",
       "description": "How strong is the underlying evidence for the claim? Independent of extraction_confidence — a source may state a number plainly while the number is unsupported."
+    },
+    "derivation": {
+      "enum": [
+        "explicit",
+        "inferred"
+      ],
+      "description": "Optional: how the interpreted value was derived — read directly from the referenced span(s) (explicit), or inferred across spans or from context (inferred). Record-neutral and additive (TDR-0026): instances without it remain valid. Derivation is reported alongside a candidate's completeness view and is never folded into its state grades — an inferred proposition must not present as complete, and an incomplete one must not hide behind 'inferred'."
     }
   },
   "$defs": {

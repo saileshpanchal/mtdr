@@ -33,6 +33,7 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0023](TDR-0023-portable-skill-architecture.md) | Portable skill architecture — skills live with record semantics; shared skills must be demonstrably record-neutral | Minimal — significant but revisable |
 | [TDR-0024](TDR-0024-packaging-independence.md) | Packaging independence — packagings are distribution adapters, never normative architecture | Minimal — significant but revisable |
 | [TDR-0025](TDR-0025-conformance-architecture.md) | Conformance architecture — schema validation alone is insufficient; the layered test surface | Minimal — significant but revisable |
+| [TDR-0026](TDR-0026-value-recovery-vocabulary.md) | Value-recovery vocabulary — contribution classes, the completeness view, the derivation marker, composition skills | Minimal — significant but revisable |
 
 ## Challenging a decision
 
