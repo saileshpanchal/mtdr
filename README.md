@@ -26,7 +26,9 @@ A TDR preserves the judgement at the moment it is exercised: context as it stood
 | [`spec-decision-assurance.md`](spec-decision-assurance.md) | The Decision Assurance Case specification — challenges a decision's consequences before execution |
 | [`FAQ.md`](FAQ.md) | Boundary FAQ — what a TDR is not |
 | [`/templates`](templates/) | Full, minimal and bare TDR templates, the VR template and the DAC template |
-| [`/skills`](skills/) | Recording: Decision Identification · Problem Framing & Decision Capture · Evidence Review · Governance Review · Value Record. Assurance: Systems Thinking · Systems Dynamics · Fraud & Adversarial Thinking · Customer Outcomes · Adaptive Capacity · Accumulated & Resultant Risk · Counterfactual & Evidence · Assurance Synthesis |
+| [`/skills`](skills/) | Recording: Decision Identification · Problem Framing & Decision Capture · Evidence Review · Governance Review · Value Record. Assurance: Systems Thinking · Systems Dynamics · Fraud & Adversarial Thinking · Customer Outcomes · Adaptive Capacity · Accumulated & Resultant Risk · Counterfactual & Evidence · Assurance Synthesis. Interpretation: Identify Record Contributions · Reconcile Record Fragments · Draft TDR · Draft VR · Challenge Record · Validate Record |
+| [`/records`](records/) | Record packages — the semantic roles and admissibility test per record type, and the extension contract for adding one |
+| [`/shared`](shared/) | Portable skill interchange structures — evidence fragments, interpreted contributions, candidate assemblies, and the rules that govern them |
 | [`/practice`](practice/) | Practice guides: a quick start, the operating model, administration & assurance, and the Consequential Decision Grammar |
 | [`/agents`](agents/) | Deploy the standard as an agent: vendor-neutral instructions, worked deployments, conformance probes |
 | [`/examples`](examples/) | Fictional worked examples (full and minimal) |

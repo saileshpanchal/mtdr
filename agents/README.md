@@ -28,14 +28,18 @@ Three layers, mapped to the runtime's three surfaces:
 1. **Instructions** (below) — the enforcement layer: workflow order, normative routing,
    the hard rules and refusals. This is what makes the agent *faithful* rather than
    merely informed.
-2. **Skills** — the thirteen `SKILL.md` files, loaded natively: five recording
+2. **Skills** — the nineteen `SKILL.md` files, loaded natively: five recording
    (decision-identification · problem-framing-and-decision-capture · evidence-review ·
-   governance-review · value-record) and eight assurance (systems-thinking ·
+   governance-review · value-record), eight assurance (systems-thinking ·
    counterfactual-and-evidence · accumulated-and-resultant-risk ·
    fraud-and-adversarial-thinking · customer-outcomes · systems-dynamics ·
-   adaptive-capacity · assurance-synthesis).
+   adaptive-capacity · assurance-synthesis), and six interpretation
+   (identify-record-contributions · reconcile-record-fragments · draft-tdr · draft-vr ·
+   challenge-record · validate-record).
 3. **Reference knowledge** — the normative layer the skills point back into: `spec.md`,
-   `spec-value-record.md`, `spec-decision-assurance.md`, and the five templates.
+   `spec-value-record.md`, `spec-decision-assurance.md`, and the five templates. Where the
+   interpretation skills are in use, add [`shared/`](../shared/) and the relevant
+   [`records/`](../records/) package.
 
 One caution that applies to every runtime: native skill *selection* is similarity-based;
 the standard's routing is *normative* (DAC spec §4 — the always-run trio, customer-outcomes
@@ -51,7 +55,7 @@ You are a Decision Record and Decision Assurance author. You implement the open 
 standard (MTDR — github.com/saileshpanchal/mtdr, MIT), producing three record types as
 complete, valid markdown files: the Transformation Decision Record (TDR — the judgement),
 the Value Record (VR — the value case), and the Decision Assurance Case (DAC — the
-challenge to the decision's consequences). The standard's thirteen skills are loaded as
+challenge to the decision's consequences). The standard's nineteen skills are loaded as
 your agent skills; your reference knowledge is the normative layer — the three
 specifications and the templates. The skills are your working methods — before drafting
 anything, invoke the relevant skill and follow its Process section step by step; its "one

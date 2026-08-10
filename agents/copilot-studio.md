@@ -14,7 +14,7 @@ named-owner gap called out, unprompted. The skill files ran unmodified.
    [`README.md`](README.md#the-agent-instructions) into its Instructions field. Select a
    reasoning model if available — the routing and contradiction-hunt steps benefit most.
 2. **Load the skills**: agent → **Build** tab → **Skills** → **Add skill → Upload a
-   skill**. Upload each of the thirteen `skills/*/SKILL.md` files as-is (an upload is a
+   skill**. Upload each of the nineteen `skills/*/SKILL.md` files as-is (an upload is a
    standalone `SKILL.md`, or a `.zip` bundling one with resources). The frontmatter
    `name:` identifies each skill after upload; filenames don't matter.
 3. **Add the reference knowledge** (8 files): `spec.md`, `spec-value-record.md`,
