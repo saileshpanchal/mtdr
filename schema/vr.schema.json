@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/saileshpanchal/mtdr/blob/main/schema/vr.schema.json",
+  "title": "Value Record — frontmatter",
+  "description": "Schema for the YAML frontmatter of a Value Record (VR), per spec-value-record.md v2.0.0 §4.2. The record is the governed memory of an Operational Value Commitment. It validates the machine-readable fields only; the markdown body is human judgement and is deliberately not schema-constrained. Note the two independent state axes: `status` is epistemic, `realisation` is about the value. Adopter-specific fields are permitted under the `x-` namespace, as for the TDR. This schema validates v2 records; v1 records remain valid v1 records and are not validated here. See TDR-0008, TDR-0019.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-": {
+      "description": "Adopter extension namespace. Name extensions `x-<owner>-<field>` to avoid collision. The standard defines no meaning for these fields, no expectation of portability, and schema validity implies nothing about security."
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "status",
+    "realisation",
+    "linked_decisions",
+    "beneficiary",
+    "committed_by",
+    "authority",
+    "value_kind",
+    "finance_countersignatory",
+    "reconcile_by",
+    "procurement_stage",
+    "supersedes",
+    "derived_from"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^VR-[0-9]+$",
+      "description": "VR-nnnn, unique within the owning organisation or repository."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Declarative statement of what is being pursued or preserved."
+    },
+    "status": {
+      "enum": ["candidate", "ratified", "settled", "superseded"],
+      "description": "The EPISTEMIC state — what is known about the record. Independent of `realisation`. A candidate has no organisational standing whether drafted by a person or assembled from evidence."
+    },
+    "realisation": {
+      "enum": [
+        "not-started",
+        "observing",
+        "realised",
+        "partially-realised",
+        "not-realised",
+        "attribution-unresolved",
+        "written-off"
+      ],
+      "description": "The VALUE state — what is known about the value. `attribution-unresolved` (outcome observed, attribution not evidenced) is a legitimate settlement, not an incomplete one."
+    },
+    "linked_decisions": {
+      "type": "string",
+      "pattern": "^TDR-[0-9]+(,[ ]?TDR-[0-9]+)*$",
+      "description": "One or more TDR ids. Never `none` — a value claim floating free of any decision is a forecast, not a record."
+    },
+    "beneficiary": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Whose outcome is being pursued or preserved. IDENTITY-BEARING, not descriptive metadata: two commitments identical in every other respect but differing in beneficiary are two commitments (spec-value-record.md §4.3)."
+    },
+    "committed_by": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A named individual who commits the organisation — not a committee, not a role."
+    },
+    "authority": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The authority under which the organisation is bound — a mandate, delegation, board approval or governing decision, traceable to something."
+    },
+    "value_kind": {
+      "enum": ["cost", "revenue", "risk-reduction", "capacity"]
+    },
+    "finance_countersignatory": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A named individual in the finance function — not a committee, not a role. Co-signs at ratification, every material state change, and any write-off."
+    },
+    "reconcile_by": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "description": "ISO 8601 date, YYYY-MM-DD. Frontmatter is validated as JSON: normalise YAML native dates to ISO-8601 strings before validation."
+    },
+    "procurement_stage": {
+      "enum": ["exploration", "pilot", "procurement", "build", "production", "retired"]
+    },
+    "supersedes": { "$ref": "#/$defs/vrRefList" },
+    "derived_from": { "$ref": "#/$defs/vrRefList" }
+  },
+  "$defs": {
+    "vrRefList": {
+      "type": "string",
+      "pattern": "^(none|VR-[0-9]+(,[ ]?VR-[0-9]+)*)$",
+      "description": "One or more VR ids (comma-separated), or the literal `none`."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "status": { "enum": ["ratified", "settled"] } },
+        "required": ["status"]
+      },
+      "then": {
+        "description": "A record may lack a baseline or counter-signatory only while `candidate`. Fields checkable here are already required; the baseline is a body section and is checked by the admission test, not the schema.",
+        "required": ["beneficiary", "committed_by", "finance_countersignatory", "reconcile_by"]
+      }
+    },
+    {
+      "if": {
+        "properties": { "status": { "const": "candidate" } },
+        "required": ["status"]
+      },
+      "then": {
+        "properties": {
+          "realisation": {
+            "const": "not-started",
+            "description": "A candidate has no organisational standing, so its value cannot yet be observing, realised or settled."
+          }
+        }
+      }
+    }
+  ]
+}

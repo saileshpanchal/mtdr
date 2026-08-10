@@ -6,7 +6,7 @@
 | Canonical artefact | Location |
 |---|---|
 | Specification | [`spec-value-record.md`](../../spec-value-record.md) |
-| Schema | None yet — see below |
+| Schema | [`schema/vr.schema.json`](../../schema/vr.schema.json) |
 | Template | [`templates/vr.md`](../../templates/vr.md) |
 | Worked example | [`examples/example-value-record-practice-skills.md`](../../examples/example-value-record-practice-skills.md) |
 
@@ -41,11 +41,12 @@ Commitment semantics → Ratified Value Record → Observation entries → Recon
 moved it. Counterfactual and competing-cause reasoning belongs to reconciliation and must never be
 required at commitment time.
 
-## No schema yet
+## Two state axes
 
-`spec-value-record.md` §4.1 states that the JSON Schema validates TDR frontmatter only, and "a VR schema
-may follow in a later minor version". That remains true. Candidates are validated against the
-specification's field table and this package's admission test until a schema exists.
+`status` (`candidate → ratified → settled → superseded`) records what is known about the **record**.
+`realisation` (`not-started → observing → realised | partially-realised | not-realised |
+attribution-unresolved | written-off`) records what is known about the **value**. They are independent,
+and interpretation never sets either from evidence — a candidate is `candidate` / `not-started`.
 
 ## Skills
 

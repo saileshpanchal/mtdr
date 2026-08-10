@@ -1,8 +1,12 @@
 ---
 id: VR-nnnn
-title: <Declarative statement of the value claim>
-status: proposed
+title: <Declarative statement of what is being pursued or preserved>
+status: candidate
+realisation: not-started
 linked_decisions: TDR-nnnn
+beneficiary: <Whose outcome this is — identity-bearing, not a description>
+committed_by: <Named individual who commits the organisation — not a committee, not a role>
+authority: <The mandate, delegation, board approval or governing decision the commitment rests on>
 value_kind: <cost | revenue | risk-reduction | capacity>
 finance_countersignatory: <Named individual in finance — not a committee, not a role>
 reconcile_by: YYYY-MM-DD
@@ -13,42 +17,53 @@ derived_from: none
 
 # VR-nnnn — <Title>
 
-## Value thesis
+## The commitment
 
-<!-- What value, of which kind, is claimed — and the falsifying signal that
-     would show it is not arriving. A thesis without a falsifying signal
-     is a hope, not a claim. -->
+<!-- What the organisation is committing to pursue or preserve, for whom, by whom,
+     under what authority. This is an accountable pursuit, not a prediction that
+     the outcome will occur. -->
 
 ## Baseline
 
-<!-- The measured starting point, with its date and source.
+<!-- The measured starting condition, with its date and source.
      No baseline, no claim. -->
 
-## Expected value and recognition route
+## Intended outcome and recognition
 
-<!-- Where the value shows up — cost line, revenue line, risk reduction,
-     capacity — and how it is recognised. "Recognised" means someone in
-     finance can point at it. -->
+<!-- The target condition; where the value shows up; how it is recognised —
+     "recognised" means someone in finance can point at it. And the falsifying
+     signal that would show the value is not arriving. A thesis without a
+     falsifying signal is a hope, not a commitment. -->
+
+## Review boundary
+
+<!-- Optional. Conditions under which this commitment must be reviewed or
+     challenged before its due point. -->
 
 ## Optimism adjustment
 
-<!-- The declared correction applied to the expected value, with its
-     rationale. Business cases flatter; state by how much this one is
-     assumed to, and why. -->
+<!-- Optional. The declared correction applied to the expected value, with its
+     rationale. Business cases flatter; state by how much this one is assumed
+     to, and why. -->
 
-## Realised entries
+## Observed outcomes
 
-<!-- Dated observations against the baseline, appended in place as they
-     occur — lifecycle facts, not edits. -->
+<!-- Dated observations against the baseline, appended in place as they occur.
+     An observation is not an attribution. -->
 
 - YYYY-MM-DD —
 
 ## Evidence
 
-<!-- References with locations that survive. -->
+<!-- Labelled by kind. References with locations that survive. -->
 
-## Reconciliation or write-off
+- **Existence** —
+- **Observation** —
+- **Attribution** —
 
-<!-- Completed at reconcile_by: the claim reconciled against reality, or
-     written off — signed by the finance counter-signatory. A write-off
-     states what was learned. -->
+## Attribution and settlement
+
+<!-- Completed at or before reconcile_by, co-signed by the finance
+     counter-signatory. Where an outcome is observed and attribution is not
+     evidenced, the honest settlement is attribution-unresolved — a legitimate
+     result, not an incomplete one. A write-off states what was learned. -->

@@ -1,6 +1,6 @@
 # MTDR — Markdown Transformation Decision Record
 
-**TDR** is a standard for recording significant organisational decisions with accountability semantics: what was known at the time, by whom, with what confidence. **MTDR** is its markdown reference format — as MADR is to ADR. The TDR has two sibling records: the **Value Record (VR)** — the value case and its life, the claim and the reconciliation as one record (since v1.3.0) — and the **Decision Assurance Case (DAC)** — a TDR preserves the judgement, it does not prove the consequences are acceptable; the DAC records the reasoning that challenges them, before execution (since v1.4.0).
+**TDR** is a standard for recording significant organisational decisions with accountability semantics: what was known at the time, by whom, with what confidence. **MTDR** is its markdown reference format — as MADR is to ADR. The TDR has two sibling records: the **Value Record (VR)** — the governed memory of an Operational Value Commitment, holding the commitment and its settlement as one record (since v1.3.0; v2.0.0 since 1.14.0) — and the **Decision Assurance Case (DAC)** — a TDR preserves the judgement, it does not prove the consequences are acceptable; the DAC records the reasoning that challenges them, before execution (since v1.4.0).
 
 MIT licensed. Tool-neutral. Regulator-neutral. Works alongside what you already run.
 

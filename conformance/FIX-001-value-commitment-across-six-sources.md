@@ -42,23 +42,23 @@ conflict; and ratification remains outside the skill.
 
 - **6 SourceFragments**, one per source, each with a resolvable locator and a source hash.
 - **8–12 RecordContributions**, all with `target_object: ovc` and `target_record_type: VR`. A
-  conforming distribution: A → `value-thesis`, `value-kind`, `expected-value`; B → `beneficiary`;
+  conforming distribution: A → `commitment`, `value-kind`, `intended-outcome`; B → `beneficiary`;
   C → `baseline`; D → `recognition-route`, `due-point`; E → `linked-decision`, `stewardship`;
-  F → `expected-value`.
+  F → `intended-outcome`, `authority`.
 - **Exactly 1 CandidateAssembly**, `status: candidate`.
 - **`grouping_basis` cites `entity-match` or `explicit-cross-reference`** with actual evidence — the
   shared assisted-digital benefit, and E's reference to TDR-0031. Not "same programme".
-- **`missing_semantics` contains exactly `falsifying-signal` and `finance-countersignatory`.** Both
-  are mandatory commitment roles and no source supplies either.
-- **One entry in `supersessions`**: A's `expected-value` superseded by F's, basis naming F's explicit
-  "superseding the February figure" *and* the shared authority lineage ("the Board's February
-  approval stands").
+- **`missing_semantics` contains exactly `falsifying-signal`, `committed-by` and
+  `finance-countersignatory`.** All three are mandatory and no source supplies any of them.
+- **One entry in `supersessions`**: A's `intended-outcome` superseded by F's, basis naming F's
+  explicit "superseding the February figure" *and* the shared authority lineage ("the Board's
+  February approval stands").
 - **`conflicts` is empty.**
-- **`epistemic_confidence` on A's `expected-value` is not `high`** — "an estimated £1.4m" is an
+- **`epistemic_confidence` on A's `intended-outcome` is not `high`** — "an estimated £1.4m" is an
   estimate with no stated derivation. `extraction_confidence` on the same contribution may be `high`;
   the two diverging here is the point.
-- The drafted Value Record carries `status: proposed`, both gaps marked in place, and a statement
-  that ratification is required.
+- The drafted Value Record carries `status: candidate`, `realisation: not-started`, all three gaps
+  marked in place, and a statement that ratification is required.
 
 ## Must not
 
@@ -68,8 +68,11 @@ conflict; and ratification remains outside the skill.
   shared authority lineage, is supersession.
 - **Drop A's £1.4m.** Superseding preserves both values with their ordering; it does not delete the
   earlier one.
-- **Emit `status` beyond `proposed`**, or mark the commitment `agreed`. No baseline problem here —
-  but no counter-signatory means not agreed.
+- **Record Priya Raghunathan as `committed_by`.** She stewards delivery. Stewardship is not
+  committing the organisation, and the two are separate roles precisely so this substitution is
+  visible rather than convenient.
+- **Emit `status` beyond `candidate`**, or `realisation` beyond `not-started`. No baseline problem
+  here — but no counter-signatory and no committer means not ratified.
 - **Record £0.9m as a realised or observed value.** It is a revised expectation at commitment time,
   not an `observed-outcome`.
 - **Assert the £5.3m implied residual**, or any figure not stated in a source.

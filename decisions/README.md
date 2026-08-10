@@ -26,6 +26,7 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0016](TDR-0016-routing-and-disposition-refinements-from-field-application.md) | Refine DAC routing and disposition from the first at-scale field application | Minimal — significant but revisable |
 | [TDR-0017](TDR-0017-language-admission-test.md) | Adopt a language admission test; defer this standard's language specification to evidence | Full — a published test and a boundary commitment are one-way doors |
 | [TDR-0018](TDR-0018-interpretation-skills-and-the-artefact-boundary.md) | Admit vendor-neutral interpretation skills; fix the standard's boundary at the artefact | Full — a scope clarification is a one-way door |
+| [TDR-0019](TDR-0019-value-record-v2-operational-value-commitment.md) | Value Record v2 — specify the Operational Value Commitment; separate epistemic state from value state | Full — new required fields and a changed enum are a one-way door |
 
 ## Challenging a decision
 

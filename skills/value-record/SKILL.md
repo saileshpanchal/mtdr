@@ -1,6 +1,6 @@
 ---
 name: value-record
-description: Raise, draft and reconcile a Value Record (VR) — the sibling record to the TDR that holds a quantified benefit claim and its reconciliation as one record. Use this skill whenever a quantified benefit claim enters a decision ("this saves", "this unlocks", "this reduces the risk of"), whenever someone asks "did that value ever arrive" or "who owns this benefit", and at every reconcile-by date. It refuses to mark a VR agreed without a measured baseline, a named finance counter-signatory and a reconcile-by date.
+description: Raise, draft and settle a Value Record (VR) — the governed memory of an Operational Value Commitment, holding the commitment and its settlement as one record. Use this skill whenever a quantified benefit claim enters a decision ("this saves", "this unlocks", "this reduces the risk of"), whenever someone asks "did that value ever arrive", "whose benefit was this" or "who committed us to that", and at every reconcile-by date. It refuses to ratify a VR without a stated beneficiary, a measured baseline, a named committer, a named finance counter-signatory and a reconcile-by date.
 ---
 
 # Value Record
@@ -25,7 +25,7 @@ Before drafting anything else, establish the measured starting point: the value,
 
 ### 3. Counter-signatory before agreement
 
-Identify the **named individual in finance** who will co-sign the claim — before the VR moves to `agreed`, not after. Not a committee, not a role, not "finance to confirm". The counter-signatory co-signs the claim, every material state change, and any write-off. A claim nobody in finance will put their name to is not a claim the organisation believes, and the record should say so by staying `proposed`.
+Identify the **named individual in finance** who will co-sign the claim — before the VR moves to `ratified`, not after. Not a committee, not a role, not "finance to confirm". The counter-signatory co-signs the claim, every material state change, and any write-off. A claim nobody in finance will put their name to is not a claim the organisation believes, and the record should say so by staying `candidate`.
 
 ### 4. Draft the record
 
@@ -39,12 +39,12 @@ Using [`templates/vr.md`](../../templates/vr.md):
 
 ### 5. Run the reconciliation loop
 
-While the VR is `realising`:
+While `realisation` is `observing`:
 
 - Append **realised entries** — dated observations against the baseline — as they occur. Entries are lifecycle facts, added in place; the thesis and baseline are never edited.
 - Watch for the **falsifying signal**. Its appearance is not an emergency; it is the record working. Bring it to the counter-signatory when it appears, not at the deadline.
 - At each **stage promotion**, raise a superseding VR stating what is now known that was not known at the previous stage — including a corrected expected value if the optimism adjustment proved too kind.
-- At `reconcile_by`, close the loop: **reconciled** (claim tested against baseline, outcome recorded, whatever it was) or **written-off**. Passing the date in silence is the one outcome this skill exists to prevent.
+- At `reconcile_by`, close the loop by setting `status: settled` and a `realisation` — **realised**, **partially-realised**, **not-realised**, **attribution-unresolved** or **written-off**. Passing the date in silence is the one outcome this skill exists to prevent.
 
 ### 6. The write-off discipline
 
@@ -52,13 +52,30 @@ While the VR is `realising`:
 
 ## When to refuse
 
-This skill refuses to mark a VR `agreed` when any of the following holds, and says which:
+This skill refuses to mark a VR `ratified` when any of the following holds, and says which:
 
-- **No measured baseline** — there is nothing to reconcile against.
+- **No stated beneficiary** — the commitment is not identifiable. Two commitments differing only in who the outcome is for are two commitments, so a beneficiary-less record cannot be safely grouped or superseded (`spec-value-record.md` §4.3).
+- **No measured baseline** — there is nothing to settle against.
+- **No named committer** — a committee cannot commit the organisation; it can only endorse someone who does.
 - **No named finance counter-signatory** — a committee, a role, or a blank is not a name.
+- **No traceable authority** — a commitment resting on nothing is a preference.
 - **No reconcile-by date** — a claim with no date never has to be true.
 
 The refusal is not a rejection of the underlying decision. The linked TDR can proceed on its own merits; what it cannot do is carry an unreconcilable number as if the number were evidence.
+
+## Two state axes, never merged
+
+`status` records what is known about the **record** — `candidate → ratified → settled → superseded`.
+`realisation` records what is known about the **value** — `not-started → observing → realised |
+partially-realised | not-realised | attribution-unresolved | written-off`.
+
+Keep them apart. The two most useful things a value record can say need both: *properly ratified and
+the value has not arrived*, and *the outcome was observed and nobody can yet say we caused it*. A
+single field cannot express either.
+
+**`attribution-unresolved` is a legitimate settlement.** Where an outcome is observed and attribution
+is not evidenced, record that. Marking it `realised` because the number moved in the right direction is
+the failure the three evidence kinds exist to prevent — measurement is not attribution.
 
 ## Quality checks
 

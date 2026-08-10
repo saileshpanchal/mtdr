@@ -36,10 +36,10 @@ document.
 
 ### 3. Render the commitment
 
-Value thesis with its falsifying signal, baseline with date and source, beneficiary, value kind,
-expected value and recognition route, due point, counter-signatory, linked decision. Where the material
-follows the OVC grammar — **Given · We commit · For · By · Settled by · Unless** — the mapping in
-[`records/vr/semantic-roles.md`](../../records/vr/semantic-roles.md) is direct.
+The eight roles — **Under · Who commits · For whom · We commit · From · To · By · We will know** — plus
+value kind, counter-signatory and linked decision. They are roles to be **inferred, not a sentence
+grammar**: real material almost never phrases itself this way, and looking for the words rather than the
+roles is how a skill misses a commitment stated plainly in ordinary prose.
 
 ### 4. Never assert attribution from measurement
 
@@ -65,22 +65,27 @@ is the hardest kind to notice.
 
 ## Outputs
 
-A markdown Value Record with `status: proposed`, commitment and reconciliation sections properly
-separated, gaps marked in place, and provenance attached. Plus a statement of what the evidence did not
-supply.
+A markdown Value Record with `status: candidate` and `realisation: not-started`, commitment and
+reconciliation sections properly separated, gaps marked in place, and provenance attached. Plus a
+statement of what the evidence did not supply.
 
 ## Quality checks
 
 - Does the baseline carry a measurement date and a source?
 - Does the value thesis carry a falsifying signal — something that would show the value is not arriving?
-- Is `finance_countersignatory` a named individual, or visibly absent? Never a function, never "Finance".
+- Are `committed_by` and `finance_countersignatory` both named individuals, or visibly absent? Never a
+  function, never "Finance". They are usually different people.
+- Is `beneficiary` evidenced rather than assumed from who wrote the document?
+- Does `authority` trace to something — a mandate, delegation, board approval or governing decision?
 - Has any reconciliation role leaked into a commitment section?
 - Is every attribution claim supported by attribution evidence, not by an observation?
 - Is `linked_decisions` evidenced rather than assumed from proximity?
 
 ## When to refuse
 
-- **No baseline contribution.** Report the gap; do not draft an expected value without one.
+- **No beneficiary contribution.** The commitment is not identifiable, and admission is blocked rather
+  than the gap reported. This is the only mandatory role whose absence stops the draft.
+- **No baseline contribution.** Report the gap; do not draft an intended outcome without one.
 - **No linked decision.** A value claim floating free of any decision is a forecast, not a record.
 - **The candidate merges two commitments** on programme membership or similar wording.
 - **Attribution is asserted in the source but only measurement is evidenced.** Draft the observation;
@@ -93,6 +98,8 @@ supply.
 - **Commitment inflation** — an aspiration in a slide drafted as an undertaking.
 - **Baseline by assumption** — "current state" with no measurement behind it.
 - **The tidy record** — beneficiary and falsifying signal supplied because their absence looked untidy.
+- **The counterfactual reported as a gap** — it is optional by design; its absence is not a missing
+  semantic and must never be inferred.
 - **Reconciliation leakage** — realised figures rendered as expected value.
 
 ## Scope note

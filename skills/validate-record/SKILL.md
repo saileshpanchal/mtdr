@@ -30,10 +30,11 @@ this is a defect the standard has already shipped once, recorded at v1.4.0.
 
 - TDR → [`schema/tdr.schema.json`](../../schema/tdr.schema.json)
 - DAC → [`schema/decision-assurance.schema.json`](../../schema/decision-assurance.schema.json)
-- **Value Record → no schema yet.** `spec-value-record.md` §4.1 says one "may follow in a later minor
-  version". Validate against the specification's field table and the package's role list instead, and
-  report that the check was structural rather than schema-based. **Do not silently pass a VR as
-  schema-valid.**
+- Value Record (v2) → [`schema/vr.schema.json`](../../schema/vr.schema.json)
+- **Value Record raised under v1 → no schema.** v1 records remain valid v1 records and are not
+  retrospectively invalid (`spec-value-record.md` §8). Validate them against the v1 field table and
+  report the check as structural. **Do not validate a v1 record against the v2 schema and report it as
+  failing** — it is conforming to the version it was raised under.
 
 ### 3. Check the conditional requirements
 
@@ -69,9 +70,8 @@ enforces. Note the namespace is defined for `tdr.schema.json` only.
 
 ## Outputs
 
-A pass or fail per check, with failures naming the field and the rule. Plus an explicit statement of
-which checks were schema-based and which structural, so a Value Record result is never mistaken for a
-schema pass.
+A pass or fail per check, with failures naming the field and the rule. Plus an explicit statement of which checks were
+schema-based and which structural, and which specification version each record was validated against.
 
 ## Quality checks
 
@@ -93,7 +93,7 @@ schema pass.
 - **Lenient parsing** — accepting frontmatter a strict parser would reject, so the defect surfaces later
   in someone else's tooling.
 - **Pattern-matched lineage** — checking an id looks like an id rather than resolving it.
-- **Silent VR passes** — reporting a Value Record as schema-valid when no VR schema exists.
+- **Version-blind VR validation** — running a v1 record against the v2 schema and reporting the four new required fields as failures.
 - **Fixing in place** — repairing what should have been reported.
 
 ## Scope note

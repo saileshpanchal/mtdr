@@ -40,7 +40,13 @@ The value, the baseline, the measurement source, the wording and the document ar
 - **`unresolved` on at least one candidate notes the question** — the shared baseline may mean these
   double-count one saving, or may mean two workstreams draw on one measured starting position. The
   evidence does not settle it, so it is recorded, not decided.
-- Both candidates report `falsifying-signal` and `finance-countersignatory` as missing.
+- Both candidates report the same substantial `missing_semantics` — among them `falsifying-signal`,
+  `committed-by`, `authority`, `finance-countersignatory`, `due-point` and `linked-decision`.
+
+Note that both candidates are **inadmissible** for want of a linked decision, and that is not a
+defect in the fixture. This fixture tests **grouping**, and grouping happens before admission. A
+skill that merges these two and only then discovers the admissibility failure has already made the
+error this fixture exists to catch.
 
 ## Must not
 
