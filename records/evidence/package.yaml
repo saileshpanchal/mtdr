@@ -1,0 +1,7 @@
+# Package manifest — machine-readable identity and maturity. TDR-0021.
+name: evidence
+language: evidence
+primary_record: OER
+status: candidate                # record admission test NOT passed — metadata and scope only
+admission: not-passed
+conformance_layers: {}           # a candidate carries none, by rule

@@ -5,8 +5,9 @@ description: Determine whether a record conforms to its specification — requir
 
 # Validate Record
 
-This skill checks conformance. It is written for humans and usable by AI assistants. Read
-[`spec.md`](../../../records/decision/specification/tdr.md) §4 and the relevant record package in [`records/`](../../../records).
+This skill checks conformance. It is written for humans and usable by AI assistants. Read the
+relevant record package in [`records/`](../../../records/) — its manifest, specification and schema
+are the authority this skill applies.
 [`practice/administration-and-assurance.md`](../../../practice/administration-and-assurance.md) carries the
 deterministic validator checklist this skill implements.
 
@@ -26,20 +27,23 @@ strings first — both schemas carry this caveat explicitly.
 **Watch for the unquoted colon.** A colon mid-sentence in an unquoted scalar silently breaks parsing;
 this is a defect the standard has already shipped once, recorded at v1.4.0.
 
-### 2. Validate against the schema, where one exists
+### 2. Resolve the record's package, then validate against the schema its manifest names
 
-- TDR → [`schema/tdr.schema.json`](../../../records/decision/schema/tdr.schema.json)
-- DAC → [`schema/decision-assurance.schema.json`](../../../records/decision/schema/dac.schema.json)
-- Value Record (v2) → [`schema/vr.schema.json`](../../../records/value/schema/vr.schema.json)
-- **Value Record raised under v1 → no schema.** v1 records remain valid v1 records and are not
-  retrospectively invalid (`spec-value-record.md` §8). Validate them against the v1 field table and
-  report the check as structural. **Do not validate a v1 record against the v2 schema and report it as
-  failing** — it is conforming to the version it was raised under.
+Determine the record type from its `id` prefix, then read the owning package's manifest
+(`records/<language>/package.yaml`): it names the specification, the specification version, and the
+schema — or names a prior version with no schema. This skill hard-codes no package's paths; the
+manifest is the lookup ([TDR-0023](../../../decisions/TDR-0023-portable-skill-architecture.md)).
+
+**Validate every record against the specification version it was raised under, never a later one
+retroactively.** Where the manifest lists a prior version with no schema, validate structurally
+against that version's field table and say so. Reporting a legacy record as failing a newer schema is
+version-blind validation, and it is wrong even when every reported failure is technically true.
 
 ### 3. Check the conditional requirements
 
-TDR full and minimal templates additionally require `confidence` and `confirmed_by_outcome`. The schema
-enforces this; state it in the output so a reader knows it was checked.
+A package's schema may carry conditional requirements — fields required only for certain template
+tiers or states. The schema enforces them; state in the output that they were checked, so a reader
+knows the conditionals ran rather than assuming the flat required-list was the whole test.
 
 ### 4. Check identifier and filename agreement
 
@@ -54,19 +58,21 @@ navigable.
 
 ### 6. Check status transitions are legal
 
-Records are superseded, never edited (`spec.md` §§6–7). A record moving from `superseded` back to
-`accepted`, or a Value Record moving out of `written-off`, is a failure.
+Records are superseded, never edited. The legal transitions are the package specification's; a
+record re-entering a state its specification marks terminal — a `superseded` record revived, a
+signed write-off reopened — is a failure.
 
 ### 7. Check review dates
 
-`reconcile_by` and `review_date` in the past, on a record not yet reconciled or reviewed, are reported
-as overdue. Overdue is a finding, not an invalidity.
+Any due-date field the package specification defines that is in the past, on a record not yet
+closed against it, is reported as overdue. Overdue is a finding, not an invalidity.
 
 ### 8. Check the `x-` namespace
 
-Adopter fields are permitted on TDR frontmatter under `x-`, named `x-<owner>-<field>`. **Schema validity
-implies nothing about security** — a record may validate while carrying a classification that nothing
-enforces. Note the namespace is defined for `tdr.schema.json` only.
+Where the package's schema opens an `x-` adopter namespace, extensions are named
+`x-<owner>-<field>`. **Schema validity implies nothing about security** — a record may validate while
+carrying a classification that nothing enforces. A namespace one package's schema opens is not
+thereby open in another's; check the schema at hand.
 
 ## Outputs
 
@@ -93,7 +99,7 @@ schema-based and which structural, and which specification version each record w
 - **Lenient parsing** — accepting frontmatter a strict parser would reject, so the defect surfaces later
   in someone else's tooling.
 - **Pattern-matched lineage** — checking an id looks like an id rather than resolving it.
-- **Version-blind VR validation** — running a v1 record against the v2 schema and reporting the four new required fields as failures.
+- **Version-blind validation** — running a legacy record against a later schema and reporting the newer required fields as failures.
 - **Fixing in place** — repairing what should have been reported.
 
 ## Scope note

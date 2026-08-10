@@ -37,8 +37,28 @@ identify → classify contributions → reconcile → draft → challenge → va
 ```
 
 **Ratify is always human, never a skill** ([`specification/candidacy-and-ratification.md`](../specification/candidacy-and-ratification.md)).
-Inputs and outputs between stages are the interchange structures of the
-[contribution model](../specification/contribution-model.md).
+
+### The stage contract
+
+Inputs and outputs are the interchange structures of the
+[contribution model](../specification/contribution-model.md) — stated explicitly so independent
+skills, possibly from different vendors, can hand work to one another at any stage boundary:
+
+| Stage | Consumes | Produces | Never |
+|---|---|---|---|
+| **identify** | source material, as supplied | `SourceFragment`s | judges document types; goes looking for material |
+| **classify contributions** | `SourceFragment`s | `RecordContribution`s (object + role + two confidences) | invents a role; forces one reading per fragment |
+| **reconcile** | `RecordContribution`s | `CandidateAssembly`s (grouping basis, gaps, conflicts, supersessions) | merges on proximity; resolves a conflict |
+| **draft** | one `CandidateAssembly` + the package's validation overlay | a candidate record, gaps marked in place, provenance attached | fills a gap; exceeds the status ceiling |
+| **challenge** | a candidate record + its provenance chain | findings, most serious first; fit / not fit to propose | confirms; ratifies |
+| **validate** | a record | pass/fail per check, naming the specification version validated against | treats a pass as assurance; fixes in place |
+| **ratify** | a candidate + a named human | a governed record | — not a skill, ever |
+
+The current shared `identify-record-contributions` performs **identify + classify** as one pass —
+permitted composition; the stage names remain the vocabulary. A skill's package binding is resolved
+through the **package manifest** (`records/<language>/package.yaml`): the manifest names the
+specification, its version, the schema and the templates, so shared skills locate a record's
+semantics by lookup rather than by hard-coded path.
 
 ## Distribution
 

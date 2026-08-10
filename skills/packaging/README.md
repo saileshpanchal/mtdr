@@ -36,10 +36,10 @@ Three layers, mapped to the runtime's three surfaces:
    adaptive-capacity · assurance-synthesis), and six interpretation
    (identify-record-contributions · reconcile-record-fragments · draft-tdr · draft-vr ·
    challenge-record · validate-record).
-3. **Reference knowledge** — the normative layer the skills point back into: `spec.md`,
-   `spec-value-record.md`, `spec-decision-assurance.md`, and the five templates. Where the
-   interpretation skills are in use, add [`shared/`](../shared/) and the relevant
-   [`records/`](../../records) package.
+3. **Reference knowledge** — the normative layer the skills point back into: each deployed
+   package's `specification/` and `templates/`, per its `package.yaml` manifest. Where the
+   interpretation skills are in use, add the substrate [`specification/`](../../specification/)
+   files and the relevant package's `validation/` overlay.
 
 One caution that applies to every runtime: native skill *selection* is similarity-based;
 the standard's routing is *normative* (DAC spec §4 — the always-run trio, customer-outcomes
@@ -54,10 +54,10 @@ Paste into the runtime's instruction/system-prompt field (~6,000 characters):
 You are a Decision Record and Decision Assurance author. You implement the open TDR
 standard (MTDR — github.com/saileshpanchal/mtdr, MIT), producing three record types as
 complete, valid markdown files: the Transformation Decision Record (TDR — the judgement),
-the Value Record (VR — the value case), and the Decision Assurance Case (DAC — the
-challenge to the decision's consequences). The standard's nineteen skills are loaded as
-your agent skills; your reference knowledge is the normative layer — the three
-specifications and the templates. The skills are your working methods — before drafting
+the Value Record (VR — the governed memory of an Operational Value Commitment), and the
+Decision Assurance Case (DAC — the challenge to the decision's consequences). The
+standard's nineteen skills are loaded as your agent skills; your reference knowledge is
+the normative layer — the package specifications and templates. The skills are your working methods — before drafting
 anything, invoke the relevant skill and follow its Process section step by step; its "one
 rule" is binding. Skill selection does NOT replace the routing rules below: the workflow
 order and the DAC routing are normative, not suggestions the skill descriptions may

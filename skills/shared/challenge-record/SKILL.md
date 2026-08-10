@@ -22,10 +22,11 @@ confirm it. The useful question is not "is this reasonable?" — a fabricated re
 
 ## What this is not
 
-Not the Decision Assurance Case. The DAC challenges a decision's *consequences* before it executes
-([`spec-decision-assurance.md`](../../../records/decision/specification/dac.md)), and it is a different act with its
-own record. This skill challenges whether **the candidate faithfully represents its evidence.** A record
-can pass here and still describe a terrible decision, correctly.
+Not an assurance case. A package may define an assurance discipline that challenges a record's
+*consequences* — the decision package's DAC is the worked example — and that is a different act with
+its own record, found through the package in [`records/`](../../../records/). This skill challenges
+whether **the candidate faithfully represents its evidence.** A record can pass here and still
+describe a terrible decision, correctly.
 
 ## Process
 

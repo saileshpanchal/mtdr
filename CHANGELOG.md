@@ -2,6 +2,17 @@
 
 All notable changes to the TDR standard (and its MTDR markdown reference format) are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the standard adheres to [Semantic Versioning](https://semver.org/). The *reasoning* behind each significant change lives in [`/decisions`](decisions/) as a TDR — this file is the index to it.
 
+## [1.16.0] — 2026-08-10
+
+### Added
+- **Package manifests** (`records/<language>/package.yaml`) — machine-readable identity and maturity per package: language, primary record, dependent records, specification versions, schema and template paths, and the conformance layers actually present ([`specification/conformance.md`](specification/conformance.md) — maturity is measured, not asserted). Candidate manifests carry `status: candidate`, `admission: not-passed` and an empty layer set. The manifest is now the lookup by which shared skills and distribution adapters resolve a record's semantics — an adapter enumerates from the manifests, never from a hand-maintained list.
+- **The stage contract** ([`skills/README.md`](skills/README.md)) — explicit consumes/produces/never per lifecycle stage, in interchange-structure terms, so independent skills can hand work to one another at any stage boundary. The current shared `identify-record-contributions` is documented as performing identify + classify in one pass — permitted composition; the stage names remain the vocabulary.
+
+### Changed
+- **`validate-record` made demonstrably record-neutral** ([TDR-0023](decisions/TDR-0023-portable-skill-architecture.md)) — it had hard-coded the three record types' schema paths, the VR's v1/v2 rule, TDR-specific conditionals and the `x-` namespace's home, which is package semantics in a shared skill. It now resolves the owning package's manifest and validates against the schema and specification version the manifest names; the version-blind anti-pattern is stated generically. `challenge-record`'s contrast with the DAC is likewise stated by example rather than by package path. A neutrality scan (no shared-skill link into any `records/<language>/` path) joins the verification suite at zero.
+- **`skills/packaging/` reframed as distribution adapters** ([TDR-0024](decisions/TDR-0024-packaging-independence.md)) — assembled from the normative artefacts, never constraining them; skills and reference knowledge enumerated by package manifest rather than by flat path; the worked deployment's upload steps updated for the package layout.
+- The TDR specification's version line stays at 1.14.0: **record specifications now version with their package, not with the repository** — the discipline the Value Record established at v2.0.0, applied generally. The repository version (this changelog) tracks the standard as a whole.
+
 ## [1.15.0] — 2026-08-10
 
 ### Added

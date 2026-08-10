@@ -14,11 +14,13 @@ named-owner gap called out, unprompted. The skill files ran unmodified.
    [`README.md`](README.md#the-agent-instructions) into its Instructions field. Select a
    reasoning model if available — the routing and contradiction-hunt steps benefit most.
 2. **Load the skills**: agent → **Build** tab → **Skills** → **Add skill → Upload a
-   skill**. Upload each of the nineteen `skills/*/SKILL.md` files as-is (an upload is a
+   skill**. Upload each of the nineteen `SKILL.md` files as-is — assembled by package per the
+   manifests: `records/decision/skills/**`, `records/value/skills/**`, `skills/shared/*` (an upload is a
    standalone `SKILL.md`, or a `.zip` bundling one with resources). The frontmatter
    `name:` identifies each skill after upload; filenames don't matter.
-3. **Add the reference knowledge** (8 files): `spec.md`, `spec-value-record.md`,
-   `spec-decision-assurance.md`, and the five templates in `templates/`. Optionally
+3. **Add the reference knowledge**: the package specifications
+   (`records/decision/specification/*.md`, `records/value/specification/vr.md`) and the
+   templates in each package's `templates/`. Optionally
    `FAQ.md` and the `examples/` — the agent imitates the worked examples' register and
    depth. Use v1.5.0 of the repository or later (the DAC routing rule is normative in one
    place from that release).
