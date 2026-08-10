@@ -1,35 +1,5 @@
----
-id: TDR-nnnn
-title: <Declarative statement of the decision>
-status: proposed
-template: minimal
-decision_date: YYYY-MM-DD
-accountable_owner: <Named individual — not a committee>
-confidence: <low | medium | high>
-supersedes: none
-derived_from: none
-confirmed_by_outcome: pending — <review date or trigger>
----
+# Moved
 
-# TDR-nnnn — <Title>
-
-## Context — what was known at the time
-
-<!-- The situation as it stood at the decision, in a paragraph. -->
-
-## Decision
-
-<!-- What was decided, stated plainly. -->
-
-## Alternatives rejected
-
-<!-- Briefly, with reasons. -->
-
-## Options foreclosed
-
-<!-- What this closes off, if anything. -->
-
-## Review
-
-<!-- When and how confirmed_by_outcome will be tested; note if this is a
-     two-way door held open on purpose. -->
+This file is now [`records/decision/templates/tdr-minimal.md`](../records/decision/templates/tdr-minimal.md) — relocated in the v1.15.0 package restructure
+([TDR-0021](../decisions/TDR-0021-record-package-architecture.md)). This stub exists so links in immutable decision records and changelog history
+keep resolving; do not add content here.

@@ -24,7 +24,7 @@ not settled doctrine.
 
 ## Decision
 
-Publish the grammar as [`practice/decision-grammar.md`](../practice/decision-grammar.md): the six lines,
+Publish the grammar as [`practice/decision-grammar.md`](../records/decision/practice/decision-grammar.md): the six lines,
 clause guidance, the mapping into the existing MTDR fields, anti-patterns, a consequentiality test, and
 fictional worked examples — explicitly **non-normative and additive** (no field, template or schema change).
 Reference it from the capture and identification skills. Mark it a working candidate (v0.1) and invite

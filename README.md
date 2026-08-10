@@ -12,29 +12,31 @@ A TDR preserves the judgement at the moment it is exercised: context as it stood
 
 ## Quick start
 
-1. Read [`spec.md`](spec.md) — ten minutes.
-2. Take a decision your organisation made in the last month. Apply the proportionality rule (spec §3) and copy the matching template from [`/templates`](templates/).
-3. Better: use the skills in [`/skills`](skills/) at your **next** decision — they are written for humans and structured so AI assistants can apply them directly.
+1. Read [the TDR specification](records/decision/specification/tdr.md) — ten minutes.
+2. Take a decision your organisation made in the last month. Apply the proportionality rule (spec §3) and copy the matching template from [`records/decision/templates/`](records/decision/templates/).
+3. Better: use the skills at your **next** decision — they are written for humans and structured so AI assistants can apply them directly. Start from your language's package under [`records/`](records/).
 
 ## What's here
 
+The repository is organised as **record packages** — one per organisational language — over a
+record-neutral substrate ([TDR-0021](decisions/TDR-0021-record-package-architecture.md)):
+
 | Path | Contents |
 |---|---|
-| [`ARCHITECTURE.md`](ARCHITECTURE.md) | The layered architecture in one diagram — and where the standard ends |
-| [`spec.md`](spec.md) | The TDR specification |
-| [`spec-value-record.md`](spec-value-record.md) | The Value Record specification — the TDR's sibling record |
-| [`spec-decision-assurance.md`](spec-decision-assurance.md) | The Decision Assurance Case specification — challenges a decision's consequences before execution |
-| [`FAQ.md`](FAQ.md) | Boundary FAQ — what a TDR is not |
-| [`/templates`](templates/) | Full, minimal and bare TDR templates, the VR template and the DAC template |
-| [`/skills`](skills/) | Recording: Decision Identification · Problem Framing & Decision Capture · Evidence Review · Governance Review · Value Record. Assurance: Systems Thinking · Systems Dynamics · Fraud & Adversarial Thinking · Customer Outcomes · Adaptive Capacity · Accumulated & Resultant Risk · Counterfactual & Evidence · Assurance Synthesis. Interpretation: Identify Record Contributions · Reconcile Record Fragments · Draft TDR · Draft VR · Challenge Record · Validate Record |
-| [`/records`](records/) | Record packages — the semantic roles and admissibility test per record type, and the extension contract for adding one |
-| [`/shared`](shared/) | Portable skill interchange structures — evidence fragments, interpreted contributions, candidate assemblies, and the rules that govern them |
-| [`/conformance`](conformance/) | Known-answer fixtures for the interpretation skills, with what a conforming run must and must not produce |
-| [`/practice`](practice/) | Practice guides: a quick start, the operating model, administration & assurance, and the Consequential Decision Grammar |
-| [`/agents`](agents/) | Deploy the standard as an agent: vendor-neutral instructions, worked deployments, conformance probes |
-| [`/examples`](examples/) | Fictional worked examples (full and minimal) |
-| [`/decisions`](decisions/) | **This standard's own design decisions, recorded as TDRs** |
-| [`CONTRIBUTING.md`](CONTRIBUTING.md) | How to challenge a decision — by superseding it |
+| [`specification/`](specification/) | The substrate: the [umbrella specification](specification/organisational-records.md), the [contribution model](specification/contribution-model.md) (fragments → contributions → candidates), provenance, identity, uncertainty, [candidacy and ratification](specification/candidacy-and-ratification.md), the [record admission test](specification/record-admission-test.md) and [what conformance means](specification/conformance.md) |
+| [`records/decision/`](records/decision/) | **The decision language** — TDR spec, DAC spec, schemas, templates, examples, fixtures, validation, and its skills (authoring, drafting, assurance) |
+| [`records/value/`](records/value/) | **The value language** — VR v2 spec (the Operational Value Commitment), schema, template, example, fixtures, validation, and its skills |
+| [`records/`](records/) | The package index, the extraction and dependency rules, and three **candidate** packages (authority · work · evidence) holding scope only |
+| [`skills/shared/`](skills/shared/) | The record-neutral skills: identify contributions · reconcile fragments · challenge · validate |
+| [`skills/packaging/`](skills/packaging/) | Distribution adapters — deploying the same files through specific runtimes ([TDR-0024](decisions/TDR-0024-packaging-independence.md)) |
+| [`schemas/shared/`](schemas/shared/) | Interchange schemas for the contribution model |
+| [`tests/`](tests/) | Cross-language fixtures, deployed-agent probes, the corpus, and the interoperability horizon |
+| [`practice/`](practice/) | Practice guides: quick start, operating model, administration & assurance |
+| [`decisions/`](decisions/) | **This standard's own design decisions, recorded as TDRs** |
+| [`ARCHITECTURE.md`](ARCHITECTURE.md) · [`FAQ.md`](FAQ.md) · [`GOVERNANCE.md`](GOVERNANCE.md) · [`CONTRIBUTING.md`](CONTRIBUTING.md) | The layered architecture and where the standard ends · what a TDR is not · how the repository governs itself · how to challenge a decision |
+
+Files at pre-restructure paths (`spec.md`, `templates/`, `shared/`, …) are pointer stubs preserving
+old links; the canonical artefacts live in the packages.
 
 ## A standard that uses itself
 

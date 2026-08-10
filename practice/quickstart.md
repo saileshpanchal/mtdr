@@ -25,19 +25,19 @@ Success is better decisions, not more records.
 ## The loop, per decision
 
 1. Give the source — meeting minutes, a board paper, a policy, a business case — to the
-   [decision-identification](../skills/decision-identification/SKILL.md) skill. Do not rewrite it; paste or
+   [decision-identification](../records/decision/skills/decision-identification/SKILL.md) skill. Do not rewrite it; paste or
    attach it as it is.
 2. Confirm which candidates are real decisions. Status updates, plans, action lists and opinions are not
    decisions; if reversing something costs less than recording it, do not record it.
-3. Draft each record at the proportional template ([full, minimal or bare](../templates/)) with the
-   [capture](../skills/problem-framing-and-decision-capture/SKILL.md) skill.
+3. Draft each record at the proportional template ([full, minimal or bare](../records/decision/templates/)) with the
+   [capture](../records/decision/skills/problem-framing-and-decision-capture/SKILL.md) skill.
 4. **Review** it: is it actually a decision; is the title right; is the owner identified; is enough context
    captured; is anything assumed that was not stated; would a stranger understand it in two years?
 5. **Improve, do not just approve** — this is where the value is. Ask: what evidence is missing; what
    assumptions have we made; what alternatives were rejected; what risks did we accept; what would
    invalidate this decision?
 6. Have the named owner confirm, then save the accepted record. Records are never edited afterwards; a
-   changed judgement is a [superseding record](../spec.md#7-status-and-lifecycle).
+   changed judgement is a [superseding record](../records/decision/specification/tdr.md#7-status-and-lifecycle).
 
 ## Start with one bounded area
 
@@ -52,4 +52,4 @@ later capabilities (searching, cross-checking, assurance) actually work.
   to controls, evidence and attestation.
 - [Administration and assurance](administration-and-assurance.md) — connecting a record set for search,
   the validator, and how to test that an assistant applies the standard faithfully.
-- [Deploying the standard as an agent](../agents/) — running the skills on the AI runtime you already have.
+- [Deploying the standard as an agent](../skills/packaging/) — running the skills on the AI runtime you already have.

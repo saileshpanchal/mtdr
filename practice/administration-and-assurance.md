@@ -15,7 +15,7 @@ the machinery.
   record.
 - **Redaction inside a connected set is not concealment.** Identifier gaps, lineage references and downstream
   constraints disclose that a record exists and roughly what it concerned, even to a reader who cannot open it
-  ([spec §10](../spec.md)). Where existence itself must be concealed, the record belongs in a separate
+  ([spec §10](../records/decision/specification/tdr.md)). Where existence itself must be concealed, the record belongs in a separate
   register with no cross-references — and you accept that it is absent from the connected memory.
 - **An assistant reading broadly can leak narrowly-held content.** The risk is not the assistant quoting a
   protected record verbatim; it is a protected fact arriving, paraphrased and unattributed, in a record held
@@ -83,7 +83,7 @@ its own, prove the assistant applies the standard. Use three tiers, re-run after
 instructions, skills or connected knowledge:
 
 1. **Deterministic checks** — schema, fields, enum values, forbidden mutations (as above).
-2. **Human-scored rubric** — the [conformance probes](../agents/conformance.md): identification and
+2. **Human-scored rubric** — the [conformance probes](../tests/conformance/agent-probes.md): identification and
    proportionality; the named-owner refusal; no-baseline-no-claim; assurance routing and the contradiction
    hunt; the composite-score refusal; supersede-don't-edit. Score against the rubric, not the platform's
    opinion.
@@ -100,7 +100,7 @@ the proposed relationship:
 - five genuine supersession cases;
 - five cases where no relevant record exists.
 
-The same discipline is applied to the interpretation skills in [`conformance/`](../conformance/), where
+The same discipline is applied to the interpretation skills in [`tests/`](../tests/), where
 four fixtures state what a conforming run must produce **and what it must not**. FIX-003 is the one worth
 copying into your own set: its failure mode produces a single tidy candidate where the correct answer is
 two, so it is the case a reviewer judging by appearance will always mark as a pass.

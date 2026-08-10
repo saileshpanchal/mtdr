@@ -19,7 +19,7 @@ TDRs preserve the judgement behind decisions, but the quantified benefit claims 
 
 ## Decision
 
-Add the **Value Record (VR)** as the TDR's sibling record: the TDR records the decision; the VR records the value case and its life. Shipped as a sibling specification ([`spec-value-record.md`](../spec-value-record.md)), a template, a practice skill, and a worked example. A VR cannot exist without a linked TDR. The core disciplines: no baseline, no claim; a named finance counter-signatory who co-signs the claim, material state changes and any write-off; a mandatory reconcile-by date; a declared optimism adjustment; and write-off as a signed state. The standard stays tool-neutral: no benefits software, no finance-system bindings.
+Add the **Value Record (VR)** as the TDR's sibling record: the TDR records the decision; the VR records the value case and its life. Shipped as a sibling specification ([`spec-value-record.md`](../records/value/specification/vr.md)), a template, a practice skill, and a worked example. A VR cannot exist without a linked TDR. The core disciplines: no baseline, no claim; a named finance counter-signatory who co-signs the claim, material state changes and any write-off; a mandatory reconcile-by date; a declared optimism adjustment; and write-off as a signed state. The standard stays tool-neutral: no benefits software, no finance-system bindings.
 
 ## Alternatives rejected
 

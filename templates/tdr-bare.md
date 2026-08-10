@@ -1,19 +1,5 @@
----
-id: TDR-nnnn
-title: <Declarative statement of the decision>
-status: proposed
-template: bare
-decision_date: YYYY-MM-DD
-accountable_owner: <Named individual>
-supersedes: none
-derived_from: none
----
+# Moved
 
-# TDR-nnnn — <Title>
-
-**Decision:** <What was decided.>
-
-**Why:** <One or two sentences.>
-
-**Reversible:** <Yes/no — how, and at what cost. If reversing would cost less
-than a fuller record, the bare template was the right call.>
+This file is now [`records/decision/templates/tdr-bare.md`](../records/decision/templates/tdr-bare.md) — relocated in the v1.15.0 package restructure
+([TDR-0021](../decisions/TDR-0021-record-package-architecture.md)). This stub exists so links in immutable decision records and changelog history
+keep resolving; do not add content here.

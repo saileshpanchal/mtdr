@@ -1,71 +1,64 @@
-# Record packages — the extension contract
+# Record packages
 
-**Version:** 1.0.0 · **Licence:** MIT · **Author:** Sailesh Panchal
+**The architectural unit of this standard is the record package, and top-level packages correspond to
+organisational languages** — one class of organisational meaning, one primary record type, one
+package. Decided in [TDR-0021](../decisions/TDR-0021-record-package-architecture.md); the umbrella
+specification is [`specification/organisational-records.md`](../specification/organisational-records.md).
 
-A record package tells an interpretation skill three things about one organisational object: what
-semantic roles material can contribute to, what makes a candidate admissible, and where the canonical
-specification lives.
-
-## Packages do not duplicate specifications
-
-The specifications, schemas and templates stay where they are — [`spec.md`](../spec.md),
-[`spec-value-record.md`](../spec-value-record.md), [`schema/`](../schema/), [`templates/`](../templates/).
-A package **points at them**; it never copies them.
-
-This is deliberate. A package holding its own copy of a spec would create two sources of truth that
-drift, and the drift would be invisible until a record validated against one and failed the other. The
-package adds only what interpretation needs and the specification does not carry.
-
-## Objects and their governed memory
-
-Contributions target **organisational objects**. Records are how those objects are preserved portably.
-The distinction matters for interpretation: the question is *"does this evidence help reconstruct an
-OVC?"*, not *"does this document contain Value Record fields?"*
-
-| Package | Organisational object | Governed memory | Status |
+| Package | Primary record | Status | Associated artefacts / practice |
 |---|---|---|---|
-| [`tdr/`](tdr/) | Consequential decision — the unit of judgement | TDR | Admitted |
-| [`vr/`](vr/) | Operational Value Commitment (OVC) — the unit of intended value | Value Record | Admitted |
+| [`decision/`](decision/) | **TDR** — the unit of judgement | **Normative** | DAC + the eight assurance skills |
+| [`value/`](value/) | **VR** — governed memory of an Operational Value Commitment | **Normative** | value challenge and validation |
+| [`authority/`](authority/) | OAR | Candidate | authority practice |
+| [`work/`](work/) | OIR | Candidate | JTBD / work practice |
+| [`evidence/`](evidence/) | OER | Candidate | evidence projection and validation |
 
-## What a package contains
+There is no sixth family for events, fragments, observations or runtime state.
 
-| File | Purpose |
-|---|---|
-| `README.md` | Manifest — the object, its canonical spec, schema and template, and the skills that draft and challenge it |
-| `semantic-roles.md` | The roles a contribution may target, which are mandatory for a candidate, and which belong to which lifecycle moment |
-| `admission.md` | The record-specific admissibility test, applied on top of the shared invariants |
+## What a normative package contains
 
-## The extension contract
+```
+records/<language>/
+├── README.md          package manifest — object, record, status, artefact index
+├── specification/     the language's normative semantics
+├── schema/            machine-readable frontmatter schemas
+├── templates/         authoring templates
+├── examples/          fictional worked examples
+├── fixtures/          known-answer conformance fixtures (expected AND must-not)
+├── validation/        semantic roles + the record-specific admissibility test
+└── skills/            the language's portable skills
+```
 
-A new record package plugs in without modifying any interpretation skill, any interchange structure, or
-any existing package. To add one:
+A **candidate** package contains a README only — identity, semantic scope, `status: candidate`, and a
+statement that the [record admission test](../specification/record-admission-test.md) has not been
+passed. A directory confers no maturity.
 
-1. Supply the three files above.
-2. Name the object with a lowercase-kebab identifier and the record type with an uppercase one, matching
-   the patterns in [`shared/schema/record-contribution.schema.json`](../shared/schema/record-contribution.schema.json).
-   The patterns are open rather than enumerated **precisely so that a package can be added without a
-   schema change**.
-3. Add the canonical spec, schema and template at the repository root, following existing convention.
-4. Add `draft-<record>` to [`skills/`](../skills/). `identify-record-contributions`,
-   `reconcile-record-fragments`, `challenge-record` and `validate-record` need no modification — they
-   read the package.
-5. Record the decision in [`decisions/`](../decisions/), per `CONTRIBUTING.md`.
+## The two structural rules
 
-`challenge-record` and `validate-record` are deliberately one skill each rather than one per record
-type. Structural failures — unsupported interpretation, missing mandatory semantics, provenance gaps,
-unresolved conflict — are common to every record; only the role list and the admission test differ, and
-both load from the package. This is what stops skill proliferation as further records arrive.
+**The extraction test.** Any package must be extractable tomorrow into an independently governed
+repository without redesigning the record. If it cannot, the boundary is wrong.
 
-## What is not here, and why
+**The dependency rule.** A package may depend *downward* on the substrate —
+[`specification/`](../specification/), [`schemas/shared/`](../schemas/shared/),
+[`skills/shared/`](../skills/shared/) — and never *sideways* on another package. Cross-language
+fixtures live in [`tests/`](../tests/). Anything two packages need becomes substrate, by a recorded
+decision.
 
-Authority (OAR), Inheritance (OIR), Evidence (OER), Participant and Mandate are **not packages in this
-release**. Their status as persistent records remains an open research question, and creating a
-directory for each would settle by convention what has not been settled by evidence — the failure the
-standard's own supersession discipline exists to prevent.
+One refinement, forced by a real relationship: a package's specification may make a **normative
+cross-reference to a sibling package's specification** — the value language's mandatory
+`linked_decisions` genuinely refers to the decision language (TDR-0008), and on extraction such a
+reference becomes a URL to the sibling standard, exactly as a reference to ISO 8601 would. What a
+package may never reach sideways for is a sibling's **schemas, skills, templates, validation or
+fixtures** — those are dependencies, and dependencies break extraction.
 
-The contract above deliberately leaves room for any that later qualify. Nothing in this release has to
-change to admit them.
+## Adding a language
 
----
+1. Pass the [record admission test](../specification/record-admission-test.md), recorded as a TDR.
+2. Populate the package per the layout above, layer by layer, through normal releases — the
+   [conformance layers](../specification/conformance.md) measure its maturity as they land.
+3. The shared interpretation skills need no modification: the object and record-type patterns in
+   [`schemas/shared/record-contribution.schema.json`](../schemas/shared/record-contribution.schema.json)
+   are open rather than enumerated precisely so a package plugs in without a schema change.
 
-*Admitted by [TDR-0018](../decisions/TDR-0018-interpretation-skills-and-the-artefact-boundary.md).*
+Whether something is a language at all — or a dependent artefact that lives *inside* one, as the DAC
+lives inside `decision/` — is the admission test's four questions, never a directory appearing.

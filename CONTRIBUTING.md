@@ -8,7 +8,7 @@ This repository's own design decisions live in [`/decisions`](decisions/) as TDR
 
 To challenge a decision:
 
-1. Copy the appropriate template from [`/templates`](templates/).
+1. Copy the appropriate template from [`/templates`](records/decision/templates/).
 2. Write a superseding TDR: set `supersedes:` to the record you are challenging, and make the **Context** section state *what is now known that was not known at the time* of the original decision.
 3. Open a pull request containing the new record. Discussion happens on the PR — in the standard's own format.
 4. If accepted, the new record's status becomes `accepted`, the original's becomes `superseded`, and both remain in the folder permanently. The reasoning trail survives its own corrections.

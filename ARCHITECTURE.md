@@ -37,9 +37,9 @@ flowchart TD
 
 | Layer | What it is | In the standard? | What it enforces |
 |---|---|---|---|
-| **AI runtime** | The environment that applies the skills — any agent runtime that loads the open skill format, or a human with the templates. Interchangeable by design (see [`/agents`](agents/)). | No — the standard is runtime-neutral | Nothing; it receives a projection and acts within it |
+| **AI runtime** | The environment that applies the skills — any agent runtime that loads the open skill format, or a human with the templates. Interchangeable by design (see [`skills/packaging/`](skills/packaging/)). | No — the standard is runtime-neutral | Nothing; it receives a projection and acts within it |
 | **Skills** | The [nineteen skills](skills/) as a portable execution model: each transforms the artefact — a raw transcript becomes an identified decision, becomes a framed record, becomes an evidenced and governed one, becomes (where material) an assured one. The six interpretation skills enter the same model one step earlier, from arbitrary organisational material ([TDR-0018](decisions/TDR-0018-interpretation-skills-and-the-artefact-boundary.md)). Passes, not prompts. | **Yes** | Nothing — method, not control |
-| **Records** | The three record types — [TDR](spec.md), [VR](spec-value-record.md), [DAC](spec-decision-assurance.md) — as complete, valid markdown files. | **Yes** | **Nothing.** A record carries judgement, not controls (spec §10) |
+| **Records** | The three record types — [TDR](records/decision/specification/tdr.md), [VR](records/value/specification/vr.md), [DAC](records/decision/specification/dac.md) — as complete, valid markdown files. | **Yes** | **Nothing.** A record carries judgement, not controls (spec §10) |
 | **Decision register** | The records held as a versioned body with lineage — a git repository, a documents system, a wiki. This is where a conforming implementation ends. | **Yes — the boundary** | Storage, existence visibility, retrieval, direct access and compartments — *within its administrative domain* |
 | **Decision graph** | An optional consumer that assembles the register's records (via the `supersedes` / `derived_from` / `confirmed_by_outcome` lineage fields, spec §6) into a queryable graph — to answer "what did this decision govern?", "what would superseding it invalidate?", "what is the accumulated risk position?". | No — an implementation choice that *enhances* the standard | Nothing by itself; it is a consumer, and is itself served through projections |
 | **Reasoning layer** | An optional higher-order capability operating over the graph. Out of scope for the standard; named and owned by whoever builds it. | No — built on top | Evaluates identity, mandate, entitlement, applicability and effectiveness; governs *system-mediated* use, disclosure and release; *manages* inference risk |
@@ -117,6 +117,6 @@ Three properties of the standard already draw this line; this page only makes it
 ---
 
 *This page is descriptive, not normative — it draws boundaries the specifications already define.
-The normative text is in [`spec.md`](spec.md), [`spec-value-record.md`](spec-value-record.md) and
-[`spec-decision-assurance.md`](spec-decision-assurance.md). The decision to publish this overview
+The normative text is in [`spec.md`](records/decision/specification/tdr.md), [`spec-value-record.md`](records/value/specification/vr.md) and
+[`spec-decision-assurance.md`](records/decision/specification/dac.md). The decision to publish this overview
 is recorded in [TDR-0012](decisions/TDR-0012-architecture-overview.md).*

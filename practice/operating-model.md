@@ -2,7 +2,7 @@
 
 How a decision record set becomes organisational memory, and how that memory connects to the controls,
 evidence and attestations that govern an organisation. This is practice guidance, not normative text — it
-draws on boundaries the [specifications](../spec.md) already define, and every layer beyond the record set
+draws on boundaries the [specifications](../records/decision/specification/tdr.md) already define, and every layer beyond the record set
 is optional (see [ARCHITECTURE.md](../ARCHITECTURE.md)).
 
 ## Read the source before you record it
@@ -19,7 +19,7 @@ A governing document is dense with different kinds of statement. Classify before
 
 Only an organisational judgement becomes a record. External requirements keep their own provenance and
 become constraints or evidence a record cites. Making a *current* policy's decisions explicit is not the
-retro-mining the [identification skill](../skills/decision-identification/SKILL.md) warns against: a policy
+retro-mining the [identification skill](../records/decision/skills/decision-identification/SKILL.md) warns against: a policy
 in force is the organisation's present position, not an old debate to reconstruct.
 
 ## The two loops
@@ -42,7 +42,7 @@ confirm, save. While a record set is small, link related decisions by hand; once
 backwards; a changed judgement becomes a superseding record; a relationship discovered later *between two
 existing records* is recorded in a separate, human-confirmed **relationship index**, not written into either
 record. Note that a discovered contradiction has nowhere to live *inside* a record in any case: the
-lineage fields are [`supersedes`, `derived_from` and `confirmed_by_outcome`](../spec.md#6-lineage) — there is
+lineage fields are [`supersedes`, `derived_from` and `confirmed_by_outcome`](../records/decision/specification/tdr.md#6-lineage) — there is
 no `contradicts` field. Contradiction is a review finding and an index entry, never record frontmatter.
 
 ## The assurance chain
@@ -60,7 +60,7 @@ and any exceptions.
 
 **The line that protects everyone:** the tooling compiles evidence and surfaces gaps; it never makes the
 attestation. Neither a record nor an assurance case proves the organisation is compliant — an
-[assurance case](../spec-decision-assurance.md#1-what-a-dac-is-not) demonstrates systematic challenge, not
+[assurance case](../records/decision/specification/dac.md#1-what-a-dac-is-not) demonstrates systematic challenge, not
 correctness, safety, approval or compliance. A "conforms" status is a proposed reading a named owner
 confirms, never an assurance the tool issues.
 
@@ -93,7 +93,7 @@ assumptions, and confidence that a consequential decision can still be explained
 ## Govern your own adoption
 
 Adopting this practice is itself a consequential decision. Record it the way the standard prescribes: a
-[TDR](../spec.md) for the decision to proceed, a [DAC](../spec-decision-assurance.md) for the consequences
-and safeguards, and a [Value Record](../spec-value-record.md) for the expected benefit with a measured
+[TDR](../records/decision/specification/tdr.md) for the decision to proceed, a [DAC](../records/decision/specification/dac.md) for the consequences
+and safeguards, and a [Value Record](../records/value/specification/vr.md) for the expected benefit with a measured
 baseline. An organisation that governs its own use of the discipline the way it asks the discipline to
 govern everything else has already demonstrated the point.
