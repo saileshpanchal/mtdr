@@ -50,6 +50,12 @@ Roles are defined by the record package, never invented here. If the evidence ma
 
 Absence is a result, not a failure. A pack that contains a decision with no named owner and no stated alternatives has told you something true and useful. Record the gap; do not close it.
 
+### 7. Recovery, not failure detection
+
+Interpretation reconstructs evidence of how the organisation understands, decides, authorises, works and evidences **today** — including fragmentation, contradiction and uncertainty. The candidate records make that state inspectable and progressively improvable; they are a quality instrument, not documentation of organisational deficiency.
+
+Two consequences bind every output. **Absence of a record is not evidence of an absent capability** — an organisation without a first-class value record may understand its value perfectly well through business cases, KPIs and benefits practice, and those are legitimate capabilities that often contain much of the evidence this skill needs. And **claims about absence, weakness or fragmentation must be established from evidence, never inferred from the absence of this standard's representation.** The record does not invent the organisational property; it makes it governable.
+
 ## Outputs
 
 A set of [`SourceFragment`](../../../specification/source-fragment.md) and [`RecordContribution`](../../../specification/record-contribution.md) structures, validating against [`schemas/shared/`](../../../schemas/shared/). Plus a short plain summary a stranger could follow — which objects appear to be present, on what evidence, and what is conspicuously absent.

@@ -1,6 +1,12 @@
-# Deploying the standard as an agent
+# Packaging — distribution adapters
 
-The skills in [`/skills`](..) are written for humans and structured so AI assistants
+How the standard's portable artefacts ship through specific runtimes. **Adapters are assembled
+from the normative artefacts and never constrain them**
+([TDR-0024](../../decisions/TDR-0024-packaging-independence.md)) — this directory is the one place
+in the repository where product names may appear, and a change to any specification, schema,
+template or skill justified only by a packaging surface's requirement is inadmissible.
+
+The skills are written for humans and structured so AI assistants
 can apply them directly. Since mid-2026 the major agent runtimes load that structure
 natively — a skill is a `SKILL.md` with YAML frontmatter (`name`, `description`) and
 markdown instructions — which means the standard is now **machine-deployable**: an
@@ -13,7 +19,7 @@ This directory is the deployment pack:
 |---|---|
 | This page | The vendor-neutral agent instructions and the deployment model |
 | [`copilot-studio.md`](copilot-studio.md) | A worked deployment: Microsoft Copilot Studio |
-| [`conformance.md`](../../tests/conformance/agent-probes.md) | Ten probes any deployed agent must pass |
+| [Agent probes](../../tests/conformance/agent-probes.md) | Ten probes any deployed agent must pass (in [`tests/`](../../tests/), outside every package) |
 
 Runtimes are **worked examples, never dependencies** — the same discipline the
 specifications apply to regulators. The skills load unmodified in any runtime that
@@ -28,14 +34,13 @@ Three layers, mapped to the runtime's three surfaces:
 1. **Instructions** (below) — the enforcement layer: workflow order, normative routing,
    the hard rules and refusals. This is what makes the agent *faithful* rather than
    merely informed.
-2. **Skills** — the nineteen `SKILL.md` files, loaded natively: five recording
-   (decision-identification · problem-framing-and-decision-capture · evidence-review ·
-   governance-review · value-record), eight assurance (systems-thinking ·
-   counterfactual-and-evidence · accumulated-and-resultant-risk ·
-   fraud-and-adversarial-thinking · customer-outcomes · systems-dynamics ·
-   adaptive-capacity · assurance-synthesis), and six interpretation
-   (identify-record-contributions · reconcile-record-fragments · draft-tdr · draft-vr ·
-   challenge-record · validate-record).
+2. **Skills** — the twenty-three `SKILL.md` files, loaded natively, assembled **by package**:
+   from [`records/decision/skills/`](../../records/decision/skills/) the authoring four, draft-tdr,
+   and the eight assurance skills under `assurance/`; from
+   [`records/value/skills/`](../../records/value/skills/) value-record and the five value lifecycle
+   skills; from [`shared/`](../shared/) the record-neutral four. Each package's `package.yaml`
+   manifest is the assembly list — an adapter enumerates from the manifests, never from a
+   hand-maintained list.
 3. **Reference knowledge** — the normative layer the skills point back into: each deployed
    package's `specification/` and `templates/`, per its `package.yaml` manifest. Where the
    interpretation skills are in use, add the substrate [`specification/`](../../specification/)
@@ -56,7 +61,7 @@ standard (MTDR — github.com/saileshpanchal/mtdr, MIT), producing three record 
 complete, valid markdown files: the Transformation Decision Record (TDR — the judgement),
 the Value Record (VR — the governed memory of an Operational Value Commitment), and the
 Decision Assurance Case (DAC — the challenge to the decision's consequences). The
-standard's nineteen skills are loaded as your agent skills; your reference knowledge is
+standard's twenty-three skills are loaded as your agent skills; your reference knowledge is
 the normative layer — the package specifications and templates. The skills are your working methods — before drafting
 anything, invoke the relevant skill and follow its Process section step by step; its "one
 rule" is binding. Skill selection does NOT replace the routing rules below: the workflow

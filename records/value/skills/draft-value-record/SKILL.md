@@ -1,5 +1,5 @@
 ---
-name: draft-vr
+name: draft-value-record
 description: Assemble reconciled contributions into a standards-conformant Value Record candidate reconstructing an Operational Value Commitment — keeping commitment semantics separate from reconciliation semantics, and never asserting attribution from measurement. Use this skill after reconcile-record-fragments has produced a candidate assembly for a value commitment, whenever someone says "write up the benefit case from these documents" or asks "what did we actually commit to here?", and when a commitment found in existing material needs a conformant draft. It refuses to draft an expected value with no baseline, and it will report an outcome as observed with attribution unresolved rather than claim a benefit the evidence does not carry.
 ---
 

@@ -20,7 +20,8 @@ conformance_layers:
   counter_examples: true
   fixtures: true
   validation_rules: true
-  skills: partial                # full per-value lifecycle set is the next planned increment
+  skills: true
 skills:
   authoring: [value-record]
-  drafting: [draft-vr]
+  lifecycle: [identify-value-contributions, reconcile-value-contributions, draft-value-record,
+              challenge-value-record, validate-value-record]

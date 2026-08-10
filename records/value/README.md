@@ -16,7 +16,7 @@ retained only in migration and alias tests.
 | Schema | [`schema/vr.schema.json`](schema/vr.schema.json) |
 | Template | [`templates/vr.md`](templates/vr.md) |
 | Worked example | [`examples/example-value-record-practice-skills.md`](examples/example-value-record-practice-skills.md) |
-| Conformance fixtures | [`fixtures/`](fixtures/) — FIX-001 (six-source assembly) · FIX-003 (proximity is never identity) |
+| Conformance fixtures | [`fixtures/`](fixtures/) — FIX-001 (six-source assembly) · FIX-003 (proximity is never identity) · FIX-005 (protected value) · FIX-006 (qualitative) · FIX-007 (normative) · FIX-008 (environmental) · FIX-009 (conflicting commitments) |
 | Semantic roles (interpretation) | [`validation/semantic-roles.md`](validation/semantic-roles.md) |
 | Admissibility test | [`validation/admission.md`](validation/admission.md) |
 
@@ -39,13 +39,13 @@ never reported as a gap and never inferred.
 **Authoring path**: [`value-record`](skills/value-record/) — raise, ratify and settle with a human
 who holds the commitment.
 
-**Interpretation path**: the shared
-[`identify-record-contributions`](../../skills/shared/identify-record-contributions/) and
-[`reconcile-record-fragments`](../../skills/shared/reconcile-record-fragments/), then
-[`draft-vr`](skills/draft-vr/) here, then the shared
-[`challenge-record`](../../skills/shared/challenge-record/) and
-[`validate-record`](../../skills/shared/validate-record/).
+**Interpretation path** — the full value lifecycle, each skill carrying this language's semantics
+over the shared mechanics ([TDR-0023](../../decisions/TDR-0023-portable-skill-architecture.md)):
+[`identify-value-contributions`](skills/identify-value-contributions/) →
+[`reconcile-value-contributions`](skills/reconcile-value-contributions/) →
+[`draft-value-record`](skills/draft-value-record/) →
+[`challenge-value-record`](skills/challenge-value-record/) →
+[`validate-value-record`](skills/validate-value-record/) → human ratification.
 
-One record, two routes to it. The full per-value lifecycle skill set — identify · reconcile · draft ·
-challenge · validate as value-specific skills — is this package's next planned increment, proving the
-skill architecture with Value as the first case.
+One record, two routes to it. Value is the first package to carry the full lifecycle — the proving
+case for the skill architecture; further languages inherit the pattern after admission.
