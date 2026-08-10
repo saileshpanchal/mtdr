@@ -38,11 +38,22 @@ never run against the v2 schema, and never silently passed as schema-valid.
    exists to preserve.
 6. **A write-off states what was learned.** A `written-off` realisation whose settlement section
    records no learning fails the specification's own definition — a signed state, not an abandonment.
+7. **Contribution coverage and unsupported claims.** Every populated field traces to at least one
+   supporting contribution, and the completeness view's `supported` grades are each backed — any
+   statement in the candidate with no contribution behind it is an **unsupported claim**, the
+   finding that matters most, reported by field. Coverage runs the other way too: contributions the
+   candidate references but never uses are listed, since silently dropped evidence is how challenge
+   material disappears.
+8. **Temporal consistency.** Source times, the commitment's due point, supersession ordering and any
+   observed-outcome dates cohere; a candidate whose baseline post-dates its commitment, or whose
+   superseding contribution precedes the superseded one, fails structurally.
 
 ## Outputs
 
-Per the shared contract: pass/fail per check, schema-based versus structural named, and the
-specification version each record was validated against.
+Per the shared contract: pass/fail per check, schema-based versus structural named, the
+specification version each record was validated against — and the unsupported-claim list, which
+downstream benchmarking consumes as the **unsupported assertion rate**. It does not decide whether
+the organisation should value something.
 
 ## Anti-patterns
 

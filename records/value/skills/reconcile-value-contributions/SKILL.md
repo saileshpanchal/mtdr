@@ -17,7 +17,21 @@ repeated here.
 identity ([`specification/vr.md`](../../specification/vr.md) §4.3): value commitments are where wrong
 merges are most likely and most damaging, because two benefits in one programme describe themselves
 in near-identical language — and the beneficiary clause is frequently the *only* separating signal.
-[`fixtures/FIX-003`](../../fixtures/FIX-003-two-commitments-not-one.md) is the standing demonstration.
+[`fixtures/conflicting/FIX-003`](../../fixtures/conflicting/FIX-003-two-commitments-not-one.md) is the standing demonstration.
+
+## The contract
+
+**Input:** value contributions from one or many sources. **Output:** candidate groupings **with
+reasons** — `CandidateAssembly` structures whose `grouping_basis` names its actual evidence — plus,
+for every grouping question the evidence raises, one of the seven findings:
+
+reinforcing contributions · contradictions · different beneficiaries · temporal evolution ·
+supersession · unresolved ambiguity · competing value propositions.
+
+"Best bank for Britain" · "help Britain prosper" · "support local businesses" · "grow SME lending"
+may or may not be one proposition — the output says which reading the evidence supports, and where
+it supports neither, the question goes to `unresolved` rather than being settled by fiat. **Never
+resolve conflict merely to produce a cleaner record.**
 
 ## Value-specific judgements
 

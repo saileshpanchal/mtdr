@@ -63,11 +63,20 @@ no. It is not. It is the accurate statement of what the evidence supports, and i
 successful attribution or a write-off would be a fabrication in the direction the reader expects — which
 is the hardest kind to notice.
 
+## The discipline
+
+**Populate only what the evidence supports. Missing means missing. Inferred means inferred.
+Conflicting means conflicting.** The skill never manufactures a measure because a strategy statement
+lacks one — a weak but faithful candidate is better than a beautiful hallucinated VR.
+
 ## Outputs
 
 A markdown Value Record with `status: candidate` and `realisation: not-started`, commitment and
-reconciliation sections properly separated, gaps marked in place, and provenance attached. Plus a
-statement of what the evidence did not supply.
+reconciliation sections properly separated, gaps marked in place, and provenance attached — **plus
+the completeness view** ([`specification/value-contribution.md`](../../specification/value-contribution.md)):
+per mandatory role, `supported | partial | missing | conflicting` (**state only** — derivation stays
+on the contributions and is reported alongside, never folded into the grades), and the one-sentence
+organisational reading of what the evidence did not supply.
 
 ## Quality checks
 

@@ -21,22 +21,41 @@ defect in the record. It is the record being honest.
 
 ## The value-specific challenges
 
-1. **Is the beneficiary evidenced, or assumed?** From whose outcome the material actually names — not
-   from who wrote the document, and not from who benefits by default.
-2. **Has reconciliation leaked into the commitment?** A realised figure rendered as expected value, an
-   observed outcome in a commitment section, a settlement judgement before ratification.
-3. **Can the falsifying signal actually fail?** "We will monitor benefits closely" cannot. A signal
-   that no plausible observation could trigger is a hope wearing instrumentation.
-4. **Is the optimism declared, or ambient?** An expected value carried straight from a business case,
-   with no declared adjustment and no rationale, imports the case's flattery as fact.
-5. **Is the baseline real?** Measured, dated, sourced — not "current state" by assumption, and not
-   the target restated as a starting position.
-6. **Is protection being lost?** Where the linked decision carried a protective condition, does the
-   candidate preserve it as a review boundary — or has protected value been flattened into the
-   pursuit's footnotes?
-7. **Are the two state axes honest?** `status` and `realisation` claims each supported — never a
-   candidate carrying observation states, never a settlement without the counter-signature the
-   specification requires.
+1. **Is this genuinely a value commitment?** Who benefits — and is the beneficiary evidenced, or
+   assumed from who wrote the document?
+2. **Has aspiration been mistaken for commitment?** An ambition with no binding authority is not yet
+   a commitment — though later material may bind it, so the finding names what binding is absent.
+3. **Has activity been mistaken for value, or a KPI mistaken for value?** Work is not an outcome; a
+   target nobody committed to is the shadow of a claim.
+4. **Has a financial measure displaced the actual proposition?** The figure is evidence *about* the
+   commitment; where the drafted commitment *is* the figure, find the proposition underneath.
+5. **Has reconciliation leaked into the commitment?** A realised figure rendered as expected value,
+   an observed outcome in a commitment section, a settlement before ratification.
+6. **Can the falsifying signal actually fail?** "We will monitor benefits closely" cannot. A signal
+   no plausible observation could trigger is a hope wearing instrumentation.
+7. **Is the optimism declared, or ambient — and is the baseline real?** Measured, dated, sourced;
+   not "current state" by assumption, and not the target restated as a starting position.
+8. **Have constraints disappeared, or protection been lost?** Where source material carried a
+   boundary or a protective condition, does the candidate preserve it — or has protected value been
+   flattened into the pursuit's footnotes?
+9. **Have conflicting statements been reconciled without authority?** An authorised weighing in the
+   material may be recorded; a weighing the drafting performed is a fabrication.
+10. **Is this actually a decision rather than Value?** Route it, do not force it.
+11. **Is the supposed commitment still current?** Supersession evidence elsewhere in the estate —
+    the challenge reads beyond the candidate's own supporting fragments.
+12. **Is there evidence elsewhere that would falsify it?** `challenge`-class contributions exist to
+    be found; a challenge that only reads supporting evidence is confirmation with extra steps.
+
+## Dispositions
+
+The output closes with exactly one recommendation per candidate:
+
+**split** (two objects wrongly merged) · **merge** (one object wrongly divided) · **reject** (not a
+value commitment — with the boundary test it fails) · **incomplete** (genuine but under-evidenced —
+with the completeness view's gaps) · **retain** (fit to propose as drafted).
+
+This is what makes the skill more useful than generic self-criticism: every finding lands on a
+disposition a human can act on.
 
 ## What is never a finding
 

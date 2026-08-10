@@ -2,6 +2,11 @@
 
 All notable changes to the TDR standard (and its MTDR markdown reference format) are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the standard adheres to [Semantic Versioning](https://semver.org/). The *reasoning* behind each significant change lives in [`/decisions`](decisions/) as a TDR — this file is the index to it.
 
+## [1.20.0] — 2026-08-10
+
+### Changed
+- **VR-2: the five value skills tightened to exact contracts.** `identify-value-contributions` gains its contract — material + metadata in; fragments and contributions out, each carrying contribution class, `derivation` and temporal context; **"no value contribution identified" is successful execution**; the `unclassified` outcome reported rather than near-fitted (the anti-pattern now names the near-fit as role-invention's quieter twin). `reconcile-value-contributions` outputs **candidate groupings with reasons** and the seven findings — reinforcing · contradictions · different beneficiaries · temporal evolution · supersession · unresolved ambiguity · competing propositions — with the "best bank for Britain" family as the worked may-or-may-not-be-one case. `draft-value-record` carries the discipline verbatim — *populate only what the evidence supports; missing means missing; inferred means inferred; conflicting means conflicting* — and emits the completeness view, state-only. `challenge-value-record` carries the full twelve-question set (aspiration vs commitment, activity vs value, KPI vs value, the displacing measure, unauthorised reconciliation, currency, falsification evidence beyond the candidate's own fragments) and closes with **exactly one of five dispositions per candidate: split · merge · reject · incomplete · retain** — what makes it more useful than generic self-criticism. `validate-value-record` gains checks 7–8: **contribution coverage and unsupported claims** (the unsupported-claim list feeds the benchmark's unsupported assertion rate; unused contributions listed, since silently dropped evidence is how challenge material disappears) and **temporal consistency**.
+
 ## [1.19.0] — 2026-08-10
 
 ### Added

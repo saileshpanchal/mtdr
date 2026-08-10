@@ -17,12 +17,32 @@ contain Value Record fields?"** A commitment's semantics are routinely spread ac
 a budget line, a steering pack and a later revision, none of which resembles a Value Record. The
 record is the serialisation; the commitment is the thing being reconstructed.
 
-## The roles
+## The contract
 
-Defined in [`validation/semantic-roles.md`](../../validation/semantic-roles.md): the eight commitment
-roles (*Under · Who commits · For whom · We commit · From · To · By · We will know*) plus value-kind,
-counter-signatory and linked decision — **roles to be inferred, not a sentence grammar**. Material
-almost never phrases itself this way; recognise the role a span plays, not the words.
+**Input:** arbitrary source material plus its source metadata (reference, date where known, kind).
+**Output:** `SourceFragment`s and `RecordContribution`s with `target_object: ovc` — each contribution
+carrying its **contribution class**, its `derivation` (`explicit` — read directly from the span —
+or `inferred` — derived across spans or context), both confidences, and temporal context. Plus any
+**`unclassified` outcomes** and a plain summary. **Never a Value Record, never a candidate** —
+assembly is a later stage's judgement.
+
+**"No value contribution identified" is successful execution, not failure.**
+
+## The vocabulary
+
+Two layers, both defined package-side. The **contribution classes**
+([`specification/value-contribution.md`](../../specification/value-contribution.md)) — beneficiary ·
+commitment · success · measure · constraint · assumption · time · priority · protection · trade-off ·
+challenge · supersession · context — say what a fragment carries *without requiring that it
+constitutes a record*; a fragment can make several. The **semantic roles**
+([`validation/semantic-roles.md`](../../validation/semantic-roles.md)) map evidence onto the record
+at drafting. Classify by class here; where the field-level role is already unambiguous, name it —
+never force it.
+
+**Where material is relevant to Value but fits no class, report the `unclassified` outcome** — the
+fragment references, what was recognised, why classification failed against the nearest classes.
+Not a fourteenth role, never a near-fit, never dropped: a recurring unclassified pattern is the
+evidence route for evolving the vocabulary.
 
 ## Value-specific recognitions
 
@@ -41,11 +61,6 @@ almost never phrases itself this way; recognise the role a span plays, not the w
   commitments.
 - **A benefits-tracker figure is an `observed-outcome`**, however early it appears — reconciliation
   material, never commitment material.
-
-## Outputs
-
-`SourceFragment`s and `RecordContribution`s with `target_object: ovc`, per the shared contract. No
-candidate, no record — reconciliation and drafting are later stages.
 
 ## Anti-patterns
 
