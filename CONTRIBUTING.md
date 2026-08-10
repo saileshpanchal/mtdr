@@ -26,3 +26,5 @@ Additional worked examples are welcome. They must be fictional and clearly marke
 ## Scope boundary
 
 This repository defines a format and its practice. Implementations — tooling, graph substrates, extraction pipelines, integrations — belong in their own projects, whoever builds them. Proposals that would bind the standard to particular software will be declined with thanks, per [TDR-0002](decisions/TDR-0002-differentiate-on-accountability-semantics.md).
+
+The dividing line is direction, not subject matter, per [TDR-0018](decisions/TDR-0018-interpretation-skills-and-the-artefact-boundary.md). **The standard ends at the artefact boundary.** A vendor-neutral skill that reads material and yields a conformant record *produces* the standard's own output, and belongs here. Storage, indexing, retrieval, orchestration, model selection, graph assembly and persistence *consume* records, and do not. Skills contributed here must make no assumption about storage, runtime, graph representation, orchestration or subsequent use.
