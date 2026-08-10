@@ -2,6 +2,12 @@
 
 All notable changes to the TDR standard (and its MTDR markdown reference format) are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the standard adheres to [Semantic Versioning](https://semver.org/). The *reasoning* behind each significant change lives in [`/decisions`](decisions/) as a TDR — this file is the index to it.
 
+## [1.17.0] — 2026-08-10
+
+### Added
+- **The corpus** ([`tests/corpus/`](tests/corpus/)) — five record-neutral, fragment-level cases covering the categories TDR-0025 requires, each with expected **and must-not** results: CORPUS-001 (one decision across three sources, where the confirming email's date is deliberately not the decision date); CORPUS-002 (a genuine **contradiction** — two sources reporting incompatible thresholds with no shared authority lineage, which must be recorded as a conflict and never resolved by recency or by source dignity); CORPUS-003 (the **implicit decision** — an incident workaround that outlived its stated review trigger and hardened into an FY27 capacity commitment, found without any decision language in the material); CORPUS-004 (an admissible but incomplete value commitment — beneficiary present, so admissible; baseline, named committer, counter-signatory and falsifying signal reported as what ratification must supply); CORPUS-005 (**nothing here** — a status note full of near-misses whose correct output is zero contributions, stated confidently).
+- **`tests/verify.py`** — the repository's own conformance suite as one executable: record schema validity, lineage resolution, skill frontmatter discipline, relative-link resolution including stubs, manifest coherence, the candidate metadata-only rule, the package dependency boundary, shared-skill record-neutrality, the consumer-name scan over normative artefacts, the VR negative cases, and the rule that **a fixture without a must-not section is a non-conforming fixture**. What previous releases ran as ad-hoc scripts is now a first-class artefact any contributor or fork can run: `python3 tests/verify.py`.
+
 ## [1.16.0] — 2026-08-10
 
 ### Added
