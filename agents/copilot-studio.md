@@ -25,7 +25,7 @@ named-owner gap called out, unprompted. The skill files ran unmodified.
 4. **Seed memory** (if enabled) per the guidance in [`README.md`](README.md#memory-if-the-runtime-offers-it):
    register conventions, named owners by area, regimes in scope — plus the two guardrails,
    written into memory itself.
-5. **Run the six probes** in [`conformance.md`](conformance.md) before giving anyone
+5. **Run the ten probes** in [`conformance.md`](conformance.md) before giving anyone
    access.
 
 ## Notes

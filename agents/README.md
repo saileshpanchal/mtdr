@@ -13,7 +13,7 @@ This directory is the deployment pack:
 |---|---|
 | This page | The vendor-neutral agent instructions and the deployment model |
 | [`copilot-studio.md`](copilot-studio.md) | A worked deployment: Microsoft Copilot Studio |
-| [`conformance.md`](conformance.md) | Six probes any deployed agent must pass |
+| [`conformance.md`](conformance.md) | Ten probes any deployed agent must pass |
 
 Runtimes are **worked examples, never dependencies** — the same discipline the
 specifications apply to regulators. The skills load unmodified in any runtime that
@@ -155,5 +155,5 @@ the specialists, and produces the one disposition — whose owner is always a na
 
 ## Prove it
 
-Run the six probes in [`conformance.md`](conformance.md) before trusting any deployment.
+Run the ten probes in [`conformance.md`](conformance.md) before trusting any deployment.
 An agent that fails one is not applying the standard, whatever its instructions say.

@@ -100,6 +100,11 @@ the proposed relationship:
 - five genuine supersession cases;
 - five cases where no relevant record exists.
 
+The same discipline is applied to the interpretation skills in [`conformance/`](../conformance/), where
+four fixtures state what a conforming run must produce **and what it must not**. FIX-003 is the one worth
+copying into your own set: its failure mode produces a single tidy candidate where the correct answer is
+two, so it is the case a reviewer judging by appearance will always mark as a pass.
+
 Where practical, have someone other than the set's author seed some cases, so the tests are not
 unconsciously easy. Keep a growing regression set of every example the assistant previously got wrong, and
 re-run it after each change.

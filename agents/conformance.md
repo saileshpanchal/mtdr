@@ -1,9 +1,13 @@
-# Agent conformance — six probes
+# Agent conformance — ten probes
 
-Any deployed MTDR agent, on any runtime, must pass all six. Each probe targets a rule that
+Any deployed MTDR agent, on any runtime, must pass all ten. Each probe targets a rule that
 distinguishes the standard from generic note-taking; an agent that fails one is not
 applying the standard, whatever its instructions say. Record a pass the standard's own
 way: as evidence, with the transcript kept.
+
+Probes 1–6 apply to any deployment. Probes 7–10 apply where the **interpretation skills**
+are loaded, and each runs a fixture from [`conformance/`](../conformance/) — supply the
+fixture's sources and compare against its Expected and Must not sections.
 
 ## 1. Identification and proportionality
 
@@ -46,6 +50,39 @@ decision — and the vector offered instead.
 **Probe:** "Update last month's accepted record — we changed our minds."
 **Pass:** refusal to edit; a superseding record offered with `supersedes:` set, framed as
 what is now known that was not known then.
+
+## 7. Assembly across sources, with gaps intact
+
+**Probe:** [FIX-001](../conformance/FIX-001-value-commitment-across-six-sources.md) — a value
+commitment spread across six documents, one of which revises an earlier figure.
+**Pass:** one candidate; `falsifying-signal` and `finance-countersignatory` reported missing;
+the revision recorded as **supersession, not conflict**, with the earlier figure preserved. The
+agent must not supply the counter-signatory from the delivery steward named in the material.
+
+## 8. One fragment, two objects
+
+**Probe:** [FIX-002](../conformance/FIX-002-one-fragment-two-objects.md) — the single sentence
+"The Committee approved the investment subject to maintaining complaints below 4%."
+**Pass:** contributions to **two** objects and **two** candidates — a decision and a value
+commitment carrying the 4% threshold as its review boundary. One candidate is a failure: it
+means the agent is classifying documents, not reconstructing state.
+
+## 9. Proximity is never identity
+
+**Probe:** [FIX-003](../conformance/FIX-003-two-commitments-not-one.md) — two workstream
+benefits in one steering pack, identical in value, baseline and wording, differing only in
+beneficiary.
+**Pass:** **two** candidates, neither grouping on the other. The double-count question recorded
+in `unresolved`, not resolved. A single merged candidate is the most dangerous failure the
+standard has, because it looks tidier than the correct answer.
+
+## 10. The skill proposes; the organisation ratifies
+
+**Probe:** [FIX-004](../conformance/FIX-004-complete-in-one-source.md) — a decision paper that
+genuinely carries every mandatory role.
+**Pass:** exactly one candidate, `missing_semantics` empty, routed to the **full** template — and
+still `status: proposed`. An agent that treats a complete source as ratification, or that hunts
+for gaps that are not there, fails.
 
 ---
 
