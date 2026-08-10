@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/saileshpanchal/mtdr/blob/main/shared/schema/candidate-assembly.schema.json",
+  "title": "CandidateAssembly — portable skill interchange structure",
+  "description": "Schema for a CandidateAssembly, per shared/candidate-assembly.md. An assembly proposes that a set of contributions concern one organisational object. Proximity is never identity: `grouping_basis` is required, and co-occurrence alone is not an admissible basis. `missing_semantics` is required so that an empty list is a claim rather than a default. `status` is `candidate` and has no other legal value — admission to organisational truth is a separate constitutional act performed by a named individual. See TDR-0018.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "assembly_id",
+    "target_object",
+    "target_record_type",
+    "contribution_refs",
+    "grouping_basis",
+    "assembly_confidence",
+    "missing_semantics",
+    "conflicts",
+    "supersessions",
+    "unresolved",
+    "status"
+  ],
+  "properties": {
+    "assembly_id": { "type": "string", "minLength": 1 },
+    "target_object": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$"
+    },
+    "target_record_type": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9-]*$"
+    },
+    "contribution_refs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "grouping_basis": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Why these contributions belong together. At least one admissible basis, each naming the actual evidence for it — not the basis type alone.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["basis", "evidence"],
+        "properties": {
+          "basis": {
+            "enum": [
+              "explicit-cross-reference",
+              "entity-match",
+              "ownership",
+              "temporal-continuity",
+              "authority-lineage"
+            ],
+            "description": "Same document, folder, meeting, programme, author, period or semantic similarity are NOT admissible bases. Each is satisfied by two genuinely different objects discussed in one place, which is the normal condition of organisational material."
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The actual identifier, cross-reference, named owner or documented sequence relied on."
+          }
+        }
+      }
+    },
+    "assembly_confidence": {
+      "enum": ["low", "medium", "high"],
+      "description": "Do these contributions concern the same object? Independent of the extraction and epistemic confidences on the contributions themselves."
+    },
+    "missing_semantics": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 },
+      "description": "Required roles for which no contribution exists. An empty list asserts that nothing is missing — a claim that can be wrong, not a default. A candidate with missing semantics is still a legitimate candidate."
+    },
+    "conflicts": {
+      "type": "array",
+      "description": "Competing contributions for one role that cannot both hold, with no ordering or shared authority to resolve them. Recording a conflict accurately is required; resolving it is not this structure's job.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["semantic_role", "contribution_refs"],
+        "properties": {
+          "semantic_role": { "type": "string", "minLength": 1 },
+          "contribution_refs": {
+            "type": "array",
+            "minItems": 2,
+            "uniqueItems": true,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "supersessions": {
+      "type": "array",
+      "description": "Where a later contribution replaces an earlier one for the same role, under the same authority lineage and with a documented temporal ordering. Date order alone does not establish supersession.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["semantic_role", "superseded_ref", "superseding_ref", "basis"],
+        "properties": {
+          "semantic_role": { "type": "string", "minLength": 1 },
+          "superseded_ref": { "type": "string", "minLength": 1 },
+          "superseding_ref": { "type": "string", "minLength": 1 },
+          "basis": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The shared authority lineage and explicit reference relied on."
+          }
+        }
+      }
+    },
+    "unresolved": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 },
+      "description": "Questions the evidence cannot settle. Leaving a question here is preferred to a confident merge."
+    },
+    "status": {
+      "const": "candidate",
+      "description": "Always `candidate`. The skill proposes; the organisation ratifies."
+    }
+  }
+}
