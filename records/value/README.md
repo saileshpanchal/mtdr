@@ -48,5 +48,9 @@ over the shared mechanics ([TDR-0023](../../decisions/TDR-0023-portable-skill-ar
 [`challenge-value-record`](skills/challenge-value-record/) →
 [`validate-value-record`](skills/validate-value-record/) → human ratification.
 
+**Entry point**: [`recover-value-records`](skills/recover-value-records/) — the composition skill
+that runs the lifecycle end to end and reports candidates, unknowns, conflicts and unclassified
+material. It orchestrates and decides nothing; every rule lives in the stage skill it belongs to.
+
 One record, two routes to it. Value is the first package to carry the full lifecycle — the proving
 case for the skill architecture; further languages inherit the pattern after admission.

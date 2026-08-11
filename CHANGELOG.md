@@ -2,6 +2,15 @@
 
 All notable changes to the TDR standard (and its MTDR markdown reference format) are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the standard adheres to [Semantic Versioning](https://semver.org/). The *reasoning* behind each significant change lives in [`/decisions`](decisions/) as a TDR — this file is the index to it.
 
+## [1.21.0] — 2026-08-10
+
+### Added
+- **`recover-value-records`** ([`records/value/skills/recover-value-records/`](records/value/skills/recover-value-records/)) — the value language's **composition skill** and user-facing entry point, under TDR-0026's composition ruling: it runs identify → reconcile → draft → challenge → validate in order, hands each stage's output to the next unmodified, routes split/merge dispositions back through reconciliation with the challenge's reasons, and stops at the ratification boundary. **It orchestrates and decides nothing** — every semantic rule lives in the stage skill that owns it, and any instruction in the entry point that changes *what* a stage decides rather than *when it runs* is a defect. Its one rule is the experiment's: **no stage is allowed to invent the missing transition.** The report it produces is bounded deliberately: candidates with completeness views and dispositions, what remains unknown, what remains conflicting, what was unclassified, what was found and not used — and nothing else; portfolio views, prioritisation and organisational judgement sit above the artefact boundary with whatever consumes the records.
+- This is the one skill independent runtimes are pointed at in the recovery experiment — distribution adapters may explain how to invoke it and may add no value semantics ([TDR-0024](decisions/TDR-0024-packaging-independence.md)).
+
+### Changed
+- Skill count references updated to twenty-four; the value package manifest gains its `orchestration` entry; the package README names the entry point.
+
 ## [1.20.0] — 2026-08-10
 
 ### Changed

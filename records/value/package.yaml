@@ -28,3 +28,4 @@ skills:
   authoring: [value-record]
   lifecycle: [identify-value-contributions, reconcile-value-contributions, draft-value-record,
               challenge-value-record, validate-value-record]
+  orchestration: [recover-value-records]   # composition skill — invokes the lifecycle, owns no semantics (TDR-0026)
