@@ -34,6 +34,13 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0024](TDR-0024-packaging-independence.md) | Packaging independence — packagings are distribution adapters, never normative architecture | Minimal — significant but revisable |
 | [TDR-0025](TDR-0025-conformance-architecture.md) | Conformance architecture — schema validation alone is insufficient; the layered test surface | Minimal — significant but revisable |
 | [TDR-0026](TDR-0026-value-recovery-vocabulary.md) | Value-recovery vocabulary — contribution classes, the completeness view, the derivation marker, composition skills | Minimal — significant but revisable |
+| [TDR-0027](TDR-0027-human-ratification-confers-standing.md) | Human ratification confers standing; evidence permits MTDR to represent it as accepted | Full — the authority boundary is a one-way door |
+
+## Decision assurance cases
+
+| Case | Assures | Disposition |
+|---|---|---|
+| [DAC-0027](DAC-0027-human-ratification-confers-standing.md) | TDR-0027 standing and ratification evidence | Proceed with constraints |
 
 ## Challenging a decision
 
