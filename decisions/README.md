@@ -35,12 +35,18 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0025](TDR-0025-conformance-architecture.md) | Conformance architecture — schema validation alone is insufficient; the layered test surface | Minimal — significant but revisable |
 | [TDR-0026](TDR-0026-value-recovery-vocabulary.md) | Value-recovery vocabulary — contribution classes, the completeness view, the derivation marker, composition skills | Minimal — significant but revisable |
 | [TDR-0027](TDR-0027-human-ratification-confers-standing.md) | Human ratification confers standing; evidence permits MTDR to represent it as accepted | Full — the authority boundary is a one-way door |
+| [TDR-0031](TDR-0031-reconcile-ratified-judgement-after-identifier-collision.md) | Reconcile a ratified judgement prospectively when its proposed identifier collides with an accepted record | Full — identity, standing and immutable lineage are constitutional |
+| [TDR-0032](TDR-0032-typed-multi-object-conformance.md) | Typed multi-object conformance and the register as an optional collection mechanism | Full — standing carried through a permanent TDR-0031 crosswalk |
+| [TDR-0033](TDR-0033-four-dimensional-validity.md) | Structural, semantic, relational and lifecycle-transition validation | Full — standing carried through a permanent TDR-0031 crosswalk |
 
 ## Decision assurance cases
 
 | Case | Assures | Disposition |
 |---|---|---|
 | [DAC-0027](DAC-0027-human-ratification-confers-standing.md) | TDR-0027 standing and ratification evidence | Proceed with constraints |
+| [DAC-0031](DAC-0031-reconcile-ratified-judgement-after-identifier-collision.md) | TDR-0031 prospective identifier-collision reconciliation | Proceed with constraints |
+| [DAC-0032](DAC-0032-typed-multi-object-conformance.md) | TDR-0032 typed conformance and optional register boundary | Proceed with constraints |
+| [DAC-0033](DAC-0033-four-dimensional-validity.md) | TDR-0033 validity dimensions and transition eligibility | Proceed with constraints |
 
 ## Challenging a decision
 

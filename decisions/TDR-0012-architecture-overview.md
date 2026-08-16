@@ -1,7 +1,7 @@
 ---
 id: TDR-0012
 title: Publish an architecture overview that fixes the standard's boundary at the decision register
-status: accepted
+status: superseded
 template: minimal
 decision_date: 2026-07-22
 accountable_owner: Sailesh Panchal
