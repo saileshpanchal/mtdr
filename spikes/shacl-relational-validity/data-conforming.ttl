@@ -1,0 +1,30 @@
+@prefix mtdr: <https://github.com/saileshpanchal/mtdr/ns#> .
+@prefix r:    <https://github.com/saileshpanchal/mtdr/records/> .
+
+# A small slice of the real repository, expressed as RDF. Everything resolves.
+
+r:TDR-0020 a mtdr:DecisionRecord ; mtdr:status "accepted" .
+r:TDR-0027 a mtdr:DecisionRecord ; mtdr:status "accepted" .
+r:TDR-0012 a mtdr:DecisionRecord ; mtdr:status "superseded" .
+
+r:TDR-0032 a mtdr:DecisionRecord ;
+    mtdr:status "accepted" ;
+    mtdr:derivedFrom r:TDR-0020, r:TDR-0027 ;
+    mtdr:supersedes r:TDR-0012 .
+
+r:DAC-0032 a mtdr:AssuranceCase ;
+    mtdr:disposition "proceed-with-constraints" ;
+    mtdr:assures r:TDR-0032 .
+
+r:VR-0001 a mtdr:DecisionRecord ;
+    mtdr:status "accepted" ;
+    mtdr:specificationVersion "2.0.0" .
+
+r:CA-0001 a mtdr:CandidateAssembly ;
+    mtdr:specificationVersion "2.0.0" ;
+    mtdr:cites r:VR-0001 .
+
+r:value a mtdr:Package ;
+    mtdr:declaresDependency "specification/record-contribution.md", "skills/shared/" ;
+    mtdr:outwardReference "specification/record-contribution.md",
+                          "skills/shared/challenge-record" .

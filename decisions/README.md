@@ -39,6 +39,7 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0032](TDR-0032-typed-multi-object-conformance.md) | Typed multi-object conformance and the register as an optional collection mechanism | Full — standing carried through a permanent TDR-0031 crosswalk |
 | [TDR-0033](TDR-0033-four-dimensional-validity.md) | Structural, semantic, relational and lifecycle-transition validation | Full — standing carried through a permanent TDR-0031 crosswalk |
 | [TDR-0034](TDR-0034-public-allocation-authority.md) | Govern public identifier allocation here, and make allocation irreversible | Full — a namespace-governance commitment is a one-way door |
+| [TDR-0035](TDR-0035-standards-boundary.md) | Publish the standards boundary — what this standard adopts, maps, interoperates with and defers | Full — a published dependency boundary is a one-way door |
 
 ## Identifiers
 
@@ -53,9 +54,9 @@ The records also demonstrate the proportionality rule in practice:
 | [DAC-0032](DAC-0032-typed-multi-object-conformance.md) | TDR-0032 typed conformance and optional register boundary | Proceed with constraints |
 | [DAC-0033](DAC-0033-four-dimensional-validity.md) | TDR-0033 validity dimensions and transition eligibility | Proceed with constraints |
 
-Both cases accepted with `proceed-with-constraints` carry live obligations.
-[`evidence/DAC-0032-0033-obligations.yaml`](evidence/DAC-0032-0033-obligations.yaml) registers all
-fifteen, each with **two independent fields** — `implementation` and `verification` — because a
+DAC-0032 and DAC-0033 carry fifteen live obligations between them.
+[`evidence/DAC-0032-0033-obligations.yaml`](evidence/DAC-0032-0033-obligations.yaml) registers every
+one, each with **two independent fields** — `implementation` and `verification` — because a
 requirement can be fully implemented today and intentionally unverified until release, and one
 conflated state would force a choice between claiming a proof that does not exist and hiding work
 that does. `tests/verify.py` checks the register against both cases, so a constraint cannot silently

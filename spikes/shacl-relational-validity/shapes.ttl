@@ -1,0 +1,81 @@
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix mtdr:  <https://github.com/saileshpanchal/mtdr/ns#> .
+
+# Four real MTDR relational constraints expressed in SHACL. Non-normative spike — see README.md.
+
+## 1 — Lineage resolution. Core SHACL, no extension needed.
+mtdr:LineageShape
+    a sh:NodeShape ;
+    sh:targetClass mtdr:DecisionRecord ;
+    sh:property [
+        sh:path mtdr:derivedFrom ;
+        sh:class mtdr:DecisionRecord ;
+        sh:message "derived_from must resolve to a decision record" ;
+    ] ;
+    sh:property [
+        sh:path mtdr:supersedes ;
+        sh:class mtdr:DecisionRecord ;
+        sh:message "supersedes must resolve to a decision record" ;
+    ] .
+
+## 2 — DAC-to-TDR binding, including a condition on the *related* node's state. Core SHACL via
+## sh:node, which is the natural construct for this.
+mtdr:AssuranceBindingShape
+    a sh:NodeShape ;
+    sh:targetClass mtdr:AssuranceCase ;
+    sh:property [
+        sh:path mtdr:assures ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class mtdr:DecisionRecord ;
+        sh:node mtdr:AcceptedRecordShape ;
+        sh:message "an accepted assurance case must assure exactly one accepted decision record" ;
+    ] .
+
+mtdr:AcceptedRecordShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path mtdr:status ;
+        sh:in ( "accepted" ) ;
+    ] .
+
+## 3 — Cross-object version compatibility. Comparing a value on the focus node with a value on a
+## *related* node is outside core SHACL's property-pair constraints, so this needs sh:sparql.
+mtdr:VersionCompatibilityShape
+    a sh:NodeShape ;
+    sh:targetClass mtdr:CandidateAssembly ;
+    sh:sparql [
+        sh:message "assembly governed by {?governing} cites {?cited}, raised under {?raised}" ;
+        sh:prefixes mtdr: ;
+        sh:select """
+            SELECT $this ?governing ?cited ?raised
+            WHERE {
+                $this <https://github.com/saileshpanchal/mtdr/ns#specificationVersion> ?governing .
+                $this <https://github.com/saileshpanchal/mtdr/ns#cites> ?cited .
+                ?cited <https://github.com/saileshpanchal/mtdr/ns#specificationVersion> ?raised .
+                FILTER (?governing != ?raised)
+            }
+        """ ;
+    ] .
+
+## 4 — Package normative closure: every outward reference is covered by a declared dependency, where
+## "covered" is a path-prefix match. Set-membership-with-prefix is not a core SHACL constraint, so
+## this needs sh:sparql and a NOT EXISTS.
+mtdr:NormativeClosureShape
+    a sh:NodeShape ;
+    sh:targetClass mtdr:Package ;
+    sh:sparql [
+        sh:message "undeclared outward reference {?ref}" ;
+        sh:prefixes mtdr: ;
+        sh:select """
+            SELECT $this ?ref
+            WHERE {
+                $this <https://github.com/saileshpanchal/mtdr/ns#outwardReference> ?ref .
+                FILTER NOT EXISTS {
+                    $this <https://github.com/saileshpanchal/mtdr/ns#declaresDependency> ?dep .
+                    FILTER (STRSTARTS(STR(?ref), STR(?dep)))
+                }
+            }
+        """ ;
+    ] .

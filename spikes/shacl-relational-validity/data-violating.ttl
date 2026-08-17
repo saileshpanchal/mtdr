@@ -1,0 +1,31 @@
+@prefix mtdr: <https://github.com/saileshpanchal/mtdr/ns#> .
+@prefix r:    <https://github.com/saileshpanchal/mtdr/records/> .
+
+# One defect per constraint, so each shape has something to catch.
+
+r:TDR-0020 a mtdr:DecisionRecord ; mtdr:status "accepted" .
+
+# 1 — lineage: TDR-0029 is burnt; no governed representation exists.
+r:TDR-0032 a mtdr:DecisionRecord ;
+    mtdr:status "accepted" ;
+    mtdr:derivedFrom r:TDR-0020, r:TDR-0029 .
+
+# 2 — assurance binding: the assured record is not accepted.
+r:TDR-0099 a mtdr:DecisionRecord ; mtdr:status "proposed" .
+r:DAC-0099 a mtdr:AssuranceCase ;
+    mtdr:disposition "proceed-with-constraints" ;
+    mtdr:assures r:TDR-0099 .
+
+# 3 — version compatibility: a v2 assembly citing a v1 record.
+r:VR-9101 a mtdr:DecisionRecord ;
+    mtdr:status "accepted" ;
+    mtdr:specificationVersion "1.3.0" .
+r:CA-9004 a mtdr:CandidateAssembly ;
+    mtdr:specificationVersion "2.0.0" ;
+    mtdr:cites r:VR-9101 .
+
+# 4 — closure: an outward reference no declared dependency covers.
+r:value a mtdr:Package ;
+    mtdr:declaresDependency "specification/record-contribution.md" ;
+    mtdr:outwardReference "specification/record-contribution.md",
+                          "specification/provenance.md" .

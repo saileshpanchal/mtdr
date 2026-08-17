@@ -13,7 +13,8 @@ allocation register coherent, with next-free proved rather than trusted · the v
 contract accepting and rejecting its fixtures as published · no untyped conformance claim on a
 normative surface · classified normative closure with no undeclared outward reference · must-not
 probes over the reference implementation · a serialisation round-trip through a fresh process ·
-the DAC-0032/0033 obligations register accounted for constraint by constraint.
+the DAC-0032/0033 obligations register accounted for constraint by constraint · every standards-
+boundary disposition reasoned and foreclosed.
 
 The run ends with a **repository-subject** assessment (TDR-0032) reporting the four dimensions of
 TDR-0033 independently. It is not a general conformance verdict, and there is none: a pass here
@@ -386,6 +387,23 @@ note('obligations', f"{len(rows)} constraints registered; "
      f"{sum(1 for r in rows.values() if r['verification'] == 'release-gated')} release-gated, "
      f"{sum(1 for r in rows.values() if r['verification'] == 'pending')} pending")
 
+# 13e — the standards boundary register (TDR-0035): no row may be a bare verdict
+DISPOSITIONS = {'adopt', 'map', 'interoperate', 'defer', 'reject'}
+register = open('specification/standards-boundary.md', encoding='utf-8').read()
+register_rows = 0
+for row in re.findall(r'^\|(.+?)\|(.+?)\|(.+?)\|(.+?)\|\s*$', register.split('## The register')[-1], re.M):
+    name, disp, why, foreclosure = (c.strip() for c in row)
+    if set(disp) <= set('- ') or disp == 'Disposition':
+        continue
+    register_rows += 1
+    if disp not in DISPOSITIONS:
+        fail('standards', f"{name}: disposition {disp!r} is not one of {sorted(DISPOSITIONS)}")
+    if len(why) < 40:
+        fail('standards', f"{name}: no reasoning — a disposition without one is a bare verdict")
+    if len(foreclosure) < 20:
+        fail('standards', f"{name}: nothing stated about what the disposition does not mean")
+note('standards', f"{register_rows} dispositions, each reasoned and foreclosed")
+
 # 14 — repository assessment. A typed TDR-0032 subject reporting the four TDR-0033 dimensions.
 DIMENSION_OF = {
     'record-schema': Dim.STRUCTURAL, 'id-filename': Dim.STRUCTURAL, 'vr-example': Dim.STRUCTURAL,
@@ -394,6 +412,7 @@ DIMENSION_OF = {
     'candidate': Dim.SEMANTIC, 'boundary': Dim.SEMANTIC, 'neutrality': Dim.SEMANTIC,
     'consumer-name': Dim.SEMANTIC, 'fixture': Dim.SEMANTIC, 'must-not': Dim.SEMANTIC,
     'untyped-claim': Dim.SEMANTIC, 'vr-frozen': Dim.SEMANTIC, 'obligations': Dim.SEMANTIC,
+    'standards': Dim.SEMANTIC,
     'lineage': Dim.RELATIONAL, 'link': Dim.RELATIONAL, 'allocation': Dim.RELATIONAL,
     'closure': Dim.RELATIONAL, 'round-trip': Dim.STRUCTURAL,
 }

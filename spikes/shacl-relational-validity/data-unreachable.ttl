@@ -1,0 +1,15 @@
+@prefix mtdr: <https://github.com/saileshpanchal/mtdr/ns#> .
+@prefix r:    <https://github.com/saileshpanchal/mtdr/records/> .
+@prefix org:  <https://another-organisation.example/records/> .
+
+# The decisive case. Identical in shape to the lineage violation in data-violating.ttl, and
+# different in kind: ORG-TDR-0044 is a real governed record in a distribution this evaluation
+# context does not include. MTDR requires `indeterminate` here and `fail` there (FIX-103 vs FIX-104).
+#
+# Nothing in this file tells SHACL the difference, and nothing could: the data graph is the world.
+
+r:TDR-0020 a mtdr:DecisionRecord ; mtdr:status "accepted" .
+
+r:TDR-9002 a mtdr:DecisionRecord ;
+    mtdr:status "accepted" ;
+    mtdr:derivedFrom r:TDR-0020, org:ORG-TDR-0044 .
