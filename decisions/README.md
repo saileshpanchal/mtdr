@@ -53,6 +53,14 @@ The records also demonstrate the proportionality rule in practice:
 | [DAC-0032](DAC-0032-typed-multi-object-conformance.md) | TDR-0032 typed conformance and optional register boundary | Proceed with constraints |
 | [DAC-0033](DAC-0033-four-dimensional-validity.md) | TDR-0033 validity dimensions and transition eligibility | Proceed with constraints |
 
+Both cases accepted with `proceed-with-constraints` carry live obligations.
+[`evidence/DAC-0032-0033-obligations.yaml`](evidence/DAC-0032-0033-obligations.yaml) registers all
+fifteen, each with **two independent fields** — `implementation` and `verification` — because a
+requirement can be fully implemented today and intentionally unverified until release, and one
+conflated state would force a choice between claiming a proof that does not exist and hiding work
+that does. `tests/verify.py` checks the register against both cases, so a constraint cannot silently
+regress and a case cannot gain a constraint that goes unregistered.
+
 ## Challenging a decision
 
 Disagree with any of this? Good — that is what the format is for.

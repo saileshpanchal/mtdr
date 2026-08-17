@@ -2,6 +2,13 @@
 
 All notable changes to the TDR standard (and its MTDR markdown reference format) are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the standard adheres to [Semantic Versioning](https://semver.org/). The *reasoning* behind each significant change lives in [`/decisions`](decisions/) as a TDR — this file is the index to it.
 
+## [1.25.0] — 2026-08-17
+
+### Added
+- **The obligations register** ([`decisions/evidence/DAC-0032-0033-obligations.yaml`](decisions/evidence/DAC-0032-0033-obligations.yaml)) — all fifteen constraints from the two cases accepted `proceed-with-constraints`, each with owner, measure, the evidence satisfying it, and a note saying what is actually true. **Two independent fields, not one conflated state**: `implementation: pending | implemented | not-applicable` and `verification: pending | verified | release-gated | not-applicable`. Implementation and verification are different dimensions, and a requirement can be fully implemented today and intentionally unverified until release; one combined state would force a choice between claiming a proof that does not exist and hiding work that does. **`release-gated` is not a synonym for pending** — it means the proof is defined and owned and cannot be run in this repository state, so at the first real release these become executable acceptance tests rather than prose reminders. Current standing: 10 verified, 4 release-gated, 1 pending.
+- **The register is checked, not merely written** — `tests/verify.py` parses the constraint numbering out of both accepted DACs and requires exact correspondence. A constraint cannot silently regress, a case cannot gain a constraint that goes unregistered, an id cannot be invented, evidence must resolve, and `verified` with no evidence is rejected.
+- **DAC-0033 constraint 6 is now enforced rather than promised.** The suite asserts the VR schema still globally requires `finance_countersignatory` — the very contradiction TDR-0033 identified — so an opportunistic fix trips a check and is routed to TDR-0019 instead of landing quietly. A constraint to leave something alone turns out to be testable.
+
 ## [1.24.0] — 2026-08-17
 
 ### Added

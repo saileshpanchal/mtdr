@@ -12,7 +12,8 @@ packages hold metadata and scope only · package dependency boundary · shared-s
 allocation register coherent, with next-free proved rather than trusted · the validation-result
 contract accepting and rejecting its fixtures as published · no untyped conformance claim on a
 normative surface · classified normative closure with no undeclared outward reference · must-not
-probes over the reference implementation · a serialisation round-trip through a fresh process.
+probes over the reference implementation · a serialisation round-trip through a fresh process ·
+the DAC-0032/0033 obligations register accounted for constraint by constraint.
 
 The run ends with a **repository-subject** assessment (TDR-0032) reporting the four dimensions of
 TDR-0033 independently. It is not a general conformance verdict, and there is none: a pass here
@@ -344,6 +345,47 @@ finally:
 if not [c for c, _ in FAILS if c == 'round-trip']:
     note('round-trip', "serialised, reloaded in a fresh process, same interpretation")
 
+# 13c — DAC-0033 constraint 6: the VR schema contradiction stays explicit until TDR-0019 governs it.
+# A constraint to leave something alone is testable, so it is tested rather than promised.
+if 'finance_countersignatory' not in json.load(open('records/value/schema/vr.schema.json')).get('required', []):
+    fail('vr-frozen', "the VR schema was changed under TDR-0033; that correction belongs to TDR-0019 "
+                      "(DAC-0033 constraint 6)")
+
+# 13d — the obligations register: every DAC constraint accounted for, in two independent fields
+REG = yaml.safe_load(open('decisions/evidence/DAC-0032-0033-obligations.yaml'))
+IMPL = {'pending', 'implemented', 'not-applicable'}
+VERIF = {'pending', 'verified', 'release-gated', 'not-applicable'}
+expected_ids = []
+for dac, path in (('DAC-0032', 'decisions/DAC-0032-typed-multi-object-conformance.md'),
+                  ('DAC-0033', 'decisions/DAC-0033-four-dimensional-validity.md')):
+    body = open(path, encoding='utf-8').read().split('## Disposition')[-1]
+    expected_ids += [f"{dac}#{n}" for n in
+                     sorted(int(x) for x in re.findall(r'^(\d+)\. \*\*', body, re.M))]
+rows = {r.get('id'): r for r in REG.get('obligations', [])}
+for missing in [i for i in expected_ids if i not in rows]:
+    fail('obligations', f"{missing} is a constraint of an accepted case and is not registered")
+for extra in [i for i in rows if i not in expected_ids]:
+    fail('obligations', f"{extra} is registered but is not a constraint of either case")
+if len(rows) != len(REG.get('obligations', [])):
+    fail('obligations', "duplicate constraint ids in the register")
+for rid, r in rows.items():
+    if r.get('implementation') not in IMPL:
+        fail('obligations', f"{rid}: implementation {r.get('implementation')!r} is not one of {sorted(IMPL)}")
+    if r.get('verification') not in VERIF:
+        fail('obligations', f"{rid}: verification {r.get('verification')!r} is not one of {sorted(VERIF)}")
+    for field in ('constraint', 'owner', 'measure', 'note'):
+        if not str(r.get(field) or '').strip():
+            fail('obligations', f"{rid}: {field} is empty")
+    for ref in r.get('evidence') or []:
+        if not os.path.exists(ref):
+            fail('obligations', f"{rid}: evidence {ref} does not resolve")
+    if r.get('verification') == 'verified' and not (r.get('evidence') or []):
+        fail('obligations', f"{rid}: claimed verified with no evidence")
+note('obligations', f"{len(rows)} constraints registered; "
+     f"{sum(1 for r in rows.values() if r['verification'] == 'verified')} verified, "
+     f"{sum(1 for r in rows.values() if r['verification'] == 'release-gated')} release-gated, "
+     f"{sum(1 for r in rows.values() if r['verification'] == 'pending')} pending")
+
 # 14 — repository assessment. A typed TDR-0032 subject reporting the four TDR-0033 dimensions.
 DIMENSION_OF = {
     'record-schema': Dim.STRUCTURAL, 'id-filename': Dim.STRUCTURAL, 'vr-example': Dim.STRUCTURAL,
@@ -351,7 +393,7 @@ DIMENSION_OF = {
     'skill-description': Dim.STRUCTURAL, 'manifest': Dim.STRUCTURAL, 'result-fixture': Dim.STRUCTURAL,
     'candidate': Dim.SEMANTIC, 'boundary': Dim.SEMANTIC, 'neutrality': Dim.SEMANTIC,
     'consumer-name': Dim.SEMANTIC, 'fixture': Dim.SEMANTIC, 'must-not': Dim.SEMANTIC,
-    'untyped-claim': Dim.SEMANTIC,
+    'untyped-claim': Dim.SEMANTIC, 'vr-frozen': Dim.SEMANTIC, 'obligations': Dim.SEMANTIC,
     'lineage': Dim.RELATIONAL, 'link': Dim.RELATIONAL, 'allocation': Dim.RELATIONAL,
     'closure': Dim.RELATIONAL, 'round-trip': Dim.STRUCTURAL,
 }

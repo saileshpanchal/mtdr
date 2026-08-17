@@ -1,0 +1,286 @@
+# Obligations register — DAC-0032 and DAC-0033.
+#
+# Both cases were accepted with disposition `proceed-with-constraints`. A constraint that nobody can
+# see the state of is a constraint nobody is keeping, so every one of the fifteen is listed here with
+# what satisfies it — and, where nothing does yet, that too.
+#
+# TWO INDEPENDENT FIELDS, not one conflated state. Implementation and verification are different
+# dimensions, and a requirement can be fully implemented today and intentionally unverified until
+# release. Collapsing them would force a choice between claiming a proof that does not exist and
+# hiding work that does.
+#
+#   implementation: pending | implemented | not-applicable
+#   verification:   pending | verified | release-gated | not-applicable
+#
+# `release-gated` is not a synonym for pending. It means the proof is defined, is owned, and cannot
+# be run in this repository state — a trial with an external participant, a round-trip through a
+# register nothing here operates. At the first real release these become executable acceptance tests
+# rather than prose reminders.
+#
+# `tests/verify.py` checks this file against both DACs on every run: every constraint present exactly
+# once, no invented constraint numbers, legal field values, and evidence that resolves. A constraint
+# cannot silently regress, and a DAC cannot gain a constraint that goes unregistered.
+
+register_version: 1.0.0
+maintained_by: Sailesh Panchal
+
+obligations:
+
+  # ---- DAC-0032 — typed multi-object conformance and the optional register boundary -------------
+
+  - id: DAC-0032#1
+    constraint: Typed normative claims only
+    owner: Sailesh Panchal
+    measure: >-
+      Normative surfaces contain no generic "MTDR conformant" claim without naming record,
+      interchange, package, skill, participant/implementation, collection or repository as the
+      subject.
+    implementation: implemented
+    verification: verified
+    evidence:
+      - specification/validation-result.md
+      - schemas/validation-result.schema.json
+      - tests/validation/FIX-111-no-collection-subject.md
+      - tests/verify.py
+    note: >-
+      The result contract cannot express an untyped claim — `subject.type` is required. A scan over
+      normative surfaces additionally rejects the bare phrase unless it is quoted, which the
+      decisions prohibiting it must be able to do.
+
+  - id: DAC-0032#2
+    constraint: Version-bound detached records
+    owner: Sailesh Panchal
+    measure: >-
+      Before release, a detached record can identify and durably resolve its record type, applicable
+      specification identity and version, and validate without repository-private interpretation.
+    implementation: pending
+    verification: release-gated
+    evidence: []
+    note: >-
+      Unaddressed, and not partially addressed. The result contract carries the specification
+      identity and version of the assessment; the record's own binding is a change to the record
+      schemas and has not been made. The serialisation round-trip in the suite is a local precursor
+      and proves nothing about a detached record.
+
+  - id: DAC-0032#3
+    constraint: Classified normative closure
+    owner: Sailesh Panchal
+    measure: >-
+      Every package dependency is classified and an extracted package passes its applicable
+      conformance contract with no undocumented normative dependency; the complete corpus may remain
+      durably referenced.
+    implementation: implemented
+    verification: pending
+    evidence:
+      - records/decision/package.yaml
+      - records/value/package.yaml
+      - tests/verify.py
+    note: >-
+      Half proved, and the half matters. Every dependency is classified, and the suite proves the
+      declaration is *complete* — no outward reference a package makes may go undeclared. What has
+      not been done is the extraction trial itself: taking a package out and running its conformance
+      contract elsewhere.
+
+  - id: DAC-0032#4
+    constraint: Zero-install proof before release
+    owner: Sailesh Panchal
+    measure: >-
+      A participant unknown to the author produces and validates the claimed objects from a clean
+      distribution without an MTDR application, register, service or maintainer intervention.
+    implementation: implemented
+    verification: release-gated
+    evidence:
+      - specification/conformance.md
+      - mtdr_validation/README.md
+    note: >-
+      The distribution requires no MTDR application, register or service; the reference
+      implementation needs one third-party library and nothing of this repository's own. The trial
+      with an unknown participant has not run, and cannot be simulated by its author.
+
+  - id: DAC-0032#5
+    constraint: Registration/export round-trip before release
+    owner: Sailesh Panchal
+    measure: >-
+      Pre-entry and post-export comparisons show no material change in semantics, conformance or
+      standing, and storage alone produces no `accepted` transition.
+    implementation: not-applicable
+    verification: release-gated
+    evidence: []
+    note: >-
+      Nothing in this repository performs registration, so there is no implementation here to make.
+      The proof requires a register, and belongs to whoever operates one.
+
+  - id: DAC-0032#6
+    constraint: No collection-conformance advertising yet
+    owner: Sailesh Panchal
+    measure: >-
+      No normative "MTDR-conformant register/collection" claim until a separately governed, testable
+      collection contract covers identity, specification context, lineage, standing evidence,
+      lifecycle integrity, no manufacture of standing, portability and export.
+    implementation: implemented
+    verification: verified
+    evidence:
+      - schemas/validation-result.schema.json
+      - tests/validation/FIX-111-no-collection-subject.md
+      - specification/validation-result.md
+    note: >-
+      The subject is rejected rather than admitted and left to be assessed against nothing. A result
+      that cannot be governed cannot be issued.
+
+  - id: DAC-0032#7
+    constraint: Narrow lineage preserved
+    owner: Sailesh Panchal
+    measure: >-
+      TDR-0012 remains immutable historical evidence; TDR-0032 displaces only
+      register-as-universal-minimum and explicitly retains runtime neutrality, optional consumers and
+      the register as a valid pattern.
+    implementation: implemented
+    verification: verified
+    evidence:
+      - decisions/TDR-0032-typed-multi-object-conformance.md
+      - decisions/TDR-0012-architecture-overview.md
+      - CHANGELOG.md
+    note: >-
+      Supersession is judgement-granular, not file-granular. The suite proves the lineage resolves in
+      both directions; that the displacement is narrow is stated in TDR-0032 and read, not computed.
+
+  # ---- DAC-0033 — independent validity dimensions and transition eligibility --------------------
+
+  - id: DAC-0033#1
+    constraint: Versioned result contract before release
+    owner: Sailesh Panchal
+    measure: >-
+      Every validation result identifies the typed TDR-0032 subject, applicable specification
+      identity/version, four dimensions, reasons, evidence and evaluation context, and rejects
+      illegal outcomes by dimension.
+    implementation: implemented
+    verification: verified
+    evidence:
+      - specification/validation-result.md
+      - schemas/validation-result.schema.json
+      - tests/validation/README.md
+    note: >-
+      Subject and specification identity are required fields rather than prose conventions. Illegal
+      dimension/result pairs are rejected by the schema, and the reference implementation refuses
+      them at the point of use as well.
+
+  - id: DAC-0033#2
+    constraint: Independent layer fixtures
+    owner: Sailesh Panchal
+    measure: >-
+      Fixtures exercise pass, fail, indeterminate and not-applicable wherever legal for each
+      dimension without treating the four dimensions as a pass pipeline.
+    implementation: implemented
+    verification: verified
+    evidence:
+      - tests/validation/FIX-101-four-dimensions-reported.md
+      - tests/validation/FIX-102-structural-failure-recorded-not-cascaded.md
+      - tests/validation/FIX-107-candidate-package-not-applicable.md
+      - tests/validation/FIX-108-transition-eligibility-indeterminate.md
+    note: >-
+      FIX-102 is the anti-pipeline case: a structural failure records its dependents explicitly
+      instead of skipping them, so a reader can tell "checked and sound" from "never checked".
+
+  - id: DAC-0033#3
+    constraint: Incomplete-candidate proof
+    owner: Sailesh Panchal
+    measure: >-
+      After TDR-0019 governs the schema correction, a candidate VR lacking only transition-required
+      finance counter-signature passes current-state structural and semantic validity and fails
+      ratification eligibility.
+    implementation: pending
+    verification: release-gated
+    evidence:
+      - tests/validation/FIX-106-valid-now-ineligible-next.md
+    note: >-
+      Blocked by constraint 6 of this same case, deliberately. FIX-106 proves the transition-
+      eligibility *shape* on a decision record and states in the fixture that it is not this proof.
+      The evidence reference is to the case that does not satisfy the constraint, so the gap stays
+      visible instead of looking satisfied by a neighbour.
+
+  - id: DAC-0033#4
+    constraint: Relational portability
+    owner: Sailesh Panchal
+    measure: >-
+      Resolved, broken, incompatible and unavailable-reference fixtures produce distinct relational
+      results from a declared portable evaluation context without requiring a register or graph.
+    implementation: implemented
+    verification: verified
+    evidence:
+      - tests/validation/FIX-103-unavailable-reference-is-indeterminate.md
+      - tests/validation/FIX-104-broken-reference-is-relational-failure.md
+      - tests/validation/FIX-105-incompatible-specification-version.md
+      - tests/validation/FIX-101-four-dimensions-reported.md
+    note: >-
+      All four cases are distinguished, and what separates unreachable from absent is the *declared
+      context* rather than the reference — which is why the context is in the result and not assumed.
+
+  - id: DAC-0033#5
+    constraint: No authority or mutation
+    owner: Sailesh Panchal
+    measure: >-
+      Must-not probes prove validators never repair input, fill missing human information, promote
+      state, ratify, infer standing or use `indeterminate` as permission; byte comparison preserves
+      the assessed object.
+    implementation: implemented
+    verification: verified
+    evidence:
+      - tests/validation/FIX-110-no-standing-conferred.md
+      - tests/validation/FIX-116-no-repair-or-inferred-value.md
+      - tests/validation/FIX-115-indeterminate-without-a-reason.md
+      - tests/verify.py
+    note: >-
+      The closed object rejects `standing`, `ratified`, `suggested_value` and `corrected` outright.
+      The suite additionally byte-compares a subject before and after assessment.
+
+  - id: DAC-0033#6
+    constraint: VR correction only through TDR-0019
+    owner: Sailesh Panchal
+    measure: >-
+      No opportunistic change to the VR schema or lifecycle under TDR-0033; the inconsistency remains
+      explicit until the VR v2 judgement is ratified and remediated.
+    implementation: implemented
+    verification: verified
+    evidence:
+      - records/value/schema/vr.schema.json
+      - tests/verify.py
+    note: >-
+      Enforced rather than promised: the suite asserts the VR schema still globally requires
+      `finance_countersignatory`, so an opportunistic fix trips a check and is routed to TDR-0019
+      instead of landing quietly. A constraint to leave something alone is testable.
+
+  - id: DAC-0033#7
+    constraint: Behaviour remains a separate claim
+    owner: Sailesh Panchal
+    measure: >-
+      Participant execution is tested and reported under TDR-0032 behavioural conformance, never as a
+      fifth record-validity dimension or an implication from skill-file validity.
+    implementation: implemented
+    verification: verified
+    evidence:
+      - specification/validation-result.md
+      - schemas/validation-result.schema.json
+      - tests/verify.py
+    note: >-
+      `participant` is inadmissible as a validation subject, so behavioural conformance cannot be
+      expressed as a validation result at all. The suite probes that the reference implementation
+      refuses it.
+
+  - id: DAC-0033#8
+    constraint: No aggregate normative verdict
+    owner: Sailesh Panchal
+    measure: >-
+      Interfaces may summarise for usability but retain and expose every dimension; no normative
+      aggregate green result overrides a failure or indeterminate result.
+    implementation: implemented
+    verification: verified
+    evidence:
+      - tests/validation/FIX-109-no-aggregate-verdict.md
+      - tests/validation/FIX-112-no-dimension-omitted.md
+      - mtdr_validation/README.md
+      - tests/verify.py
+    note: >-
+      This was a live breach in the repository's own tooling until 1.24.0. The suite's summary now
+      exposes four dimensions and states that its exit status is operational rather than normative;
+      the reference implementation offers no `is_valid`, no truthiness and no exit-code helper; and
+      the schema has no field an aggregate verdict could occupy.
