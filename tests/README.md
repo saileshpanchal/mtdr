@@ -10,4 +10,5 @@ What conformance means, and why schema validation is only its floor, is
 |---|---|
 | [`conformance/`](conformance/) | Cross-language fixtures (FIX-002: one fragment, two objects) and the deployed-agent probes |
 | [`corpus/`](corpus/) | The shared source corpus — fragment-level, multi-document, contradictory, incomplete, implicit and negative cases. Populated in the conformance-corpus pass |
+| [`validation/`](validation/) | Known-answer fixtures for the [validation-result contract](../specification/validation-result.md) — what a result may say, and the must-not probes for what it may never say |
 | [`interoperability/`](interoperability/) | The horizon: independent implementations over one corpus, compared for semantic equivalence. Empty until there are two |

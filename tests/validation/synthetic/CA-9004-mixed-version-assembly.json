@@ -1,0 +1,20 @@
+{
+  "assembly_id": "CA-9004",
+  "target_object": "ovc",
+  "target_record_type": "VR",
+  "contribution_refs": ["RC-9004-a", "RC-9004-b"],
+  "grouping_basis": [
+    {
+      "basis": "explicit-cross-reference",
+      "evidence": "Both contributions cite VR-9101 by identifier as the commitment they refine."
+    }
+  ],
+  "assembly_confidence": "medium",
+  "missing_semantics": ["measure"],
+  "conflicts": [],
+  "supersessions": [],
+  "unresolved": [
+    "VR-9101 was raised under VR 1.3.0. Whether its `value_kind` maps onto the v2 beneficiary and realisation axes is not settled by either source."
+  ],
+  "status": "candidate"
+}

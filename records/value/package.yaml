@@ -29,3 +29,67 @@ skills:
   lifecycle: [identify-value-contributions, reconcile-value-contributions, draft-value-record,
               challenge-value-record, validate-value-record]
   orchestration: [recover-value-records]   # composition skill — invokes the lifecycle, owns no semantics (TDR-0026)
+
+# Classified normative closure — TDR-0032, DAC-0032 constraint 3. See records/decision/package.yaml
+# for the classification's meaning. Role metadata, not a trust hierarchy.
+dependencies:
+  - ref: specification/record-contribution.md
+    class: normative
+    why: The interchange structure the recovery vocabulary is carried through (TDR-0026).
+  - ref: specification/candidate-assembly.md
+    class: normative
+    why: How value contributions become a candidate without acquiring standing.
+  - ref: specification/candidacy-and-ratification.md
+    class: normative
+    why: Where the lifecycle stops and the organisation begins.
+  - ref: specification/identity-and-grouping.md
+    class: normative
+    why: What makes two propositions one commitment, and what does not.
+  - ref: skills/shared/identify-record-contributions
+    class: normative
+    why: Record-neutral lifecycle stage the value skills compose (TDR-0023).
+  - ref: skills/shared/reconcile-record-fragments
+    class: normative
+    why: Record-neutral lifecycle stage the value skills compose (TDR-0023).
+  - ref: skills/shared/challenge-record
+    class: normative
+    why: Record-neutral lifecycle stage the value skills compose (TDR-0023).
+  - ref: skills/shared/validate-record
+    class: normative
+    why: Record-neutral lifecycle stage the value skills compose (TDR-0023).
+  - ref: specification/conformance.md
+    class: conformance
+    why: The layered surface this package's maturity is measured against.
+  - ref: tests
+    class: conformance
+    why: The cross-language fixtures and shared corpus. Durably identified, not carried inside the package.
+  - ref: decisions/TDR-0003-ship-skills-alongside-spec.md
+    class: provenance
+    why: Why skills ship with the specification.
+  - ref: decisions/TDR-0007-add-decision-identification-skill.md
+    class: provenance
+    why: Why identification precedes capture.
+  - ref: decisions/TDR-0008-add-value-record-as-sibling-record.md
+    class: provenance
+    why: Why the Value Record is a sibling language rather than a TDR field.
+  - ref: decisions/TDR-0018-interpretation-skills-and-the-artefact-boundary.md
+    class: provenance
+    why: Where this standard stops.
+  - ref: decisions/TDR-0019-value-record-v2-operational-value-commitment.md
+    class: provenance
+    why: The v2 semantics and the separation of epistemic from value state.
+  - ref: decisions/TDR-0023-portable-skill-architecture.md
+    class: provenance
+    why: Why skills live with the record semantics they serve.
+  - ref: decisions/TDR-0026-value-recovery-vocabulary.md
+    class: provenance
+    why: The contribution classes and the completeness view.
+  - ref: records/decision/specification/tdr.md
+    class: explanatory
+    why: A worked contrast with a sibling language. The value package does not depend on decision semantics.
+  - ref: skills/packaging
+    class: explanatory
+    why: Distribution adapters. TDR-0024 makes packagings non-normative by construction.
+  - ref: CONTRIBUTING.md
+    class: navigation
+    why: How to propose a change.

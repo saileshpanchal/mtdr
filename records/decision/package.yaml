@@ -29,3 +29,70 @@ skills:
   assurance: [systems-thinking, counterfactual-and-evidence, accumulated-and-resultant-risk,
               fraud-and-adversarial-thinking, customer-outcomes, systems-dynamics,
               adaptive-capacity, assurance-synthesis]
+
+# Classified normative closure — TDR-0032, DAC-0032 constraint 3. Repo-relative refs; a directory ref
+# covers everything beneath it. This is ROLE metadata, not a six-level trust hierarchy: historical
+# material can be authoritative evidence about what occurred while being non-normative about current
+# behaviour. Only `normative` entries constrain extraction. `tests/verify.py` proves the closure is
+# complete — every outward reference the package makes must be declared here.
+dependencies:
+  - ref: specification/record-contribution.md
+    class: normative
+    why: The interchange structure the package's lifecycle produces and consumes.
+  - ref: specification/candidate-assembly.md
+    class: normative
+    why: How contributions become a proposed record without acquiring standing.
+  - ref: specification/candidacy-and-ratification.md
+    class: normative
+    why: The boundary between what a skill may propose and what only a human may confer.
+  - ref: specification/provenance.md
+    class: normative
+    why: How a record's evidence is bound to its source.
+  - ref: specification/temporal-semantics.md
+    class: normative
+    why: How the record's dates and orderings are read.
+  - ref: skills/shared/identify-record-contributions
+    class: normative
+    why: Record-neutral lifecycle stage the package's own skills compose (TDR-0023).
+  - ref: skills/shared/reconcile-record-fragments
+    class: normative
+    why: Record-neutral lifecycle stage the package's own skills compose (TDR-0023).
+  - ref: skills/shared/challenge-record
+    class: normative
+    why: Record-neutral lifecycle stage the package's own skills compose (TDR-0023).
+  - ref: skills/shared/validate-record
+    class: normative
+    why: Record-neutral lifecycle stage the package's own skills compose (TDR-0023).
+  - ref: decisions/TDR-0002-differentiate-on-accountability-semantics.md
+    class: provenance
+    why: Why the record differentiates on accountability semantics.
+  - ref: decisions/TDR-0006-json-schema-for-frontmatter.md
+    class: provenance
+    why: Why the frontmatter carries a machine schema.
+  - ref: decisions/TDR-0009-decision-assurance-case.md
+    class: provenance
+    why: Why the DAC is a dependent artefact rather than a language.
+  - ref: decisions/TDR-0015-visibility-and-effectiveness.md
+    class: provenance
+    why: Why visibility stays out of the record and the x- namespace exists.
+  - ref: decisions/TDR-0017-language-admission-test.md
+    class: provenance
+    why: The test this package passed.
+  - ref: decisions/TDR-0021-record-package-architecture.md
+    class: provenance
+    why: Why the package is shaped this way.
+  - ref: practice/administration-and-assurance.md
+    class: explanatory
+    why: Practice guidance. Explanatory links do not become normative merely by existing.
+  - ref: FAQ.md
+    class: explanatory
+    why: Reader orientation.
+  - ref: records/value/specification/vr.md
+    class: explanatory
+    why: A worked contrast with a sibling language. The decision package does not depend on value semantics.
+  - ref: CONTRIBUTING.md
+    class: navigation
+    why: How to propose a change.
+  - ref: decisions
+    class: navigation
+    why: The decision index.

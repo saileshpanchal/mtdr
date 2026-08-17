@@ -23,14 +23,15 @@ record-neutral substrate ([TDR-0021](decisions/TDR-0021-record-package-architect
 
 | Path | Contents |
 |---|---|
-| [`specification/`](specification/) | The substrate: the [umbrella specification](specification/organisational-records.md), the [contribution model](specification/contribution-model.md) (fragments → contributions → candidates), provenance, identity, uncertainty, [candidacy and ratification](specification/candidacy-and-ratification.md), the [record admission test](specification/record-admission-test.md) and [what conformance means](specification/conformance.md) |
+| [`specification/`](specification/) | The substrate: the [umbrella specification](specification/organisational-records.md), the [contribution model](specification/contribution-model.md) (fragments → contributions → candidates), provenance, identity, uncertainty, [candidacy and ratification](specification/candidacy-and-ratification.md), the [record admission test](specification/record-admission-test.md) and [what conformance means](specification/conformance.md), and the [validation-result contract](specification/validation-result.md) |
 | [`records/decision/`](records/decision/) | **The decision language** — TDR spec, DAC spec, schemas, templates, examples, fixtures, validation, and its skills (authoring, drafting, assurance) |
 | [`records/value/`](records/value/) | **The value language** — VR v2 spec (the Operational Value Commitment), schema, template, example, fixtures, validation, and its skills |
 | [`records/`](records/) | The package index, the extraction and dependency rules, and three **candidate** packages (authority · work · evidence) holding scope only |
 | [`skills/shared/`](skills/shared/) | The record-neutral skills: identify contributions · reconcile fragments · challenge · validate |
 | [`skills/packaging/`](skills/packaging/) | Distribution adapters — deploying the same files through specific runtimes ([TDR-0024](decisions/TDR-0024-packaging-independence.md)) |
-| [`schemas/shared/`](schemas/shared/) | Interchange schemas for the contribution model |
-| [`tests/`](tests/) | Cross-language fixtures, deployed-agent probes, the corpus, and the interoperability horizon |
+| [`schemas/`](schemas/) | The [validation-result contract](schemas/validation-result.schema.json) and, in [`shared/`](schemas/shared/), the interchange schemas for the contribution model |
+| [`mtdr_validation/`](mtdr_validation/) | A **non-normative** reference implementation of the result contract. The contract governs; this code does not |
+| [`tests/`](tests/) | Cross-language fixtures, [validation-result fixtures](tests/validation/), deployed-agent probes, the corpus, and the interoperability horizon |
 | [`practice/`](practice/) | Practice guides: quick start, operating model, administration & assurance |
 | [`decisions/`](decisions/) | **This standard's own design decisions, recorded as TDRs** |
 | [`ARCHITECTURE.md`](ARCHITECTURE.md) · [`FAQ.md`](FAQ.md) · [`GOVERNANCE.md`](GOVERNANCE.md) · [`CONTRIBUTING.md`](CONTRIBUTING.md) | The layered architecture and where the standard ends · what a TDR is not · how the repository governs itself · how to challenge a decision |

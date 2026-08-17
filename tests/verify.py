@@ -9,9 +9,18 @@ Checks: record schema validity · lineage resolution · id/filename agreement ·
 discipline · relative-link resolution (stubs included) · package manifests coherent · candidate
 packages hold metadata and scope only · package dependency boundary · shared-skill record-neutrality
 · consumer-name scan over normative artefacts · VR negative cases still rejected · identifier
-allocation register coherent, with next-free proved rather than trusted.
+allocation register coherent, with next-free proved rather than trusted · the validation-result
+contract accepting and rejecting its fixtures as published · no untyped conformance claim on a
+normative surface · classified normative closure with no undeclared outward reference · must-not
+probes over the reference implementation · a serialisation round-trip through a fresh process.
 
-Requires: pyyaml, jsonschema. Exit code 0 = conforming.
+The run ends with a **repository-subject** assessment (TDR-0032) reporting the four dimensions of
+TDR-0033 independently. It is not a general conformance verdict, and there is none: a pass here
+implies nothing about any record, package, skill or participant inside the repository. The exit
+status is an operational signal about the run — non-zero when something failed — and is not a
+normative aggregate result (DAC-0032 constraint 1, DAC-0033 constraint 8).
+
+Requires: pyyaml, jsonschema. `--emit` additionally prints the serialised result.
 """
 import sys, os, re, glob, json, datetime
 
@@ -146,9 +155,20 @@ for f in glob.glob('records/**/*.md', recursive=True) + glob.glob('specification
         fail('consumer-name', f"{f}: {m.group(0)}")
 note('consumer-names', "normative artefacts clean")
 
+# 8b — no untyped conformance claim (TDR-0032; DAC-0032 constraint 1). The phrase may be *named* —
+# the decisions that prohibit it have to quote it — but never asserted.
+UNTYPED = re.compile(r'.?MTDR[- ]conformant', re.I)
+for f in glob.glob('records/**/*.md', recursive=True) + glob.glob('specification/*.md') \
+       + glob.glob('decisions/*.md') + glob.glob('schemas/**/*.json', recursive=True):
+    for m in UNTYPED.finditer(open(f, encoding='utf-8').read()):
+        if m.group(0)[0] not in '"\'“`':
+            fail('untyped-claim', f"{f}: {m.group(0).strip()} — a conformance claim must name its subject")
+note('typed-claims', "no untyped conformance claim on a normative surface")
+
 # 9 — every fixture carries a must-not section (TDR-0025)
 fixtures = glob.glob('records/*/fixtures/**/FIX-*.md', recursive=True) \
-         + glob.glob('tests/conformance/FIX-*.md') + glob.glob('tests/corpus/CORPUS-*.md')
+         + glob.glob('tests/conformance/FIX-*.md') + glob.glob('tests/corpus/CORPUS-*.md') \
+         + glob.glob('tests/validation/FIX-*.md')
 for f in fixtures:
     if '## Must not' not in open(f, encoding='utf-8').read():
         fail('fixture', f"{f}: no must-not section — a fixture without one is non-conforming")
@@ -193,10 +213,183 @@ else:
         fail('allocation', f"stated next free TDR-{stated:04d} != max(allocated ∪ burnt) + 1 = TDR-{derived:04d}")
 note('allocation', f"{len(ALLOCATED)} allocated, {len(BURNT)} burnt, next free derived")
 
+# 11 — the validation-result contract: fixtures accepted and rejected as published (TDR-0033)
+result_schema = Validator(json.load(open('schemas/validation-result.schema.json')))
+accepted = rejected = 0
+for f in sorted(glob.glob('tests/validation/FIX-*.md')):
+    text = open(f, encoding='utf-8').read()
+    exp = re.search(r'\*\*Contract expectation:\*\*\s*(accepted|rejected)', text)
+    blocks = re.findall(r'```json\n(.*?)```', text, re.S)
+    if not exp or len(blocks) != 1:
+        fail('result-fixture', f"{f}: needs one contract expectation and exactly one json block")
+        continue
+    errors = list(result_schema.iter_errors(json.loads(blocks[0])))
+    if exp.group(1) == 'accepted':
+        accepted += 1
+        for e in errors:
+            fail('result-fixture', f"{f}: expected accepted, contract rejected it — {e.message}")
+    else:
+        rejected += 1
+        if not errors:
+            fail('result-fixture', f"{f}: expected rejected, the contract accepted it")
+note('result-contract', f"{accepted} accepted, {rejected} rejected as published")
+
+# 12 — classified normative closure (TDR-0032; DAC-0032 constraint 3). Role metadata, not a trust
+# hierarchy — historical material can be authoritative evidence while being non-normative about
+# current behaviour. The closure test: no outward reference may go undeclared.
+CLASSES = {'normative', 'conformance', 'provenance', 'explanatory', 'navigation', 'historical'}
+for f in manifests:
+    m = yaml.safe_load(open(f))
+    pkg = f.split('/')[1]
+    if m.get('status') != 'normative':
+        continue
+    deps = m.get('dependencies')
+    if not deps:
+        fail('closure', f"{f}: a normative package must classify its dependencies")
+        continue
+    declared = []
+    for d in deps:
+        if set(d) != {'ref', 'class', 'why'}:
+            fail('closure', f"{f}: dependency entries carry ref, class and why — got {sorted(d)}")
+            continue
+        if d['class'] not in CLASSES:
+            fail('closure', f"{f}: unknown dependency class {d['class']}")
+        if not os.path.exists(d['ref']):
+            fail('closure', f"{f}: dependency {d['ref']} does not resolve")
+        declared.append(d['ref'])
+    for src in glob.glob(f'records/{pkg}/**/*.md', recursive=True):
+        base = os.path.dirname(src)
+        for link in set(re.findall(r'\]\((?!https?://|mailto:)([^)#\s]+)',
+                                   open(src, encoding='utf-8').read())):
+            target = os.path.normpath(os.path.join(base, link)).replace(os.sep, '/')
+            if target.startswith(f'records/{pkg}/'):
+                continue
+            if not any(target == r or target.startswith(r.rstrip('/') + '/') for r in declared):
+                fail('closure', f"{src} -> {target}: undeclared dependency, not in {f}")
+note('closure', f"{sum(len(yaml.safe_load(open(f)).get('dependencies') or []) for f in manifests)} "
+                "dependencies classified; no undeclared outward reference")
+
+# 13 — must-not probes against the reference implementation (DAC-0033 constraint 5)
+sys.path.insert(0, os.getcwd())
+from mtdr_validation import Dim, ValidationResult, IllegalResult, PASS, NOT_APPLICABLE  # noqa: E402
+
+def refuses(what, thunk):
+    try:
+        thunk()
+    except IllegalResult:
+        return
+    fail('must-not', f"the reference implementation permitted {what}")
+
+refuses("a collection subject",
+        lambda: ValidationResult('collection', 'reg', 'specification/conformance.md', '1.0.0'))
+refuses("a participant subject",
+        lambda: ValidationResult('participant', 'impl', 'specification/conformance.md', '1.0.0'))
+refuses("structural not-applicable",
+        lambda: ValidationResult('record', 'TDR-9010', 'x', '1.0.0')
+        .report(Dim.STRUCTURAL, NOT_APPLICABLE, reasons=[('skipped', 'not run')]))
+refuses("an indeterminate with no reason",
+        lambda: ValidationResult('record', 'TDR-9012', 'x', '1.0.0')
+        .report(Dim.SEMANTIC, 'indeterminate'))
+refuses("a result with a dimension unreported",
+        lambda: ValidationResult('record', 'TDR-9009', 'x', '1.0.0')
+        .report(Dim.STRUCTURAL, PASS).to_dict())
+if hasattr(ValidationResult, '__bool__') or any(
+        h in dir(ValidationResult) for h in ('is_valid', 'ok', 'conformant', 'passed', 'exit_code')):
+    fail('must-not', "the reference implementation offers an aggregate verdict")
+
+# the assessed object is byte-identical before and after (no repair, no mutation)
+probe_src = 'tests/validation/synthetic/TDR-9001-malformed.md'
+before = open(probe_src, 'rb').read()
+_probe = ValidationResult('record', 'TDR-9001', 'records/decision/specification/tdr.md', '1.14.0',
+                          subject_ref=probe_src, assessed_state='proposed')
+_probe.report(Dim.STRUCTURAL, 'fail', reasons=[('frontmatter-unparseable', 'did not parse')])
+_probe.report(Dim.SEMANTIC, 'indeterminate', reasons=[('no-parsed-object', 'nothing to assess')],
+              unevaluated_because='structural')
+_probe.report(Dim.RELATIONAL, 'indeterminate', reasons=[('no-parsed-object', 'nothing to resolve')],
+              unevaluated_because='structural')
+_probe.report(Dim.TRANSITION, NOT_APPLICABLE, reasons=[('no-transition-requested', 'none requested')])
+for e in _probe.validate():
+    fail('must-not', f"the probe result does not satisfy its own contract: {e}")
+if open(probe_src, 'rb').read() != before:
+    fail('must-not', f"{probe_src} was mutated by assessment")
+note('must-not', "no aggregate verdict, no illegal result, no mutation of the assessed object")
+
+# 13b — serialisation round-trip. A result reloaded in a fresh process yields the same
+# interpretation: nothing in a result may depend on the process that produced it. This is a local
+# precursor to the detached-record release gate and claims nothing about external interoperability.
+import subprocess, tempfile  # noqa: E402
+with tempfile.NamedTemporaryFile('w', suffix='.json', delete=False) as fh:
+    fh.write(_probe.to_json())
+    round_trip_path = fh.name
+try:
+    reader = subprocess.run(
+        [sys.executable, '-c',
+         "import json,sys;from mtdr_validation import validate_document;"
+         "d=json.load(open(sys.argv[1]));e=validate_document(d);"
+         "print(json.dumps({'errors':e,'read':[[x['dimension'],x['result']] for x in d['dimensions']]}))",
+         round_trip_path],
+        capture_output=True, text=True, cwd=os.getcwd())
+    if reader.returncode != 0:
+        last = reader.stderr.strip().splitlines()[-1] if reader.stderr.strip() else 'no output'
+        fail('round-trip', f"a fresh process could not read the serialised result: {last}")
+    else:
+        got = json.loads(reader.stdout)
+        expected = [[d['dimension'], d['result']] for d in _probe.to_dict()['dimensions']]
+        if got['errors']:
+            fail('round-trip', f"the reloaded result failed the published schema: {got['errors'][0]}")
+        if got['read'] != expected:
+            fail('round-trip', f"interpretation changed across processes: {got['read']} != {expected}")
+finally:
+    os.unlink(round_trip_path)
+if not [c for c, _ in FAILS if c == 'round-trip']:
+    note('round-trip', "serialised, reloaded in a fresh process, same interpretation")
+
+# 14 — repository assessment. A typed TDR-0032 subject reporting the four TDR-0033 dimensions.
+DIMENSION_OF = {
+    'record-schema': Dim.STRUCTURAL, 'id-filename': Dim.STRUCTURAL, 'vr-example': Dim.STRUCTURAL,
+    'vr-negative': Dim.STRUCTURAL, 'skill-frontmatter': Dim.STRUCTURAL, 'skill-name': Dim.STRUCTURAL,
+    'skill-description': Dim.STRUCTURAL, 'manifest': Dim.STRUCTURAL, 'result-fixture': Dim.STRUCTURAL,
+    'candidate': Dim.SEMANTIC, 'boundary': Dim.SEMANTIC, 'neutrality': Dim.SEMANTIC,
+    'consumer-name': Dim.SEMANTIC, 'fixture': Dim.SEMANTIC, 'must-not': Dim.SEMANTIC,
+    'untyped-claim': Dim.SEMANTIC,
+    'lineage': Dim.RELATIONAL, 'link': Dim.RELATIONAL, 'allocation': Dim.RELATIONAL,
+    'closure': Dim.RELATIONAL, 'round-trip': Dim.STRUCTURAL,
+}
+assessment = ValidationResult(
+    'repository', 'mtdr', 'specification/conformance.md', '1.0.0', subject_ref='.',
+    assessed_state='published',
+    context={'id': 'clean-clone',
+             'description': 'The working tree alone — no register, service or network.'},
+    validator={'name': 'tests/verify.py', 'version': '1.0.0'})
+for dim in (Dim.STRUCTURAL, Dim.SEMANTIC, Dim.RELATIONAL):
+    hits = [(c, m) for c, m in FAILS if DIMENSION_OF.get(c) == dim]
+    unknown = [(c, m) for c, m in FAILS if c not in DIMENSION_OF]
+    if hits:
+        assessment.report(dim, 'fail', reasons=[(c, m) for c, m in hits[:8]])
+    elif unknown:
+        assessment.report(dim, 'indeterminate',
+                          reasons=[('unattributed-check', f"{c}: {m}") for c, m in unknown[:8]])
+    else:
+        assessment.report(dim, PASS)
+assessment.report(Dim.TRANSITION, NOT_APPLICABLE,
+                  reasons=[('no-transition-requested',
+                            'No transition was requested of this repository.')])
+
 print()
 if FAILS:
     for check, msg in FAILS:
         print(f"FAIL [{check}] {msg}")
-    print(f"\n{len(FAILS)} failure(s)")
-    sys.exit(1)
-print("conforming — all checks passed")
+    print()
+print(assessment.summary())
+print("""
+The subject of this result is the repository. Under TDR-0032 it implies nothing about the
+conformance of any record, package, skill or participant within it, and under TDR-0033 no dimension
+above is overridden by any other. There is no aggregate verdict: the process exit status is an
+operational signal about this run, not a conformance judgement (DAC-0032 #1, DAC-0033 #8).""")
+for e in assessment.validate():
+    print(f"FAIL [self] the repository result violates its own contract: {e}")
+    FAILS.append(('self', e))
+
+if '--emit' in sys.argv:
+    print(assessment.to_json(indent=2))
+sys.exit(1 if FAILS else 0)

@@ -1,0 +1,251 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/saileshpanchal/mtdr/blob/main/schemas/validation-result.schema.json",
+  "title": "ValidationResult — the versioned four-dimensional result contract",
+  "description": "Machine contract for specification/validation-result.md, required by TDR-0033. A result names its TDR-0032 conformance subject and the specification it was assessed against, and reports structural, semantic, relational and lifecycle-transition eligibility independently. The object is closed at every level so that no aggregate verdict, standing claim, repair or inferred value can be added: DAC-0033 constraint 8 forbids a normative aggregate green result, and TDR-0027 reserves standing to the authorised human act.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract_version", "subject", "specification", "dimensions"],
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "Version of THIS contract. Independent of the assessed object's specification version — the two version different things."
+    },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "id"],
+      "properties": {
+        "type": {
+          "enum": ["record", "interchange-structure", "package", "skill", "repository"],
+          "description": "The TDR-0032 conformance subject. Two of the seven are deliberately absent. `collection`: TDR-0032 leaves that class architecturally present with no contract and DAC-0032 constraint 6 forbids advertising conformance for it — a result that cannot be governed cannot be issued. `participant`: execution is a behavioural claim made by passing fixtures, corpus and probes, and TDR-0033 is explicit that behavioural conformance is not a validation dimension (DAC-0033 constraint 7). Every subject admitted here has a serialised representation, which is why structural validity is never not-applicable. Conformance at one level implies nothing at another."
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Identifies the object assessed — TDR-0034, records/value, recover-value-records, an implementation name."
+        },
+        "ref": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Optional locator."
+        }
+      }
+    },
+    "specification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "description": "First-class and required. A result that does not say what it validated against has not made a verifiable claim — the same gap TDR-0032 identified in detached records.",
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "version": { "type": "string", "minLength": 1 }
+      }
+    },
+    "assessed_state": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The state the object legitimately occupies. Validity is relative to it: information required only for a later transition does not make the current state invalid (TDR-0033)."
+    },
+    "requested_transition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["to"],
+      "description": "Present only when a transition is actually requested. Its presence or absence governs the legal transition-eligibility results.",
+      "properties": {
+        "from": { "type": "string", "minLength": 1 },
+        "to": { "type": "string", "minLength": 1 }
+      }
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "description": "The declared portable evaluation context relational validity ran against — what the validator could see. No register or graph is required; a graph may compute relational validity faster and is not a normative dependency.",
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "description": { "type": "string", "minLength": 1 },
+        "resolvable_refs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "unreachable_refs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true,
+          "description": "References the context could not reach. These make relational validity indeterminate, never fail — failing them would make offline and zero-install use impossible, and passing them would conceal real organisational inconsistency."
+        }
+      }
+    },
+    "dimensions": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "description": "All four dimensions, always, exactly once each. A dimension cannot be omitted to avoid reporting it, and the four are not a pass pipeline.",
+      "items": { "$ref": "#/$defs/dimension" }
+    },
+    "validator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version"],
+      "description": "Who produced the result. Identity only — it confers nothing.",
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "version": { "type": "string", "minLength": 1 }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "description": "Every dimension appears exactly once.",
+      "properties": {
+        "dimensions": {
+          "type": "array",
+          "uniqueItems": true,
+          "contains": { "properties": { "dimension": { "const": "structural" } }, "required": ["dimension"] },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      }
+    },
+    {
+      "properties": {
+        "dimensions": {
+          "contains": { "properties": { "dimension": { "const": "semantic" } }, "required": ["dimension"] },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      }
+    },
+    {
+      "properties": {
+        "dimensions": {
+          "contains": { "properties": { "dimension": { "const": "relational" } }, "required": ["dimension"] },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      }
+    },
+    {
+      "properties": {
+        "dimensions": {
+          "contains": { "properties": { "dimension": { "const": "transition-eligibility" } }, "required": ["dimension"] },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      }
+    },
+    {
+      "description": "structural validity permits pass, fail or indeterminate. not-applicable would mean no serialised representation formed part of the typed assessment, which this contract version does not admit.",
+      "properties": {
+        "dimensions": {
+          "items": {
+            "if": { "properties": { "dimension": { "const": "structural" } }, "required": ["dimension"] },
+            "then": { "properties": { "result": { "enum": ["pass", "fail", "indeterminate"] } } }
+          }
+        }
+      }
+    },
+    {
+      "description": "No requested transition => transition-eligibility must be not-applicable.",
+      "if": { "not": { "required": ["requested_transition"] } },
+      "then": {
+        "properties": {
+          "dimensions": {
+            "items": {
+              "if": { "properties": { "dimension": { "const": "transition-eligibility" } }, "required": ["dimension"] },
+              "then": { "properties": { "result": { "const": "not-applicable" } } }
+            }
+          }
+        }
+      }
+    },
+    {
+      "description": "A requested transition => transition-eligibility must actually be evaluated.",
+      "if": { "required": ["requested_transition"] },
+      "then": {
+        "properties": {
+          "dimensions": {
+            "items": {
+              "if": { "properties": { "dimension": { "const": "transition-eligibility" } }, "required": ["dimension"] },
+              "then": { "properties": { "result": { "enum": ["pass", "fail", "indeterminate"] } } }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "dimension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dimension", "result"],
+      "properties": {
+        "dimension": {
+          "enum": ["structural", "semantic", "relational", "transition-eligibility"]
+        },
+        "result": {
+          "enum": ["pass", "fail", "indeterminate", "not-applicable"],
+          "description": "`indeterminate` is not a softer fail and is never permission to infer the missing fact. `not-applicable` means the dimension or rule does not apply to this object, state, transition or declared evaluation."
+        },
+        "reasons": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/reason" }
+        },
+        "evidence": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/evidence" }
+        },
+        "unevaluated_because": {
+          "enum": ["structural", "semantic", "relational", "transition-eligibility"],
+          "description": "The dimension whose result prevented checks here from running. Dependency is recorded explicitly rather than implied by ordering."
+        }
+      },
+      "allOf": [
+        {
+          "description": "fail, indeterminate and not-applicable each require at least one reason. An unexplained negative is an assertion, not a finding; an indeterminate's reason is its entire content; and not-applicable is the result most easily used to make an inconvenient dimension disappear.",
+          "if": {
+            "properties": { "result": { "enum": ["fail", "indeterminate", "not-applicable"] } },
+            "required": ["result"]
+          },
+          "then": {
+            "required": ["reasons"],
+            "properties": { "reasons": { "minItems": 1 } }
+          }
+        }
+      ]
+    },
+    "reason": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "detail"],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$",
+          "description": "A stable code a consumer can branch on without parsing prose."
+        },
+        "detail": { "type": "string", "minLength": 1 }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ref"],
+      "properties": {
+        "ref": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The artefact supporting the reason — a schema pointer, a file, a fixture identifier."
+        },
+        "locus": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Where within it — a line, a JSON pointer, a section."
+        }
+      }
+    }
+  }
+}

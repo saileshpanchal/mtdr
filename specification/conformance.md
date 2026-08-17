@@ -52,11 +52,32 @@ both conforming, whatever their schemas say.
 
 ## Conformance of what, exactly
 
+Every claim names its subject. [TDR-0032](../decisions/TDR-0032-typed-multi-object-conformance.md)
+made this constitutional: **there is no untyped normative claim that something is merely "MTDR
+conformant"**, and conformance at one level implies nothing at another.
+
 - **A record** conforms to its specification version — the one it was raised under, never a later one
   retroactively ([`records/value/specification/vr.md`](../records/value/specification/vr.md) §8 is the
   worked precedent).
 - **An implementation** conforms by passing the fixtures — expected and must-not — for the packages it
-  claims, plus the shared corpus.
+  claims, plus the shared corpus. This is a *behavioural* claim: a conforming skill file establishes
+  nothing about the execution that reads it.
 - **The repository itself** conforms by keeping this file honest: every maturity claim checkable
   against a package's actual contents, every release's compatibility claim verified rather than
   asserted.
+- **An interchange structure, a package and a skill artefact** each make their own claim against their
+  own contract, and a register or collection makes none until its contract exists.
+
+## How a result is reported
+
+Validation reports four dimensions — structural, semantic, relational and lifecycle-transition
+eligibility — independently, and never as a pass pipeline
+([TDR-0033](../decisions/TDR-0033-four-dimensional-validity.md)). The versioned contract for what a
+result contains, which results are legal where, and what a result may never say is
+[`validation-result.md`](validation-result.md), with its machine contract at
+[`schemas/validation-result.schema.json`](../schemas/validation-result.schema.json).
+
+**There is no aggregate verdict.** An interface may summarise for usability; it must retain and expose
+every dimension, and no green result may override a failure or an indeterminate. The repository's own
+suite ends with a repository-subject result of exactly that shape — the exit status it returns is an
+operational signal about the run, not a conformance judgement about anything.
