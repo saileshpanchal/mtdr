@@ -8,7 +8,8 @@ Validates the repository against its own rules — run from the repository root:
 Checks: record schema validity · lineage resolution · id/filename agreement · skill frontmatter
 discipline · relative-link resolution (stubs included) · package manifests coherent · candidate
 packages hold metadata and scope only · package dependency boundary · shared-skill record-neutrality
-· consumer-name scan over normative artefacts · VR negative cases still rejected.
+· consumer-name scan over normative artefacts · VR negative cases still rejected · identifier
+allocation register coherent, with next-free proved rather than trusted.
 
 Requires: pyyaml, jsonschema. Exit code 0 = conforming.
 """
@@ -152,6 +153,45 @@ for f in fixtures:
     if '## Must not' not in open(f, encoding='utf-8').read():
         fail('fixture', f"{f}: no must-not section — a fixture without one is non-conforming")
 note('fixtures', f"{len(fixtures)} carry must-not sections")
+
+# 10 — identifier allocation register (TDR-0034): state-defined, next-free derived not trusted
+alloc_text = open('decisions/ALLOCATION.md', encoding='utf-8').read()
+ALLOCATED, BURNT, NEXT_FREE = set(), set(), set()
+STATES = {'allocated': ALLOCATED, 'burnt': BURNT, 'next free': NEXT_FREE}
+for row in re.findall(r'^\|(.+?)\|(.+?)\|', alloc_text, re.M):
+    cell, state = (c.replace('*', '').strip() for c in row)
+    nums = [int(n) for n in re.findall(r'TDR-(\d{4})', cell)]
+    if not nums or state not in STATES:
+        continue
+    STATES[state].update(range(nums[0], nums[-1] + 1))
+
+# duplicate ids across records, and the id set the register must account for
+seen = {}
+for f in records:
+    rid = frontmatter(f)['id']
+    if rid in seen:
+        fail('allocation', f"duplicate id {rid}: {seen[rid]} and {f}")
+    seen[rid] = f
+represented = {int(rid.split('-')[1]) for rid in seen}
+
+for n in sorted(ALLOCATED - represented):
+    fail('allocation', f"TDR-{n:04d} allocated but no governed representation exists")
+for n in sorted(represented - ALLOCATED):
+    fail('allocation', f"TDR-{n:04d} has a governed representation but no allocated register entry")
+for n in sorted(BURNT & represented):
+    fail('allocation', f"TDR-{n:04d} is burnt — no governed representation may use it")
+if overlap := ALLOCATED & BURNT:
+    fail('allocation', f"identifiers both allocated and burnt: {sorted(overlap)}")
+if len(NEXT_FREE) != 1:
+    fail('allocation', f"the register must state exactly one next-free identifier, found {len(NEXT_FREE)}")
+else:
+    stated = next(iter(NEXT_FREE))
+    if stated in represented:
+        fail('allocation', f"TDR-{stated:04d} is stated next free but a representation exists")
+    derived = max(ALLOCATED | BURNT) + 1
+    if stated != derived:
+        fail('allocation', f"stated next free TDR-{stated:04d} != max(allocated ∪ burnt) + 1 = TDR-{derived:04d}")
+note('allocation', f"{len(ALLOCATED)} allocated, {len(BURNT)} burnt, next free derived")
 
 print()
 if FAILS:

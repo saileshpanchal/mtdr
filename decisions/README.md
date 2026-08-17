@@ -38,6 +38,11 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0031](TDR-0031-reconcile-ratified-judgement-after-identifier-collision.md) | Reconcile a ratified judgement prospectively when its proposed identifier collides with an accepted record | Full — identity, standing and immutable lineage are constitutional |
 | [TDR-0032](TDR-0032-typed-multi-object-conformance.md) | Typed multi-object conformance and the register as an optional collection mechanism | Full — standing carried through a permanent TDR-0031 crosswalk |
 | [TDR-0033](TDR-0033-four-dimensional-validity.md) | Structural, semantic, relational and lifecycle-transition validation | Full — standing carried through a permanent TDR-0031 crosswalk |
+| [TDR-0034](TDR-0034-public-allocation-authority.md) | Govern public identifier allocation here, and make allocation irreversible | Full — a namespace-governance commitment is a one-way door |
+
+## Identifiers
+
+[`ALLOCATION.md`](ALLOCATION.md) is the normative register for the public `TDR-*` namespace, under [TDR-0034](TDR-0034-public-allocation-authority.md). Allocate in the same commit that introduces the record; never reuse an identifier that has been materially published; never mirror this register anywhere. `tests/verify.py` enforces all of it.
 
 ## Decision assurance cases
 
