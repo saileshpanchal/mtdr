@@ -32,8 +32,8 @@ record-neutral substrate ([TDR-0021](decisions/TDR-0021-record-package-architect
 | [`schemas/`](schemas/) | The [validation-result contract](schemas/validation-result.schema.json) and, in [`shared/`](schemas/shared/), the interchange schemas for the contribution model |
 | [`mtdr_validation/`](mtdr_validation/) | A **non-normative** reference implementation of the result contract. The contract governs; this code does not |
 | [`mtdr_packaging/`](mtdr_packaging/) | A **non-normative** generator that assembles distribution bundles from the manifests. It decides where files go and never what they mean |
-| [`tests/`](tests/) | Cross-language fixtures, [validation-result fixtures](tests/validation/), deployed-agent probes, the corpus, and the interoperability horizon |
-| [`practice/`](practice/) | Practice guides: quick start, operating model, administration & assurance |
+| [`tests/`](tests/) | Cross-language fixtures, [validation-result](tests/validation/) and [inspectability](tests/inspectability/) fixtures, the [adoption case](tests/adoption/), deployed-agent probes, the corpus, and the interoperability horizon |
+| [`practice/`](practice/) | Practice guides: quick start, **[applying MTDR to your own framework](practice/using-mtdr-with-your-framework.md)**, operating model, administration & assurance |
 | [`spikes/`](spikes/) | **Non-normative** experiments whose findings are recorded — currently the [SHACL relational-validity spike](spikes/shacl-relational-validity/) |
 | [`decisions/`](decisions/) | **This standard's own design decisions, recorded as TDRs**, and the [identifier allocation register](decisions/ALLOCATION.md) |
 | [`ARCHITECTURE.md`](ARCHITECTURE.md) · [`FAQ.md`](FAQ.md) · [`GOVERNANCE.md`](GOVERNANCE.md) · [`CONTRIBUTING.md`](CONTRIBUTING.md) | The layered architecture and where the standard ends · what a TDR is not · how the repository governs itself · how to challenge a decision |

@@ -11,6 +11,11 @@ This directory is the one place in the repository where product names may appear
 
 **Verified:** 2026-08-18.
 
+**Current standing: four verified direct surfaces, plus one provisionally verified direct surface.**
+Stated that way deliberately — the five-surface claim is not weakened, and it is not rounded up either.
+Copilot becomes the fifth verified surface when its primary documentation can be reached; until then
+the evidence says what it says.
+
 ## The falsification criterion
 
 > **If supporting a runtime requires changing the meaning of a canonical MTDR artefact, that runtime
@@ -49,19 +54,26 @@ That is not caution rewarded by luck; it is why the answer below is what it is. 
 documentation notes that a field outside the spec makes packaging or upload *fail with a hard error* —
 so the narrower the frontmatter, the wider the portability. MTDR is at the narrowest point available.
 
-**2. Every runtime checked is `direct`.** Not one requires a transformed skill file. The strongest
+**2. Distribution equivalence is strongest when runtimes consume the same canonical artefact, not
+generated semantic replicas of it.** This is the architectural finding of the exercise, and it inverts
+the assumption it started from. Five per-surface bundles would have made divergence *possible in order
+to then detect it*; one collection every surface points at makes divergence impossible. The five-runtime
+problem collapsed into one standards problem: MTDR needs **one portable capability plus verified
+discovery instructions**, not five semantic packaging implementations.
+
+**3. Every runtime checked is `direct`.** Not one requires a transformed skill file. The strongest
 available evidence for [TDR-0024](../../decisions/TDR-0024-packaging-independence.md) turns out to be
 that there is almost nothing for a packaging adapter to do — packaging independence demonstrated by
 the near-absence of packaging.
 
-**3. There is exactly one transformation, and it is not semantic.** MTDR stores skills two levels deep
+**4. There is exactly one transformation, and it is not semantic.** MTDR stores skills two levels deep
 — `records/<language>/skills/<name>/SKILL.md` and `skills/shared/<name>/SKILL.md` — because skills live
 with the record semantics they serve ([TDR-0023](../../decisions/TDR-0023-portable-skill-architecture.md)).
 No runtime scans that shape. A bundle therefore **collects** the twenty-five skill directories into one
 flat directory, byte-identical, and places it where the runtime looks. Collection is packaging; nothing
 is rewritten, and the falsification criterion is not engaged.
 
-**4. Collection breaks the skills' relative links, and that is the right outcome.** MTDR skills link
+**5. Collection breaks the skills' relative links, and that is the right outcome.** MTDR skills link
 back into the semantics they serve — `../../../specification/candidacy-and-ratification.md` and the
 like — which resolve at the canonical depth and not inside a flat bundle directory.
 
@@ -76,7 +88,7 @@ deliberately puts skills next to the record semantics they serve. Runtimes want 
 standard is not going to acquire a flat shape to suit them. The bundle resolves the tension by shipping
 both and rewriting neither.
 
-**5. `.agents/skills/` is a converging neutral path.** Codex scans it, Gemini aliases both its user and
+**6. `.agents/skills/` is a converging neutral path.** Codex scans it, Gemini aliases both its user and
 workspace paths to it, and Copilot is reported to read it. A single `.agents/skills/` directory
 plausibly serves three of the five without per-surface work — which, if it holds, means the "five
 bundles" are largely one bundle in several places.

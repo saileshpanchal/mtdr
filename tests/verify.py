@@ -14,7 +14,8 @@ contract accepting and rejecting its fixtures as published · no untyped conform
 normative surface · classified normative closure with no undeclared outward reference · must-not
 probes over the reference implementation · a serialisation round-trip through a fresh process ·
 the DAC-0032/0033 obligations register accounted for constraint by constraint · every standards-
-boundary disposition reasoned and foreclosed.
+boundary disposition reasoned and foreclosed · distribution bundles fresh, equivalent and
+byte-identical to the canonical artefacts · the progressive-disclosure budget within its ceilings.
 
 The run ends with a **repository-subject** assessment (TDR-0032) reporting the four dimensions of
 TDR-0033 independently, including eligibility for the DAC-0032/0033 release gate computed from the
@@ -196,7 +197,8 @@ note('typed-claims', "no untyped conformance claim on a normative surface")
 # 9 — every fixture carries a must-not section (TDR-0025)
 fixtures = glob.glob('records/*/fixtures/**/FIX-*.md', recursive=True) \
          + glob.glob('tests/conformance/FIX-*.md') + glob.glob('tests/corpus/CORPUS-*.md') \
-         + glob.glob('tests/validation/FIX-*.md') + glob.glob('tests/inspectability/FIX-*.md')
+         + glob.glob('tests/validation/FIX-*.md') + glob.glob('tests/inspectability/FIX-*.md') \
+         + glob.glob('tests/adoption/FIX-*.md')
 for f in fixtures:
     if '## Must not' not in open(f, encoding='utf-8').read():
         fail('fixture', f"{f}: no must-not section — a fixture without one is non-conforming")
@@ -334,6 +336,17 @@ for key in SURFACES:
 if len(set(counts.values()) | {len(bundled)}) != 1:
     fail('bundle', f"surfaces advertise different catalogues: {counts} against {len(bundled)} collected")
 note('bundles', f"{len(SURFACES)} surfaces, one catalogue of {len(bundled)}, canonical files byte-identical")
+
+# 12c — progressive disclosure: selecting and running one skill must not cost the whole corpus
+sys.path.insert(0, os.path.join(os.getcwd(), 'tests', 'adoption'))
+import disclosure  # noqa: E402
+
+budget_lines, budget_problems = disclosure.report()
+for b in budget_problems:
+    fail('disclosure', b)
+_cat_pct, _run_pct = budget_lines[1].split()[-1], budget_lines[-1].split('bytes')[1].split()[0]
+note('disclosure', f"catalogue {_cat_pct} of the corpus; the most demanding skill and its "
+                   f"references {_run_pct}")
 
 # 13 — must-not probes against the reference implementation (DAC-0033 constraint 5)
 from mtdr_validation import (Dim, ValidationResult, IllegalResult, PASS,  # noqa: E402
@@ -494,6 +507,7 @@ DIMENSION_OF = {
     'standards': Dim.SEMANTIC,
     'lineage': Dim.RELATIONAL, 'link': Dim.RELATIONAL, 'allocation': Dim.RELATIONAL,
     'closure': Dim.RELATIONAL, 'round-trip': Dim.STRUCTURAL, 'bundle': Dim.SEMANTIC,
+    'disclosure': Dim.SEMANTIC,
 }
 assessment = ValidationResult(
     'repository', 'mtdr', 'specification/conformance.md', '1.0.0', subject_ref='.',
