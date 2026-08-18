@@ -1,6 +1,6 @@
 # The standards boundary
 
-**Version:** 1.0.0 · **Licence:** MIT · **Author:** Sailesh Panchal
+**Version:** 1.1.0 · **Licence:** MIT · **Author:** Sailesh Panchal
 
 Where this standard sits among the standards it touches. Decided in
 [TDR-0035](../decisions/TDR-0035-standards-boundary.md).
@@ -9,6 +9,44 @@ An open specification that expects others to build implementations owes them thi
 it, every adopter re-derives the same questions — *does MTDR need a graph? a policy engine? an agent
 platform?* — and answers them differently, which is how a portable standard quietly acquires an
 architecture.
+
+## The layers, and which one MTDR occupies
+
+A register of dispositions answers *what MTDR depends on*. It does not answer the question adopters
+actually arrive with, which is **why MTDR exists at all when they already have skills, plugins and a
+protocol**. The answer is that those solve different problems, and the confusion is worth ending
+explicitly rather than leaving it implicit in a packaging directory.
+
+| Layer | Concern | Who owns it |
+|---|---|---|
+| **Knowledge and provenance packaging** | How a body of material is packaged, described and shipped | Open Knowledge / data-package formats — *mapped* |
+| **Procedural capability** | How a repeatable method is expressed so an agent can apply it | Agent Skills (`SKILL.md`) — **adopted** |
+| **Packaging and distribution** | How capability reaches a particular runtime | Agent plugin packaging — *interoperated with* |
+| **Interaction** | How a participant is handed material and returns results | MCP — *interoperated with* |
+| **Governed semantics and lifecycle** | What an organisational record *means*, what states it may occupy, and what a transition requires | **MTDR** |
+| **Standing** | Which commitments the organisation is actually accountable for | **Authorised human acts** — outside every standard here |
+
+Read downward, each layer is a genuine dependency of the one above it in practice and a genuine
+*non*-dependency in principle: a governed record is still a governed record with no plugin, no
+protocol and no runtime.
+
+Two of these rows are the whole argument.
+
+**Nothing but MTDR occupies the semantics-and-lifecycle layer.** A skill can express a method; it
+cannot say that a value commitment lacking a counter-signatory is a valid candidate and an ineligible
+ratification. A plugin can ship that skill; a protocol can carry its output. None of them defines what
+the output *means* or what may legitimately be done to it next. That gap is why this standard exists,
+and it is also why MTDR can adopt the skills layer wholesale without competing with it.
+
+**Nothing at all occupies the standing layer.** It is not that no standard has reached it yet — it is
+that it cannot be occupied by a standard. Standing originates in an authorised human act
+([TDR-0027](../decisions/TDR-0027-human-ratification-confers-standing.md)), and every mechanism below
+can at most establish that the evidenced preconditions are satisfied
+([`obligation-chain.md`](obligation-chain.md)). A tool that appears to supply standing has not solved
+the last layer; it has quietly relocated accountability into software.
+
+The practical consequence for an adopter: **you do not choose between MTDR and your agent stack.** You
+keep the stack and gain the layer it does not have.
 
 ## The dispositions
 

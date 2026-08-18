@@ -113,9 +113,14 @@ for f in glob.glob('**/*.md', recursive=True):
             fail('skill-count', f"{f}: states {m.group(1)} skills, repository has {len(skills)}")
 note('skill-count', f"stated counts agree with the {len(skills)} on disk")
 
-# 4 — every relative link resolves (stubs included)
+# 4 — every relative link resolves (stubs included). Collected bundle copies are exempt: their links
+# are canonical and resolve at the canonical depth, and 12b proves them byte-identical to the
+# originals checked here — so nothing goes unverified. Rewriting them to resolve inside a flat bundle
+# would modify a canonical artefact, which packaging may never do (see runtime-evidence.md).
 checked = 0
 for f in glob.glob('**/*.md', recursive=True):
+    if f.startswith('skills/packaging/canonical/skills/'):
+        continue
     base = os.path.dirname(f)
     for link in set(re.findall(r'\]\((?!https?://|mailto:)([^)#\s]+)', open(f, encoding='utf-8').read())):
         checked += 1
@@ -302,8 +307,35 @@ for f in manifests:
 note('closure', f"{sum(len(yaml.safe_load(open(f)).get('dependencies') or []) for f in manifests)} "
                 "dependencies classified; no undeclared outward reference")
 
-# 13 — must-not probes against the reference implementation (DAC-0033 constraint 5)
+# 12b — distribution bundles: catalogue equivalence, semantic neutrality, freshness (TDR-0024)
 sys.path.insert(0, os.getcwd())
+from mtdr_packaging.generate import check as bundle_check  # noqa: E402
+from mtdr_packaging.surfaces import SURFACES  # noqa: E402
+
+try:
+    drift, bundled = bundle_check()
+except SystemExit as e:
+    drift, bundled = [str(e)], {}
+for d in drift:
+    fail('bundle', d)
+
+# every skill on disk is enumerated by a manifest, and vice versa — the generator depends on it
+on_disk = {os.path.basename(os.path.dirname(p)) for p in skills}
+for orphan in sorted(on_disk - set(bundled)):
+    fail('bundle', f"skill {orphan} exists on disk but no package manifest enumerates it")
+
+# capability equivalence: no surface may advertise a different catalogue from any other
+counts = {}
+for key in SURFACES:
+    d = yaml.safe_load(open(f'skills/packaging/{key}/surface.yaml'))
+    counts[key] = d.get('skill_count')
+    if d.get('class') not in ('direct', 'thin-adapter', 'defer'):
+        fail('bundle', f"{key}: unknown surface class {d.get('class')}")
+if len(set(counts.values()) | {len(bundled)}) != 1:
+    fail('bundle', f"surfaces advertise different catalogues: {counts} against {len(bundled)} collected")
+note('bundles', f"{len(SURFACES)} surfaces, one catalogue of {len(bundled)}, canonical files byte-identical")
+
+# 13 — must-not probes against the reference implementation (DAC-0033 constraint 5)
 from mtdr_validation import (Dim, ValidationResult, IllegalResult, PASS,  # noqa: E402
                              NOT_APPLICABLE, validate_document)
 
@@ -461,7 +493,7 @@ DIMENSION_OF = {
     'untyped-claim': Dim.SEMANTIC, 'vr-frozen': Dim.SEMANTIC, 'obligations': Dim.SEMANTIC,
     'standards': Dim.SEMANTIC,
     'lineage': Dim.RELATIONAL, 'link': Dim.RELATIONAL, 'allocation': Dim.RELATIONAL,
-    'closure': Dim.RELATIONAL, 'round-trip': Dim.STRUCTURAL,
+    'closure': Dim.RELATIONAL, 'round-trip': Dim.STRUCTURAL, 'bundle': Dim.SEMANTIC,
 }
 assessment = ValidationResult(
     'repository', 'mtdr', 'specification/conformance.md', '1.0.0', subject_ref='.',

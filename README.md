@@ -31,6 +31,7 @@ record-neutral substrate ([TDR-0021](decisions/TDR-0021-record-package-architect
 | [`skills/packaging/`](skills/packaging/) | Distribution adapters — deploying the same files through specific runtimes ([TDR-0024](decisions/TDR-0024-packaging-independence.md)) |
 | [`schemas/`](schemas/) | The [validation-result contract](schemas/validation-result.schema.json) and, in [`shared/`](schemas/shared/), the interchange schemas for the contribution model |
 | [`mtdr_validation/`](mtdr_validation/) | A **non-normative** reference implementation of the result contract. The contract governs; this code does not |
+| [`mtdr_packaging/`](mtdr_packaging/) | A **non-normative** generator that assembles distribution bundles from the manifests. It decides where files go and never what they mean |
 | [`tests/`](tests/) | Cross-language fixtures, [validation-result fixtures](tests/validation/), deployed-agent probes, the corpus, and the interoperability horizon |
 | [`practice/`](practice/) | Practice guides: quick start, operating model, administration & assurance |
 | [`spikes/`](spikes/) | **Non-normative** experiments whose findings are recorded — currently the [SHACL relational-validity spike](spikes/shacl-relational-validity/) |

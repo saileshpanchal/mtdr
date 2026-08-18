@@ -17,7 +17,8 @@ holds a "next free" for this sequence. A contributor allocates correctly from a 
 | **TDR-0035** | **allocated** | standards boundary — allocated by the commit introducing the register |
 | **TDR-0036** | **allocated** | derivation projection and `show-me` — allocated by the commit introducing them |
 | **TDR-0037** | **allocated** | release eligibility from standing governance — allocated by the commit introducing it |
-| **TDR-0038** | **next free** | derived, not authoritative — see below |
+| **TDR-0038** | **allocated** | distribution bundles and the layer boundary — allocated by the commit introducing them |
+| **TDR-0039** | **next free** | derived, not authoritative — see below |
 
 ## What the states mean
 
