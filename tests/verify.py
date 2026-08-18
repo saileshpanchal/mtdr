@@ -438,11 +438,21 @@ finally:
 if not [c for c, _ in FAILS if c == 'round-trip']:
     note('round-trip', "serialised, reloaded in a fresh process, same interpretation")
 
-# 13c — DAC-0033 constraint 6: the VR schema contradiction stays explicit until TDR-0019 governs it.
-# A constraint to leave something alone is testable, so it is tested rather than promised.
-if 'finance_countersignatory' not in json.load(open('records/value/schema/vr.schema.json')).get('required', []):
-    fail('vr-frozen', "the VR schema was changed under TDR-0033; that correction belongs to TDR-0019 "
-                      "(DAC-0033 constraint 6)")
+# 13c — state-relative requirements are represented state-relatively (TDR-0039). The VR is the worked
+# case: a counter-signatory is required to *become* ratified, never to *exist* as a candidate.
+_vr = {"id": "VR-9999", "title": "probe", "status": "candidate", "realisation": "not-started",
+       "linked_decisions": "TDR-9999", "beneficiary": "x", "committed_by": "y", "authority": "z",
+       "value_kind": "cost", "reconcile_by": "2028-03-31", "procurement_stage": "exploration",
+       "supersedes": "none", "derived_from": "none"}
+if list(vr_schema.iter_errors(_vr)):
+    fail('state-relative', "a candidate VR lacking only a finance counter-signatory is rejected — "
+                           "a transition requirement has leaked into the structural one (TDR-0039)")
+for _st in ('ratified', 'settled'):
+    _probe = {**_vr, 'status': _st, **({'realisation': 'realised'} if _st == 'settled' else {})}
+    if not list(vr_schema.iter_errors(_probe)):
+        fail('state-relative', f"a {_st} VR with no finance counter-signatory validated — the "
+                               "requirement has been loosened past the state that needs it")
+note('state-relative', "candidate valid without a counter-signatory; ratified and settled are not")
 
 # 13d — the obligations register: every DAC constraint accounted for, in two independent fields
 REG = yaml.safe_load(open('decisions/evidence/DAC-0032-0033-obligations.yaml'))
@@ -503,7 +513,7 @@ DIMENSION_OF = {
     'skill-description': Dim.STRUCTURAL, 'skill-count': Dim.SEMANTIC, 'manifest': Dim.STRUCTURAL, 'result-fixture': Dim.STRUCTURAL, 'projection-fixture': Dim.STRUCTURAL,
     'candidate': Dim.SEMANTIC, 'boundary': Dim.SEMANTIC, 'neutrality': Dim.SEMANTIC,
     'consumer-name': Dim.SEMANTIC, 'fixture': Dim.SEMANTIC, 'must-not': Dim.SEMANTIC,
-    'untyped-claim': Dim.SEMANTIC, 'vr-frozen': Dim.SEMANTIC, 'obligations': Dim.SEMANTIC,
+    'untyped-claim': Dim.SEMANTIC, 'state-relative': Dim.SEMANTIC, 'obligations': Dim.SEMANTIC,
     'standards': Dim.SEMANTIC,
     'lineage': Dim.RELATIONAL, 'link': Dim.RELATIONAL, 'allocation': Dim.RELATIONAL,
     'closure': Dim.RELATIONAL, 'round-trip': Dim.STRUCTURAL, 'bundle': Dim.SEMANTIC,

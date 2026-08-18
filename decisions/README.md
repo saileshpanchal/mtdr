@@ -43,6 +43,7 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0036](TDR-0036-derivation-projection-and-show-me.md) | Admit the derivation projection and a record-neutral `show-me` skill — it projects what was recorded and never constructs what was not | Full — the five states and the no-rationale rule are one-way doors |
 | [TDR-0037](TDR-0037-release-eligibility-from-standing-governance.md) | Derive release eligibility from standing governance; eligibility reports satisfaction and never decides what the conditions ought to be | Full — the eligibility boundary is a one-way door |
 | [TDR-0038](TDR-0038-distribution-bundles-and-the-layer-boundary.md) | Generate distribution bundles from the manifests, verify runtimes as evidence, and codify the layer boundary | Full — the adapter criterion and the layer boundary are one-way doors |
+| [TDR-0039](TDR-0039-state-relative-requirements.md) | State-relative requirements must be represented state-relatively — fields required to *become* something must not become fields required to *represent* it | Full — a substrate invariant governing every record family is a one-way door |
 
 ## Identifiers
 
@@ -56,6 +57,7 @@ The records also demonstrate the proportionality rule in practice:
 | [DAC-0031](DAC-0031-reconcile-ratified-judgement-after-identifier-collision.md) | TDR-0031 prospective identifier-collision reconciliation | Proceed with constraints |
 | [DAC-0032](DAC-0032-typed-multi-object-conformance.md) | TDR-0032 typed conformance and optional register boundary | Proceed with constraints |
 | [DAC-0033](DAC-0033-four-dimensional-validity.md) | TDR-0033 validity dimensions and transition eligibility | Proceed with constraints |
+| [DAC-0039](DAC-0039-state-relative-requirements.md) | TDR-0039 the state-relative requirement invariant | Proceed |
 
 DAC-0032 and DAC-0033 carry fifteen live obligations between them.
 [`evidence/DAC-0032-0033-obligations.yaml`](evidence/DAC-0032-0033-obligations.yaml) registers every

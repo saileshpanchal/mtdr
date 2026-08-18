@@ -188,15 +188,19 @@ obligations:
       After TDR-0019 governs the schema correction, a candidate VR lacking only transition-required
       finance counter-signature passes current-state structural and semantic validity and fails
       ratification eligibility.
-    implementation: pending
-    verification: release-gated
+    implementation: implemented
+    verification: verified
     evidence:
-      - tests/validation/FIX-106-valid-now-ineligible-next.md
+      - records/value/fixtures/incomplete/VR-9301-candidate-awaiting-countersignature.md
+      - tests/validation/FIX-117-candidate-ineligible-no-standing.md
+      - tests/validation/FIX-118-eligible-still-no-standing.md
+      - tests/validation/FIX-119-ratified-standing-evidenced-elsewhere.md
     note: >-
-      Blocked by constraint 6 of this same case, deliberately. FIX-106 proves the transition-
-      eligibility *shape* on a decision record and states in the fixture that it is not this proof.
-      The evidence reference is to the case that does not satisfy the constraint, so the gap stays
-      visible instead of looking satisfied by a neighbour.
+      Satisfied at 1.29 through TDR-0039, which corrected the schema so the state could be represented
+      at all. VR-9301 is a candidate lacking only its counter-signatory: structurally and semantically
+      valid, relationally clean, and ineligible for ratification. FIX-118 carries the more consequential
+      half — the same candidate counter-signed, every machine-verifiable prerequisite satisfied, and
+      still no standing.
 
   - id: DAC-0033#4
     constraint: Relational portability
@@ -242,12 +246,15 @@ obligations:
     implementation: implemented
     verification: verified
     evidence:
+      - decisions/TDR-0039-state-relative-requirements.md
       - records/value/schema/vr.schema.json
       - tests/verify.py
     note: >-
-      Enforced rather than promised: the suite asserts the VR schema still globally requires
-      `finance_countersignatory`, so an opportunistic fix trips a check and is routed to TDR-0019
-      instead of landing quietly. A constraint to leave something alone is testable.
+      Held, then discharged as required. Until 1.29 the suite asserted the contradiction was still
+      there, so an opportunistic fix would trip a check. The correction was then made under a ratified
+      decision — TDR-0039, deriving from TDR-0019 and TDR-0033, leaving TDR-0019 unsuperseded because
+      its judgement never changed. The guard is replaced rather than removed: the suite now asserts the
+      state-relative form in both directions, so neither re-tightening nor over-loosening can return.
 
   - id: DAC-0033#7
     constraint: Behaviour remains a separate claim

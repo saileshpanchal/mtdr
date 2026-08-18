@@ -12,11 +12,11 @@ The material is deliberately local-government rather than financial services. Ev
 case in this repository is a bank, and a claim made repeatedly — that this is an organisational
 language and not a banking ontology — is better demonstrated than asserted.
 
-> **One of these is not schema-valid, on purpose.** `VR-9204` is a candidate with no finance
-> counter-signatory — which the VR *specification* §4.4 explicitly permits in that state and the VR
-> *schema* currently forbids globally. That is the contradiction TDR-0033 identified, which DAC-0033
-> constraint 6 routes to TDR-0019 and forbids fixing opportunistically; it is corrected at v1.29 and
-> left visible until then. Nothing validates these files in the meantime.
+> **`VR-9204` was not schema-valid when these fixtures were written**, and now is. It is a candidate
+> with no finance counter-signatory — which the VR specification §4.4 has always permitted in that
+> state and the schema forbade globally. [TDR-0039](../../../decisions/TDR-0039-state-relative-requirements.md)
+> corrected that at 1.29. The subject is unchanged; what changed is that the schema can now express
+> the state its own specification describes.
 >
 > `VR-9205`'s defect is not a schema matter at all: its unaccounted-for figure is in the body, where
 > no schema reaches. That is the point of the projection — the walk finds what validation cannot.

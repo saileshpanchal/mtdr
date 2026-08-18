@@ -34,6 +34,9 @@ whether the contract must accept or reject it. The subjects those results are ab
 | [FIX-114](FIX-114-eligibility-without-a-transition.md) | rejected | Eligibility is always relative to a named requested transition |
 | [FIX-115](FIX-115-indeterminate-without-a-reason.md) | rejected | An unexplained negative result is an assertion, not a finding |
 | [FIX-116](FIX-116-no-repair-or-inferred-value.md) | rejected | Validators report gaps; they do not fill them |
+| [FIX-117](FIX-117-candidate-ineligible-no-standing.md) | accepted | A candidate lacking only its counter-signatory: valid, ineligible, no standing |
+| [FIX-118](FIX-118-eligible-still-no-standing.md) | accepted | The same candidate, counter-signed: **eligible, and still no standing** |
+| [FIX-119](FIX-119-ratified-standing-evidenced-elsewhere.md) | accepted | Ratified: standing exists, and the result still does not carry it |
 
 The three pairs are the ones to run together, because each pair is separated by a single fact that is
 easy to lose: 103/104 (unreachable vs absent), 106/108 (ineligible vs unknown), 113/115 (inapplicable
@@ -59,7 +62,13 @@ that a given record's relational validity is indeterminate is a behavioural clai
 TDR-0032 against the fixtures, corpus and probes — never inferred from the fact that its output
 serialises.
 
-DAC-0033 constraint 3 also remains open: the incomplete Value Record proving case, where a candidate
-lacking only its finance counter-signature passes current-state validity and fails ratification
-eligibility, waits on TDR-0019 remediating the VR schema. FIX-106 proves the *shape* on a decision
-record and says so; it is not that proof.
+**The 117–118–119 sequence is the constructive proof of `validity ≠ eligibility ≠ standing`**, and
+118 is the one that matters. 117 shows the machine correctly withholding when a prerequisite is
+missing, which is easy. 118 shows it correctly refusing to grant when it has **no mechanical objection
+left** — the only condition under which TDR-0027's boundary is genuinely tested. 119 closes it: even
+for a ratified record, the result says nothing about standing, because a validator that could confirm
+standing could also manufacture it.
+
+DAC-0033 constraint 3 was satisfied by that sequence at 1.29, after
+[TDR-0039](../../decisions/TDR-0039-state-relative-requirements.md) corrected the schema so the state
+could be represented at all.

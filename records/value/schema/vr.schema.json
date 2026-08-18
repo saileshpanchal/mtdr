@@ -20,7 +20,6 @@
     "committed_by",
     "authority",
     "value_kind",
-    "finance_countersignatory",
     "reconcile_by",
     "procurement_stage",
     "supersedes",
@@ -89,7 +88,7 @@
     "finance_countersignatory": {
       "type": "string",
       "minLength": 1,
-      "description": "A named individual in the finance function — not a committee, not a role. Co-signs at ratification, every material state change, and any write-off."
+      "description": "A named individual in the finance function — not a committee, not a role. Co-signs at ratification, every material state change, and any write-off. Required for the transition to `ratified`, not for the record to exist: a candidate may legitimately lack one (specification §4.4), and encoding a transition requirement as an unconditional structural one would collapse structural validity into lifecycle-transition eligibility. See TDR-0039."
     },
     "reconcile_by": {
       "type": "string",
