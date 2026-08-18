@@ -17,7 +17,9 @@ the DAC-0032/0033 obligations register accounted for constraint by constraint ·
 boundary disposition reasoned and foreclosed.
 
 The run ends with a **repository-subject** assessment (TDR-0032) reporting the four dimensions of
-TDR-0033 independently. It is not a general conformance verdict, and there is none: a pass here
+TDR-0033 independently, including eligibility for the DAC-0032/0033 release gate computed from the
+obligations register (TDR-0037). Eligibility is reported, never acted on: it is not release authority.
+ It is not a general conformance verdict, and there is none: a pass here
 implies nothing about any record, package, skill or participant inside the repository. The exit
 status is an operational signal about the run — non-zero when something failed — and is not a
 normative aggregate result (DAC-0032 constraint 1, DAC-0033 constraint 8).
@@ -302,7 +304,16 @@ note('closure', f"{sum(len(yaml.safe_load(open(f)).get('dependencies') or []) fo
 
 # 13 — must-not probes against the reference implementation (DAC-0033 constraint 5)
 sys.path.insert(0, os.getcwd())
-from mtdr_validation import Dim, ValidationResult, IllegalResult, PASS, NOT_APPLICABLE  # noqa: E402
+from mtdr_validation import (Dim, ValidationResult, IllegalResult, PASS,  # noqa: E402
+                             NOT_APPLICABLE, validate_document)
+
+def _reference_shape():
+    r = ValidationResult('repository', 'probe', 'specification/conformance.md', '1.0.0')
+    for d in (Dim.STRUCTURAL, Dim.SEMANTIC, Dim.RELATIONAL):
+        r.report(d, PASS)
+    r.report(Dim.TRANSITION, NOT_APPLICABLE, reasons=[('no-transition-requested', 'none')])
+    return r.to_dict()
+
 
 def refuses(what, thunk):
     try:
@@ -343,7 +354,14 @@ for e in _probe.validate():
     fail('must-not', f"the probe result does not satisfy its own contract: {e}")
 if open(probe_src, 'rb').read() != before:
     fail('must-not', f"{probe_src} was mutated by assessment")
-note('must-not', "no aggregate verdict, no illegal result, no mutation of the assessed object")
+
+# eligibility confers nothing: a result cannot carry a release-performing or authority field
+for forbidden in ('released', 'release_authorised', 'authority', 'performed'):
+    probe_doc = {**_reference_shape(), forbidden: True}
+    if not validate_document(probe_doc):
+        fail('must-not', f"the contract accepted a result carrying {forbidden!r} — "
+                         "eligibility must confer nothing (TDR-0037)")
+note('must-not', "no aggregate verdict, no illegal result, no mutation, no conferred authority")
 
 # 13b — serialisation round-trip. A result reloaded in a fresh process yields the same
 # interpretation: nothing in a result may depend on the process that produced it. This is a local
@@ -447,7 +465,8 @@ DIMENSION_OF = {
 }
 assessment = ValidationResult(
     'repository', 'mtdr', 'specification/conformance.md', '1.0.0', subject_ref='.',
-    assessed_state='published',
+    assessed_state='pre-release',
+    requested_transition={'from': 'pre-release', 'to': 'released'},
     context={'id': 'clean-clone',
              'description': 'The working tree alone — no register, service or network.'},
     validator={'name': 'tests/verify.py', 'version': '1.0.0'})
@@ -461,9 +480,23 @@ for dim in (Dim.STRUCTURAL, Dim.SEMANTIC, Dim.RELATIONAL):
                           reasons=[('unattributed-check', f"{c}: {m}") for c, m in unknown[:8]])
     else:
         assessment.report(dim, PASS)
-assessment.report(Dim.TRANSITION, NOT_APPLICABLE,
-                  reasons=[('no-transition-requested',
-                            'No transition was requested of this repository.')])
+# Eligibility for the DAC-0032/0033 release gate, derived from the obligations register rather than
+# from a curated checklist (specification/obligation-chain.md). Reported, never acted on: a pass would
+# mean the evidenced preconditions are satisfied and the request may be placed before whoever is
+# authorised to decide it — not that anything may be released.
+unmet = [(r['id'].lower().replace('#', '-'), f"{r['id']} — {r['constraint']}: implementation pending")
+         for r in rows.values() if r['implementation'] == 'pending']
+unproved = [(r['id'].lower().replace('#', '-'), f"{r['id']} — {r['constraint']}: verification {r['verification']}")
+            for r in rows.values() if r['verification'] in ('pending', 'release-gated')]
+if unmet:
+    assessment.report(Dim.TRANSITION, 'fail', reasons=unmet[:8],
+                      evidence=[('decisions/evidence/DAC-0032-0033-obligations.yaml',)])
+elif unproved:
+    assessment.report(Dim.TRANSITION, 'indeterminate', reasons=unproved[:8],
+                      evidence=[('decisions/evidence/DAC-0032-0033-obligations.yaml',)])
+else:
+    assessment.report(Dim.TRANSITION, PASS,
+                      evidence=[('decisions/evidence/DAC-0032-0033-obligations.yaml',)])
 
 print()
 if FAILS:
@@ -475,7 +508,12 @@ print("""
 The subject of this result is the repository. Under TDR-0032 it implies nothing about the
 conformance of any record, package, skill or participant within it, and under TDR-0033 no dimension
 above is overridden by any other. There is no aggregate verdict: the process exit status is an
-operational signal about this run, not a conformance judgement (DAC-0032 #1, DAC-0033 #8).""")
+operational signal about this run, not a conformance judgement (DAC-0032 #1, DAC-0033 #8).
+
+Transition eligibility is computed from the obligations register, not from a curated checklist
+(specification/obligation-chain.md). It reports whether the release gate's published prerequisites
+are met. It is not release authority: it neither performs the release, authorises it, nor gives
+anything standing — that remains an authorised human act under TDR-0027.""")
 for e in assessment.validate():
     print(f"FAIL [self] the repository result violates its own contract: {e}")
     FAILS.append(('self', e))
