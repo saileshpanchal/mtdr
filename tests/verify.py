@@ -92,6 +92,25 @@ for f in skills:
         fail('skill-description', f"{f}: multi-line description")
 note('skills', f"{len(skills)} strict-parsed")
 
+# 3b — stated skill counts match reality. The count drifted silently once; a number in prose that
+# nothing checks is a claim, and this repository does not ship unchecked claims about itself.
+WORDS = {n: i for i, n in enumerate(
+    "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen "
+    "sixteen seventeen eighteen nineteen twenty twenty-one twenty-two twenty-three twenty-four "
+    "twenty-five twenty-six twenty-seven twenty-eight twenty-nine thirty".split())}
+# A total is always stated in the plural, which keeps prose like \"exactly one `SKILL.md`\" out.
+COUNT = re.compile(r'([\w-]+) (?:`SKILL\.md` files|skills\]\(skills/)')
+for f in glob.glob('**/*.md', recursive=True):
+    if f.startswith('decisions/') or f == 'CHANGELOG.md':
+        continue                       # immutable records and release history state their own moment
+    for m in COUNT.finditer(open(f, encoding='utf-8').read()):
+        stated = WORDS.get(m.group(1).lower(), m.group(1) if m.group(1).isdigit() else None)
+        if stated is None:
+            continue                   # not a count — ordinary prose before the marker
+        if int(stated) != len(skills):
+            fail('skill-count', f"{f}: states {m.group(1)} skills, repository has {len(skills)}")
+note('skill-count', f"stated counts agree with the {len(skills)} on disk")
+
 # 4 — every relative link resolves (stubs included)
 checked = 0
 for f in glob.glob('**/*.md', recursive=True):
@@ -170,7 +189,7 @@ note('typed-claims', "no untyped conformance claim on a normative surface")
 # 9 — every fixture carries a must-not section (TDR-0025)
 fixtures = glob.glob('records/*/fixtures/**/FIX-*.md', recursive=True) \
          + glob.glob('tests/conformance/FIX-*.md') + glob.glob('tests/corpus/CORPUS-*.md') \
-         + glob.glob('tests/validation/FIX-*.md')
+         + glob.glob('tests/validation/FIX-*.md') + glob.glob('tests/inspectability/FIX-*.md')
 for f in fixtures:
     if '## Must not' not in open(f, encoding='utf-8').read():
         fail('fixture', f"{f}: no must-not section — a fixture without one is non-conforming")
@@ -215,26 +234,36 @@ else:
         fail('allocation', f"stated next free TDR-{stated:04d} != max(allocated ∪ burnt) + 1 = TDR-{derived:04d}")
 note('allocation', f"{len(ALLOCATED)} allocated, {len(BURNT)} burnt, next free derived")
 
-# 11 — the validation-result contract: fixtures accepted and rejected as published (TDR-0033)
-result_schema = Validator(json.load(open('schemas/validation-result.schema.json')))
-accepted = rejected = 0
-for f in sorted(glob.glob('tests/validation/FIX-*.md')):
-    text = open(f, encoding='utf-8').read()
-    exp = re.search(r'\*\*Contract expectation:\*\*\s*(accepted|rejected)', text)
-    blocks = re.findall(r'```json\n(.*?)```', text, re.S)
-    if not exp or len(blocks) != 1:
-        fail('result-fixture', f"{f}: needs one contract expectation and exactly one json block")
-        continue
-    errors = list(result_schema.iter_errors(json.loads(blocks[0])))
-    if exp.group(1) == 'accepted':
-        accepted += 1
-        for e in errors:
-            fail('result-fixture', f"{f}: expected accepted, contract rejected it — {e.message}")
-    else:
-        rejected += 1
-        if not errors:
-            fail('result-fixture', f"{f}: expected rejected, the contract accepted it")
-note('result-contract', f"{accepted} accepted, {rejected} rejected as published")
+# 11 — contract fixtures: each carries a complete document and what the contract must do with it
+def run_contract_fixtures(check, schema_path, pattern):
+    schema = Validator(json.load(open(schema_path)))
+    accepted = rejected = 0
+    for f in sorted(glob.glob(pattern)):
+        text = open(f, encoding='utf-8').read()
+        exp = re.search(r'\*\*Contract expectation:\*\*\s*(accepted|rejected)', text)
+        blocks = re.findall(r'```json\n(.*?)```', text, re.S)
+        if not exp or len(blocks) != 1:
+            fail(check, f"{f}: needs one contract expectation and exactly one json block")
+            continue
+        errors = list(schema.iter_errors(json.loads(blocks[0])))
+        if exp.group(1) == 'accepted':
+            accepted += 1
+            for e in errors:
+                fail(check, f"{f}: expected accepted, contract rejected it — {e.message}")
+        else:
+            rejected += 1
+            if not errors:
+                fail(check, f"{f}: expected rejected, the contract accepted it")
+    return accepted, rejected
+
+a, r = run_contract_fixtures('result-fixture', 'schemas/validation-result.schema.json',
+                             'tests/validation/FIX-*.md')
+note('result-contract', f"{a} accepted, {r} rejected as published")
+
+# 11b — the derivation projection contract (TDR-0033's inspectability counterpart)
+a, r = run_contract_fixtures('projection-fixture', 'schemas/shared/derivation-projection.schema.json',
+                             'tests/inspectability/FIX-*.md')
+note('projection-contract', f"{a} accepted, {r} rejected as published")
 
 # 12 — classified normative closure (TDR-0032; DAC-0032 constraint 3). Role metadata, not a trust
 # hierarchy — historical material can be authoritative evidence while being non-normative about
@@ -408,7 +437,7 @@ note('standards', f"{register_rows} dispositions, each reasoned and foreclosed")
 DIMENSION_OF = {
     'record-schema': Dim.STRUCTURAL, 'id-filename': Dim.STRUCTURAL, 'vr-example': Dim.STRUCTURAL,
     'vr-negative': Dim.STRUCTURAL, 'skill-frontmatter': Dim.STRUCTURAL, 'skill-name': Dim.STRUCTURAL,
-    'skill-description': Dim.STRUCTURAL, 'manifest': Dim.STRUCTURAL, 'result-fixture': Dim.STRUCTURAL,
+    'skill-description': Dim.STRUCTURAL, 'skill-count': Dim.SEMANTIC, 'manifest': Dim.STRUCTURAL, 'result-fixture': Dim.STRUCTURAL, 'projection-fixture': Dim.STRUCTURAL,
     'candidate': Dim.SEMANTIC, 'boundary': Dim.SEMANTIC, 'neutrality': Dim.SEMANTIC,
     'consumer-name': Dim.SEMANTIC, 'fixture': Dim.SEMANTIC, 'must-not': Dim.SEMANTIC,
     'untyped-claim': Dim.SEMANTIC, 'vr-frozen': Dim.SEMANTIC, 'obligations': Dim.SEMANTIC,

@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/saileshpanchal/mtdr/blob/main/schemas/shared/derivation-projection.schema.json",
+  "title": "DerivationProjection — what a record's values were derived from",
+  "description": "Machine contract for specification/derivation-projection.md. A VIEW computed from SourceFragment, RecordContribution and CandidateAssembly; it adds nothing to them and is not a fourth interchange structure. Context-free by design: whether a fragment is presently reachable is relational validity's question, not this one, which is what makes two participants' projections of the same records directly comparable. The object is closed at every level so that no rationale, score, repair, inferred value or standing claim can be added.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract_version", "subject", "specification", "fields"],
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "Version of THIS contract, independent of the record's specification version."
+    },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "id"],
+      "properties": {
+        "type": {
+          "enum": ["record", "interchange-structure"],
+          "description": "What is being projected. A projection walks recorded derivation, which only records and the interchange structures carry; a package, skill or repository has no derivation chain to walk."
+        },
+        "id": { "type": "string", "minLength": 1 },
+        "ref": { "type": "string", "minLength": 1 }
+      }
+    },
+    "specification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "description": "The specification the subject was raised under. Required for the same reason the validation result requires it: a projection that cannot say which semantics its field names belong to is not comparable with anything.",
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "version": { "type": "string", "minLength": 1 }
+      }
+    },
+    "fields": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/field" }
+    },
+    "projector": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version"],
+      "description": "Who produced the projection. Identity only — it confers nothing and grades nothing.",
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "version": { "type": "string", "minLength": 1 }
+      }
+    }
+  },
+  "$defs": {
+    "field": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["field", "state"],
+      "properties": {
+        "field": { "type": "string", "minLength": 1 },
+        "state": {
+          "enum": ["supported", "inferred", "conflicting", "missing", "unsupported"],
+          "description": "Five states and no sixth. No `likely`, `weakly-supported` or `plausible`: a projection that grades its own confidence has stopped being inspectability and become explanation. `missing` is a declared gap; `unsupported` is a rendered value nothing accounts for — collapsing the two hides the failure the contribution model exists to expose."
+        },
+        "rendered_value": {
+          "type": ["string", "number", "boolean"],
+          "description": "What the record actually says for this field. Required for `unsupported` (a value with nothing behind it) and forbidden for `missing` (a declared gap has nothing to render)."
+        },
+        "chain": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/link" },
+          "description": "Contributions behind the value, each with the fragments behind it. Empty for `missing` and `unsupported`."
+        },
+        "conflict_ref": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The CandidateAssembly `conflicts` entry recording competing contributions for this role. Required for `conflicting`: a conflict asserted here but recorded nowhere would be this projection inventing one."
+        },
+        "reported_at": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Where the absence was declared — normally the CandidateAssembly `missing_semantics` entry. Required for `missing`, and forbidden elsewhere, because it is the only thing separating a recorded gap from an unaccounted-for value."
+        }
+      },
+      "allOf": [
+        {
+          "description": "supported: a non-empty chain, every contribution read directly from its spans.",
+          "if": { "properties": { "state": { "const": "supported" } }, "required": ["state"] },
+          "then": {
+            "required": ["chain"],
+            "properties": {
+              "chain": { "minItems": 1, "items": { "properties": { "derivation": { "const": "explicit" } } } },
+              "conflict_ref": false,
+              "reported_at": false
+            }
+          }
+        },
+        {
+          "description": "inferred: a non-empty chain with at least one inferred contribution.",
+          "if": { "properties": { "state": { "const": "inferred" } }, "required": ["state"] },
+          "then": {
+            "required": ["chain"],
+            "properties": {
+              "chain": {
+                "minItems": 1,
+                "contains": { "properties": { "derivation": { "const": "inferred" } }, "required": ["derivation"] },
+                "minContains": 1
+              },
+              "conflict_ref": false,
+              "reported_at": false
+            }
+          }
+        },
+        {
+          "description": "conflicting: at least two competing chains, and the recorded conflict they come from.",
+          "if": { "properties": { "state": { "const": "conflicting" } }, "required": ["state"] },
+          "then": {
+            "required": ["chain", "conflict_ref"],
+            "properties": { "chain": { "minItems": 2 }, "reported_at": false }
+          }
+        },
+        {
+          "description": "missing: a declared gap — empty chain, nothing rendered, and a declaration.",
+          "if": { "properties": { "state": { "const": "missing" } }, "required": ["state"] },
+          "then": {
+            "required": ["reported_at"],
+            "properties": {
+              "chain": { "maxItems": 0 },
+              "rendered_value": false,
+              "conflict_ref": false
+            }
+          }
+        },
+        {
+          "description": "unsupported: a rendered value with an empty chain and no declaration behind it.",
+          "if": { "properties": { "state": { "const": "unsupported" } }, "required": ["state"] },
+          "then": {
+            "required": ["rendered_value"],
+            "properties": {
+              "chain": { "maxItems": 0 },
+              "reported_at": false,
+              "conflict_ref": false
+            }
+          }
+        }
+      ]
+    },
+    "link": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contribution_ref", "semantic_role", "derivation", "fragments"],
+      "properties": {
+        "contribution_ref": { "type": "string", "minLength": 1 },
+        "semantic_role": { "type": "string", "minLength": 1 },
+        "derivation": {
+          "enum": ["explicit", "inferred"],
+          "description": "Carried through from the RecordContribution. Required here even though it is optional there: a projection whose whole purpose is showing how a value was derived cannot leave the derivation unstated."
+        },
+        "extraction_confidence": { "$ref": "#/$defs/confidence" },
+        "epistemic_confidence": { "$ref": "#/$defs/confidence" },
+        "fragments": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/fragment" },
+          "description": "At least one. A contribution with no fragment behind it is an invention, and a projection must show that rather than smooth it over."
+        }
+      }
+    },
+    "fragment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fragment_ref", "source_ref"],
+      "properties": {
+        "fragment_ref": { "type": "string", "minLength": 1 },
+        "source_ref": { "type": "string", "minLength": 1 },
+        "source_hash": { "type": "string", "minLength": 1 },
+        "locator": {
+          "type": "object",
+          "minProperties": 1,
+          "required": ["kind"],
+          "properties": { "kind": { "type": "string", "minLength": 1 } },
+          "description": "Carried through from the SourceFragment unchanged. Deliberately open beyond `kind`, as there."
+        }
+      }
+    },
+    "confidence": {
+      "enum": ["low", "medium", "high"],
+      "description": "Carried through as recorded. The projection computes no confidence of its own — no arithmetic, no averaging, no composite."
+    }
+  }
+}

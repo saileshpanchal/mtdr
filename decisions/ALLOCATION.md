@@ -15,7 +15,8 @@ holds a "next free" for this sequence. A contributor allocates correctly from a 
 | TDR-0031 – TDR-0033 | allocated | governed representations in `decisions/` |
 | **TDR-0034** | **allocated** | public allocation authority — allocated by the commit introducing this register |
 | **TDR-0035** | **allocated** | standards boundary — allocated by the commit introducing the register |
-| **TDR-0036** | **next free** | derived, not authoritative — see below |
+| **TDR-0036** | **allocated** | derivation projection and `show-me` — allocated by the commit introducing them |
+| **TDR-0037** | **next free** | derived, not authoritative — see below |
 
 ## What the states mean
 

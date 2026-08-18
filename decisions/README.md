@@ -40,6 +40,7 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0033](TDR-0033-four-dimensional-validity.md) | Structural, semantic, relational and lifecycle-transition validation | Full — standing carried through a permanent TDR-0031 crosswalk |
 | [TDR-0034](TDR-0034-public-allocation-authority.md) | Govern public identifier allocation here, and make allocation irreversible | Full — a namespace-governance commitment is a one-way door |
 | [TDR-0035](TDR-0035-standards-boundary.md) | Publish the standards boundary — what this standard adopts, maps, interoperates with and defers | Full — a published dependency boundary is a one-way door |
+| [TDR-0036](TDR-0036-derivation-projection-and-show-me.md) | Admit the derivation projection and a record-neutral `show-me` skill — it projects what was recorded and never constructs what was not | Full — the five states and the no-rationale rule are one-way doors |
 
 ## Identifiers
 
