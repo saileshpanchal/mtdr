@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/saileshpanchal/mtdr-bench/blob/main/compare/divergence.schema.json",
+  "title": "Divergence report — the comparator's output contract",
+  "description": "Benchmark protocol layer, non-normative. Categorical throughout: there is no similarity score and no distance measure, because at n=2 repeatability is characterised rather than estimated and a number here would be an unjustified one. Note what the contract makes impossible: there is no field an aggregate verdict could occupy, and `findings: []` is meaningful only alongside `arms`, so an absent result can never be serialised as a clean one.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol_version", "corpus", "mtdr_commit", "arms", "within", "cross",
+               "findings", "rejected", "runtime_findings", "environment_issues", "network_issues"],
+  "properties": {
+    "protocol_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "protocol_commit": {
+      "type": ["string", "null"],
+      "description": "The commit at which the frozen protocol was published, before any arm ran. Null means the comparison was run unpinned — a development run, never a result."
+    },
+    "corpus": { "type": "string", "minLength": 1 },
+    "mtdr_commit": { "type": "string", "pattern": "^[0-9a-f]{7,40}$" },
+    "arms": {
+      "type": "array", "items": { "type": "string", "minLength": 1 },
+      "description": "Arms that survived the benchmark protocol gate. Fewer than two means no cross-runtime comparison was possible, and the report says so rather than reporting no findings."
+    },
+    "within": {
+      "type": "object",
+      "description": "Per-arm repeat comparison. `not-measured` where an arm ran once: repeatability is a measured variable, and where it was not measured nothing about it is claimed.",
+      "additionalProperties": { "type": "object" }
+    },
+    "cross": { "type": "object", "additionalProperties": { "type": "array" } },
+    "findings": { "type": "array", "items": { "$ref": "#/$defs/finding" } },
+    "rejected": {
+      "type": "array", "items": { "$ref": "#/$defs/rejection" },
+      "description": "Benchmark protocol layer. These arms failed to REPORT properly; nothing here is a finding about a runtime."
+    },
+    "runtime_findings": {
+      "type": "array", "items": { "$ref": "#/$defs/runtime_finding" },
+      "description": "MTDR contract layer. These arms emitted non-conformant MTDR artefacts — a finding about the runtime — and remain in the comparison so the divergence can be located."
+    },
+    "environment_issues": { "type": "array", "items": { "type": "object" } },
+    "network_issues": { "type": "array", "items": { "type": "object" } }
+  },
+  "$defs": {
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["divergence_id", "boundary", "arms", "sample_label"],
+      "properties": {
+        "divergence_id": { "type": "string", "pattern": "^DIV-[0-9]{3,}$" },
+        "boundary": {
+          "enum": ["source-selection", "fragment", "contribution", "assembly",
+                   "candidate", "projection", "validation", "eligibility"]
+        },
+        "arms": { "type": "array", "minItems": 2, "maxItems": 2,
+                  "items": { "type": "string", "minLength": 1 } },
+        "only_in_first": { "type": "array", "items": { "type": "string" } },
+        "only_in_second": { "type": "array", "items": { "type": "string" } },
+        "sample_label": {
+          "enum": ["cross-runtime-only", "also-observed-within-runtime",
+                   "indeterminate-at-current-sample"],
+          "description": "Assigned mechanically from the divergence matrix, never by hand."
+        },
+        "classification": {
+          "type": "string",
+          "description": "Rendered from a classification.schema.json entry. Absent means unclassified, which is an open finding rather than a resolved one."
+        }
+      }
+    },
+    "rejection": {
+      "type": "object", "additionalProperties": false,
+      "required": ["run", "errors"],
+      "properties": {
+        "run": { "type": "string", "minLength": 1 },
+        "layer": { "const": "benchmark-protocol" },
+        "errors": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+      }
+    },
+    "runtime_finding": {
+      "type": "object", "additionalProperties": false,
+      "required": ["run", "findings"],
+      "properties": {
+        "run": { "type": "string", "minLength": 1 },
+        "layer": { "const": "mtdr-contract" },
+        "findings": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+      }
+    }
+  }
+}

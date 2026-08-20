@@ -1,0 +1,59 @@
+# Canonicalisation allowlist.
+#
+# THE COMPARISON MUST NEVER NORMALISE AWAY SUBSTANTIVE DIVERGENCE.
+#
+# The comparator applies only what this file permits, and `compare/falsify.py` asserts it: a
+# canonicalisation cannot be added silently, in code, to make two arms agree. Each entry carries a
+# reason, because a normalisation without a stated reason is indistinguishable from a convenience.
+#
+# Everything not listed here is a difference, and a difference is a finding.
+
+allowlist_version: 1.0.0
+
+permitted:
+
+  - id: whitespace
+    applies_to: [all]
+    reason: >-
+      Leading, trailing and repeated internal whitespace in free text is a serialisation artefact of
+      the emitting runtime, not a claim about the organisation.
+
+  - id: key-order
+    applies_to: [all]
+    reason: >-
+      JSON object key order carries no meaning in any of the seven public contracts. Two arms
+      emitting the same object in different key order have not disagreed about anything.
+
+  - id: identifier-naming
+    applies_to: [fragment, contribution, assembly, candidate, projection, validation]
+    reason: >-
+      Local identifiers (FRG-01 vs frag-1) are arm-local labels. Comparison is by structural position
+      and referent, not by name. NOTE the limit: this permits differing *names* for the same referent.
+      It does NOT permit treating two different referents as one, which is what an over-broad reading
+      of this entry would license.
+
+  - id: timestamp-format
+    applies_to: [all]
+    reason: >-
+      ISO-8601 variants (offset vs Z, second precision) are formatting. The instant is compared, not
+      the string.
+
+  - id: date-format
+    applies_to: [contribution, candidate]
+    reason: >-
+      2026-02-18 and 18 February 2026 are the same date. Comparison is on the normalised date value.
+      A *bounded* or unknown date is not a format variant and is never normalised — see below.
+
+# Never canonicalised, at any boundary. Each of these has been observed to be the exact thing a
+# similarity score would have hidden.
+never:
+  - a source one arm read and another did not
+  - different fragment boundaries over the same source
+  - the same fragment interpreted into a different semantic role or value
+  - different grouping, or different conflict handling, at assembly
+  - different candidate fields or values
+  - differing show-me chains, or a different derivation state for the same field
+  - any unsupported claim, in any arm
+  - eligibility disagreement — the same record judged ready by one arm and not by another
+  - a bounded, fuzzy or unknown date collapsed to a point value
+  - a declared gap (missing) collapsed with a rendered value nothing accounts for (unsupported)

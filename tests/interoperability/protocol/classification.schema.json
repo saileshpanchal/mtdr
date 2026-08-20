@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/saileshpanchal/mtdr-bench/blob/main/protocol/classification.schema.json",
+  "title": "Classification — how a divergence is accounted for",
+  "description": "Agreement between runtimes is not evidence about the organisation. Two runtimes converging on an unsupported interpretation does not make it expected; three converging does not make it true. That is the discipline the standard applies everywhere else, and this step is exactly where it would quietly be abandoned. Every classification therefore carries a basis and evidence, and the comparator rejects one that does not.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["divergence_id", "boundary", "divergence_class", "classification", "basis", "evidence"],
+  "properties": {
+    "divergence_id": { "type": "string", "minLength": 1 },
+    "boundary": {
+      "enum": ["source-selection", "fragment", "contribution", "assembly",
+               "candidate", "projection", "validation", "eligibility"]
+    },
+    "divergence_class": {
+      "enum": ["source-selection", "fragment-boundary", "interpretation", "assembly",
+               "candidate", "projection", "validation", "eligibility"],
+      "description": "What kind of difference it is, so a finding is diagnosable rather than a number."
+    },
+    "classification": {
+      "enum": ["harness-defect", "runtime-divergence", "expected-ambiguity"],
+      "description": "Only `harness-defect` justifies changing anything, and a fix re-runs every arm."
+    },
+    "sample_label": {
+      "enum": ["cross-runtime-only", "also-observed-within-runtime", "indeterminate-at-current-sample"],
+      "description": "Assigned mechanically from the divergence matrix, never by hand. Present only for cross-runtime findings. `indeterminate-at-current-sample` is a first-class outcome, not a hedge — the same discipline as `indeterminate` in the validation result. Forcing a finding into `cross-runtime-only` when two runs cannot support it is the benchmark's version of manufacturing standing."
+    },
+    "basis": {
+      "type": "string",
+      "minLength": 1,
+      "description": "What accounts for the classification. Must point at the known-answer fixture or at the source material. NEVER at the number of arms that agreed — an expected-ambiguity whose basis is 'all three did it' is a runtime-divergence nobody wanted to write down. The comparator rejects a basis matching the agreement-appeal patterns."
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "description": "Source loci or fixture references supporting the basis."
+    },
+    "note": { "type": "string", "minLength": 1 }
+  },
+  "allOf": [
+    {
+      "description": "A harness defect must say what was unequal between arms, and a fix re-runs every arm.",
+      "if": { "properties": { "classification": { "const": "harness-defect" } }, "required": ["classification"] },
+      "then": { "required": ["note"] }
+    }
+  ]
+}

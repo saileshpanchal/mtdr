@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/saileshpanchal/mtdr-bench/blob/main/protocol/capture.schema.json",
+  "title": "Capture — the eight-boundary envelope",
+  "description": "A benchmark protocol contract. It composes seven public MTDR contracts by reference and adds exactly one of its own (source selection). Validation happens in two named layers: an MTDR contract failure is a finding about the runtime; a benchmark protocol failure is a rejected run. The envelope never restates MTDR semantics — it carries MTDR objects verbatim so that the public schemas remain the only authority over them.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["capture_schema_version", "run", "boundaries"],
+  "properties": {
+    "capture_schema_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "run": { "$ref": "#/$defs/run" },
+    "boundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_selection",
+        "fragments",
+        "contributions",
+        "assemblies",
+        "candidates",
+        "projections",
+        "validations",
+        "eligibility"
+      ],
+      "properties": {
+        "source_selection": {
+          "description": "benchmark layer — protocol/source-selection.schema.json",
+          "type": "object"
+        },
+        "fragments": {
+          "description": "MTDR layer — schemas/shared/source-fragment.schema.json, each item",
+          "type": "array", "items": { "type": "object" }
+        },
+        "contributions": {
+          "description": "MTDR layer — schemas/shared/record-contribution.schema.json, each item",
+          "type": "array", "items": { "type": "object" }
+        },
+        "assemblies": {
+          "description": "MTDR layer — schemas/shared/candidate-assembly.schema.json, each item",
+          "type": "array", "items": { "type": "object" }
+        },
+        "candidates": {
+          "description": "MTDR layer — records/{value,decision}/schema/*.schema.json by record_type",
+          "type": "array", "items": { "$ref": "#/$defs/candidate" }
+        },
+        "projections": {
+          "description": "MTDR layer — schemas/shared/derivation-projection.schema.json, each item",
+          "type": "array", "items": { "type": "object" }
+        },
+        "validations": {
+          "description": "MTDR layer — schemas/validation-result.schema.json, each item",
+          "type": "array", "items": { "type": "object" }
+        },
+        "eligibility": {
+          "description": "Captured separately from `validations` even though it is the fourth dimension of the same result, because it is the boundary that matters most and burying it inside an array makes it comparable only by accident.",
+          "type": "array", "items": { "$ref": "#/$defs/eligibility" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "run": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "run_id", "arm", "repeat",
+        "mtdr_commit", "mtdr_tag", "corpus_id", "corpus_version", "corpus_inventory_digest",
+        "protocol_version", "protocol_commit", "adapter_version",
+        "runtime", "runtime_version", "model", "model_version",
+        "environment", "environment_digest",
+        "timestamp", "task_digest"
+      ],
+      "properties": {
+        "run_id": { "type": "string", "minLength": 1 },
+        "arm": { "enum": ["claude", "codex", "copilot", "ollama"] },
+        "repeat": { "type": "integer", "minimum": 1,
+          "description": "Which execution of this arm. Repeatability is a measured variable, not a sanity check." },
+        "mtdr_commit": { "type": "string", "pattern": "^[0-9a-f]{7,40}$" },
+        "mtdr_tag": { "type": "string", "minLength": 1 },
+        "corpus_id": { "type": "string", "minLength": 1 },
+        "corpus_version": { "type": "string", "minLength": 1 },
+        "corpus_inventory_digest": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "protocol_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "protocol_commit": { "type": "string", "pattern": "^[0-9a-f]{7,40}$",
+          "description": "The commit at which the frozen protocol was published to mtdr/tests/interoperability/, BEFORE any arm ran. This is what makes pre-registration checkable rather than self-reported." },
+        "adapter_version": { "type": "string", "minLength": 1 },
+        "runtime": { "type": "string", "minLength": 1 },
+        "runtime_version": { "type": "string", "minLength": 1 },
+        "model": { "type": "string", "minLength": 1 },
+        "model_version": { "type": "string", "minLength": 1 },
+        "environment": { "$ref": "#/$defs/environment" },
+        "environment_digest": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "timestamp": { "type": "string", "minLength": 1 },
+        "task_digest": { "type": "string", "pattern": "^[0-9a-f]{64}$",
+          "description": "sha256 of protocol/task.md, byte-identical for every arm. An arm whose digest differs did not run the same experiment and its capture is rejected rather than compared." }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Environments are inherently not identical across runtimes. The aim is not to make them identical — it is to make their differences observable. `runtime + model` does not prove one arm saw the same effective environment as another: v1.28 established that the same canonical SKILL.md is reachable through five different discovery paths.",
+      "required": [
+        "instruction_files", "skill_discovery_roots", "tools_enabled",
+        "runtime_settings", "execution_mode", "network_access", "tool_access"
+      ],
+      "properties": {
+        "instruction_files": {
+          "type": "array",
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["path", "sha256"],
+            "properties": {
+              "path": { "type": "string", "minLength": 1 },
+              "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+            }
+          },
+          "description": "Every instruction or context file loaded, with digests. An arm carrying an extra instruction file did not run the same experiment even if its task_digest matches."
+        },
+        "skill_discovery_roots": {
+          "type": "array",
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["root", "surface"],
+            "properties": {
+              "root": { "type": "string", "minLength": 1 },
+              "surface": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "tools_enabled": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "runtime_settings": {
+          "type": "object",
+          "description": "Experiment-relevant configuration only. Not a machine dump: an unbounded settings blob makes environment_digest differ for reasons nobody can interpret, which destroys the comparison it was added to support."
+        },
+        "execution_mode": { "enum": ["interactive", "headless", "agentic-loop"] },
+        "network_access": {
+          "type": "boolean",
+          "description": "Expected false for every Brackwell arm. The corpus is closed and complete, so an arm that reached the network consulted something outside available_sources — and that must appear in the capture rather than be inferred from a suspicious result."
+        },
+        "tool_access": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "record"],
+      "properties": {
+        "record_type": { "enum": ["tdr", "vr", "dac"] },
+        "record": { "type": "object" }
+      }
+    },
+    "eligibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subject_id", "requested_transition", "result"],
+      "properties": {
+        "subject_id": { "type": "string", "minLength": 1 },
+        "requested_transition": {
+          "type": "object", "additionalProperties": false,
+          "required": ["to"],
+          "properties": {
+            "from": { "type": "string", "minLength": 1 },
+            "to": { "type": "string", "minLength": 1 }
+          }
+        },
+        "result": { "enum": ["pass", "fail", "indeterminate", "not-applicable"] },
+        "reasons": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+      }
+    }
+  }
+}

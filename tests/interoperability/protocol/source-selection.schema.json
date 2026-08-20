@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/saileshpanchal/mtdr-bench/blob/main/protocol/source-selection.schema.json",
+  "title": "SourceSelection — benchmark contract, not MTDR normative semantics",
+  "description": "The one boundary MTDR does not already contract. This is an interoperability-test artefact under VR-4 and does not enter the normative schema tree; only a TDR admits a concept into MTDR. Four sets, not one: a source deliberately set aside and a source silently never read look identical in a final record and are entirely different findings.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "corpus_id",
+    "mode",
+    "available_sources",
+    "consulted_sources",
+    "relied_upon_sources",
+    "excluded_sources"
+  ],
+  "properties": {
+    "contract_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "corpus_id": { "type": "string", "minLength": 1 },
+    "mode": {
+      "enum": ["closed", "discovery"],
+      "description": "`closed` means the complete inventory was given explicitly. VR-4A is closed so that a difference in what was found cannot contaminate every later boundary. `discovery` is a different experiment and is not confounded into this one."
+    },
+    "available_sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/source" },
+      "description": "Everything the arm was given. In closed mode this must equal the corpus manifest exactly — an arm given a different inventory did not run this experiment."
+    },
+    "consulted_sources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/source_ref" },
+      "description": "Everything actually read. May be smaller than available_sources; anything here that is not available is a protocol violation, not a finding."
+    },
+    "relied_upon_sources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/source_ref" },
+      "description": "Everything at least one contribution traces back to. Must be a subset of consulted_sources: relying on something never read is incoherent."
+    },
+    "excluded_sources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/exclusion" },
+      "description": "Everything read and set aside, each with a reason. This is what makes `show-me` informative rather than merely complete."
+    },
+    "external_sources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/source_ref" },
+      "description": "Anything consulted that is NOT in available_sources. Expected empty for a closed corpus; a non-empty array is reported, never normalised away, because it means the arm reasoned from evidence the other arms did not have."
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "sha256"],
+      "properties": {
+        "source_id": { "type": "string", "minLength": 1 },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      }
+    },
+    "source_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id"],
+      "properties": {
+        "source_id": { "type": "string", "minLength": 1 },
+        "locus": { "type": "string", "minLength": 1 }
+      }
+    },
+    "exclusion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "reason"],
+      "properties": {
+        "source_id": { "type": "string", "minLength": 1 },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Why it was set aside. Free text on purpose: an enum here would quietly become a taxonomy of acceptable reasons, which is a judgement the benchmark has no standing to make."
+        }
+      }
+    }
+  }
+}

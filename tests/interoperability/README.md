@@ -4,6 +4,97 @@ The horizon test of [`specification/conformance.md`](../../specification/conform
 same source corpus, can independent implementations recognise materially equivalent contributions and
 produce semantically equivalent candidate records?
 
-Empty until there are two independent implementations to compare. When there are, this directory
-holds the comparison protocol and its results — and a documented divergence is a successful run with
-a finding, not a failure ([TDR-0025](../../decisions/TDR-0025-conformance-architecture.md)).
+[`protocol/`](protocol/) holds the **frozen, pre-registered method** for answering that. A documented
+divergence is a successful run with a finding, not a failure
+([TDR-0025](../../decisions/TDR-0025-conformance-architecture.md)).
+
+## Why the method is here before any result is
+
+A protocol published *after* the runs is a method written with the results already known, whatever the
+intention. The sequence is therefore fixed:
+
+> design → synthetic falsification → **freeze** → **publish** → execute → observe
+
+This directory holds the freeze. **Nothing has been executed against it.** Its commit hash is recorded
+in every subsequent run as `protocol_commit`, and a capture whose pin does not match it is rejected
+rather than compared. That is what makes the discipline checkable rather than self-reported: if
+something surprising happens, it can be shown that neither the method nor the comparator was changed
+afterwards to accommodate it.
+
+## The proposition under test
+
+> Given the same closed evidence set, the same frozen MTDR specification and skills, and a
+> pre-registered reconstruction protocol, independent reasoning environments can reconstruct
+> materially equivalent governed organisational state — **while preserving uncertainty, and exposing
+> rather than concealing divergence.**
+
+Three clauses, and the last two are not decoration. A run that converges by resolving an uncertainty
+the sources leave open has failed the proposition, not confirmed it.
+
+**Failure is a valid result, and possibly the more valuable one.** If the proposition does not hold,
+the boundary-level captures say *where* it stops holding — and that would tell this standard more than
+a clean convergence could.
+
+## What is non-normative here, and stays that way
+
+Everything in [`protocol/`](protocol/). Two of its contracts are the benchmark's own:
+
+| Contract | |
+|---|---|
+| [`source-selection.schema.json`](protocol/source-selection.schema.json) | the one boundary MTDR does not already contract |
+| [`capture.schema.json`](protocol/capture.schema.json) | the envelope composing the seven public contracts |
+
+Neither migrates into the normative schema tree, however useful it proves. **Only a TDR admits a
+concept into MTDR**, argued on its own merits — not a promotion earned by a benchmark finding it
+handy. The experiment consumes and tests this standard; it does not expand it. If a runtime struggles
+with MTDR, that is initially evidence about the runtime, the instructions or the proposition — not
+permission to modify the standard until it passes.
+
+## The eight boundaries
+
+Comparison happens at every boundary, not at final-record similarity. Two implementations can land on
+similar candidates for different reasons, and final-record comparison misses exactly that.
+
+> source selection → fragment → contribution → assembly → candidate → derivation projection →
+> validation → eligibility
+
+Seven of the eight already have public machine contracts, which is why the comparison is possible with
+almost no new contract surface:
+
+| Boundary | Contract | Layer |
+|---|---|---|
+| source selection | [`protocol/source-selection.schema.json`](protocol/source-selection.schema.json) | benchmark |
+| fragment | [`schemas/shared/source-fragment.schema.json`](../../schemas/shared/source-fragment.schema.json) | MTDR |
+| contribution | [`schemas/shared/record-contribution.schema.json`](../../schemas/shared/record-contribution.schema.json) | MTDR |
+| assembly | [`schemas/shared/candidate-assembly.schema.json`](../../schemas/shared/candidate-assembly.schema.json) | MTDR |
+| candidate | [`records/value/schema/vr.schema.json`](../../records/value/schema/vr.schema.json) · [`records/decision/schema/tdr.schema.json`](../../records/decision/schema/tdr.schema.json) | MTDR |
+| derivation projection | [`schemas/shared/derivation-projection.schema.json`](../../schemas/shared/derivation-projection.schema.json) | MTDR |
+| validation | [`schemas/validation-result.schema.json`](../../schemas/validation-result.schema.json) | MTDR |
+| eligibility | the fourth dimension of the validation result, captured separately because it is the boundary that matters most | MTDR |
+
+Captures are validated in **two named layers**, and a report says which one failed. An MTDR contract
+failure means an implementation emitted a non-conformant artefact — a finding about that
+implementation. A benchmark protocol failure means it failed to *report* properly — a rejected run.
+Collapsing the two would let a harness defect read as a conformance failure, or worse, the reverse.
+
+## Calibration corpus
+
+[`tests/adoption/brackwell/`](../adoption/brackwell/), against the known answer in
+[`FIX-301`](../adoption/FIX-301-brackwell-reconstruction.md). It is the **current** known-answer
+calibration case, not a uniquely privileged one; several corpora exercising different failure modes
+would be better than one, and the method takes the corpus as a parameter for that reason.
+
+Calibration does not mean identical outputs. **A shared gap is a correct answer, and convergence on a
+value where FIX-301 requires a gap is a worse result than divergence.**
+
+## Reproducing a run
+
+You need a checkout of this repository at the pinned commit, the corpus, and
+[`protocol/task.md`](protocol/task.md) — whose sha256 is a pin, byte-identical for every participant.
+Emit one capture conforming to [`protocol/capture.schema.json`](protocol/capture.schema.json).
+
+The comparison is deliberately **categorical**: signature sets per boundary, built from referents
+rather than labels. There is no similarity score, because a number there would be an unjustified one.
+Divergences are classified, and every classification carries a `basis` and `evidence` pointing at the
+fixture or the source material — **never at how many participants agreed**. Agreement between
+implementations is not evidence about the organisation.
