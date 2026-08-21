@@ -1,6 +1,6 @@
 # VR-4 reconstruction protocol
 
-**Version 1.1.1 · non-normative · pre-registered**
+**Version 1.1.2 · non-normative · pre-registered**
 
 This protocol is **frozen and published before any arm runs**. It is not part of the MTDR standard and
 never becomes part of it. It describes a method for asking one question:
@@ -251,9 +251,11 @@ The comparator enforces the mechanism rather than trusting it. `freeze_drift()` 
 protocol file against the digests in `FREEZE.json` and **refuses to compare at all** if one has
 changed. The remedy for that refusal is to increment and re-register, never to restore the file.
 
-*This protocol is at 1.1.0 for exactly that reason: 1.0.0 was pre-registered, then the canonical
-environment-digest rule and the comparator pin were added. Rather than edit the freeze, it was
-incremented and re-registered — before any arm ran, so nothing needed re-running.*
+*This protocol is at 1.1.2 because that rule has already been applied three times, every one of them
+before any arm ran: 1.0.0 was pre-registered; 1.1.0 added the canonical environment-digest rule and
+the comparator pin; 1.1.1 and 1.1.2 corrected wording that had drifted from what the freeze actually
+said. Rather than edit a freeze, each was incremented and re-registered — and because nothing had
+executed, nothing needed re-running.*
 
 ## The comparator is pinned too
 
