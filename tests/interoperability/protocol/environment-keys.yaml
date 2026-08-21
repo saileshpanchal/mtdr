@@ -1,0 +1,64 @@
+# Canonical environment digest — what is included, what is excluded, and how it is normalised.
+#
+# Two semantically identical environments must not hash differently because of path ordering, a
+# timestamp, or incidental config. Equally, an unbounded settings blob makes the digest differ for
+# reasons nobody can interpret, which destroys the comparison it was added to support.
+#
+# So the digest covers only experiment-relevant state, under a published normalisation rule. This
+# file IS that rule: `validate.py::environment_digest` implements it and nothing else, and
+# `falsify.py` asserts the two agree.
+
+keys_version: 1.0.0
+
+# ---- normalisation, applied before hashing ---------------------------------------------------
+normalisation:
+  - id: sort-lists
+    rule: >-
+      Every list is sorted by its canonical key and deduplicated. instruction_files by `path`,
+      skill_discovery_roots by (`root`, `surface`), tools_enabled and tool_access as plain strings.
+      Discovery order is an artefact of how a runtime walks a directory, not a fact about the
+      environment.
+  - id: strip-paths
+    rule: >-
+      A path is reduced to its position relative to the corpus root or the MTDR checkout root,
+      whichever contains it. A path outside both is replaced by `<external>` plus its basename.
+      Where the operator put the checkout is not experiment-relevant; that a file was loaded from
+      inside the corpus is.
+  - id: allowlist-settings
+    rule: >-
+      runtime_settings retains ONLY the keys named in `included.runtime_settings` below. Everything
+      else is dropped before hashing — not rejected, because a runtime is entitled to have settings
+      the experiment does not care about.
+  - id: json-canonical
+    rule: >-
+      sha256 over JSON with sorted keys and no insignificant whitespace.
+
+# ---- included in the digest ------------------------------------------------------------------
+included:
+  instruction_files: [path, sha256]
+  skill_discovery_roots: [root, surface]
+  tools_enabled: true
+  tool_access: true
+  execution_mode: true
+  network_access: true
+  runtime_settings:
+    # The only settings that can change what an arm reconstructs. Adding a key here is a protocol
+    # version increment, because it changes every digest computed after it.
+    - temperature
+    - top_p
+    - max_output_tokens
+    - reasoning_effort
+    - system_prompt_sha256
+    - context_window
+
+# ---- excluded from the digest, explicitly ----------------------------------------------------
+# Named rather than merely omitted: a reader must be able to tell a deliberate exclusion from an
+# oversight, which is the same reason `excluded_sources` carries reasons.
+excluded:
+  - absolute paths outside the corpus and the MTDR checkout
+  - home directories and user names
+  - hostnames, container ids and process ids
+  - wall-clock time, timezone and locale
+  - terminal size and colour capability
+  - editor, shell and OS version
+  - any runtime_settings key not named above

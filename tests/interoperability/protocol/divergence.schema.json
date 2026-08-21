@@ -1,84 +1,231 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/saileshpanchal/mtdr-bench/blob/main/compare/divergence.schema.json",
-  "title": "Divergence report — the comparator's output contract",
+  "title": "Divergence report \u2014 the comparator's output contract",
   "description": "Benchmark protocol layer, non-normative. Categorical throughout: there is no similarity score and no distance measure, because at n=2 repeatability is characterised rather than estimated and a number here would be an unjustified one. Note what the contract makes impossible: there is no field an aggregate verdict could occupy, and `findings: []` is meaningful only alongside `arms`, so an absent result can never be serialised as a clean one.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["protocol_version", "corpus", "mtdr_commit", "arms", "within", "cross",
-               "findings", "rejected", "runtime_findings", "environment_issues", "network_issues"],
+  "required": [
+    "protocol_version",
+    "corpus",
+    "mtdr_commit",
+    "arms",
+    "within",
+    "cross",
+    "findings",
+    "rejected",
+    "runtime_findings",
+    "environment_issues",
+    "network_issues",
+    "outliers"
+  ],
   "properties": {
-    "protocol_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
-    "protocol_commit": {
-      "type": ["string", "null"],
-      "description": "The commit at which the frozen protocol was published, before any arm ran. Null means the comparison was run unpinned — a development run, never a result."
+    "protocol_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
     },
-    "corpus": { "type": "string", "minLength": 1 },
-    "mtdr_commit": { "type": "string", "pattern": "^[0-9a-f]{7,40}$" },
+    "protocol_commit": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The commit at which the frozen protocol was published, before any arm ran. Null means the comparison was run unpinned \u2014 a development run, never a result."
+    },
+    "corpus": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mtdr_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{7,40}$"
+    },
     "arms": {
-      "type": "array", "items": { "type": "string", "minLength": 1 },
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
       "description": "Arms that survived the benchmark protocol gate. Fewer than two means no cross-runtime comparison was possible, and the report says so rather than reporting no findings."
     },
     "within": {
       "type": "object",
       "description": "Per-arm repeat comparison. `not-measured` where an arm ran once: repeatability is a measured variable, and where it was not measured nothing about it is claimed.",
-      "additionalProperties": { "type": "object" }
+      "additionalProperties": {
+        "type": "object"
+      }
     },
-    "cross": { "type": "object", "additionalProperties": { "type": "array" } },
-    "findings": { "type": "array", "items": { "$ref": "#/$defs/finding" } },
+    "cross": {
+      "type": "object",
+      "description": "Keyed by boundary, then by pairing. Every pairing is reported separately: a single aggregate cross-runtime column hides the case where two arms agree and one differs, which is the asymmetry most worth knowing.",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "object"
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/finding"
+      }
+    },
     "rejected": {
-      "type": "array", "items": { "$ref": "#/$defs/rejection" },
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/rejection"
+      },
       "description": "Benchmark protocol layer. These arms failed to REPORT properly; nothing here is a finding about a runtime."
     },
     "runtime_findings": {
-      "type": "array", "items": { "$ref": "#/$defs/runtime_finding" },
-      "description": "MTDR contract layer. These arms emitted non-conformant MTDR artefacts — a finding about the runtime — and remain in the comparison so the divergence can be located."
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/runtime_finding"
+      },
+      "description": "MTDR contract layer. These arms emitted non-conformant MTDR artefacts \u2014 a finding about the runtime \u2014 and remain in the comparison so the divergence can be located."
     },
-    "environment_issues": { "type": "array", "items": { "type": "object" } },
-    "network_issues": { "type": "array", "items": { "type": "object" } }
+    "environment_issues": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "network_issues": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "outliers": {
+      "type": "object",
+      "description": "Per boundary, the arm standing alone when the others agree, or null. DESCRIPTIVE ONLY. Nothing reads it: agreement between runtimes is not evidence about the organisation, and the count of agreeing arms never reaches a decision here.",
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "comparator_commit": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The commit of the comparison code that produced this report."
+    }
   },
   "$defs": {
     "finding": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["divergence_id", "boundary", "arms", "sample_label"],
+      "required": [
+        "divergence_id",
+        "boundary",
+        "arms",
+        "sample_label"
+      ],
       "properties": {
-        "divergence_id": { "type": "string", "pattern": "^DIV-[0-9]{3,}$" },
-        "boundary": {
-          "enum": ["source-selection", "fragment", "contribution", "assembly",
-                   "candidate", "projection", "validation", "eligibility"]
+        "divergence_id": {
+          "type": "string",
+          "pattern": "^DIV-[0-9]{3,}$"
         },
-        "arms": { "type": "array", "minItems": 2, "maxItems": 2,
-                  "items": { "type": "string", "minLength": 1 } },
-        "only_in_first": { "type": "array", "items": { "type": "string" } },
-        "only_in_second": { "type": "array", "items": { "type": "string" } },
+        "boundary": {
+          "enum": [
+            "source-selection",
+            "fragment",
+            "contribution",
+            "assembly",
+            "candidate",
+            "projection",
+            "validation",
+            "eligibility"
+          ]
+        },
+        "arms": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "only_in_first": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "only_in_second": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "sample_label": {
-          "enum": ["cross-runtime-only", "also-observed-within-runtime",
-                   "indeterminate-at-current-sample"],
-          "description": "Assigned mechanically from the divergence matrix, never by hand."
+          "enum": [
+            "cross-runtime-only",
+            "also-observed-within-runtime",
+            "indeterminate-at-current-sample"
+          ],
+          "description": "Assigned mechanically from the divergence matrix, never by hand and never from how many arms agreed. `indeterminate-at-current-sample` is the DEFAULT: `cross-runtime-only` requires BOTH arms' repeat pairs to be demonstrably stable at this boundary, and `also-observed-within-runtime` requires the within-runtime difference to be demonstrably the SAME difference rather than merely some difference at the same boundary."
         },
         "classification": {
           "type": "string",
           "description": "Rendered from a classification.schema.json entry. Absent means unclassified, which is an open finding rather than a resolved one."
+        },
+        "outlier_arm": {
+          "type": "string",
+          "description": "Named because asymmetry is diagnostic. Carries no implication that the other arms are right \u2014 two arms converging on an unsupported reading does not make the third one wrong."
         }
       }
     },
     "rejection": {
-      "type": "object", "additionalProperties": false,
-      "required": ["run", "errors"],
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "run",
+        "errors"
+      ],
       "properties": {
-        "run": { "type": "string", "minLength": 1 },
-        "layer": { "const": "benchmark-protocol" },
-        "errors": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+        "run": {
+          "type": "string",
+          "minLength": 1
+        },
+        "layer": {
+          "const": "benchmark-protocol"
+        },
+        "errors": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        }
       }
     },
     "runtime_finding": {
-      "type": "object", "additionalProperties": false,
-      "required": ["run", "findings"],
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "run",
+        "findings"
+      ],
       "properties": {
-        "run": { "type": "string", "minLength": 1 },
-        "layer": { "const": "mtdr-contract" },
-        "findings": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+        "run": {
+          "type": "string",
+          "minLength": 1
+        },
+        "layer": {
+          "const": "mtdr-contract"
+        },
+        "findings": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        }
       }
     }
   }

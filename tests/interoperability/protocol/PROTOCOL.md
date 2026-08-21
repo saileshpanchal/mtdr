@@ -1,6 +1,6 @@
 # VR-4 reconstruction protocol
 
-**Version 1.0.0 · non-normative · pre-registered**
+**Version 1.1.0 · non-normative · pre-registered**
 
 This protocol is **frozen and published before any arm runs**. It is not part of the MTDR standard and
 never becomes part of it. It describes a method for asking one question:
@@ -47,9 +47,16 @@ failed.
 | **MTDR contract validation** | the seven public machine contracts | normative; frozen for the duration |
 | **Benchmark protocol validation** | `source-selection.schema.json`, `capture.schema.json`, the run pins, `classification.schema.json`, the comparator's own requirements | non-normative; versioned by `protocol_version` |
 
-A capture that fails **MTDR** validation produced a non-conformant MTDR artefact — a finding about the
-runtime. A capture that fails **benchmark** validation failed to *report* properly — a rejected run.
-Collapsing the two would let a harness defect read as a conformance failure, or worse, the reverse.
+A capture that fails **MTDR** validation produced a non-conformant MTDR artefact. That is a **finding
+about the runtime** and a valid experimental outcome; the arm stays in the comparison so the
+divergence can be located. A capture that fails **benchmark** validation failed to *report* properly
+and is a **rejected run**; there is nothing to compare, and it says nothing about that runtime's
+conformance.
+
+The two are never collapsed into "failed". They appear under separate headings, the words *rejected*
+and *failed* are not used interchangeably anywhere in the output, and the matrix states when an arm is
+absent **through rejection rather than through failure**. Collapsing them would let a harness defect
+read as a conformance failure, or worse, the reverse.
 
 **VR-4 consumes and tests MTDR. It does not quietly expand MTDR's normative contract.**
 `source-selection.schema.json` does not migrate into the normative schema tree after VR-4, however
@@ -95,6 +102,34 @@ fact appears in the capture rather than being inferred from a suspicious result.
 **An arm whose `environment_digest` differs from its own repeat run has not repeated anything**, and
 the comparator reports that before it reports any boundary divergence.
 
+#### The digest has a published normalisation rule
+
+Two semantically identical environments must not hash differently because of path ordering, a
+timestamp or incidental config. Equally, an unbounded settings blob makes the digest differ for
+reasons nobody can interpret. Both failures destroy the comparison the digest exists to support, in
+opposite directions.
+
+[`environment-keys.yaml`](environment-keys.yaml) is the rule, and `compare/validate.py` implements it
+and nothing else:
+
+```
+normalise   lists sorted and deduplicated by canonical key
+            paths reduced to their position under the corpus or MTDR checkout root
+            runtime_settings reduced to the published key allowlist
+            sha256 over JSON with sorted keys and no insignificant whitespace
+include     instruction_files (path + sha256) · skill_discovery_roots (root + surface)
+            tools_enabled · tool_access · execution_mode · network_access
+            runtime_settings — only the six keys that can change what an arm reconstructs
+exclude     absolute paths outside corpus and checkout · home directories · usernames
+            hostnames, container ids, pids · wall-clock, timezone, locale
+            terminal size · editor, shell, OS version · any unlisted setting key
+```
+
+The exclusions are **named rather than merely omitted**, for the same reason `excluded_sources`
+carries reasons: a reader must be able to tell a deliberate exclusion from an oversight. Adding a key
+to the settings allowlist is a `protocol_version` increment, because it changes every digest computed
+after it.
+
 ## Repeatability and reproducibility are different questions
 
 | | Holds constant | Varies | Measures |
@@ -114,25 +149,40 @@ purely to make that sentence true would put an unjustified number at the centre 
 n=2 the honest claim is that repeatability is being **characterised**, not that a variance
 distribution is being estimated.
 
-The report is therefore a **divergence matrix per boundary** — categorical in, categorical out:
+The report is therefore a **divergence matrix per boundary** — categorical in, categorical out —
+with **every pairing in its own column**. A single aggregate cross-runtime column hides the case where
+two arms agree and one differs, which is the asymmetry most worth knowing:
 
-| Boundary | Claude C1↔C2 | Codex X1↔X2 | Copilot P1↔P2 | Cross-runtime |
-|---|---|---|---|---|
-| source selection | stable | stable | stable | none |
-| fragment | differs | stable | differs | differs |
-| … | | | | |
+| Boundary | C1↔C2 | X1↔X2 | P1↔P2 | C↔X | C↔P | X↔P |
+|---|---|---|---|---|---|---|
+| source selection | stable | stable | stable | none | none | none |
+| fragment | differs | stable | stable | differs | differs | none |
+| contribution | stable | stable | stable | differs | differs | none |
 
-Each cross-runtime finding takes one label, assigned **mechanically from that matrix**:
+Row 3 names Claude as the outlier at `contribution` — runtime-specific, not shared, not stochastic.
+Row 2 says the opposite: Claude's own repeats already differ there, so the cross-runtime differences
+at that boundary are not a finding about runtimes. Neither reading needed a distance metric.
+
+Each pairwise finding takes one label, assigned **mechanically from that matrix**:
 
 | Label | Condition |
 |---|---|
-| `cross-runtime-only` | absent from both relevant runtimes' repeat pairs |
-| `also-observed-within-runtime` | the same divergence class occurs between repeat executions |
-| `indeterminate-at-current-sample` | two runs cannot separate a runtime effect from stochastic behaviour |
+| `cross-runtime-only` | **both** arms' repeat pairs are demonstrably stable at this boundary |
+| `also-observed-within-runtime` | the within-runtime difference is demonstrably **the same difference**, not merely some difference at the same boundary |
+| `indeterminate-at-current-sample` | **the default** — everything else |
 
-`indeterminate-at-current-sample` is a first-class outcome, not a hedge — the same discipline as
-`indeterminate` in the validation result. Forcing a finding into `cross-runtime-only` when the sample
-cannot support it is the benchmark's version of manufacturing standing.
+`indeterminate-at-current-sample` is the **default, not the fallback**, and a first-class outcome
+rather than a hedge — the same discipline as `indeterminate` in the validation result. With two
+repeats, over-classifying is the standing risk. Forcing a finding into `cross-runtime-only` when the
+sample cannot support it is the benchmark's version of manufacturing standing.
+
+### The outlier is named; the majority is never promoted
+
+Where one arm stands alone and the others agree, that arm is **named**, because asymmetry is
+diagnostic. It is not a verdict. **Agreement between runtimes is not evidence about the
+organisation**, and the rule is applied mechanically, not merely asserted: there is no code path in
+which the count of agreeing arms affects a classification, a label, or which side of a divergence is
+rendered first. Two arms converging on an unsupported reading does not make the third one wrong.
 
 ## The comparison, and the rule that governs it
 
@@ -185,6 +235,37 @@ interesting, not less.** Two disciplines follow:
 
 1. A harness change is permitted **only** where it affects every arm identically.
 2. Any harness change **re-runs every arm**. There is no partial re-run.
+
+## A defect in this protocol increments it; the freeze is never overwritten
+
+If a defect is found **after** execution, the frozen protocol is **not edited**. `protocol_version`
+increments, a new protocol is pre-registered at a new commit, and **every arm re-runs under the new
+pin**. There is no partial re-run.
+
+**The earlier runs stay valid.** They are evidence of what the defective protocol produced, which is
+itself a result — and discarding them would leave no record that the defect existed. This is
+supersession rather than correction, the same discipline this standard applies to its own records: a
+decision is superseded, never edited away.
+
+The comparator enforces the mechanism rather than trusting it. `freeze_drift()` compares every
+protocol file against the digests in `FREEZE.json` and **refuses to compare at all** if one has
+changed. The remedy for that refusal is to increment and re-register, never to restore the file.
+
+*This protocol is at 1.1.0 for exactly that reason: 1.0.0 was pre-registered, then the canonical
+environment-digest rule and the comparator pin were added. Rather than edit the freeze, it was
+incremented and re-registered — before any arm ran, so nothing needed re-running.*
+
+## The comparator is pinned too
+
+The protocol pin does not close one gap: a later run could use the same protocol and subtly different
+comparison code, and no other pin would show it. So `comparator_commit` joins the run block and
+`FREEZE.json`, and it is pinned alongside the protocol for VR-4B.
+
+## Publish the evidence, not only the report
+
+Results publish **together**: the raw captures, the comparator output, every `classification` with its
+`basis` and `evidence`, and the exact environment metadata. A polished report must never be the only
+visible evidence — that is the same failure mode as an aggregate verdict, one step further out.
 
 ## What this protocol may not do
 

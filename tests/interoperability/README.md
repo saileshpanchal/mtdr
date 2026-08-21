@@ -4,8 +4,8 @@ The horizon test of [`specification/conformance.md`](../../specification/conform
 same source corpus, can independent implementations recognise materially equivalent contributions and
 produce semantically equivalent candidate records?
 
-[`protocol/`](protocol/) holds the **frozen, pre-registered method** for answering that. A documented
-divergence is a successful run with a finding, not a failure
+[`protocol/`](protocol/) holds the **frozen, pre-registered method** for answering that — currently at
+**version 1.1.0**. A documented divergence is a successful run with a finding, not a failure
 ([TDR-0025](../../decisions/TDR-0025-conformance-architecture.md)).
 
 ## Why the method is here before any result is
@@ -20,6 +20,19 @@ in every subsequent run as `protocol_commit`, and a capture whose pin does not m
 rather than compared. That is what makes the discipline checkable rather than self-reported: if
 something surprising happens, it can be shown that neither the method nor the comparator was changed
 afterwards to accommodate it.
+
+### A defect increments the protocol; the freeze is never overwritten
+
+If a defect is found after execution, the frozen protocol is **not edited**. `protocol_version`
+increments, a new protocol is pre-registered at a new commit, and every participant re-runs under the
+new pin. **The earlier runs stay valid** — as evidence of what the defective protocol produced, which
+is itself a result. Discarding them would leave no record that the defect existed. This is
+supersession rather than correction: the same discipline this standard applies to its own records.
+
+Version 1.1.0 is that mechanism exercised. 1.0.0 was pre-registered; then a canonical
+`environment_digest` normalisation rule and a comparator pin were added. Rather than edit the freeze,
+it was incremented and re-registered. No participant had run under 1.0.0, so nothing needed
+re-running — but the 1.0.0 freeze remains in this repository's history either way.
 
 ## The proposition under test
 
@@ -43,6 +56,7 @@ Everything in [`protocol/`](protocol/). Two of its contracts are the benchmark's
 |---|---|
 | [`source-selection.schema.json`](protocol/source-selection.schema.json) | the one boundary MTDR does not already contract |
 | [`capture.schema.json`](protocol/capture.schema.json) | the envelope composing the seven public contracts |
+| [`environment-keys.yaml`](protocol/environment-keys.yaml) | what the environment digest covers, what it excludes, and how it is normalised |
 
 Neither migrates into the normative schema tree, however useful it proves. **Only a TDR admits a
 concept into MTDR**, argued on its own merits — not a promotion earned by a benchmark finding it
@@ -94,7 +108,11 @@ You need a checkout of this repository at the pinned commit, the corpus, and
 Emit one capture conforming to [`protocol/capture.schema.json`](protocol/capture.schema.json).
 
 The comparison is deliberately **categorical**: signature sets per boundary, built from referents
-rather than labels. There is no similarity score, because a number there would be an unjustified one.
+rather than labels, with **every pairing of participants in its own column**. There is no similarity
+score, because a number there would be an unjustified one — and a single aggregate cross-participant
+column would hide the case where two agree and one differs, which is the asymmetry most worth
+knowing. The participant standing alone is **named**, and that naming is descriptive: nothing in the
+comparison lets the count of agreeing participants reach a decision.
 Divergences are classified, and every classification carries a `basis` and `evidence` pointing at the
 fixture or the source material — **never at how many participants agreed**. Agreement between
 implementations is not evidence about the organisation.
