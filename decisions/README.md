@@ -46,6 +46,7 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0039](TDR-0039-state-relative-requirements.md) | State-relative requirements must be represented state-relatively — fields required to *become* something must not become fields required to *represent* it | Full — a substrate invariant governing every record family is a one-way door |
 | [TDR-0040](TDR-0040-canonical-sequencing-is-not-runtime-orchestration.md) | **Proposed — carry-forward** — canonical behavioural sequencing is normative; runtime orchestration is not | Minimal — narrows TDR-0023 by one distinction |
 | [TDR-0041](TDR-0041-information-scope-access-use-disclosure.md) | **Proposed — new judgement** — separate access, use and disclosure within information scope, each qualified by purpose and context | Full — proposes narrow supersession of TDR-0015 |
+| [TDR-0042](TDR-0042-changelog-headings-are-not-releases.md) | **Proposed — re-stated** — every changelog version heading is an unreleased development label; no retrospective tags | Minimal — bounded release-governance classification |
 
 ## Identifiers
 
