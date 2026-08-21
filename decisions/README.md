@@ -44,6 +44,7 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0037](TDR-0037-release-eligibility-from-standing-governance.md) | Derive release eligibility from standing governance; eligibility reports satisfaction and never decides what the conditions ought to be | Full — the eligibility boundary is a one-way door |
 | [TDR-0038](TDR-0038-distribution-bundles-and-the-layer-boundary.md) | Generate distribution bundles from the manifests, verify runtimes as evidence, and codify the layer boundary | Full — the adapter criterion and the layer boundary are one-way doors |
 | [TDR-0039](TDR-0039-state-relative-requirements.md) | State-relative requirements must be represented state-relatively — fields required to *become* something must not become fields required to *represent* it | Full — a substrate invariant governing every record family is a one-way door |
+| [TDR-0040](TDR-0040-canonical-sequencing-is-not-runtime-orchestration.md) | **Proposed — carry-forward** — canonical behavioural sequencing is normative; runtime orchestration is not | Minimal — narrows TDR-0023 by one distinction |
 
 ## Identifiers
 
