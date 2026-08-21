@@ -45,6 +45,7 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0038](TDR-0038-distribution-bundles-and-the-layer-boundary.md) | Generate distribution bundles from the manifests, verify runtimes as evidence, and codify the layer boundary | Full — the adapter criterion and the layer boundary are one-way doors |
 | [TDR-0039](TDR-0039-state-relative-requirements.md) | State-relative requirements must be represented state-relatively — fields required to *become* something must not become fields required to *represent* it | Full — a substrate invariant governing every record family is a one-way door |
 | [TDR-0040](TDR-0040-canonical-sequencing-is-not-runtime-orchestration.md) | **Proposed — carry-forward** — canonical behavioural sequencing is normative; runtime orchestration is not | Minimal — narrows TDR-0023 by one distinction |
+| [TDR-0041](TDR-0041-information-scope-access-use-disclosure.md) | **Proposed — new judgement** — separate access, use and disclosure within information scope, each qualified by purpose and context | Full — proposes narrow supersession of TDR-0015 |
 
 ## Identifiers
 
@@ -59,6 +60,7 @@ The records also demonstrate the proportionality rule in practice:
 | [DAC-0032](DAC-0032-typed-multi-object-conformance.md) | TDR-0032 typed conformance and optional register boundary | Proceed with constraints |
 | [DAC-0033](DAC-0033-four-dimensional-validity.md) | TDR-0033 validity dimensions and transition eligibility | Proceed with constraints |
 | [DAC-0039](DAC-0039-state-relative-requirements.md) | TDR-0039 the state-relative requirement invariant | Proceed |
+| [DAC-0041](DAC-0041-information-scope-access-use-disclosure.md) | **Proposed** — TDR-0041 information-scope separation | Proceed with constraints |
 
 DAC-0032 and DAC-0033 carry fifteen live obligations between them.
 [`evidence/DAC-0032-0033-obligations.yaml`](evidence/DAC-0032-0033-obligations.yaml) registers every
