@@ -5,7 +5,7 @@ same source corpus, can independent implementations recognise materially equival
 produce semantically equivalent candidate records?
 
 [`protocol/`](protocol/) holds the **frozen, pre-registered method** for answering that — currently at
-**version 1.1.0**. A documented divergence is a successful run with a finding, not a failure
+**version 1.1.1**. A documented divergence is a successful run with a finding, not a failure
 ([TDR-0025](../../decisions/TDR-0025-conformance-architecture.md)).
 
 ## Why the method is here before any result is
@@ -33,6 +33,12 @@ Version 1.1.0 is that mechanism exercised. 1.0.0 was pre-registered; then a cano
 `environment_digest` normalisation rule and a comparator pin were added. Rather than edit the freeze,
 it was incremented and re-registered. No participant had run under 1.0.0, so nothing needed
 re-running — but the 1.0.0 freeze remains in this repository's history either way.
+
+1.1.1 is the same mechanism applied to a change small enough to be tempting to wave through:
+`PROTOCOL.md` was clarified after the 1.1.0 freeze — a comparator pin described as binding when it is
+a starting pin. Editorial, changing no rule. The drift was detected mechanically and answered with an
+increment rather than a quiet edit, because **treating a change as too small to increment is how a
+freeze stops meaning anything.**
 
 ## The proposition under test
 

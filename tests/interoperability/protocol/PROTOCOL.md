@@ -1,6 +1,6 @@
 # VR-4 reconstruction protocol
 
-**Version 1.1.0 · non-normative · pre-registered**
+**Version 1.1.1 · non-normative · pre-registered**
 
 This protocol is **frozen and published before any arm runs**. It is not part of the MTDR standard and
 never becomes part of it. It describes a method for asking one question:
@@ -258,8 +258,13 @@ incremented and re-registered — before any arm ran, so nothing needed re-runni
 ## The comparator is pinned too
 
 The protocol pin does not close one gap: a later run could use the same protocol and subtly different
-comparison code, and no other pin would show it. So `comparator_commit` joins the run block and
-`FREEZE.json`, and it is pinned alongside the protocol for VR-4B.
+comparison code, and no other pin would show it. So `comparator_commit` joins the run block, and every
+run records the comparator it actually used.
+
+`FREEZE.json` carries the comparator commit at the moment of the freeze, and that value is a
+**starting** pin rather than a final one — it is false the next time the harness changes. **The
+binding comparator pin for VR-4B is the comparator commit at the end of VR-4A**, recorded then, so the
+private run cannot use the same protocol with subtly different comparison code.
 
 ## Publish the evidence, not only the report
 
