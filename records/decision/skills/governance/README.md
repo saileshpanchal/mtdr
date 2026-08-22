@@ -53,6 +53,19 @@ packages, and must not become their de facto owner by default.
 | [`obligation-authority-trace`](obligation-authority-trace/) | Why does this exist, who required it, who may exercise, challenge, waive or amend it |
 | [`demonstrability-drill`](demonstrability-drill/) | Takes one decision from six months ago and tests whether the organisation can demonstrate it |
 | [`governance-equivalence`](governance-equivalence/) | Finds overlap, and distinguishes duplicated evidence from separately mandated mechanisms |
+| [`forum-evolution`](forum-evolution/) | Proposes one bounded next change for a forum, with its evidence, authority and stop conditions |
+| [`regime-preservation`](regime-preservation/) | The guardrail — refuses removals that evidence and authority do not support |
+| [`governance-accretion-plan`](governance-accretion-plan/) | Sequences the estate through observe, shadow, measure, reuse, nudge, consolidate, enforce |
+
+The first five reconstruct; the last three propose, and nothing they propose executes. Read in order,
+they answer the two questions the pack exists for:
+
+> How does this organisation currently govern this class of consequential decision, what can it prove
+> about that governance, and what is the smallest authorised next change that improves demonstrability
+> without breaking or pretending to replace existing obligations?
+
+> Which jobs still require this forum, which can now be precomputed or delegated, which independent
+> challenge must be preserved, and what evidence would justify the next change in its shape or cadence?
 
 ## What every skill here produces
 

@@ -102,8 +102,8 @@ what reconstruction currently costs.
 ## When to refuse
 
 - **Asked whether the forum should exist.** Not this skill's question, and not answerable from a
-  reconstruction (GR-13). The `forum-evolution` skill proposes a bounded next change; neither skill
-  proposes abolition.
+  reconstruction (GR-13). [`forum-evolution`](../forum-evolution/) proposes a bounded next change;
+  neither skill proposes abolition.
 - **Asked to name the accountable owner** where the material names only a committee. Report the
   terminus as unresolved: that gap is one of the most valuable findings this skill produces.
 - **Asked to conclude independence** from the org chart.
