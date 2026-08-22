@@ -38,6 +38,7 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0031](TDR-0031-reconcile-ratified-judgement-after-identifier-collision.md) | Reconcile a ratified judgement prospectively when its proposed identifier collides with an accepted record | Full — identity, standing and immutable lineage are constitutional |
 | [TDR-0032](TDR-0032-typed-multi-object-conformance.md) | Typed multi-object conformance and the register as an optional collection mechanism | Full — standing carried through a permanent TDR-0031 crosswalk |
 | [TDR-0033](TDR-0033-four-dimensional-validity.md) | Structural, semantic, relational and lifecycle-transition validation | Full — standing carried through a permanent TDR-0031 crosswalk |
+| [TDR-0034](TDR-0034-governance-reconstruction-and-forum-evolution.md) | Host governance reconstruction and forum evolution in the decision package as claim-level projections | Full — **proposed**; skill placement, a projection contract and an epistemic vocabulary are one-way doors |
 
 ## Decision assurance cases
 
@@ -47,6 +48,13 @@ The records also demonstrate the proportionality rule in practice:
 | [DAC-0031](DAC-0031-reconcile-ratified-judgement-after-identifier-collision.md) | TDR-0031 prospective identifier-collision reconciliation | Proceed with constraints |
 | [DAC-0032](DAC-0032-typed-multi-object-conformance.md) | TDR-0032 typed conformance and optional register boundary | Proceed with constraints |
 | [DAC-0033](DAC-0033-four-dimensional-validity.md) | TDR-0033 validity dimensions and transition eligibility | Proceed with constraints |
+| [DAC-0034](DAC-0034-governance-reconstruction-and-forum-evolution.md) | TDR-0034 governance reconstruction as bounded projection | Proceed with constraints — **proposed** |
+
+**Proposed records.** TDR-0034 and DAC-0034 are `proposed`, not accepted. Under
+[TDR-0027](TDR-0027-human-ratification-confers-standing.md) standing is conferred by an authorised
+human ratification of a defined candidate judgement, evidenced durably and attributably — never by a
+commit, a merge or an agent output. Promotion to `accepted` is a separate act, recorded in
+[`evidence/`](evidence/) before the status changes.
 
 ## Challenging a decision
 
