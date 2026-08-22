@@ -8,7 +8,8 @@ Validates the repository against its own rules — run from the repository root:
 Checks: record schema validity · lineage resolution · id/filename agreement · skill frontmatter
 discipline · relative-link resolution (stubs included) · package manifests coherent · candidate
 packages hold metadata and scope only · package dependency boundary · shared-skill record-neutrality
-· consumer-name scan over normative artefacts · VR negative cases still rejected.
+· consumer-name scan over normative artefacts · VR negative cases still rejected
+· governance projections valid with every claim reference carrying an epistemic assessment.
 
 Requires: pyyaml, jsonschema. Exit code 0 = conforming.
 """
@@ -147,11 +148,42 @@ note('consumer-names', "normative artefacts clean")
 
 # 9 — every fixture carries a must-not section (TDR-0025)
 fixtures = glob.glob('records/*/fixtures/**/FIX-*.md', recursive=True) \
-         + glob.glob('tests/conformance/FIX-*.md') + glob.glob('tests/corpus/CORPUS-*.md')
+         + glob.glob('tests/conformance/**/FIX-*.md', recursive=True) \
+         + glob.glob('tests/corpus/**/CORPUS-*.md', recursive=True)
 for f in fixtures:
     if '## Must not' not in open(f, encoding='utf-8').read():
         fail('fixture', f"{f}: no must-not section — a fixture without one is non-conforming")
 note('fixtures', f"{len(fixtures)} carry must-not sections")
+
+# 10 — governance projections validate; every claim_ref resolves to an assessment (TDR-0034, GR-01/GR-02)
+gp_path = 'records/decision/schema/governance-projection.schema.json'
+if os.path.exists(gp_path):
+    gp_schema = Validator(json.load(open(gp_path)))
+    def claim_refs(node):
+        """Every claim_ref anywhere in a payload, however deeply nested."""
+        if isinstance(node, dict):
+            for k, v in node.items():
+                if k == 'claim_ref' and isinstance(v, str):
+                    yield v
+                else:
+                    yield from claim_refs(v)
+        elif isinstance(node, list):
+            for v in node:
+                yield from claim_refs(v)
+    projections = sorted(glob.glob('tests/conformance/governance/worked-run/*.json'))
+    for f in projections:
+        doc = json.load(open(f, encoding='utf-8'))
+        for e in gp_schema.iter_errors(doc):
+            fail('projection-schema', f"{f}: {e.message}")
+        # GR-02: a claim referenced by the payload must carry an epistemic assessment
+        assessed = {a.get('subject_claim_ref') for a in doc.get('epistemic_assessments', [])}
+        for ref in set(claim_refs(doc.get('payload', {}))):
+            if ref not in assessed:
+                fail('projection-claim', f"{f}: claim_ref {ref} carries no epistemic assessment")
+        # a projection can never carry standing, whatever a skill wrote
+        if doc.get('carries_standing') is not False:
+            fail('projection-standing', f"{f}: carries_standing must be false")
+    note('projections', f"{len(projections)} validated; claim refs resolve")
 
 print()
 if FAILS:

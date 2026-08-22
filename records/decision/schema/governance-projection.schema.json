@@ -1,0 +1,481 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/saileshpanchal/mtdr/blob/main/records/decision/schema/governance-projection.schema.json",
+  "title": "GovernanceProjection — the governance skills' output contract",
+  "description": "One envelope carrying every governance reconstruction output. Proposed under TDR-0034 and NOT accepted. This is a skill-output contract, not a record schema and not a fourth interchange structure: it sits downstream of SourceFragment, RecordContribution and CandidateAssembly and amends none of them (TDR-0022). A projection carries interpretation about organisational meaning, never organisational meaning itself, so it fails question 1 of the record admission test by design and can never be promoted to a record. Epistemic state is assessed per claim, never per document or per projection. Known projection types validate strictly against their own payload; an unknown type is permitted a generic extension payload, so a new projection type never requires a change to the organisational record model.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "projection_id",
+    "projection_type",
+    "subject_ref",
+    "epistemic_assessments",
+    "produced_by",
+    "produced_at",
+    "carries_standing",
+    "payload"
+  ],
+  "properties": {
+    "projection_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique within a run. Not an organisational identifier and never a record id."
+    },
+    "projection_type": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Deliberately an open pattern rather than a closed enum. The six known types validate strictly against their own payload; anything else takes the extension payload and must say why no known type fitted. Adding a type must never require a change to the organisational record model (TDR-0034)."
+    },
+    "subject_ref": {
+      "type": "string",
+      "minLength": 1,
+      "description": "What this projection is about — a forum, a control, a mechanism, a decision. An identifier within the reconstruction, not a claim of organisational identity."
+    },
+    "source_refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 },
+      "description": "SourceFragment or RecordContribution identifiers behind the projection as a whole. Per-claim provenance lives on each epistemic assessment, which is where GR-01 is enforced."
+    },
+    "epistemic_assessments": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/epistemicAssessment" },
+      "description": "One entry per assessed claim. A forum reconstruction routinely carries several at once — a RECORDED stated purpose, an OBSERVED evidence-assembly job, an INFERRED de-facto authority, an UNKNOWN waiver authority and a CONTRADICTORY accountable owner. One state for the whole projection would destroy exactly the distinction this vocabulary exists to preserve (TDR-0034)."
+    },
+    "produced_by": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "version": { "type": "string", "minLength": 1 }
+      }
+    },
+    "produced_at": {
+      "$ref": "#/$defs/date",
+      "description": "When this output was generated. Distinct from every assessment's assessment_as_of, and never a substitute for it."
+    },
+    "required_authority": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The authority that would have to be exercised for any recommendation here to be acted on. Naming it is not holding it, and this field never confers it (GR-04, GR-14). There is currently no normative record family this resolves to — the authority language is a candidate package, recorded as an irreducibility finding in TDR-0034."
+    },
+    "caveat": {
+      "type": "string",
+      "description": "What a reader must not conclude from this projection beyond what it states."
+    },
+    "prohibited_inference": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "description": "Inferences explicitly foreclosed — most usefully, that an unlocatable source makes a mechanism optional, or that an observed decision proves legitimate authority."
+    },
+    "carries_standing": {
+      "const": false,
+      "description": "Structural, not advisory. A projection never carries organisational standing; only an authorised human ratification confers that, evidenced attributably (TDR-0027)."
+    },
+    "payload": {
+      "type": "object",
+      "description": "Typed by projection_type through the conditional branches below."
+    }
+  },
+  "allOf": [
+    {
+      "if": { "required": ["projection_type"], "properties": { "projection_type": { "const": "governance-finding" } } },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/governanceFinding" } } }
+    },
+    {
+      "if": { "required": ["projection_type"], "properties": { "projection_type": { "const": "governance-disposition" } } },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/governanceDisposition" } } }
+    },
+    {
+      "if": { "required": ["projection_type"], "properties": { "projection_type": { "const": "forum-reconstruction" } } },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/forumReconstruction" } } }
+    },
+    {
+      "if": { "required": ["projection_type"], "properties": { "projection_type": { "const": "forum-evolution-projection" } } },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/forumEvolutionProjection" } } }
+    },
+    {
+      "if": { "required": ["projection_type"], "properties": { "projection_type": { "const": "demonstrability-result" } } },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/demonstrabilityResult" } } }
+    },
+    {
+      "if": { "required": ["projection_type"], "properties": { "projection_type": { "const": "accretion-step" } } },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/accretionStep" } } }
+    },
+    {
+      "if": {
+        "not": {
+          "required": ["projection_type"],
+          "properties": {
+            "projection_type": {
+              "enum": [
+                "governance-finding",
+                "governance-disposition",
+                "forum-reconstruction",
+                "forum-evolution-projection",
+                "demonstrability-result",
+                "accretion-step"
+              ]
+            }
+          }
+        }
+      },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/extensionPayload" } } }
+    }
+  ],
+  "$defs": {
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}([T ].*)?$"
+    },
+    "refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "strings": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "epistemicAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subject_claim_ref", "state", "assessment_as_of", "rationale"],
+      "description": "The epistemic standing of ONE identified claim. Orthogonal to the substrate's uncertainty model and not derivable from it: `derivation` answers how a contribution was produced, the three confidences answer how strong it is, and this answers what standing the projected claim has. RECORDED is not `explicit` — an explicit statement in a meeting pack can be an observation about governance without ever having been admitted organisational state — and an INFERRED claim may carry high epistemic confidence and remain INFERRED.",
+      "properties": {
+        "subject_claim_ref": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Identifies the claim assessed. Payload fields carrying a claim_ref resolve to one of these; the resolution is checked deterministically by the repository's verification suite."
+        },
+        "state": {
+          "enum": ["RECORDED", "OBSERVED", "INFERRED", "UNKNOWN", "CONTRADICTORY"],
+          "description": "RECORDED — supported by organisational state the evidence shows was formally admitted or authoritative FOR THE RELEVANT TIME. OBSERVED — directly evidenced behaviour, artefact or event, WITHOUT asserting authoritative standing. INFERRED — reconstructed from evidence but not directly established. UNKNOWN — insufficient evidence to support a claim. CONTRADICTORY — materially incompatible evidence remains unresolved."
+        },
+        "basis_refs": {
+          "$ref": "#/$defs/refs",
+          "description": "What supports the claim. Required for RECORDED, OBSERVED and INFERRED; legitimately empty for UNKNOWN (GR-01)."
+        },
+        "contradiction_refs": {
+          "$ref": "#/$defs/refs",
+          "description": "The materially incompatible claim or evidence sets. At least two entries where the state is CONTRADICTORY — a contradiction needs both sides on the record."
+        },
+        "assessment_as_of": {
+          "$ref": "#/$defs/date",
+          "description": "The date as of which this state was assessed. Deliberately separate from the envelope's produced_at: a reconstruction of decision-time state is worthless if when a claim was assessed and when the output was generated are conflated (GR-07)."
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Why this state and not another. Prevents the state becoming an opaque label."
+        },
+        "question_asked": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Required where the state is UNKNOWN: the question that was put to the material."
+        },
+        "scope_searched": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Required where the state is UNKNOWN: what was searched. An UNKNOWN that cannot say what it looked at is an untested absence, not a finding."
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "state": { "enum": ["RECORDED", "OBSERVED", "INFERRED"] } }, "required": ["state"] },
+          "then": { "required": ["basis_refs"], "properties": { "basis_refs": { "minItems": 1 } } }
+        },
+        {
+          "if": { "properties": { "state": { "const": "CONTRADICTORY" } }, "required": ["state"] },
+          "then": { "required": ["contradiction_refs"], "properties": { "contradiction_refs": { "minItems": 2 } } }
+        },
+        {
+          "if": { "properties": { "state": { "const": "UNKNOWN" } }, "required": ["state"] },
+          "then": { "required": ["question_asked", "scope_searched"] }
+        }
+      ]
+    },
+    "governanceFinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["finding_type", "statement", "scope", "materiality"],
+      "properties": {
+        "finding_type": {
+          "enum": [
+            "AUTHORITY_GAP", "OBLIGATION_GAP", "EVIDENCE_GAP", "POLICY_GAP", "TRACEABILITY_GAP",
+            "CHALLENGE_GAP", "DUPLICATE_CONTROL", "DUPLICATE_EVIDENCE", "UNKNOWN_ORIGIN",
+            "CONTRADICTORY_GOVERNANCE", "UNPROVEN_ASSERTION", "FORUM_JOB_DUPLICATION",
+            "FORUM_EVIDENCE_ASSEMBLY_OVERHEAD", "FORUM_AUTHORITY_AMBIGUITY", "UNCLASSIFIED"
+          ],
+          "description": "UNCLASSIFIED is a reporting outcome, never a near-fit: a recurring unclassified pattern is evidence for extending the vocabulary by decision, exactly as TDR-0026 established for value contribution classes."
+        },
+        "unclassified_note": { "type": "string", "minLength": 1, "description": "Required where finding_type is UNCLASSIFIED: what was recognised, and why no class fitted." },
+        "statement": { "type": "string", "minLength": 1 },
+        "scope": { "type": "string", "minLength": 1 },
+        "supporting_evidence": { "$ref": "#/$defs/refs" },
+        "contradicting_evidence": { "$ref": "#/$defs/refs" },
+        "competing_hypotheses": { "$ref": "#/$defs/strings" },
+        "affected_regimes": { "$ref": "#/$defs/strings" },
+        "constitutional_property": { "$ref": "#/$defs/strings" },
+        "materiality": { "enum": ["low", "medium", "high"] },
+        "recommended_next_evidence": { "$ref": "#/$defs/strings" },
+        "claim_ref": { "type": "string", "minLength": 1 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "finding_type": { "const": "UNCLASSIFIED" } }, "required": ["finding_type"] },
+          "then": { "required": ["unclassified_note"] }
+        }
+      ]
+    },
+    "governanceDisposition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["recommended_disposition", "reason", "mandatory_status", "status_basis", "risk_of_change"],
+      "properties": {
+        "source_regime": { "type": "string", "minLength": 1 },
+        "source_obligation_ref": { "type": "string", "minLength": 1 },
+        "property_established": { "type": "string", "minLength": 1 },
+        "current_evidence_refs": { "$ref": "#/$defs/refs" },
+        "mandatory_status": {
+          "enum": ["externally-mandated", "internally-required", "discretionary", "unknown"],
+          "description": "`unknown` is the honest default. A mechanism whose mandate cannot be located is not thereby discretionary (GR-05)."
+        },
+        "status_basis": { "type": "string", "minLength": 1 },
+        "recommended_disposition": {
+          "enum": ["RETAIN", "REUSE", "ABSORB", "NARROW", "RECONSTRUCT", "RETIRE_CANDIDATE", "UNKNOWN"],
+          "description": "RETIRE_CANDIDATE is never executable automatically and is never a decision (GR-10)."
+        },
+        "reason": { "type": "string", "minLength": 1 },
+        "dependencies": { "$ref": "#/$defs/strings" },
+        "risk_of_change": { "enum": ["low", "medium", "high", "unknown"] },
+        "proof_required_before_change": { "$ref": "#/$defs/strings" },
+        "claim_ref": { "type": "string", "minLength": 1 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "recommended_disposition": { "const": "RETIRE_CANDIDATE" } }, "required": ["recommended_disposition"] },
+          "then": { "required": ["proof_required_before_change"], "properties": { "proof_required_before_change": { "minItems": 1 } } }
+        }
+      ]
+    },
+    "forumJob": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["job_class", "description", "claim_ref"],
+      "properties": {
+        "job_class": {
+          "enum": [
+            "EVIDENCE_ASSEMBLY", "STATUS_REPORTING", "DETERMINISTIC_CONFORMANCE", "EXCEPTION_HANDLING",
+            "TRADE_OFF_JUDGEMENT", "INDEPENDENT_CHALLENGE", "AUTHORITY_EXERCISE", "AMENDMENT",
+            "ESCALATION", "ACCOUNTABILITY_ROUTING", "UNKNOWN"
+          ],
+          "description": "ACCOUNTABILITY_ROUTING, not ACCOUNTABILITY: the job a forum performs is routing accountability to a person, never being accountable itself. UNKNOWN where the evidence does not support classification."
+        },
+        "description": { "type": "string", "minLength": 1 },
+        "claim_ref": { "type": "string", "minLength": 1 },
+        "time_share_observed": { "type": "string", "minLength": 1 }
+      }
+    },
+    "power": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["holder", "claim_ref"],
+      "properties": {
+        "holder": { "type": "string", "minLength": 1, "description": "Who holds it. `unknown` where no source establishes it — never the nearest adjacent holder." },
+        "claim_ref": { "type": "string", "minLength": 1 },
+        "basis": { "type": "string", "minLength": 1 }
+      }
+    },
+    "forumReconstruction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["forum_name", "forum_type", "inferred_jobs", "separated_powers"],
+      "properties": {
+        "forum_name": { "type": "string", "minLength": 1 },
+        "forum_type": { "type": "string", "minLength": 1 },
+        "stated_purpose": { "$ref": "#/$defs/strings" },
+        "inferred_jobs": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/forumJob" } },
+        "decision_classes": { "$ref": "#/$defs/strings" },
+        "authority_refs": { "$ref": "#/$defs/refs" },
+        "inputs": { "$ref": "#/$defs/strings" },
+        "evidence_consumed": { "$ref": "#/$defs/strings" },
+        "evidence_created": { "$ref": "#/$defs/strings" },
+        "challenge_role": { "type": "string", "minLength": 1 },
+        "escalation_in": { "$ref": "#/$defs/strings" },
+        "escalation_out": { "$ref": "#/$defs/strings" },
+        "participants": { "$ref": "#/$defs/strings" },
+        "cadence": { "type": "string", "minLength": 1 },
+        "manual_reconstruction_steps": { "$ref": "#/$defs/strings" },
+        "routine_conformance_steps": { "$ref": "#/$defs/strings" },
+        "judgement_steps": { "$ref": "#/$defs/strings" },
+        "independence_requirements": { "$ref": "#/$defs/strings" },
+        "unknowns": { "$ref": "#/$defs/strings" },
+        "contradictions": { "$ref": "#/$defs/strings" },
+        "separated_powers": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "execution_authority", "suspension_or_containment_authority", "challenge_authority",
+            "veto_waiver_or_override_authority", "amendment_authority", "escalation_route",
+            "accountability_terminus"
+          ],
+          "description": "Reconstructed separately and never collapsed into one another. An unresolved power stays UNKNOWN through its claim's assessment rather than defaulting to an adjacent holder.",
+          "properties": {
+            "execution_authority": { "$ref": "#/$defs/power" },
+            "suspension_or_containment_authority": { "$ref": "#/$defs/power" },
+            "challenge_authority": { "$ref": "#/$defs/power" },
+            "veto_waiver_or_override_authority": { "$ref": "#/$defs/power" },
+            "amendment_authority": { "$ref": "#/$defs/power" },
+            "escalation_route": { "$ref": "#/$defs/power" },
+            "accountability_terminus": { "$ref": "#/$defs/power", "description": "Terminates in an accountable individual, never a committee abstraction (GR-18)." }
+          }
+        },
+        "independence_assessment": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["conclusion", "claim_ref"],
+          "description": "Multiplicity is not independence: a separate forum, a different name or a distinct reporting line establishes nothing (GR-17).",
+          "properties": {
+            "reporting": { "type": "string", "minLength": 1 },
+            "incentives": { "type": "string", "minLength": 1 },
+            "authority": { "type": "string", "minLength": 1 },
+            "evidence_source": { "type": "string", "minLength": 1 },
+            "cognition_or_model_source": { "type": "string", "minLength": 1 },
+            "orchestration": { "type": "string", "minLength": 1 },
+            "suppression_or_configuration_control": { "type": "string", "minLength": 1 },
+            "conclusion": { "enum": ["independent", "partially-independent", "not-independent", "unknown"] },
+            "claim_ref": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    },
+    "forumEvolutionProjection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "forum_ref", "current_state", "next_nudge", "shadow_only", "preconditions",
+        "success_evidence", "stop_conditions", "accountability_terminus_requirement"
+      ],
+      "properties": {
+        "forum_ref": { "type": "string", "minLength": 1 },
+        "current_state": { "type": "string", "minLength": 1 },
+        "next_nudge": { "type": "string", "minLength": 1, "description": "One bounded next change, not a target operating model. Never assumes that more agentic means fewer forums (GR-13)." },
+        "jobs_unchanged": { "$ref": "#/$defs/strings" },
+        "jobs_automatable_or_precomputable": { "$ref": "#/$defs/strings" },
+        "jobs_delegable_with_bounds": { "$ref": "#/$defs/strings" },
+        "jobs_requiring_human_or_independent_judgement": { "$ref": "#/$defs/strings" },
+        "new_evidence_capability": { "type": "string", "minLength": 1 },
+        "new_authority_or_delegation_required": { "type": "string", "minLength": 1, "description": "Required whenever any job is proposed for delegation (GR-14)." },
+        "cadence_change_candidate": { "type": "string", "minLength": 1 },
+        "meeting_change_candidate": { "type": "string", "minLength": 1 },
+        "shadow_only": { "type": "boolean" },
+        "preconditions": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+        "success_evidence": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+        "stop_conditions": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+        "known_unknowns": { "$ref": "#/$defs/strings" },
+        "reassessment_trigger": { "type": "string", "minLength": 1 },
+        "population_monitoring_required": {
+          "$ref": "#/$defs/strings",
+          "description": "The population or cohort sensing that must exist before a periodic job may be removed or slowed. Automating transaction-level conformance does not replace a review that saw cohorts (GR-16)."
+        },
+        "independent_challenge_requirements": {
+          "$ref": "#/$defs/strings",
+          "description": "What must remain true of any challenge function this projection touches. Efficiency never collapses challenge into the execution authority it challenges (GR-15)."
+        },
+        "accountability_terminus_requirement": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The named individual in whom accountability terminates after the change, or the statement that it is unresolved (GR-18)."
+        },
+        "claim_ref": { "type": "string", "minLength": 1 }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": ["jobs_delegable_with_bounds"],
+            "properties": { "jobs_delegable_with_bounds": { "minItems": 1 } }
+          },
+          "then": { "required": ["new_authority_or_delegation_required"] }
+        },
+        {
+          "if": {
+            "required": ["cadence_change_candidate"]
+          },
+          "then": { "required": ["population_monitoring_required"], "properties": { "population_monitoring_required": { "minItems": 1 } } }
+        }
+      ]
+    },
+    "demonstrabilityAnswer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["question", "answer", "claim_ref"],
+      "properties": {
+        "question": { "type": "string", "minLength": 1 },
+        "answer": { "type": "string", "minLength": 1 },
+        "source_refs": { "$ref": "#/$defs/refs" },
+        "claim_ref": { "type": "string", "minLength": 1, "description": "One epistemic assessment per material answer — never one state for the whole result." },
+        "retrospective_evidence_excluded": { "$ref": "#/$defs/strings", "description": "Material that post-dates the decision and was therefore held out of the reconstruction, named so the exclusion is inspectable (GR-07)." }
+      }
+    },
+    "demonstrabilityResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision_ref", "test_date", "historical_as_of", "answers", "manual_reconstruction_required", "summary_status"],
+      "properties": {
+        "decision_ref": { "type": "string", "minLength": 1 },
+        "test_date": { "$ref": "#/$defs/date" },
+        "historical_as_of": { "$ref": "#/$defs/date", "description": "The as-of date the reconstruction is bounded to. Evidence created after this date is retrospective and must be labelled as such." },
+        "answers": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/demonstrabilityAnswer" } },
+        "manual_reconstruction_required": { "type": "boolean" },
+        "unknowns": { "$ref": "#/$defs/strings" },
+        "contradictions": { "$ref": "#/$defs/strings" },
+        "missing_evidence": { "$ref": "#/$defs/strings" },
+        "highest_value_next_evidence": { "$ref": "#/$defs/strings", "description": "The evidence that would most alter the finding — the point of the drill, not a postscript." },
+        "reconstruction_metrics": { "type": "object", "description": "Cost, time or effort where the organisation's own data supports it. Absent rather than invented." },
+        "summary_status": { "enum": ["DEMONSTRABLE", "PARTIAL", "NOT_DEMONSTRABLE", "CONTRADICTORY"] }
+      }
+    },
+    "accretionStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["phase", "objective", "shadow_only", "preconditions", "success_evidence", "stop_condition", "next_phase_gate"],
+      "properties": {
+        "phase": {
+          "enum": ["BASELINE", "OBSERVE", "SHADOW", "REUSE", "NUDGE", "CONSOLIDATE", "ENFORCE"],
+          "description": "The default sequence. No first-stage plan places a new commitment mechanism in the critical path."
+        },
+        "objective": { "type": "string", "minLength": 1 },
+        "existing_mechanisms_affected": { "$ref": "#/$defs/strings" },
+        "new_substrate_capability": { "type": "string", "minLength": 1 },
+        "preconditions": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+        "legal_review_required": { "type": "boolean", "description": "Privilege, retention, disclosure, regulatory production, complaints evidence and personal data are design inputs, not downstream approvals." },
+        "shadow_only": { "type": "boolean" },
+        "success_evidence": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+        "stop_condition": { "type": "string", "minLength": 1 },
+        "next_phase_gate": { "type": "string", "minLength": 1 },
+        "claim_ref": { "type": "string", "minLength": 1 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "phase": { "const": "ENFORCE" } }, "required": ["phase"] },
+          "then": { "required": ["legal_review_required"], "properties": { "legal_review_required": { "const": true } } }
+        }
+      ]
+    },
+    "extensionPayload": {
+      "type": "object",
+      "required": ["extension_note"],
+      "description": "For a projection_type outside the known six. Open by design so the vocabulary can extend without touching the organisational record model — and required to say why no known type fitted, because a recurring extension is evidence for a superseding decision rather than a private convention.",
+      "properties": {
+        "extension_note": {
+          "type": "string",
+          "minLength": 1,
+          "description": "What this projection carries, and which known type was considered and rejected."
+        }
+      }
+    }
+  }
+}
