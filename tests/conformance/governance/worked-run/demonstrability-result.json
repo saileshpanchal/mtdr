@@ -1,0 +1,321 @@
+{
+  "projection_id": "GP-DRILL-001",
+  "projection_type": "demonstrability-result",
+  "subject_ref": "decision:ashcombe-gate2-2026-02-11",
+  "produced_by": {
+    "name": "demonstrability-drill",
+    "version": "0.1.0-proposed"
+  },
+  "produced_at": "2026-08-22",
+  "carries_standing": false,
+  "epistemic_assessments": [
+    {
+      "subject_claim_ref": "c-q1",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-02-11",
+      "rationale": "The 2026-02-11 minutes record the Authority approving the Ashcombe design at Gate 2 subject to the retention question.",
+      "basis_refs": [
+        "FIX-018/C"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-q2",
+      "state": "INFERRED",
+      "assessment_as_of": "2026-02-11",
+      "rationale": "tda-tor-v4 reserves Gate 2 to the Authority and the minutes evidence its exercise; no source shows the approval being admitted as authoritative state, so entitlement is reconstructed rather than established.",
+      "basis_refs": [
+        "FIX-018/A",
+        "FIX-018/C"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-q3",
+      "state": "CONTRADICTORY",
+      "assessment_as_of": "2026-02-11",
+      "rationale": "The AI Governance Policy and the Model Risk Policy each assert prior-to-deployment approval authority over this model, neither cites the other, and no source establishes precedence.",
+      "contradiction_refs": [
+        "FIX-028/A",
+        "FIX-028/B"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-q4",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-02-11",
+      "rationale": "The pack of 2026-02-04 evidences what was before the Authority: architecture, data flows, retention position, model performance, cohort breakdown, conformance assessment.",
+      "basis_refs": [
+        "FIX-023/A"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-q5",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-02-11",
+      "rationale": "Every decision-time item traces to the pack or the minutes; the cohort breakdown's own coverage limit is stated in the Q1 MI footnote.",
+      "basis_refs": [
+        "FIX-023/A",
+        "CORPUS-006/D"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-q6",
+      "state": "UNKNOWN",
+      "assessment_as_of": "2026-02-11",
+      "rationale": "No decision-time source shows vulnerable customers or any affected group being represented in, or considered by, the Gate 2 decision.",
+      "question_asked": "Which protected interests or affected parties were represented at the Gate 2 decision, and by whom?",
+      "scope_searched": "TDA terms of reference, packs and minutes 2025-09 to 2026-02; risk forum terms of reference and minutes 2026-02; model risk policy v9; AI governance policy v1; AI assurance standard v2; standard CC-11 and its migrated history; collections manual 2025; responsibilities map 2025-12; model register 2026-02; exception register 2025; Ashcombe charter, design note and evidence log."
+    },
+    {
+      "subject_claim_ref": "c-q7",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-02-11",
+      "rationale": "Challenge occurred: the retention trade-off was contested at the Authority, and the risk forum subsequently rejected the coverage assumption on 2026-02-18.",
+      "basis_refs": [
+        "FIX-018/C",
+        "FIX-025/B"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-q8",
+      "state": "INFERRED",
+      "assessment_as_of": "2026-02-11",
+      "rationale": "R. Idowu is minuted arguing against the retention extension and the Chair is minuted taking the opposing position; no source establishes who held override authority.",
+      "basis_refs": [
+        "FIX-018/C"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-q9",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-02-11",
+      "rationale": "The Technology Design Authority handled the design decision; the Risk Acceptance Forum handled the residual risk seven days later.",
+      "basis_refs": [
+        "FIX-018/C",
+        "FIX-025/B"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-q10",
+      "state": "CONTRADICTORY",
+      "assessment_as_of": "2026-02-11",
+      "rationale": "The responsibilities map names the Chief Operating Officer and the project charter names the Managing Director, Collections and Recoveries, for the same accountability, with no supersession between them.",
+      "contradiction_refs": [
+        "FIX-020/A",
+        "FIX-020/B"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-q11",
+      "state": "UNKNOWN",
+      "assessment_as_of": "2026-02-11",
+      "rationale": "No decision-time source carries an outcome; the Q1 2026 outcome MI postdates the decision and is reported separately as retrospective.",
+      "question_asked": "What outcome resulted from the Gate 2 decision, as knowable at decision time?",
+      "scope_searched": "TDA terms of reference, packs and minutes 2025-09 to 2026-02; risk forum terms of reference and minutes 2026-02; model risk policy v9; AI governance policy v1; AI assurance standard v2; standard CC-11 and its migrated history; collections manual 2025; responsibilities map 2025-12; model register 2026-02; exception register 2025; Ashcombe charter, design note and evidence log."
+    },
+    {
+      "subject_claim_ref": "c-q12",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-02-11",
+      "rationale": "Four decision-time questions resolve to UNKNOWN or CONTRADICTORY, each with its question and search scope recorded.",
+      "basis_refs": [
+        "FIX-019/A",
+        "FIX-020/A",
+        "FIX-020/B",
+        "FIX-028/A",
+        "FIX-028/B"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-q13",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "No pre-existing reconstruction of this decision was found in the estate; assembling the decision-time position required reading across eleven artefacts in five repositories.",
+      "basis_refs": [
+        "FIX-018/C",
+        "FIX-023/C"
+      ]
+    }
+  ],
+  "payload": {
+    "decision_ref": "Project Ashcombe, Gate 2 design approval, Technology Design Authority, 2026-02-11",
+    "test_date": "2026-08-22",
+    "historical_as_of": "2026-02-11",
+    "answers": [
+      {
+        "question": "What decision or consequence occurred?",
+        "answer": "The Technology Design Authority approved the Ashcombe arrears-contact automation design at Gate 2, subject to the retention question being resolved with the Data Governance Council.",
+        "source_refs": [
+          "FIX-018/C"
+        ],
+        "claim_ref": "c-q1"
+      },
+      {
+        "question": "Under what authority was it taken?",
+        "answer": "The Authority's own terms of reference reserve Gate 2 approval to it. That it exercised the power is evidenced; that it was entitled to is reconstructed, not established.",
+        "source_refs": [
+          "FIX-018/A",
+          "FIX-018/C"
+        ],
+        "claim_ref": "c-q2"
+      },
+      {
+        "question": "What obligation, policy or mandate then in force governed it?",
+        "answer": "Contradictory. The AI Governance Policy requires AI Governance Forum approval before deployment; the Model Risk Policy requires Model Approval Committee approval. Both apply to this model and neither addresses the other.",
+        "source_refs": [
+          "FIX-028/A",
+          "FIX-028/B",
+          "FIX-028/C"
+        ],
+        "claim_ref": "c-q3"
+      },
+      {
+        "question": "What evidence was available at the time?",
+        "answer": "The 2026-02-04 pack: solution architecture, data flows, retention position, model performance summary (AUC 0.79, January holdout), cohort performance breakdown by vulnerability flag, dependency map, and the Standards 3, 7, 9, 11 conformance assessment.",
+        "source_refs": [
+          "FIX-023/A"
+        ],
+        "claim_ref": "c-q4",
+        "retrospective_evidence_excluded": [
+          "Internal Audit report ia-2026-31, issued 2026-06-30",
+          "Data Governance Council minutes, 2026-03-24",
+          "Complaint file and outcome, 2026-05 and 2026-07",
+          "Q1 2026 arrears outcome MI"
+        ]
+      },
+      {
+        "question": "What is the epistemic status and provenance of that evidence?",
+        "answer": "Provenance is complete for the pack contents. The cohort performance breakdown carries an unstated limit at decision time — the vulnerability flag is populated for 61% of the arrears population, which the risk forum identified a week later and the pack did not state.",
+        "source_refs": [
+          "FIX-023/A",
+          "FIX-025/B"
+        ],
+        "claim_ref": "c-q5"
+      },
+      {
+        "question": "Which protected interests or affected parties were represented?",
+        "answer": "Unknown. No decision-time source evidences representation of vulnerable customers or any affected group. The trade-off discussion refers to 'customers least able to engage' without evidencing who represented them.",
+        "claim_ref": "c-q6"
+      },
+      {
+        "question": "Did challenge, exception, refusal, waiver or escalation occur?",
+        "answer": "Yes. The retention trade-off was contested at the Authority with named disagreement, the retention question was escalated to the Data Governance Council, and the Risk Acceptance Forum rejected the coverage assumption on 2026-02-18.",
+        "source_refs": [
+          "FIX-018/C",
+          "FIX-025/B"
+        ],
+        "claim_ref": "c-q7"
+      },
+      {
+        "question": "Who exercised challenge or override authority?",
+        "answer": "R. Idowu challenged the retention extension as disproportionate; the Chair took the opposing position and the design was approved. Who held override authority is not established.",
+        "source_refs": [
+          "FIX-018/C"
+        ],
+        "claim_ref": "c-q8"
+      },
+      {
+        "question": "Which forum or mechanism handled it?",
+        "answer": "The Technology Design Authority for the design; the Risk Acceptance Forum for residual risk; the Data Governance Council for retention. Whether the AI Governance Forum was required to handle it is the contradiction above.",
+        "source_refs": [
+          "FIX-018/C",
+          "FIX-025/B",
+          "FIX-028/D"
+        ],
+        "claim_ref": "c-q9"
+      },
+      {
+        "question": "Who is the accountable owner represented in source material?",
+        "answer": "Contradictory. The responsibilities map names D. Farrell, Chief Operating Officer; the Ashcombe charter names P. Nkemelu, Managing Director, Collections and Recoveries. The model register records both against different columns and defines neither relationship.",
+        "source_refs": [
+          "FIX-020/A",
+          "FIX-020/B",
+          "FIX-020/C"
+        ],
+        "claim_ref": "c-q10"
+      },
+      {
+        "question": "What outcome resulted?",
+        "answer": "Unknown at decision time. Retrospectively — and reported separately as such — Q1 2026 arrears resolution for customers with a recorded vulnerability was 61% against a 68% board baseline, with attribution to Ashcombe unresolved.",
+        "claim_ref": "c-q11",
+        "retrospective_evidence_excluded": [
+          "Q1 2026 arrears outcome MI",
+          "Complaint 2026-05-2211 and its outcome"
+        ]
+      },
+      {
+        "question": "What remains Unknown or Contradictory?",
+        "answer": "Unknown: representation of affected parties; the origin of the CC-11 contact cap; the validity of exception 2025-088 after its stated expiry. Contradictory: which forum's approval was required; who is accountable.",
+        "source_refs": [
+          "FIX-019/A",
+          "FIX-020/A",
+          "FIX-020/B",
+          "FIX-026/A",
+          "FIX-028/A",
+          "FIX-028/B"
+        ],
+        "claim_ref": "c-q12"
+      },
+      {
+        "question": "Was a manual reconstruction project necessary?",
+        "answer": "Yes. No pre-existing reconstruction was found. Assembling the decision-time position required reading across eleven artefacts in five repositories, and the two forums' own packs were separately assembled at approximately 6 person-days per month.",
+        "source_refs": [
+          "FIX-023/C"
+        ],
+        "claim_ref": "c-q13"
+      }
+    ],
+    "manual_reconstruction_required": true,
+    "unknowns": [
+      "Representation of affected parties at the Gate 2 decision",
+      "Origin of the CC-11 four-contact cap",
+      "Validity of exception 2025-088 after 2026-03-31",
+      "Override authority at the Authority",
+      "Accountability terminus for both forums"
+    ],
+    "contradictions": [
+      "Which forum's approval was required before deployment — AI Governance Forum or Model Approval Committee",
+      "Who is the accountable executive — Chief Operating Officer or Managing Director, Collections and Recoveries"
+    ],
+    "missing_evidence": [
+      "A delegation instrument or minute allocating accountability between the two named executives",
+      "A source establishing precedence between the AI Governance Policy and the Model Risk Policy",
+      "Any decision-time record of who represented affected customers",
+      "The originating authority for standard CC-11"
+    ],
+    "highest_value_next_evidence": [
+      "The instrument allocating accountability between D. Farrell and P. Nkemelu. It resolves the contradiction that blocks the accountability terminus for the whole estate, and one artefact settles it."
+    ],
+    "reconstruction_metrics": {
+      "artefacts_read": 11,
+      "repositories": 5,
+      "pre_existing_reconstruction_found": false,
+      "forum_pack_preparation_person_days_per_month": 6
+    },
+    "summary_status": "PARTIAL"
+  },
+  "required_authority": "None. This is a diagnostic; nothing here requires or confers authority.",
+  "caveat": "PARTIAL means the organisation can demonstrate some of what it asserts about this decision. It is not a judgement about whether the decision was sound, and the drill does not make one.",
+  "prohibited_inference": [
+    "That the June audit report's account of the reasoning was available in February",
+    "That the March retention approval settled the question the February minutes left open",
+    "That the absence of a recorded affected-party representation proves none occurred"
+  ],
+  "source_refs": [
+    "FIX-018/A",
+    "FIX-018/C",
+    "FIX-019/A",
+    "FIX-020/A",
+    "FIX-020/B",
+    "FIX-020/C",
+    "FIX-021/A",
+    "FIX-023/A",
+    "FIX-023/C",
+    "FIX-025/B",
+    "FIX-026/A",
+    "FIX-028/A",
+    "FIX-028/B",
+    "FIX-028/C",
+    "FIX-028/D",
+    "CORPUS-006/D"
+  ]
+}

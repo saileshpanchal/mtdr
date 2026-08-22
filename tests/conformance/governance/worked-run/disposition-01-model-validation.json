@@ -1,0 +1,49 @@
+{
+  "projection_id": "GP-D-001",
+  "projection_type": "governance-disposition",
+  "subject_ref": "control:model-risk-policy-independent-validation",
+  "produced_by": {
+    "name": "regime-preservation",
+    "version": "0.1.0-proposed"
+  },
+  "produced_at": "2026-08-22",
+  "carries_standing": false,
+  "epistemic_assessments": [
+    {
+      "subject_claim_ref": "c-d1",
+      "state": "RECORDED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "Supervisory correspondence of 2024-05-20 states the expectation of independent validation prior to deployment and annually, and the Model Risk Policy implements it from 2024-08-01.",
+      "basis_refs": [
+        "FIX-022/A",
+        "FIX-022/B"
+      ]
+    }
+  ],
+  "payload": {
+    "source_regime": "Prudential model governance expectation (external)",
+    "source_obligation_ref": "FIX-022/A",
+    "property_established": "Independent validation of material models by persons independent of model development, before deployment and annually.",
+    "current_evidence_refs": [
+      "FIX-022/B",
+      "FIX-022/D"
+    ],
+    "mandatory_status": "externally-mandated",
+    "status_basis": "Supervisory correspondence FIX-022/A, traced to the implementing policy FIX-022/B.",
+    "recommended_disposition": "RETAIN",
+    "reason": "Externally mandated, traced, and the property it establishes is not established by anything else in the estate. The evidence it consumes is duplicated; the mechanism is not.",
+    "risk_of_change": "high",
+    "claim_ref": "c-d1"
+  },
+  "required_authority": "None — RETAIN requires no change.",
+  "caveat": "That the AI Assurance Standard consumes the same evidence is a finding about assembly, not about this mechanism.",
+  "prohibited_inference": [
+    "That overlap with AI assurance permits narrowing this control",
+    "That a shared substrate establishing the same property permits stopping it"
+  ],
+  "source_refs": [
+    "FIX-022/A",
+    "FIX-022/B",
+    "FIX-022/D"
+  ]
+}

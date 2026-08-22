@@ -1,0 +1,122 @@
+{
+  "projection_id": "GP-TDA-EVO-001",
+  "projection_type": "forum-evolution-projection",
+  "subject_ref": "forum:kingsmere-tda",
+  "produced_by": {
+    "name": "forum-evolution",
+    "version": "0.1.0-proposed"
+  },
+  "produced_at": "2026-08-22",
+  "carries_standing": false,
+  "epistemic_assessments": [
+    {
+      "subject_claim_ref": "c-evo-tda-precompute",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "Standards 3, 7, 9 and 11 are expressed as testable conditions with defined pass criteria, and across six meetings 64 of 71 assessments conformed with no discussion and none was overturned by the Authority.",
+      "basis_refs": [
+        "FIX-024/B",
+        "FIX-024/C"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-evo-tda-judgement",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "The contact effectiveness against data minimisation item is cross-domain, has no defined pass criteria, and the minutes record genuine disagreement.",
+      "basis_refs": [
+        "FIX-018/C",
+        "FIX-024/B"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-evo-tda-delegation-blocked",
+      "state": "RECORDED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "tda-tor-v4 section 5 states that Gate 2 approval is reserved to the Authority and may not be delegated. In force at the relevant time.",
+      "basis_refs": [
+        "FIX-024/D"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-evo-tda-amendment-authority",
+      "state": "UNKNOWN",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "No source establishes who may amend the terms of reference to permit delegated standard approvals.",
+      "question_asked": "Who may amend tda-tor-v4 section 5 to permit delegation of standard pattern approvals?",
+      "scope_searched": "tda-tor-v4 in full; TDA minutes 2025-09 to 2026-02; arch-standards-v11; smf-responsibilities-2025-12."
+    }
+  ],
+  "payload": {
+    "forum_ref": "forum:kingsmere-tda",
+    "current_state": "Monthly forum spending roughly 50 of 80 scheduled minutes on deterministic conformance against four testable standards, preceded by 3 analyst-days of manual dashboard assembly, with one genuine cross-domain trade-off per cycle.",
+    "next_nudge": "Precompute the Standards 3, 7, 9 and 11 conformance assessment continuously and deliver it to the Authority as evidence, rather than assembling it by hand for each meeting. The Authority continues to approve; what changes is who assembles the evidence and when.",
+    "jobs_unchanged": [
+      "Exception handling for non-conformances",
+      "Escalation of retention matters to the Data Governance Council",
+      "Gate 2 approval itself"
+    ],
+    "jobs_automatable_or_precomputable": [
+      "Assessment against Architecture Standards 3, 7, 9 and 11",
+      "Estate conformance dashboard assembly"
+    ],
+    "jobs_delegable_with_bounds": [
+      "Standard pattern approvals where all four testable standards pass and no exception is claimed — NOT available now, see new_authority_or_delegation_required"
+    ],
+    "jobs_requiring_human_or_independent_judgement": [
+      "Contact effectiveness against data minimisation, and cross-domain trade-offs generally",
+      "Disposition of Standard 7 non-conformances",
+      "Application of Standards 1, 2, 4-6, 8 and 10, which the register states require judgement"
+    ],
+    "new_evidence_capability": "Continuous conformance assessment against the four testable standards, produced from the four source systems rather than assembled from them by an analyst.",
+    "new_authority_or_delegation_required": "Precomputing the evidence requires no new authority — the Authority still decides. Moving standard pattern approvals to a delegated path is FORECLOSED by tda-tor-v4 section 5 and would require amendment of the terms of reference by whoever holds that authority, which the estate does not establish. This projection does not recommend that change; it names the gate.",
+    "shadow_only": true,
+    "preconditions": [
+      "Precomputed assessments produced in parallel with the manual dashboard for at least three cycles",
+      "Every divergence between precomputed and manual assessment investigated and explained",
+      "The four source systems' coverage of the estate confirmed"
+    ],
+    "success_evidence": [
+      "Precomputed and manual assessments agree across three cycles, with divergences explained",
+      "Analyst assembly effort measurably reduced from the 3 person-days baseline",
+      "No Gate 2 decision changed by the substitution"
+    ],
+    "stop_conditions": [
+      "The Authority overturns a precomputed conformance assessment",
+      "Any of Standards 3, 7, 9, 11 is reclassified from testable to judgement",
+      "Conformance rate moves materially without an explained cause",
+      "Divergence between precomputed and manual assessment in more than one cycle"
+    ],
+    "known_unknowns": [
+      "Who may amend the terms of reference",
+      "Whether the four source systems cover the whole estate",
+      "Whether the Authority's independence from assured delivery is affected by taking evidence from a shared pipeline"
+    ],
+    "population_monitoring_required": [
+      "Conformance rate by standard, tracked for drift",
+      "Every case where a precomputed pass would have been overturned by the Authority",
+      "Changes assessed as conforming that later generate an incident or exception"
+    ],
+    "independent_challenge_requirements": [
+      "Precomputation supplies evidence to the Authority; it must not become the decision",
+      "The Authority must retain the ability to reach a different conclusion from the precomputed assessment, and every such case is recorded"
+    ],
+    "accountability_terminus_requirement": "A named individual must be accountable for the precomputed conformance assessment before it is relied on. The reconstruction found no named terminus for the Authority itself, which must be resolved first.",
+    "reassessment_trigger": "After three cycles of parallel running, or on any stop condition.",
+    "claim_ref": "c-evo-tda-precompute"
+  },
+  "required_authority": "None for the precomputation itself. Amendment of tda-tor-v4 section 5 would be required before any delegated approval path, and the holder of that authority is UNKNOWN.",
+  "caveat": "This is one bounded step, not a target operating model. Nothing here proposes that the Authority meet less often or approve fewer things.",
+  "prohibited_inference": [
+    "That 64 of 71 conformances mean the Authority is unnecessary",
+    "That Standards 1, 2, 4-6, 8, 10 can be precomputed because they rarely appear in minutes",
+    "That precomputing evidence permits delegating the decision"
+  ],
+  "source_refs": [
+    "FIX-018/B",
+    "FIX-018/C",
+    "FIX-024/B",
+    "FIX-024/C",
+    "FIX-024/D"
+  ]
+}

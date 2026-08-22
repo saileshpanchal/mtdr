@@ -1,0 +1,272 @@
+{
+  "projection_id": "GP-TDA-REC-001",
+  "projection_type": "forum-reconstruction",
+  "subject_ref": "forum:kingsmere-tda",
+  "produced_by": {
+    "name": "forum-reconstruct",
+    "version": "0.1.0-proposed"
+  },
+  "produced_at": "2026-08-22",
+  "carries_standing": false,
+  "epistemic_assessments": [
+    {
+      "subject_claim_ref": "c-tda-purpose",
+      "state": "RECORDED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "tda-tor-v4 is the terms of reference in force from 2024-09-01 and states this purpose.",
+      "basis_refs": [
+        "FIX-018/A"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-tda-job-conformance",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "Items 2 and 4 of the 2026-02-11 pack and minutes: 21 changes assessed against four testable standards, 12+9 requiring no discussion.",
+      "basis_refs": [
+        "FIX-018/B",
+        "FIX-018/C"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-tda-job-assembly",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "The secretariat confirmed 3 analyst-days across four systems to assemble the conformance dashboard, as in prior months.",
+      "basis_refs": [
+        "FIX-018/C"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-tda-job-tradeoff",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "Item 3 minutes record a contested weighing of contact effectiveness against data minimisation, with named disagreement.",
+      "basis_refs": [
+        "FIX-018/C"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-tda-job-exception",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "Two Standard 7 non-conformances noted and returned to delivery teams.",
+      "basis_refs": [
+        "FIX-018/C"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-tda-job-escalation",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "The retention question was routed onward to the Data Governance Council.",
+      "basis_refs": [
+        "FIX-018/C"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-tda-power-execution",
+      "state": "INFERRED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "The Authority is minuted approving at Gate 2 and the terms of reference reserve Gate 2 to it; that it exercised the power is evidenced, that it was entitled to is not separately established.",
+      "basis_refs": [
+        "FIX-018/A",
+        "FIX-018/C"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-tda-power-challenge",
+      "state": "INFERRED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "Challenge is stated in the terms of reference and one instance is minuted; no source establishes what happens where the Authority's challenge is not accepted.",
+      "basis_refs": [
+        "FIX-018/A",
+        "FIX-018/C"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-tda-power-suspension",
+      "state": "UNKNOWN",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "No source addresses whether the Authority may halt an in-flight change.",
+      "question_asked": "May the Technology Design Authority suspend or contain a change already approved or in delivery?",
+      "scope_searched": "tda-tor-v4 in full; TDA packs and minutes 2025-09 to 2026-02; architecture standards register."
+    },
+    {
+      "subject_claim_ref": "c-tda-power-veto",
+      "state": "UNKNOWN",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "Returning a non-conformance for rework is evidenced; a power to refuse or overrule outright is not.",
+      "question_asked": "May the Authority refuse a change outright, or waive a standard, and with what escalation?",
+      "scope_searched": "tda-tor-v4 in full; TDA minutes 2025-09 to 2026-02; exception register 2025."
+    },
+    {
+      "subject_claim_ref": "c-tda-power-amendment",
+      "state": "UNKNOWN",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "The standards register states what the standards are, not who may change them or the terms of reference.",
+      "question_asked": "Who may amend the architecture standards, and who may amend the TDA terms of reference?",
+      "scope_searched": "tda-tor-v4; arch-standards-v11; TDA minutes 2025-09 to 2026-02."
+    },
+    {
+      "subject_claim_ref": "c-tda-power-escalation",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "The retention question was escalated to the Data Governance Council in the 2026-02-11 minutes.",
+      "basis_refs": [
+        "FIX-018/C"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-tda-power-terminus",
+      "state": "UNKNOWN",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "The material names a Chair and an Authority, and no individual who answers for the Authority's decisions. A committee is not a terminus.",
+      "question_asked": "Which named individual is accountable for decisions taken by the Technology Design Authority?",
+      "scope_searched": "tda-tor-v4; TDA minutes 2025-09 to 2026-02; smf-responsibilities-2025-12."
+    },
+    {
+      "subject_claim_ref": "c-tda-independence",
+      "state": "UNKNOWN",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "Independence of the Authority from the delivery it assures was not assessed by any supplied source, and cannot be concluded from its separate existence.",
+      "question_asked": "Is the TDA independent of the change delivery it assures, across reporting, incentives, authority, evidence source, cognition, orchestration and configuration control?",
+      "scope_searched": "tda-tor-v4; TDA packs and minutes 2025-09 to 2026-02; smf-responsibilities-2025-12."
+    }
+  ],
+  "payload": {
+    "forum_name": "Technology Design Authority",
+    "forum_type": "design-authority",
+    "stated_purpose": [
+      "Assure that material change is architecturally coherent, strategically aligned and consistent with the target architecture",
+      "Provide architectural challenge",
+      "Approve design at Gate 2"
+    ],
+    "inferred_jobs": [
+      {
+        "job_class": "DETERMINISTIC_CONFORMANCE",
+        "description": "Assessment of changes against Architecture Standards 3, 7, 9 and 11, which have defined pass criteria. 12 conforming changes and 9 standard patterns required no discussion.",
+        "claim_ref": "c-tda-job-conformance",
+        "time_share_observed": "approximately 50 of 80 scheduled minutes"
+      },
+      {
+        "job_class": "EVIDENCE_ASSEMBLY",
+        "description": "The estate conformance dashboard, assembled by hand across four systems before each meeting.",
+        "claim_ref": "c-tda-job-assembly",
+        "time_share_observed": "3 analyst-days per cycle, outside the meeting"
+      },
+      {
+        "job_class": "TRADE_OFF_JUDGEMENT",
+        "description": "Contact effectiveness against the data minimisation position, where the model requires transaction-level features. Genuinely cross-domain and without defined pass criteria.",
+        "claim_ref": "c-tda-job-tradeoff",
+        "time_share_observed": "approximately 20 scheduled minutes"
+      },
+      {
+        "job_class": "EXCEPTION_HANDLING",
+        "description": "Two Standard 7 non-conformances returned to delivery teams for rework.",
+        "claim_ref": "c-tda-job-exception"
+      },
+      {
+        "job_class": "ESCALATION",
+        "description": "The Ashcombe retention question routed onward to the Data Governance Council.",
+        "claim_ref": "c-tda-job-escalation"
+      }
+    ],
+    "decision_classes": [
+      "Gate 2 design approval",
+      "Standard pattern approval",
+      "Non-conformance return"
+    ],
+    "inputs": [
+      "Estate conformance dashboard",
+      "Project design packs"
+    ],
+    "evidence_consumed": [
+      "Solution architecture",
+      "Data flows",
+      "Retention position",
+      "Model performance summary",
+      "Cohort performance breakdown",
+      "Standards conformance assessment"
+    ],
+    "evidence_created": [
+      "TDA minutes",
+      "Gate 2 approval with conditions"
+    ],
+    "challenge_role": "Stated as architectural challenge in the terms of reference; one instance evidenced in six meetings of sampled minutes.",
+    "escalation_out": [
+      "Data Governance Council — retention"
+    ],
+    "cadence": "monthly",
+    "manual_reconstruction_steps": [
+      "Conformance dashboard assembled across four systems, 3 analyst-days per cycle",
+      "Ashcombe pack prepared separately from the risk forum pack despite shared content"
+    ],
+    "routine_conformance_steps": [
+      "Standards 3, 7, 9, 11 assessment",
+      "Standard pattern approvals"
+    ],
+    "judgement_steps": [
+      "Contact effectiveness against data minimisation",
+      "Disposition of Standard 7 non-conformances"
+    ],
+    "unknowns": [
+      "Suspension authority",
+      "Veto or waiver authority",
+      "Amendment authority",
+      "Accountability terminus",
+      "Independence from assured delivery"
+    ],
+    "separated_powers": {
+      "execution_authority": {
+        "holder": "Technology Design Authority (Gate 2 approval)",
+        "claim_ref": "c-tda-power-execution",
+        "basis": "tda-tor-v4 section 5 reserves Gate 2 to the Authority; the 2026-02-11 minutes evidence its exercise"
+      },
+      "suspension_or_containment_authority": {
+        "holder": "unknown",
+        "claim_ref": "c-tda-power-suspension"
+      },
+      "challenge_authority": {
+        "holder": "Technology Design Authority",
+        "claim_ref": "c-tda-power-challenge",
+        "basis": "Terms of reference; one minuted instance"
+      },
+      "veto_waiver_or_override_authority": {
+        "holder": "unknown",
+        "claim_ref": "c-tda-power-veto"
+      },
+      "amendment_authority": {
+        "holder": "unknown",
+        "claim_ref": "c-tda-power-amendment"
+      },
+      "escalation_route": {
+        "holder": "Data Governance Council (retention matters)",
+        "claim_ref": "c-tda-power-escalation"
+      },
+      "accountability_terminus": {
+        "holder": "unresolved — no named individual",
+        "claim_ref": "c-tda-power-terminus"
+      }
+    },
+    "independence_assessment": {
+      "conclusion": "unknown",
+      "claim_ref": "c-tda-independence",
+      "reporting": "Not established by any supplied source.",
+      "evidence_source": "The conformance dashboard and the design pack are both prepared by the delivery teams whose changes are being assessed.",
+      "orchestration": "The secretariat sets the agenda; who directs the secretariat is not established."
+    }
+  },
+  "required_authority": "Amendment of tda-tor-v4 would be required for any change to what the Authority may delegate. No source in the estate establishes who holds that authority.",
+  "caveat": "This reconstructs what the Authority is evidenced to do. It establishes nothing about whether it is entitled to do it, and nothing about whether it should continue to.",
+  "prohibited_inference": [
+    "That the stated purpose describes what the forum does",
+    "That approval by the Authority proves entitlement to approve",
+    "That an unresolved power rests with the Chair or the most senior member"
+  ],
+  "source_refs": [
+    "FIX-018/A",
+    "FIX-018/B",
+    "FIX-018/C"
+  ]
+}

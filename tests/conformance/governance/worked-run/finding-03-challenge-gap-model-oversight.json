@@ -1,0 +1,69 @@
+{
+  "projection_id": "GP-F-003",
+  "projection_type": "governance-finding",
+  "subject_ref": "forum:kingsmere-moc",
+  "produced_by": {
+    "name": "forum-reconstruct",
+    "version": "0.1.0-proposed"
+  },
+  "produced_at": "2026-08-22",
+  "carries_standing": false,
+  "epistemic_assessments": [
+    {
+      "subject_claim_ref": "c-f3",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "The Committee reports to the function it oversees, its members are nominated by that function's accountable executive, its pack is produced by that function's analytics team, its thresholds are configured by that team in agreement with the model owner, and 22 of 22 concerns closed on the owner's own response.",
+      "basis_refs": [
+        "FIX-030/A",
+        "FIX-030/B",
+        "FIX-030/C",
+        "FIX-030/D"
+      ]
+    }
+  ],
+  "payload": {
+    "finding_type": "CHALLENGE_GAP",
+    "statement": "A committee constituted as independent model oversight has its evidence, its thresholds, its membership and its escalation ceiling all controlled by the function it oversees, and no evidenced power to require anything.",
+    "scope": "Model Oversight Committee, and every model whose performance oversight relies on it — including the Ashcombe contact strategy.",
+    "supporting_evidence": [
+      "FIX-030/A",
+      "FIX-030/B",
+      "FIX-030/C",
+      "FIX-030/D"
+    ],
+    "competing_hypotheses": [
+      "The models genuinely performed and 22 closures are correct outcomes",
+      "The Committee cannot make a concern stick and closure reflects the mechanism rather than the models"
+    ],
+    "affected_regimes": [
+      "Model risk",
+      "AI governance",
+      "Consumer outcomes"
+    ],
+    "constitutional_property": [
+      "Independent challenge",
+      "Authority"
+    ],
+    "materiality": "high",
+    "recommended_next_evidence": [
+      "Any instance of a Committee concern escalating beyond the Collections Leadership Team",
+      "Any threshold changed at the Committee's request",
+      "The basis on which Committee members are nominated"
+    ],
+    "claim_ref": "c-f3"
+  },
+  "required_authority": "Changing the Committee's reporting line, nomination route, evidence source or threshold control requires the authority that constituted it. Not established in the estate.",
+  "caveat": "Both hypotheses are consistent with 22-of-22 closure, and the material does not distinguish them. That it does not is itself the finding.",
+  "prohibited_inference": [
+    "That the Committee is independent because its terms of reference say so",
+    "That 22-of-22 closure evidences model performance",
+    "That the Committee should be abolished or merged"
+  ],
+  "source_refs": [
+    "FIX-030/A",
+    "FIX-030/B",
+    "FIX-030/C",
+    "FIX-030/D"
+  ]
+}

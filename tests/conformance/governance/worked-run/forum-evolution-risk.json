@@ -1,0 +1,120 @@
+{
+  "projection_id": "GP-RAF-EVO-001",
+  "projection_type": "forum-evolution-projection",
+  "subject_ref": "forum:kingsmere-raf",
+  "produced_by": {
+    "name": "forum-evolution",
+    "version": "0.1.0-proposed"
+  },
+  "produced_at": "2026-08-22",
+  "carries_standing": false,
+  "epistemic_assessments": [
+    {
+      "subject_claim_ref": "c-evo-raf-assembly",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "The two packs share data flows, retention position, model performance and cohort breakdown, prepared separately by the same team at approximately 6 person-days per month.",
+      "basis_refs": [
+        "FIX-023/A",
+        "FIX-023/B",
+        "FIX-023/C"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-evo-raf-cutoff",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "Pack cut-offs of 2026-02-04 and 2026-02-11 mean the two forums assessed the same change against different evidence vintages.",
+      "basis_refs": [
+        "FIX-023/A",
+        "FIX-023/B"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-evo-raf-challenge-real",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "The Forum rejected the delivery team's coverage position and imposed a condition — the challenge function is evidenced working, not nominal.",
+      "basis_refs": [
+        "FIX-025/B"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-evo-raf-consolidation-refused",
+      "state": "RECORDED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "raf-tor-v3 confers refusal power escalating to Board Risk Committee; consolidation into a single authority would remove it. The terms of reference were in force at the relevant time.",
+      "basis_refs": [
+        "FIX-025/A"
+      ]
+    }
+  ],
+  "payload": {
+    "forum_ref": "forum:kingsmere-raf",
+    "current_state": "Second-line forum meeting per change, seven days after the design authority, consuming a separately prepared pack that substantially duplicates the design authority's, with four members in common and evidenced refusal power.",
+    "next_nudge": "Assemble the shared evidence once, at one cut-off date, and supply it to both forums against their own templates. Neither forum's jobs, membership, authority or reporting line changes.",
+    "jobs_unchanged": [
+      "Independent challenge of first-line risk acceptance",
+      "Refusal power and its escalation to Board Risk Committee",
+      "Risk acceptance with conditions"
+    ],
+    "jobs_automatable_or_precomputable": [
+      "Assembly of the shared evidence base — data flows, retention position, model performance summary, cohort performance breakdown"
+    ],
+    "jobs_delegable_with_bounds": [],
+    "jobs_requiring_human_or_independent_judgement": [
+      "Whether evidenced cohort performance supports a residual risk acceptance",
+      "Whether a first-line coverage assumption is adequate",
+      "Every acceptance decision and every refusal"
+    ],
+    "new_evidence_capability": "A single evidence assembly with one cut-off date, consumed by both forums, replacing two separate preparations of substantially the same content.",
+    "new_authority_or_delegation_required": "None. No job moves out of either forum, no approval is delegated, and no reporting line changes. This is deliberately the whole point of the recommendation.",
+    "shadow_only": true,
+    "preconditions": [
+      "A single cut-off date agreed that satisfies both forums' needs",
+      "Each forum's template-specific content identified and preserved",
+      "Confirmation that shared assembly does not reduce what the second line sees"
+    ],
+    "success_evidence": [
+      "Preparation effort reduced from the 6 person-day baseline",
+      "Both forums assessing the same change against the same evidence vintage",
+      "No reduction in challenge raised by the second-line forum"
+    ],
+    "stop_conditions": [
+      "The second-line forum reports seeing less than it did before",
+      "Challenge volume or substance falls after the change",
+      "A single cut-off date proves incompatible with either forum's decision timing"
+    ],
+    "known_unknowns": [
+      "Whether the accepting function can scope, defer or configure the Forum",
+      "The Forum's incentive structure",
+      "Which named individual chairs it as the Chief Risk Officer's delegate"
+    ],
+    "independent_challenge_requirements": [
+      "Second-line refusal power preserved intact",
+      "Escalation to Board Risk Committee preserved intact",
+      "The Forum must not be merged into, or made to rely on the conclusions of, the design authority",
+      "Shared evidence assembly must not become shared conclusion",
+      "The four common members remain an open independence question and must not be increased"
+    ],
+    "accountability_terminus_requirement": "The Chief Risk Officer's delegate must be named. An unnamed chair is not an accountability terminus, and this is a precondition of relying on the Forum at all, before any change to how it is supplied.",
+    "reassessment_trigger": "After two cycles of shared assembly, or on any stop condition.",
+    "claim_ref": "c-evo-raf-assembly"
+  },
+  "required_authority": "None for shared evidence assembly. Any change to the Forum's refusal power or escalation route requires the authority behind raf-tor-v3, which the estate does not establish.",
+  "caveat": "The efficiency review's consolidation proposal is refused, not deferred. The saving it identifies is real and is available without it.",
+  "prohibited_inference": [
+    "That overlapping packs evidence duplicated purpose",
+    "That four shared members support consolidation",
+    "That the 6 person-days can only be recovered by merging the forums",
+    "That either forum may rely on the other's conclusion"
+  ],
+  "source_refs": [
+    "FIX-023/A",
+    "FIX-023/B",
+    "FIX-023/C",
+    "FIX-025/A",
+    "FIX-025/B",
+    "FIX-025/C"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "projection_id": "GP-F-005",
+  "projection_type": "governance-finding",
+  "subject_ref": "complaint:2026-05-2211",
+  "produced_by": {
+    "name": "governance-reconstruct",
+    "version": "0.1.0-proposed"
+  },
+  "produced_at": "2026-08-22",
+  "carries_standing": false,
+  "epistemic_assessments": [
+    {
+      "subject_claim_ref": "c-f5",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "The complaint asks who decided the case would be handled without human review and on what basis; the outcome letter answers the contact-frequency and configuration questions and does not answer that one.",
+      "basis_refs": [
+        "CORPUS-006/B",
+        "CORPUS-006/C"
+      ]
+    }
+  ],
+  "payload": {
+    "finding_type": "UNCLASSIFIED",
+    "unclassified_note": "The material evidences an affected party requiring an answer about a decision they did not participate in. Reconstructing that requires a concept of who is entitled to require an answer and on whose behalf — Protected Claim and Standing. CHALLENGE_GAP was considered and rejected: the gap is not that challenge was unavailable, but that the concept the challenge depends on has no representation in any MTDR record family. Recorded as UNCLASSIFIED rather than near-fitted, per the TDR-0034 constitutional semantic gap.",
+    "statement": "The complaint requires a standing concept that no MTDR record family represents, and the complaint outcome does not answer the question the complainant asked.",
+    "scope": "Complaint 2026-05-2211 against the Ashcombe contact decisioning, and the affected board commitment on arrears resolution for customers with a recorded vulnerability.",
+    "supporting_evidence": [
+      "CORPUS-006/A",
+      "CORPUS-006/B",
+      "CORPUS-006/C"
+    ],
+    "affected_regimes": [
+      "Complaints",
+      "Consumer outcomes"
+    ],
+    "constitutional_property": [
+      "Standing",
+      "Protected claim",
+      "Challenge"
+    ],
+    "materiality": "high",
+    "recommended_next_evidence": [
+      "Not an evidence gap. This is a representation gap, routed to TDR-0034's irreducibility findings and reserved for its own decision."
+    ],
+    "claim_ref": "c-f5"
+  },
+  "required_authority": "None. Recording a representation gap requires no authority, and closing it requires a decision this capability may not take.",
+  "caveat": "This finding is deliberately UNCLASSIFIED. A recurring UNCLASSIFIED pattern is evidence for extending the vocabulary by decision, and this is the first instance.",
+  "prohibited_inference": [
+    "That the value record's beneficiary field represents standing",
+    "That the complaint should or should not have succeeded",
+    "That the £150 remedy was adequate or inadequate",
+    "That the complaint outcome changes the board commitment"
+  ],
+  "source_refs": [
+    "CORPUS-006/A",
+    "CORPUS-006/B",
+    "CORPUS-006/C",
+    "CORPUS-006/D"
+  ]
+}

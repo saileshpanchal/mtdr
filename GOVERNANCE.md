@@ -32,6 +32,7 @@ Each is decided in a record; this list is the index, not the authority.
 | Conformance is layered — schema, examples, counter-examples, fixtures, semantic equivalence | [TDR-0025](decisions/TDR-0025-conformance-architecture.md) |
 | The skill proposes; the organisation ratifies | [TDR-0018](decisions/TDR-0018-interpretation-skills-and-the-artefact-boundary.md) |
 | Removal or weakening of the accountability core is a different standard, not a new version | [`spec` §9](records/decision/specification/tdr.md) |
+| Governance reconstruction outputs are projections over existing records, never a sixth record family — **proposed** | [TDR-0034](decisions/TDR-0034-governance-reconstruction-and-forum-evolution.md) |
 
 ## Roles
 

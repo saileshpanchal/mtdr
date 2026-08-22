@@ -1,0 +1,67 @@
+{
+  "projection_id": "GP-F-004",
+  "projection_type": "governance-finding",
+  "subject_ref": "evidence:ashcombe-forum-packs",
+  "produced_by": {
+    "name": "governance-equivalence",
+    "version": "0.1.0-proposed"
+  },
+  "produced_at": "2026-08-22",
+  "carries_standing": false,
+  "epistemic_assessments": [
+    {
+      "subject_claim_ref": "c-f4",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "The design authority pack and the risk forum pack share data flows, retention position, model performance summary and cohort breakdown, prepared separately by the same team at approximately 6 person-days per month.",
+      "basis_refs": [
+        "FIX-023/A",
+        "FIX-023/B",
+        "FIX-023/C"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-f4-cutoff",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "The packs were cut on 2026-02-04 and 2026-02-11 respectively, so the two forums assessed the same change against different evidence vintages.",
+      "basis_refs": [
+        "FIX-023/A",
+        "FIX-023/B"
+      ]
+    }
+  ],
+  "payload": {
+    "finding_type": "FORUM_EVIDENCE_ASSEMBLY_OVERHEAD",
+    "statement": "Substantially the same evidence is assembled twice for two forums, at different cut-off dates, by the same delivery team.",
+    "scope": "Technology Design Authority and Risk Acceptance Forum pack preparation.",
+    "supporting_evidence": [
+      "FIX-023/A",
+      "FIX-023/B",
+      "FIX-023/C"
+    ],
+    "affected_regimes": [
+      "Architecture governance",
+      "Risk acceptance"
+    ],
+    "constitutional_property": [
+      "Evidence"
+    ],
+    "materiality": "medium",
+    "recommended_next_evidence": [
+      "Whether either forum requires a cut-off date the other cannot accept"
+    ],
+    "claim_ref": "c-f4"
+  },
+  "required_authority": "None. Shared assembly changes no mandate, no membership and no reporting line.",
+  "caveat": "This is overlap in what the forums are sent, not in what they do. The differing cut-off dates are a separate traceability finding.",
+  "prohibited_inference": [
+    "That shared evidence evidences shared purpose",
+    "That the 6 person-days can only be recovered by consolidating the forums"
+  ],
+  "source_refs": [
+    "FIX-023/A",
+    "FIX-023/B",
+    "FIX-023/C"
+  ]
+}

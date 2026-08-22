@@ -23,6 +23,9 @@ a full decision-language implementation, assurance included.
 | Semantic roles (interpretation) | [`validation/semantic-roles.md`](validation/semantic-roles.md) |
 | Admissibility test | [`validation/admission.md`](validation/admission.md) |
 | The Consequential Decision Grammar | [`practice/decision-grammar.md`](practice/decision-grammar.md) — candidate authoring aid |
+| Governance projection contract | [`schema/governance-projection.schema.json`](schema/governance-projection.schema.json) · [`validation/governance-projection.md`](validation/governance-projection.md) — **proposed**, TDR-0034 |
+| Governance deterministic rules | [`validation/governance-rules.md`](validation/governance-rules.md) — GR-01 to GR-18, **proposed** |
+| Governance fixtures | [`fixtures/governance/`](fixtures/governance/) — FIX-018 to FIX-031, **proposed** |
 
 The specification governs wherever an overlay appears to differ from it.
 
@@ -44,6 +47,18 @@ The specification governs wherever an overlay appears to differ from it.
 `systems-thinking`, `counterfactual-and-evidence` and `accumulated-and-resultant-risk` always run;
 `fraud-and-adversarial-thinking`, `customer-outcomes`, `systems-dynamics` and `adaptive-capacity` run
 on their declared triggers; `assurance-synthesis` always closes.
+
+**Governance reconstruction** ([`skills/governance/`](skills/governance/)) — **proposed under
+[TDR-0034](../../decisions/TDR-0034-governance-reconstruction-and-forum-evolution.md), not accepted.**
+Eight skills reconstructing the forums, obligations, authorities and evidence through which
+consequential decisions are actually taken, and projecting one bounded next change for a forum:
+`governance-reconstruct`, `forum-reconstruct`, `obligation-authority-trace`, `demonstrability-drill`,
+`governance-equivalence`, `forum-evolution`, `regime-preservation`, `governance-accretion-plan`.
+
+They live here because forums are **mechanisms for consequential judgement, challenge and
+disposition** — not a sixth kind of organisational truth. They orchestrate and project across
+Authority, Evidence, Value and Inheritance semantics and **do not redefine them**; semantic ownership
+stays with the family that owns it. Their outputs are projections, never records.
 
 One record, two routes to it — there is no interpreted variant of a TDR and an authored variant.
 

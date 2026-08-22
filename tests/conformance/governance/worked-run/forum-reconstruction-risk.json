@@ -1,0 +1,244 @@
+{
+  "projection_id": "GP-RAF-REC-001",
+  "projection_type": "forum-reconstruction",
+  "subject_ref": "forum:kingsmere-raf",
+  "produced_by": {
+    "name": "forum-reconstruct",
+    "version": "0.1.0-proposed"
+  },
+  "produced_at": "2026-08-22",
+  "carries_standing": false,
+  "epistemic_assessments": [
+    {
+      "subject_claim_ref": "c-raf-purpose",
+      "state": "RECORDED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "raf-tor-v3 is in force from 2025-01-15 and states second-line challenge to first-line risk acceptance.",
+      "basis_refs": [
+        "FIX-025/A"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-raf-job-challenge",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "The 2026-02-18 minutes record the Forum rejecting the delivery team's 'representative coverage' position and attaching a condition.",
+      "basis_refs": [
+        "FIX-025/B"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-raf-job-authority",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "Acceptance granted subject to a coverage improvement plan and a 90-day review.",
+      "basis_refs": [
+        "FIX-025/B"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-raf-job-assembly",
+      "state": "OBSERVED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "The Ashcombe risk pack duplicates the design authority pack's data flows, retention position, model performance and cohort breakdown.",
+      "basis_refs": [
+        "FIX-023/A",
+        "FIX-023/B"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-raf-power-execution",
+      "state": "UNKNOWN",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "The Forum accepts risk; whether it may direct or halt the change itself is not addressed.",
+      "question_asked": "May the Risk Acceptance Forum direct, halt or require change to the proposal it assesses?",
+      "scope_searched": "raf-tor-v3 in full; RAF minutes 2026-02; efficiency review 2026-01."
+    },
+    {
+      "subject_claim_ref": "c-raf-power-challenge",
+      "state": "RECORDED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "raf-tor-v3 confers second-line challenge on the Forum and was in force at the relevant time.",
+      "basis_refs": [
+        "FIX-025/A"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-raf-power-veto",
+      "state": "RECORDED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "raf-tor-v3 states the Forum may refuse an acceptance, with refusal escalating to Board Risk Committee.",
+      "basis_refs": [
+        "FIX-025/A"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-raf-power-suspension",
+      "state": "UNKNOWN",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "No source addresses containment of an accepted risk that subsequently deteriorates.",
+      "question_asked": "May the Forum suspend or contain a risk it has already accepted?",
+      "scope_searched": "raf-tor-v3 in full; RAF minutes 2026-02."
+    },
+    {
+      "subject_claim_ref": "c-raf-power-amendment",
+      "state": "UNKNOWN",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "No source establishes who may amend the Forum's terms of reference or the risk acceptance framework.",
+      "question_asked": "Who may amend raf-tor-v3 and the risk acceptance thresholds?",
+      "scope_searched": "raf-tor-v3; RAF minutes 2026-02; governance efficiency review 2026-01."
+    },
+    {
+      "subject_claim_ref": "c-raf-power-escalation",
+      "state": "RECORDED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "raf-tor-v3 states that a refused proposal may proceed only with Board Risk Committee approval.",
+      "basis_refs": [
+        "FIX-025/A"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-raf-power-terminus",
+      "state": "UNKNOWN",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "The Forum is chaired by 'the Chief Risk Officer's delegate'; no individual is named in the supplied material.",
+      "question_asked": "Which named individual is accountable for the Forum's acceptances?",
+      "scope_searched": "raf-tor-v3; RAF minutes 2026-02; smf-responsibilities-2025-12."
+    },
+    {
+      "subject_claim_ref": "c-raf-independence",
+      "state": "INFERRED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "Refusal power escalating past the accepting function, a second-line reporting line and one evidenced rejection of a first-line position support partial independence; four members shared with the design authority and packs prepared by the delivery team qualify it.",
+      "basis_refs": [
+        "FIX-025/A",
+        "FIX-025/B",
+        "FIX-025/C"
+      ]
+    }
+  ],
+  "payload": {
+    "forum_name": "Risk Acceptance Forum",
+    "forum_type": "risk-acceptance",
+    "stated_purpose": [
+      "Provide second-line challenge to first-line proposals to accept residual risk"
+    ],
+    "inferred_jobs": [
+      {
+        "job_class": "INDEPENDENT_CHALLENGE",
+        "description": "Challenged the vulnerability-flag coverage assumption and refused the delivery team's position that 61% coverage is representative.",
+        "claim_ref": "c-raf-job-challenge"
+      },
+      {
+        "job_class": "AUTHORITY_EXERCISE",
+        "description": "Granted risk acceptance subject to a coverage improvement plan and a 90-day review.",
+        "claim_ref": "c-raf-job-authority"
+      },
+      {
+        "job_class": "EVIDENCE_ASSEMBLY",
+        "description": "Consumes a pack substantially duplicating the design authority's, prepared separately and cut at a different date.",
+        "claim_ref": "c-raf-job-assembly"
+      }
+    ],
+    "decision_classes": [
+      "Residual risk acceptance",
+      "Refusal escalating to Board Risk Committee"
+    ],
+    "evidence_consumed": [
+      "Change description",
+      "Data flows",
+      "Retention position",
+      "Model performance summary",
+      "Cohort performance breakdown",
+      "Residual risk assessment",
+      "Control mapping"
+    ],
+    "evidence_created": [
+      "RAF minutes",
+      "Risk acceptance with conditions"
+    ],
+    "challenge_role": "Second-line challenge with refusal power. Evidenced working: a first-line position was rejected and a condition imposed.",
+    "escalation_out": [
+      "Board Risk Committee — where the Forum refuses"
+    ],
+    "cadence": "per change, seven days after the design authority",
+    "manual_reconstruction_steps": [
+      "Risk pack prepared separately from the design authority pack despite substantially shared content"
+    ],
+    "judgement_steps": [
+      "Whether 61% vulnerability-flag coverage supports the cohort performance claim"
+    ],
+    "independence_requirements": [
+      "Refusal power must survive the accepting function's disagreement",
+      "Escalation to Board Risk Committee must remain available",
+      "Challenge must not be merged into the authority it challenges"
+    ],
+    "unknowns": [
+      "Execution authority",
+      "Suspension authority",
+      "Amendment authority",
+      "Accountability terminus"
+    ],
+    "contradictions": [
+      "Four members shared with the design authority it is expected to challenge independently"
+    ],
+    "separated_powers": {
+      "execution_authority": {
+        "holder": "unknown",
+        "claim_ref": "c-raf-power-execution"
+      },
+      "suspension_or_containment_authority": {
+        "holder": "unknown",
+        "claim_ref": "c-raf-power-suspension"
+      },
+      "challenge_authority": {
+        "holder": "Risk Acceptance Forum (second line)",
+        "claim_ref": "c-raf-power-challenge",
+        "basis": "raf-tor-v3"
+      },
+      "veto_waiver_or_override_authority": {
+        "holder": "Risk Acceptance Forum — refusal, escalating to Board Risk Committee",
+        "claim_ref": "c-raf-power-veto",
+        "basis": "raf-tor-v3"
+      },
+      "amendment_authority": {
+        "holder": "unknown",
+        "claim_ref": "c-raf-power-amendment"
+      },
+      "escalation_route": {
+        "holder": "Board Risk Committee",
+        "claim_ref": "c-raf-power-escalation",
+        "basis": "raf-tor-v3"
+      },
+      "accountability_terminus": {
+        "holder": "unresolved — 'the Chief Risk Officer's delegate', unnamed",
+        "claim_ref": "c-raf-power-terminus"
+      }
+    },
+    "independence_assessment": {
+      "conclusion": "partially-independent",
+      "claim_ref": "c-raf-independence",
+      "reporting": "Chaired by the Chief Risk Officer's delegate — second line, not through the accepting function.",
+      "authority": "Refusal power escalating to Board Risk Committee. The strongest single indicator here.",
+      "evidence_source": "The pack is prepared by the Ashcombe delivery team. The Forum sees what the first line assembled.",
+      "orchestration": "Scheduled seven days after the design authority, on the delivery cycle.",
+      "suppression_or_configuration_control": "Not established. No source addresses whether the accepting function can scope or defer the Forum.",
+      "incentives": "Not established.",
+      "cognition_or_model_source": "Not applicable — the Forum's challenge is human and drew on evidence outside the pack's framing."
+    }
+  },
+  "required_authority": "Any change to the Forum's refusal power or its escalation route requires the authority that established raf-tor-v3. No source in the estate establishes who holds it.",
+  "caveat": "Partial independence is a finding about seven dimensions, not a score. The refusal power is real and evidenced; the evidence source and the shared membership qualify it.",
+  "prohibited_inference": [
+    "That overlapping packs make the Forum's purpose duplicative of the design authority's",
+    "That four shared members support consolidation — they weaken independence, not the case for merging",
+    "That efficiency in pack preparation is a reason to change what the Forum does"
+  ],
+  "source_refs": [
+    "FIX-025/A",
+    "FIX-025/B",
+    "FIX-025/C",
+    "FIX-023/A",
+    "FIX-023/B"
+  ]
+}

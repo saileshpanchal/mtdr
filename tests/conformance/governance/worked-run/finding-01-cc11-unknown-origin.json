@@ -1,0 +1,67 @@
+{
+  "projection_id": "GP-F-001",
+  "projection_type": "governance-finding",
+  "subject_ref": "control:standard-cc-11",
+  "produced_by": {
+    "name": "governance-reconstruct",
+    "version": "0.1.0-proposed"
+  },
+  "produced_at": "2026-08-22",
+  "carries_standing": false,
+  "epistemic_assessments": [
+    {
+      "subject_claim_ref": "c-f1",
+      "state": "UNKNOWN",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "No supplied source establishes what obligation, decision or external requirement set the four-contact threshold. Three periodic reviews record 'no change' and the pre-v4 history was not migrated.",
+      "question_asked": "What obligation, decision or external requirement established the four-contact cap in Standard CC-11?",
+      "scope_searched": "standard-cc-11 v6 and its recorded document history; collections operating manual 2025 section 4.2; Ashcombe design note v3; exception register 2025; TDA and risk forum minutes 2025-09 to 2026-02."
+    },
+    {
+      "subject_claim_ref": "c-f1-inforce",
+      "state": "RECORDED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "standard-cc-11 v6 is a live standard, reviewed 2023-11-04, and states the cap.",
+      "basis_refs": [
+        "FIX-019/A"
+      ]
+    }
+  ],
+  "payload": {
+    "finding_type": "UNKNOWN_ORIGIN",
+    "statement": "The four-contact cap in Standard CC-11 is in force and enforced as a hard constraint by the Ashcombe engine, and its originating authority cannot be located in the supplied estate.",
+    "scope": "Standard CC-11, and the Ashcombe contact strategy engine that enforces it.",
+    "supporting_evidence": [
+      "FIX-019/A",
+      "FIX-019/B",
+      "FIX-019/C"
+    ],
+    "affected_regimes": [
+      "Customer treatment",
+      "Collections"
+    ],
+    "constitutional_property": [
+      "Authority",
+      "Obligation"
+    ],
+    "materiality": "medium",
+    "recommended_next_evidence": [
+      "Pre-2021 versions of Standard CC-11 or its predecessor",
+      "Any committee minute or supervisory correspondence introducing a contact cap",
+      "The migration record explaining what pre-v4 history was not carried forward"
+    ],
+    "claim_ref": "c-f1"
+  },
+  "required_authority": "None to record the finding. Any change to CC-11 would require the authority that set it, which is precisely what is UNKNOWN.",
+  "caveat": "An unlocated origin is not an absent one. The Bank's own design note records the same gap independently.",
+  "prohibited_inference": [
+    "That the cap is internal, discretionary or removable",
+    "That 'periodic review, no change' evidences origin",
+    "That the Head of Collections, who may grant exceptions, set the rule"
+  ],
+  "source_refs": [
+    "FIX-019/A",
+    "FIX-019/B",
+    "FIX-019/C"
+  ]
+}

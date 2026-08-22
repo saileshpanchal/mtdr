@@ -1,0 +1,68 @@
+{
+  "projection_id": "GP-F-002",
+  "projection_type": "governance-finding",
+  "subject_ref": "accountability:ashcombe-contact-decisioning",
+  "produced_by": {
+    "name": "governance-reconstruct",
+    "version": "0.1.0-proposed"
+  },
+  "produced_at": "2026-08-22",
+  "carries_standing": false,
+  "epistemic_assessments": [
+    {
+      "subject_claim_ref": "c-f2",
+      "state": "CONTRADICTORY",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "The responsibilities map and the project charter name different individuals for the same accountability, neither cites the other, and neither states supersession.",
+      "contradiction_refs": [
+        "FIX-020/A",
+        "FIX-020/B"
+      ]
+    }
+  ],
+  "payload": {
+    "finding_type": "CONTRADICTORY_GOVERNANCE",
+    "statement": "Two named individuals are recorded as accountable for automated customer contact decisioning, with no instrument allocating between them.",
+    "scope": "Project Ashcombe contact decisioning, and the accountability terminus for both governance forums that handled it.",
+    "supporting_evidence": [
+      "FIX-020/A",
+      "FIX-020/B",
+      "FIX-020/C"
+    ],
+    "contradicting_evidence": [
+      "FIX-020/A",
+      "FIX-020/B"
+    ],
+    "competing_hypotheses": [
+      "The charter's SRO role is delivery accountability subordinate to a standing executive accountability",
+      "The responsibilities map is stale and the charter supersedes it",
+      "Both are current and the split is real but undocumented"
+    ],
+    "affected_regimes": [
+      "Senior accountability",
+      "Model risk",
+      "Consumer outcomes"
+    ],
+    "constitutional_property": [
+      "Accountability"
+    ],
+    "materiality": "high",
+    "recommended_next_evidence": [
+      "A delegation instrument or committee minute allocating the responsibility",
+      "A version of either document that cites the other"
+    ],
+    "claim_ref": "c-f2"
+  },
+  "required_authority": "Resolution requires whoever allocates senior accountability at the Bank. Not established in the estate.",
+  "caveat": "Three competing hypotheses are recorded and none is preferred. The register recording both names is not a reconciliation.",
+  "prohibited_inference": [
+    "That the later document supersedes the earlier",
+    "That the more senior individual holds it",
+    "That joint accountability was intended"
+  ],
+  "source_refs": [
+    "FIX-020/A",
+    "FIX-020/B",
+    "FIX-020/C"
+  ]
+}

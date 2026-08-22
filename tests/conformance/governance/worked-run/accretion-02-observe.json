@@ -1,0 +1,59 @@
+{
+  "projection_id": "GP-A-002",
+  "projection_type": "accretion-step",
+  "subject_ref": "estate:kingsmere-collections-governance",
+  "produced_by": {
+    "name": "governance-accretion-plan",
+    "version": "0.1.0-proposed"
+  },
+  "produced_at": "2026-08-22",
+  "carries_standing": false,
+  "epistemic_assessments": [
+    {
+      "subject_claim_ref": "c-a2",
+      "state": "INFERRED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "Sequenced from the reconstructions, dispositions and evolution projections in this run; the phase ordering is the pack's default and its preconditions are drawn from the evidence, not asserted.",
+      "basis_refs": [
+        "GP-DRILL-001",
+        "GP-TDA-REC-001",
+        "GP-RAF-REC-001"
+      ]
+    }
+  ],
+  "payload": {
+    "phase": "OBSERVE",
+    "objective": "Surface gaps, duplication, contradictions and unknowns without changing any governance path.",
+    "existing_mechanisms_affected": [
+      "All forums in scope"
+    ],
+    "new_substrate_capability": "Governance findings and the disposition ledger, produced alongside existing governance and consumed by nobody.",
+    "preconditions": [
+      "Baseline complete",
+      "Sponsor briefed that finding count will rise, and that this is the mechanism working"
+    ],
+    "legal_review_required": true,
+    "shadow_only": true,
+    "success_evidence": [
+      "Findings raised, classified and traceable to source",
+      "Contradictions recorded with both sides",
+      "Unknowns carrying their question and search scope"
+    ],
+    "stop_condition": "Stop if findings are being closed rather than recorded, or if the finding count is being managed rather than reported.",
+    "next_phase_gate": "Observation complete when the disposition ledger covers the mechanisms in scope and every UNKNOWN states what was searched.",
+    "claim_ref": "c-a2"
+  },
+  "required_authority": "Each step is a proposal. Entering any phase requires an authorised organisational decision, and this projection neither schedules nor commits anything.",
+  "caveat": "Phases may be entered per forum rather than across the estate. A design authority at NUDGE and a complaints forum at OBSERVE is a normal plan.",
+  "prohibited_inference": [
+    "That any step is scheduled, approved or committed",
+    "That the sequence must be applied estate-wide in lockstep"
+  ],
+  "source_refs": [
+    "GP-DRILL-001",
+    "GP-TDA-REC-001",
+    "GP-RAF-REC-001",
+    "GP-TDA-EVO-001",
+    "GP-RAF-EVO-001"
+  ]
+}

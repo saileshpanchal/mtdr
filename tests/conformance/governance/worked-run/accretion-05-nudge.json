@@ -1,0 +1,60 @@
+{
+  "projection_id": "GP-A-005",
+  "projection_type": "accretion-step",
+  "subject_ref": "estate:kingsmere-collections-governance",
+  "produced_by": {
+    "name": "governance-accretion-plan",
+    "version": "0.1.0-proposed"
+  },
+  "produced_at": "2026-08-22",
+  "carries_standing": false,
+  "epistemic_assessments": [
+    {
+      "subject_claim_ref": "c-a5",
+      "state": "INFERRED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "Sequenced from the reconstructions, dispositions and evolution projections in this run; the phase ordering is the pack's default and its preconditions are drawn from the evidence, not asserted.",
+      "basis_refs": [
+        "GP-DRILL-001",
+        "GP-TDA-REC-001",
+        "GP-RAF-REC-001"
+      ]
+    }
+  ],
+  "payload": {
+    "phase": "NUDGE",
+    "objective": "Move one bounded routine job, retaining every exception, challenge and judgement.",
+    "existing_mechanisms_affected": [
+      "Technology Design Authority"
+    ],
+    "new_substrate_capability": "The conformance assessment is delivered to the Authority as precomputed evidence rather than assembled by hand for the meeting.",
+    "preconditions": [
+      "Reuse complete",
+      "The accountability terminus for the Authority resolved — currently UNKNOWN, and a hard precondition",
+      "Authority to amend the terms of reference identified if any delegation is contemplated"
+    ],
+    "legal_review_required": false,
+    "shadow_only": true,
+    "success_evidence": [
+      "Analyst assembly effort measurably reduced",
+      "Conformance rate stable, with drift monitored",
+      "Every case where the Authority reaches a different conclusion from the precomputed assessment recorded"
+    ],
+    "stop_condition": "Stop on any stop condition in the forum evolution projection, or if the accountability terminus remains unresolved.",
+    "next_phase_gate": "No further phase is proposed. CONSOLIDATE requires evidence reuse to be proven and mandates to be traced, and four dispositions in this ledger are still UNKNOWN or conditional. ENFORCE is not contemplated.",
+    "claim_ref": "c-a5"
+  },
+  "required_authority": "Each step is a proposal. Entering any phase requires an authorised organisational decision, and this projection neither schedules nor commits anything.",
+  "caveat": "Phases may be entered per forum rather than across the estate. A design authority at NUDGE and a complaints forum at OBSERVE is a normal plan.",
+  "prohibited_inference": [
+    "That any step is scheduled, approved or committed",
+    "That the sequence must be applied estate-wide in lockstep"
+  ],
+  "source_refs": [
+    "GP-DRILL-001",
+    "GP-TDA-REC-001",
+    "GP-RAF-REC-001",
+    "GP-TDA-EVO-001",
+    "GP-RAF-EVO-001"
+  ]
+}

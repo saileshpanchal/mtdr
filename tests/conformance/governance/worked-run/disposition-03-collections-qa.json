@@ -1,0 +1,79 @@
+{
+  "projection_id": "GP-D-003",
+  "projection_type": "governance-disposition",
+  "subject_ref": "control:collections-qa-sampling",
+  "produced_by": {
+    "name": "governance-equivalence",
+    "version": "0.1.0-proposed"
+  },
+  "produced_at": "2026-08-22",
+  "carries_standing": false,
+  "epistemic_assessments": [
+    {
+      "subject_claim_ref": "c-d3",
+      "state": "RECORDED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "Internal review IR-2022-14 recommended sampling because case-level treatment decisions were not systematically recorded and could only be assessed by manual file review.",
+      "basis_refs": [
+        "FIX-027/A",
+        "FIX-027/B"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-d3-log",
+      "state": "INFERRED",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "The Ashcombe design note states the engine records rationale, inputs and outcome for every contact decision, which would remove the original justification for the decisions the engine makes. The platform is 60% migrated, so this is design intent rather than established coverage.",
+      "basis_refs": [
+        "FIX-027/C",
+        "FIX-026/D"
+      ]
+    },
+    {
+      "subject_claim_ref": "c-d3-vuln",
+      "state": "UNKNOWN",
+      "assessment_as_of": "2026-08-22",
+      "rationale": "Whether first-contact vulnerability identification — 3 of 9 H1 findings — is detectable from the decision log at all is not addressed by any source.",
+      "question_asked": "Does the Ashcombe decision log capture the first-contact vulnerability identification judgement that the QA checklist assesses?",
+      "scope_searched": "Ashcombe design note v3 sections 7 and 9; Ashcombe MI specification v1; collections QA procedure v5; collections QA findings H1 2026."
+    }
+  ],
+  "payload": {
+    "source_regime": "Internal — introduced following internal review IR-2022-14",
+    "source_obligation_ref": "FIX-027/B",
+    "property_established": "Assurance that arrears case treatment met the customer treatment checklist, by 2% monthly sample.",
+    "current_evidence_refs": [
+      "FIX-027/D"
+    ],
+    "mandatory_status": "internally-required",
+    "status_basis": "Collections QA procedure v5, basis stated as IR-2022-14. No external source traced.",
+    "recommended_disposition": "RETIRE_CANDIDATE",
+    "reason": "The stated justification was that treatment decisions were not systematically recorded. Ashcombe records them. That removes the original basis for sampling the decisions the engine makes — and only those.",
+    "dependencies": [
+      "Ashcombe migration completion, currently 60% with cutover expected Q4 2026",
+      "Decision log coverage of the full arrears population, not only migrated cases"
+    ],
+    "risk_of_change": "high",
+    "proof_required_before_change": [
+      "That the decision log is populated for the full arrears population, not only migrated cases",
+      "That the log captures what the customer treatment checklist assesses, field by field",
+      "That first-contact vulnerability identification — 3 of 9 H1 2026 findings — is detectable from the log, which is a human judgement made before the engine is involved and may not be recorded at all",
+      "That contact-frequency findings — 6 of 9 — remain detectable once the cap is structurally enforced rather than sampled"
+    ],
+    "claim_ref": "c-d3"
+  },
+  "required_authority": "Retirement of the QA sample requires whoever owns the collections QA procedure and, given its stated basis, whoever owns the response to IR-2022-14. Neither is established in the estate.",
+  "caveat": "RETIRE_CANDIDATE is the question of what would have to be true, not the answer. Four proofs are named and none is currently satisfied.",
+  "prohibited_inference": [
+    "That a design note evidences a populated decision log",
+    "That a low finding count evidences an unnecessary control",
+    "That the decision log substitutes for the checklist without a field-by-field comparison"
+  ],
+  "source_refs": [
+    "FIX-027/A",
+    "FIX-027/B",
+    "FIX-027/C",
+    "FIX-027/D",
+    "FIX-026/D"
+  ]
+}

@@ -29,3 +29,13 @@ skills:
   assurance: [systems-thinking, counterfactual-and-evidence, accumulated-and-resultant-risk,
               fraud-and-adversarial-thinking, customer-outcomes, systems-dynamics,
               adaptive-capacity, assurance-synthesis]
+  governance: [governance-reconstruct, forum-reconstruct, obligation-authority-trace,
+               demonstrability-drill, governance-equivalence, forum-evolution,
+               regime-preservation, governance-accretion-plan]   # PROPOSED — TDR-0034, not accepted
+proposed:                          # not part of the package's conformance claim until ratified
+  tdr: TDR-0034
+  governance_projection:           # skill-output contract, NOT a record schema and NOT an
+    schema: schema/governance-projection.schema.json   # interchange structure (TDR-0022 unamended)
+    semantics: validation/governance-projection.md
+    rules: validation/governance-rules.md
+    fixtures: fixtures/governance/
