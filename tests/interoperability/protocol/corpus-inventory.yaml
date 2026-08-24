@@ -1,0 +1,93 @@
+# Canonical corpus inventory digest — what participates, in what order, and how it is combined.
+#
+# `corpus_inventory_digest` proves that two arms reconstructed from the SAME EVIDENCE BYTES. It is
+# the corpus counterpart of `task_digest`, and it needs a published rule for the same reason: a pin
+# an independent adopter cannot recompute is a number they must take on trust, which is the opposite
+# of what a pin is for.
+#
+# `compare/validate.py::corpus_inventory_digest` implements this file and nothing else, and
+# `falsify.py` asserts the two agree.
+
+rule_version: 1.0.0
+
+# ---- what participates ------------------------------------------------------------------------
+participants:
+
+  # The participant set is derivable TWO WAYS, and a conforming corpus is one where they agree.
+  # Stated in this order deliberately: an adopter holding only the public corpus, with no manifest,
+  # must still be able to reach the participant set. A rule that could only be applied by whoever
+  # holds the private manifest would not be a published rule.
+
+  default_rule: >-
+    Every file in the corpus, EXCEPT explanatory and navigation files and known-answer fixtures (see
+    below). This is the authoritative determination for any adopter who does not hold a manifest,
+    and it is sufficient on its own: a corpus is self-describing under this rule.
+
+  manifest_rule: >-
+    Where a corpus manifest is available, its `files` array is the participant set, and it is
+    authoritative for any file whose status is genuinely ambiguous.
+
+  the_two_must_agree: >-
+    A conforming corpus is one whose manifest participant set EQUALS the set the default rule
+    derives — unless the manifest explicitly designates an exception and states the reason, which
+    is the only case in which the two may differ. A manifest that silently disagrees with the
+    default rule makes the corpus underivable from public material, which this rule exists to
+    prevent. Where they agree, the digest is reproducible with or without the manifest, and the
+    published reproduction of a pinned value must be demonstrated the harder way — from the corpus
+    alone.
+
+  excluded_by_default: >-
+    Explanatory and navigation files — READMEs, indexes, contents pages, licence and citation files,
+    build or tooling metadata — do NOT participate. They describe the corpus to a human; they are
+    not evidence an arm reconstructs from, and including them would make the pin move when the prose
+    around the evidence is edited. A manifest may designate one as source material, in which case it
+    participates and the manifest states why.
+
+  known_answer_fixtures: >-
+    Never participate, and must not be present in the corpus at all. A fixture stating what a good
+    reconstruction must and must not do is the answer key.
+
+# ---- ordering ---------------------------------------------------------------------------------
+ordering:
+  rule: >-
+    Ascending lexicographic order by the manifest's `name` field, compared as UTF-8 byte sequences.
+    Byte order rather than locale order: a locale-sensitive sort makes the digest depend on where it
+    was computed.
+
+# ---- per-file digest --------------------------------------------------------------------------
+per_file:
+  algorithm: sha256
+  input: >-
+    The file's exact bytes, as stored. No newline normalisation, no encoding conversion, no
+    whitespace stripping. A corpus whose bytes differ is a different corpus, and a normalisation
+    here would conceal exactly that.
+  encoding: lowercase hexadecimal, 64 characters
+
+# ---- combination ------------------------------------------------------------------------------
+combination:
+  rule: >-
+    Concatenate the per-file lowercase hex digests in the order defined above, with NO separator and
+    no other content, producing a 64n-character ASCII string. The final `corpus_inventory_digest` is
+    the sha256 of that string's ASCII bytes, again as lowercase hex.
+  worked_form: |
+    per_file      = [ sha256(bytes(f)) for f in sorted(manifest.files, key=name) ]
+    concatenation = "".join(hex(d) for d in per_file)        # no separator
+    digest        = sha256(ascii(concatenation))             # lowercase hex
+
+# ---- what the digest does and does not bind ---------------------------------------------------
+binds:
+  content_inventory: >-
+    The digest binds the CONTENT INVENTORY: which evidence bytes are present, and how many. Two
+    corpora with the same digest hold the same evidence.
+  not_filenames: >-
+    It does NOT bind filenames, paths or source identity. Filenames never enter the computation —
+    only content digests do. Renaming a source therefore does not change the pin.
+  not_source_identity: >-
+    It does NOT bind which bytes belong to which source. A corpus in which two files' contents were
+    swapped between filenames produces the SAME digest.
+  consequence: >-
+    Source identity is carried by the manifest, separately and explicitly: `files[].name` alongside
+    `files[].sha256`. The digest proves the evidence; the manifest proves the filing. An
+    implementation that relies on the digest to establish which source is which has misread it, and
+    a capture's `source_selection.available_sources` — which carries `source_id` AND `sha256` per
+    source — is where per-source identity is actually pinned.
