@@ -95,16 +95,24 @@ recompute is a number they must take on trust, which is the opposite of what a p
 it and nothing else:
 
 ```
-participate   exactly the files the corpus manifest designates as source material
-              explanatory and navigation files — READMEs, indexes, licences, tooling metadata —
-              do not participate unless a manifest designates one as source material
-              known-answer fixtures never participate, and are never present in the corpus
+participate   every file in the corpus, EXCEPT explanatory and navigation files — READMEs,
+              indexes, licences, tooling metadata — and known-answer fixtures, which never
+              participate and are never present in the corpus at all
+              where a manifest exists its `files` array is authoritative, and a conforming
+              corpus is one where the two agree; they may differ only where the manifest
+              designates an exception and says why
 order         ascending by the manifest's `name`, compared as UTF-8 bytes, never by locale
 per file      sha256 over the file's exact bytes — no newline, encoding or whitespace
               normalisation — as 64 lowercase hex characters
 combine       concatenate those hex digests in that order, no separator
 digest        sha256 of the concatenation's ASCII bytes, lowercase hex
 ```
+
+**An adopter with no manifest can still derive the participant set**, and that is deliberate rather
+than a convenience. The default rule — everything except explanatory files and fixtures — is the
+authoritative determination where no manifest is held, so a corpus is self-describing. A rule only
+applicable by whoever holds the private manifest would not be a published rule, and the reproduction
+of a pinned value is therefore demonstrated the harder way: from the public corpus alone.
 
 **The digest binds the content inventory, not the filing.** Filenames never enter the computation,
 so renaming a source does not move the pin — and, by the same token, a corpus in which two files'

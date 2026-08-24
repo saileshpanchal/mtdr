@@ -12,15 +12,37 @@ rule_version: 1.0.0
 
 # ---- what participates ------------------------------------------------------------------------
 participants:
-  rule: >-
-    Exactly the files designated as source material in the corpus manifest's `files` array, and
-    nothing else. A file's presence in the corpus directory does not enrol it; designation in the
-    manifest does.
+
+  # The participant set is derivable TWO WAYS, and a conforming corpus is one where they agree.
+  # Stated in this order deliberately: an adopter holding only the public corpus, with no manifest,
+  # must still be able to reach the participant set. A rule that could only be applied by whoever
+  # holds the private manifest would not be a published rule.
+
+  default_rule: >-
+    Every file in the corpus, EXCEPT explanatory and navigation files and known-answer fixtures (see
+    below). This is the authoritative determination for any adopter who does not hold a manifest,
+    and it is sufficient on its own: a corpus is self-describing under this rule.
+
+  manifest_rule: >-
+    Where a corpus manifest is available, its `files` array is the participant set, and it is
+    authoritative for any file whose status is genuinely ambiguous.
+
+  the_two_must_agree: >-
+    A conforming corpus is one whose manifest participant set EQUALS the set the default rule
+    derives — unless the manifest explicitly designates an exception and states the reason, which
+    is the only case in which the two may differ. A manifest that silently disagrees with the
+    default rule makes the corpus underivable from public material, which this rule exists to
+    prevent. Where they agree, the digest is reproducible with or without the manifest, and the
+    published reproduction of a pinned value must be demonstrated the harder way — from the corpus
+    alone.
+
   excluded_by_default: >-
     Explanatory and navigation files — READMEs, indexes, contents pages, licence and citation files,
-    build or tooling metadata — do NOT participate, unless a manifest explicitly designates one as
-    source material. They describe the corpus to a human; they are not evidence an arm reconstructs
-    from, and including them would make the pin move when the prose around the evidence is edited.
+    build or tooling metadata — do NOT participate. They describe the corpus to a human; they are
+    not evidence an arm reconstructs from, and including them would make the pin move when the prose
+    around the evidence is edited. A manifest may designate one as source material, in which case it
+    participates and the manifest states why.
+
   known_answer_fixtures: >-
     Never participate, and must not be present in the corpus at all. A fixture stating what a good
     reconstruction must and must not do is the answer key.
