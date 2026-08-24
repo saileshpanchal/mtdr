@@ -1,6 +1,6 @@
 # VR-4 reconstruction protocol
 
-**Version 1.2.0 · non-normative · pre-registered**
+**Version 1.2.1 · non-normative · pre-registered**
 
 This protocol is **frozen and published before any arm runs**. It is not part of the MTDR standard and
 never becomes part of it. It describes a method for asking one question:
@@ -114,16 +114,18 @@ authoritative determination where no manifest is held, so a corpus is self-descr
 applicable by whoever holds the private manifest would not be a published rule, and the reproduction
 of a pinned value is therefore demonstrated the harder way: from the public corpus alone.
 
-**The digest binds the content inventory, not the filing.** Filenames never enter the computation,
-so renaming a source does not move the pin — and, by the same token, a corpus in which two files'
-contents were swapped between their names produces the *identical* digest.
+**The digest binds the content inventory *in filename order*.** Filenames are never hashed — only
+content digests are concatenated — but they determine the order of that concatenation, so they
+affect the digest indirectly. A rename that **preserves** a file's sort position is invisible to the
+digest; a rename that **changes** it is not. Swapping two sources' contents between their filenames
+likewise changes the digest, because it changes which content occupies which position.
 
-That is a deliberate division of labour rather than a weakness, but it only works if the other half
-is stated: **source identity is carried by the manifest, separately and explicitly**, as
-`files[].name` beside `files[].sha256`, and per-source identity is pinned in each capture's
-`source_selection.available_sources`, which carries `source_id` and `sha256` together. The digest
-proves the evidence; the manifest proves the filing. An implementation that leans on the digest to
-establish which source is which has misread it.
+What the digest still cannot do is tell you what a source is *called*: an order-preserving rename
+passes through it unseen. So **source identity is carried separately and explicitly** — as
+`files[].name` beside `files[].sha256` in the manifest, and as `source_id` beside `sha256` per source
+in each capture's `source_selection.available_sources`. The digest proves the ordered evidence; the
+manifest and the capture prove the filing. An implementation leaning on the digest alone to establish
+which source is which has misread it.
 
 ### The environment is pinned, not just the runtime
 
@@ -295,9 +297,10 @@ changed. The remedy for that refusal is to increment and re-register, never to r
 *This protocol is at 1.2.0 because that rule has already been applied four times, every one of them
 before any arm ran: 1.0.0 was pre-registered; 1.1.0 added the canonical environment-digest rule and
 the comparator pin; 1.1.1 and 1.1.2 corrected wording that had drifted from what the freeze actually
-said; and 1.2.0 published the corpus-inventory digest rule, which had been implemented but never
-specified. Rather than edit a freeze, each was incremented and re-registered — and because nothing
-had executed, nothing needed re-running.*
+said; 1.2.0 published the corpus-inventory digest rule, which had been implemented but never
+specified; and 1.2.1 corrected two false claims that rule made about its own invariance, which the
+falsification suite caught before any arm ran. Rather than edit a freeze, each was incremented and
+re-registered — and because nothing had executed, nothing needed re-running.*
 
 ## The comparator is pinned too
 

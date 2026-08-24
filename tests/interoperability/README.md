@@ -5,7 +5,7 @@ same source corpus, can independent implementations recognise materially equival
 produce semantically equivalent candidate records?
 
 [`protocol/`](protocol/) holds the **frozen, pre-registered method** for answering that — currently at
-**version 1.2.0**. A documented divergence is a successful run with a finding, not a failure
+**version 1.2.1**. A documented divergence is a successful run with a finding, not a failure
 ([TDR-0025](../../decisions/TDR-0025-conformance-architecture.md)).
 
 ## Why the method is here before any result is
@@ -63,6 +63,17 @@ its author — which is the same standard the protocol already applies to itself
 The increment is *minor* rather than patch because publishing a rule adds protocol semantics: after
 1.2.0 an implementation can be wrong about the corpus digest in a way that, before it, had nothing to
 be wrong against.
+
+**1.2.1 is the mechanism catching a defect in the increment before it.** 1.2.0's rule claimed the
+digest bound content only — that renaming a source could not move the pin, and that swapping two
+sources' contents between their filenames produced the identical digest. Both were false: filenames
+are never hashed, but they order the concatenation, so they reach the digest indirectly.
+
+The falsification suite found it by testing the stated property rather than assuming it, and found
+it **before any arm ran**, so nothing needed re-running. The rule now states what is actually true —
+the digest binds the *ordered* content inventory — and the suite asserts each behaviour in both
+directions. A property stated and not tested is a property nobody has checked, which is how the
+false claim survived being written down in the first place.
 
 ## The proposition under test
 
