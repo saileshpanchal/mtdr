@@ -5,7 +5,7 @@ same source corpus, can independent implementations recognise materially equival
 produce semantically equivalent candidate records?
 
 [`protocol/`](protocol/) holds the **frozen, pre-registered method** for answering that — currently at
-**version 1.1.2**. A documented divergence is a successful run with a finding, not a failure
+**version 1.2.0**. A documented divergence is a successful run with a finding, not a failure
 ([TDR-0025](../../decisions/TDR-0025-conformance-architecture.md)).
 
 ## Why the method is here before any result is
@@ -45,6 +45,24 @@ as a typo: the sentence in `PROTOCOL.md` explaining why the protocol sits at its
 named 1.1.0, two increments after that had stopped being true. **It changes no task, no schema, no
 pin, no comparator requirement, no corpus definition and no execution semantics** — and it is still an
 increment, because a freeze whose own version statement is false cannot be checked against anything.
+
+**1.2.0 is the first increment that is not a correction.** It publishes the rule for
+`corpus_inventory_digest` — which files participate, in what order, how each is hashed, how the
+hashes are combined — in [`protocol/corpus-inventory.yaml`](protocol/corpus-inventory.yaml), beside
+the `environment_digest` rule that has been published since 1.1.0.
+
+The gap it closes is methodological rather than operational. The digest had always been *computed*
+one particular way; it had never been *specified*, so an independent adopter could not derive the
+pinned value from the public method. A pin that must be taken on trust is the opposite of a pin.
+
+**No pinned value changes.** The published rule is the rule that produced the existing corpus digest,
+and it reproduces it exactly. Nothing about the task, the corpus content, the schemas or the
+comparator's requirements moves. What changes is that the pin became checkable by someone other than
+its author — which is the same standard the protocol already applies to itself.
+
+The increment is *minor* rather than patch because publishing a rule adds protocol semantics: after
+1.2.0 an implementation can be wrong about the corpus digest in a way that, before it, had nothing to
+be wrong against.
 
 ## The proposition under test
 

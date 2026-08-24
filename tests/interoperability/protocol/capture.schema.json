@@ -150,7 +150,8 @@
         },
         "corpus_inventory_digest": {
           "type": "string",
-          "pattern": "^[0-9a-f]{64}$"
+          "pattern": "^[0-9a-f]{64}$",
+          "description": "sha256 over the corpus's content inventory, computed by the published rule in protocol/corpus-inventory.yaml. It binds which evidence bytes are present, NOT filenames or source identity -- filenames never enter the computation. Per-source identity is pinned in boundaries.source_selection.available_sources, which carries source_id and sha256 together."
         },
         "protocol_version": {
           "type": "string",

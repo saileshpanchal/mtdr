@@ -1,6 +1,6 @@
 # VR-4 reconstruction protocol
 
-**Version 1.1.2 · non-normative · pre-registered**
+**Version 1.2.0 · non-normative · pre-registered**
 
 This protocol is **frozen and published before any arm runs**. It is not part of the MTDR standard and
 never becomes part of it. It describes a method for asking one question:
@@ -83,6 +83,39 @@ capture_schema_version · timestamp · task_digest
 ```
 
 An arm whose digest differs did not run the same experiment.
+
+### The corpus is pinned by its content inventory
+
+`corpus_inventory_digest` is the corpus counterpart of `task_digest`: it proves that two arms
+reconstructed from the **same evidence bytes**. It needs a published rule for the same reason
+`task_digest` states its algorithm in its own schema — **a pin an independent adopter cannot
+recompute is a number they must take on trust, which is the opposite of what a pin is for.**
+
+[`corpus-inventory.yaml`](corpus-inventory.yaml) is that rule, and `compare/validate.py` implements
+it and nothing else:
+
+```
+participate   exactly the files the corpus manifest designates as source material
+              explanatory and navigation files — READMEs, indexes, licences, tooling metadata —
+              do not participate unless a manifest designates one as source material
+              known-answer fixtures never participate, and are never present in the corpus
+order         ascending by the manifest's `name`, compared as UTF-8 bytes, never by locale
+per file      sha256 over the file's exact bytes — no newline, encoding or whitespace
+              normalisation — as 64 lowercase hex characters
+combine       concatenate those hex digests in that order, no separator
+digest        sha256 of the concatenation's ASCII bytes, lowercase hex
+```
+
+**The digest binds the content inventory, not the filing.** Filenames never enter the computation,
+so renaming a source does not move the pin — and, by the same token, a corpus in which two files'
+contents were swapped between their names produces the *identical* digest.
+
+That is a deliberate division of labour rather than a weakness, but it only works if the other half
+is stated: **source identity is carried by the manifest, separately and explicitly**, as
+`files[].name` beside `files[].sha256`, and per-source identity is pinned in each capture's
+`source_selection.available_sources`, which carries `source_id` and `sha256` together. The digest
+proves the evidence; the manifest proves the filing. An implementation that leans on the digest to
+establish which source is which has misread it.
 
 ### The environment is pinned, not just the runtime
 
@@ -251,11 +284,12 @@ The comparator enforces the mechanism rather than trusting it. `freeze_drift()` 
 protocol file against the digests in `FREEZE.json` and **refuses to compare at all** if one has
 changed. The remedy for that refusal is to increment and re-register, never to restore the file.
 
-*This protocol is at 1.1.2 because that rule has already been applied three times, every one of them
+*This protocol is at 1.2.0 because that rule has already been applied four times, every one of them
 before any arm ran: 1.0.0 was pre-registered; 1.1.0 added the canonical environment-digest rule and
 the comparator pin; 1.1.1 and 1.1.2 corrected wording that had drifted from what the freeze actually
-said. Rather than edit a freeze, each was incremented and re-registered — and because nothing had
-executed, nothing needed re-running.*
+said; and 1.2.0 published the corpus-inventory digest rule, which had been implemented but never
+specified. Rather than edit a freeze, each was incremented and re-registered — and because nothing
+had executed, nothing needed re-running.*
 
 ## The comparator is pinned too
 
