@@ -3,7 +3,11 @@
 
 Validates the repository against its own rules — run from the repository root:
 
-    python3 tests/verify.py
+    uv run --with pyyaml --with jsonschema python tests/verify.py
+
+That form needs nothing installed first, which is the point: a conformance suite an adopter cannot
+run from a clean clone proves less than it claims. Where the dependencies are already present,
+`python3 tests/verify.py` is equivalent.
 
 Checks: record schema validity · lineage resolution · id/filename agreement · skill frontmatter
 discipline · relative-link resolution (stubs included) · package manifests coherent · candidate
@@ -33,7 +37,8 @@ try:
     import yaml
     from jsonschema import Draft202012Validator as Validator
 except ImportError:
-    sys.exit("verify.py requires pyyaml and jsonschema: pip install pyyaml jsonschema")
+    sys.exit("verify.py requires pyyaml and jsonschema — run:\n"
+             "    uv run --with pyyaml --with jsonschema python tests/verify.py")
 
 FAILS = []
 def fail(check, msg): FAILS.append((check, msg))

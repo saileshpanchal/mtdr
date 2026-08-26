@@ -1,0 +1,7 @@
+# Compiled Python. The suite and the bundle generator both import from the tree, so bytecode
+# appears beside the source; none of it is an artefact of the standard.
+__pycache__/
+*.pyc
+
+# macOS directory metadata.
+.DS_Store
