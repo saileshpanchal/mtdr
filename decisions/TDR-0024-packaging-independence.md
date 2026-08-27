@@ -1,5 +1,6 @@
 ---
 id: TDR-0024
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Packaging independence — runtime and plugin packagings are distribution adapters, never normative architecture
 status: accepted
 template: minimal

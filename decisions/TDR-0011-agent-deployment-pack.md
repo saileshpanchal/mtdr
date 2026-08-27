@@ -1,5 +1,6 @@
 ---
 id: TDR-0011
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Ship an agent deployment pack; version it as a minor release, not a v2
 status: accepted
 template: minimal

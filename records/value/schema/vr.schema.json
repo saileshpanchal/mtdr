@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/saileshpanchal/mtdr/blob/main/records/value/schema/vr.schema.json",
-  "title": "Value Record — frontmatter",
-  "description": "Schema for the YAML frontmatter of a Value Record (VR), per spec-value-record.md v2.0.0 §4.2. The record is the governed memory of an Operational Value Commitment. It validates the machine-readable fields only; the markdown body is human judgement and is deliberately not schema-constrained. Note the two independent state axes: `status` is epistemic, `realisation` is about the value. Adopter-specific fields are permitted under the `x-` namespace, as for the TDR. This schema validates v2 records; v1 records remain valid v1 records and are not validated here. See TDR-0008, TDR-0019.",
+  "title": "Value Record \u2014 frontmatter",
+  "description": "Schema for the YAML frontmatter of a Value Record (VR), per spec-value-record.md v2.0.0 \u00a74.2. The record is the governed memory of an Operational Value Commitment. It validates the machine-readable fields only; the markdown body is human judgement and is deliberately not schema-constrained. Note the two independent state axes: `status` is epistemic, `realisation` is about the value. Adopter-specific fields are permitted under the `x-` namespace, as for the TDR. This schema validates v2 records; v1 records remain valid v1 records and are not validated here. See TDR-0008, TDR-0019.",
   "type": "object",
   "additionalProperties": false,
   "patternProperties": {
@@ -31,6 +31,11 @@
       "pattern": "^VR-[0-9]+$",
       "description": "VR-nnnn, unique within the owning organisation or repository."
     },
+    "conforms_to": {
+      "type": "string",
+      "pattern": "^mtdr/[a-z][a-z-]*/(tdr|dac|vr)@[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "Durable binding to the specification this record is presented as conforming to, as `mtdr/<package>/<record>@<version>`. OPTIONAL in the schema so that every record authored before it existed still validates; the MTDR repository requires it of its own governed records and tests/verify.py enforces that. It is what lets a DETACHED record -- one file, with no repository around it -- identify its record type and resolve the specification and schema that govern it, without repository-private interpretation (DAC-0032 constraint 2, TDR-0043)."
+    },
     "title": {
       "type": "string",
       "minLength": 1,
@@ -43,7 +48,7 @@
         "settled",
         "superseded"
       ],
-      "description": "The EPISTEMIC state — what is known about the record. Independent of `realisation`. A candidate has no organisational standing whether drafted by a person or assembled from evidence."
+      "description": "The EPISTEMIC state \u2014 what is known about the record. Independent of `realisation`. A candidate has no organisational standing whether drafted by a person or assembled from evidence."
     },
     "realisation": {
       "enum": [
@@ -55,27 +60,27 @@
         "attribution-unresolved",
         "written-off"
       ],
-      "description": "The VALUE state — what is known about the value. `attribution-unresolved` (outcome observed, attribution not evidenced) is a legitimate settlement, not an incomplete one."
+      "description": "The VALUE state \u2014 what is known about the value. `attribution-unresolved` (outcome observed, attribution not evidenced) is a legitimate settlement, not an incomplete one."
     },
     "linked_decisions": {
       "type": "string",
       "pattern": "^TDR-[0-9]+(,[ ]?TDR-[0-9]+)*$",
-      "description": "One or more TDR ids. Never `none` — a value claim floating free of any decision is a forecast, not a record."
+      "description": "One or more TDR ids. Never `none` \u2014 a value claim floating free of any decision is a forecast, not a record."
     },
     "beneficiary": {
       "type": "string",
       "minLength": 1,
-      "description": "Whose outcome is being pursued or preserved. IDENTITY-BEARING, not descriptive metadata: two commitments identical in every other respect but differing in beneficiary are two commitments (spec-value-record.md §4.3)."
+      "description": "Whose outcome is being pursued or preserved. IDENTITY-BEARING, not descriptive metadata: two commitments identical in every other respect but differing in beneficiary are two commitments (spec-value-record.md \u00a74.3)."
     },
     "committed_by": {
       "type": "string",
       "minLength": 1,
-      "description": "A named individual who commits the organisation — not a committee, not a role."
+      "description": "A named individual who commits the organisation \u2014 not a committee, not a role."
     },
     "authority": {
       "type": "string",
       "minLength": 1,
-      "description": "The authority under which the organisation is bound — a mandate, delegation, board approval or governing decision, traceable to something."
+      "description": "The authority under which the organisation is bound \u2014 a mandate, delegation, board approval or governing decision, traceable to something."
     },
     "value_kind": {
       "enum": [
@@ -88,7 +93,7 @@
     "finance_countersignatory": {
       "type": "string",
       "minLength": 1,
-      "description": "A named individual in the finance function — not a committee, not a role. Co-signs at ratification, every material state change, and any write-off. Required for the transition to `ratified`, not for the record to exist: a candidate may legitimately lack one (specification §4.4), and encoding a transition requirement as an unconditional structural one would collapse structural validity into lifecycle-transition eligibility. See TDR-0039."
+      "description": "A named individual in the finance function \u2014 not a committee, not a role. Co-signs at ratification, every material state change, and any write-off. Required for the transition to `ratified`, not for the record to exist: a candidate may legitimately lack one (specification \u00a74.4), and encoding a transition requirement as an unconditional structural one would collapse structural validity into lifecycle-transition eligibility. See TDR-0039."
     },
     "reconcile_by": {
       "type": "string",

@@ -1,5 +1,6 @@
 ---
 id: TDR-0025
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Conformance architecture — schema validation alone is insufficient; examples, counter-examples, fixtures and semantic equivalence form the test surface
 status: accepted
 template: minimal

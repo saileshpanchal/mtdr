@@ -1,5 +1,6 @@
 ---
 id: TDR-0033
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Separate structural, semantic, relational and lifecycle-transition validation
 status: accepted
 template: full

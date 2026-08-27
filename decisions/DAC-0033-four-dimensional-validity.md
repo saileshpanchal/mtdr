@@ -1,5 +1,6 @@
 ---
 id: DAC-0033
+conforms_to: mtdr/decision/dac@1.12.0
 tdr_id: TDR-0033
 title: Assure independent validity dimensions and transition eligibility
 status: accepted

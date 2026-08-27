@@ -1,5 +1,6 @@
 ---
 id: TDR-0003
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Ship practice skills alongside the specification
 status: accepted
 template: minimal

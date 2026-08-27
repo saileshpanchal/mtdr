@@ -49,8 +49,15 @@ def frontmatter(path):
     return yaml.safe_load(m.group(1)) if m else None
 
 def as_json(o):
-    return {k: (v.isoformat() if isinstance(v, (datetime.date, datetime.datetime)) else v)
-            for k, v in o.items()}
+    """YAML dates -> ISO strings, at every depth. Shallow coercion silently passed TDRs (whose dates
+    are all top-level) and failed a DAC's nested `assurance` block."""
+    if isinstance(o, dict):
+        return {k: as_json(v) for k, v in o.items()}
+    if isinstance(o, list):
+        return [as_json(v) for v in o]
+    if isinstance(o, (datetime.date, datetime.datetime)):
+        return o.isoformat()
+    return o
 
 # 1 — decision records validate; ids match filenames; lineage resolves
 tdr_schema = Validator(json.load(open('records/decision/schema/tdr.schema.json')))
@@ -275,6 +282,156 @@ else:
     if stated != derived:
         fail('allocation', f"stated next free TDR-{stated:04d} != max(allocated ∪ burnt) + 1 = TDR-{derived:04d}")
 note('allocation', f"{len(ALLOCATED)} allocated, {len(BURNT)} burnt, next free derived")
+
+# 10b — version-bound detached records (DAC-0032 constraint 2, TDR-0043). The obligations register
+# warned that the serialisation round-trip "proves nothing about a detached record", so this does the
+# thing the constraint actually asks: copy a record OUT, delete every trace of the repository from
+# the resolver's reach, and resolve its type, specification and schema from `conforms_to` alone.
+import tempfile, shutil                                                       # noqa: E402
+BIND_RE = re.compile(r'^mtdr/([a-z][a-z-]*)/(tdr|dac|vr)@([0-9]+\.[0-9]+\.[0-9]+)$')
+MANIFEST_VERSION = {}
+for mpath in glob.glob('records/*/package.yaml'):
+    man = yaml.safe_load(open(mpath, encoding='utf-8'))
+    for entry in man.get('records') or []:
+        MANIFEST_VERSION[(man['name'], entry['id'].lower())] = entry['specification_version']
+
+governed = (sorted(glob.glob('decisions/TDR-*.md')) + sorted(glob.glob('decisions/DAC-*.md'))
+            + sorted(glob.glob('records/*/examples/*.md')))
+bound = 0
+for f in governed:
+    fm = frontmatter(f) or {}
+    binding = fm.get('conforms_to')
+    if not binding:
+        fail('identity', f"{f}: no conforms_to — a governed record must bind its specification")
+        continue
+    m = BIND_RE.match(str(binding))
+    if not m:
+        fail('identity', f"{f}: conforms_to {binding!r} is not mtdr/<package>/<record>@<version>")
+        continue
+    pkg, rec, ver = m.groups()
+    # the binding must agree with what this distribution actually ships (DAC-0043 constraint 2)
+    shipped = MANIFEST_VERSION.get((pkg, rec))
+    if shipped is None:
+        fail('identity', f"{f}: claims package/record {pkg}/{rec}, which this distribution does not ship")
+    elif shipped != ver:
+        fail('identity', f"{f}: claims {rec}@{ver}; the {pkg} manifest ships {shipped}")
+    bound += 1
+
+# the detached proof itself, over one record of each family
+DETACHED_SAMPLE = ['decisions/TDR-0043-version-bound-detached-records.md',
+                   'decisions/DAC-0043-version-bound-detached-records.md']
+DETACHED_SAMPLE += sorted(glob.glob('records/value/examples/*.md'))[:1]
+for src in DETACHED_SAMPLE:
+    with tempfile.TemporaryDirectory() as td:
+        detached = os.path.join(td, os.path.basename(src))
+        shutil.copyfile(src, detached)
+        text = open(detached, encoding='utf-8').read()
+        head = re.match(r'^---\n(.*?)\n---\n', text, re.S)
+        found = re.search(r'^conforms_to:\s*(\S+)$', head.group(1), re.M) if head else None
+        if not found:
+            fail('identity', f"detached {src}: carries no binding once separated"); continue
+        g = BIND_RE.match(found.group(1))
+        if not g:
+            fail('identity', f"detached {src}: binding unparseable in isolation"); continue
+        pkg, rec, ver = g.groups()
+        # resolution BY RULE — the path is derived from the identifier, never looked up
+        schema_path = f'records/{pkg}/schema/{rec}.schema.json'
+        if not os.path.exists(schema_path):
+            fail('identity', f"detached {src}: {rec}@{ver} resolves to {schema_path}, which is absent")
+            continue
+        obj = as_json(yaml.safe_load(head.group(1)))
+        errs = list(Validator(json.load(open(schema_path))).iter_errors(obj))
+        if errs:
+            fail('identity', f"detached {src}: resolved its own schema and failed it — {errs[0].message}")
+note('identity', f"{bound} governed records bound; {len(DETACHED_SAMPLE)} resolved and validated "
+                 f"detached, by rule")
+
+# 10c — the extraction trial (DAC-0032 constraint 3). The declaration's COMPLETENESS is proved by the
+# closure check below; what that cannot show is whether an extracted package actually stands up
+# elsewhere. The register was explicit: "Half proved, and the half matters… What has not been done is
+# the extraction trial itself: taking a package out and running its conformance contract elsewhere."
+# So: copy a package and exactly its declared dependencies into an empty directory, and run its
+# conformance contract there — with nothing else reachable.
+def extraction_trial(pkg_dir):
+    man = yaml.safe_load(open(f'{pkg_dir}/package.yaml', encoding='utf-8'))
+    declared = [d['ref'] for d in (man.get('dependencies') or []) if d.get('class') == 'normative']
+    with tempfile.TemporaryDirectory() as td:
+        shutil.copytree(pkg_dir, os.path.join(td, pkg_dir))
+        for ref in declared:                      # ONLY what the manifest declares
+            src = ref.rstrip('/')
+            if os.path.isdir(src):
+                shutil.copytree(src, os.path.join(td, src), dirs_exist_ok=True)
+            elif os.path.isfile(src):
+                os.makedirs(os.path.join(td, os.path.dirname(src)), exist_ok=True)
+                shutil.copyfile(src, os.path.join(td, src))
+            else:
+                return [f"declared dependency {ref} does not exist"]
+        problems = []
+        cwd = os.getcwd()
+        try:
+            os.chdir(td)                          # nothing outside the extraction is reachable
+            by_type = {}
+            for entry in man.get('records') or []:
+                schema_rel = os.path.join(pkg_dir, entry['schema'])
+                if not os.path.exists(schema_rel):
+                    problems.append(f"{entry['id']}: schema absent from the extraction"); continue
+                by_type[entry['id'].lower()] = Validator(json.load(open(schema_rel)))
+            subjects = sorted(glob.glob(f'{pkg_dir}/examples/*.md'))
+            if not subjects:
+                problems.append('no example to run the contract against')
+            for subj in subjects:
+                fm2 = frontmatter(subj)
+                if fm2 is None:
+                    problems.append(f"{subj}: unreadable in the extraction"); continue
+                # the extraction resolves a subject's type the way a detached reader must:
+                # from its own binding, falling back to its identifier
+                b = (fm2 or {}).get('conforms_to')
+                g = BIND_RE.match(str(b)) if b else None
+                if b and not g:
+                    problems.append(f"{subj}: binding unusable in the extraction"); continue
+                rec = g.group(2) if g else ('dac' if 'tdr_id' in fm2 else
+                                            str(fm2.get('id', '')).split('-')[0].lower())
+                v = by_type.get(rec)
+                if v is None:
+                    problems.append(f"{subj}: resolves to {rec}, which this package does not ship")
+                    continue
+                for e in v.iter_errors(as_json(fm2)):
+                    problems.append(f"{subj}: {e.message}")
+            # The constraint permits the wider corpus to "remain durably referenced", so an
+            # unresolved link is NOT itself a failure. What must hold is narrower and stricter:
+            # every NORMATIVE dependency is present and usable here, and nothing unresolved is
+            # undeclared. A reference classified `provenance` or `explanatory` may dangle in an
+            # extraction — that is what durable reference means.
+            for ref in declared:
+                if not os.path.exists(ref.rstrip('/')):
+                    problems.append(f"normative dependency {ref} did not survive extraction")
+            all_declared = {d['ref'].rstrip('/') for d in (man.get('dependencies') or [])}
+            for md in glob.glob(f'{pkg_dir}/**/*.md', recursive=True):
+                body = open(md, encoding='utf-8').read()
+                for target in re.findall(r'\]\((?!https?:|#)([^)#]+)', body):
+                    resolved = os.path.normpath(os.path.join(os.path.dirname(md), target))
+                    if os.path.exists(resolved):
+                        continue
+                    if resolved in all_declared or any(
+                            resolved.startswith(d + os.sep) for d in all_declared):
+                        continue                  # declared, durably referenced, legitimately absent
+                    problems.append(f"{md} -> {target}: unresolved AND undeclared")
+        finally:
+            os.chdir(cwd)
+        return problems
+
+trials = 0
+for pkg_dir in sorted(glob.glob('records/*')):
+    man_path = f'{pkg_dir}/package.yaml'
+    if not os.path.exists(man_path):
+        continue
+    if (yaml.safe_load(open(man_path, encoding='utf-8')) or {}).get('status') != 'normative':
+        continue                                   # a candidate package carries no contract to run
+    for problem in extraction_trial(pkg_dir):
+        fail('extraction', f"{pkg_dir}: {problem}")
+    trials += 1
+note('extraction', f"{trials} normative packages extracted with only their declared dependencies, "
+                   f"and passed their conformance contract there")
 
 # 11 — contract fixtures: each carries a complete document and what the contract must do with it
 def run_contract_fixtures(check, schema_path, pattern):

@@ -1,5 +1,6 @@
 ---
 id: TDR-0023
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Adopt the portable skill architecture — skills live with record semantics; shared skills must be demonstrably record-neutral
 status: superseded
 template: minimal

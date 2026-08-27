@@ -1,5 +1,6 @@
 ---
 id: TDR-0007
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Add a decision-identification skill in front of the capture skill
 status: accepted
 template: bare

@@ -1,5 +1,6 @@
 ---
 id: TDR-0013
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Add practice guides for building decision memory
 status: accepted
 template: minimal

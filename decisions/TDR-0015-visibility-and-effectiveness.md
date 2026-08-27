@@ -1,5 +1,6 @@
 ---
 id: TDR-0015
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Keep visibility out of the record, open an adopter namespace, and defer effectiveness fields
 status: accepted
 template: full

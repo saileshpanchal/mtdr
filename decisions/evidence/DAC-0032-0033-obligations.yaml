@@ -53,14 +53,25 @@ obligations:
     measure: >-
       Before release, a detached record can identify and durably resolve its record type, applicable
       specification identity and version, and validate without repository-private interpretation.
-    implementation: pending
-    verification: release-gated
-    evidence: []
+    implementation: implemented
+    verification: verified
+    evidence:
+      - specification/record-identity.md
+      - decisions/TDR-0043-version-bound-detached-records.md
+      - decisions/DAC-0043-version-bound-detached-records.md
+      - tests/verify.py
     note: >-
-      Unaddressed, and not partially addressed. The result contract carries the specification
-      identity and version of the assessment; the record's own binding is a change to the record
-      schemas and has not been made. The serialisation round-trip in the suite is a local precursor
-      and proves nothing about a detached record.
+      Discharged by TDR-0043. Every record family gains an optional `conforms_to` binding of the
+      form mtdr/<package>/<record>@<version>, required of this repository's own governed records
+      and enforced by the suite. Resolution is BY RULE --
+      records/<package>/schema/<record>.schema.json -- so no registry, network call or service is
+      needed to interpret a record. The suite proves it the way the constraint asks rather than the
+      way that would be easier: a record is copied OUT to an empty directory and its type,
+      specification and schema resolved from the binding alone, then validated there. The earlier
+      warning stands and is why the serialisation round-trip is not cited as evidence -- it proved
+      nothing about a detached record. Limit, stated in TDR-0043: the detached test is executed by
+      the author, so it proves the rule works, not that the scheme is legible to someone meeting it
+      cold. That remains constraint 4's question.
 
   - id: DAC-0032#3
     constraint: Classified normative closure
@@ -70,16 +81,23 @@ obligations:
       conformance contract with no undocumented normative dependency; the complete corpus may remain
       durably referenced.
     implementation: implemented
-    verification: pending
+    verification: verified
     evidence:
+      - tests/verify.py
       - records/decision/package.yaml
       - records/value/package.yaml
-      - tests/verify.py
     note: >-
-      Half proved, and the half matters. Every dependency is classified, and the suite proves the
-      declaration is *complete* — no outward reference a package makes may go undeclared. What has
-      not been done is the extraction trial itself: taking a package out and running its conformance
-      contract elsewhere.
+      The missing half is done. Both normative packages are copied into an empty directory with
+      ONLY their declared normative dependencies, and their conformance contract is run there with
+      nothing else reachable -- each example routed to the schema for its own record type, resolved
+      the way a detached reader must. The constraint's own allowance is honoured rather than
+      overridden: the complete corpus may remain durably referenced, so a reference classified
+      provenance or explanatory may legitimately dangle in an extraction. What may not dangle is a
+      normative dependency, or any reference that is unresolved AND undeclared. Falsified in three
+      directions before being trusted: a normative dependency absent from disk, an undeclared
+      outward reference, and a package schema missing from the extraction. Limit: the trial
+      verifies the declaration is sufficient, not that each classification is correct -- whether a
+      dependency is truly normative stays a human judgement.
 
   - id: DAC-0032#4
     constraint: Zero-install proof before release

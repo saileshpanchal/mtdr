@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/saileshpanchal/mtdr/blob/main/records/decision/schema/tdr.schema.json",
-  "title": "Transformation Decision Record — frontmatter",
-  "description": "Schema for the YAML frontmatter of a Transformation Decision Record (TDR), per spec.md §4.1. It validates the machine-readable fields only; the markdown body is human judgement and is deliberately not schema-constrained. Adopter-specific fields are permitted under the `x-` namespace (spec §4.3) — the standard defines no vocabulary for them. See TDR-0006, TDR-0015.",
+  "title": "Transformation Decision Record \u2014 frontmatter",
+  "description": "Schema for the YAML frontmatter of a Transformation Decision Record (TDR), per spec.md \u00a74.1. It validates the machine-readable fields only; the markdown body is human judgement and is deliberately not schema-constrained. Adopter-specific fields are permitted under the `x-` namespace (spec \u00a74.3) \u2014 the standard defines no vocabulary for them. See TDR-0006, TDR-0015.",
   "type": "object",
   "additionalProperties": false,
   "patternProperties": {
     "^x-": {
-      "description": "Adopter extension namespace. Name extensions `x-<owner>-<field>` to avoid collision. The standard defines no meaning for these fields, no expectation of portability, and schema validity implies nothing about security — a record may validate while carrying a classification nothing enforces. Anything broadly useful should be proposed for the core by superseding TDR (spec §4.3, TDR-0015)."
+      "description": "Adopter extension namespace. Name extensions `x-<owner>-<field>` to avoid collision. The standard defines no meaning for these fields, no expectation of portability, and schema validity implies nothing about security \u2014 a record may validate while carrying a classification nothing enforces. Anything broadly useful should be proposed for the core by superseding TDR (spec \u00a74.3, TDR-0015)."
     }
   },
   "required": [
@@ -25,6 +25,11 @@
       "type": "string",
       "pattern": "^TDR-[0-9]+$",
       "description": "TDR-nnnn, unique within the owning organisation or repository."
+    },
+    "conforms_to": {
+      "type": "string",
+      "pattern": "^mtdr/[a-z][a-z-]*/(tdr|dac|vr)@[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "Durable binding to the specification this record is presented as conforming to, as `mtdr/<package>/<record>@<version>`. OPTIONAL in the schema so that every record authored before it existed still validates; the MTDR repository requires it of its own governed records and tests/verify.py enforces that. It is what lets a DETACHED record -- one file, with no repository around it -- identify its record type and resolve the specification and schema that govern it, without repository-private interpretation (DAC-0032 constraint 2, TDR-0043)."
     },
     "title": {
       "type": "string",
@@ -55,7 +60,7 @@
     "accountable_owner": {
       "type": "string",
       "minLength": 1,
-      "description": "A named individual — not a committee."
+      "description": "A named individual \u2014 not a committee."
     },
     "confidence": {
       "enum": [
@@ -82,7 +87,7 @@
     "confirmed_by_outcome": {
       "type": "string",
       "minLength": 1,
-      "description": "`pending — <review trigger>`, a date plus evidence reference, or `none`. Required for full and minimal templates."
+      "description": "`pending \u2014 <review trigger>`, a date plus evidence reference, or `none`. Required for full and minimal templates."
     }
   },
   "$defs": {

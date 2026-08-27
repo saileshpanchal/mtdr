@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/saileshpanchal/mtdr/blob/main/records/decision/schema/dac.schema.json",
-  "title": "Decision Assurance Case — frontmatter and structured assurance block",
-  "description": "Schema for the YAML frontmatter of a Decision Assurance Case (DAC), per spec-decision-assurance.md §5, plus the optional structured `assurance` block for adopters who want the projections machine-readable. The markdown body carries the reasoning and is deliberately unconstrained. Frontmatter is validated as JSON: normalise YAML dates to ISO-8601 strings before validation. See TDR-0009.",
+  "title": "Decision Assurance Case \u2014 frontmatter and structured assurance block",
+  "description": "Schema for the YAML frontmatter of a Decision Assurance Case (DAC), per spec-decision-assurance.md \u00a75, plus the optional structured `assurance` block for adopters who want the projections machine-readable. The markdown body carries the reasoning and is deliberately unconstrained. Frontmatter is validated as JSON: normalise YAML dates to ISO-8601 strings before validation. See TDR-0009.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -22,6 +22,11 @@
       "type": "string",
       "pattern": "^DAC-[0-9]+$"
     },
+    "conforms_to": {
+      "type": "string",
+      "pattern": "^mtdr/[a-z][a-z-]*/(tdr|dac|vr)@[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "Durable binding to the specification this record is presented as conforming to, as `mtdr/<package>/<record>@<version>`. OPTIONAL in the schema so that every record authored before it existed still validates; the MTDR repository requires it of its own governed records and tests/verify.py enforces that. It is what lets a DETACHED record -- one file, with no repository around it -- identify its record type and resolve the specification and schema that govern it, without repository-private interpretation (DAC-0032 constraint 2, TDR-0043)."
+    },
     "tdr_id": {
       "type": "string",
       "pattern": "^TDR-[0-9]+$",
@@ -38,7 +43,7 @@
         "superseded",
         "stale"
       ],
-      "description": "`stale` is the standing-loss state (spec §5.1): a stale case authorises nothing."
+      "description": "`stale` is the standing-loss state (spec \u00a75.1): a stale case authorises nothing."
     },
     "disposition": {
       "$ref": "#/$defs/disposition"
@@ -49,7 +54,7 @@
     "accountable_owner": {
       "type": "string",
       "minLength": 1,
-      "description": "A named individual — not a committee."
+      "description": "A named individual \u2014 not a committee."
     },
     "review_date": {
       "$ref": "#/$defs/date",
@@ -116,7 +121,7 @@
           "items": {
             "$ref": "#/$defs/harmHypothesis"
           },
-          "description": "The design-time authoring of the decision's monitorable contract — see spec §5.2 item 9."
+          "description": "The design-time authoring of the decision's monitorable contract \u2014 see spec \u00a75.2 item 9."
         },
         "learning": {
           "$ref": "#/$defs/learning"
@@ -126,7 +131,7 @@
           "items": {
             "type": "string"
           },
-          "description": "Non-empty when disposition is proceed-with-constraints and this block is present. The rule itself is spec §5.2 item 11; a frontmatter-only case carries its constraints in the body."
+          "description": "Non-empty when disposition is proceed-with-constraints and this block is present. The rule itself is spec \u00a75.2 item 11; a frontmatter-only case carries its constraints in the body."
         },
         "skills_run": {
           "type": "array",
@@ -173,7 +178,7 @@
     "riskDelta": {
       "type": "object",
       "additionalProperties": false,
-      "description": "The case records the DELTA and its temporal shape (spec §5.2 item 6); computing the accumulated and resultant organisational position at any point in time is graph work outside this standard. Declared interactions are what that graph needs.",
+      "description": "The case records the DELTA and its temporal shape (spec \u00a75.2 item 6); computing the accumulated and resultant organisational position at any point in time is graph work outside this standard. Declared interactions are what that graph needs.",
       "properties": {
         "increases": {
           "type": "array",
@@ -202,36 +207,36 @@
         },
         "effective_from": {
           "$ref": "#/$defs/date",
-          "description": "When the declared change takes effect — not necessarily the decision date."
+          "description": "When the declared change takes effect \u2014 not necessarily the decision date."
         },
         "expected_duration": {
           "type": "string",
-          "description": "How long the declared change is expected to hold — e.g. \"12-week pilot\", \"until migration completes\", \"permanent\"."
+          "description": "How long the declared change is expected to hold \u2014 e.g. \"12-week pilot\", \"until migration completes\", \"permanent\"."
         },
         "expected_trajectory": {
           "type": "string",
-          "description": "How the delta is expected to evolve — e.g. temporary duplication during transition, decreasing after cutover, increasing as adoption scales."
+          "description": "How the delta is expected to evolve \u2014 e.g. temporary duplication during transition, decreasing after cutover, increasing as adoption scales."
         },
         "dependency_conditions": {
           "type": "array",
           "items": {
             "type": "string"
           },
-          "description": "Conditions under which the declared change materialises or changes shape — another decision landing, adoption crossing a threshold, a control being retired."
+          "description": "Conditions under which the declared change materialises or changes shape \u2014 another decision landing, adoption crossing a threshold, a control being retired."
         },
         "declared_interactions": {
           "type": "array",
           "items": {
             "type": "string"
           },
-          "description": "Shared controls, shared identity/authority mechanisms, concentration, correlated failures, exception accumulation — the aggregation inputs (BCBS 239 lesson, applied to decisions)."
+          "description": "Shared controls, shared identity/authority mechanisms, concentration, correlated failures, exception accumulation \u2014 the aggregation inputs (BCBS 239 lesson, applied to decisions)."
         }
       }
     },
     "riskVector": {
       "type": "object",
       "additionalProperties": false,
-      "description": "All ten axes plus trend, per spec §6. Never collapsed into a composite score: a single number conceals the axis that should stop the decision.",
+      "description": "All ten axes plus trend, per spec \u00a76. Never collapsed into a composite score: a single number conceals the axis that should stop the decision.",
       "required": [
         "severity",
         "likelihood",
@@ -303,7 +308,7 @@
         "basis": {
           "type": "string",
           "minLength": 1,
-          "description": "What the level rests on — evidence, analysis or stated judgement."
+          "description": "What the level rests on \u2014 evidence, analysis or stated judgement."
         }
       }
     },
@@ -356,7 +361,7 @@
         },
         "counter_hypothesis": {
           "type": "string",
-          "description": "The harm the hypothesis could conceal — e.g. the control works but excludes."
+          "description": "The harm the hypothesis could conceal \u2014 e.g. the control works but excludes."
         },
         "test": {
           "type": "string"
@@ -380,7 +385,7 @@
     "learning": {
       "type": "object",
       "additionalProperties": false,
-      "description": "Examined at the case's top-level review_date — no separate date field.",
+      "description": "Examined at the case's top-level review_date \u2014 no separate date field.",
       "required": [
         "hypotheses",
         "evidence_required"

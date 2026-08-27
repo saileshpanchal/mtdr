@@ -1,5 +1,6 @@
 ---
 id: DAC-0027
+conforms_to: mtdr/decision/dac@1.12.0
 tdr_id: TDR-0027
 title: Assure human ratification as standing and evidence as its accepted representation
 status: accepted

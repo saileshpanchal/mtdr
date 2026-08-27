@@ -1,5 +1,6 @@
 ---
 id: TDR-0020
+conforms_to: mtdr/decision/tdr@1.15.0
 title: State the repository boundary — an open organisational-records standard with no knowledge of its consumers
 status: accepted
 template: full

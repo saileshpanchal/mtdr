@@ -1,5 +1,6 @@
 ---
 id: TDR-0018
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Admit vendor-neutral interpretation skills; fix the standard's boundary at the artefact
 status: accepted
 template: full

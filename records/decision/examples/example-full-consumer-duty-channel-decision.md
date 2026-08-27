@@ -1,5 +1,6 @@
 ---
 id: TDR-0031
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Retain telephone-assisted servicing for savings members through the digital origination migration
 status: accepted
 template: full

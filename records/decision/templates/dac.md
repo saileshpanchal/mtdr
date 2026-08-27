@@ -1,5 +1,6 @@
 ---
 id: DAC-nnnn
+conforms_to: mtdr/decision/dac@1.12.0
 tdr_id: TDR-nnnn
 title: <What is being assured>
 status: proposed

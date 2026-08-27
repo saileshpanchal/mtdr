@@ -1,5 +1,6 @@
 ---
 id: TDR-0002
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Differentiate on accountability semantics, not scope
 status: accepted
 template: full

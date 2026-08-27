@@ -1,5 +1,6 @@
 ---
 id: TDR-0006
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Provide a JSON Schema for the frontmatter as part of the format specification
 status: accepted
 template: minimal

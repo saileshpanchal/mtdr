@@ -1,5 +1,6 @@
 ---
 id: TDR-0034
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Govern public TDR identifier allocation in this repository, and make allocation irreversible
 status: accepted
 template: full

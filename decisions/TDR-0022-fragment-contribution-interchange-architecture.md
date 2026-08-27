@@ -1,5 +1,6 @@
 ---
 id: TDR-0022
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Ratify the fragment-and-contribution interchange model as repository architecture
 status: accepted
 template: minimal

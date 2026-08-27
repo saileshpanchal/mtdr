@@ -1,5 +1,6 @@
 ---
 id: DAC-0007
+conforms_to: mtdr/decision/dac@1.12.0
 tdr_id: TDR-0112
 title: Assure the delegated agent-initiated payments decision before pilot execution
 status: accepted
