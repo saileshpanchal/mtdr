@@ -1,5 +1,6 @@
 ---
 id: TDR-0008
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Add the Value Record as the TDR's sibling record
 status: accepted
 template: minimal

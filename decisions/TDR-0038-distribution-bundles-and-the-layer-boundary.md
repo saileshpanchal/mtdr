@@ -1,5 +1,6 @@
 ---
 id: TDR-0038
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Generate distribution bundles from the manifests, and codify the layer boundary
 status: accepted
 template: full

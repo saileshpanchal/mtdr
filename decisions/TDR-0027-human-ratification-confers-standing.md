@@ -1,5 +1,6 @@
 ---
 id: TDR-0027
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Human ratification confers standing; evidence permits MTDR to represent it as accepted
 status: accepted
 template: full

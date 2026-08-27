@@ -1,5 +1,6 @@
 ---
 id: TDR-0026
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Adopt the value-recovery vocabulary — contribution classes, the completeness view, the derivation marker, and composition skills
 status: accepted
 template: minimal

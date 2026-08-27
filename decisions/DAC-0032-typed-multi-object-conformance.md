@@ -1,5 +1,6 @@
 ---
 id: DAC-0032
+conforms_to: mtdr/decision/dac@1.12.0
 tdr_id: TDR-0032
 title: Assure typed multi-object conformance and the optional register boundary
 status: accepted

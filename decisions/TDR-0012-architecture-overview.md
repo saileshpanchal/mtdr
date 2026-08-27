@@ -1,5 +1,6 @@
 ---
 id: TDR-0012
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Publish an architecture overview that fixes the standard's boundary at the decision register
 status: superseded
 template: minimal

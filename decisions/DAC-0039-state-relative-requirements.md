@@ -1,5 +1,6 @@
 ---
 id: DAC-0039
+conforms_to: mtdr/decision/dac@1.12.0
 tdr_id: TDR-0039
 title: Assure the state-relative requirement invariant
 status: accepted

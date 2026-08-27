@@ -1,5 +1,6 @@
 ---
 id: TDR-0041
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Separate access, use and disclosure within information scope, each qualified by purpose and context
 status: proposed
 template: full

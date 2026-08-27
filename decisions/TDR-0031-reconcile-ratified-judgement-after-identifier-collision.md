@@ -1,5 +1,6 @@
 ---
 id: TDR-0031
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Reconcile a ratified judgement prospectively when its proposed identifier collides with an accepted record
 status: accepted
 template: full

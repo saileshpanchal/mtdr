@@ -1,6 +1,6 @@
 # Value Record (VR) — Specification
 
-**Version:** 2.0.0 · **Licence:** MIT · **Author:** Sailesh Panchal
+**Version:** 2.1.0 · **Licence:** MIT · **Author:** Sailesh Panchal
 
 The **Value Record (VR)** is the sibling record to the Transformation Decision Record ([`spec.md`](../../decision/specification/tdr.md)): the TDR records the decision; the VR records an **Operational Value Commitment** and its life. It is serialised the same way — YAML frontmatter for machine-readable fields, markdown body for human judgement — and it follows the same supersede-don't-edit rule.
 

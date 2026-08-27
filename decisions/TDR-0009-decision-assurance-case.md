@@ -1,5 +1,6 @@
 ---
 id: TDR-0009
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Add the Decision Assurance Case as the TDR's second sibling record
 status: accepted
 template: minimal

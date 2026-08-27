@@ -5,13 +5,13 @@ primary_record: TDR
 records:
   - id: TDR
     specification: specification/tdr.md
-    specification_version: 1.14.0
+    specification_version: 1.15.0
     schema: schema/tdr.schema.json
     templates: [templates/tdr-full.md, templates/tdr-minimal.md, templates/tdr-bare.md]
   - id: DAC
     dependent_on: TDR            # dependent artefact, not a language — TDR-0021
     specification: specification/dac.md
-    specification_version: 1.11.0
+    specification_version: 1.12.0
     schema: schema/dac.schema.json
     templates: [templates/dac.md]
 status: normative

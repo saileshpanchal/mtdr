@@ -1,5 +1,6 @@
 ---
 id: VR-0001
+conforms_to: mtdr/value/vr@2.1.0
 title: Shipping practice skills lowers the cost of a first acceptable record
 status: ratified
 realisation: observing

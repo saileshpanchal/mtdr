@@ -1,6 +1,6 @@
 # Decision Assurance Case (DAC) — Specification
 
-**Version:** 1.11.0 · **Licence:** MIT · **Author:** Sailesh Panchal
+**Version:** 1.12.0 · **Licence:** MIT · **Author:** Sailesh Panchal
 
 The TDR has a second sibling record. Where the **TDR** records organisational judgement and the
 **VR** records the value case, the **Decision Assurance Case (DAC)** records the organisational

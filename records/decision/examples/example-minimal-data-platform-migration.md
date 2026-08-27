@@ -1,5 +1,6 @@
 ---
 id: TDR-0114
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Migrate analytics workloads to a managed cloud warehouse; policy administration data remains on-premises this phase
 status: accepted
 template: minimal

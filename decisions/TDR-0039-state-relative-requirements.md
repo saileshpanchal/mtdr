@@ -1,5 +1,6 @@
 ---
 id: TDR-0039
+conforms_to: mtdr/decision/tdr@1.15.0
 title: State-relative requirements must be represented state-relatively
 status: accepted
 template: full

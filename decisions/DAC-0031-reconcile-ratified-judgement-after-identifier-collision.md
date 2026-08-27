@@ -1,5 +1,6 @@
 ---
 id: DAC-0031
+conforms_to: mtdr/decision/dac@1.12.0
 tdr_id: TDR-0031
 title: Assure prospective reconciliation of ratified judgement after identifier collision
 status: accepted

@@ -1,5 +1,6 @@
 ---
 id: TDR-0010
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Make the risk delta temporal, and sharpen the DAC's object semantics
 status: accepted
 template: minimal

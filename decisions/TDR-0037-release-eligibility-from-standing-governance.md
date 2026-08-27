@@ -1,5 +1,6 @@
 ---
 id: TDR-0037
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Derive release eligibility from standing governance, and fix what eligibility may never decide
 status: accepted
 template: full

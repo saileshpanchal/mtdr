@@ -1,5 +1,6 @@
 ---
 id: TDR-0014
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Publish the Consequential Decision Grammar as a candidate authoring aid
 status: accepted
 template: minimal

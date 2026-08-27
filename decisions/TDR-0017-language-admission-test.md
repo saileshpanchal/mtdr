@@ -1,5 +1,6 @@
 ---
 id: TDR-0017
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Adopt a language admission test, and defer this standard's language specification to evidence
 status: accepted
 template: full

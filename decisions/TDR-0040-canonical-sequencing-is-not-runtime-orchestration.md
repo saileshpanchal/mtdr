@@ -1,5 +1,6 @@
 ---
 id: TDR-0040
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Canonical behavioural sequencing is normative; runtime orchestration is not
 status: accepted
 template: minimal

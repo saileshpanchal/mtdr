@@ -1,5 +1,6 @@
 ---
 id: TDR-0032
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Adopt typed multi-object conformance and make the register an optional collection mechanism
 status: accepted
 template: full

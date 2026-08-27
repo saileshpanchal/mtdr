@@ -1,5 +1,6 @@
 ---
 id: TDR-0019
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Value Record v2 — specify the Operational Value Commitment, and separate epistemic state from value state
 status: accepted
 template: full

@@ -1,5 +1,6 @@
 ---
 id: VR-nnnn
+conforms_to: mtdr/value/vr@2.1.0
 title: <Declarative statement of what is being pursued or preserved>
 status: candidate
 realisation: not-started

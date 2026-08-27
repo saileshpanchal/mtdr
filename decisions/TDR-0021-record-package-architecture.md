@@ -1,5 +1,6 @@
 ---
 id: TDR-0021
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Adopt the record-package architecture — packages follow organisational languages, and dependent artefacts live with the language they serve
 status: accepted
 template: full

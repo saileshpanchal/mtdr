@@ -1,5 +1,6 @@
 ---
 id: TDR-0042
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Classify every changelog version heading as an unreleased development label
 status: accepted
 template: minimal

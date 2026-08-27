@@ -1,5 +1,6 @@
 ---
 id: TDR-0005
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Name the repository MTDR — Markdown Transformation Decision Record
 status: accepted
 template: minimal

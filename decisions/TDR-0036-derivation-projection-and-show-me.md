@@ -1,5 +1,6 @@
 ---
 id: TDR-0036
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Admit the derivation projection and a record-neutral show-me skill
 status: accepted
 template: full

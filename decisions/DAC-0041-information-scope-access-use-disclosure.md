@@ -1,5 +1,6 @@
 ---
 id: DAC-0041
+conforms_to: mtdr/decision/dac@1.12.0
 tdr_id: TDR-0041
 title: Assure the separation of access, use and disclosure within information scope
 status: proposed

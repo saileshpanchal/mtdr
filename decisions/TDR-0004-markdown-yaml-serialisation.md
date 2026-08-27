@@ -1,5 +1,6 @@
 ---
 id: TDR-0004
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Markdown with YAML frontmatter as the serialisation format
 status: accepted
 template: bare

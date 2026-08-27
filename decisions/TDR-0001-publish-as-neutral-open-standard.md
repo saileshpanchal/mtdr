@@ -1,5 +1,6 @@
 ---
 id: TDR-0001
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Publish the Transformation Decision Record as a neutral open standard
 status: accepted
 template: full

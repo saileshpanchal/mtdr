@@ -1,5 +1,6 @@
 ---
 id: TDR-nnnn
+conforms_to: mtdr/decision/tdr@1.15.0
 title: <Declarative statement of the decision>
 status: proposed
 template: minimal

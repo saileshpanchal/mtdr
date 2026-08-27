@@ -1,5 +1,6 @@
 ---
 id: TDR-0035
+conforms_to: mtdr/decision/tdr@1.15.0
 title: Publish a standards boundary — what this standard adopts, maps, interoperates with and defers
 status: accepted
 template: full
