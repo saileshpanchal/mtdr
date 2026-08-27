@@ -1,12 +1,12 @@
 ---
 id: TDR-0042
 title: Classify every changelog version heading as an unreleased development label
-status: proposed
+status: accepted
 template: minimal
 decision_date: 2026-08-21
 accountable_owner: Sailesh Panchal
 confidence: high
-maturity: proposed
+maturity: adopted
 supersedes: none
 derived_from: TDR-0027, TDR-0034, TDR-0037
 confirmed_by_outcome: pending — confirm when one reconciled successor is published as a governed release transition with a matching tag, release record and verification evidence
@@ -14,8 +14,9 @@ confirmed_by_outcome: pending — confirm when one reconciled successor is publi
 
 # TDR-0042 — Classify every changelog version heading as an unreleased development label
 
-> **Proposed. No standing, and it authorises no release. A re-stated judgement — a fresh proposed
-> decision informed by a stranded candidate, not a carried-forward representation of it.**
+> **Accepted 2026-08-21. It still authorises no release.** A re-stated judgement — a fresh
+> decision informed by a stranded candidate, not a carried-forward representation of it.
+> Evidence: [`evidence/TDR-0042-ratification-2026-08-21.md`](evidence/TDR-0042-ratification-2026-08-21.md).
 >
 > The *question* is the one raised on `codex/gate-b-decision-drafts` (`f966a05`), and the answer is
 > compatible with what that candidate proposed. The *facts* are not. The candidate addressed ten

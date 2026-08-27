@@ -1,7 +1,7 @@
 ---
 id: TDR-0023
 title: Adopt the portable skill architecture — skills live with record semantics; shared skills must be demonstrably record-neutral
-status: accepted
+status: superseded
 template: minimal
 decision_date: 2026-08-10
 accountable_owner: Sailesh Panchal

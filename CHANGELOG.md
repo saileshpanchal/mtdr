@@ -2,6 +2,17 @@
 
 All notable changes to the TDR standard (and its MTDR markdown reference format) are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the standard adheres to [Semantic Versioning](https://semver.org/). The *reasoning* behind each significant change lives in [`/decisions`](decisions/) as a TDR — this file is the index to it.
 
+> **Every version heading below is an unreleased development label, not a published release**
+> ([TDR-0042](decisions/TDR-0042-changelog-headings-are-not-releases.md)). This repository has no
+> tags, and a release requires one. The headings record how the work evolved and are preserved as
+> that evidence; none of them was an adopter-facing state, and no retrospective tag will be created
+> for any of them.
+>
+> The repository's assessed state is **`pre-release`**. Its own suite reports it **not eligible** for
+> the governed `released` transition, naming the unmet obligation
+> ([TDR-0037](decisions/TDR-0037-release-eligibility-from-standing-governance.md)). The first genuine
+> release will be a single governed transition with one tag and one release record.
+
 ## [1.29.0] — 2026-08-18
 
 ### Added

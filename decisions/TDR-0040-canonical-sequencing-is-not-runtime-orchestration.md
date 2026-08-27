@@ -1,12 +1,12 @@
 ---
 id: TDR-0040
 title: Canonical behavioural sequencing is normative; runtime orchestration is not
-status: proposed
+status: accepted
 template: minimal
 decision_date: 2026-08-21
 accountable_owner: Sailesh Panchal
 confidence: high
-maturity: proposed
+maturity: adopted
 supersedes: TDR-0023
 derived_from: TDR-0018, TDR-0024, TDR-0026, TDR-0032
 confirmed_by_outcome: pending — review when an independent runtime has been shown to preserve the sequence without being told how to schedule it, or 2027-02-21, whichever is sooner
@@ -14,7 +14,10 @@ confirmed_by_outcome: pending — review when an independent runtime has been sh
 
 # TDR-0040 — Canonical behavioural sequencing is normative; runtime orchestration is not
 
-> **Proposed. No standing. A carry-forward of an unresolved Gate-B judgement.**
+> **Accepted 2026-08-21.** A carry-forward of an unresolved Gate-B judgement, ratified
+> on its own merits — standing originates in that act, not in the Gate-B candidate,
+> which was never ratified. Evidence:
+> [`evidence/TDR-0040-ratification-2026-08-21.md`](evidence/TDR-0040-ratification-2026-08-21.md).
 >
 > This record proposes to supersede [TDR-0023](TDR-0023-portable-skill-architecture.md) **narrowly**,
 > adding one distinction and retaining every other judgement in it. TDR-0023 remains accepted unless
