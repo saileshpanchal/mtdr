@@ -19,7 +19,10 @@ holds a "next free" for this sequence. A contributor allocates correctly from a 
 | **TDR-0037** | **allocated** | release eligibility from standing governance — allocated by the commit introducing it |
 | **TDR-0038** | **allocated** | distribution bundles and the layer boundary — allocated by the commit introducing them |
 | **TDR-0039** | **allocated** | state-relative requirements — allocated by the commit introducing it |
-| **TDR-0040** | **next free** | derived, not authoritative — see below |
+| **TDR-0040** | **allocated** | canonical sequencing is not runtime orchestration — allocated by the commit introducing it |
+| **TDR-0041** | **allocated** | information scope: access, use and disclosure — allocated by the commit introducing it |
+| **TDR-0042** | **allocated** | changelog headings are not releases — allocated by the commit introducing it |
+| **TDR-0043** | **next free** | derived, not authoritative — see below |
 
 ## What the states mean
 
