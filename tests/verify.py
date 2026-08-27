@@ -709,6 +709,12 @@ for rid, r in rows.items():
             fail('obligations', f"{rid}: evidence {ref} does not resolve")
     if r.get('verification') == 'verified' and not (r.get('evidence') or []):
         fail('obligations', f"{rid}: claimed verified with no evidence")
+for k, r in sorted(rows.items()):
+    if 'gates' not in r:
+        fail('obligations', f"{r['id']}: names no gated transition (TDR-0044)")
+    elif r['gates'] != 'released' and not str(r.get('gates_note', '')).strip():
+        fail('obligations', f"{r['id']}: gates {r['gates']!r} with no stated reason — re-scoping is "
+                            f"a decision, and the reason must be about subject")
 note('obligations', f"{len(rows)} constraints registered; "
      f"{sum(1 for r in rows.values() if r['verification'] == 'verified')} verified, "
      f"{sum(1 for r in rows.values() if r['verification'] == 'release-gated')} release-gated, "
@@ -796,11 +802,30 @@ for dim in (Dim.STRUCTURAL, Dim.SEMANTIC, Dim.RELATIONAL):
 # from a curated checklist (specification/obligation-chain.md). Reported, never acted on: a pass would
 # mean the evidenced preconditions are satisfied and the request may be placed before whoever is
 # authorised to decide it — not that anything may be released.
+# TDR-0044: an obligation gates a NAMED transition. Eligibility for the requested transition is
+# computed from only those that gate it; the rest are carried — reported in the result, never
+# counted as unmet and never silently dropped.
+REQUESTED = 'released'
+gating = {k: r for k, r in rows.items() if r.get('gates', 'released') == REQUESTED}
+carried = {k: r for k, r in rows.items() if r.get('gates', 'released') != REQUESTED}
+for k, r in sorted(carried.items()):
+    note('obligations', f"carried, gating {r.get('gates')}: {r['id']} — {r['constraint']}")
+if not gating:
+    # a transition with no obligations gating it is NOT thereby eligible (TDR-0044 rule 2)
+    fail('obligations', f"no obligation gates {REQUESTED}; an empty gate is indeterminate, not pass")
 unmet = [(r['id'].lower().replace('#', '-'), f"{r['id']} — {r['constraint']}: implementation pending")
-         for r in rows.values() if r['implementation'] == 'pending']
+         for r in gating.values() if r['implementation'] == 'pending']
 unproved = [(r['id'].lower().replace('#', '-'), f"{r['id']} — {r['constraint']}: verification {r['verification']}")
-            for r in rows.values() if r['verification'] in ('pending', 'release-gated')]
-if unmet:
+            for r in gating.values() if r['verification'] in ('pending', 'release-gated')]
+if not gating:
+    # TDR-0044 rule 2, enforced where it actually matters. Reporting `fail` on the check alone left
+    # the DIMENSION reporting `pass`, because nothing was unmet -- which is the escape hatch the rule
+    # exists to close: move every obligation off a transition and it becomes eligible by vacancy.
+    assessment.report(Dim.TRANSITION, 'indeterminate',
+                      reasons=[('empty-gate', f"no obligation gates {REQUESTED}; eligibility cannot "
+                                               f"be established by vacancy (TDR-0044)")],
+                      evidence=[('decisions/evidence/DAC-0032-0033-obligations.yaml',)])
+elif unmet:
     assessment.report(Dim.TRANSITION, 'fail', reasons=unmet[:8],
                       evidence=[('decisions/evidence/DAC-0032-0033-obligations.yaml',)])
 elif unproved:
