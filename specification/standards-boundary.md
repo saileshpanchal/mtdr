@@ -19,7 +19,7 @@ explicitly rather than leaving it implicit in a packaging directory.
 
 | Layer | Concern | Who owns it |
 |---|---|---|
-| **Knowledge and provenance packaging** | How a body of material is packaged, described and shipped | Open Knowledge / data-package formats — *mapped* |
+| **Knowledge and provenance packaging** | How a body of material is packaged, described and shipped | Open Knowledge / data-package formats — *deferred* |
 | **Procedural capability** | How a repeatable method is expressed so an agent can apply it | Agent Skills (`SKILL.md`) — **adopted** |
 | **Packaging and distribution** | How capability reaches a particular runtime | Agent plugin packaging — *interoperated with* |
 | **Interaction** | How a participant is handed material and returns results | MCP — *interoperated with* |

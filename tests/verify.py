@@ -100,6 +100,34 @@ for f in skills:
         fail('skill-description', f"{f}: multi-line description")
 note('skills', f"{len(skills)} strict-parsed")
 
+# 3a — Agent Skills conformance (standards-boundary: `adopt`). `adopt` means MTDR uses it directly,
+# as a named dependency — so the claim to prove is not "we have frontmatter" but that MTDR's
+# contract is a STRICT PROFILE of the Agent Skills specification: every field MTDR permits is one
+# the specification admits, and MTDR permits fewer. The six admitted fields are parsed out of
+# `runtime-evidence.md` rather than restated here, so the prose and this check cannot drift apart.
+evidence_text = open('skills/packaging/runtime-evidence.md', encoding='utf-8').read()
+m = re.search(r'admits six frontmatter fields\s*—\s*((?:[^.]|\n)*?)\.', evidence_text)
+AGENT_SKILL_FIELDS = set(re.findall(r'`([a-z-]+)`', m.group(1))) if m else set()
+MTDR_SKILL_FIELDS = {'name', 'description'}
+if len(AGENT_SKILL_FIELDS) != 6:
+    fail('agent-skills', f"runtime-evidence.md states {len(AGENT_SKILL_FIELDS)} admitted fields, not six")
+if not MTDR_SKILL_FIELDS <= AGENT_SKILL_FIELDS:
+    fail('agent-skills', f"MTDR permits {sorted(MTDR_SKILL_FIELDS - AGENT_SKILL_FIELDS)}, which the "
+                         f"Agent Skills specification does not admit — that is a divergence, not an "
+                         f"adoption")
+if not MTDR_SKILL_FIELDS < AGENT_SKILL_FIELDS:
+    fail('agent-skills', "MTDR's contract is not narrower than the specification it profiles")
+# a name the specification's loaders can address: lowercase, digits, single hyphens
+NAME_RE = re.compile(r'^[a-z0-9]+(-[a-z0-9]+)*$')
+for f in skills:
+    fm = frontmatter(f) or {}
+    if not NAME_RE.match(str(fm.get('name', ''))):
+        fail('agent-skills', f"{f}: name {fm.get('name')!r} is not a portable skill name")
+    if not str(fm.get('description', '')).strip():
+        fail('agent-skills', f"{f}: empty description — the field a runtime selects on")
+note('agent-skills', f"{len(skills)} skills profile {sorted(MTDR_SKILL_FIELDS)} of the "
+                     f"specification's {len(AGENT_SKILL_FIELDS)}")
+
 # 3b — stated skill counts match reality. The count drifted silently once; a number in prose that
 # nothing checks is a claim, and this repository does not ship unchecked claims about itself.
 WORDS = {n: i for i, n in enumerate(
@@ -342,6 +370,41 @@ if len(set(counts.values()) | {len(bundled)}) != 1:
     fail('bundle', f"surfaces advertise different catalogues: {counts} against {len(bundled)} collected")
 note('bundles', f"{len(SURFACES)} surfaces, one catalogue of {len(bundled)}, canonical files byte-identical")
 
+# 12c — surface descriptors describe exactly what is generated, and nothing unclaimed is emitted.
+# The standards boundary puts Agent plugin packaging at `interoperate`, whose foreclosure column
+# says a packaging "may explain how to invoke a skill. It may add no record semantics." Every
+# verified runtime turned out to be `direct` — canonical SKILL.md files collected, nothing
+# transformed — so NO plugin or extension manifest is produced. That absence is asserted here
+# rather than left as a fact about the current tree, because the cheapest way to drift across a
+# disposition is to generate an artefact nobody decided to claim.
+UNCLAIMED_ARTEFACTS = ('plugin.json', 'gemini-extension.json', 'marketplace.json',
+                       '.claude-plugin', 'extension.json', 'manifest.json')
+for root, dirs, filenames in os.walk('skills/packaging'):
+    for entry in list(dirs) + filenames:
+        if entry in UNCLAIMED_ARTEFACTS:
+            fail('surfaces', f"{os.path.join(root, entry)}: a packaging artefact no disposition "
+                             f"claims — Agent plugin packaging is `interoperate`, not a producer of "
+                             f"plugin manifests")
+
+# a generated descriptor must still say what the evidence says: an edit to the generated file is
+# drift, and the descriptor is the only place a runtime's verified behaviour is recorded
+DESCRIPTOR_FIELDS = ('title', 'class', 'confidence', 'source', 'project_paths', 'personal_paths',
+                     'also_accepts', 'invocation', 'progressive_disclosure', 'unverified')
+for key, spec in SURFACES.items():
+    d = yaml.safe_load(open(f'skills/packaging/{key}/surface.yaml'))
+    if d.get('surface') != key:
+        fail('surfaces', f"{key}: descriptor names itself {d.get('surface')!r}")
+    for field in DESCRIPTOR_FIELDS:
+        if d.get(field) != spec.get(field):
+            fail('surfaces', f"{key}.{field}: descriptor says {d.get(field)!r}, the verified "
+                             f"evidence says {spec.get(field)!r}")
+    if d.get('class') == 'direct' and 'byte-identical' not in str(d.get('transformation', '')):
+        fail('surfaces', f"{key}: class is `direct` but the descriptor does not state that the "
+                         f"canonical files are copied unmodified")
+direct = sum(1 for v in SURFACES.values() if v['class'] == 'direct')
+note('surfaces', f"{len(SURFACES)} descriptors match their evidence; {direct} direct; "
+                 f"no unclaimed packaging artefact")
+
 # 12c — progressive disclosure: selecting and running one skill must not cost the whole corpus
 sys.path.insert(0, os.path.join(os.getcwd(), 'tests', 'adoption'))
 import disclosure  # noqa: E402
@@ -510,6 +573,37 @@ for row in re.findall(r'^\|(.+?)\|(.+?)\|(.+?)\|(.+?)\|\s*$', register.split('##
     if len(foreclosure) < 20:
         fail('standards', f"{name}: nothing stated about what the disposition does not mean")
 note('standards', f"{register_rows} dispositions, each reasoned and foreclosed")
+
+# 13f — the layer summary must agree with the register it summarises (TDR-0035). The check above
+# reads only what follows `## The register`; the layer table sits before it and nothing read it, so
+# a summary drifted out of agreement with its own source and the suite could not see it. A check
+# scoped to one half of a document is a check that guarantees the other half.
+DISPOSITION_OF_PHRASE = {'adopted': 'adopt', 'mapped': 'map', 'interoperated with': 'interoperate',
+                         'deferred': 'defer', 'rejected': 'reject'}
+register_disposition = {}
+for row in re.findall(r'^\|(.+?)\|(.+?)\|(.+?)\|(.+?)\|\s*$', register.split('## The register')[-1], re.M):
+    name, disp = (c.strip() for c in row[:2])
+    if set(disp) <= set('- ') or disp == 'Disposition':
+        continue
+    register_disposition[name.replace('*', '').strip()] = disp
+
+layer_rows = 0
+for row in re.findall(r'^\|(.+?)\|(.+?)\|(.+?)\|\s*$', register.split('## The register')[0], re.M):
+    owner = row[2].strip()
+    m = re.match(r'^(.*?)\s+—\s+[*_]{1,2}([^*_]+)[*_]{1,2}', owner)
+    if not m:
+        continue
+    name, phrase = m.group(1).replace('*', '').strip(), m.group(2).strip().lower()
+    if name not in register_disposition:
+        continue                      # MTDR and authorised human acts own themselves
+    layer_rows += 1
+    stated = DISPOSITION_OF_PHRASE.get(phrase)
+    if stated is None:
+        fail('standards', f"layer summary: {name!r} states {phrase!r}, which is not a disposition")
+    elif stated != register_disposition[name]:
+        fail('standards', f"layer summary says {name} is {stated!r}; the register says "
+                          f"{register_disposition[name]!r} — the register is the authority")
+note('standards', f"{layer_rows} layer rows agree with the register")
 
 # 14 — repository assessment. A typed TDR-0032 subject reporting the four TDR-0033 dimensions.
 DIMENSION_OF = {
