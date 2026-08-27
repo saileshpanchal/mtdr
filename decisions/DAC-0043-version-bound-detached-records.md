@@ -3,7 +3,7 @@ id: DAC-0043
 conforms_to: mtdr/decision/dac@1.12.0
 tdr_id: TDR-0043
 title: Assure the record-to-specification binding
-status: proposed
+status: accepted
 disposition: proceed-with-constraints
 assessed_at: 2026-08-27
 accountable_owner: Sailesh Panchal
@@ -14,8 +14,8 @@ supersedes: none
 
 # DAC-0043 — Assure the record-to-specification binding
 
-> **Proposed.** Routed because TDR-0043 changes all three record families and discharges a release
-> obligation. It has no standing until TDR-0043 is ratified.
+> **Accepted 2026-08-27**, `proceed-with-constraints`. Routed because TDR-0043 changes all three
+> record families and discharges a release obligation. Its six constraints bind.
 
 ## Uncertainty
 

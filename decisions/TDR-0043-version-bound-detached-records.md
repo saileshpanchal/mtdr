@@ -2,12 +2,12 @@
 id: TDR-0043
 conforms_to: mtdr/decision/tdr@1.15.0
 title: A record binds itself to the specification that governs it
-status: proposed
+status: accepted
 template: full
 decision_date: 2026-08-27
 accountable_owner: Sailesh Panchal
 confidence: high
-maturity: proposed
+maturity: adopted
 supersedes: none
 derived_from: TDR-0032, TDR-0033, TDR-0039
 confirmed_by_outcome: pending — confirm when a record has been read and validated outside this repository by someone holding nothing but the file, or 2027-02-27, whichever is sooner
@@ -15,8 +15,9 @@ confirmed_by_outcome: pending — confirm when a record has been read and valida
 
 # TDR-0043 — A record binds itself to the specification that governs it
 
-> **Proposed.** No standing. Discharges [DAC-0032](DAC-0032-typed-multi-object-conformance.md)
-> constraint 2, the one obligation deliberately deferred past `baseline-2026-08-21`.
+> **Accepted 2026-08-27.** Discharges [DAC-0032](DAC-0032-typed-multi-object-conformance.md)
+> constraint 2, the one obligation deliberately deferred past `baseline-2026-08-21`. Evidence:
+> [`evidence/TDR-0043-ratification-2026-08-27.md`](evidence/TDR-0043-ratification-2026-08-27.md).
 
 ## Context — what was known at the time
 
