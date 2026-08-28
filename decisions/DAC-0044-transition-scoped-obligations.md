@@ -3,7 +3,7 @@ id: DAC-0044
 conforms_to: mtdr/decision/dac@1.12.0
 tdr_id: TDR-0044
 title: Assure transition-scoped obligations
-status: proposed
+status: accepted
 disposition: proceed-with-constraints
 assessed_at: 2026-08-27
 accountable_owner: Sailesh Panchal
@@ -14,8 +14,9 @@ supersedes: none
 
 # DAC-0044 — Assure transition-scoped obligations
 
-> **Proposed.** Routed because this changes what *eligible* means, and it does so while a release is
-> being sought. That combination is the whole reason to assure it.
+> **Accepted 2026-08-27**, `proceed-with-constraints`. Routed because this changes what *eligible*
+> means, and does so while a release is being sought. That combination is the whole reason to assure
+> it, and its six constraints bind.
 
 ## Uncertainty
 

@@ -2,12 +2,12 @@
 id: TDR-0044
 conforms_to: mtdr/decision/tdr@1.15.0
 title: An obligation gates a named transition, not every transition
-status: proposed
+status: accepted
 template: full
 decision_date: 2026-08-27
 accountable_owner: Sailesh Panchal
 confidence: high
-maturity: proposed
+maturity: adopted
 supersedes: none
 derived_from: TDR-0032, TDR-0033, TDR-0037
 confirmed_by_outcome: pending — confirm when a second transition is defined and the register partitions cleanly between them, or 2027-02-27, whichever is sooner
@@ -15,8 +15,9 @@ confirmed_by_outcome: pending — confirm when a second transition is defined an
 
 # TDR-0044 — An obligation gates a named transition, not every transition
 
-> **Proposed.** No standing. It changes how eligibility is computed and does not by itself make any
-> transition eligible.
+> **Accepted 2026-08-27.** It changes how eligibility is computed and makes no transition eligible.
+> Ratified as its own act, before and separately from any release authorisation. Evidence:
+> [`evidence/TDR-0044-ratification-2026-08-27.md`](evidence/TDR-0044-ratification-2026-08-27.md).
 
 ## Context — what was known at the time
 

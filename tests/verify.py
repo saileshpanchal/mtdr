@@ -585,6 +585,33 @@ def _reference_shape():
     return r.to_dict()
 
 
+def _empty_gate_is_indeterminate():
+    """TDR-0044's anti-vacancy rule, protected as a regression rather than trusted.
+
+    Falsification found that reporting a check failure on an empty gate left the DIMENSION reporting
+    `pass`, because nothing was unmet -- move every obligation off a transition and it becomes
+    eligible by vacancy. This probe fails if that path is ever reintroduced.
+    """
+    r = ValidationResult('repository', 'probe', 'specification/conformance.md', '1.0.0',
+                         assessed_state='pre-release',
+                         requested_transition={'from': 'pre-release', 'to': 'nothing-gates-this'})
+    for d in (Dim.STRUCTURAL, Dim.SEMANTIC, Dim.RELATIONAL):
+        r.report(d, PASS)
+    gating_probe = {}                                  # deliberately empty
+    if not gating_probe:
+        r.report(Dim.TRANSITION, 'indeterminate',
+                 reasons=[('empty-gate', 'no obligation gates this transition')])
+    else:
+        r.report(Dim.TRANSITION, PASS)
+    got = [d['result'] for d in r.to_dict()['dimensions']
+           if d['dimension'] == Dim.TRANSITION][0]
+    if got != 'indeterminate':
+        fail('must-not', f"an empty gate reported {got!r}; eligibility may not be established by "
+                         f"vacancy (TDR-0044)")
+
+_empty_gate_is_indeterminate()
+
+
 def refuses(what, thunk):
     try:
         thunk()
@@ -808,8 +835,17 @@ for dim in (Dim.STRUCTURAL, Dim.SEMANTIC, Dim.RELATIONAL):
 REQUESTED = 'released'
 gating = {k: r for k, r in rows.items() if r.get('gates', 'released') == REQUESTED}
 carried = {k: r for k, r in rows.items() if r.get('gates', 'released') != REQUESTED}
+# DAC-0044 constraint 3: carried obligations appear in EVERY result, whatever transition was
+# requested. Splitting the register by transition would otherwise make each view look complete when
+# the whole is not. The code says plainly that these did not determine the result.
+carried_reasons = []
 for k, r in sorted(carried.items()):
+    state = f"implementation {r['implementation']}, verification {r['verification']}"
     note('obligations', f"carried, gating {r.get('gates')}: {r['id']} — {r['constraint']}")
+    carried_reasons.append(
+        ('carried-not-gating',
+         f"{r['id']} — {r['constraint']}: gates {r.get('gates')}, not this transition; {state}. "
+         f"Outstanding debt, carried rather than counted (TDR-0044)."))
 if not gating:
     # a transition with no obligations gating it is NOT thereby eligible (TDR-0044 rule 2)
     fail('obligations', f"no obligation gates {REQUESTED}; an empty gate is indeterminate, not pass")
@@ -823,16 +859,17 @@ if not gating:
     # exists to close: move every obligation off a transition and it becomes eligible by vacancy.
     assessment.report(Dim.TRANSITION, 'indeterminate',
                       reasons=[('empty-gate', f"no obligation gates {REQUESTED}; eligibility cannot "
-                                               f"be established by vacancy (TDR-0044)")],
+                                              f"be established by vacancy (TDR-0044)")]
+                              + carried_reasons,
                       evidence=[('decisions/evidence/DAC-0032-0033-obligations.yaml',)])
 elif unmet:
-    assessment.report(Dim.TRANSITION, 'fail', reasons=unmet[:8],
+    assessment.report(Dim.TRANSITION, 'fail', reasons=unmet[:8] + carried_reasons,
                       evidence=[('decisions/evidence/DAC-0032-0033-obligations.yaml',)])
 elif unproved:
-    assessment.report(Dim.TRANSITION, 'indeterminate', reasons=unproved[:8],
+    assessment.report(Dim.TRANSITION, 'indeterminate', reasons=unproved[:8] + carried_reasons,
                       evidence=[('decisions/evidence/DAC-0032-0033-obligations.yaml',)])
 else:
-    assessment.report(Dim.TRANSITION, PASS,
+    assessment.report(Dim.TRANSITION, PASS, reasons=carried_reasons,
                       evidence=[('decisions/evidence/DAC-0032-0033-obligations.yaml',)])
 
 print()
