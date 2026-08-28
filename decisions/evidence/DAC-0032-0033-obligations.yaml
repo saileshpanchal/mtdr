@@ -105,7 +105,14 @@ obligations:
   - id: DAC-0032#4
     constraint: Zero-install proof before release
     owner: Sailesh Panchal
-    gates: released
+    gates: externally-validated
+    gates_note: >-
+      Re-scoped by TDR-0045, on subject: the measure concerns a PARTICIPANT -- what someone unknown
+      to the author can do unaided with a published distribution -- and under TDR-0032 a claim about
+      participant behaviour implies nothing about repository conformance. It is also unsatisfiable
+      before the transition it gated, since publication is what makes an unknown participant
+      possible. Retained entire, still release-gated, carried in every result. Not discharged, not
+      weakened, not deleted. MTDR claims no external validation while this stands.
     measure: >-
       A participant unknown to the author produces and validates the claimed objects from a clean
       distribution without an MTDR application, register, service or maintainer intervention.

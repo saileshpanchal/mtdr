@@ -24,7 +24,8 @@ holds a "next free" for this sequence. A contributor allocates correctly from a 
 | **TDR-0042** | **allocated** | changelog headings are not releases — allocated by the commit introducing it |
 | **TDR-0043** | **allocated** | version-bound detached records — allocated by the commit introducing it |
 | **TDR-0044** | **allocated** | transition-scoped obligations — allocated by the commit introducing it |
-| **TDR-0045** | **next free** | derived, not authoritative — see below |
+| **TDR-0045** | **allocated** | external validation follows publication — allocated by the commit introducing it |
+| **TDR-0046** | **next free** | derived, not authoritative — see below |
 
 ## What the states mean
 

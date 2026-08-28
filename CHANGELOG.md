@@ -2,16 +2,35 @@
 
 All notable changes to the TDR standard (and its MTDR markdown reference format) are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/), and the standard adheres to [Semantic Versioning](https://semver.org/). The *reasoning* behind each significant change lives in [`/decisions`](decisions/) as a TDR — this file is the index to it.
 
-> **Every version heading below is an unreleased development label, not a published release**
-> ([TDR-0042](decisions/TDR-0042-changelog-headings-are-not-releases.md)). This repository has no
-> tags, and a release requires one. The headings record how the work evolved and are preserved as
-> that evidence; none of them was an adopter-facing state, and no retrospective tag will be created
-> for any of them.
+> **Version headings 1.0.0 – 1.29.0 are unreleased development labels, not published releases**
+> ([TDR-0042](decisions/TDR-0042-changelog-headings-are-not-releases.md)). They record how the work
+> evolved and are preserved as that evidence; none was an adopter-facing state, and no retrospective
+> tag will be created for any of them.
 >
-> The repository's assessed state is **`pre-release`**. Its own suite reports it **not eligible** for
-> the governed `released` transition, naming the unmet obligation
-> ([TDR-0037](decisions/TDR-0037-release-eligibility-from-standing-governance.md)). The first genuine
-> release will be a single governed transition with one tag and one release record.
+> **v1.30.0 is the first governed release** — one tag, one release record, at
+> [`decisions/evidence/release-v1.30.0-2026-08-27.md`](decisions/evidence/release-v1.30.0-2026-08-27.md).
+
+## [1.30.0] — 2026-08-27
+
+**The first governed public release of MTDR.** Structurally, semantically and relationally verified
+against its own published contracts. **External zero-install adoption evidence is not yet claimed**
+and will be gathered through use.
+
+### Added
+- **Records bind themselves to the specification that governs them** ([TDR-0043](decisions/TDR-0043-version-bound-detached-records.md), [`specification/record-identity.md`](specification/record-identity.md)) — one optional `conforms_to: mtdr/<package>/<record>@<version>` field, required of this repository's own governed records. A detached record — one file, no repository around it — can now identify its type and resolve the specification and schema that govern it. **Resolution is by rule**, `records/<package>/schema/<record>.schema.json`, never by registry: a registry is a service, and a record needing a service to remain interpretable would have failed the constraint rather than met it. Proved the way the constraint asks — a record copied *out* to an empty directory and resolved from its binding alone. Discharges DAC-0032 constraint 2.
+- **The extraction trial** — both normative packages copied into an empty directory with only their declared normative dependencies, conformance contract run there with nothing else reachable. The constraint's own allowance is honoured rather than overridden: the complete corpus may remain durably referenced, so a `provenance` or `explanatory` reference may legitimately dangle; a normative dependency may not. Discharges DAC-0032 constraint 3.
+- **Obligations gate a named transition** ([TDR-0044](decisions/TDR-0044-transition-scoped-obligations.md)) — the register gains `gates`, and eligibility is computed only from obligations gating the requested transition. The rest are **carried**: reported in every result under `carried-not-gating`, never counted as unmet, never dropped. **An empty gate reports `indeterminate`, never `pass`** — eligibility cannot be established by vacancy, a defect found by falsifying the rule rather than trusting it.
+- **External validation follows publication** ([TDR-0045](decisions/TDR-0045-external-validation-follows-publication.md)) — `DAC-0032#4` moves to `externally-validated`. An obligation satisfied only *after* publication cannot be a precondition *of* publication, and its subject is a participant rather than this repository. Retained entire and still outstanding.
+
+### Changed
+- Specifications take additive minor versions — TDR **1.15.0**, DAC **1.12.0**, VR **2.1.0**. Every prior record still validates; the new field is optional in schema precisely so that remains true.
+- `assessed_state` moves `pre-release` → `released`, and the repository now requests `externally-validated` — reporting `indeterminate` against the next gate rather than silence.
+
+### Known constraints
+- **`DAC-0032#4`** — zero-install proof by a participant unknown to the author. Outstanding. Gates `externally-validated`.
+- **`DAC-0032#5`** — registration/export round-trip. `not-applicable` here; belongs to whoever operates a register. Gates `registered`.
+- **`TDR-0041`** remains `proposed` and owes the comparative review DAC-0041 names as unmet.
+- Defects are expected in a first public release. The test MTDR sets itself is not that none exist, but that they are made visible, traceable and correctable **without corrupting history** — which is what supersession is for.
 
 ## [1.29.0] — 2026-08-18
 

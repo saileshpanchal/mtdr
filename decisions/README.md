@@ -49,6 +49,7 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0042](TDR-0042-changelog-headings-are-not-releases.md) | Every changelog version heading is an unreleased development label; no retrospective tags | Minimal — bounded release-governance classification |
 | [TDR-0043](TDR-0043-version-bound-detached-records.md) | A record binds itself to the specification that governs it | Full — a new frontmatter field across every record family is a one-way door |
 | [TDR-0044](TDR-0044-transition-scoped-obligations.md) | An obligation gates a named transition, not every transition | Full — changing what *eligible* means is a one-way door |
+| [TDR-0045](TDR-0045-external-validation-follows-publication.md) | External validation follows publication and cannot gate it | Full — re-scoping the last release obligation is a one-way door |
 
 ## Identifiers
 
@@ -66,6 +67,7 @@ The records also demonstrate the proportionality rule in practice:
 | [DAC-0041](DAC-0041-information-scope-access-use-disclosure.md) | **Proposed** — TDR-0041 information-scope separation | Proceed with constraints |
 | [DAC-0043](DAC-0043-version-bound-detached-records.md) | TDR-0043 record-to-specification binding | Proceed with constraints |
 | [DAC-0044](DAC-0044-transition-scoped-obligations.md) | TDR-0044 transition-scoped obligations | Proceed with constraints |
+| [DAC-0045](DAC-0045-external-validation-follows-publication.md) | TDR-0045 re-scoping the zero-install proof | Proceed with constraints |
 
 DAC-0032 and DAC-0033 carry fifteen live obligations between them.
 [`evidence/DAC-0032-0033-obligations.yaml`](evidence/DAC-0032-0033-obligations.yaml) registers every

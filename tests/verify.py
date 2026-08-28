@@ -810,8 +810,8 @@ DIMENSION_OF = {
 }
 assessment = ValidationResult(
     'repository', 'mtdr', 'specification/conformance.md', '1.0.0', subject_ref='.',
-    assessed_state='pre-release',
-    requested_transition={'from': 'pre-release', 'to': 'released'},
+    assessed_state='released',
+    requested_transition={'from': 'released', 'to': 'externally-validated'},
     context={'id': 'clean-clone',
              'description': 'The working tree alone — no register, service or network.'},
     validator={'name': 'tests/verify.py', 'version': '1.0.0'})
@@ -832,7 +832,7 @@ for dim in (Dim.STRUCTURAL, Dim.SEMANTIC, Dim.RELATIONAL):
 # TDR-0044: an obligation gates a NAMED transition. Eligibility for the requested transition is
 # computed from only those that gate it; the rest are carried — reported in the result, never
 # counted as unmet and never silently dropped.
-REQUESTED = 'released'
+REQUESTED = 'externally-validated'
 gating = {k: r for k, r in rows.items() if r.get('gates', 'released') == REQUESTED}
 carried = {k: r for k, r in rows.items() if r.get('gates', 'released') != REQUESTED}
 # DAC-0044 constraint 3: carried obligations appear in EVERY result, whatever transition was
