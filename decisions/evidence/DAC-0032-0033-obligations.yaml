@@ -31,6 +31,7 @@ obligations:
   - id: DAC-0032#1
     constraint: Typed normative claims only
     owner: Sailesh Panchal
+    gates: released
     measure: >-
       Normative surfaces contain no generic "MTDR conformant" claim without naming record,
       interchange, package, skill, participant/implementation, collection or repository as the
@@ -50,6 +51,7 @@ obligations:
   - id: DAC-0032#2
     constraint: Version-bound detached records
     owner: Sailesh Panchal
+    gates: released
     measure: >-
       Before release, a detached record can identify and durably resolve its record type, applicable
       specification identity and version, and validate without repository-private interpretation.
@@ -76,6 +78,7 @@ obligations:
   - id: DAC-0032#3
     constraint: Classified normative closure
     owner: Sailesh Panchal
+    gates: released
     measure: >-
       Every package dependency is classified and an extracted package passes its applicable
       conformance contract with no undocumented normative dependency; the complete corpus may remain
@@ -102,6 +105,14 @@ obligations:
   - id: DAC-0032#4
     constraint: Zero-install proof before release
     owner: Sailesh Panchal
+    gates: externally-validated
+    gates_note: >-
+      Re-scoped by TDR-0045, on subject: the measure concerns a PARTICIPANT -- what someone unknown
+      to the author can do unaided with a published distribution -- and under TDR-0032 a claim about
+      participant behaviour implies nothing about repository conformance. It is also unsatisfiable
+      before the transition it gated, since publication is what makes an unknown participant
+      possible. Retained entire, still release-gated, carried in every result. Not discharged, not
+      weakened, not deleted. MTDR claims no external validation while this stands.
     measure: >-
       A participant unknown to the author produces and validates the claimed objects from a clean
       distribution without an MTDR application, register, service or maintainer intervention.
@@ -118,6 +129,12 @@ obligations:
   - id: DAC-0032#5
     constraint: Registration/export round-trip before release
     owner: Sailesh Panchal
+    gates: registered
+    gates_note: >-
+      Re-scoped by TDR-0044, on subject rather than difficulty: the measure concerns a
+      register, this repository performs no registration, and under TDR-0032 a claim about
+      one subject implies nothing about another. Retained entire -- measure, owner and note
+      unchanged -- and carried in every result. Not discharged, not weakened, not deleted.
     measure: >-
       Pre-entry and post-export comparisons show no material change in semantics, conformance or
       standing, and storage alone produces no `accepted` transition.
@@ -131,6 +148,7 @@ obligations:
   - id: DAC-0032#6
     constraint: No collection-conformance advertising yet
     owner: Sailesh Panchal
+    gates: released
     measure: >-
       No normative "MTDR-conformant register/collection" claim until a separately governed, testable
       collection contract covers identity, specification context, lineage, standing evidence,
@@ -148,6 +166,7 @@ obligations:
   - id: DAC-0032#7
     constraint: Narrow lineage preserved
     owner: Sailesh Panchal
+    gates: released
     measure: >-
       TDR-0012 remains immutable historical evidence; TDR-0032 displaces only
       register-as-universal-minimum and explicitly retains runtime neutrality, optional consumers and
@@ -167,6 +186,7 @@ obligations:
   - id: DAC-0033#1
     constraint: Versioned result contract before release
     owner: Sailesh Panchal
+    gates: released
     measure: >-
       Every validation result identifies the typed TDR-0032 subject, applicable specification
       identity/version, four dimensions, reasons, evidence and evaluation context, and rejects
@@ -185,6 +205,7 @@ obligations:
   - id: DAC-0033#2
     constraint: Independent layer fixtures
     owner: Sailesh Panchal
+    gates: released
     measure: >-
       Fixtures exercise pass, fail, indeterminate and not-applicable wherever legal for each
       dimension without treating the four dimensions as a pass pipeline.
@@ -202,6 +223,7 @@ obligations:
   - id: DAC-0033#3
     constraint: Incomplete-candidate proof
     owner: Sailesh Panchal
+    gates: released
     measure: >-
       After TDR-0019 governs the schema correction, a candidate VR lacking only transition-required
       finance counter-signature passes current-state structural and semantic validity and fails
@@ -223,6 +245,7 @@ obligations:
   - id: DAC-0033#4
     constraint: Relational portability
     owner: Sailesh Panchal
+    gates: released
     measure: >-
       Resolved, broken, incompatible and unavailable-reference fixtures produce distinct relational
       results from a declared portable evaluation context without requiring a register or graph.
@@ -240,6 +263,7 @@ obligations:
   - id: DAC-0033#5
     constraint: No authority or mutation
     owner: Sailesh Panchal
+    gates: released
     measure: >-
       Must-not probes prove validators never repair input, fill missing human information, promote
       state, ratify, infer standing or use `indeterminate` as permission; byte comparison preserves
@@ -258,6 +282,7 @@ obligations:
   - id: DAC-0033#6
     constraint: VR correction only through TDR-0019
     owner: Sailesh Panchal
+    gates: released
     measure: >-
       No opportunistic change to the VR schema or lifecycle under TDR-0033; the inconsistency remains
       explicit until the VR v2 judgement is ratified and remediated.
@@ -277,6 +302,7 @@ obligations:
   - id: DAC-0033#7
     constraint: Behaviour remains a separate claim
     owner: Sailesh Panchal
+    gates: released
     measure: >-
       Participant execution is tested and reported under TDR-0032 behavioural conformance, never as a
       fifth record-validity dimension or an implication from skill-file validity.
@@ -294,6 +320,7 @@ obligations:
   - id: DAC-0033#8
     constraint: No aggregate normative verdict
     owner: Sailesh Panchal
+    gates: released
     measure: >-
       Interfaces may summarise for usability but retain and expose every dimension; no normative
       aggregate green result overrides a failure or indeterminate result.
