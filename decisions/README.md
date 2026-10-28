@@ -50,6 +50,8 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0043](TDR-0043-version-bound-detached-records.md) | A record binds itself to the specification that governs it | Full — a new frontmatter field across every record family is a one-way door |
 | [TDR-0044](TDR-0044-transition-scoped-obligations.md) | An obligation gates a named transition, not every transition | Full — changing what *eligible* means is a one-way door |
 | [TDR-0045](TDR-0045-external-validation-follows-publication.md) | External validation follows publication and cannot gate it | Full — re-scoping the last release obligation is a one-way door |
+| [TDR-0046](TDR-0046-oir-experiment-preregistration.md) | Pre-register the Operational Inheritance Record experiment before building it — **admits nothing** | Full — a frozen test is a one-way door |
+| [TDR-0047](TDR-0047-experimental-packages.md) | Admission to the experimental runtime is not admission to the standard | Minimal — a reusable route for every candidate |
 
 ## Identifiers
 

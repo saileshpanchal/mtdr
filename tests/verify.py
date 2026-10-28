@@ -283,6 +283,31 @@ else:
         fail('allocation', f"stated next free TDR-{stated:04d} != max(allocated ∪ burnt) + 1 = TDR-{derived:04d}")
 note('allocation', f"{len(ALLOCATED)} allocated, {len(BURNT)} burnt, next free derived")
 
+# 10a — pre-registered experiments (TDR-0046, TDR-0047). An implementation may not redefine the test
+# that judges it, so every frozen criterion committed through an evidence commitment is held to the
+# hash recorded when it was frozen, at every commit thereafter. A defect is answered by a superseding
+# pre-registration, never by an edit.
+import hashlib                                                                # noqa: E402
+_sha = lambda p: hashlib.sha256(open(p, 'rb').read()).hexdigest()
+prereg = 0
+for commitment in sorted(glob.glob('decisions/evidence/TDR-*-evidence-commitment.json')):
+    c = json.load(open(commitment, encoding='utf-8'))
+    pr = c.get('preregistration') or {}
+    if not pr.get('path') or not os.path.exists(pr['path']):
+        fail('preregistration', f"{commitment}: names no pre-registration that exists")
+        continue
+    if _sha(pr['path']) != pr.get('sha256'):
+        fail('preregistration', f"{pr['path']} has changed since it was frozen — answer a defect with a "
+                                f"superseding pre-registration, never an edit")
+    comp = c.get('comparator') or {}
+    if comp.get('path'):
+        if not os.path.exists(comp['path']):
+            fail('preregistration', f"{commitment}: comparator freeze {comp['path']} is missing")
+        elif json.load(open(comp['path'])).get('aggregate_sha256') != comp.get('aggregate_sha256'):
+            fail('preregistration', f"{comp['path']} no longer matches the comparator committed to")
+    prereg += 1
+note('preregistration', f"{prereg} pre-registered experiment(s); frozen criteria unchanged")
+
 # 10b — version-bound detached records (DAC-0032 constraint 2, TDR-0043). The obligations register
 # warned that the serialisation round-trip "proves nothing about a detached record", so this does the
 # thing the constraint actually asks: copy a record OUT, delete every trace of the repository from
@@ -807,7 +832,17 @@ DIMENSION_OF = {
     'lineage': Dim.RELATIONAL, 'link': Dim.RELATIONAL, 'allocation': Dim.RELATIONAL,
     'closure': Dim.RELATIONAL, 'round-trip': Dim.STRUCTURAL, 'bundle': Dim.SEMANTIC,
     'disclosure': Dim.SEMANTIC,
+    # Added checks must be mapped here: an unmapped failure reports `indeterminate` everywhere,
+    # which under TDR-0033 claims the fact is unestablished when it is established false.
+    'identity': Dim.RELATIONAL, 'extraction': Dim.RELATIONAL, 'agent-skills': Dim.STRUCTURAL,
+    'surfaces': Dim.SEMANTIC, 'preregistration': Dim.SEMANTIC,
 }
+# Guard: every check this suite can fail must have a dimension. Read from the suite's own source, so a
+# new check added without a mapping is caught the first time the suite runs, not the first time it fails.
+DIMENSION_OF['dimension-map'] = Dim.STRUCTURAL
+_own = open(__file__, encoding='utf-8').read()
+for _name in sorted(set(re.findall(r"fail\('([a-z-]+)'", _own)) - set(DIMENSION_OF)):
+    fail('dimension-map', f"check {_name!r} has no dimension; its failures would report indeterminate")
 assessment = ValidationResult(
     'repository', 'mtdr', 'specification/conformance.md', '1.0.0', subject_ref='.',
     assessed_state='released',

@@ -1,0 +1,29 @@
+{
+  "purpose": "A public, timestamped commitment to the experiment's private evidence, made before any Operational Inheritance Record content existed in this repository. It discloses no corpus file, name or content -- only hashes -- so the evidence can be checked later without being published now.",
+  "governed_by": "TDR-0046",
+  "preregistration": {
+    "path": "decisions/evidence/TDR-0046-preregistration.md",
+    "sha256": "0a19b90c48f2ddc69b8e3f2d6425e932adac0951e1c2fbcd2ad55b6cb8916de9",
+    "enforced": "tests/verify.py refuses any change"
+  },
+  "comparator": {
+    "path": "decisions/evidence/TDR-0046-comparator-freeze.json",
+    "tag": "v1.30.0",
+    "aggregate_sha256": "47a59804aca21716c7b0df3decd354be6a560874b5344a759e5005764f54269c"
+  },
+  "scenario_corpus": {
+    "description": "a private operational service-delivery estate for a payments platform, 2019",
+    "selection": "every file, by rule",
+    "file_count": 371,
+    "aggregate_sha256": "3b856b43df169aea286d1bc83d377ad5f81d2356f54b5c9b8437f9f203cc8151"
+  },
+  "evaluator_specification": {
+    "sha256": "2813107244640d0d32bf771d2200a496eb52920b53163a4095f2ddda0f909728",
+    "harness_commit": "0b5f42b759b831e722a1d9b842835fded4c73c34",
+    "note": "held in the experiment's private harness, committed before this record"
+  },
+  "pending_pins": [
+    "oir_implementation",
+    "runtime"
+  ]
+}

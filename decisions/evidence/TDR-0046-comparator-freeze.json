@@ -1,0 +1,414 @@
+{
+  "purpose": "The comparator for the OIR experiment: the standard as it stood before any Operational Inheritance Record existed. The without-OIR arm runs against exactly these bytes. Pinned to an immutable tag, so the experiment cannot move it and the rest of the standard remains free to evolve.",
+  "governed_by": "TDR-0046",
+  "tag": "v1.30.0",
+  "commit": "61a1cbac8159cd609288664ccc69ce58e22ed9b9",
+  "set": [
+    "specification",
+    "schemas",
+    "skills/shared",
+    "records/decision",
+    "records/value"
+  ],
+  "aggregate_rule": "sha256 over one line per file, \"<sha256>  <path>\\n\", sorted by path as UTF-8 bytes; each file hashed from the tag's git objects, not a working tree.",
+  "file_count": 99,
+  "aggregate_sha256": "47a59804aca21716c7b0df3decd354be6a560874b5344a759e5005764f54269c",
+  "files": [
+    {
+      "path": "records/decision/README.md",
+      "sha256": "4b5f2e03d0c0bed609e3e67d4693df39fca37e69b7718516fa7b06d0d6cd3901"
+    },
+    {
+      "path": "records/decision/examples/example-assurance-agentic-payment.md",
+      "sha256": "94296cd6d23d4f14c12ca85c55dce824b2d8851a6ef6ecd0a57bead38c626890"
+    },
+    {
+      "path": "records/decision/examples/example-full-consumer-duty-channel-decision.md",
+      "sha256": "a8fa8d820cdf50c62c066a164d7a5ed1e2a2e96b82b234dae870734b85cc6fc1"
+    },
+    {
+      "path": "records/decision/examples/example-minimal-data-platform-migration.md",
+      "sha256": "0c30b915d6e9ea75e36a46956a04776756b2cae3585dea8ae5faed3338f906d5"
+    },
+    {
+      "path": "records/decision/fixtures/FIX-004-complete-in-one-source.md",
+      "sha256": "3bf6041e9b3e08a936032d65ee193250f2a1ca046aa19ae24afc3da2aa127e78"
+    },
+    {
+      "path": "records/decision/package.yaml",
+      "sha256": "8c24931cc786af2e21904f255d4a79e497f9f906564a187629cb668539668013"
+    },
+    {
+      "path": "records/decision/practice/decision-grammar.md",
+      "sha256": "d7ef9800b2c92083f41a59007869ee1a3385a3ab32676c96a9e8e424cf0ed45f"
+    },
+    {
+      "path": "records/decision/schema/dac.schema.json",
+      "sha256": "59a75afc2bffdd8b43c712d6132f677265c0a7953f52602c7596f1fd3dcaa03a"
+    },
+    {
+      "path": "records/decision/schema/tdr.schema.json",
+      "sha256": "ecb5cecef9f9370405d6c8ad39258aff01114639fe686e46624016c75f542394"
+    },
+    {
+      "path": "records/decision/skills/assurance/accumulated-and-resultant-risk/SKILL.md",
+      "sha256": "dd5d86a58aab0be80804c03fdaa68fc51a56ad31a00fa5f1d555d71b8809973e"
+    },
+    {
+      "path": "records/decision/skills/assurance/adaptive-capacity/SKILL.md",
+      "sha256": "b4cd937bd68bddb4fc90f9da4e566f4ad153a665ad57d5d29147e164c0724e41"
+    },
+    {
+      "path": "records/decision/skills/assurance/assurance-synthesis/SKILL.md",
+      "sha256": "52d627aa422d0f509521bc84db1dd6fe69adad5dac2ef2f10fcb3a15f234be01"
+    },
+    {
+      "path": "records/decision/skills/assurance/counterfactual-and-evidence/SKILL.md",
+      "sha256": "78d1326c5f6a31152d342ba5eba6a574303e3086d8ab5c7e7acc2ff9cf3f6672"
+    },
+    {
+      "path": "records/decision/skills/assurance/customer-outcomes/SKILL.md",
+      "sha256": "f8e01d3d32a3050f703273703826a202674d4a12606646194de3422aa673f5f9"
+    },
+    {
+      "path": "records/decision/skills/assurance/fraud-and-adversarial-thinking/SKILL.md",
+      "sha256": "54eb4f7f56d0a3f74f1865f58bf79cfd5354c4395ff07dd47ae5785100980ece"
+    },
+    {
+      "path": "records/decision/skills/assurance/systems-dynamics/SKILL.md",
+      "sha256": "b236f80ee0c2b9e502efe2f7f32cb285ade7a8620eb9f1408b9a98f22756a095"
+    },
+    {
+      "path": "records/decision/skills/assurance/systems-thinking/SKILL.md",
+      "sha256": "65da3d748c96910b18c6f9048e017f7f16c07b1e7c61200a9090af87b048a2c8"
+    },
+    {
+      "path": "records/decision/skills/decision-identification/SKILL.md",
+      "sha256": "1720f33045a08303a07ebe6b5647a76f593387c2b18984ce8c3ce76cb3cdc2af"
+    },
+    {
+      "path": "records/decision/skills/draft-tdr/SKILL.md",
+      "sha256": "103f4e30729826d4870b517c0800d2ec9650c1ca40a432b9d8600a97255ac193"
+    },
+    {
+      "path": "records/decision/skills/evidence-review/SKILL.md",
+      "sha256": "2f65ec830e8ac71d3d2980cef513fa26cdc5b66d5bb96fd091c38f658ea4a1d1"
+    },
+    {
+      "path": "records/decision/skills/governance-review/SKILL.md",
+      "sha256": "bdd95cb13ddb83a89a2fa3870066b30dfc7e85ff9188fa549aec4b702cc6870c"
+    },
+    {
+      "path": "records/decision/skills/problem-framing-and-decision-capture/SKILL.md",
+      "sha256": "975c67c75faa7066e4d41f6f568459c81447e09e3cc69ff3c37362edb253c152"
+    },
+    {
+      "path": "records/decision/specification/dac.md",
+      "sha256": "70dc4b7cbb4b243c60228c7135468c629801498e7d9f6484e418e3ea9a9783a1"
+    },
+    {
+      "path": "records/decision/specification/tdr.md",
+      "sha256": "980859c07480de7138fd0f8a197dde79b269cbe7c590d7adc3b074f776393f4e"
+    },
+    {
+      "path": "records/decision/templates/dac.md",
+      "sha256": "bdaa8d93a4a5eed3a2fa4251e946ce9ad35b92629c9bf0a9325a0c5db9e83b7b"
+    },
+    {
+      "path": "records/decision/templates/tdr-bare.md",
+      "sha256": "8fdd89d4f0a4736501c3d009b8106a170f45925951598f65e5d67aa8921bb032"
+    },
+    {
+      "path": "records/decision/templates/tdr-full.md",
+      "sha256": "0d52bdf19a6dbe5dc9747f2624cc17293a9625fd979a00245287b76a22bb95fc"
+    },
+    {
+      "path": "records/decision/templates/tdr-minimal.md",
+      "sha256": "88685180d613a124025eaa367e29115afaa1ad428b67074059e1d59c786c5f88"
+    },
+    {
+      "path": "records/decision/validation/admission.md",
+      "sha256": "ec73bb206a041ee5c1683ef7e01324ace914446c9f1957157b2d0457fe658431"
+    },
+    {
+      "path": "records/decision/validation/semantic-roles.md",
+      "sha256": "14014eb844647814ad4cf96be18457925dc4d90568c618dce0c68ac7dab23606"
+    },
+    {
+      "path": "records/value/README.md",
+      "sha256": "0e88a173fa77bab54fcc5fdefd0633ebcd3bc9bed8a3556da3c1f7a2d2194c66"
+    },
+    {
+      "path": "records/value/examples/example-value-record-practice-skills.md",
+      "sha256": "a6cfcb0446b43768aa918391bec0719b96fc0fcb224bb5aeff47cadf3d3c9d06"
+    },
+    {
+      "path": "records/value/fixtures/FIX-001-value-commitment-across-six-sources.md",
+      "sha256": "3515ef0fea739fad028a3a8ea304393539255ebb50ff14c2c6194a369d475d89"
+    },
+    {
+      "path": "records/value/fixtures/FIX-003-two-commitments-not-one.md",
+      "sha256": "534b95b156a8a8dde119797fe5c7c750212f70bcee0d4c5835d04010d404d402"
+    },
+    {
+      "path": "records/value/fixtures/FIX-005-protected-value.md",
+      "sha256": "f63485e8895c69b307361f8aefa218012c6c700d4121297de20c49022ce9cda0"
+    },
+    {
+      "path": "records/value/fixtures/FIX-006-qualitative-value.md",
+      "sha256": "50067c1b28d825b4fce67f74bd38eca983508e70673adcf2c9845325ca670396"
+    },
+    {
+      "path": "records/value/fixtures/FIX-007-normative-value.md",
+      "sha256": "784eb3c5e466efd0b3dd7c4450dc1060805f44213326aae9eff48646ca224f01"
+    },
+    {
+      "path": "records/value/fixtures/FIX-008-environmental-value.md",
+      "sha256": "094393197701b24d131a3bf9395e16ff7916b41c1cfeef5d03e9a9f6ca2ebbd7"
+    },
+    {
+      "path": "records/value/fixtures/FIX-009-conflicting-commitments.md",
+      "sha256": "eec83b5f90fad364be56557aec5fbe3da458084149605d377199ecf02bd6388e"
+    },
+    {
+      "path": "records/value/fixtures/README.md",
+      "sha256": "940778301643eb5d384fa53e316577ed499fca6702dad2b11205fc6dca4da789"
+    },
+    {
+      "path": "records/value/fixtures/conflicting/FIX-003-two-commitments-not-one.md",
+      "sha256": "c8bca161a877435c0f65c766f196d084a95ad2c662c20dd0d29b97b3d9686079"
+    },
+    {
+      "path": "records/value/fixtures/conflicting/FIX-009-conflicting-commitments.md",
+      "sha256": "42de448aa6a5ee3edda77b0f9f6993a216ef10dc7fa6c932e6f3476f68d51d44"
+    },
+    {
+      "path": "records/value/fixtures/conflicting/FIX-017-the-explicit-trade-off.md",
+      "sha256": "bacc8a49d7c437a549cecb2e2d464c932eb89d3967c5d48a5d0ee0faaae1d7e0"
+    },
+    {
+      "path": "records/value/fixtures/environmental-social/FIX-008-environmental-value.md",
+      "sha256": "bdeda30ff18289cd0a3dc792d2ec8d23c0b74d3d13d95637544e8b5300f12d8b"
+    },
+    {
+      "path": "records/value/fixtures/incomplete/FIX-015-committed-but-unmeasured.md",
+      "sha256": "1d22bd74298c1784dce4f9b6964620e41b95c49a3e4ef1522320af8743246d14"
+    },
+    {
+      "path": "records/value/fixtures/incomplete/FIX-016-the-unclassified-outcome.md",
+      "sha256": "6e8210f67512a21854f547fb2a4394098cc831304397dded12e28154a23ca538"
+    },
+    {
+      "path": "records/value/fixtures/incomplete/VR-9301-candidate-awaiting-countersignature.md",
+      "sha256": "05eace2efc10d3bf305fe8f9dd5257fd1f1bbb3306cb6fc08cac30b5e0088108"
+    },
+    {
+      "path": "records/value/fixtures/incomplete/VR-9302-candidate-eligible.md",
+      "sha256": "f85e1a3f6627cb53d31bf52bc55afc2a39d0c0f0f910da5acff055cfa1ca0d62"
+    },
+    {
+      "path": "records/value/fixtures/incomplete/VR-9303-ratified.md",
+      "sha256": "4b99a8618fe15504a9341b8e1ccad64dcc087fdb8cbae8c755b625a8f6043a4e"
+    },
+    {
+      "path": "records/value/fixtures/no-value/FIX-011-kpi-is-not-a-commitment.md",
+      "sha256": "500b3334478fcc166f9b30e522635ce24dab833888ae042b602a0e6bb487addd"
+    },
+    {
+      "path": "records/value/fixtures/no-value/FIX-012-activity-is-not-value.md",
+      "sha256": "fcc0c09cb6ad60fa846dc945ec03e3d179bcf5ee596885f75830e006c02069cd"
+    },
+    {
+      "path": "records/value/fixtures/normative/FIX-007-normative-value.md",
+      "sha256": "ec7c701a7e39027cf471f0b3c30c9e3b651d24a5cdb71cb12073e1433c7a3cd2"
+    },
+    {
+      "path": "records/value/fixtures/protective/FIX-005-protected-value.md",
+      "sha256": "f7235c4c7de81fffab1d4376212786e2eceb6a958cde503a6a04458dca06c6af"
+    },
+    {
+      "path": "records/value/fixtures/qualitative/FIX-006-qualitative-value.md",
+      "sha256": "f0c7e821eaaaed118ad0e2a9d1128bb395b8aa3e78c0b982bbf9c2c543d989ec"
+    },
+    {
+      "path": "records/value/fixtures/qualitative/FIX-014-three-wordings-one-commitment.md",
+      "sha256": "f106a51a0fab010b23f4892196ddad665750628a9fbbda02f2cc26b2c7723be3"
+    },
+    {
+      "path": "records/value/fixtures/quantified/FIX-001-value-commitment-across-six-sources.md",
+      "sha256": "58db674b29deafe0d05607327931e8e41d650f8cee4c7c1eec28c68c2f938ae7"
+    },
+    {
+      "path": "records/value/fixtures/quantified/FIX-013-the-measure-displacing-the-proposition.md",
+      "sha256": "c77331ddfa39efd7a4c446b4795d9c350df2cd0733bd1c20ca8e7bcc629c6cf7"
+    },
+    {
+      "path": "records/value/fixtures/superseded/FIX-010-sme-proposition-across-five-sources.md",
+      "sha256": "7708bac4ed11f96d3ae671becf6975a4ec01db133eb955b3971e086b8e94a01a"
+    },
+    {
+      "path": "records/value/package.yaml",
+      "sha256": "ed290fadc54ae3f9488c0eccbe86b98e2657669df0ee4298691fd1835e19c2c2"
+    },
+    {
+      "path": "records/value/schema/vr.schema.json",
+      "sha256": "6be990c4d9217580827d17c704c2930ae1558c8a72c9b0f5c7b9c7c5b1fe821d"
+    },
+    {
+      "path": "records/value/skills/challenge-value-record/SKILL.md",
+      "sha256": "0edd264e0ec47b99f35a439eb3f85a2e1e0c1180a3f69f5ae65522f9d1446ef6"
+    },
+    {
+      "path": "records/value/skills/draft-value-record/SKILL.md",
+      "sha256": "90f2e1507bbaddc8b101f08c4f229e04e91263f03697cf0b39c9503303d3084c"
+    },
+    {
+      "path": "records/value/skills/identify-value-contributions/SKILL.md",
+      "sha256": "01f75e9b77acdf0ec9ff06770f6bef78578564056cdfc9050238b11db464f06c"
+    },
+    {
+      "path": "records/value/skills/reconcile-value-contributions/SKILL.md",
+      "sha256": "9cc7e702d2245492907f31d71233c3e9ca6af3164b4abcfc6d3d55579ffd5cd6"
+    },
+    {
+      "path": "records/value/skills/recover-value-records/SKILL.md",
+      "sha256": "58adab7dfe01ee13dc07461eec33c70ed7dd4a1b10165c6bea350a7ded76a2b0"
+    },
+    {
+      "path": "records/value/skills/validate-value-record/SKILL.md",
+      "sha256": "6e797460f774b035008f8563ea02da3985dff4707b1faea59ad1063ba895c113"
+    },
+    {
+      "path": "records/value/skills/value-record/SKILL.md",
+      "sha256": "a9de0b13a201a5db0a9d6282ef23fd56d357e4d652bffee21d482503c46e2ea8"
+    },
+    {
+      "path": "records/value/specification/value-contribution.md",
+      "sha256": "c38511926e5f184510a53ffc888290c86bc470d49a55ddc0efee9eab3a266e93"
+    },
+    {
+      "path": "records/value/specification/vr.md",
+      "sha256": "6de1ad74103775f8ff4dd191fc9e951d4d7594a7dd99b99e8ef9a7d55a3ffb8b"
+    },
+    {
+      "path": "records/value/templates/vr.md",
+      "sha256": "f6a196fbb229ba6d75739aed2653d687c9f9aaacf9408a6d96e2733c5b45f773"
+    },
+    {
+      "path": "records/value/validation/admission.md",
+      "sha256": "8ecc565b04c14be7eaa439e311efc62d6cf833e30818a07c3f43964b73d473a8"
+    },
+    {
+      "path": "records/value/validation/semantic-roles.md",
+      "sha256": "1cc9211a24f3d03083b5729b4b6987035cb9077132c715caad5d4cb065d06913"
+    },
+    {
+      "path": "schemas/shared/candidate-assembly.schema.json",
+      "sha256": "a2d43729ba3c68f6329e91982244cba8e929bfd008f5a4857dabbda39942b4e6"
+    },
+    {
+      "path": "schemas/shared/derivation-projection.schema.json",
+      "sha256": "b290bb1de3543884432ac6fd8f9d66666b69ac2bd065de8f10149d87961a9777"
+    },
+    {
+      "path": "schemas/shared/record-contribution.schema.json",
+      "sha256": "ae49951084fcabe809bf8495c6c9c8a6df5643cb9fda4a25825b1bcae142ca4c"
+    },
+    {
+      "path": "schemas/shared/source-fragment.schema.json",
+      "sha256": "a80fc53fd1b5ad5eaae619a1b5c2801054c27262511fae4dd36c1b960587a716"
+    },
+    {
+      "path": "schemas/validation-result.schema.json",
+      "sha256": "2a1093e421e21cb56eedaebc389fcca2bb4c665f15ff5835b530ffae73d51f72"
+    },
+    {
+      "path": "skills/shared/challenge-record/SKILL.md",
+      "sha256": "f637402347c3657e1d748ec7aa25b10495c74c4328f4cd87add2f482160e52cb"
+    },
+    {
+      "path": "skills/shared/identify-record-contributions/SKILL.md",
+      "sha256": "a8ff7bcc625351be0c1f4b6121e4193f1d949b2d363894b634c8921ea4eb8f8d"
+    },
+    {
+      "path": "skills/shared/reconcile-record-fragments/SKILL.md",
+      "sha256": "6f5f03b0ed96ecdc3692578a3ad89dc4727fd6f220ecb5fad6fd9b111e065e48"
+    },
+    {
+      "path": "skills/shared/show-me/SKILL.md",
+      "sha256": "7e0fe5ac32efe1df8b48c40b473351bbf82a076c0d712a37d6782363960827e6"
+    },
+    {
+      "path": "skills/shared/validate-record/SKILL.md",
+      "sha256": "a9a295929ca4a48e15bad06f354a654f84e2894001fcb442907b42b9cbfb5648"
+    },
+    {
+      "path": "specification/candidacy-and-ratification.md",
+      "sha256": "7a1cf372dde718c6e7b8d201df0d8bac211d242eab11a7cc71004e32a85a9155"
+    },
+    {
+      "path": "specification/candidate-assembly.md",
+      "sha256": "2b1512af795185d336d65488201019d34df02da713a4a7185eb3c7c44f1d45f0"
+    },
+    {
+      "path": "specification/conformance.md",
+      "sha256": "6e815f3870eafa5496007fea7d6a8b89ef7f50119368c2548175b65d0887543a"
+    },
+    {
+      "path": "specification/contribution-model.md",
+      "sha256": "13c22a3ac07f9622593bdcfce3f8d7229a05e7f0d51e7f41a31f1b6d7128e87b"
+    },
+    {
+      "path": "specification/derivation-projection.md",
+      "sha256": "84edf0b58ce23e90fce09cfc57837d9ae5cdc71658bd23a0f157dfdf40011ebb"
+    },
+    {
+      "path": "specification/identity-and-grouping.md",
+      "sha256": "001f00159d7bc56f26989309c2142af86e408c6e3ef9c9da3bc6946cb9e5bc9e"
+    },
+    {
+      "path": "specification/obligation-chain.md",
+      "sha256": "c22aa724e20fc64beae8900315fb0d830ab30d9be45b32317df8749739c707e6"
+    },
+    {
+      "path": "specification/organisational-records.md",
+      "sha256": "99c705a1d91a206911f91463325cfad2a6e16ead89d687d8118dfa36fdf299d3"
+    },
+    {
+      "path": "specification/provenance.md",
+      "sha256": "2714f347bf2f752faf1268484f03fd00c7cf4c5131760f6f23abc8b0176d69bd"
+    },
+    {
+      "path": "specification/record-admission-test.md",
+      "sha256": "8a0704122929dd9375f7d1625ae03de80425c0efa798fd2eb960b2462dd70e9b"
+    },
+    {
+      "path": "specification/record-contribution.md",
+      "sha256": "3589f991edd872002b779570bbff0884546344c615f1467d455d627596912f42"
+    },
+    {
+      "path": "specification/record-identity.md",
+      "sha256": "b20cae70f34f56faae80135af0c42227ca75959b982fa52265d214f3914dcf33"
+    },
+    {
+      "path": "specification/source-fragment.md",
+      "sha256": "950d3f70036b2692eefd28ea34a23dd07d5c5630b0d1ec63e38587807e4ee29b"
+    },
+    {
+      "path": "specification/standards-boundary.md",
+      "sha256": "6cd92861c8647dc69bfef153d25a34aac63cf03fe8be8e9e8522f4f68d17dca3"
+    },
+    {
+      "path": "specification/temporal-semantics.md",
+      "sha256": "5702db55b43653ea25f120da00a4ddafc8851cd8e7f02d60d5c4f82bf87e8201"
+    },
+    {
+      "path": "specification/uncertainty.md",
+      "sha256": "190d5e54a566cce6b422ee2803e955175e476ca84b95cbdfda2bfe3bdd59d92b"
+    },
+    {
+      "path": "specification/validation-result.md",
+      "sha256": "46d32fbeb156ef40486432a792bb12f1b193d1c73ae4f778ef6eedd117451a70"
+    }
+  ]
+}
