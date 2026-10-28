@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/saileshpanchal/mtdr/blob/main/records/work/schema/oir.schema.json",
-  "title": "Operational Inheritance Record \u2014 frontmatter (EXPERIMENTAL)",
+  "title": "Operational Inheritance Record — frontmatter (EXPERIMENTAL)",
   "description": "EXPERIMENTAL under TDR-0047; governed by the pre-registration of TDR-0046. Not part of the MTDR standard. Every clause carries a source marker so the deletion attack can measure which clauses reduce to other records, rather than this schema deciding it in advance.",
   "type": "object",
   "additionalProperties": false,
@@ -45,16 +45,25 @@
         "in-force",
         "superseded"
       ],
-      "description": "Experimental lifecycle hypothesis (spec \u00a75): superseded when the inherited state changes, never when the participant changes."
+      "description": "Experimental lifecycle hypothesis (spec §5): superseded when the inherited state changes, never when the participant changes."
     },
     "effective_from": {
-      "type": "string",
-      "format": "date"
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        {
+          "const": "unknown"
+        }
+      ],
+      "description": "The date the inherited state applies from. `unknown` only while the record is a draft."
     },
     "accountable_owner": {
       "type": "string",
       "minLength": 1,
-      "description": "Accountable for the record being current. Not necessarily a performer."
+      "description": "Accountable for the record being current. Not necessarily a performer. `unknown` only while the record is a draft."
     },
     "jobs": {
       "type": "array",
@@ -579,7 +588,7 @@
               }
             }
           ],
-          "description": "The record grants no authority. Always a reference to the instrument that delegated it, or a declared gap -- never asserted inline (spec \u00a73.6)."
+          "description": "The record grants no authority. Always a reference to the instrument that delegated it, or a declared gap -- never asserted inline (spec §3.6)."
         },
         "obligations": {
           "type": "object",
@@ -915,5 +924,35 @@
       "type": "string",
       "minLength": 1
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "in-force",
+              "superseded"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "effective_from": {
+            "type": "string",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+          },
+          "accountable_owner": {
+            "not": {
+              "const": "unknown"
+            }
+          }
+        }
+      }
+    }
+  ]
 }

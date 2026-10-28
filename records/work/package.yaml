@@ -23,7 +23,15 @@ conformance_layers:              # measured, not asserted — and none of it is 
   counter_examples: true         # carried in the fixtures' must-not sections
   fixtures: true
   validation_rules: true
-  skills: false                  # arrive in the next commit
+  skills: true
+
+# Enumerated for the suite and for anyone loading them from the repository. Never collected into the
+# standard's distribution bundles, never counted among its skills (TDR-0047).
+skills:
+  authoring: [operational-inheritance-record]
+  lifecycle: [identify-inheritance-contributions, reconcile-inheritance-contributions,
+              draft-inheritance-record, challenge-inheritance-record, validate-inheritance-record]
+  orchestration: [recover-inheritance-records]   # composition skill — invokes the lifecycle, owns no semantics (TDR-0026)
 
 # Classified closure (TDR-0032). Checked on experimental packages too: the result is admission
 # evidence for question 3 of the record admission test (TDR-0046).
@@ -43,6 +51,18 @@ dependencies:
   - ref: specification/identity-and-grouping.md
     class: normative
     why: What makes two spans one capability, and what does not.
+  - ref: skills/shared/identify-record-contributions
+    class: normative
+    why: Record-neutral lifecycle stage the inheritance skills compose (TDR-0023).
+  - ref: skills/shared/reconcile-record-fragments
+    class: normative
+    why: Record-neutral lifecycle stage the inheritance skills compose (TDR-0023).
+  - ref: skills/shared/challenge-record
+    class: normative
+    why: Record-neutral lifecycle stage the inheritance skills compose (TDR-0023).
+  - ref: skills/shared/validate-record
+    class: normative
+    why: Record-neutral lifecycle stage the inheritance skills compose (TDR-0023).
   - ref: decisions/TDR-0046-oir-experiment-preregistration.md
     class: conformance
     why: The frozen test this package exists to be judged by.
@@ -55,3 +75,15 @@ dependencies:
   - ref: decisions/TDR-0021-record-package-architecture.md
     class: provenance
     why: Why the package exists, and the admission test it has not passed.
+  - ref: decisions/TDR-0018-interpretation-skills-and-the-artefact-boundary.md
+    class: provenance
+    why: Where this standard stops.
+  - ref: decisions/TDR-0023-portable-skill-architecture.md
+    class: provenance
+    why: Why skills live with the record semantics they serve, and specialise the shared stages.
+  - ref: decisions/TDR-0026-value-recovery-vocabulary.md
+    class: provenance
+    why: The composition ruling the orchestration skill follows.
+  - ref: skills/packaging
+    class: explanatory
+    why: Distribution adapters, which never carry an experimental skill.

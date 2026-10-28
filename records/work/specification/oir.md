@@ -213,8 +213,8 @@ native state; only the deletion attack bears on that.
 | `experimental` | yes | `true` — a detached OIR must not be mistakable for a record of the standard |
 | `title` | yes | the capability, never a participant |
 | `status` | yes | `draft` · `in-force` · `superseded` |
-| `effective_from` | yes | the date from which this inherited state applies |
-| `accountable_owner` | yes | the named individual accountable for the record being current — not necessarily anyone who performs the work |
+| `effective_from` | yes | the date from which this inherited state applies; `unknown` only while `draft` |
+| `accountable_owner` | yes | the named individual accountable for the record being current — not necessarily anyone who performs the work; `unknown` only while `draft` |
 | `jobs` | yes | each `{job, established_by}`; `established_by` a decision id, or `unknown` |
 | `clauses` | yes | all ten, each `{source, refs}` per §4 |
 | `supersedes` | yes | an `OIR-` id, or `none` |

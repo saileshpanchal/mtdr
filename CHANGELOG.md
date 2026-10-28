@@ -10,6 +10,19 @@ All notable changes to the TDR standard (and its MTDR markdown reference format)
 > **v1.30.0 is the first governed release** — one tag, one release record, at
 > [`decisions/evidence/release-v1.30.0-2026-08-27.md`](decisions/evidence/release-v1.30.0-2026-08-27.md).
 
+## Unreleased — changes since v1.30.0, not a release
+
+### Added
+- **Experiments are pre-registered before they are built** ([TDR-0046](decisions/TDR-0046-oir-experiment-preregistration.md)) — the test that will judge a candidate record family is frozen first, hashed, and committed publicly before any of its content exists; the suite refuses any change to the frozen criteria. The first is the Operational Inheritance Record: *does it preserve warranted organisational knowledge that cannot be reconstructed equivalently from the decision, value, authority and evidence records?* Admits nothing.
+- **A third package state, `experimental`** ([TDR-0047](decisions/TDR-0047-experimental-packages.md)) — full layers, published for open review, and **not part of the standard**: excluded from stated skill totals, from the distribution bundles and from every conformance and release claim, announced in every validation result, and promoted only by an admission decision. The suite enforces each exclusion, and refuses a package that turns `normative` without naming an accepted admission record.
+
+### Fixed
+- Checks with no dimension mapping (`identity`, `extraction`, `agent-skills`, `surfaces`) reported a failure as `indeterminate` in all three dimensions instead of failing the one they belong to. Mapped, and a guard now fails the run if any check is left unmapped.
+
+## Experimental — not part of the standard
+
+- **[`records/work/`](records/work/) — the Operational Inheritance Record (OIR)**, under TDR-0047 and governed by TDR-0046's frozen test: specification, schema, template, a fictional example, must-not fixtures, validation rules, and seven skills (authoring, five lifecycle stages, one orchestration). Every one of the ten clauses carries a source marker — asserted, reference, missing or conflicting — so the deletion attack measures which clauses reduce to other records instead of inheriting a prediction. **No conformance claim may rest on it; native-state admission and consolidation are not authorised.**
+
 ## [1.30.0] — 2026-08-27
 
 **The first governed public release of MTDR.** Structurally, semantically and relationally verified

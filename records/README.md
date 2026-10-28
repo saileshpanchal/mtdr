@@ -10,10 +10,15 @@ specification is [`specification/organisational-records.md`](../specification/or
 | [`decision/`](decision/) | **TDR** — the unit of judgement | **Normative** | DAC + the eight assurance skills |
 | [`value/`](value/) | **VR** — governed memory of an Operational Value Commitment | **Normative** | value challenge and validation |
 | [`authority/`](authority/) | OAR | Candidate | authority practice |
-| [`work/`](work/) | OIR | Candidate | JTBD / work practice |
+| [`work/`](work/) | OIR — the Operational Inheritance Record | **Experimental** — not part of the standard ([TDR-0047](../decisions/TDR-0047-experimental-packages.md)) | JTBD / work practice |
 | [`evidence/`](evidence/) | OER | Candidate | evidence projection and validation |
 
 There is no sixth family for events, fragments, observations or runtime state.
+
+An **experimental** package carries a normative package's layers so the evidence for its admission can
+be gathered in the open, under a pre-registered test it cannot change. It is excluded from the
+standard's skill totals, distribution bundles and every conformance and release claim, and becomes
+normative only by an admission decision ([TDR-0047](../decisions/TDR-0047-experimental-packages.md)).
 
 ## What a normative package contains
 

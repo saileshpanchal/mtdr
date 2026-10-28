@@ -38,6 +38,7 @@ organisational knowledge available to successors.
 | Example (fictional) | [`examples/example-oir-payment-exceptions.md`](examples/example-oir-payment-exceptions.md) |
 | Fixtures | [`fixtures/`](fixtures/) — expected and must-not |
 | Validation | [`validation/semantic-roles.md`](validation/semantic-roles.md) · [`validation/admission.md`](validation/admission.md) |
+| Skills | [`skills/`](skills/) — authoring ([`operational-inheritance-record`](skills/operational-inheritance-record/)), the five lifecycle stages, and the orchestration entry point ([`recover-inheritance-records`](skills/recover-inheritance-records/)). Loadable from this repository; never collected into the standard's bundles |
 
 ## Bounded against the other languages
 

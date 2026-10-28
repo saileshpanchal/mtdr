@@ -579,9 +579,20 @@ for d in drift:
     fail('bundle', d)
 
 # every skill on disk is enumerated by a manifest, and vice versa — the generator depends on it
-on_disk = {os.path.basename(os.path.dirname(p)) for p in skills}
+on_disk = {os.path.basename(os.path.dirname(p)) for p in admitted_skills}
 for orphan in sorted(on_disk - set(bundled)):
     fail('bundle', f"skill {orphan} exists on disk but no package manifest enumerates it")
+# TDR-0047: an experimental skill is enumerated by its own manifest, both ways, and never distributed.
+# The generator skips experimental manifests, so its tree-agreement check cannot see them: this does.
+for pkg in sorted(EXPERIMENTAL):
+    listed = {s for grp in (yaml.safe_load(open(f'records/{pkg}/package.yaml')).get('skills') or {}).values()
+              for s in grp}
+    present = {os.path.basename(os.path.dirname(p)) for p in skills if p.startswith(f'records/{pkg}/')}
+    for name in sorted(present ^ listed):
+        fail('bundle', f"records/{pkg}: skill {name} is {'on disk but not enumerated' if name in present else 'enumerated but not on disk'}")
+    for name in sorted((present | listed) & set(bundled)):
+        fail('experimental', f"skill {name} is experimental and distributed — admission by distribution "
+                             f"is not admission (TDR-0047)")
 
 # capability equivalence: no surface may advertise a different catalogue from any other
 counts = {}
