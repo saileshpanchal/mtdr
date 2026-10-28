@@ -4,8 +4,8 @@ conforms_to: mtdr/work/oir@1.0.0
 experimental: true
 title: <The operational capability — never a person, team, supplier or technology>
 status: draft
-effective_from: YYYY-MM-DD
-accountable_owner: <Named individual accountable for this record being current>
+effective_from: YYYY-MM-DD        # or `unknown` while draft — never the drafting date
+accountable_owner: <Named individual accountable for this record being current>   # or `unknown` while draft
 jobs:
   - job: <verb + object + contextual clarifier>
     established_by: <TDR-nnnn | unknown>
