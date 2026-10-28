@@ -176,6 +176,8 @@ for f in glob.glob('**/*.md', recursive=True):
 note('links', f"{checked} checked")
 
 # 5 — package manifests coherent; candidates hold metadata and scope only
+# decision and value were shipped before the admission route existed; TDR-0021 settled them as normative
+SHIPPED_BY_TDR_0021 = {'decision', 'value'}
 manifests = sorted(glob.glob('records/*/package.yaml'))
 for f in manifests:
     m = yaml.safe_load(open(f))
@@ -213,6 +215,14 @@ for f in manifests:
                 if not os.path.exists(f'records/{pkg}/{t}'):
                     fail('manifest', f"{f}: template {t} missing")
     elif m.get('status') == 'normative':
+        # TDR-0047: promotion is a decision and only a decision. A status flip names no admission record.
+        if pkg not in SHIPPED_BY_TDR_0021:
+            adm = m.get('admitted_by')
+            adm_files = glob.glob(f'decisions/{adm}-*.md') if adm else []
+            if (m.get('admission') == 'not-passed' or len(adm_files) != 1 or adm == m.get('governed_by')
+                    or (frontmatter(adm_files[0]) or {}).get('status') != 'accepted'):
+                fail('admission', f"{f}: normative without an accepted admission record (admitted_by) -- "
+                                  f"a package becomes normative only by an admission decision (TDR-0047)")
         for r in m.get('records', []):
             for key in ('specification', 'schema'):
                 if r.get(key) and not os.path.exists(f'records/{pkg}/{r[key]}'):
@@ -375,6 +385,9 @@ for f in governed:
 DETACHED_SAMPLE = ['decisions/TDR-0043-version-bound-detached-records.md',
                    'decisions/DAC-0043-version-bound-detached-records.md']
 DETACHED_SAMPLE += sorted(glob.glob('records/value/examples/*.md'))[:1]
+# an experimental record must resolve detached too: the binding is how a reader learns it is not
+# part of the standard (TDR-0047)
+DETACHED_SAMPLE += [e for p in sorted(EXPERIMENTAL) for e in sorted(glob.glob(f'records/{p}/examples/*.md'))[:1]]
 for src in DETACHED_SAMPLE:
     with tempfile.TemporaryDirectory() as td:
         detached = os.path.join(td, os.path.basename(src))
@@ -484,8 +497,8 @@ for pkg_dir in sorted(glob.glob('records/*')):
     for problem in extraction_trial(pkg_dir):
         fail('extraction', f"{pkg_dir}: {problem}")
     trials += 1
-note('extraction', f"{trials} normative packages extracted with only their declared dependencies, "
-                   f"and passed their conformance contract there")
+note('extraction', f"{trials} packages extracted with only their declared dependencies "
+                   f"({len(EXPERIMENTAL)} experimental), and passed their conformance contract there")
 
 # 11 — contract fixtures: each carries a complete document and what the contract must do with it
 def run_contract_fixtures(check, schema_path, pattern):
@@ -854,7 +867,7 @@ DIMENSION_OF = {
     'record-schema': Dim.STRUCTURAL, 'id-filename': Dim.STRUCTURAL, 'vr-example': Dim.STRUCTURAL,
     'vr-negative': Dim.STRUCTURAL, 'skill-frontmatter': Dim.STRUCTURAL, 'skill-name': Dim.STRUCTURAL,
     'skill-description': Dim.STRUCTURAL, 'skill-count': Dim.SEMANTIC, 'manifest': Dim.STRUCTURAL, 'result-fixture': Dim.STRUCTURAL, 'projection-fixture': Dim.STRUCTURAL,
-    'candidate': Dim.SEMANTIC, 'boundary': Dim.SEMANTIC, 'neutrality': Dim.SEMANTIC,
+    'candidate': Dim.SEMANTIC, 'admission': Dim.SEMANTIC, 'boundary': Dim.SEMANTIC, 'neutrality': Dim.SEMANTIC,
     'consumer-name': Dim.SEMANTIC, 'fixture': Dim.SEMANTIC, 'must-not': Dim.SEMANTIC,
     'untyped-claim': Dim.SEMANTIC, 'state-relative': Dim.SEMANTIC, 'obligations': Dim.SEMANTIC,
     'standards': Dim.SEMANTIC,

@@ -1,0 +1,919 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/saileshpanchal/mtdr/blob/main/records/work/schema/oir.schema.json",
+  "title": "Operational Inheritance Record \u2014 frontmatter (EXPERIMENTAL)",
+  "description": "EXPERIMENTAL under TDR-0047; governed by the pre-registration of TDR-0046. Not part of the MTDR standard. Every clause carries a source marker so the deletion attack can measure which clauses reduce to other records, rather than this schema deciding it in advance.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-": {}
+  },
+  "required": [
+    "id",
+    "conforms_to",
+    "experimental",
+    "title",
+    "status",
+    "effective_from",
+    "accountable_owner",
+    "jobs",
+    "clauses",
+    "supersedes",
+    "derived_from"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^OIR-[0-9]+$"
+    },
+    "conforms_to": {
+      "type": "string",
+      "pattern": "^mtdr/work/oir@[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "Binding to this specification (TDR-0043 form). Required here, unlike the admitted record families, because a detached experimental record must never be mistakable for a record of the standard."
+    },
+    "experimental": {
+      "const": true
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The operational capability. Never a person, team, department, supplier or technology."
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "in-force",
+        "superseded"
+      ],
+      "description": "Experimental lifecycle hypothesis (spec \u00a75): superseded when the inherited state changes, never when the participant changes."
+    },
+    "effective_from": {
+      "type": "string",
+      "format": "date"
+    },
+    "accountable_owner": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Accountable for the record being current. Not necessarily a performer."
+    },
+    "jobs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "job",
+          "established_by"
+        ],
+        "properties": {
+          "job": {
+            "type": "string",
+            "minLength": 1,
+            "description": "verb + object + contextual clarifier; must survive a change of participant"
+          },
+          "established_by": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The decision that established the job, by id, or `unknown`."
+          }
+        }
+      }
+    },
+    "clauses": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "purpose",
+        "inherited_context",
+        "jobs",
+        "outcomes",
+        "responsibilities",
+        "authority",
+        "obligations",
+        "practices",
+        "escalation",
+        "evidence"
+      ],
+      "properties": {
+        "purpose": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source"
+          ],
+          "properties": {
+            "source": {
+              "enum": [
+                "asserted",
+                "reference",
+                "missing",
+                "conflicting"
+              ]
+            },
+            "refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "reference"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "refs"
+                ],
+                "properties": {
+                  "refs": {
+                    "minItems": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "conflicting"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "refs"
+                ],
+                "properties": {
+                  "refs": {
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "missing"
+                  }
+                }
+              },
+              "then": {
+                "not": {
+                  "required": [
+                    "refs"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "inherited_context": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source"
+          ],
+          "properties": {
+            "source": {
+              "enum": [
+                "asserted",
+                "reference",
+                "missing",
+                "conflicting"
+              ]
+            },
+            "refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "reference"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "refs"
+                ],
+                "properties": {
+                  "refs": {
+                    "minItems": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "conflicting"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "refs"
+                ],
+                "properties": {
+                  "refs": {
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "missing"
+                  }
+                }
+              },
+              "then": {
+                "not": {
+                  "required": [
+                    "refs"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "jobs": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source"
+          ],
+          "properties": {
+            "source": {
+              "enum": [
+                "asserted",
+                "reference",
+                "missing",
+                "conflicting"
+              ]
+            },
+            "refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "reference"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "refs"
+                ],
+                "properties": {
+                  "refs": {
+                    "minItems": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "conflicting"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "refs"
+                ],
+                "properties": {
+                  "refs": {
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "missing"
+                  }
+                }
+              },
+              "then": {
+                "not": {
+                  "required": [
+                    "refs"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "outcomes": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source"
+          ],
+          "properties": {
+            "source": {
+              "enum": [
+                "asserted",
+                "reference",
+                "missing",
+                "conflicting"
+              ]
+            },
+            "refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "reference"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "refs"
+                ],
+                "properties": {
+                  "refs": {
+                    "minItems": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "conflicting"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "refs"
+                ],
+                "properties": {
+                  "refs": {
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "missing"
+                  }
+                }
+              },
+              "then": {
+                "not": {
+                  "required": [
+                    "refs"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "responsibilities": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source"
+          ],
+          "properties": {
+            "source": {
+              "enum": [
+                "asserted",
+                "reference",
+                "missing",
+                "conflicting"
+              ]
+            },
+            "refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "reference"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "refs"
+                ],
+                "properties": {
+                  "refs": {
+                    "minItems": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "conflicting"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "refs"
+                ],
+                "properties": {
+                  "refs": {
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "missing"
+                  }
+                }
+              },
+              "then": {
+                "not": {
+                  "required": [
+                    "refs"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "authority": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source"
+          ],
+          "properties": {
+            "source": {
+              "enum": [
+                "reference",
+                "missing"
+              ]
+            },
+            "refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "reference"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "refs"
+                ],
+                "properties": {
+                  "refs": {
+                    "minItems": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "conflicting"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "refs"
+                ],
+                "properties": {
+                  "refs": {
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "missing"
+                  }
+                }
+              },
+              "then": {
+                "not": {
+                  "required": [
+                    "refs"
+                  ]
+                }
+              }
+            }
+          ],
+          "description": "The record grants no authority. Always a reference to the instrument that delegated it, or a declared gap -- never asserted inline (spec \u00a73.6)."
+        },
+        "obligations": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source"
+          ],
+          "properties": {
+            "source": {
+              "enum": [
+                "asserted",
+                "reference",
+                "missing",
+                "conflicting"
+              ]
+            },
+            "refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "reference"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "refs"
+                ],
+                "properties": {
+                  "refs": {
+                    "minItems": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "conflicting"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "refs"
+                ],
+                "properties": {
+                  "refs": {
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "missing"
+                  }
+                }
+              },
+              "then": {
+                "not": {
+                  "required": [
+                    "refs"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "practices": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source"
+          ],
+          "properties": {
+            "source": {
+              "enum": [
+                "asserted",
+                "reference",
+                "missing",
+                "conflicting"
+              ]
+            },
+            "refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "reference"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "refs"
+                ],
+                "properties": {
+                  "refs": {
+                    "minItems": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "conflicting"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "refs"
+                ],
+                "properties": {
+                  "refs": {
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "missing"
+                  }
+                }
+              },
+              "then": {
+                "not": {
+                  "required": [
+                    "refs"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "escalation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source"
+          ],
+          "properties": {
+            "source": {
+              "enum": [
+                "asserted",
+                "reference",
+                "missing",
+                "conflicting"
+              ]
+            },
+            "refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "reference"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "refs"
+                ],
+                "properties": {
+                  "refs": {
+                    "minItems": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "conflicting"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "refs"
+                ],
+                "properties": {
+                  "refs": {
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "missing"
+                  }
+                }
+              },
+              "then": {
+                "not": {
+                  "required": [
+                    "refs"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "evidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source"
+          ],
+          "properties": {
+            "source": {
+              "enum": [
+                "asserted",
+                "reference",
+                "missing",
+                "conflicting"
+              ]
+            },
+            "refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "reference"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "refs"
+                ],
+                "properties": {
+                  "refs": {
+                    "minItems": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "conflicting"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "refs"
+                ],
+                "properties": {
+                  "refs": {
+                    "minItems": 2
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "source": {
+                    "const": "missing"
+                  }
+                }
+              },
+              "then": {
+                "not": {
+                  "required": [
+                    "refs"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "supersedes": {
+      "type": "string",
+      "pattern": "^(none|OIR-[0-9]+)$"
+    },
+    "derived_from": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

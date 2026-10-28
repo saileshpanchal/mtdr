@@ -1,7 +1,57 @@
-# Package manifest — machine-readable identity and maturity. TDR-0021.
+# Package manifest — machine-readable identity and maturity. TDR-0021, TDR-0047.
 name: work
 language: work
 primary_record: OIR
-status: candidate                # record admission test NOT passed — metadata and scope only
-admission: not-passed
-conformance_layers: {}           # a candidate carries none, by rule
+object: operational-capability   # the organisational state inherited before operational work
+status: experimental             # TDR-0047: published for review; NOT part of the standard
+admission: not-passed            # the record admission test has not been passed, and may not be
+governed_by: TDR-0046            # the accepted pre-registration this experiment cannot change
+preregistration: decisions/evidence/TDR-0046-preregistration.md
+specifications:
+  supporting:
+    - specification/inheritance-contribution.md   # the recovery vocabulary
+records:
+  - id: OIR
+    specification: specification/oir.md
+    specification_version: 1.0.0
+    schema: schema/oir.schema.json
+    templates: [templates/oir.md]
+conformance_layers:              # measured, not asserted — and none of it is a conformance claim (TDR-0047)
+  specification: true
+  schema: true
+  examples: true
+  counter_examples: true         # carried in the fixtures' must-not sections
+  fixtures: true
+  validation_rules: true
+  skills: false                  # arrive in the next commit
+
+# Classified closure (TDR-0032). Checked on experimental packages too: the result is admission
+# evidence for question 3 of the record admission test (TDR-0046).
+dependencies:
+  - ref: specification/source-fragment.md
+    class: normative
+    why: The interchange structure inheritance recovery begins from.
+  - ref: specification/record-contribution.md
+    class: normative
+    why: The structure every inheritance contribution is carried through; its target_object is open for this package.
+  - ref: specification/candidate-assembly.md
+    class: normative
+    why: How contributions become a candidate OIR without acquiring standing.
+  - ref: specification/candidacy-and-ratification.md
+    class: normative
+    why: Where the lifecycle stops and the organisation begins.
+  - ref: specification/identity-and-grouping.md
+    class: normative
+    why: What makes two spans one capability, and what does not.
+  - ref: decisions/TDR-0046-oir-experiment-preregistration.md
+    class: conformance
+    why: The frozen test this package exists to be judged by.
+  - ref: decisions/TDR-0047-experimental-packages.md
+    class: conformance
+    why: The status under which this package is published, and everything it is excluded from.
+  - ref: decisions/evidence/TDR-0046-preregistration.md
+    class: conformance
+    why: The frozen criteria, held to their committed hash.
+  - ref: decisions/TDR-0021-record-package-architecture.md
+    class: provenance
+    why: Why the package exists, and the admission test it has not passed.
