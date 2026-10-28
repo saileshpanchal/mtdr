@@ -95,6 +95,10 @@ if not list(vr_schema.iter_errors({**vr_example, "status": "candidate", "realisa
 note('value', "example valid; both negative cases rejected")
 
 # 3 — skills: strict YAML, exactly name+description, name = leaf directory, single-line description
+# TDR-0047: an experimental package is published for review but is not part of the standard. Its
+# skills are checked like any other, and never counted as the standard's own.
+EXPERIMENTAL = {f.split('/')[1] for f in glob.glob('records/*/package.yaml')
+                if (yaml.safe_load(open(f)) or {}).get('status') == 'experimental'}
 skills = sorted(glob.glob('records/*/skills/**/SKILL.md', recursive=True)) \
        + sorted(glob.glob('skills/shared/*/SKILL.md'))
 for f in skills:
@@ -137,6 +141,7 @@ note('agent-skills', f"{len(skills)} skills profile {sorted(MTDR_SKILL_FIELDS)} 
 
 # 3b — stated skill counts match reality. The count drifted silently once; a number in prose that
 # nothing checks is a claim, and this repository does not ship unchecked claims about itself.
+admitted_skills = [k for k in skills if not (k.startswith('records/') and k.split('/')[1] in EXPERIMENTAL)]
 WORDS = {n: i for i, n in enumerate(
     "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen "
     "sixteen seventeen eighteen nineteen twenty twenty-one twenty-two twenty-three twenty-four "
@@ -150,9 +155,10 @@ for f in glob.glob('**/*.md', recursive=True):
         stated = WORDS.get(m.group(1).lower(), m.group(1) if m.group(1).isdigit() else None)
         if stated is None:
             continue                   # not a count — ordinary prose before the marker
-        if int(stated) != len(skills):
-            fail('skill-count', f"{f}: states {m.group(1)} skills, repository has {len(skills)}")
-note('skill-count', f"stated counts agree with the {len(skills)} on disk")
+        if int(stated) != len(admitted_skills):
+            fail('skill-count', f"{f}: states {m.group(1)} skills, the standard has {len(admitted_skills)}")
+note('skill-count', f"stated counts agree with the standard's {len(admitted_skills)}"
+     + (f"; {len(skills) - len(admitted_skills)} experimental, not counted (TDR-0047)" if EXPERIMENTAL else ""))
 
 # 4 — every relative link resolves (stubs included). Collected bundle copies are exempt: their links
 # are canonical and resolve at the canonical depth, and 12b proves them byte-identical to the
@@ -183,6 +189,29 @@ for f in manifests:
                        if os.path.isfile(p))
         if files != ['README.md', 'package.yaml']:
             fail('candidate', f"records/{pkg}: candidate packages hold metadata and scope only, found {files}")
+    elif m.get('status') == 'experimental':
+        # TDR-0047: full layers, not admitted, and governed by an accepted pre-registration
+        if m.get('admission') != 'not-passed':
+            fail('experimental', f"{f}: an experimental package has not passed admission, by definition")
+        gov = m.get('governed_by')
+        gov_files = glob.glob(f'decisions/{gov}-*.md') if gov else []
+        if len(gov_files) != 1:
+            fail('experimental', f"{f}: names no governing record (governed_by)")
+        elif (frontmatter(gov_files[0]) or {}).get('status') != 'accepted':
+            fail('experimental', f"{f}: governing record {gov} is not accepted")
+        pre = m.get('preregistration')
+        committed = {json.load(open(c)).get('preregistration', {}).get('path')
+                     for c in glob.glob('decisions/evidence/TDR-*-evidence-commitment.json')}
+        if not pre or pre not in committed:
+            fail('experimental', f"{f}: no frozen pre-registration -- an experiment may not run "
+                                 f"without a test it cannot change")
+        for r in m.get('records', []):
+            for key in ('specification', 'schema'):
+                if r.get(key) and not os.path.exists(f'records/{pkg}/{r[key]}'):
+                    fail('manifest', f"{f}: {key} path {r[key]} missing")
+            for t in r.get('templates', []):
+                if not os.path.exists(f'records/{pkg}/{t}'):
+                    fail('manifest', f"{f}: template {t} missing")
     elif m.get('status') == 'normative':
         for r in m.get('records', []):
             for key in ('specification', 'schema'):
@@ -313,7 +342,7 @@ note('preregistration', f"{prereg} pre-registered experiment(s); frozen criteria
 # thing the constraint actually asks: copy a record OUT, delete every trace of the repository from
 # the resolver's reach, and resolve its type, specification and schema from `conforms_to` alone.
 import tempfile, shutil                                                       # noqa: E402
-BIND_RE = re.compile(r'^mtdr/([a-z][a-z-]*)/(tdr|dac|vr)@([0-9]+\.[0-9]+\.[0-9]+)$')
+BIND_RE = re.compile(r'^mtdr/([a-z][a-z-]*)/(tdr|dac|vr|oir)@([0-9]+\.[0-9]+\.[0-9]+)$')
 MANIFEST_VERSION = {}
 for mpath in glob.glob('records/*/package.yaml'):
     man = yaml.safe_load(open(mpath, encoding='utf-8'))
@@ -450,7 +479,7 @@ for pkg_dir in sorted(glob.glob('records/*')):
     man_path = f'{pkg_dir}/package.yaml'
     if not os.path.exists(man_path):
         continue
-    if (yaml.safe_load(open(man_path, encoding='utf-8')) or {}).get('status') != 'normative':
+    if (yaml.safe_load(open(man_path, encoding='utf-8')) or {}).get('status') not in ('normative', 'experimental'):
         continue                                   # a candidate package carries no contract to run
     for problem in extraction_trial(pkg_dir):
         fail('extraction', f"{pkg_dir}: {problem}")
@@ -496,7 +525,7 @@ CLASSES = {'normative', 'conformance', 'provenance', 'explanatory', 'navigation'
 for f in manifests:
     m = yaml.safe_load(open(f))
     pkg = f.split('/')[1]
-    if m.get('status') != 'normative':
+    if m.get('status') not in ('normative', 'experimental'):
         continue
     deps = m.get('dependencies')
     if not deps:
@@ -835,7 +864,7 @@ DIMENSION_OF = {
     # Added checks must be mapped here: an unmapped failure reports `indeterminate` everywhere,
     # which under TDR-0033 claims the fact is unestablished when it is established false.
     'identity': Dim.RELATIONAL, 'extraction': Dim.RELATIONAL, 'agent-skills': Dim.STRUCTURAL,
-    'surfaces': Dim.SEMANTIC, 'preregistration': Dim.SEMANTIC,
+    'surfaces': Dim.SEMANTIC, 'preregistration': Dim.SEMANTIC, 'experimental': Dim.SEMANTIC,
 }
 # Guard: every check this suite can fail must have a dimension. Read from the suite's own source, so a
 # new check added without a mapping is caught the first time the suite runs, not the first time it fails.
@@ -850,16 +879,22 @@ assessment = ValidationResult(
     context={'id': 'clean-clone',
              'description': 'The working tree alone — no register, service or network.'},
     validator={'name': 'tests/verify.py', 'version': '1.0.0'})
+experimental_reasons = [('experimental-not-standard',
+                         f"records/{pkg} is experimental (TDR-0047): published for review, not part of "
+                         f"the standard, counted, distributed or claimed") for pkg in sorted(EXPERIMENTAL)]
+for pkg in sorted(EXPERIMENTAL):
+    note('experimental', f"records/{pkg} — NOT PART OF THE STANDARD; published for review (TDR-0047)")
 for dim in (Dim.STRUCTURAL, Dim.SEMANTIC, Dim.RELATIONAL):
     hits = [(c, m) for c, m in FAILS if DIMENSION_OF.get(c) == dim]
     unknown = [(c, m) for c, m in FAILS if c not in DIMENSION_OF]
+    announce = experimental_reasons if dim == Dim.SEMANTIC else []
     if hits:
-        assessment.report(dim, 'fail', reasons=[(c, m) for c, m in hits[:8]])
+        assessment.report(dim, 'fail', reasons=[(c, m) for c, m in hits[:8]] + announce)
     elif unknown:
         assessment.report(dim, 'indeterminate',
-                          reasons=[('unattributed-check', f"{c}: {m}") for c, m in unknown[:8]])
+                          reasons=[('unattributed-check', f"{c}: {m}") for c, m in unknown[:8]] + announce)
     else:
-        assessment.report(dim, PASS)
+        assessment.report(dim, PASS, reasons=announce)
 # Eligibility for the DAC-0032/0033 release gate, derived from the obligations register rather than
 # from a curated checklist (specification/obligation-chain.md). Reported, never acted on: a pass would
 # mean the evidenced preconditions are satisfied and the request may be placed before whoever is

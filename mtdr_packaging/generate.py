@@ -36,6 +36,8 @@ def canonical_skills():
     for manifest in sorted(glob.glob(os.path.join(ROOT, "records", "*", "package.yaml"))):
         m = yaml.safe_load(open(manifest, encoding="utf-8"))
         pkg = os.path.basename(os.path.dirname(manifest))
+        if m.get("status") == "experimental":
+            continue      # TDR-0047: published for review, never distributed as the standard
         for group, names in (m.get("skills") or {}).items():
             for name in names:
                 # Resolved by search, not by assumption: a package may nest skills (the decision

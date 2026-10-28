@@ -40,13 +40,24 @@ def size(path):
     return os.path.getsize(path)
 
 
+def experimental_packages():
+    """TDR-0047: experimental packages are not the standard, so they are not in its budget."""
+    out = set()
+    for m in glob.glob(os.path.join(ROOT, "records", "*", "package.yaml")):
+        if (yaml.safe_load(open(m, encoding="utf-8")) or {}).get("status") == "experimental":
+            out.add(os.path.join(ROOT, "records", os.path.basename(os.path.dirname(m))) + os.sep)
+    return out
+
+
 def corpus_bytes():
     """What "just load the repository" costs: every markdown and schema a participant might read."""
     total = 0
     for pattern in ("**/*.md", "**/*.json", "**/*.yaml"):
         for f in glob.glob(os.path.join(ROOT, pattern), recursive=True):
             if "/.git/" in f or "/skills/packaging/canonical/" in f:
-                continue          # the bundle is a copy; counting it would double the corpus
+                continue
+            if any(f.startswith(x) for x in experimental_packages()):
+                continue          # experimental: not part of what a participant of the standard loads          # the bundle is a copy; counting it would double the corpus
             total += size(f)
     return total
 
@@ -55,6 +66,7 @@ def measure():
     skills = sorted(glob.glob(os.path.join(ROOT, "records", "*", "skills", "**", "SKILL.md"),
                               recursive=True)) + \
              sorted(glob.glob(os.path.join(ROOT, "skills", "shared", "*", "SKILL.md")))
+    skills = [f for f in skills if not any(f.startswith(x) for x in experimental_packages())]
 
     catalogue = 0
     for f in skills:
