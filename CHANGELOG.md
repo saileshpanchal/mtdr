@@ -16,6 +16,9 @@ All notable changes to the TDR standard (and its MTDR markdown reference format)
 - **Experiments are pre-registered before they are built** ([TDR-0046](decisions/TDR-0046-oir-experiment-preregistration.md)) — the test that will judge a candidate record family is frozen first, hashed, and committed publicly before any of its content exists; the suite refuses any change to the frozen criteria. The first is the Operational Inheritance Record: *does it preserve warranted organisational knowledge that cannot be reconstructed equivalently from the decision, value, authority and evidence records?* Admits nothing.
 - **A third package state, `experimental`** ([TDR-0047](decisions/TDR-0047-experimental-packages.md)) — full layers, published for open review, and **not part of the standard**: excluded from stated skill totals, from the distribution bundles and from every conformance and release claim, announced in every validation result, and promoted only by an admission decision. The suite enforces each exclusion, and refuses a package that turns `normative` without naming an accepted admission record.
 
+### Changed
+- The umbrella specification ([`specification/organisational-records.md`](specification/organisational-records.md)) moves to **1.1.0**: the package map names the three states — candidate, experimental, normative — and lists `records/work/` as experimental rather than candidate, which since TDR-0047 it no longer is. Additive; no record's validity changes.
+
 ### Fixed
 - Checks with no dimension mapping (`identity`, `extraction`, `agent-skills`, `surfaces`) reported a failure as `indeterminate` in all three dimensions instead of failing the one they belong to. Mapped, and a guard now fails the run if any check is left unmapped.
 

@@ -1,6 +1,6 @@
 # Organisational records — the umbrella specification
 
-**Version:** 1.0.0 · **Licence:** MIT · **Author:** Sailesh Panchal
+**Version:** 1.1.0 · **Licence:** MIT · **Author:** Sailesh Panchal
 
 This repository defines **governed organisational records**: portable, markdown-serialised memory of
 the organisational objects that carry accountability — decisions, value commitments, and the further
@@ -36,8 +36,14 @@ primary record type, one package ([TDR-0021](../decisions/TDR-0021-record-packag
 | [`records/decision/`](../records/decision/) | **TDR** — the unit of judgement | Normative | DAC + the assurance skills |
 | [`records/value/`](../records/value/) | **VR** — governed memory of an Operational Value Commitment | Normative | value challenge and validation |
 | [`records/authority/`](../records/authority/) | OAR | **Candidate** | authority practice |
-| [`records/work/`](../records/work/) | OIR | **Candidate** | JTBD / work practice |
+| [`records/work/`](../records/work/) | OIR | **Experimental** — not part of the standard | JTBD / work practice |
 | [`records/evidence/`](../records/evidence/) | OER | **Candidate** | evidence projection and validation |
+
+A package is **candidate** — metadata and scope only; **experimental** — full layers published for
+review under a pre-registered test it cannot change, and excluded from the standard's skill totals,
+distribution bundles and every conformance and release claim
+([TDR-0047](../decisions/TDR-0047-experimental-packages.md)); or **normative** — admitted. Only an
+admission decision makes a package normative.
 
 There is **no sixth family** for events, fragments, observations or runtime state. Operational
 reality produces source material; the [contribution model](contribution-model.md) interprets it; and
