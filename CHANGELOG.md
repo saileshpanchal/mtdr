@@ -20,6 +20,7 @@ All notable changes to the TDR standard (and its MTDR markdown reference format)
 - The umbrella specification ([`specification/organisational-records.md`](specification/organisational-records.md)) moves to **1.1.0**: the package map names the three states — candidate, experimental, normative — and lists `records/work/` as experimental rather than candidate, which since TDR-0047 it no longer is. Additive; no record's validity changes.
 
 ### Fixed
+- The skill-count check read spelled-out totals only up to thirty: a count such as *thirty-two* was taken for ordinary prose and went unchecked. It now composes any count up to ninety-nine, and a count it cannot read (*a hundred*) fails instead of passing silently.
 - Checks with no dimension mapping (`identity`, `extraction`, `agent-skills`, `surfaces`) reported a failure as `indeterminate` in all three dimensions instead of failing the one they belong to. Mapped, and a guard now fails the run if any check is left unmapped.
 
 ## Experimental — not part of the standard

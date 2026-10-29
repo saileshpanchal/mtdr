@@ -142,17 +142,39 @@ note('agent-skills', f"{len(skills)} skills profile {sorted(MTDR_SKILL_FIELDS)} 
 # 3b — stated skill counts match reality. The count drifted silently once; a number in prose that
 # nothing checks is a claim, and this repository does not ship unchecked claims about itself.
 admitted_skills = [k for k in skills if not (k.startswith('records/') and k.split('/')[1] in EXPERIMENTAL)]
-WORDS = {n: i for i, n in enumerate(
-    "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen "
-    "sixteen seventeen eighteen nineteen twenty twenty-one twenty-two twenty-three twenty-four "
-    "twenty-five twenty-six twenty-seven twenty-eight twenty-nine thirty".split())}
+UNITS = ("zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen "
+         "fifteen sixteen seventeen eighteen nineteen").split()
+TENS = {t: 10 * i for i, t in enumerate("twenty thirty forty fifty sixty seventy eighty ninety".split(), 2)}
+
+
+def spelled_count(word):
+    """A count in digits or words up to ninety-nine, or None. A table of words once stopped at thirty,
+    so 'thirty-two' read as prose and went unchecked: compose the words instead of listing them."""
+    w = word.lower()
+    if w.isdigit():
+        return int(w)
+    if w in UNITS:
+        return UNITS.index(w)
+    tens, hyphen, unit = w.partition('-')
+    if tens in TENS and (not hyphen or unit in UNITS[1:10]):
+        return TENS[tens] + (UNITS.index(unit) if hyphen else 0)
+    return None
+
+
+# Any word built from these is an attempted count. One that cannot be read fails rather than
+# passing as prose — the check fails closed.
+NUMBERISH = set(UNITS) | set(TENS) | {'hundred', 'thousand'}
 # A total is always stated in the plural, which keeps prose like \"exactly one `SKILL.md`\" out.
 COUNT = re.compile(r'([\w-]+) (?:`SKILL\.md` files|skills\]\(skills/)')
 for f in glob.glob('**/*.md', recursive=True):
     if f.startswith('decisions/') or f == 'CHANGELOG.md':
         continue                       # immutable records and release history state their own moment
     for m in COUNT.finditer(open(f, encoding='utf-8').read()):
-        stated = WORDS.get(m.group(1).lower(), m.group(1) if m.group(1).isdigit() else None)
+        stated = spelled_count(m.group(1))
+        if stated is None and set(m.group(1).lower().split('-')) & NUMBERISH:
+            fail('skill-count', f"{f}: states a count it cannot read ({m.group(1)!r}); write it in "
+                                f"digits, or in words up to ninety-nine")
+            continue
         if stated is None:
             continue                   # not a count — ordinary prose before the marker
         if int(stated) != len(admitted_skills):
