@@ -69,7 +69,7 @@ the near-absence of packaging.
 **4. There is exactly one transformation, and it is not semantic.** MTDR stores skills two levels deep
 — `records/<language>/skills/<name>/SKILL.md` and `skills/shared/<name>/SKILL.md` — because skills live
 with the record semantics they serve ([TDR-0023](../../decisions/TDR-0023-portable-skill-architecture.md)).
-No runtime scans that shape. A bundle therefore **collects** the twenty-five skill directories into one
+No runtime scans that shape. A bundle therefore **collects** the thirty skill directories into one
 flat directory, byte-identical, and places it where the runtime looks. Collection is packaging; nothing
 is rewritten, and the falsification criterion is not engaged.
 

@@ -26,7 +26,10 @@ says what is missing — it does not say something plausible.
 
 Apply [`validation/admission.md`](../../validation/admission.md). An inadmissible candidate is not
 drafted; report why. In particular, a candidate whose `context` contributions post-date the decision is
-not drafted until the offending contribution is removed.
+not drafted until the offending contribution is removed. For material recovered after the event,
+contemporaneity is the grade recomputed from the times
+([`historical-recovery.md`](../../../../specification/historical-recovery.md)): a `later` contribution
+is removed; an `indeterminate` one is carried as a gap, never rendered as context.
 
 ### 2. Apply the proportionality rule
 
@@ -60,10 +63,21 @@ Every rendered value keeps its trace to the contributions and spans behind it. W
 with that provenance after ratification is their decision — see
 [`shared/provenance.md`](../../../../specification/provenance.md) — but it must exist at the moment of proposal.
 
+### 7. Say when a draft was recovered
+
+A draft from a historical candidate opens by saying so: *recovered from historical candidate
+`<id>`; no standing; the owner is the historical owner as the evidence shows them; whether this
+decision governs now is not established.* The attestation a named individual may later give is theirs
+to state, never this skill's — and it attests the account, not the decision.
+
 ## Outputs
 
 A markdown TDR at the routed template tier, with `status: proposed`, gaps marked in place, and
-provenance attached. Plus a one-paragraph statement of what the evidence did not supply.
+provenance attached — **plus the completeness view**
+([`decision-contribution.md`](../../specification/decision-contribution.md)): per mandatory role,
+`supported | partial | missing | conflicting`, state only, with each value's `derivation` reported
+alongside and never folded into the grade; and the one-sentence reading of what the evidence did not
+supply.
 
 Where the proportionality outcome is **no record**, output that finding with its reasoning instead of a
 record. This is a successful result.
@@ -92,6 +106,8 @@ record. This is a successful result.
 - **Full-template reflex** — the richest tier chosen because the material was rich.
 - **Gap laundering** — a missing field rendered as "not applicable" rather than missing.
 - **Status inflation** — anything beyond `proposed`.
+- **The unannounced recovery** — a draft from historical material that reads as though it had been
+  written at the time.
 
 ## Scope note
 

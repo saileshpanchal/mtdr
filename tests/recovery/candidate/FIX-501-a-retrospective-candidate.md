@@ -3,6 +3,7 @@
 **Contract expectation:** accepted
 
 **Digest:** `sha256:27c2ae28bffe4b4818718a1acb409377d7d2d520ab1ac12e68cb76fa6acad020`
+**Contemporaneity:** `RC-9501-4` contemporaneous · `RC-9501-6` contemporaneous
 
 A decision a fictional housing association took in 2019 and never recorded, recovered from the
 board minute, the paper it cites, and a memo that pre-dates both. Every mandatory role is supported,

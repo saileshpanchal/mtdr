@@ -2,6 +2,11 @@
 name: decision
 language: decision
 primary_record: TDR
+object: consequential-decision   # the organisational object a TDR is the governed memory of
+specifications:
+  supporting:
+    - specification/decision-contribution.md   # the recovery vocabulary (proposed under TDR-0049)
+vocabulary: schema/decision-contribution.schema.json   # its machine-readable form, read by the suite
 records:
   - id: TDR
     specification: specification/tdr.md
@@ -26,6 +31,9 @@ conformance_layers:              # specification/conformance.md — maturity is 
 skills:
   authoring: [decision-identification, problem-framing-and-decision-capture, evidence-review, governance-review]
   drafting: [draft-tdr]
+  lifecycle: [identify-decision-contributions, reconcile-decision-contributions,
+              challenge-decision-record, validate-decision-record]
+  orchestration: [recover-decision-records]   # composition skill — invokes the lifecycle, owns no semantics (TDR-0026)
   assurance: [systems-thinking, counterfactual-and-evidence, accumulated-and-resultant-risk,
               fraud-and-adversarial-thinking, customer-outcomes, systems-dynamics,
               adaptive-capacity, assurance-synthesis]
@@ -51,6 +59,15 @@ dependencies:
   - ref: specification/historical-recovery.md
     class: normative
     why: What recovery from material that survives a decision may claim, and the contemporaneity rule the admissibility test applies (proposed under TDR-0048).
+  - ref: specification/historical-candidate.md
+    class: normative
+    why: The retrospective candidate the recovery pipeline hands on (proposed under TDR-0048).
+  - ref: schemas/shared
+    class: normative
+    why: The interchange contracts validation applies — the historical candidate refers to its siblings by $id, so it resolves only with all of them.
+  - ref: specification/identity-and-grouping.md
+    class: normative
+    why: What makes two spans one decision, and what does not.
   - ref: specification/temporal-semantics.md
     class: normative
     why: How the record's dates and orderings are read.
@@ -66,6 +83,12 @@ dependencies:
   - ref: skills/shared/validate-record
     class: normative
     why: Record-neutral lifecycle stage the package's own skills compose (TDR-0023).
+  - ref: specification/conformance.md
+    class: conformance
+    why: The layered surface this package's maturity is measured against.
+  - ref: tests
+    class: conformance
+    why: The cross-language fixtures, the shared corpus and the recovery contract fixtures. Durably identified, not carried inside the package.
   - ref: decisions/TDR-0002-differentiate-on-accountability-semantics.md
     class: provenance
     why: Why the record differentiates on accountability semantics.

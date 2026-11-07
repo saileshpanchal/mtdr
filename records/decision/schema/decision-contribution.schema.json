@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/saileshpanchal/mtdr/blob/main/records/decision/schema/decision-contribution.schema.json",
+  "title": "Decision contribution vocabulary (proposed under TDR-0049)",
+  "description": "The machine-readable form of records/decision/specification/decision-contribution.md, which defines every term here. It validates the classification of one fragment's contribution to a consequential decision, and its $defs are the vocabulary itself: the classes, the five canonical reasons something is not a decision, the kinds of evidence that no decision was made, and the roles historical recovery treats specially. Consumers read the vocabulary from here rather than restating it. Not a record schema.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "taxonomy_version",
+    "class"
+  ],
+  "properties": {
+    "taxonomy_version": {
+      "const": "1.0.0",
+      "description": "The version of this vocabulary. Equal to the specification's."
+    },
+    "class": {
+      "$ref": "#/$defs/class"
+    },
+    "reason": {
+      "$ref": "#/$defs/not_a_decision_reason"
+    },
+    "non_decision": {
+      "$ref": "#/$defs/non_decision_kind"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "class": {
+            "const": "not-a-decision"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "reason"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "reason"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "class": {
+            "const": "non-decision"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "non_decision"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "non_decision"
+          ]
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "class": {
+      "enum": [
+        "decision-moment",
+        "context",
+        "time",
+        "owner",
+        "authority",
+        "alternative",
+        "foreclosure",
+        "evidence",
+        "consequence",
+        "confidence",
+        "lineage",
+        "challenge",
+        "corroboration",
+        "non-decision",
+        "not-a-decision"
+      ]
+    },
+    "not_a_decision_reason": {
+      "enum": [
+        "status-update",
+        "action",
+        "preference",
+        "restatement",
+        "operational-routine"
+      ],
+      "description": "Stable identifiers for the five reasons something resembling a decision is not one."
+    },
+    "non_decision_kind": {
+      "enum": [
+        "deferred",
+        "not-reached",
+        "withdrawn"
+      ],
+      "description": "Evidence that no decision was made — distinct from no decision being evidenced."
+    },
+    "event_role": {
+      "const": "decision-date",
+      "description": "The role a historical candidate's event_time_ref points at."
+    },
+    "context_roles": {
+      "enum": [
+        "context"
+      ],
+      "description": "Roles graded for contemporaneity and annotated with `considered`."
+    },
+    "never_inferred_roles": {
+      "enum": [
+        "accountable-owner",
+        "alternative-rejected",
+        "owner",
+        "authority",
+        "alternative"
+      ],
+      "description": "Roles and classes a contribution may fill only with derivation `explicit`: who acted, under what authority, instead of what."
+    }
+  }
+}

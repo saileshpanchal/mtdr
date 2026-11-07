@@ -4,7 +4,7 @@ title: Gemini CLI
 class: direct
 confidence: primary
 source: https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/skills.md
-skill_count: 25
+skill_count: 30
 project_paths:
   - .gemini/skills/
   - .agents/skills/

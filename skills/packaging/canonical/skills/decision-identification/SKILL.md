@@ -74,6 +74,8 @@ Name these explicitly so "no record needed" is a confident answer, not a shrug:
 - **Restatements** — repeating an already-recorded decision in a new meeting does not create a new decision.
 - **Operational routine** — choices fully determined by an existing policy or runbook; the judgement was exercised when the policy was decided.
 
+These five are defined, with stable identifiers and a machine-readable form, in [`decision-contribution.md`](../../specification/decision-contribution.md) (proposed under TDR-0049). Report a reason by its identifier; restate none of them.
+
 ## Quality checks
 
 - Would the accountable owner recognise the decision moment as theirs?

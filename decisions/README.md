@@ -52,6 +52,7 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0045](TDR-0045-external-validation-follows-publication.md) | External validation follows publication and cannot gate it | Full — re-scoping the last release obligation is a one-way door |
 | [TDR-0046](TDR-0046-oir-experiment-preregistration.md) | Pre-register the Operational Inheritance Record experiment before building it — **admits nothing** | Full — a frozen test is a one-way door |
 | [TDR-0047](TDR-0047-experimental-packages.md) | Admission to the experimental runtime is not admission to the standard | Minimal — a reusable route for every candidate |
+| [TDR-0049](TDR-0049-decision-recovery-vocabulary.md) | **Proposed** — the decision-recovery vocabulary: contribution classes, the canonical not-a-decision reasons, and the recovery pipeline | Minimal — vocabulary, revisable by supersession |
 | [TDR-0048](TDR-0048-historical-recovery-doctrine.md) | **Proposed** — recover what can be evidenced, preserve what cannot, never turn a contemporary interpretation into historical authority | Full — what an attestation may confer is a one-way door |
 
 ## Identifiers

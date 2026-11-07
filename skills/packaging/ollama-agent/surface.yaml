@@ -4,7 +4,7 @@ title: ollama-agent (local)
 class: direct
 confidence: primary
 source: https://github.com/arrase/ollama-agent
-skill_count: 25
+skill_count: 30
 project_paths:
   - ./skills/
 personal_paths:

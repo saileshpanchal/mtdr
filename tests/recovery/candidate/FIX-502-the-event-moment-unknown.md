@@ -2,6 +2,8 @@
 
 **Contract expectation:** accepted
 
+**Contemporaneity:** `RC-9502-4` indeterminate
+
 An undated extract of the same minute. The decision is evidenced; when it was taken is not, and the
 paper's date is not the decision's. `event_time_ref` is `unknown`, the missing roles are listed, and
 the candidate is a legitimate terminal state.

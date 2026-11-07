@@ -597,8 +597,23 @@ note('projection-contract', f"{a} accepted, {r} rejected as published")
 # specification/historical-candidate.md). A candidate never acquires standing because something
 # reconstructed it: the constants are the schema's, the cross-references are checked here, and review
 # is bound to the exact candidate by digest rather than written into it.
+# A package that supplies recovery vocabulary names it in its manifest; the roles it declares there —
+# its event role, its context roles, the roles never filled by inference — are enforced on every
+# candidate for its object, from the package's own declaration rather than a copy.
+VOCABULARY = {}
+for _m in sorted(glob.glob('records/*/package.yaml')):
+    _man = yaml.safe_load(open(_m, encoding='utf-8')) or {}
+    if _man.get('vocabulary') and _man.get('object'):
+        VOCABULARY[_man['object']] = json.load(open(f"records/{_man['name']}/{_man['vocabulary']}"))['$defs']
+
+
+def _values(d):
+    return {d['const']} if 'const' in d else set(d.get('enum', []))
+
+
 def candidate_integrity(c):
-    """The contract's rules a schema cannot express — specification/historical-candidate.md §Integrity."""
+    """The contract's rules a schema cannot express — specification/historical-candidate.md §Integrity —
+    and the object's own recovery roles, where its package declares them."""
     out = []
     frags = [x['fragment_id'] for x in c['fragments']]
     contribs = {k['contribution_id'] for k in c['contributions']}
@@ -617,7 +632,33 @@ def candidate_integrity(c):
                 for r in a['considered']['fragment_refs'] if r not in frags]
     if c['event_time_ref'] != 'unknown' and c['event_time_ref'] not in c['assembly']['contribution_refs']:
         out.append(f"event_time_ref {c['event_time_ref']} names no contribution in the assembly")
+    vocab = VOCABULARY.get(c['assembly']['target_object'])
+    if vocab:
+        role = {k['contribution_id']: k['semantic_role'] for k in c['contributions']}
+        never, context = _values(vocab['never_inferred_roles']), _values(vocab['context_roles'])
+        for k in c['contributions']:
+            if k.get('derivation') == 'inferred' and k['semantic_role'] in never:
+                out.append(f"{k['contribution_id']} infers {k['semantic_role']}: who acted, under what "
+                           f"authority, or instead of what, is never inferred")
+        if c['event_time_ref'] != 'unknown' and role.get(c['event_time_ref']) not in _values(vocab['event_role']):
+            out.append(f"event_time_ref {c['event_time_ref']} is not a contribution to the event role")
+        annotated = {a['contribution_ref'] for a in c['contribution_annotations']}
+        for cid, r in role.items():
+            if (r in context) != (cid in annotated):
+                out.append(f"{cid} ({r}): `considered` belongs on every context contribution and on no other")
     return out
+
+
+def contribution_grades(c):
+    """Contemporaneity per context contribution, computed: a contribution resting on several fragments
+    takes the least contemporaneous grade among them."""
+    times = {a['fragment_ref']: (a['capture_time'], a['creation_time']) for a in c['fragment_annotations']}
+    value = {k['contribution_id']: k for k in c['contributions']}
+    event = 'unknown' if c['event_time_ref'] == 'unknown' else str(value[c['event_time_ref']]['interpreted_value'])
+    rank = ('later', 'indeterminate', 'contemporaneous')
+    return {a['contribution_ref']: min((contemporaneity(*times[f], event)
+                                        for f in value[a['contribution_ref']]['fragment_refs']), key=rank.index)
+            for a in c['contribution_annotations']}
 
 
 def jcs_digest(doc):
@@ -709,6 +750,18 @@ for _cap, _cre, _ev, _want in (
         fail('contemporaneity', f"capture {_cap}, creation {_cre}, event {_ev}: expected {_want}, "
                                 f"computed {contemporaneity(_cap, _cre, _ev)}")
 note('contemporaneity', "computed from capture, creation and event times; known answers hold")
+
+graded = 0
+for f, (doc, text, exp) in candidates.items():     # a fixture may state the grades it expects; recompute them
+    want = re.search(r'\*\*Contemporaneity:\*\*\s*(.+)', text)
+    if not want or exp != 'accepted':
+        continue
+    stated = dict(re.findall(r'`([^`]+)` (contemporaneous|later|indeterminate)', want.group(1)))
+    computed = contribution_grades(doc)
+    if stated != computed:
+        fail('contemporaneity', f"{f}: states {stated}, the candidate's times compute {computed}")
+    graded += len(computed)
+note('contemporaneity-fixtures', f"{graded} context contributions graded from their times, as stated")
 
 # 12 — classified normative closure (TDR-0032; DAC-0032 constraint 3). Role metadata, not a trust
 # hierarchy — historical material can be authoritative evidence while being non-normative about

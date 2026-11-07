@@ -10,7 +10,7 @@ a defect ([TDR-0024](../../../decisions/TDR-0024-packaging-independence.md)).
 
 ## Install
 
-Copy or link the 25 collected skills into `.agents/skills/`:
+Copy or link the 30 collected skills into `.agents/skills/`:
 
 ```
 cp -r skills/packaging/canonical/skills/* .agents/skills/
@@ -42,7 +42,7 @@ specifications, and each deployed package's specification and templates.
 
 ## The catalogue
 
-25 skills, enumerated from the package manifests rather than a hand-maintained list:
+30 skills, enumerated from the package manifests rather than a hand-maintained list:
 [`catalogue.yaml`](../canonical/catalogue.yaml). Every surface ships the same catalogue; a surface
 shipping a subset would be a different capability wearing the same name.
 

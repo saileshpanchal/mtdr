@@ -26,7 +26,7 @@ Every `SKILL.md` is copied byte-identical, and the suite compares them byte for 
 
 ```
 skills/packaging/
-  canonical/skills/<name>/SKILL.md   the 25 canonical skills, collected, unmodified
+  canonical/skills/<name>/SKILL.md   the 30 canonical skills, collected, unmodified
   canonical/catalogue.yaml           enumerated from each package.yaml, with per-file digests
   canonical/provenance.yaml          standard version, commit, source manifests, reference knowledge
   <surface>/surface.yaml             verified discovery paths, invocation, and what is unverified
