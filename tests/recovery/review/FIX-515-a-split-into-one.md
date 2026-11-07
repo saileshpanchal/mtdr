@@ -12,7 +12,7 @@ let a candidate be replaced without the replacement being reviewed as such.
   "contract_version": "1.0.0",
   "event_id": "CRE-9515",
   "candidate_id": "HDC-9501",
-  "candidate_digest": "sha256:27c2ae28bffe4b4818718a1acb409377d7d2d520ab1ac12e68cb76fa6acad020",
+  "candidate_digest": "sha256:66f996e3ee06f5d5a13f984837dd65c0bbf1b94887d719b85ea2c4cba26f5b30",
   "act": "split",
   "reviewer": "J. Adeyemi",
   "authority": "Company Secretary, under the board's terms of reference for the decision register",

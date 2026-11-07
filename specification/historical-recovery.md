@@ -70,8 +70,9 @@ completed. A quarter in a filename does not become the first day of the quarter.
 evidenced it is `unknown`.
 
 **A time has a basis, or it is `unknown`.** The basis is the fragment's own statement — the minute's
-heading, the transcript's recorded start — or its source's recorded metadata. A folder, a filename, a
-neighbouring document or a reviewer's knowledge is not a basis. Contemporaneity is computed faithfully
+heading, the transcript's recorded start — or its source's recorded metadata: a field the source's own
+system recorded, such as a document-management system's creation date or a recording's start time. A
+folder, a filename, a neighbouring document or a reviewer's knowledge is not a basis. Contemporaneity is computed faithfully
 from whatever times it is given, so an unbased time is exactly how backdating enters, whether meant or
 well meant.
 
@@ -83,14 +84,19 @@ authored:
 
 1. If the event time is `unknown`, every grade is **`indeterminate`**. A missing event moment is never
    assumed, and never inferred from the material's dates.
-2. Each time is read as the interval its precision allows — `2019-03` is the whole of March.
-3. **`contemporaneous`** when the capture time ends at or before the event time begins.
-   **`later`** when the capture time begins after the event time ends. Otherwise **`indeterminate`**.
+2. Each time is read as the days its precision allows — `2019-03` is every day of March,
+   `2019-03-14` that one day.
+3. **`contemporaneous`** when the latest day the capture time can denote is on or before the earliest
+   day the event time can denote — so material captured on the event's own day is contemporaneous.
+   **`later`** when the earliest day the capture time can denote is after the latest day of the event.
+   Otherwise **`indeterminate`**.
 4. Where the capture time is `unknown`, a creation time at or before the event shows the content
    existed then, and grades `contemporaneous`. A later creation time shows nothing about capture, and
    grades `indeterminate` — never `later`.
 5. A contribution resting on several fragments takes the **least** contemporaneous grade among them:
-   `later` if any is later, otherwise `indeterminate` if any is indeterminate.
+   `later` if any is later, otherwise `indeterminate` if any is indeterminate. A fragment marked as a
+   restatement is graded as the fragment it restates, where the candidate carries it: repeating a
+   source adds no time of its own.
 
 A `later` contribution is not context, whatever it says. An `indeterminate` one is reported, and may
 not support a context claim until the times are evidenced.
@@ -104,10 +110,20 @@ for every context contribution:
 | `considered` | Meaning |
 |---|---|
 | `evidenced` | a fragment shows the link — the minute cites the paper, the pack was tabled, the attendee list matches the circulation list |
-| `unlinked` | the material pre-dates the event, and nothing connects it to the act |
-| `unknown` | the evidence does not settle either way |
+| `unlinked` | nothing shown connects the material to the act |
+| `unknown` | the evidence neither shows nor excludes a link — the minute says *papers circulated* and lists none |
+
+Context recorded **in the act-record itself** — *members noted that the change affects four wards* —
+was before whoever acted by construction: `considered: evidenced`, citing its own fragment.
 
 An `unlinked` document is evidence about the circumstances, not evidence of what was considered.
+
+**Material joins a candidate only on an admissible grouping basis**
+([`candidate-assembly.md`](candidate-assembly.md)). `considered: unlinked` is for material that does —
+through an identifier it shares with the act, say — without being shown to have been before whoever
+acted. Material connected to a decision by subject alone stays **outside** the candidate, reported as
+circumstance: subject similarity is not a basis, and a recovery that pulls material in on subject has
+grouped by proximity.
 
 ## What claim does the material support?
 
@@ -119,10 +135,15 @@ role, and to which derivation state. The evidence kinds are shared:
 |---|---|
 | `act-record` | material made in the act itself — the minute of the meeting at which the decision was taken, the signed paper |
 | `cited-material` | material the act-record cites, or that is shown to have been before whoever acted |
-| `prior-unlinked` | material that pre-dates the event, with nothing linking it to the act |
+| `unlinked` | material with nothing shown linking it to the act, whatever its date |
 | `later-recording` | a capture made at the time and produced as an artefact later — a transcript written up after the meeting |
 | `retrospective` | material produced after the event, about it — a review, a report, a lessons-learned paper |
 | `restatement` | material that repeats another source |
+
+**The kind says what the material is and how it connects to the act; its times say when.** They are
+independent: an undated note is still classified by what it is, and its unknown times make its grade
+`indeterminate`. The kind and `considered` agree — `cited-material` is `evidenced`, `unlinked` is
+`unlinked` or `unknown`, and the act-record's own context is `evidenced` by itself.
 
 Two rules hold for every package:
 
@@ -134,8 +155,10 @@ Two rules hold for every package:
 ## Inference is bounded
 
 `derivation: inferred` ([TDR-0026](../decisions/TDR-0026-value-recovery-vocabulary.md)) is permitted
-for a **narrowly evidenced normalisation** — a date written in another format, a name written two ways
-in two sources that are otherwise shown to concern the same person.
+for a **narrowly evidenced value assembled across spans** — a meeting's day from a minute's text and
+its year from the minute's header; a name written two ways in two sources that are otherwise shown to
+concern the same person. **Rewriting a value a span states is not inference**: `14/3/19` written as
+`2019-03-14` stays `explicit`, because it is read directly.
 
 It is **never** permitted for the roles that identify **who acted, under what authority, why, or
 instead of what**. Each package names those roles; a contribution to one of them is `explicit` or it

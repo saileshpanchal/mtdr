@@ -37,7 +37,8 @@ is removed; an `indeterminate` one is carried as a gap, never rendered as contex
 revisable → minimal · cheap → bare · cheaper to reverse than to record → **no record, and say so**.
 
 Defaulting to the full template because the evidence is plentiful is a misreading. Volume of material
-is not reversal cost.
+is not reversal cost. With no `reversal-cost` contribution at all, the outcome is **undetermined**, and
+the draft says so ([`admission.md`](../../validation/admission.md) criterion 6).
 
 ### 3. Render frontmatter from contributions only
 

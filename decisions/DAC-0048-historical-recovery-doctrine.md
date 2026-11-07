@@ -37,6 +37,15 @@ closes.
 candidates will be incomplete (the adopter's corpus assessment, July 2026); the TDR format cannot carry
 recovery metadata without a version, and the identity check that would have blocked one is repaired.
 
+**Tested once, and what it showed.** An independent agent ran the published recovery instructions
+over twelve fictional cases and a six-document corpus (7 November 2026), without sight of any expected
+answer. All seventeen candidates it produced met the contract — but in several places only by
+conventions the standard did not supply, and its friction log found rules the suite enforced and the
+specifications did not state, fixtures that broke the doctrine they illustrate, and a hindsight
+loophole through the `evidence-*` roles. Those were corrected before this case was proposed. It was
+one run, by an agent, over material this repository's author wrote: it is not the evidence TDR-0049's
+confirmation asks for.
+
 **Unknown:** whether reviewers grade the six evidence kinds consistently; whether the four times are
 the right granularity for material beyond minutes, papers and transcripts; whether any implementation
 will consume the contract as published rather than copy and reshape it.
@@ -179,7 +188,8 @@ specifications are proposed and travel with this case. The mind-changing evidenc
 *Counterfactual*. Dissent is retained: TDR-0048's alternatives include defining nothing, and its third
 alternative keeps a recovered-record provision open.
 
-**Execution capability.** One maintainer; no independent reviewer of recovery practice; no
+**Execution capability.** One maintainer; no independent human reviewer of recovery practice; one
+agent trial over self-authored fixtures; no
 implementation yet consuming the contract. The case is proportionate to a doctrine that has not yet met
 an adopter, and its review date is set for that reason.
 

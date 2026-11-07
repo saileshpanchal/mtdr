@@ -1,4 +1,4 @@
-# FIX-023 — normalise a date, never infer an owner
+# FIX-023 — assemble a date across spans, never infer an owner
 
 > **Fictional worked fixture.** Kestrel Valley Water, its people and its numbers are invented.
 
@@ -8,15 +8,17 @@
 
 **A — Minute, `ops-forum/minute-14-3-19.md`**
 
-> Meeting of 14/3/19. Agreed: chlorine dosing at Dunmore moves to the automated controller. The ops
+> **Operations forum minutes, 2019 series.** …
+>
+> Thursday 14 March. Agreed: chlorine dosing at Dunmore moves to the automated controller. The ops
 > director to oversee.
 
 **B — Organisation chart, `people/2019-structure.md`** — Operations Director: P. Rahman.
 
 ## Expected
 
-- **`decision-date: 2019-03-14`, `derivation: inferred`** — a narrowly evidenced normalisation of
-  the minute's own `14/3/19`. Permitted.
+- **`decision-date: 2019-03-14`, `derivation: inferred`** — the day from the entry's text, the year
+  from the minute's own header: a value assembled across two spans of one source. Permitted.
 - **`accountable-owner` is missing.** The minute names a role, not a person.
 
 ## Must not
@@ -25,7 +27,9 @@
   contract refuses it (see `tests/recovery/candidate/FIX-509`).
 - **Contribute "P. Rahman" as owner, marked `explicit`.** No span joins the role in the minute to the
   name on the chart for that meeting.
-- **Read `14/3/19` as 3 February** or leave it unparsed: the normalisation is the permitted case.
+- **Leave the year out, or take it from the file's name.** The header states it, and the inference
+  across spans is the permitted case.
+- **Mark a date the text states in full as `inferred`.** Rewriting a stated date is `explicit`.
 
 ## What this fixture detects
 

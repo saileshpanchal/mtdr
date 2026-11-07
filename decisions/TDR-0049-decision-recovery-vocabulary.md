@@ -46,10 +46,16 @@ specification, not in a skill.**
 3. **No decision evidenced, and evidence that no decision was made, are different findings.** The
    second has kinds — `deferred`, `not-reached`, `withdrawn` — and a deferral that commits is a
    decision.
-4. **The recovery roles are declared by the package:** `decision-date` the event role, `context` the
-   context role, and `accountable-owner`, `alternative-rejected` and the `owner`, `authority` and
-   `alternative` classes never inferred. The suite enforces them on every historical candidate for a
-   consequential decision, from that declaration.
+4. **The recovery roles are declared by the package:** `decision-date` the event role; `context` and
+   the seven `evidence-*` roles the context roles, because evidence considered at the time is as
+   exposed to hindsight as context; and `accountable-owner`, `alternative-rejected` and the `owner`,
+   `authority` and `alternative` classes never inferred. The suite enforces them on every historical
+   candidate for a consequential decision, from that declaration.
+   **The `authority` class is the delegation or instrument cited**, never the forum: *the board agreed*
+   is part of the decision statement, and a forum proposed as owner stays `context`, as the semantic
+   roles already say. **A finding** is reported as its fragment with a classification object valid
+   against the machine-readable form. **With no `reversal-cost` evidence**, the proportionality outcome
+   is stated as *undetermined*, which satisfies the admission test and never defaults to a tier.
 5. **The decision language's instance of TDR-0048's evidence matrix** — what each kind of material can
    support, claim by claim.
 6. **Five skills**: `identify-decision-contributions`, `reconcile-decision-contributions`,

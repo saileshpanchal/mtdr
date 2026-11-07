@@ -632,6 +632,8 @@ def candidate_integrity(c):
                 for r in a['considered']['fragment_refs'] if r not in frags]
     if c['event_time_ref'] != 'unknown' and c['event_time_ref'] not in c['assembly']['contribution_refs']:
         out.append(f"event_time_ref {c['event_time_ref']} names no contribution in the assembly")
+    out += [f"{a['fragment_ref']} restates itself" for a in c['fragment_annotations']
+            if a.get('restates') == a['fragment_ref']]
     vocab = VOCABULARY.get(c['assembly']['target_object'])
     if vocab:
         role = {k['contribution_id']: k['semantic_role'] for k in c['contributions']}
@@ -642,6 +644,11 @@ def candidate_integrity(c):
                            f"authority, or instead of what, is never inferred")
         if c['event_time_ref'] != 'unknown' and role.get(c['event_time_ref']) not in _values(vocab['event_role']):
             out.append(f"event_time_ref {c['event_time_ref']} is not a contribution to the event role")
+        event = next((k for k in c['contributions'] if k['contribution_id'] == c['event_time_ref']), None)
+        if event and not re.fullmatch(r'[0-9]{4}(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?',
+                                      str(event['interpreted_value'])):
+            out.append(f"the event contribution's value {event['interpreted_value']!r} is not a time the "
+                       f"grade can be computed from (YYYY, YYYY-MM or YYYY-MM-DD)")
         annotated = {a['contribution_ref'] for a in c['contribution_annotations']}
         for cid, r in role.items():
             if (r in context) != (cid in annotated):
@@ -653,6 +660,9 @@ def contribution_grades(c):
     """Contemporaneity per context contribution, computed: a contribution resting on several fragments
     takes the least contemporaneous grade among them."""
     times = {a['fragment_ref']: (a['capture_time'], a['creation_time']) for a in c['fragment_annotations']}
+    for a in c['fragment_annotations']:            # a restatement adds no time of its own
+        if a.get('restates') in times:
+            times[a['fragment_ref']] = times[a['restates']]
     value = {k['contribution_id']: k for k in c['contributions']}
     event = 'unknown' if c['event_time_ref'] == 'unknown' else str(value[c['event_time_ref']]['interpreted_value'])
     rank = ('later', 'indeterminate', 'contemporaneous')

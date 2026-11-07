@@ -20,12 +20,12 @@ skills:
     package: decision
     group: lifecycle
     source: records/decision/skills/challenge-decision-record/SKILL.md
-    sha256_16: e67fb1a6409dfa94
+    sha256_16: 88570d34dad60391
   - name: challenge-record
     package: shared
     group: record-neutral
     source: skills/shared/challenge-record/SKILL.md
-    sha256_16: f637402347c3657e
+    sha256_16: df518a02fc8ccf5a
   - name: challenge-value-record
     package: value
     group: lifecycle
@@ -50,7 +50,7 @@ skills:
     package: decision
     group: drafting
     source: records/decision/skills/draft-tdr/SKILL.md
-    sha256_16: 789e793ea367d853
+    sha256_16: 53fbfa052f0bdade
   - name: draft-value-record
     package: value
     group: lifecycle
@@ -75,7 +75,7 @@ skills:
     package: decision
     group: lifecycle
     source: records/decision/skills/identify-decision-contributions/SKILL.md
-    sha256_16: 8197ec81288c7e50
+    sha256_16: cda361b401a8dbb2
   - name: identify-record-contributions
     package: shared
     group: record-neutral

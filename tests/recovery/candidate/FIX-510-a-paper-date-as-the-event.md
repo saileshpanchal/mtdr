@@ -60,8 +60,25 @@ precise, plausible and wrong. The event time is the event role's value, and noth
         "start": 6,
         "end": 7
       },
-      "content": "Call-centre staffing could absorb repairs calls if the evening rota moves to a later shift.",
+      "content": "Notes towards paper B/19/07: call-centre staffing could absorb repairs calls if the evening rota moves to a later shift.",
       "source_time": "2019-02-20",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "example-recovery",
+        "version": "0.1.0"
+      }
+    },
+    {
+      "fragment_id": "SF-9501-d",
+      "source_ref": "morrow-street/email/2019-03-repairs-line.md",
+      "source_hash": "sha256:82244417f956ac7c599f191593f7e441a4fafa20a4158fd52e154f1dc4c8ed92",
+      "locator": {
+        "kind": "line-range",
+        "start": 3,
+        "end": 3
+      },
+      "content": "As paper B/19/07 says, four local offices cost £212k a year more than one line.",
+      "source_time": "unknown",
       "observed_at": "2026-11-07",
       "observed_by": {
         "name": "example-recovery",
@@ -127,7 +144,8 @@ precise, plausible and wrong. The event time is the event role's value, and noth
     {
       "contribution_id": "RC-9501-4",
       "fragment_refs": [
-        "SF-9501-b"
+        "SF-9501-b",
+        "SF-9501-d"
       ],
       "target_object": "consequential-decision",
       "target_record_type": "TDR",
@@ -198,7 +216,7 @@ precise, plausible and wrong. The event time is the event role's value, and noth
       },
       {
         "basis": "entity-match",
-        "evidence": "The single repairs line is the subject of the minute, the paper and the memo"
+        "evidence": "The memo (SF-9501-c) and the email (SF-9501-d) name paper B/19/07, the paper the minute cites"
       }
     ],
     "assembly_confidence": "medium",
@@ -206,7 +224,7 @@ precise, plausible and wrong. The event time is the event role's value, and noth
     "conflicts": [],
     "supersessions": [],
     "unresolved": [
-      "Whether the staffing memo (SF-9501-c) was before the board: nothing in the minute or the paper refers to it"
+      "Whether the staffing memo (SF-9501-c) was before the board: it names the paper, but nothing in the minute or the paper refers to the memo"
     ],
     "status": "candidate"
   },
@@ -227,7 +245,14 @@ precise, plausible and wrong. The event time is the event role's value, and noth
       "fragment_ref": "SF-9501-c",
       "capture_time": "2019-02-20",
       "creation_time": "2019-02-20",
-      "evidence_kind": "prior-unlinked"
+      "evidence_kind": "unlinked"
+    },
+    {
+      "fragment_ref": "SF-9501-d",
+      "capture_time": "2019-03",
+      "creation_time": "2019-03",
+      "evidence_kind": "restatement",
+      "restates": "SF-9501-b"
     }
   ],
   "contribution_annotations": [

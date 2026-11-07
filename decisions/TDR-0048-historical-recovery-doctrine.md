@@ -124,7 +124,8 @@ names the candidate it was recovered from.
 
 Every package states a matrix of **evidence kinds against claims**: which kind of material can support
 which role, and to which derivation state. The kinds are shared — `act-record`, `cited-material`,
-`prior-unlinked`, `later-recording`, `retrospective`, `restatement`. **Independence counts once**: a
+`unlinked`, `later-recording`, `retrospective`, `restatement` — what the material is and how it
+connects to the act, independently of its times. **Independence counts once**: a
 restatement names the source it repeats and corroborates nothing beyond it. **Inference is bounded**:
 `inferred` may normalise a narrowly evidenced value, and never supplies who acted, under what
 authority, why, or instead of what. The decision package's instance of the matrix is its recovery

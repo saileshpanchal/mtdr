@@ -112,9 +112,16 @@
     },
     "context_roles": {
       "enum": [
-        "context"
+        "context",
+        "evidence-business",
+        "evidence-architecture",
+        "evidence-regulatory",
+        "evidence-operations",
+        "evidence-customer",
+        "evidence-data",
+        "evidence-external"
       ],
-      "description": "Roles graded for contemporaneity and annotated with `considered`."
+      "description": "Roles graded for contemporaneity and annotated with `considered`: what was known, and the evidence considered, at the time."
     },
     "never_inferred_roles": {
       "enum": [

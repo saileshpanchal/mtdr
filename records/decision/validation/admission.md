@@ -24,7 +24,10 @@ A candidate decision is admissible when all of the following hold.
 5. **Missing mandatory roles are reported, not filled.** A candidate missing `accountable-owner` is
    admissible; a candidate with an invented one is not.
 6. **The proportionality outcome is stated** — the template tier, or a recommendation of no record,
-   with the reversal-cost reasoning behind it.
+   with the reversal-cost reasoning behind it. Where no `reversal-cost` contribution exists — the usual
+   case in material recovered after the event — the outcome is stated as **undetermined**, with that
+   reason, and satisfies this criterion. It never defaults to a tier; the tier is settled when an
+   account is attested.
 7. **Conflicts are recorded, not resolved.**
 
 ## Inadmissible

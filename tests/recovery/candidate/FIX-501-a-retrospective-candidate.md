@@ -2,16 +2,19 @@
 
 **Contract expectation:** accepted
 
-**Digest:** `sha256:27c2ae28bffe4b4818718a1acb409377d7d2d520ab1ac12e68cb76fa6acad020`
+**Digest:** `sha256:66f996e3ee06f5d5a13f984837dd65c0bbf1b94887d719b85ea2c4cba26f5b30`
 **Contemporaneity:** `RC-9501-4` contemporaneous · `RC-9501-6` contemporaneous
 
 A decision a fictional housing association took in 2019 and never recorded, recovered from the
 board minute, the paper it cites, and a memo that pre-dates both. Every mandatory role is supported,
 and the candidate is still a candidate: completeness confers nothing.
 
-The memo existed before the meeting. Nothing shows it was before the board, so its contribution is
-`considered: unlinked` — evidence about the circumstances, not of what was considered. The paper is
-`evidenced`, because the minute cites it by number.
+The memo existed before the meeting and joins the candidate on an admissible basis — it names paper
+B/19/07 — but nothing shows it was before the board, so its contribution is `considered: unlinked`:
+evidence about the circumstances, not of what was considered. The paper is `evidenced`, because the
+minute cites it by number. An email of March 2019 restates the paper; it is marked as a restatement,
+counts once, and adds no time of its own — so the context it shares with the paper still grades
+`contemporaneous`, though March 2019 alone would straddle the 14th.
 
 Computed, not stored: the paper and the memo are `contemporaneous` with the 14 March event; the minute
 is captured at it.
@@ -70,8 +73,25 @@ is captured at it.
         "start": 6,
         "end": 7
       },
-      "content": "Call-centre staffing could absorb repairs calls if the evening rota moves to a later shift.",
+      "content": "Notes towards paper B/19/07: call-centre staffing could absorb repairs calls if the evening rota moves to a later shift.",
       "source_time": "2019-02-20",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "example-recovery",
+        "version": "0.1.0"
+      }
+    },
+    {
+      "fragment_id": "SF-9501-d",
+      "source_ref": "morrow-street/email/2019-03-repairs-line.md",
+      "source_hash": "sha256:82244417f956ac7c599f191593f7e441a4fafa20a4158fd52e154f1dc4c8ed92",
+      "locator": {
+        "kind": "line-range",
+        "start": 3,
+        "end": 3
+      },
+      "content": "As paper B/19/07 says, four local offices cost £212k a year more than one line.",
+      "source_time": "unknown",
       "observed_at": "2026-11-07",
       "observed_by": {
         "name": "example-recovery",
@@ -137,7 +157,8 @@ is captured at it.
     {
       "contribution_id": "RC-9501-4",
       "fragment_refs": [
-        "SF-9501-b"
+        "SF-9501-b",
+        "SF-9501-d"
       ],
       "target_object": "consequential-decision",
       "target_record_type": "TDR",
@@ -208,7 +229,7 @@ is captured at it.
       },
       {
         "basis": "entity-match",
-        "evidence": "The single repairs line is the subject of the minute, the paper and the memo"
+        "evidence": "The memo (SF-9501-c) and the email (SF-9501-d) name paper B/19/07, the paper the minute cites"
       }
     ],
     "assembly_confidence": "medium",
@@ -216,7 +237,7 @@ is captured at it.
     "conflicts": [],
     "supersessions": [],
     "unresolved": [
-      "Whether the staffing memo (SF-9501-c) was before the board: nothing in the minute or the paper refers to it"
+      "Whether the staffing memo (SF-9501-c) was before the board: it names the paper, but nothing in the minute or the paper refers to the memo"
     ],
     "status": "candidate"
   },
@@ -237,7 +258,14 @@ is captured at it.
       "fragment_ref": "SF-9501-c",
       "capture_time": "2019-02-20",
       "creation_time": "2019-02-20",
-      "evidence_kind": "prior-unlinked"
+      "evidence_kind": "unlinked"
+    },
+    {
+      "fragment_ref": "SF-9501-d",
+      "capture_time": "2019-03",
+      "creation_time": "2019-03",
+      "evidence_kind": "restatement",
+      "restates": "SF-9501-b"
     }
   ],
   "contribution_annotations": [
@@ -267,3 +295,5 @@ is captured at it.
 - Grade the memo's contribution as considered because it pre-dates the meeting.
 - Read the event time from the paper's date, or from any document date: it is the decision-date contribution's value, by pointer.
 - Accept a stored contemporaneity grade anywhere in the document.
+- Grade the shared context `indeterminate` because the restating email is dated only to the month.
+- Admit the memo on subject alone: it joins because it names the paper.

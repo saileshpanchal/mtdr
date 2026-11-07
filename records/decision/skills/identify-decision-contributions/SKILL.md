@@ -58,7 +58,9 @@ Apply [`historical-recovery.md`](../../../../specification/historical-recovery.m
   metadata. A folder, a filename or a neighbouring document is no basis, and the time is `unknown`.
 - **Capture is not creation.** A transcript written up a week later was captured at the meeting.
 - **Pre-dating is not consideration.** A memo that existed before the meeting is `considered:
-  unlinked` unless a fragment shows it was before whoever decided.
+  unlinked` unless a fragment shows it was before whoever decided. Material tied to the decision by
+  subject alone has no grouping basis: report it as circumstance, and keep it out of the candidate.
+- **Rewriting a stated date is not inference.** `14/3/19` as `2019-03-14` is `explicit`.
 - **Restatements are marked.** A paper quoted in three emails is one source.
 - **Never inferred:** the roles and classes the vocabulary names — who acted, under what authority,
   instead of what. `explicit`, or no contribution.

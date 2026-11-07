@@ -7,7 +7,12 @@ the account is later attested.
 
 ## Sources
 
-**A — Board minute, 2019-03-14** — the board agreed a single repairs line. No owner is named.
+**A — Board minute, `board/2019-03-14-minute.md`**
+
+> **Minutes of the Board, 14 March 2019.** The board agreed to move repairs reporting to a single
+> telephone line from 1 June, as set out in paper B/19/07.
+
+No owner is named.
 
 **B — Today's structure, `people/2026-structure.md`** — Director of Operations: J. Adeyemi, in post
 since 2024.

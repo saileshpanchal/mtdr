@@ -8,8 +8,9 @@
 
 **A — Board minute, `board/2021-05-12-minute.md`**
 
-> The board agreed to retire the paper ticket stock at all staffed stations from 1 September, as
-> recommended in paper 21/14. Owner: Hana Brightwell, Director of Retail.
+> **Minutes of the Board, 12 May 2021.** The board agreed to retire the paper ticket stock at all
+> staffed stations from 1 September, as recommended in paper 21/14. Owner: Hana Brightwell, Director
+> of Retail.
 
 **B — Paper 21/14, `board/papers/21-14-paper-tickets.md`, dated 2021-04-28**
 
@@ -22,7 +23,8 @@
 
 ## Expected
 
-- **One candidate**, decision date `2021-05-12`, owner Hana Brightwell, both evidenced by A.
+- **One candidate**, decision date `2021-05-12` — from the minute's own heading, not its filename —
+  and owner Hana Brightwell, both evidenced by A.
 - **B is context**: `cited-material`, `considered: evidenced` by A's citation, graded
   `contemporaneous`.
 - **C computes `later`.** Its capture time, 2021-06-01, begins after the event. It is not context, and

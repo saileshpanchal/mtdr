@@ -94,16 +94,17 @@
             "enum": [
               "act-record",
               "cited-material",
-              "prior-unlinked",
+              "unlinked",
               "later-recording",
               "retrospective",
               "restatement"
-            ]
+            ],
+            "description": "What the material is and how it connects to the act, independently of when it was made — its times say when."
           },
           "restates": {
             "type": "string",
             "minLength": 1,
-            "description": "The source this fragment repeats. Independence counts once."
+            "description": "The fragment_id of the fragment this repeats where the candidate carries it, otherwise the source_ref of what it repeats; never the fragment itself. Independence counts once."
           }
         },
         "allOf": [

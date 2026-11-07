@@ -29,7 +29,7 @@ TDR-0048). This file is the decision language's part of it.
 | `context` | what was known at the time: facts, unknowns, assumptions, constraints, time pressure | `context` |
 | `time` | when the decision was taken | `decision-date` |
 | `owner` | the individual who held the decision | `accountable-owner` |
-| `authority` | the body, delegation or instrument under which it was taken — **a reference, never a grant** | `lineage-derived-from` where it is a recorded decision; otherwise it qualifies `owner` |
+| `authority` | the delegation or instrument under which it was taken — **a reference, never a grant** | `lineage-derived-from` where it is a recorded decision; otherwise it is carried as itself, a reference |
 | `alternative` | an option considered and not taken | `alternative-rejected` |
 | `foreclosure` | a future the decision closes off | `option-foreclosed` |
 | `evidence` | material considered, by dimension | `evidence-business` … `evidence-external` |
@@ -85,7 +85,7 @@ audit reports* — is a decision, and is contributed as one.
 | | Roles | Rule |
 |---|---|---|
 | **Event role** | `decision-date` | the contribution a historical candidate's `event_time_ref` points at |
-| **Context roles** | `context` | each carries a `considered` annotation, and is graded for contemporaneity |
+| **Context roles** | `context` and the seven `evidence-*` roles | each carries a `considered` annotation, and is graded for contemporaneity — evidence considered at the time is as exposed to hindsight as context |
 | **Never inferred** | `accountable-owner`, `alternative-rejected` — and the `owner`, `authority` and `alternative` classes | `derivation: explicit` or no contribution at all |
 
 A **reason** — why the decision was taken — has no field of its own in the TDR. It lives in `context`
@@ -103,10 +103,22 @@ The decision language's instance of the matrix in
 |---|---|---|---|---|---|---|---|
 | `act-record` | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ its own | ✓ |
 | `cited-material` | ✗ a paper recommends, it does not decide | ✓ `considered: evidenced` by the citation | ✓ as presented to the decision | ✗ an author is not an owner | ◐ where it names the instrument | ✗ its date is not the decision's | ✗ |
-| `prior-unlinked` | ✗ | ◐ circumstance only, `considered: unlinked`, never what was known by whoever decided | ✗ | ✗ | ✗ | ✗ | ✗ |
+| `unlinked` | ✗ | ◐ circumstance only, `considered: unlinked`, never what was known by whoever decided | ✗ | ✗ | ✗ | ✗ | ✗ |
 | `later-recording` | as `act-record`, graded by **capture** time | as `act-record` | as `act-record` | as `act-record` | as `act-record` | ✓ the capture's | ✓ |
 | `retrospective` | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✓ **only this** |
 | `restatement` | as its source, counted once | as its source | as its source | as its source | as its source | as its source | as its source |
+
+**The forum is not an authority contribution.** *The board agreed* is part of the decision-statement
+span: the body that acted is in the act. A forum proposed as an owner is not an owner, and goes to
+`context` as [`semantic-roles.md`](../validation/semantic-roles.md) says. The `authority` class is for
+the delegation or instrument cited — *under the scheme of delegation, §3.2*.
+
+## Findings
+
+A `not-a-decision` or `non-decision` finding is reported as the fragment it rests on, with a
+classification object valid against the machine-readable form —
+`{taxonomy_version, class, reason}` or `{taxonomy_version, class, non_decision}`. Findings are not
+grouped into candidates; they travel in the recovery report, by fragment.
 
 ## The `unclassified` outcome
 

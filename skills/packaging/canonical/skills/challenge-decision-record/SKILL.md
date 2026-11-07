@@ -45,8 +45,9 @@ written on the day?*
 ## Dispositions
 
 Exactly one **recommendation** per candidate: **split** · **merge** · **reject** (not a decision, with
-the boundary it fails) · **incomplete** (genuine, under-evidenced, with its gaps) · **retain** (fit to
-put before a named individual).
+the boundary it fails) · **incomplete** (admissible, with any mandatory role missing or partial, and its
+gaps named) · **retain** (admissible, every mandatory role supported — fit to put before a named
+individual).
 
 **A recommendation is this skill's output and nothing more.** It is never written into the candidate,
 and it becomes a review event only when a named individual acts on it

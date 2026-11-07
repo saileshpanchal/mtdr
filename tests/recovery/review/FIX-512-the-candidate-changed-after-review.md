@@ -16,7 +16,7 @@ Schema-valid, and the binding check refuses it.
   "contract_version": "1.0.0",
   "event_id": "CRE-9512",
   "candidate_id": "HDC-9501",
-  "candidate_digest": "sha256:bf92e2c0f724a6e536e38ce308f1d573e487730e8239c7c87bb02e0d2f060050",
+  "candidate_digest": "sha256:27b71c57d1e899536e8afc963e43f5603a95bcb520c8d0be6c0d36dc56b1baa6",
   "act": "retain",
   "reviewer": "J. Adeyemi",
   "authority": "Company Secretary, under the board's terms of reference for the decision register",

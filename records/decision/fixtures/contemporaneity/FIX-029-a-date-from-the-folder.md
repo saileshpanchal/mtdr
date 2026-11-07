@@ -18,7 +18,8 @@ file's recorded metadata
 
 - **A's `capture_time` and `creation_time` are `unknown`.** The folder name `2019-Q1` is not a
   basis. A computes `indeterminate`.
-- **A is `prior-unlinked` at best**, and its contribution cannot be presented as context.
+- **A is `unlinked`**, classified by what it is; its unknown times make it `indeterminate`, and its
+  contribution cannot be presented as context. Its kind says nothing about when it was written.
 
 ## Must not
 
