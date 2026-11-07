@@ -43,7 +43,7 @@ normal and correct; do not merge them into one.
 ## Notes on the mandatory four
 
 **`context` is the role most vulnerable to hindsight.** It must carry what was known *at the time*, so
-a contribution to it may only come from material created at or before the decision. A later
+a contribution to it may only come from material shown to have preceded the decision. A later
 retrospective explaining why the decision was made is evidence about the decision, not evidence of its
 context, and importing it manufactures reasoning nobody had. See the hindsight rule in
 [`identify-record-contributions`](../../../skills/shared/identify-record-contributions/), stated

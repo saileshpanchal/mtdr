@@ -6,7 +6,7 @@ must-not section ([TDR-0025](../../../decisions/TDR-0025-conformance-architectur
 | Directory | What it tests | Fixtures |
 |---|---|---|
 | — | a decision complete in one source | FIX-004 |
-| [`contemporaneity/`](contemporaneity/) | context is what was known at the time, computed from the times | FIX-018 (written after) · FIX-019 (no decision date) · FIX-020 (the memo nobody cited) · FIX-029 (a date from the folder) |
+| [`contemporaneity/`](contemporaneity/) | context is what was known at the time, computed from the times | FIX-018 (written after) · FIX-019 (no decision date) · FIX-020 (the memo nobody cited) · FIX-029 (a date from the folder) · FIX-030 (a shared date is not an order) |
 | [`admissibility/`](admissibility/) | what each kind of material can support | FIX-021 (captured then, written up later) · FIX-022 (three emails, one paper) · FIX-023 (assemble a date across spans, never infer an owner) |
 | [`corroboration/`](corroboration/) | later material evidences that a decision occurred, and nothing else | FIX-024 |
 | [`transcript/`](transcript/) | an owner named in speech; prominence is not ownership | FIX-025 |

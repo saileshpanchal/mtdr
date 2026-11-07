@@ -666,7 +666,7 @@ def contribution_grades(c):
     value = {k['contribution_id']: k for k in c['contributions']}
     event = 'unknown' if c['event_time_ref'] == 'unknown' else str(value[c['event_time_ref']]['interpreted_value'])
     rank = ('later', 'indeterminate', 'contemporaneous')
-    return {a['contribution_ref']: min((contemporaneity(*times[f], event)
+    return {a['contribution_ref']: min((contemporaneity(*times[f], event, a['considered']['state'])
                                         for f in value[a['contribution_ref']]['fragment_refs']), key=rank.index)
             for a in c['contribution_annotations']}
 
@@ -729,37 +729,52 @@ def _interval(t):
     return d, d
 
 
-def contemporaneity(capture, creation, event):
-    """specification/historical-recovery.md §Contemporaneity — computed from the times, never asserted."""
+def contemporaneity(capture, creation, event, considered='unknown'):
+    """specification/historical-recovery.md §Contemporaneity — computed from the times, never asserted.
+    The times order material across days, never within one; an order they leave open is closed only by
+    `considered: evidenced`, which never lifts a time-less artefact and never overrides `later`."""
     if event == 'unknown':
         return 'indeterminate'                 # a missing event moment is never assumed
     ev = _interval(event)
     if capture != 'unknown':
         cap = _interval(capture)
-        if cap[1] <= ev[0]:
+        if cap[1] < ev[0]:
             return 'contemporaneous'
-        return 'later' if cap[0] > ev[1] else 'indeterminate'
-    if creation != 'unknown' and _interval(creation)[1] <= ev[0]:
-        return 'contemporaneous'               # the content existed by then, so it was captured by then
-    return 'indeterminate'                     # a later artefact says nothing about when it was captured
+        if cap[0] > ev[1]:
+            return 'later'
+        left_open = True                       # the event's own day, or a span that includes it
+    elif creation != 'unknown':
+        cre = _interval(creation)
+        if cre[1] < ev[0]:
+            return 'contemporaneous'           # the content existed by then, so it was captured by then
+        left_open = cre[0] <= ev[1]            # written up later says nothing about capture
+    else:
+        left_open = False                      # no time at all: nothing to order
+    return 'contemporaneous' if left_open and considered == 'evidenced' else 'indeterminate'
 
 
-for _cap, _cre, _ev, _want in (
-        ('2019-03-01', 'unknown', '2019-03-14', 'contemporaneous'),
-        ('2019-03-14', 'unknown', '2019-03-14', 'contemporaneous'),   # at the event counts
-        ('2019-03-15', 'unknown', '2019-03-14', 'later'),
-        ('2019-03', 'unknown', '2019-03-14', 'indeterminate'),        # March straddles the 14th
-        ('2019-02', 'unknown', '2019-03-14', 'contemporaneous'),
-        ('2020', 'unknown', '2019-03', 'later'),
-        ('2019-12', 'unknown', '2019', 'indeterminate'),
-        ('unknown', '2019-03-10', '2019-03-14', 'contemporaneous'),
-        ('unknown', '2019-04-02', '2019-03-14', 'indeterminate'),     # written up later, captured when?
-        ('2019-03-01', '2019-03-01', 'unknown', 'indeterminate'),     # no event, no grade
-        ('unknown', 'unknown', '2019-03-14', 'indeterminate')):
-    if contemporaneity(_cap, _cre, _ev) != _want:
-        fail('contemporaneity', f"capture {_cap}, creation {_cre}, event {_ev}: expected {_want}, "
-                                f"computed {contemporaneity(_cap, _cre, _ev)}")
-note('contemporaneity', "computed from capture, creation and event times; known answers hold")
+for _cap, _cre, _ev, _con, _want in (
+        ('2019-03-01', 'unknown', '2019-03-14', 'unknown', 'contemporaneous'),
+        ('2019-03-13', 'unknown', '2019-03-14', 'unlinked', 'contemporaneous'),   # an earlier day orders it
+        ('2019-03-14', 'unknown', '2019-03-14', 'unknown', 'indeterminate'),      # a shared date is not an order
+        ('2019-03-14', 'unknown', '2019-03-14', 'unlinked', 'indeterminate'),
+        ('2019-03-14', 'unknown', '2019-03-14', 'evidenced', 'contemporaneous'),  # before whoever acted
+        ('2019-03-15', 'unknown', '2019-03-14', 'evidenced', 'later'),            # never overridden
+        ('2019-03', 'unknown', '2019-03-14', 'unknown', 'indeterminate'),         # March spans the 14th
+        ('2019-03', 'unknown', '2019-03-14', 'evidenced', 'contemporaneous'),     # the span's order closed
+        ('2019-02', 'unknown', '2019-03-14', 'unknown', 'contemporaneous'),
+        ('2020', 'unknown', '2019-03', 'evidenced', 'later'),
+        ('2019-12', 'unknown', '2019', 'unknown', 'indeterminate'),
+        ('unknown', '2019-03-10', '2019-03-14', 'unknown', 'contemporaneous'),
+        ('unknown', '2019-03-14', '2019-03-14', 'unknown', 'indeterminate'),
+        ('unknown', '2019-03-14', '2019-03-14', 'evidenced', 'contemporaneous'),
+        ('unknown', '2019-04-02', '2019-03-14', 'evidenced', 'indeterminate'),    # written up later, captured when?
+        ('unknown', 'unknown', '2019-03-14', 'evidenced', 'indeterminate'),       # a time-less artefact stays open
+        ('2019-03-01', '2019-03-01', 'unknown', 'evidenced', 'indeterminate')):   # no event, no grade
+    if contemporaneity(_cap, _cre, _ev, _con) != _want:
+        fail('contemporaneity', f"capture {_cap}, creation {_cre}, event {_ev}, considered {_con}: expected "
+                                f"{_want}, computed {contemporaneity(_cap, _cre, _ev, _con)}")
+note('contemporaneity', "computed from capture, creation and event times and consideration; known answers hold")
 
 graded = 0
 for f, (doc, text, exp) in candidates.items():     # a fixture may state the grades it expects; recompute them

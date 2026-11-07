@@ -18,9 +18,10 @@ written on the day?*
 
 ## The decision-specific challenges
 
-1. **Is every context contribution contemporaneous?** Recompute each grade from its times
-   ([`historical-recovery.md`](../../../../specification/historical-recovery.md)); a `later`
-   contribution is not context, and an `indeterminate` one cannot be presented as context.
+1. **Is every context contribution contemporaneous?** Recompute each grade from its times and its
+   `considered` state ([`historical-recovery.md`](../../../../specification/historical-recovery.md));
+   a `later` contribution is not context, and an `indeterminate` one cannot be presented as context.
+   Material dated the decision's own day is the commonest trap: the date orders nothing.
 2. **Does every time have a basis?** The fragment's own statement or its source's metadata. A time
    resting on a folder, a filename or a neighbouring document is `unknown` — test every one.
 3. **Was the material considered, or did it merely exist?** A pre-dating memo with no link is

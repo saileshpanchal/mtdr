@@ -115,7 +115,9 @@ names the candidate it was recovered from.
 5. **Contemporaneity is computed, from four times, at the precision the evidence gives.** Event,
    capture, creation and interpretation time; partial dates never completed; a missing event moment
    makes every grade `indeterminate`, never assumed. Pre-dating shows that material existed, not that
-   it was considered, and the second is graded separately.
+   it was considered, and the second is graded separately. **A shared date is not an order** (the
+   owner's same-day correction): the times order material across days, never within one, and an order
+   they leave open is closed only by evidence that the material was before whoever acted.
 6. **The conservative path.** The TDR specification stays at 1.15.0. Most mined candidates will stay
    candidates, and the doctrine is written for that. A recovered-record provision in the TDR format is
    revisited only on a demonstrated semantic need.

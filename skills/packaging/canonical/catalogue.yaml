@@ -20,7 +20,7 @@ skills:
     package: decision
     group: lifecycle
     source: records/decision/skills/challenge-decision-record/SKILL.md
-    sha256_16: 88570d34dad60391
+    sha256_16: 355c354ff5ac5270
   - name: challenge-record
     package: shared
     group: record-neutral

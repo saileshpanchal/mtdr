@@ -12,7 +12,7 @@ A candidate decision is admissible when all of the following hold.
    **We decide** and **This means** can each be filled from contributions. Material describing intent,
    status or aspiration fails here, and failing is the correct outcome.
 2. **The context contributions are contemporaneous.** Every contribution to `context` traces to
-   material created at or before `decision-date`. A candidate whose context depends on later material
+   material shown to have preceded the decision. A candidate whose context depends on later material
    is inadmissible until that contribution is removed. Contemporaneity is computed as
    [`specification/historical-recovery.md`](../../../specification/historical-recovery.md) defines it
    (proposed under TDR-0048): a `later` contribution fails this criterion; an `indeterminate` one —

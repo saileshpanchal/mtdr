@@ -65,6 +65,14 @@ Each package designates the semantic role whose value is its object's event time
 candidate points at that contribution rather than copying its value
 ([`historical-candidate.md`](historical-candidate.md)).
 
+**Capture is not creation, and neither is interpretation.** A minute written up after the meeting is
+still evidence of the meeting and of its day: its capture is the meeting, its creation the write-up,
+and the day it is read for recovery is neither.
+
+**A shared date is not an order.** Two artefacts dated the same day establish no chronological
+relationship between them — a memo dated the day of a meeting may have been written before it or
+after it. Where the evidence cannot settle the order, it stays unsettled.
+
 **Partial dates are carried at their precision** — `2019`, `2019-03`, `2019-03-14` — and never
 completed. A quarter in a filename does not become the first day of the quarter. Where a time is not
 evidenced it is `unknown`.
@@ -79,27 +87,39 @@ well meant.
 ## Contemporaneity is computed, never asserted
 
 A contribution to a role the package designates as **context** is contemporaneous when its material
-was captured at or before the event. The grade is computed from the times, so nothing about it can be
-authored:
+is shown to have been captured **before the act** — by times that place it on an earlier day, or, on
+the act's own day, by evidence that it was before whoever acted. The grade is computed, so nothing
+about it can be authored:
 
 1. If the event time is `unknown`, every grade is **`indeterminate`**. A missing event moment is never
    assumed, and never inferred from the material's dates.
 2. Each time is read as the days its precision allows — `2019-03` is every day of March,
    `2019-03-14` that one day.
-3. **`contemporaneous`** when the latest day the capture time can denote is on or before the earliest
-   day the event time can denote — so material captured on the event's own day is contemporaneous.
-   **`later`** when the earliest day the capture time can denote is after the latest day of the event.
-   Otherwise **`indeterminate`**.
-4. Where the capture time is `unknown`, a creation time at or before the event shows the content
-   existed then, and grades `contemporaneous`. A later creation time shows nothing about capture, and
-   grades `indeterminate` — never `later`.
-5. A contribution resting on several fragments takes the **least** contemporaneous grade among them:
+3. **The times order material across days, never within one.** **`contemporaneous`** when the latest
+   day the capture time can denote is before the earliest day the event time can denote. **`later`**
+   when the earliest day the capture time can denote is after the latest day of the event. Otherwise —
+   the event's own day, or a partial date that spans it — the times **leave the order open**.
+4. Where the capture time is `unknown`, a creation time wholly before the event's earliest day shows
+   the content existed then, and grades `contemporaneous`. A creation time that falls within the
+   event's days leaves the order open. A later creation time shows nothing about capture, and grades
+   `indeterminate` — never `later`. With no time at all, the grade is `indeterminate`.
+5. **An order the times leave open is closed only by evidence that the material was before whoever
+   acted** — `considered: evidenced` (below). That material preceded the act, and grades
+   `contemporaneous`. Nothing else closes it: matching dates do not, and neither does the material's
+   subject. Otherwise the grade is `indeterminate`.
+6. A contribution resting on several fragments takes the **least** contemporaneous grade among them:
    `later` if any is later, otherwise `indeterminate` if any is indeterminate. A fragment marked as a
    restatement is graded as the fragment it restates, where the candidate carries it: repeating a
    source adds no time of its own.
 
+**Consideration closes an open order; it never overrides one.** It does not lift a time-less artefact
+— the link shows that some version of the material was before whoever acted, not when this artefact
+was captured — and it never turns `later` into anything else. A `considered: evidenced` link to
+material the times place after the act is a conflict between the link and the times, and is reported
+as one.
+
 A `later` contribution is not context, whatever it says. An `indeterminate` one is reported, and may
-not support a context claim until the times are evidenced.
+not support a context claim until the order is evidenced.
 
 ## Pre-dating is necessary, not sufficient
 
@@ -109,7 +129,7 @@ for every context contribution:
 
 | `considered` | Meaning |
 |---|---|
-| `evidenced` | a fragment shows the link — the minute cites the paper, the pack was tabled, the attendee list matches the circulation list |
+| `evidenced` | a fragment shows the link, and the link identifies this material — the minute cites the paper by its number, the pack was tabled, the attendee list matches the circulation list |
 | `unlinked` | nothing shown connects the material to the act |
 | `unknown` | the evidence neither shows nor excludes a link — the minute says *papers circulated* and lists none |
 
