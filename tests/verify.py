@@ -642,6 +642,18 @@ def candidate_integrity(c):
             if k.get('derivation') == 'inferred' and k['semantic_role'] in never:
                 out.append(f"{k['contribution_id']} infers {k['semantic_role']}: who acted, under what "
                            f"authority, or instead of what, is never inferred")
+        findings, invoked = _values(vocab['finding_classes']), _values(vocab['invocation_roles'])
+        out += [f"{k['contribution_id']} carries the finding class {k['semantic_role']}: findings are reported by "
+                f"fragment, never grouped into a candidate" for k in c['contributions'] if k['semantic_role'] in findings]
+        kind = {a['fragment_ref']: a['evidence_kind'] for a in c['fragment_annotations']}
+        for a in c['fragment_annotations']:        # a restatement supports what its source supports
+            if a.get('restates') in kind:
+                kind[a['fragment_ref']] = kind[a['restates']]
+        for k in c['contributions']:
+            if k['semantic_role'] in invoked:
+                out += [f"{k['contribution_id']} ({k['semantic_role']}) rests on {f}, `{kind[f]}` material: authority is "
+                        f"what the act invokes, and an instrument it does not cite supports applicability, a finding"
+                        for f in k['fragment_refs'] if kind.get(f) in ('unlinked', 'retrospective')]
         if c['event_time_ref'] != 'unknown' and role.get(c['event_time_ref']) not in _values(vocab['event_role']):
             out.append(f"event_time_ref {c['event_time_ref']} is not a contribution to the event role")
         event = next((k for k in c['contributions'] if k['contribution_id'] == c['event_time_ref']), None)

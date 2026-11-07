@@ -29,7 +29,7 @@ TDR-0048). This file is the decision language's part of it.
 | `context` | what was known at the time: facts, unknowns, assumptions, constraints, time pressure | `context` |
 | `time` | when the decision was taken | `decision-date` |
 | `owner` | the individual who held the decision | `accountable-owner` |
-| `authority` | the delegation or instrument under which it was taken — **a reference, never a grant** | `lineage-derived-from` where it is a recorded decision; otherwise it is carried as itself, a reference |
+| `authority` | the delegation or instrument the act **invokes** — cited in the act, or in material shown to have been before whoever acted — **a reference, never a grant** | `lineage-derived-from` where it is a recorded decision; otherwise it is carried as itself, a reference |
 | `alternative` | an option considered and not taken | `alternative-rejected` |
 | `foreclosure` | a future the decision closes off | `option-foreclosed` |
 | `evidence` | material considered, by dimension | `evidence-business` … `evidence-external` |
@@ -40,10 +40,14 @@ TDR-0048). This file is the decision language's part of it.
 | `corroboration` | later material evidencing that the decision occurred | none — it supports existence only, and is **never context** |
 | `non-decision` | material recording that no decision was made | none — a finding, with its kind |
 | `not-a-decision` | material that resembles a decision and is not one | none — a finding, with its reason |
+| `applicability` | an instrument whose terms are shown to cover the act, where the act does not invoke it | none — a finding: the instrument applied, not that anyone relied on it |
+| `persistence` | material showing that an arrangement continued in operation | none — a finding: observed behaviour, never a decision to continue |
 
-Four classes — `challenge`, `corroboration`, `non-decision`, `not-a-decision` — deliberately never
-populate a record field. Losing them loses exactly the disagreement, the history and the negative
-findings recovery is for.
+Six classes — `challenge`, `corroboration`, `non-decision`, `not-a-decision`, `applicability` and
+`persistence` — deliberately never populate a record field. Losing them loses exactly the disagreement,
+the history and the negative findings recovery is for. Four of them — `non-decision`,
+`not-a-decision`, `applicability` and `persistence` — are **findings**: reported by fragment, never
+grouped into a candidate ([Findings](#findings)).
 
 ## The five reasons something is not a decision
 
@@ -87,6 +91,8 @@ audit reports* — is a decision, and is contributed as one.
 | **Event role** | `decision-date` | the contribution a historical candidate's `event_time_ref` points at |
 | **Context roles** | `context` and the seven `evidence-*` roles | each carries a `considered` annotation, and is graded for contemporaneity — evidence considered at the time is as exposed to hindsight as context |
 | **Never inferred** | `accountable-owner`, `alternative-rejected` — and the `owner`, `authority` and `alternative` classes | `derivation: explicit` or no contribution at all |
+| **Invocation** | the `authority` class | rests only on material made in the act, or shown to have been before whoever acted — never on `unlinked` or `retrospective` material ([Applicability is not invocation](#applicability-is-not-invocation)) |
+| **Findings** | the `non-decision`, `not-a-decision`, `applicability` and `persistence` classes | reported by fragment, never a contribution inside a candidate |
 
 A **reason** — why the decision was taken — has no field of its own in the TDR. It lives in `context`
 and the `evidence-*` roles, and is contributed **only where a span states it**. A reason assembled from
@@ -111,19 +117,93 @@ The decision language's instance of the matrix in
 **The forum is not an authority contribution.** *The board agreed* is part of the decision-statement
 span: the body that acted is in the act. A forum proposed as an owner is not an owner, and goes to
 `context` as [`semantic-roles.md`](../validation/semantic-roles.md) says. The `authority` class is for
-the delegation or instrument cited — *under the scheme of delegation, §3.2*.
+the delegation or instrument cited — *under the scheme of delegation, §3.2*. **The `authority` column is
+invocation.** An instrument the act does not cite supports applicability, reported as a finding, and
+nothing in this column.
+
+## Applicability is not invocation
+
+**An instrument may establish that authority applied. It does not show that whoever acted relied on
+it.** Two findings, recorded separately (the owner's ruling of 7 November):
+
+- **Invocation** — the act cites the instrument, or material shown to have been before whoever acted
+  names it: *under the scheme of delegation, §3.2*. It is an `authority` contribution, `explicit`,
+  resting on the act-record or on cited material — **never on an instrument the act does not cite**.
+- **Applicability** — the instrument's terms are shown to cover the act: a span of the instrument, and
+  a span of the act that brings it within them — *any commitment altering the service footprint in more
+  than one ward is reserved to Cabinet*, and *members noted the scheme affects collection rounds in four
+  wards*. It is an **`applicability` finding**, reported beside the candidate it concerns, stating
+  whether the body that acted is the body the instrument names.
+
+Applicability is **never an authority contribution**, never joins the candidate — fit is not a grouping
+basis — and is never a judgement that the act was competent or beyond its powers. Where both are
+evidenced, both are recorded; where neither is, the authority is missing, and missing is the finding.
+
+## One act, one candidate
+
+**The unit of a candidate is the authoritative act** (the owner's ruling):
+
+- Where the evidence establishes a **single act** — one motion carried on one vote, one signature, one
+  approval — that carries several resolutions, the resolutions form **one composite candidate**. Each
+  resolution stays **individually traceable**: its own span and its own `consequence` contribution, so
+  that a later act can supersede one resolution without touching the others.
+- **Separate votes, separate approvals, and choices made by different people or at different times
+  are separate candidates**, however close together the material records them.
+- What establishes a single act is the record of the act — *Resolved: 1… 2… 3… Carried, 8–3.* A shared
+  agenda item, paper or heading does not.
+
+## An instrument may record its own adoption
+
+**A contemporaneous, authenticated instrument may itself be the act-record of its own adoption** — a
+scheme of delegation, a policy or standing orders that state when they were adopted. It is **never set
+aside solely because the evidence of the adoption is the instrument adopted** (the owner's ruling). A
+candidate for the adoption needs, as well as the instrument:
+
+- **contemporaneity** — the instrument as adopted, its adoption time stated by the instrument itself or
+  by its source's recorded metadata, not a later consolidation;
+- **authentication** — evidence that this is the instrument as issued: an adopting resolution, a
+  signature or seal, a publication or register entry by the adopting body;
+- **evidence of its legal or organisational effect** — a commencement provision that has passed, or a
+  later act that relies on it by citation. Later material may evidence effect, as it may evidence that
+  any act occurred, and supplies nothing else.
+
+Where a condition is not evidenced, the instrument is reported with the conditions that are met and
+the evidence that would establish the rest. Its terms stay usable as the instrument they are — for
+applicability, or as authority where an act cites them.
+
+## Persistence is not a decision
+
+**Continued operation does not establish a decision to make an arrangement permanent** (the owner's
+ruling). Material showing that an arrangement carried on past its stated term — rounds still running
+from a temporary site, an interim process still in use — is a **`persistence` finding**: behaviour
+observed at the time the material records it. The finding **flags the authority for continuation**,
+`not-evidenced` unless an act authorising the arrangement beyond its term is evidenced.
+
+A decision to continue, extend or make permanent is recovered **only from evidence of that act**, under
+the matrix like any other. A commitment the material reports as already made — money budgeted, a
+schedule set — is evidence that a commitment occurred, and is reported with the persistence; a
+candidate for it needs the record of the commitment, or material that is itself the act. How long an
+arrangement has lasted, and how settled it looks, add nothing.
 
 ## Findings
 
-A `not-a-decision` or `non-decision` finding is reported as the fragment it rests on, with a
-classification object valid against the machine-readable form —
-`{taxonomy_version, class, reason}` or `{taxonomy_version, class, non_decision}`. Findings are not
-grouped into candidates; they travel in the recovery report, by fragment.
+A `not-a-decision`, `non-decision`, `applicability` or `persistence` finding is reported as the
+fragment it rests on, with a classification object valid against the machine-readable form:
+
+| Finding | Classification object |
+|---|---|
+| `not-a-decision` | `{taxonomy_version, class, reason}` |
+| `non-decision` | `{taxonomy_version, class, non_decision}` |
+| `applicability` | `{taxonomy_version, class, concerns}` — `concerns` names the candidate, or the fragment of the act, it concerns |
+| `persistence` | `{taxonomy_version, class, continuation_authority}` — `not-evidenced` or `evidenced`, and optionally `concerns` |
+
+Findings are not grouped into candidates; they travel in the recovery report, by fragment, and a
+candidate that carries one as a contribution is refused.
 
 ## The `unclassified` outcome
 
 Material relevant to a decision that fits no class is reported as **`unclassified`** — the fragment
-references, what was recognised, and why classification failed. A reporting outcome, not a sixteenth
+references, what was recognised, and why classification failed. A reporting outcome, not an eighteenth
 class. A recurring unclassified pattern routes to a superseding decision.
 
 ## The completeness view

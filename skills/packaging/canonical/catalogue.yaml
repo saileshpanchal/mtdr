@@ -20,7 +20,7 @@ skills:
     package: decision
     group: lifecycle
     source: records/decision/skills/challenge-decision-record/SKILL.md
-    sha256_16: 355c354ff5ac5270
+    sha256_16: 43d2e5428d21f15a
   - name: challenge-record
     package: shared
     group: record-neutral
@@ -75,7 +75,7 @@ skills:
     package: decision
     group: lifecycle
     source: records/decision/skills/identify-decision-contributions/SKILL.md
-    sha256_16: cda361b401a8dbb2
+    sha256_16: 987681e24877953d
   - name: identify-record-contributions
     package: shared
     group: record-neutral
@@ -95,7 +95,7 @@ skills:
     package: decision
     group: lifecycle
     source: records/decision/skills/reconcile-decision-contributions/SKILL.md
-    sha256_16: e6fd8f67241b1a5e
+    sha256_16: 99729c09aa734743
   - name: reconcile-record-fragments
     package: shared
     group: record-neutral
@@ -110,7 +110,7 @@ skills:
     package: decision
     group: orchestration
     source: records/decision/skills/recover-decision-records/SKILL.md
-    sha256_16: f65672383dfed5b0
+    sha256_16: 4eb90145a22d7d9a
   - name: recover-value-records
     package: value
     group: orchestration
@@ -135,7 +135,7 @@ skills:
     package: decision
     group: lifecycle
     source: records/decision/skills/validate-decision-record/SKILL.md
-    sha256_16: 68819a76aef6ee25
+    sha256_16: c7859c70fe5a7cc6
   - name: validate-record
     package: shared
     group: record-neutral

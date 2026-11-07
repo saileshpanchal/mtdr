@@ -43,8 +43,14 @@ The decision test itself — a commitment of money or time, or a foreclosed opti
   only as presented. The decision is where the choice was recorded.
 - **The owner is named in the material, or missing.** Never the author of the document, the chair of
   the meeting, a team, or whoever leads such work now.
-- **Authority is a reference.** *Under the delegation of 4 February* contributes the instrument. A
-  limit stated with no instrument behind it is a claim, flagged, never a grant.
+- **Authority is a reference, and it is what the act invokes.** *Under the delegation of 4 February*
+  contributes the instrument. An instrument the act does not cite, whose terms plainly cover it, is an
+  `applicability` finding — never an authority contribution. A limit stated with no instrument behind
+  it is a claim, flagged, never a grant.
+- **An instrument may be the record of its own adoption** — given contemporaneity, authentication and
+  evidence of its effect. Never set it aside only because the instrument is the evidence.
+- **Persistence is not a decision.** An arrangement still running past its term is a `persistence`
+  finding, its authority for continuation flagged. How long it has lasted decides nothing.
 - **Later material corroborates; it never explains.** A review saying the change went live in June is
   `corroboration`. Its account of why the board chose it is not context, however plausible.
 - **A deferral is a decision only if it commits.** *We will not proceed until the audit reports*

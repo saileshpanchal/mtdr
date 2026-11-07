@@ -32,15 +32,20 @@ written on the day?*
 5. **Is the owner evidenced, or reasoned into place?** Who chaired, who wrote, who leads such work now —
    none of them is the owner unless a span says so. The person attesting the account is never the
    owner.
-6. **Is the authority a reference to something real?** A stated limit with no instrument is a claim.
+6. **Is the authority a reference to something real — and did the act invoke it?** A stated limit
+   with no instrument is a claim. An instrument that fits but is not cited is applicability, a finding:
+   if it has been recorded as authority, that is the manufactured authority this skill exists to catch.
 7. **Are the alternatives the ones considered, or the ones that would have been sensible?**
 8. **Has one source been counted several times?** Follow every restatement to what it restates.
-9. **Is this one decision?** Compound decisions split; one decision across several candidates merges.
-10. **Is it still current — and is anyone reading the account as though it were?** Supersession
+9. **Is this one act?** Separate acts split; one decision across several candidates merges; one
+   motion carried on one vote stays one composite candidate, each resolution traceable.
+10. **Is continuation being read as a decision?** An arrangement that outlived its term is persistence
+    unless an act extending it is evidenced.
+11. **Is it still current — and is anyone reading the account as though it were?** Supersession
     elsewhere in the material, and any suggestion that attesting the account renews the decision.
-11. **Is the evidence complete for its dimensions?** Apply [`evidence-review`](../evidence-review/)'s
+12. **Is the evidence complete for its dimensions?** Apply [`evidence-review`](../evidence-review/)'s
     discipline rather than re-deriving it.
-12. **What would the assurance lenses find?** Where the candidate is a one-way door, route it to the
+13. **What would the assurance lenses find?** Where the candidate is a one-way door, route it to the
     [assurance skills](../assurance/assurance-synthesis/) — this skill does not run them.
 
 ## Dispositions

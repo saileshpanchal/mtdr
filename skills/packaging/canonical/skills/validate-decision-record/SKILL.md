@@ -24,13 +24,16 @@ of them as data has validated the author, not the artefact.
    [`schemas/shared/`](../../../../schemas/shared/) as a registry — and the integrity rules of
    [`historical-candidate.md`](../../../../specification/historical-candidate.md): every reference
    resolves inside the candidate; every fragment annotated once; `considered` on every context
-   contribution and no other; `event_time_ref` unknown or a contribution to `decision-date`.
+   contribution and no other; `event_time_ref` unknown or a contribution to `decision-date`; no finding
+   carried as a contribution; no authority resting on unlinked or retrospective material.
 3. **Contemporaneity, recomputed** for every context contribution, from capture and creation times
-   against the decision date, at their precision; `indeterminate` wherever the date is missing.
+   and its `considered` state against the decision date, at their precision; `indeterminate` wherever
+   the date is missing.
 4. **The never-inferred roles**, as the [vocabulary](../../specification/decision-contribution.md)
    declares them: an inferred owner, authority or alternative fails.
 5. **Classifications against the vocabulary.** Every `not-a-decision` carries one of the five reasons
-   by its stable identifier; every `non-decision` its kind
+   by its stable identifier; every `non-decision` its kind; every `applicability` finding what it
+   concerns; every `persistence` finding its authority for continuation
    ([`decision-contribution.schema.json`](../../schema/decision-contribution.schema.json)).
 6. **Review events, where present:** the schema, and that the event's digest is the digest of the
    candidate as it now stands. **A structural check only** — the event's existence is never proof that

@@ -79,9 +79,12 @@ A schema checks shape. These are checked by validators, and are part of the cont
    `unknown` carry none.
 6. Where the object's record package declares its recovery roles, they hold: `event_time_ref` names a
    contribution to the event role; `considered` is on every contribution to a context role and on no
-   other; no never-inferred role is filled with `derivation: inferred`; and the event contribution's
-   value is a time in the form above, so the grade can be recomputed. The decision language declares
-   them in its [recovery vocabulary](../records/decision/specification/decision-contribution.md).
+   other; no never-inferred role is filled with `derivation: inferred`; no contribution carries a class
+   the package reports as a **finding**, since findings travel by fragment and are never grouped; no
+   **invocation** role rests on a fragment of kind `unlinked` or `retrospective` — or a restatement of
+   one — since authority is what the act invokes; and the event contribution's value is a time in the
+   form above, so the grade can be recomputed. The decision language declares them in its
+   [recovery vocabulary](../records/decision/specification/decision-contribution.md).
 7. `restates` names the `fragment_id` of the fragment it repeats where the candidate carries it,
    otherwise the `source_ref` of what it repeats — and never the fragment itself.
 

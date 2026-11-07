@@ -22,8 +22,8 @@ No stage invents the missing transition: what identification did not find, nothi
 Run the stages in order, handing each output to the next unmodified:
 
 1. **[`identify-decision-contributions`](../identify-decision-contributions/)** — fragments, classified
-   contributions, fragment and `considered` annotations, not-a-decision and non-decision findings,
-   `unclassified` outcomes; possibly nothing, which is success.
+   contributions, fragment and `considered` annotations, findings — not-a-decision, non-decision,
+   applicability and persistence — and `unclassified` outcomes; possibly nothing, which is success.
 2. **[`reconcile-decision-contributions`](../reconcile-decision-contributions/)** — one assembly per
    decision, with reasons.
 3. **[`draft-tdr`](../draft-tdr/)** — a draft at the routed tier, with its completeness view; or the
@@ -48,6 +48,9 @@ One report for the whole run:
 - **What remains conflicting** — with what would settle each.
 - **What is not a decision** — each finding with its reason, by stable identifier, and each piece of
   evidence that no decision was made, with its kind.
+- **What applied, and what persisted** — each instrument shown to cover an act it was not cited by,
+  beside the candidate it concerns; each arrangement observed to continue, with its authority for
+  continuation flagged.
 - **Retrospective material set aside** — what corroborates and what it was not allowed to explain.
 - **What was unclassified, and what was found and not used.**
 - **Coverage** — every source examined, so that *no candidates* can be read as what it is.

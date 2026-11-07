@@ -33,10 +33,11 @@ doctrine; it leaves each language to state its own matrix and its own recovery r
 **Give the decision language the recovery layer the value language has, and put its vocabulary in the
 specification, not in a skill.**
 
-1. **Fifteen contribution classes**, in
+1. **Seventeen contribution classes**, in
    [`records/decision/specification/decision-contribution.md`](../records/decision/specification/decision-contribution.md),
-   carried through the shared `RecordContribution` exactly as value's are. Four never populate a field:
-   `challenge`, `corroboration`, `non-decision`, `not-a-decision`. The `unclassified` outcome, the
+   carried through the shared `RecordContribution` exactly as value's are. Six never populate a field:
+   `challenge`, `corroboration`, `non-decision`, `not-a-decision`, `applicability` and `persistence`;
+   the last four are **findings**, reported by fragment and never grouped into a candidate. The `unclassified` outcome, the
    `derivation` marker and the completeness view apply as TDR-0026 defined them.
 2. **The five reasons something is not a decision become normative, with stable identifiers** —
    `status-update`, `action`, `preference`, `restatement`, `operational-routine` — defined in the
@@ -50,7 +51,9 @@ specification, not in a skill.**
    the seven `evidence-*` roles the context roles, because evidence considered at the time is as
    exposed to hindsight as context; and `accountable-owner`, `alternative-rejected` and the `owner`,
    `authority` and `alternative` classes never inferred. The suite enforces them on every historical
-   candidate for a consequential decision, from that declaration.
+   candidate for a consequential decision, from that declaration — with two more: no finding class is
+   carried as a contribution, and the **invocation** role, `authority`, never rests on unlinked or
+   retrospective material.
    **The `authority` class is the delegation or instrument cited**, never the forum: *the board agreed*
    is part of the decision statement, and a forum proposed as owner stays `context`, as the semantic
    roles already say. **A finding** is reported as its fragment with a classification object valid
@@ -58,7 +61,23 @@ specification, not in a skill.**
    is stated as *undetermined*, which satisfies the admission test and never defaults to a tier.
 5. **The decision language's instance of TDR-0048's evidence matrix** — what each kind of material can
    support, claim by claim.
-6. **Five skills**: `identify-decision-contributions`, `reconcile-decision-contributions`,
+6. **The owner's four rulings of 7 November**
+   ([the return](evidence/TDR-0048-0049-owner-return-2026-11-07.md)), each in the specification:
+   - **Applicability is not invocation.** An instrument may establish that authority applied; it does
+     not show that whoever acted relied on it. Invocation — the act cites the instrument — is an
+     `authority` contribution. Applicability — the instrument's terms shown to cover the act — is an
+     `applicability` finding, beside the candidate, never an authority contribution and never a
+     judgement of competence.
+   - **One act, one candidate.** One motion carried on one vote is one composite candidate, each
+     resolution individually traceable as its own `consequence`; separate votes or decisions are
+     separate candidates.
+   - **An instrument may record its own adoption** — contemporaneous, authenticated, with evidence of
+     its legal or organisational effect — and is never set aside solely because the instrument is the
+     evidence.
+   - **Persistence is not a decision.** Continued operation is a `persistence` finding, with its
+     authority for continuation flagged; a decision to continue is recovered only from evidence of
+     that act.
+7. **Five skills**: `identify-decision-contributions`, `reconcile-decision-contributions`,
    `challenge-decision-record` and `validate-decision-record` specialising the shared stages, and
    `recover-decision-records` composing them with `draft-tdr` under TDR-0026's composition ruling.
    `draft-tdr` gains the completeness view and states when a draft was recovered. The standard's skill
@@ -81,6 +100,8 @@ specification, not in a skill.**
   record — and the machine-readable form's `taxonomy_version` moves with it.
 - No recovery skill restates the vocabulary, the doctrine or a shared stage's mechanics.
 - No recovery skill produces a review event or confers standing.
+- No `applicability` finding becomes an authority contribution, and no `persistence` finding becomes a
+  decision, by any route — confidence, duration or repetition included.
 
 ## Review
 

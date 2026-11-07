@@ -13,10 +13,12 @@ repeated here.
 
 ## The one rule
 
-**One question per candidate.** *Adopt the platform, migrate the data and restructure the team* is
-three decisions with three owners and three reversal costs, however often they appear in one
-paragraph. A candidate that carries two decisions will be ratified as one, and whichever is weaker
-inherits the stronger one's evidence.
+**One act per candidate.** *Adopt the platform, migrate the data and restructure the team*, decided by
+three people at three meetings, is three decisions with three owners and three reversal costs, however
+often they appear in one paragraph. A candidate that carries two acts will be ratified as one, and
+whichever is weaker inherits the stronger one's evidence. **One act carrying several resolutions** —
+one motion, one vote — is one composite candidate, each resolution kept traceable as its own
+contribution ([One act, one candidate](../../specification/decision-contribution.md#one-act-one-candidate)).
 
 ## The contract
 
@@ -45,7 +47,11 @@ decisions · unresolved ambiguity.
 ## Anti-patterns
 
 - **Merge by topic** — the same subject treated as the same decision.
-- **The compound candidate** — three decisions ratified as one.
+- **The compound candidate** — three acts ratified as one.
+- **The carved vote** — one motion split into three candidates, so that each resolution looks
+  separately authorised.
+- **Grouping by fit** — an instrument joined to a decision because its terms cover it. That is an
+  applicability finding, reported beside the candidate.
 - **Corroboration by copying** — a restated source counted each time it is restated.
 - **Recency as supersession** — the newer document assumed to replace the older.
 

@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/saileshpanchal/mtdr/blob/main/records/decision/schema/decision-contribution.schema.json",
   "title": "Decision contribution vocabulary (proposed under TDR-0049)",
-  "description": "The machine-readable form of records/decision/specification/decision-contribution.md, which defines every term here. It validates the classification of one fragment's contribution to a consequential decision, and its $defs are the vocabulary itself: the classes, the five canonical reasons something is not a decision, the kinds of evidence that no decision was made, and the roles historical recovery treats specially. Consumers read the vocabulary from here rather than restating it. Not a record schema.",
+  "description": "The machine-readable form of records/decision/specification/decision-contribution.md, which defines every term here. It validates the classification of one fragment's contribution to a consequential decision, and its $defs are the vocabulary itself: the classes, the classes reported as findings, the five canonical reasons something is not a decision, the kinds of evidence that no decision was made, and the roles historical recovery treats specially. Consumers read the vocabulary from here rather than restating it. Not a record schema.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -22,6 +22,18 @@
     },
     "non_decision": {
       "$ref": "#/$defs/non_decision_kind"
+    },
+    "concerns": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The candidate, or the fragment of the act, an applicability or persistence finding concerns."
+    },
+    "continuation_authority": {
+      "enum": [
+        "not-evidenced",
+        "evidenced"
+      ],
+      "description": "Whether an act authorising the arrangement beyond its stated term is evidenced. Continued operation is never that evidence."
     }
   },
   "allOf": [
@@ -66,6 +78,60 @@
           ]
         }
       }
+    },
+    {
+      "if": {
+        "properties": {
+          "class": {
+            "const": "applicability"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "concerns"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "class": {
+            "enum": [
+              "applicability",
+              "persistence"
+            ]
+          }
+        }
+      },
+      "else": {
+        "not": {
+          "required": [
+            "concerns"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "class": {
+            "const": "persistence"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "continuation_authority"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "continuation_authority"
+          ]
+        }
+      }
     }
   ],
   "$defs": {
@@ -85,8 +151,19 @@
         "challenge",
         "corroboration",
         "non-decision",
-        "not-a-decision"
+        "not-a-decision",
+        "applicability",
+        "persistence"
       ]
+    },
+    "finding_classes": {
+      "enum": [
+        "not-a-decision",
+        "non-decision",
+        "applicability",
+        "persistence"
+      ],
+      "description": "Classes reported as findings in the recovery report, by fragment. Never a contribution inside a candidate."
     },
     "not_a_decision_reason": {
       "enum": [
@@ -132,6 +209,12 @@
         "alternative"
       ],
       "description": "Roles and classes a contribution may fill only with derivation `explicit`: who acted, under what authority, instead of what."
+    },
+    "invocation_roles": {
+      "enum": [
+        "authority"
+      ],
+      "description": "Roles and classes a contribution may fill only from material made in the act, or shown to have been before whoever acted — never from unlinked or retrospective material. An instrument the act does not cite supports applicability, a finding."
     }
   }
 }
