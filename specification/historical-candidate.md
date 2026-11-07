@@ -77,6 +77,10 @@ A schema checks shape. These are checked by validators, and are part of the cont
 4. `event_time_ref` is `unknown` or names a contribution in the assembly.
 5. `considered.state: evidenced` carries at least one fragment showing the link; `unlinked` and
    `unknown` carry none.
+6. Where the object's record package declares its recovery roles, they hold: `event_time_ref` names a
+   contribution to the event role; `considered` is on every contribution to a context role and on no
+   other; and no never-inferred role is filled with `derivation: inferred`. The decision language
+   declares them in its [recovery vocabulary](../records/decision/specification/decision-contribution.md).
 
 ## The digest
 

@@ -89,6 +89,8 @@ authored:
 4. Where the capture time is `unknown`, a creation time at or before the event shows the content
    existed then, and grades `contemporaneous`. A later creation time shows nothing about capture, and
    grades `indeterminate` — never `later`.
+5. A contribution resting on several fragments takes the **least** contemporaneous grade among them:
+   `later` if any is later, otherwise `indeterminate` if any is indeterminate.
 
 A `later` contribution is not context, whatever it says. An `indeterminate` one is reported, and may
 not support a context claim until the times are evidenced.
