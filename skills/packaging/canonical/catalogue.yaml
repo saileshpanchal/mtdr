@@ -100,7 +100,7 @@ skills:
     package: shared
     group: record-neutral
     source: skills/shared/reconcile-record-fragments/SKILL.md
-    sha256_16: 6f5f03b0ed96ecdc
+    sha256_16: bfb1da127b331506
   - name: reconcile-value-contributions
     package: value
     group: lifecycle

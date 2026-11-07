@@ -1,6 +1,6 @@
 # CandidateAssembly
 
-**Version:** 1.0.0 · **Licence:** MIT · **Author:** Sailesh Panchal
+**Version:** 1.1.0 · **Licence:** MIT · **Author:** Sailesh Panchal
 **Status:** Normative for skill interchange. Not a record specification.
 
 A proposal: *these contributions appear to concern one organisational object.* The hardest structure
@@ -39,11 +39,21 @@ existed, and it will look exactly as well-evidenced as a correct one.
 - **Ownership** — the same named accountable individual for the same subject matter
 - **Temporal continuity** — a documented sequence, where later material refers to earlier state
 - **Authority lineage** — the same governing decision or delegation
+- **Singleton** — every contribution comes from one fragment, or one contiguous entry of one source —
+  one minute item, one email, one numbered section — and the evidence names the source and the entry.
+  *Proposed under [TDR-0050](../decisions/TDR-0050-singleton-grouping-basis.md); admissible once it is
+  ratified.*
 
 **Not admissible on its own:** same document, same folder, same meeting, same programme, same author,
 same period, semantic similarity. Each may *support* a grouping alongside an admissible basis. None
 establishes identity by itself, because each is satisfied by two genuinely different objects
 discussed in one place — which is the normal condition of organisational material.
+
+**A singleton is not *same document*.** Its unit is the entry, never the container: a document, meeting
+or pack that records two objects is a singleton for neither, reconciliation still splits an entry
+that records two, and a contribution from a second entry needs a basis that crosses entries. A
+validator can check that a singleton's fragments share one source; whether they lie within one entry
+is a judgement it cannot make.
 
 ## Conflict and supersession are different
 

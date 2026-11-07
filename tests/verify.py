@@ -634,6 +634,12 @@ def candidate_integrity(c):
         out.append(f"event_time_ref {c['event_time_ref']} names no contribution in the assembly")
     out += [f"{a['fragment_ref']} restates itself" for a in c['fragment_annotations']
             if a.get('restates') == a['fragment_ref']]
+    if any(b['basis'] == 'singleton' for b in c['assembly']['grouping_basis']):   # TDR-0050: the entry, never the container
+        source = {x['fragment_id']: x['source_ref'] for x in c['fragments']}
+        grouped = {r for k in c['contributions'] if k['contribution_id'] in c['assembly']['contribution_refs']
+                   for r in k['fragment_refs']}
+        if len({source[r] for r in grouped if r in source}) > 1:
+            out.append("the assembly cites `singleton`, and its contributions rest on more than one source")
     vocab = VOCABULARY.get(c['assembly']['target_object'])
     if vocab:
         role = {k['contribution_id']: k['semantic_role'] for k in c['contributions']}

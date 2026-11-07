@@ -29,7 +29,8 @@ holds a "next free" for this sequence. A contributor allocates correctly from a 
 | **TDR-0047** | **allocated** | experimental packages — allocated by the commit introducing it |
 | **TDR-0048** | **allocated** | historical recovery doctrine — allocated by the commit introducing it |
 | **TDR-0049** | **allocated** | decision-recovery vocabulary — allocated by the commit introducing it |
-| **TDR-0050** | **next free** | derived, not authoritative — see below |
+| **TDR-0050** | **allocated** | singleton grouping basis — allocated by the commit introducing it |
+| **TDR-0051** | **next free** | derived, not authoritative — see below |
 
 ## What the states mean
 
