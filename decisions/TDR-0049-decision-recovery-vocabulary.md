@@ -17,6 +17,10 @@ confirmed_by_outcome: pending — confirm when an implementation outside this re
 
 > **Proposed. No standing.** Depends on [TDR-0048](TDR-0048-historical-recovery-doctrine.md), and is
 > ratified only after it. Like it, nothing here reaches `main` while it is proposed.
+>
+> **Returned on 7 November 2026 and amended** ([the return](evidence/TDR-0048-0049-owner-return-2026-11-07.md)) on the owner's four rulings — decision 6 below —
+> and the fixtures they affect, FIX-301 among them. It stays proposed, and its confirmation needs a
+> further independent run: the trial of 7 November does not meet it.
 
 ## Context — what was known at the time
 

@@ -22,6 +22,9 @@ confirmed_by_outcome: pending — confirm when an implementation outside this re
 > while this record is proposed**: if it is returned, the branch is revised, and the standard is
 > untouched. Every file it adds is headed *proposed under TDR-0048*, and those headings change in place
 > only on ratification.
+>
+> **Returned on 7 November 2026 and amended** ([the return](evidence/TDR-0048-0049-owner-return-2026-11-07.md)): a shared calendar date is not an order, and
+> the contemporaneity rules now say so. The record stays proposed.
 
 ## Context — what was known at the time
 

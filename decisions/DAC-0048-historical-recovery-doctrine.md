@@ -17,6 +17,10 @@ supersedes: none
 > **Proposed. No standing.** Must be accepted before [TDR-0048](TDR-0048-historical-recovery-doctrine.md)
 > is. Routed in full because TDR-0048 decides who and what may confer standing on a past decision that
 > nobody recorded — authority and delegation are its subject, not its side-effect. Its constraints bind.
+>
+> **Returned on 7 November 2026 and amended** ([the return](evidence/TDR-0048-0049-owner-return-2026-11-07.md)): the same-day correction carried into
+> constraint 3; the trial preserved as evidence ([the trial evidence](evidence/DAC-0048-adopter-trial-2026-11-07/)) and its count reconciled; a further
+> independent confirmation recorded as debt. It stays proposed.
 
 ## Routing
 
@@ -37,17 +41,25 @@ closes.
 candidates will be incomplete (the adopter's corpus assessment, July 2026); the TDR format cannot carry
 recovery metadata without a version, and the identity check that would have blocked one is repaired.
 
-**Tested once, and what it showed.** An independent agent ran the published recovery instructions
-over twelve fictional cases and a six-document corpus (7 November 2026), without sight of any expected
-answer. All seventeen candidates it produced met the contract — but in several places only by
-conventions the standard did not supply, and its friction log found rules the suite enforced and the
-specifications did not state, fixtures that broke the doctrine they illustrate, and a hindsight
-loophole through the `evidence-*` roles. Those were corrected before this case was proposed. It was
-one run, by an agent, over material this repository's author wrote: it is not the evidence TDR-0049's
-confirmation asks for.
+**Tested once, and what it showed** ([the trial evidence](evidence/DAC-0048-adopter-trial-2026-11-07/)). An AI agent ran the published recovery
+instructions over twelve fictional cases and a six-document corpus on 7 November 2026, without sight of
+any expected answer, from the standard at `665aa6e` — and `7b2fb20`, which changed two specification
+files it read, landed two minutes into the run. It produced **seventeen** candidates: eleven from the
+cases and six from the corpus. Its report opened with *sixteen*, but its own file list and per-run
+counts total seventeen; there was one run and one set of files, and the sixteen is a slip in a
+sentence. All seventeen meet the suite's own contract at the pin, rechecked independently of the
+agent — but in several places only by conventions the standard did not supply. Its friction log found
+rules the suite enforced and the specifications did not state, fixtures that broke the doctrine they
+illustrate, and a hindsight loophole through the `evidence-*` roles; those were corrected. Four of its
+calls diverged from the accepted Brackwell answers, and the owner ruled on them; one correction made in
+answer to it — same-day material as contemporaneous — the owner replaced. **Contract conformance is not
+historical correctness**, and it was one run, by an agent, over material this repository's author
+wrote: it is not the evidence TDR-0049's confirmation asks for, and a further independent confirmation
+is required.
 
 **Unknown:** whether reviewers grade the six evidence kinds consistently; whether the four times are
-the right granularity for material beyond minutes, papers and transcripts; whether any implementation
+the right granularity for material beyond minutes, papers and transcripts — times carry days, so
+material dated the decision's own day is ordered only by evidence that it was before whoever acted; whether any implementation
 will consume the contract as published rather than copy and reshape it.
 
 **Assumptions, stated as assumptions:** that an act-record can usually be told from a later-recording
@@ -130,7 +142,9 @@ records begin to be cited as authority.
   and every claim traces to a contemporaneous span. Residual: an attested account cited in a dispute
   as if it had been recorded at the time. Owned by the record's attester.
 - **Backdating.** A capture time set early makes later material contemporaneous. The computation is
-  faithful to whatever time it is given. Mitigated only by constraint 3.
+  faithful to whatever time it is given. Mitigated only by constraint 3. Its quietest form — material
+  written after the meeting but dated its day — is closed by the same-day correction: a shared date
+  orders nothing.
 - **Self-attestation.** The person who assembled a candidate attests it. Nothing in an event records
   whether the reviewer produced the candidate. Not mitigated; a learning obligation.
 - **Re-emission.** A candidate re-issued under the same identifier with different content. Mitigated:
@@ -211,6 +225,8 @@ an adopter, and its review date is set for that reason.
 | Fixtures testing constraint 3 — a capture time not evidenced by its fragment or source is `unknown` | Sailesh Panchal | with TDR-0049 |
 | A two-reviewer grading of evidence kinds over a sample, to test consistency | Sailesh Panchal | before TDR-0048 is confirmed |
 | An independent reviewer of the doctrine, who is not its author | Sailesh Panchal | before confirmation |
+| A further independent confirmation of decision recovery, by an adopter who is not the drafter, over material the drafter did not write | Sailesh Panchal | before TDR-0049's confirmation gate is met |
+| Order within a day: times carry no time of day, so same-day material is ordered only by evidence of consideration — kept deliberately, not broadened in this increment | Sailesh Panchal | revisit on a demonstrated need |
 
 ## Monitoring contract
 
@@ -236,7 +252,9 @@ Proceed only with these.
 2. **Nothing reaches `main` while TDR-0048 is proposed.** Its specification text travels with it.
 3. **A time is the fragment's own statement or its source's recorded metadata, or it is `unknown`.**
    Any other basis — a folder, a filename, a neighbouring document, a reviewer's knowledge — makes it
-   `unknown`. Challenge tests every time against its fragment.
+   `unknown`. Challenge tests every time against its fragment. **A shared date is not an order:**
+   material dated the decision's own day is contemporaneous only where it is shown to have been before
+   whoever acted.
 4. **No skill writes a review event or a disposition.** Enforced: the candidate is closed against
    both, and the pipeline specification emits none.
 5. **No attestation establishes current authority.** Enforced: `governs` is always false. Stated: a
