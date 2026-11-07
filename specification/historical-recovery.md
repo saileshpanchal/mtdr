@@ -87,8 +87,9 @@ well meant.
 ## Contemporaneity is computed, never asserted
 
 A contribution to a role the package designates as **context** is contemporaneous when its material
-is shown to have been captured **before the act** — by times that place it on an earlier day, or, on
-the act's own day, by evidence that it was before whoever acted. The grade is computed, so nothing
+is shown to have been captured **before the act** — by times that place it on an earlier day, or,
+where the times leave the order open (the act's own day, or a partial date that spans it), by evidence
+that it was before whoever acted. The grade is computed, so nothing
 about it can be authored:
 
 1. If the event time is `unknown`, every grade is **`indeterminate`**. A missing event moment is never
