@@ -48,6 +48,9 @@ dependencies:
   - ref: specification/provenance.md
     class: normative
     why: How a record's evidence is bound to its source.
+  - ref: specification/historical-recovery.md
+    class: normative
+    why: What recovery from material that survives a decision may claim, and the contemporaneity rule the admissibility test applies (proposed under TDR-0048).
   - ref: specification/temporal-semantics.md
     class: normative
     why: How the record's dates and orderings are read.

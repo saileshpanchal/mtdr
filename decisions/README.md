@@ -52,6 +52,7 @@ The records also demonstrate the proportionality rule in practice:
 | [TDR-0045](TDR-0045-external-validation-follows-publication.md) | External validation follows publication and cannot gate it | Full — re-scoping the last release obligation is a one-way door |
 | [TDR-0046](TDR-0046-oir-experiment-preregistration.md) | Pre-register the Operational Inheritance Record experiment before building it — **admits nothing** | Full — a frozen test is a one-way door |
 | [TDR-0047](TDR-0047-experimental-packages.md) | Admission to the experimental runtime is not admission to the standard | Minimal — a reusable route for every candidate |
+| [TDR-0048](TDR-0048-historical-recovery-doctrine.md) | **Proposed** — recover what can be evidenced, preserve what cannot, never turn a contemporary interpretation into historical authority | Full — what an attestation may confer is a one-way door |
 
 ## Identifiers
 
@@ -70,6 +71,7 @@ The records also demonstrate the proportionality rule in practice:
 | [DAC-0043](DAC-0043-version-bound-detached-records.md) | TDR-0043 record-to-specification binding | Proceed with constraints |
 | [DAC-0044](DAC-0044-transition-scoped-obligations.md) | TDR-0044 transition-scoped obligations | Proceed with constraints |
 | [DAC-0045](DAC-0045-external-validation-follows-publication.md) | TDR-0045 re-scoping the zero-install proof | Proceed with constraints |
+| [DAC-0048](DAC-0048-historical-recovery-doctrine.md) | TDR-0048 historical recovery — **proposed** | Proceed with constraints |
 
 DAC-0032 and DAC-0033 carry fifteen live obligations between them.
 [`evidence/DAC-0032-0033-obligations.yaml`](evidence/DAC-0032-0033-obligations.yaml) registers every

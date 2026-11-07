@@ -300,7 +300,7 @@ note('typed-claims', "no untyped conformance claim on a normative surface")
 fixtures = glob.glob('records/*/fixtures/**/FIX-*.md', recursive=True) \
          + glob.glob('tests/conformance/FIX-*.md') + glob.glob('tests/corpus/CORPUS-*.md') \
          + glob.glob('tests/validation/FIX-*.md') + glob.glob('tests/inspectability/FIX-*.md') \
-         + glob.glob('tests/adoption/FIX-*.md')
+         + glob.glob('tests/adoption/FIX-*.md') + glob.glob('tests/recovery/**/FIX-*.md', recursive=True)
 for f in fixtures:
     if '## Must not' not in open(f, encoding='utf-8').read():
         fail('fixture', f"{f}: no must-not section — a fixture without one is non-conforming")
@@ -543,9 +543,19 @@ for pkg_dir in sorted(glob.glob('records/*')):
 note('extraction', f"{trials} packages extracted with only their declared dependencies "
                    f"({len(EXPERIMENTAL)} experimental), and passed their conformance contract there")
 
-# 11 — contract fixtures: each carries a complete document and what the contract must do with it
-def run_contract_fixtures(check, schema_path, pattern):
-    schema = Validator(json.load(open(schema_path)))
+# 11 — contract fixtures: each carries a complete document and what the contract must do with it.
+# Shared schemas refer to their siblings by $id, so every one is loaded into one registry: a bare
+# validator fails on the first $ref, at run time rather than at authoring.
+from referencing import Registry, Resource  # noqa: E402
+from referencing.exceptions import Unresolvable  # noqa: E402
+SHARED = Registry().with_resources(
+    (doc['$id'], Resource.from_contents(doc))
+    for doc in (json.load(open(p)) for p in sorted(glob.glob('schemas/shared/*.schema.json'))))
+
+
+def run_contract_fixtures(check, schema_path, pattern, integrity=None, into=None):
+    """`integrity` adds the rules a schema cannot express; a document either rule refuses is refused."""
+    schema = Validator(json.load(open(schema_path)), registry=SHARED)
     accepted = rejected = 0
     for f in sorted(glob.glob(pattern)):
         text = open(f, encoding='utf-8').read()
@@ -554,11 +564,20 @@ def run_contract_fixtures(check, schema_path, pattern):
         if not exp or len(blocks) != 1:
             fail(check, f"{f}: needs one contract expectation and exactly one json block")
             continue
-        errors = list(schema.iter_errors(json.loads(blocks[0])))
+        doc = json.loads(blocks[0])
+        try:
+            errors = [e.message for e in schema.iter_errors(doc)]
+        except Unresolvable as e:                 # a sibling schema missing: fail the check, not the run
+            fail(check, f"{f}: {schema_path} refers to {e.ref}, which the registry does not hold")
+            continue
+        if not errors and integrity:
+            errors = integrity(doc)
+        if into is not None:
+            into[f] = (doc, text, exp.group(1))
         if exp.group(1) == 'accepted':
             accepted += 1
             for e in errors:
-                fail(check, f"{f}: expected accepted, contract rejected it — {e.message}")
+                fail(check, f"{f}: expected accepted, contract rejected it — {e}")
         else:
             rejected += 1
             if not errors:
@@ -573,6 +592,123 @@ note('result-contract', f"{a} accepted, {r} rejected as published")
 a, r = run_contract_fixtures('projection-fixture', 'schemas/shared/derivation-projection.schema.json',
                              'tests/inspectability/FIX-*.md')
 note('projection-contract', f"{a} accepted, {r} rejected as published")
+
+# 11c — the historical candidate and its review events (proposed under TDR-0048;
+# specification/historical-candidate.md). A candidate never acquires standing because something
+# reconstructed it: the constants are the schema's, the cross-references are checked here, and review
+# is bound to the exact candidate by digest rather than written into it.
+def candidate_integrity(c):
+    """The contract's rules a schema cannot express — specification/historical-candidate.md §Integrity."""
+    out = []
+    frags = [x['fragment_id'] for x in c['fragments']]
+    contribs = {k['contribution_id'] for k in c['contributions']}
+    for k in c['contributions']:
+        out += [f"contribution {k['contribution_id']} cites fragment {r}, which the candidate does not carry"
+                for r in k['fragment_refs'] if r not in frags]
+    out += [f"the assembly groups {r}, which the candidate does not carry"
+            for r in c['assembly']['contribution_refs'] if r not in contribs]
+    if sorted(a['fragment_ref'] for a in c['fragment_annotations']) != sorted(frags):
+        out.append("fragment_annotations must name each fragment exactly once")
+    named = [a['contribution_ref'] for a in c['contribution_annotations']]
+    if len(named) != len(set(named)) or not set(named) <= contribs:
+        out.append("contribution_annotations must name contributions the candidate carries, each at most once")
+    for a in c['contribution_annotations']:
+        out += [f"considered cites fragment {r}, which the candidate does not carry"
+                for r in a['considered']['fragment_refs'] if r not in frags]
+    if c['event_time_ref'] != 'unknown' and c['event_time_ref'] not in c['assembly']['contribution_refs']:
+        out.append(f"event_time_ref {c['event_time_ref']} names no contribution in the assembly")
+    return out
+
+
+def jcs_digest(doc):
+    """RFC 8785. For documents of strings, integers, booleans and nulls with ASCII keys, sorted compact
+    UTF-8 JSON is byte-identical to JCS; a non-integer number is where they part, so one is refused
+    rather than hashed wrongly. Implementations use a JCS library."""
+    def numbers(o):
+        if isinstance(o, float):
+            return True
+        return any(numbers(v) for v in (o.values() if isinstance(o, dict) else o if isinstance(o, list) else ()))
+    if numbers(doc):
+        raise ValueError("a non-integer number: hash it with a JCS library")
+    canonical = json.dumps(doc, sort_keys=True, separators=(',', ':'), ensure_ascii=False)
+    return 'sha256:' + hashlib.sha256(canonical.encode('utf-8')).hexdigest()
+
+
+candidates, events = {}, {}
+a, r = run_contract_fixtures('recovery-fixture', 'schemas/shared/historical-candidate.schema.json',
+                             'tests/recovery/candidate/FIX-*.md', candidate_integrity, candidates)
+note('candidate-contract', f"{a} accepted, {r} rejected as published")
+a, r = run_contract_fixtures('recovery-fixture', 'schemas/shared/candidate-review-event.schema.json',
+                             'tests/recovery/review/FIX-*.md', into=events)
+note('review-contract', f"{a} accepted, {r} rejected as published")
+
+by_id = {doc['candidate_id']: (f, doc) for f, (doc, _, exp) in candidates.items() if exp == 'accepted'}
+for f, (doc, text, _) in candidates.items():          # a known answer, so a reimplementation can check itself
+    stated = re.search(r'\*\*Digest:\*\*\s*`(sha256:[0-9a-f]{64})`', text)
+    if stated and stated.group(1) != jcs_digest(doc):
+        fail('recovery-binding', f"{f}: states digest {stated.group(1)[:19]}…, the candidate hashes to "
+                                 f"{jcs_digest(doc)[:19]}…")
+bound = 0
+for f, (doc, text, _) in events.items():
+    want = re.search(r'\*\*Binding expectation:\*\*\s*(binds|does-not-bind)', text)
+    if not want:
+        continue
+    target = by_id.get(doc.get('candidate_id'))
+    if not target:
+        fail('recovery-binding', f"{f}: names candidate {doc.get('candidate_id')}, which no accepted fixture carries")
+        continue
+    binds = doc.get('candidate_digest') == jcs_digest(target[1])
+    if binds != (want.group(1) == 'binds'):
+        fail('recovery-binding', f"{f}: expected the event {'to bind' if want.group(1) == 'binds' else 'not to bind'} "
+                                 f"to {target[0]}, and it does the opposite")
+    bound += 1
+note('recovery-binding', f"{bound} review events checked against the digest of the candidate they name")
+
+
+def _interval(t):
+    """The days a partial date can denote: `2019` is the whole year, `2019-03` the whole of March."""
+    y = int(t[:4])
+    if len(t) == 4:
+        return datetime.date(y, 1, 1), datetime.date(y, 12, 31)
+    m = int(t[5:7])
+    if len(t) == 7:
+        nxt = datetime.date(y + m // 12, m % 12 + 1, 1)
+        return datetime.date(y, m, 1), nxt - datetime.timedelta(days=1)
+    d = datetime.date.fromisoformat(t)
+    return d, d
+
+
+def contemporaneity(capture, creation, event):
+    """specification/historical-recovery.md §Contemporaneity — computed from the times, never asserted."""
+    if event == 'unknown':
+        return 'indeterminate'                 # a missing event moment is never assumed
+    ev = _interval(event)
+    if capture != 'unknown':
+        cap = _interval(capture)
+        if cap[1] <= ev[0]:
+            return 'contemporaneous'
+        return 'later' if cap[0] > ev[1] else 'indeterminate'
+    if creation != 'unknown' and _interval(creation)[1] <= ev[0]:
+        return 'contemporaneous'               # the content existed by then, so it was captured by then
+    return 'indeterminate'                     # a later artefact says nothing about when it was captured
+
+
+for _cap, _cre, _ev, _want in (
+        ('2019-03-01', 'unknown', '2019-03-14', 'contemporaneous'),
+        ('2019-03-14', 'unknown', '2019-03-14', 'contemporaneous'),   # at the event counts
+        ('2019-03-15', 'unknown', '2019-03-14', 'later'),
+        ('2019-03', 'unknown', '2019-03-14', 'indeterminate'),        # March straddles the 14th
+        ('2019-02', 'unknown', '2019-03-14', 'contemporaneous'),
+        ('2020', 'unknown', '2019-03', 'later'),
+        ('2019-12', 'unknown', '2019', 'indeterminate'),
+        ('unknown', '2019-03-10', '2019-03-14', 'contemporaneous'),
+        ('unknown', '2019-04-02', '2019-03-14', 'indeterminate'),     # written up later, captured when?
+        ('2019-03-01', '2019-03-01', 'unknown', 'indeterminate'),     # no event, no grade
+        ('unknown', 'unknown', '2019-03-14', 'indeterminate')):
+    if contemporaneity(_cap, _cre, _ev) != _want:
+        fail('contemporaneity', f"capture {_cap}, creation {_cre}, event {_ev}: expected {_want}, "
+                                f"computed {contemporaneity(_cap, _cre, _ev)}")
+note('contemporaneity', "computed from capture, creation and event times; known answers hold")
 
 # 12 — classified normative closure (TDR-0032; DAC-0032 constraint 3). Role metadata, not a trust
 # hierarchy — historical material can be authoritative evidence while being non-normative about
@@ -921,7 +1057,8 @@ DIMENSION_OF = {
     'record-schema': Dim.STRUCTURAL, 'id-filename': Dim.STRUCTURAL, 'vr-example': Dim.STRUCTURAL,
     'vr-negative': Dim.STRUCTURAL, 'skill-frontmatter': Dim.STRUCTURAL, 'skill-name': Dim.STRUCTURAL,
     'skill-description': Dim.STRUCTURAL, 'skill-count': Dim.SEMANTIC, 'manifest': Dim.STRUCTURAL, 'result-fixture': Dim.STRUCTURAL, 'projection-fixture': Dim.STRUCTURAL,
-    'candidate': Dim.SEMANTIC, 'admission': Dim.SEMANTIC, 'boundary': Dim.SEMANTIC, 'neutrality': Dim.SEMANTIC,
+    'candidate': Dim.SEMANTIC, 'admission': Dim.SEMANTIC, 'recovery-fixture': Dim.STRUCTURAL,
+    'recovery-binding': Dim.RELATIONAL, 'contemporaneity': Dim.SEMANTIC, 'boundary': Dim.SEMANTIC, 'neutrality': Dim.SEMANTIC,
     'consumer-name': Dim.SEMANTIC, 'fixture': Dim.SEMANTIC, 'must-not': Dim.SEMANTIC,
     'untyped-claim': Dim.SEMANTIC, 'state-relative': Dim.SEMANTIC, 'obligations': Dim.SEMANTIC,
     'standards': Dim.SEMANTIC,

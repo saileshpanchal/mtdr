@@ -60,7 +60,7 @@ The envelope is vocabulary, not schema — it adds no fields to the TDR format a
 
 Customer and staff journey changes arrive disguised as improvement ideas rather than decisions. Treat them with three rules:
 
-- **Every journey change starts with a value thesis.** Someone believes the change buys something. That thesis is recordable as a Value Record (`spec-value-record.md`, skill in `skills/value-record/`) — with a baseline and a reconcile-by date — before the change is treated as decided.
+- **Every journey change starts with a value thesis.** Someone believes the change buys something. That thesis is recordable as a Value Record ([`records/value/specification/vr.md`](../../../value/specification/vr.md), and the value package's `value-record` skill) — with a baseline and a reconcile-by date — before the change is treated as decided.
 - **Every journey change receives a disposition on the reversibility axis** — the same test as step 4: is this an experiment held cheaply reversible, or a commitment? The disposition is itself a decision, and is recorded as one at the matching template tier.
 - **Promotion follows a ladder.** A change promoted from experiment towards commitment (exploration → pilot → production, in the VR's stage taxonomy) moves one rung at a time, and **every promotion is a superseding record** stating what is now known that was not known at the previous rung. A pilot that drifts into production without a promotion record is the quiet-default failure from step 1, at portfolio scale.
 
@@ -85,7 +85,7 @@ Name these explicitly so "no record needed" is a confident answer, not a shrug:
 ## Anti-patterns
 
 - **Record hunger** — turning every agenda item into a candidate; the proportionality test exists to stop this.
-- **Retro-mining** — trawling old minutes to mass-produce records after outcomes are known; identification serves capture at the moment of decision, not archaeology.
+- **Hindsight reconstruction** — trawling old minutes to mass-produce records after outcomes are known, writing what people must have meant as what they said. Identification here serves capture at the moment of decision. Recovering what old material actually evidences is a different act with its own rules — [`specification/historical-recovery.md`](../../../../specification/historical-recovery.md), proposed under TDR-0048 — and what it produces is a retrospective candidate with no standing, never a record by default.
 - **Guessed lineage** — inventing supersedes links to records that do not exist.
 - **Silent splitting** — quietly recording one slice of a compound decision and losing the rest.
 

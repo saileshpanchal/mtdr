@@ -1,6 +1,6 @@
 # Organisational records — the umbrella specification
 
-**Version:** 1.1.0 · **Licence:** MIT · **Author:** Sailesh Panchal
+**Version:** 1.2.0 · **Licence:** MIT · **Author:** Sailesh Panchal
 
 This repository defines **governed organisational records**: portable, markdown-serialised memory of
 the organisational objects that carry accountability — decisions, value commitments, and the further
@@ -67,6 +67,8 @@ This directory and its companions are the record-neutral layer every package bui
 | Temporal semantics | [`temporal-semantics.md`](temporal-semantics.md) |
 | Uncertainty — three confidences, never collapsed | [`uncertainty.md`](uncertainty.md) |
 | Candidacy and ratification — the skill proposes, the organisation ratifies | [`candidacy-and-ratification.md`](candidacy-and-ratification.md) |
+| Historical recovery — recover what can be evidenced, preserve what cannot *(proposed, TDR-0048)* | [`historical-recovery.md`](historical-recovery.md) |
+| The historical candidate — a retrospective candidate that never acquires standing *(proposed, TDR-0048)* | [`historical-candidate.md`](historical-candidate.md) |
 | Admission of new languages and artefacts | [`record-admission-test.md`](record-admission-test.md) |
 | What conformance means | [`conformance.md`](conformance.md) |
 | Interchange schemas | [`schemas/shared/`](../schemas/shared/) |

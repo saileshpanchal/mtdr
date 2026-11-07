@@ -45,12 +45,14 @@ source = { virtual = "." }
 dependencies = [
     { name = "jsonschema" },
     { name = "pyyaml" },
+    { name = "referencing" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "jsonschema", specifier = ">=4.22" },
     { name = "pyyaml", specifier = ">=6.0" },
+    { name = "referencing", specifier = ">=0.35" },
 ]
 
 [[package]]

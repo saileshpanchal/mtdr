@@ -1,6 +1,6 @@
 # The contribution model
 
-**Version:** 1.0.0 · **Licence:** MIT · **Author:** Sailesh Panchal
+**Version:** 1.1.0 · **Licence:** MIT · **Author:** Sailesh Panchal
 **Status:** Normative for skill interchange. **Not a record specification.**
 **Architecture ruling:** [TDR-0022](../decisions/TDR-0022-fragment-contribution-interchange-architecture.md)
 
@@ -42,6 +42,10 @@ SourceFragment  →  RecordContribution  →  CandidateAssembly
 | **RecordContribution** | An interpretation: this fragment may contribute this semantic value to this object. | [`record-contribution.md`](record-contribution.md) |
 | **CandidateAssembly** | A proposal: these contributions appear to concern one object. | [`candidate-assembly.md`](candidate-assembly.md) |
 
+For an object recovered after the event, a [**historical candidate**](historical-candidate.md) carries
+all three, unchanged, with the retrospective facts they cannot carry beside them — *proposed under
+[TDR-0048](../decisions/TDR-0048-historical-recovery-doctrine.md)*.
+
 The separation is load-bearing. A structure that carried both the verbatim evidence and the
 interpretation of it would make the interpretation unfalsifiable — there would be nothing left to
 check it against.
@@ -72,6 +76,7 @@ semantic roles and admission test; the structures here do not change.
 | Identity and grouping | **Proximity is never identity** | [`identity-and-grouping.md`](identity-and-grouping.md) |
 | Uncertainty | Three uncertainties, never collapsed into one | [`uncertainty.md`](uncertainty.md) |
 | Candidacy and ratification | The skill proposes; the organisation ratifies | [`candidacy-and-ratification.md`](candidacy-and-ratification.md) |
+| Historical recovery *(proposed)* | Recover what can be evidenced; preserve what cannot; never turn a contemporary interpretation into historical authority | [`historical-recovery.md`](historical-recovery.md) |
 
 ## The one rule
 

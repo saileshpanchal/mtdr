@@ -9,6 +9,7 @@ requires-python = ">=3.12"
 dependencies = [
     "jsonschema>=4.22",
     "pyyaml>=6.0",
+    "referencing>=0.35",
 ]
 
 [tool.uv]
