@@ -61,7 +61,9 @@ Every mandatory role either evidenced or visibly missing. A field reading "not a
 ### 6. Check for hindsight
 
 Does any part of the context depend on knowing how things turned out? Compare each context
-contribution's `source_time` against the decision date.
+contribution's `source_time` against the decision date. For material recovered after the event,
+compare the capture and creation times instead, as
+[`specification/historical-recovery.md`](../../../specification/historical-recovery.md) computes them.
 
 ### 7. Test the confidences
 

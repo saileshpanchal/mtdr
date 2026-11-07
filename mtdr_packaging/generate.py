@@ -1,6 +1,6 @@
 """Assemble distribution bundles from the canonical artefacts — NON-NORMATIVE.
 
-    python3 -m mtdr_packaging.generate [--check]
+    uv run python -m mtdr_packaging.generate [--check]
 
 Enumerates skills from each package's `package.yaml` and from `skills/shared/`, collects them once
 into `skills/packaging/canonical/`, and writes one descriptor and one set of instructions per verified

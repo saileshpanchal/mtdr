@@ -1,0 +1,329 @@
+{
+  "contract_version": "1.0.0",
+  "candidate_id": "brackwell-4",
+  "retrospective": true,
+  "standing": "none",
+  "status": "candidate",
+  "event_time_ref": "brackwell-C402",
+  "fragments": [
+    {
+      "fragment_id": "brackwell-S02-F7",
+      "source_ref": "sources/brackwell/SRC-02-cabinet-minute-2026-02-18.md",
+      "source_hash": "sha256:1406f4a2f165dc411f4834a505696e18fbdd84bb3c57825dadd00ac8ac795c7c",
+      "locator": {
+        "kind": "char-offset",
+        "start": 664,
+        "end": 764,
+        "line_start": 18,
+        "line_end": 18
+      },
+      "content": "3. That a further report on the depot site selection be brought to Cabinet before contracts are let.",
+      "source_time": "2026-02-18",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "brackwell-S02-F2",
+      "source_ref": "sources/brackwell/SRC-02-cabinet-minute-2026-02-18.md",
+      "source_hash": "sha256:1406f4a2f165dc411f4834a505696e18fbdd84bb3c57825dadd00ac8ac795c7c",
+      "locator": {
+        "kind": "char-offset",
+        "start": 89,
+        "end": 131,
+        "line_start": 5,
+        "line_end": 5
+      },
+      "content": "**Item 7 — Fleet and Depot Modernisation**",
+      "source_time": "2026-02-18",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "brackwell-S02-F1",
+      "source_ref": "sources/brackwell/SRC-02-cabinet-minute-2026-02-18.md",
+      "source_hash": "sha256:1406f4a2f165dc411f4834a505696e18fbdd84bb3c57825dadd00ac8ac795c7c",
+      "locator": {
+        "kind": "char-offset",
+        "start": 0,
+        "end": 87,
+        "line_start": 1,
+        "line_end": 3,
+        "document": "Cabinet — minute extract"
+      },
+      "content": "# Cabinet — minute extract\n\n*Brackwell District Council · 18 February 2026 · fictional*",
+      "source_time": "2026-02-18",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "brackwell-S02-F3",
+      "source_ref": "sources/brackwell/SRC-02-cabinet-minute-2026-02-18.md",
+      "source_hash": "sha256:1406f4a2f165dc411f4834a505696e18fbdd84bb3c57825dadd00ac8ac795c7c",
+      "locator": {
+        "kind": "char-offset",
+        "start": 133,
+        "end": 359,
+        "line_start": 7,
+        "line_end": 9
+      },
+      "content": "Cabinet considered the report of the Director of Environment and Place on consolidating the council's\nthree operational depots onto a single site at Calder Road, together with phased replacement of the\nrefuse collection fleet.",
+      "source_time": "2026-02-18",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "brackwell-S02-F8",
+      "source_ref": "sources/brackwell/SRC-02-cabinet-minute-2026-02-18.md",
+      "source_hash": "sha256:1406f4a2f165dc411f4834a505696e18fbdd84bb3c57825dadd00ac8ac795c7c",
+      "locator": {
+        "kind": "char-offset",
+        "start": 766,
+        "end": 861,
+        "line_start": 20,
+        "line_end": 20
+      },
+      "content": "Councillor J. Whitfield (Portfolio Holder, Environment) moved the recommendation. Carried, 8–3.",
+      "source_time": "2026-02-18",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "brackwell-S02-F4",
+      "source_ref": "sources/brackwell/SRC-02-cabinet-minute-2026-02-18.md",
+      "source_hash": "sha256:1406f4a2f165dc411f4834a505696e18fbdd84bb3c57825dadd00ac8ac795c7c",
+      "locator": {
+        "kind": "char-offset",
+        "start": 361,
+        "end": 426,
+        "line_start": 11,
+        "line_end": 11
+      },
+      "content": "Members noted the scheme affects collection rounds in four wards.",
+      "source_time": "2026-02-18",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    }
+  ],
+  "contributions": [
+    {
+      "contribution_id": "brackwell-C401",
+      "fragment_refs": [
+        "brackwell-S02-F7",
+        "brackwell-S02-F2"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-statement",
+      "interpreted_value": "That a further report on the depot site selection be brought to Cabinet before contracts are let.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "brackwell-C402",
+      "fragment_refs": [
+        "brackwell-S02-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-date",
+      "interpreted_value": "2026-02-18",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "inferred"
+    },
+    {
+      "contribution_id": "brackwell-C403",
+      "fragment_refs": [
+        "brackwell-S02-F3",
+        "brackwell-S02-F8"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "authority",
+      "interpreted_value": "Cabinet (recommendation carried 8–3)",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "brackwell-C404",
+      "fragment_refs": [
+        "brackwell-S02-F7"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "option-foreclosed",
+      "interpreted_value": "Letting contracts before a further report on the depot site selection is brought to Cabinet.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "brackwell-C405",
+      "fragment_refs": [
+        "brackwell-S02-F3"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "Cabinet considered the report of the Director of Environment and Place on consolidating the council's three operational depots onto a single site at Calder Road, together with phased replacement of the refuse collection fleet.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "brackwell-C406",
+      "fragment_refs": [
+        "brackwell-S02-F4"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "Members noted the scheme affects collection rounds in four wards.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    }
+  ],
+  "assembly": {
+    "assembly_id": "brackwell-4-assembly",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "brackwell-C401",
+      "brackwell-C402",
+      "brackwell-C403",
+      "brackwell-C404",
+      "brackwell-C405",
+      "brackwell-C406"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "Cabinet minute of 18 February 2026, 'Item 7 — Fleet and Depot Modernisation': the item's preamble ('Cabinet considered the report …'), its 'Resolved:' list (resolution 3) and the vote ('Carried, 8–3') are one entry under the minute's dated heading."
+      }
+    ],
+    "assembly_confidence": "high",
+    "missing_semantics": [
+      "accountable-owner"
+    ],
+    "conflicts": [],
+    "supersessions": [],
+    "unresolved": [
+      "No further report on site selection, and no later Cabinet decision, is in the material. Whether contracts have been let is not evidenced.",
+      "Both context contributions are recorded in the minute of 2026-02-18, the decision's own day. Read as whole-day intervals, their contemporaneity is indeterminate, so they cannot be presented as contemporaneous context (admission.md criterion 2).",
+      "No owner is evidenced. Cabinet is a forum; Councillor J. Whitfield moved the recommendation (a mover is not an owner); the Director of Environment and Place wrote the report (an author is not an owner).",
+      "The Director's report is not in the material. The Business Case v2 (SRC-03) is dated 4 March 2026, after this decision, and is not context for it.",
+      "Resolutions 1–3 were carried as one recommendation on one vote (8–3). They are split into brackwell-2, -3 and -4 because each can be changed or superseded without changing the others (tdr.md §3); a single candidate is defensible on the same evidence.",
+      "The minute does not cite the instrument Cabinet acted under. SRC-01 §3.2 reserves to Cabinet any commitment altering the service footprint in more than one ward, and the minute notes four wards; the minute does not refer to the scheme, so no authority is contributed from it."
+    ],
+    "status": "candidate"
+  },
+  "fragment_annotations": [
+    {
+      "fragment_ref": "brackwell-S02-F7",
+      "capture_time": "2026-02-18",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "brackwell-S02-F2",
+      "capture_time": "2026-02-18",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "brackwell-S02-F1",
+      "capture_time": "2026-02-18",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "brackwell-S02-F3",
+      "capture_time": "2026-02-18",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "brackwell-S02-F8",
+      "capture_time": "2026-02-18",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "brackwell-S02-F4",
+      "capture_time": "2026-02-18",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    }
+  ],
+  "contribution_annotations": [
+    {
+      "contribution_ref": "brackwell-C405",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "brackwell-S02-F3"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "brackwell-C406",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "brackwell-S02-F4"
+        ]
+      }
+    }
+  ]
+}

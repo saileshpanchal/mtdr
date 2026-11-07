@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/saileshpanchal/mtdr/blob/main/schemas/shared/historical-candidate.schema.json",
+  "title": "HistoricalCandidate — retrospective candidate profile (proposed under TDR-0048)",
+  "description": "Schema for a historical candidate, per specification/historical-candidate.md. A profile over the existing interchange structures, carried unchanged, with the retrospective facts they cannot carry added beside them and keyed by identifier. Its standing is `none` and its status `candidate`, as constants: a historical candidate never acquires standing because someone, or something, reconstructed it. Closed, so a disposition, a forward link to a record, a rationale or a score is refused rather than discouraged. Contemporaneity is computed from the times, never stored. Sibling schemas are referenced by $id: load schemas/shared/ as a registry. Integrity rules a schema cannot express are part of the contract and listed in the specification.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "candidate_id",
+    "retrospective",
+    "standing",
+    "status",
+    "event_time_ref",
+    "fragments",
+    "contributions",
+    "assembly",
+    "fragment_annotations",
+    "contribution_annotations"
+  ],
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "Version of THIS contract, independent of any record specification."
+    },
+    "candidate_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "retrospective": {
+      "const": true,
+      "description": "Assembled after the event, from what survived it."
+    },
+    "standing": {
+      "const": "none",
+      "description": "Always `none`. Standing is conferred by a named individual's act, recorded beside the candidate in a review event, never in it."
+    },
+    "status": {
+      "const": "candidate",
+      "description": "Always `candidate`. There is no other legal value."
+    },
+    "event_time_ref": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The contribution_id of the contribution to the package's event role, or `unknown`. A pointer, never a copy."
+    },
+    "fragments": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "source-fragment.schema.json"
+      }
+    },
+    "contributions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "record-contribution.schema.json"
+      }
+    },
+    "assembly": {
+      "$ref": "candidate-assembly.schema.json"
+    },
+    "fragment_annotations": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Exactly one per fragment (an integrity rule).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "fragment_ref",
+          "capture_time",
+          "creation_time",
+          "evidence_kind"
+        ],
+        "properties": {
+          "fragment_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "capture_time": {
+            "type": "string",
+            "pattern": "^([0-9]{4}(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?|unknown)$",
+            "description": "When the content was recorded. YYYY, YYYY-MM or YYYY-MM-DD at the precision the evidence gives, never completed; or `unknown`."
+          },
+          "creation_time": {
+            "type": "string",
+            "pattern": "^([0-9]{4}(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?|unknown)$",
+            "description": "When the artefact holding the content was produced. YYYY, YYYY-MM or YYYY-MM-DD at the precision the evidence gives, never completed; or `unknown`."
+          },
+          "evidence_kind": {
+            "enum": [
+              "act-record",
+              "cited-material",
+              "unlinked",
+              "later-recording",
+              "retrospective",
+              "restatement"
+            ],
+            "description": "What the material is and how it connects to the act, independently of when it was made — its times say when."
+          },
+          "restates": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The fragment_id of the fragment this repeats where the candidate carries it, otherwise the source_ref of what it repeats; never the fragment itself. Independence counts once."
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "evidence_kind": {
+                  "const": "restatement"
+                }
+              },
+              "required": [
+                "evidence_kind"
+              ]
+            },
+            "then": {
+              "required": [
+                "restates"
+              ]
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "restates"
+              ]
+            },
+            "then": {
+              "properties": {
+                "evidence_kind": {
+                  "const": "restatement"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "contribution_annotations": {
+      "type": "array",
+      "description": "One per contribution to a role the package designates as context.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "contribution_ref",
+          "considered"
+        ],
+        "properties": {
+          "contribution_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "considered": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "state",
+              "fragment_refs"
+            ],
+            "description": "Was the material available to, or considered by, whoever acted? Pre-dating shows it existed, not that it was read.",
+            "properties": {
+              "state": {
+                "enum": [
+                  "evidenced",
+                  "unlinked",
+                  "unknown"
+                ]
+              },
+              "fragment_refs": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "description": "The fragments showing the link. Required for `evidenced`, empty otherwise."
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "state": {
+                      "const": "evidenced"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "fragment_refs": {
+                      "minItems": 1
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "state": {
+                      "enum": [
+                        "unlinked",
+                        "unknown"
+                      ]
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "fragment_refs": {
+                      "maxItems": 0
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

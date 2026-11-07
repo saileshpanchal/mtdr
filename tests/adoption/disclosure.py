@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Progressive-disclosure budget — NON-NORMATIVE measurement.
 
-    python3 tests/adoption/disclosure.py
+    uv run tests/adoption/disclosure.py
 
 "Works in five runtimes" must not secretly mean "load the entire MTDR repository into context". Every
 runtime verified in `skills/packaging/runtime-evidence.md` selects a skill from its *metadata* and
@@ -55,9 +55,9 @@ def corpus_bytes():
     for pattern in ("**/*.md", "**/*.json", "**/*.yaml"):
         for f in glob.glob(os.path.join(ROOT, pattern), recursive=True):
             if "/.git/" in f or "/skills/packaging/canonical/" in f:
-                continue
+                continue          # the bundle is a copy; counting it would double the corpus
             if any(f.startswith(x) for x in experimental_packages()):
-                continue          # experimental: not part of what a participant of the standard loads          # the bundle is a copy; counting it would double the corpus
+                continue          # experimental: not part of what a participant of the standard loads
             total += size(f)
     return total
 

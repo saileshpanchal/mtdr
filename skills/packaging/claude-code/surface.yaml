@@ -4,7 +4,7 @@ title: Claude Code
 class: direct
 confidence: primary
 source: https://code.claude.com/docs/en/skills
-skill_count: 25
+skill_count: 30
 project_paths:
   - .claude/skills/
 personal_paths:

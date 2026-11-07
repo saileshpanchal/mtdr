@@ -31,6 +31,8 @@ Each is decided in a record; this list is the index, not the authority.
 | Packagings are distribution adapters, never normative architecture | [TDR-0024](decisions/TDR-0024-packaging-independence.md) |
 | Conformance is layered — schema, examples, counter-examples, fixtures, semantic equivalence | [TDR-0025](decisions/TDR-0025-conformance-architecture.md) |
 | The skill proposes; the organisation ratifies | [TDR-0018](decisions/TDR-0018-interpretation-skills-and-the-artefact-boundary.md) |
+| **Proposed** — a recovered decision is a retrospective candidate without standing; attesting its account confers no current authority | [TDR-0048](decisions/TDR-0048-historical-recovery-doctrine.md) *(proposed)* |
+| **Proposed** — one entry of one source is an admissible grouping basis; one document is not | [TDR-0050](decisions/TDR-0050-singleton-grouping-basis.md) *(proposed)* |
 | Removal or weakening of the accountability core is a different standard, not a new version | [`spec` §9](records/decision/specification/tdr.md) |
 
 ## Roles

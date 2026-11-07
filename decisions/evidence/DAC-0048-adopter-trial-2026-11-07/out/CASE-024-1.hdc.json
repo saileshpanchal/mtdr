@@ -1,0 +1,170 @@
+{
+  "contract_version": "1.0.0",
+  "candidate_id": "CASE-024-1",
+  "retrospective": true,
+  "standing": "none",
+  "status": "candidate",
+  "event_time_ref": "unknown",
+  "fragments": [
+    {
+      "fragment_id": "CASE-024-F1",
+      "source_ref": "sources/CASE-024.md",
+      "source_hash": "sha256:aa0aa0804686b8d9e587b2c6b389bdee0b909b105ac5189d419c0228ba5b8274",
+      "locator": {
+        "kind": "char-offset",
+        "start": 38,
+        "end": 260,
+        "line_start": 3,
+        "line_end": 6,
+        "item": "A",
+        "document": "board/2021-05-12-minute.md"
+      },
+      "content": "**A — Board minute, `board/2021-05-12-minute.md`**\n\n> The board agreed to retire the paper ticket stock at all staffed stations from 1 September, as\n> recommended in paper 21/14. Owner: Hana Brightwell, Director of Retail.",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "CASE-024-F2",
+      "source_ref": "sources/CASE-024.md",
+      "source_hash": "sha256:aa0aa0804686b8d9e587b2c6b389bdee0b909b105ac5189d419c0228ba5b8274",
+      "locator": {
+        "kind": "char-offset",
+        "start": 262,
+        "end": 521,
+        "line_start": 8,
+        "line_end": 11,
+        "item": "B",
+        "document": "reviews/2022-03-paper-tickets-pir.md"
+      },
+      "content": "**B — Post-implementation review, `reviews/2022-03-paper-tickets-pir.md`, dated 2022-03**\n\n> The board retired paper tickets in May 2021 to reduce fraud at unstaffed barriers, and considered\n> keeping a paper option for older passengers, rejecting it on cost.",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    }
+  ],
+  "contributions": [
+    {
+      "contribution_id": "CASE-024-C1",
+      "fragment_refs": [
+        "CASE-024-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-statement",
+      "interpreted_value": "The board agreed to retire the paper ticket stock at all staffed stations from 1 September (year not stated), as recommended in paper 21/14.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-024-C2",
+      "fragment_refs": [
+        "CASE-024-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "accountable-owner",
+      "interpreted_value": "Hana Brightwell, Director of Retail",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-024-C3",
+      "fragment_refs": [
+        "CASE-024-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "authority",
+      "interpreted_value": "the board",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-024-C4",
+      "fragment_refs": [
+        "CASE-024-F2"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "corroboration",
+      "interpreted_value": "The board retired paper tickets (post-implementation review, 2022-03).",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    }
+  ],
+  "assembly": {
+    "assembly_id": "CASE-024-1-assembly",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "CASE-024-C1",
+      "CASE-024-C2",
+      "CASE-024-C3",
+      "CASE-024-C4"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "entity-match",
+        "evidence": "Review (item B): 'The board retired paper tickets'; minute (item A): 'The board agreed to retire the paper ticket stock'."
+      }
+    ],
+    "assembly_confidence": "high",
+    "missing_semantics": [
+      "decision-date",
+      "context"
+    ],
+    "conflicts": [],
+    "supersessions": [],
+    "unresolved": [
+      "No decision date is evidenced: the minute's only date is in its filename (board/2021-05-12-minute.md). The review's 'May 2021' is retrospective and cannot supply the date.",
+      "No context is evidenced. Paper 21/14 is cited by the minute but is not in the material.",
+      "The review's reason ('to reduce fraud at unstaffed barriers') and its alternative ('keeping a paper option for older passengers, rejecting it on cost') are retrospective; neither is context nor alternative.",
+      "'from 1 September' carries no year."
+    ],
+    "status": "candidate"
+  },
+  "fragment_annotations": [
+    {
+      "fragment_ref": "CASE-024-F1",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "CASE-024-F2",
+      "capture_time": "2022-03",
+      "creation_time": "2022-03",
+      "evidence_kind": "retrospective"
+    }
+  ],
+  "contribution_annotations": []
+}

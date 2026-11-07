@@ -4,7 +4,7 @@ title: Codex
 class: direct
 confidence: secondary
 source: developers.openai.com/codex/skills (primary unreachable from the verifying environment)
-skill_count: 25
+skill_count: 30
 project_paths:
   - .agents/skills/
 personal_paths:

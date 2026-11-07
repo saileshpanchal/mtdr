@@ -5,8 +5,8 @@ constrains nothing, and is not part of any conformance claim — the files it co
 and this module only decides where they are put.
 
 ```bash
-python3 -m mtdr_packaging.generate           # write the bundles
-python3 -m mtdr_packaging.generate --check   # report drift without writing
+uv run python -m mtdr_packaging.generate           # write the bundles
+uv run python -m mtdr_packaging.generate --check   # report drift without writing
 ```
 
 `tests/verify.py` runs `--check` on every run, so a bundle cannot silently fall behind the manifests.
@@ -26,7 +26,7 @@ Every `SKILL.md` is copied byte-identical, and the suite compares them byte for 
 
 ```
 skills/packaging/
-  canonical/skills/<name>/SKILL.md   the 25 canonical skills, collected, unmodified
+  canonical/skills/<name>/SKILL.md   the 30 canonical skills, collected, unmodified
   canonical/catalogue.yaml           enumerated from each package.yaml, with per-file digests
   canonical/provenance.yaml          standard version, commit, source manifests, reference knowledge
   <surface>/surface.yaml             verified discovery paths, invocation, and what is unverified

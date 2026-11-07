@@ -12,15 +12,22 @@ A candidate decision is admissible when all of the following hold.
    **We decide** and **This means** can each be filled from contributions. Material describing intent,
    status or aspiration fails here, and failing is the correct outcome.
 2. **The context contributions are contemporaneous.** Every contribution to `context` traces to
-   material created at or before `decision-date`. A candidate whose context depends on later material
-   is inadmissible until that contribution is removed.
+   material shown to have preceded the decision. A candidate whose context depends on later material
+   is inadmissible until that contribution is removed. Contemporaneity is computed as
+   [`specification/historical-recovery.md`](../../../specification/historical-recovery.md) defines it
+   (proposed under TDR-0048): a `later` contribution fails this criterion; an `indeterminate` one —
+   including every one where `decision-date` is missing — is reported in `unresolved`, keeps the
+   candidate admissible, and cannot be presented as contemporaneous context.
 3. **Provenance is complete.** Every interpreted value traces to a locatable span. No exceptions, and
    no value carried "for completeness".
 4. **The grouping basis is admissible**, where the candidate draws on more than one source.
 5. **Missing mandatory roles are reported, not filled.** A candidate missing `accountable-owner` is
    admissible; a candidate with an invented one is not.
 6. **The proportionality outcome is stated** — the template tier, or a recommendation of no record,
-   with the reversal-cost reasoning behind it.
+   with the reversal-cost reasoning behind it. Where no `reversal-cost` contribution exists — the usual
+   case in material recovered after the event — the outcome is stated as **undetermined**, with that
+   reason, and satisfies this criterion. It never defaults to a tier; the tier is settled when an
+   account is attested.
 7. **Conflicts are recorded, not resolved.**
 
 ## Inadmissible

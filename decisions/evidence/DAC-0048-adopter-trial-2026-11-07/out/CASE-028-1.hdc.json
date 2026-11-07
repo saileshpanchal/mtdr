@@ -1,0 +1,143 @@
+{
+  "contract_version": "1.0.0",
+  "candidate_id": "CASE-028-1",
+  "retrospective": true,
+  "standing": "none",
+  "status": "candidate",
+  "event_time_ref": "CASE-028-C3",
+  "fragments": [
+    {
+      "fragment_id": "CASE-028-F2",
+      "source_ref": "sources/CASE-028.md",
+      "source_hash": "sha256:e9841d0b0d4a4e5653db153c9fafb59f5a112fc0495dbb15894924af1f5c6b8e",
+      "locator": {
+        "kind": "char-offset",
+        "start": 167,
+        "end": 327,
+        "line_start": 7,
+        "line_end": 10,
+        "item": "B",
+        "document": "Capital board minute, 2023-06-07, item 5"
+      },
+      "content": "**B — Capital board minute, 2023-06-07, item 5**\n\n> The board will not commit further capital to Dunmore until the asset survey reports, expected in\n> December.",
+      "source_time": "2023-06-07",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    }
+  ],
+  "contributions": [
+    {
+      "contribution_id": "CASE-028-C1",
+      "fragment_refs": [
+        "CASE-028-F2"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-statement",
+      "interpreted_value": "The board will not commit further capital to Dunmore until the asset survey reports (expected in December, year not stated).",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-028-C2",
+      "fragment_refs": [
+        "CASE-028-F2"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "option-foreclosed",
+      "interpreted_value": "Committing further capital to Dunmore before the asset survey reports.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-028-C3",
+      "fragment_refs": [
+        "CASE-028-F2"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-date",
+      "interpreted_value": "2023-06-07",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-028-C4",
+      "fragment_refs": [
+        "CASE-028-F2"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "authority",
+      "interpreted_value": "the capital board",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    }
+  ],
+  "assembly": {
+    "assembly_id": "CASE-028-1-assembly",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "CASE-028-C1",
+      "CASE-028-C2",
+      "CASE-028-C3",
+      "CASE-028-C4"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "One act-record (item B): 'Capital board minute, 2023-06-07, item 5'."
+      }
+    ],
+    "assembly_confidence": "high",
+    "missing_semantics": [
+      "context",
+      "accountable-owner"
+    ],
+    "conflicts": [],
+    "supersessions": [],
+    "unresolved": [
+      "No owner is named; the board is a forum, not an owner.",
+      "No context is evidenced; the asset survey is not in the material, and 'expected in December' is an expectation with no year."
+    ],
+    "status": "candidate"
+  },
+  "fragment_annotations": [
+    {
+      "fragment_ref": "CASE-028-F2",
+      "capture_time": "2023-06-07",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    }
+  ],
+  "contribution_annotations": []
+}

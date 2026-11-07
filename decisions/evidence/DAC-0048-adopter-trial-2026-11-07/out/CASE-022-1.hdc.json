@@ -1,0 +1,213 @@
+{
+  "contract_version": "1.0.0",
+  "candidate_id": "CASE-022-1",
+  "retrospective": true,
+  "standing": "none",
+  "status": "candidate",
+  "event_time_ref": "CASE-022-C2",
+  "fragments": [
+    {
+      "fragment_id": "CASE-022-F3",
+      "source_ref": "sources/CASE-022.md",
+      "source_hash": "sha256:53a2c981ac15ee1f2f2877f3fcf14cc994d2dc95b9e908a2947b77661d79cc78",
+      "locator": {
+        "kind": "char-offset",
+        "start": 297,
+        "end": 404,
+        "line_start": 9,
+        "line_end": 10,
+        "item": "E",
+        "document": "Investment committee minute, 2022-11-10"
+      },
+      "content": "**E — Investment committee minute, 2022-11-10** — the committee approved the replacement, citing\nthe paper.",
+      "source_time": "2022-11-10",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "CASE-022-F1",
+      "source_ref": "sources/CASE-022.md",
+      "source_hash": "sha256:53a2c981ac15ee1f2f2877f3fcf14cc994d2dc95b9e908a2947b77661d79cc78",
+      "locator": {
+        "kind": "char-offset",
+        "start": 38,
+        "end": 171,
+        "line_start": 3,
+        "line_end": 4,
+        "item": "A",
+        "document": "capital/2022-11-03-pump-replacement.md"
+      },
+      "content": "**A — Paper, `capital/2022-11-03-pump-replacement.md`, dated 2022-11-03** — replacing the Hollins\npumps saves £140k a year in energy.",
+      "source_time": "2022-11-03",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "CASE-022-F2",
+      "source_ref": "sources/CASE-022.md",
+      "source_hash": "sha256:53a2c981ac15ee1f2f2877f3fcf14cc994d2dc95b9e908a2947b77661d79cc78",
+      "locator": {
+        "kind": "char-offset",
+        "start": 173,
+        "end": 295,
+        "line_start": 6,
+        "line_end": 7,
+        "item": "B, C, D",
+        "document": "Three emails, 2022-11-07 to 2022-11-09"
+      },
+      "content": "**B, C, D — Three emails, 2022-11-07 to 2022-11-09**, each quoting the paper's £140k figure, from three\ndifferent senders.",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    }
+  ],
+  "contributions": [
+    {
+      "contribution_id": "CASE-022-C1",
+      "fragment_refs": [
+        "CASE-022-F3",
+        "CASE-022-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-statement",
+      "interpreted_value": "The investment committee approved the replacement of the Hollins pumps.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-022-C2",
+      "fragment_refs": [
+        "CASE-022-F3"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-date",
+      "interpreted_value": "2022-11-10",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-022-C3",
+      "fragment_refs": [
+        "CASE-022-F3"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "authority",
+      "interpreted_value": "the investment committee",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-022-C4",
+      "fragment_refs": [
+        "CASE-022-F1",
+        "CASE-022-F2"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "Replacing the Hollins pumps saves £140k a year in energy (paper of 2022-11-03; the figure quoted in three emails).",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "low",
+      "derivation": "explicit"
+    }
+  ],
+  "assembly": {
+    "assembly_id": "CASE-022-1-assembly",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "CASE-022-C1",
+      "CASE-022-C2",
+      "CASE-022-C3",
+      "CASE-022-C4"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "Minute (item E): 'the committee approved the replacement, citing the paper'; item A is the only paper and concerns 'replacing the Hollins pumps'."
+      },
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "Emails (items B, C, D): 'each quoting the paper's £140k figure'."
+      }
+    ],
+    "assembly_confidence": "high",
+    "missing_semantics": [
+      "accountable-owner"
+    ],
+    "conflicts": [],
+    "supersessions": [],
+    "unresolved": [
+      "No owner is named; the committee is a forum, not an owner.",
+      "The £140k saving rests on one source, the paper. The three emails restate it and add nothing independent; the paper states the figure with nothing behind it.",
+      "The emails are given only as a date range (2022-11-07 to 2022-11-09) in one description, so they are carried at month precision (2022-11); their own contemporaneity grade is indeterminate, and as restatements they count as the paper."
+    ],
+    "status": "candidate"
+  },
+  "fragment_annotations": [
+    {
+      "fragment_ref": "CASE-022-F3",
+      "capture_time": "2022-11-10",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "CASE-022-F1",
+      "capture_time": "2022-11-03",
+      "creation_time": "2022-11-03",
+      "evidence_kind": "cited-material"
+    },
+    {
+      "fragment_ref": "CASE-022-F2",
+      "capture_time": "2022-11",
+      "creation_time": "2022-11",
+      "evidence_kind": "restatement",
+      "restates": "CASE-022-F1"
+    }
+  ],
+  "contribution_annotations": [
+    {
+      "contribution_ref": "CASE-022-C4",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "CASE-022-F3"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/saileshpanchal/mtdr/blob/main/schemas/shared/candidate-review-event.schema.json",
+  "title": "CandidateReviewEvent — one act on a historical candidate (proposed under TDR-0048)",
+  "description": "Schema for a review event, per specification/historical-candidate.md. Appended beside a candidate, never applied to it, and bound to the exact candidate by its RFC 8785 digest. An event identifies an act; it does not capture, authorise or evidence it, and a well-formed event is never proof that a valid human act occurred (TDR-0027). `governs` is always false: no review act, attestation included, establishes that the object governs now.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "event_id",
+    "candidate_id",
+    "candidate_digest",
+    "act",
+    "reviewer",
+    "authority",
+    "date",
+    "scope",
+    "evidence_ref",
+    "governs"
+  ],
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "event_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "candidate_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "candidate_digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "description": "The candidate's digest when the act was performed: SHA-256 of its RFC 8785 canonical JSON."
+    },
+    "act": {
+      "enum": [
+        "attest-account",
+        "split",
+        "merge",
+        "reject",
+        "retain",
+        "supersede"
+      ]
+    },
+    "result_refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "reviewer": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The named individual who performed the act. Never a committee, never a tool."
+    },
+    "authority": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The basis on which the reviewer acted."
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1,
+      "description": "What the act covers, in words."
+    },
+    "evidence_ref": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Where the evidence of the act is kept. A reference, not the evidence."
+    },
+    "governs": {
+      "const": false,
+      "description": "Always false. Whether the object governs now takes a separate, prospective record."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "act": {
+            "const": "attest-account"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "result_refs"
+        ],
+        "properties": {
+          "result_refs": {
+            "minItems": 1,
+            "maxItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "act": {
+            "const": "split"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "result_refs"
+        ],
+        "properties": {
+          "result_refs": {
+            "minItems": 2
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "act": {
+            "const": "merge"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "result_refs"
+        ],
+        "properties": {
+          "result_refs": {
+            "minItems": 1,
+            "maxItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "act": {
+            "const": "supersede"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "result_refs"
+        ],
+        "properties": {
+          "result_refs": {
+            "minItems": 1,
+            "maxItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "act": {
+            "enum": [
+              "reject",
+              "retain"
+            ]
+          }
+        }
+      },
+      "then": {
+        "not": {
+          "required": [
+            "result_refs"
+          ]
+        }
+      }
+    }
+  ]
+}
