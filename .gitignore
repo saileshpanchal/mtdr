@@ -5,3 +5,9 @@ __pycache__/
 
 # macOS directory metadata.
 .DS_Store
+
+# The tooling environment `uv` creates; `uv.lock` is what is committed.
+.venv/
+
+# Working notes from authoring sessions. The reasoning that matters lives in decisions/.
+docs/

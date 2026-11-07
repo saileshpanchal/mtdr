@@ -17,6 +17,7 @@ All notable changes to the TDR standard (and its MTDR markdown reference format)
 - **A third package state, `experimental`** ([TDR-0047](decisions/TDR-0047-experimental-packages.md)) — full layers, published for open review, and **not part of the standard**: excluded from stated skill totals, from the distribution bundles and from every conformance and release claim, announced in every validation result, and promoted only by an admission decision. The suite enforces each exclusion, and refuses a package that turns `normative` without naming an accepted admission record.
 
 ### Changed
+- **The suite runs from a lockfile** — `pyproject.toml` and `uv.lock` pin the tooling's dependencies, `.mise.toml` and `.python-version` the interpreter, and `uv run tests/verify.py` is now the one command a clean clone needs. The `--with` form still works where the lockfile is out of reach. The same command runs on Linux and macOS on every push: that proves reproducibility and discharges nothing — external validation, `DAC-0032#4`, remains outstanding.
 - The umbrella specification ([`specification/organisational-records.md`](specification/organisational-records.md)) moves to **1.1.0**: the package map names the three states — candidate, experimental, normative — and lists `records/work/` as experimental rather than candidate, which since TDR-0047 it no longer is. Additive; no record's validity changes.
 
 ### Fixed

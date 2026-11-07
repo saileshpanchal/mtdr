@@ -1,0 +1,26 @@
+# The repository's own conformance suite, from a clean clone, on two platforms, from the lockfile.
+#
+# This proves the suite is reproducible. It is NOT external validation: DAC-0032#4 asks for a
+# participant unknown to the author following the published instructions, and a workflow the
+# author wrote is not one. A green run here discharges nothing in the obligations register.
+name: verify
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2  # v10.3.3
+      - run: uv sync --locked
+      - run: uv run tests/verify.py

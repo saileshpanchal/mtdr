@@ -19,6 +19,14 @@ Status transitions (`proposed → accepted`, `accepted → superseded`) and `con
 
 Improvements to `spec.md`, the templates, or the skills follow the same rule when they change meaning: a superseding TDR in `/decisions` accompanies the change. Typo and clarity fixes need no ceremony — proportionality applies to contributions too.
 
+## Before you open a pull request
+
+Run the repository's suite from the root of your clone. `uv` is the only prerequisite:
+
+```bash
+uv run tests/verify.py
+```
+
 ## Worked examples
 
 Additional worked examples are welcome. They must be fictional and clearly marked as such: no real organisations, clients, employers or identifiable programmes.
