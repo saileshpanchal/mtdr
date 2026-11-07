@@ -1,0 +1,325 @@
+{
+  "contract_version": "1.0.0",
+  "candidate_id": "brackwell-5",
+  "retrospective": true,
+  "standing": "none",
+  "status": "candidate",
+  "event_time_ref": "brackwell-C503",
+  "fragments": [
+    {
+      "fragment_id": "brackwell-S05-F4",
+      "source_ref": "sources/brackwell/SRC-05-programme-board-2026-05-12.md",
+      "source_hash": "sha256:c3caffaf83d000a10361c56df9cb1434c4114fbaf754cc642cf5e26d68f62214",
+      "locator": {
+        "kind": "char-offset",
+        "start": 318,
+        "end": 485,
+        "line_start": 10,
+        "line_end": 12
+      },
+      "content": "The board agreed that the Northgate depot\nwill be **retained for vehicle storage** rather than closed, with only Southway and Riverside\nconsolidating onto Calder Road.",
+      "source_time": "2026-05-12",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "brackwell-S05-F1",
+      "source_ref": "sources/brackwell/SRC-05-programme-board-2026-05-12.md",
+      "source_hash": "sha256:c3caffaf83d000a10361c56df9cb1434c4114fbaf754cc642cf5e26d68f62214",
+      "locator": {
+        "kind": "char-offset",
+        "start": 0,
+        "end": 97,
+        "line_start": 1,
+        "line_end": 3,
+        "document": "Fleet and Depot Programme Board — notes"
+      },
+      "content": "# Fleet and Depot Programme Board — notes\n\n*Brackwell District Council · 12 May 2026 · fictional*",
+      "source_time": "2026-05-12",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "brackwell-S05-F5",
+      "source_ref": "sources/brackwell/SRC-05-programme-board-2026-05-12.md",
+      "source_hash": "sha256:c3caffaf83d000a10361c56df9cb1434c4114fbaf754cc642cf5e26d68f62214",
+      "locator": {
+        "kind": "char-offset",
+        "start": 487,
+        "end": 589,
+        "line_start": 14,
+        "line_end": 14
+      },
+      "content": "The board noted this reduces the expected annual saving but did not revise the figure at this meeting.",
+      "source_time": "2026-05-12",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "brackwell-S05-F3",
+      "source_ref": "sources/brackwell/SRC-05-programme-board-2026-05-12.md",
+      "source_hash": "sha256:c3caffaf83d000a10361c56df9cb1434c4114fbaf754cc642cf5e26d68f62214",
+      "locator": {
+        "kind": "char-offset",
+        "start": 259,
+        "end": 317,
+        "line_start": 10,
+        "line_end": 10
+      },
+      "content": "Highways works at Calder Road (CP-118) are running behind.",
+      "source_time": "2026-05-12",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "brackwell-S03-F3",
+      "source_ref": "sources/brackwell/SRC-03-fleet-business-case-v2.md",
+      "source_hash": "sha256:c4420b043b4e5db596fb58d37cca1db128f95999f1892fca9257d84b4c21e0ae",
+      "locator": {
+        "kind": "char-offset",
+        "start": 328,
+        "end": 469,
+        "line_start": 10,
+        "line_end": 11,
+        "document": "Fleet and Depot Modernisation — Business Case v2"
+      },
+      "content": "Consolidation onto Calder Road is expected to reduce annual depot running costs to **£0.98m by\n2027/28**, a saving of **£440,000 per annum**.",
+      "source_time": "2026-03-04",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    }
+  ],
+  "contributions": [
+    {
+      "contribution_id": "brackwell-C501",
+      "fragment_refs": [
+        "brackwell-S05-F4"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-statement",
+      "interpreted_value": "The board agreed that the Northgate depot will be retained for vehicle storage rather than closed, with only Southway and Riverside consolidating onto Calder Road.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "brackwell-C502",
+      "fragment_refs": [
+        "brackwell-S05-F4"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "alternative-rejected",
+      "interpreted_value": "Closing the Northgate depot.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "brackwell-C503",
+      "fragment_refs": [
+        "brackwell-S05-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-date",
+      "interpreted_value": "2026-05-12",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "inferred"
+    },
+    {
+      "contribution_id": "brackwell-C504",
+      "fragment_refs": [
+        "brackwell-S05-F1",
+        "brackwell-S05-F4"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "authority",
+      "interpreted_value": "the Fleet and Depot Programme Board",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "brackwell-C505",
+      "fragment_refs": [
+        "brackwell-S05-F5"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "consequence",
+      "interpreted_value": "This reduces the expected annual saving; the figure was not revised at this meeting.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "brackwell-C506",
+      "fragment_refs": [
+        "brackwell-S05-F3"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "Highways works at Calder Road (CP-118) are running behind.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "brackwell-C507",
+      "fragment_refs": [
+        "brackwell-S03-F3"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "Consolidation onto Calder Road is expected to reduce annual depot running costs to £0.98m by 2027/28, a saving of £440,000 per annum (Business Case v2, 4 March 2026).",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "low",
+      "derivation": "explicit"
+    }
+  ],
+  "assembly": {
+    "assembly_id": "brackwell-5-assembly",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "brackwell-C501",
+      "brackwell-C502",
+      "brackwell-C503",
+      "brackwell-C504",
+      "brackwell-C505",
+      "brackwell-C506",
+      "brackwell-C507"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "Programme board notes of 12 May 2026, item 3 'Depot consolidation — site position': the dated heading and the item's sentences ('Highways works at Calder Road (CP-118) are running behind.', 'The board agreed …', 'The board noted this reduces the expected annual saving …')."
+      },
+      {
+        "basis": "entity-match",
+        "evidence": "SRC-03 §4: 'Consolidation onto Calder Road … a saving of £440,000 per annum'; SRC-05 item 3: 'consolidating onto Calder Road' and 'the expected annual saving'. Subject matter only; see unresolved."
+      }
+    ],
+    "assembly_confidence": "medium",
+    "missing_semantics": [
+      "accountable-owner"
+    ],
+    "conflicts": [],
+    "supersessions": [],
+    "unresolved": [
+      "No owner is evidenced. The notes list roles only; the Director of Environment and Place chaired, and chairing is not ownership. No individual is named.",
+      "The highways context is recorded in the notes of the decision's own day; read as whole-day intervals its contemporaneity is indeterminate and it cannot be presented as contemporaneous context.",
+      "The board refers to 'the expected annual saving' without citing a figure or the business case. SRC-03 §4 is attached on subject matter only; it pre-dates the meeting, and nothing settles whether it was before the board (considered: unknown).",
+      "The notes do not say under what authority the board agreed. Whether retaining Northgate was within officer delegation (SRC-01 §3.1, §3.3) or a commitment reserved to Cabinet (§3.2: altering the service footprint in more than one ward) is not evidenced; SRC-01 is not cited.",
+      "Cabinet considered consolidating three depots onto Calder Road (brackwell-2) and required a further site-selection report before contracts are let (brackwell-4). The notes refer to neither, so no lineage is contributed and neither supersession nor conflict is asserted.",
+      "SRC-06 (30 June 2026) records two rounds running out of Northgate rather than Calder Road. Whether that is consistent with Northgate 'retained for vehicle storage' is not settled (see brackwell-6)."
+    ],
+    "status": "candidate"
+  },
+  "fragment_annotations": [
+    {
+      "fragment_ref": "brackwell-S05-F4",
+      "capture_time": "2026-05-12",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "brackwell-S05-F1",
+      "capture_time": "2026-05-12",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "brackwell-S05-F5",
+      "capture_time": "2026-05-12",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "brackwell-S05-F3",
+      "capture_time": "2026-05-12",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "brackwell-S03-F3",
+      "capture_time": "2026-03-04",
+      "creation_time": "unknown",
+      "evidence_kind": "prior-unlinked"
+    }
+  ],
+  "contribution_annotations": [
+    {
+      "contribution_ref": "brackwell-C506",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "brackwell-S05-F3"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "brackwell-C507",
+      "considered": {
+        "state": "unknown",
+        "fragment_refs": []
+      }
+    }
+  ]
+}

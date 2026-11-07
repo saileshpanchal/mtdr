@@ -1,0 +1,149 @@
+{
+  "contract_version": "1.0.0",
+  "candidate_id": "CASE-021-1",
+  "retrospective": true,
+  "standing": "none",
+  "status": "candidate",
+  "event_time_ref": "CASE-021-C2",
+  "fragments": [
+    {
+      "fragment_id": "CASE-021-F2",
+      "source_ref": "sources/CASE-021.md",
+      "source_hash": "sha256:5fd38df1bfc515c5d0bfe18266ed0fae97ad4b654fa73bbdc6d0242815b36445",
+      "locator": {
+        "kind": "char-offset",
+        "start": 189,
+        "end": 339,
+        "line_start": 6,
+        "line_end": 8,
+        "item": "A",
+        "document": "ops-forum/2023-09-18-transcript.md"
+      },
+      "content": "> **Chair:** So we're agreed — the Dunmore treatment works go to remote monitoring overnight from\n> October. Lena, it's yours?\n> **Lena Marsh:** Mine.",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "CASE-021-F1",
+      "source_ref": "sources/CASE-021.md",
+      "source_hash": "sha256:5fd38df1bfc515c5d0bfe18266ed0fae97ad4b654fa73bbdc6d0242815b36445",
+      "locator": {
+        "kind": "char-offset",
+        "start": 38,
+        "end": 187,
+        "line_start": 3,
+        "line_end": 4,
+        "item": "A",
+        "document": "ops-forum/2023-09-18-transcript.md"
+      },
+      "content": "**A — Meeting transcript, `ops-forum/2023-09-18-transcript.md`**, file created 2023-09-18; the text\nopens *Recording started 4 September 2023, 10:02*",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    }
+  ],
+  "contributions": [
+    {
+      "contribution_id": "CASE-021-C1",
+      "fragment_refs": [
+        "CASE-021-F2"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-statement",
+      "interpreted_value": "Agreed: the Dunmore treatment works go to remote monitoring overnight from October (year not stated).",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-021-C2",
+      "fragment_refs": [
+        "CASE-021-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-date",
+      "interpreted_value": "2023-09-04",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "inferred"
+    },
+    {
+      "contribution_id": "CASE-021-C3",
+      "fragment_refs": [
+        "CASE-021-F2"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "accountable-owner",
+      "interpreted_value": "Lena Marsh",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    }
+  ],
+  "assembly": {
+    "assembly_id": "CASE-021-1-assembly",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "CASE-021-C1",
+      "CASE-021-C2",
+      "CASE-021-C3"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "One later-recording (item A): the transcript's opening 'Recording started 4 September 2023, 10:02' and the exchange it records ('So we're agreed ...', 'Lena, it's yours?', 'Mine.') are the same artefact."
+      }
+    ],
+    "assembly_confidence": "high",
+    "missing_semantics": [
+      "context"
+    ],
+    "conflicts": [],
+    "supersessions": [],
+    "unresolved": [
+      "No context, alternatives or authority are evidenced. The forum is named only in the path ('ops-forum'), which is no basis.",
+      "The decision date is the capture's (recording started 4 September 2023), normalised to 2023-09-04; the artefact was created 2023-09-18, which is not the decision date.",
+      "'from October' carries no year."
+    ],
+    "status": "candidate"
+  },
+  "fragment_annotations": [
+    {
+      "fragment_ref": "CASE-021-F2",
+      "capture_time": "2023-09-04",
+      "creation_time": "2023-09-18",
+      "evidence_kind": "later-recording"
+    },
+    {
+      "fragment_ref": "CASE-021-F1",
+      "capture_time": "2023-09-04",
+      "creation_time": "2023-09-18",
+      "evidence_kind": "later-recording"
+    }
+  ],
+  "contribution_annotations": []
+}
