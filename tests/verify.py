@@ -376,11 +376,30 @@ note('preregistration', f"{prereg} pre-registered experiment(s); frozen criteria
 # the resolver's reach, and resolve its type, specification and schema from `conforms_to` alone.
 import tempfile, shutil                                                       # noqa: E402
 BIND_RE = re.compile(r'^mtdr/([a-z][a-z-]*)/(tdr|dac|vr|oir)@([0-9]+\.[0-9]+\.[0-9]+)$')
-MANIFEST_VERSION = {}
+MANIFEST_VERSION, PRIOR_VERSIONS = {}, {}
 for mpath in glob.glob('records/*/package.yaml'):
     man = yaml.safe_load(open(mpath, encoding='utf-8'))
     for entry in man.get('records') or []:
-        MANIFEST_VERSION[(man['name'], entry['id'].lower())] = entry['specification_version']
+        key = (man['name'], entry['id'].lower())
+        MANIFEST_VERSION[key] = entry['specification_version']
+        PRIOR_VERSIONS[key] = {str(p['version']) for p in entry.get('prior_versions') or []}
+
+
+def binding_agrees(ver, shipped, prior):
+    """TDR-0043 gives specifications additive minor versions, so a record bound to a version its
+    package has moved past stays a record of a version the distribution ships, if the manifest says
+    so. Comparing with the current version alone would fail every immutable record on any bump."""
+    return ver == shipped or ver in prior
+
+
+# Known answers, on every run: the rule is what stands between a version bump and the whole register.
+for _ver, _shipped, _prior, _want, _case in (
+        ('1.15.0', '1.15.0', set(), True, 'the current version'),
+        ('1.15.0', '1.16.0', {'1.15.0'}, True, 'a listed prior version'),
+        ('1.14.0', '1.16.0', {'1.15.0'}, False, 'an unlisted version'),
+        ('1.15.0', '1.16.0', set(), False, 'a bump that lists no prior version')):
+    if binding_agrees(_ver, _shipped, _prior) is not _want:
+        fail('identity', f"the binding rule gives the wrong answer for {_case}")
 
 governed = (sorted(glob.glob('decisions/TDR-*.md')) + sorted(glob.glob('decisions/DAC-*.md'))
             + sorted(glob.glob('records/*/examples/*.md')))
@@ -400,8 +419,9 @@ for f in governed:
     shipped = MANIFEST_VERSION.get((pkg, rec))
     if shipped is None:
         fail('identity', f"{f}: claims package/record {pkg}/{rec}, which this distribution does not ship")
-    elif shipped != ver:
-        fail('identity', f"{f}: claims {rec}@{ver}; the {pkg} manifest ships {shipped}")
+    elif not binding_agrees(ver, shipped, PRIOR_VERSIONS[(pkg, rec)]):
+        fail('identity', f"{f}: claims {rec}@{ver}; the {pkg} manifest ships {shipped}"
+                         f" and declares no such prior version")
     bound += 1
 
 # the detached proof itself, over one record of each family
