@@ -780,6 +780,59 @@ if len(set(counts.values()) | {len(bundled)}) != 1:
     fail('bundle', f"surfaces advertise different catalogues: {counts} against {len(bundled)} collected")
 note('bundles', f"{len(SURFACES)} surfaces, one catalogue of {len(bundled)}, canonical files byte-identical")
 
+# 12b' — profiles: one distribution package per record type (owner, 20 Nov 2026). Every profile stays
+# inside its own package and the shared primitives it declares; every package that fits a target is
+# built and its copies checked byte-identical; one that does not fit refuses to build rather than drop.
+import tempfile as _ptemp  # noqa: E402
+from mtdr_packaging import profiles as _profiles  # noqa: E402
+_found, _ = _profiles.profiles()
+from mtdr_packaging.generate import canonical_skills as _canonical_skills  # noqa: E402
+_canon = _canonical_skills()
+_built = 0
+for _pkg in _found:
+    try:
+        _m = _profiles.resolve(_pkg)
+    except _profiles.PackagingError as e:
+        fail('profiles', f"{_pkg}: {e}")
+        continue
+    for _n in _m['skills']:
+        if _canon[_n]['package'] not in (_pkg, 'shared'):
+            fail('profiles', f"{_pkg}: {_n} belongs to {_canon[_n]['package']} — one bundle per record type")
+    for _t in _profiles.TARGETS:
+        for _mode in ('job', 'compact'):
+            *_, _exceeded = _profiles.plan(_pkg, _mode, _t)
+            with _ptemp.TemporaryDirectory() as _out:
+                try:
+                    _dest, _, _man = _profiles.build(_pkg, _mode, _t, out=_out)
+                except _profiles.PackagingError:
+                    if not _exceeded:
+                        fail('profiles', f"{_pkg} {_mode} {_t}: refused to build although every limit is met")
+                    continue
+                if _exceeded:
+                    fail('profiles', f"{_pkg} {_mode} {_t}: built although {_exceeded[0]}")
+                _, _files, _gen, *_ = _profiles.plan(_pkg, _mode, _t)
+                for _packaged, _src in _files.items():
+                    if open(os.path.join(_dest, _packaged), 'rb').read() != open(_src, 'rb').read():
+                        fail('profiles', f"{_pkg} {_mode} {_t}: {_packaged} differs from {_src}")
+                for _idx in _gen:
+                    for _ref in re.findall(r'`(references/[^`]+)`', open(os.path.join(_dest, _idx), encoding='utf-8').read()):
+                        if not os.path.exists(os.path.join(_dest, os.path.dirname(_idx), os.path.basename(_ref))):
+                            fail('profiles', f"{_pkg} {_mode} {_t}: {_idx} names {_ref}, which the package lacks")
+                if set(_man['entry_skills']) - set(_m['skills']):
+                    fail('profiles', f"{_pkg} {_mode} {_t}: the manifest names an entry skill the profile lacks")
+                _built += 1
+# A known answer for the boundary itself: the decision package, made to declare none of the shared
+# primitives it uses, must refuse to profile rather than pull them in undeclared.
+_bare = dict(_found['decision']['manifest'])
+_bare['dependencies'] = [d for d in _bare.get('dependencies') or [] if not d['ref'].startswith('skills/shared/')]
+try:
+    _profiles.resolve('decision', manifest=_bare)
+    fail('profiles', "decision, declaring no shared primitives, still profiled — the package boundary is not enforced")
+except _profiles.PackagingError:
+    pass
+note('profiles', f"{len(_found)} record-type profiles; {_built} packages built across targets and modes, copies "
+                 f"byte-identical; every one that exceeds a limit refused")
+
 # 12c — surface descriptors describe exactly what is generated, and nothing unclaimed is emitted.
 # The standards boundary puts Agent plugin packaging at `interoperate`, whose foreclosure column
 # says a packaging "may explain how to invoke a skill. It may add no record semantics." Every
@@ -1054,7 +1107,7 @@ DIMENSION_OF = {
     'vr-negative': Dim.STRUCTURAL, 'skill-frontmatter': Dim.STRUCTURAL, 'skill-name': Dim.STRUCTURAL,
     'skill-description': Dim.STRUCTURAL, 'skill-count': Dim.SEMANTIC, 'manifest': Dim.STRUCTURAL, 'result-fixture': Dim.STRUCTURAL, 'projection-fixture': Dim.STRUCTURAL,
     'candidate': Dim.SEMANTIC, 'admission': Dim.SEMANTIC, 'recovery-fixture': Dim.STRUCTURAL,
-    'recovery-binding': Dim.RELATIONAL, 'adopter-validator': Dim.STRUCTURAL, 'contemporaneity': Dim.SEMANTIC, 'boundary': Dim.SEMANTIC, 'neutrality': Dim.SEMANTIC,
+    'recovery-binding': Dim.RELATIONAL, 'adopter-validator': Dim.STRUCTURAL, 'profiles': Dim.STRUCTURAL, 'contemporaneity': Dim.SEMANTIC, 'boundary': Dim.SEMANTIC, 'neutrality': Dim.SEMANTIC,
     'consumer-name': Dim.SEMANTIC, 'fixture': Dim.SEMANTIC, 'must-not': Dim.SEMANTIC,
     'untyped-claim': Dim.SEMANTIC, 'state-relative': Dim.SEMANTIC, 'obligations': Dim.SEMANTIC,
     'standards': Dim.SEMANTIC,

@@ -18,6 +18,7 @@ This directory is the deployment pack:
 | File | Contents |
 |---|---|
 | This page | The vendor-neutral agent instructions and the deployment model |
+| [`profiles/`](profiles/) | **One distribution package per record type** — what each recovery job needs and nothing else, checked against each runtime's limits, built on demand by `mtdr_packaging.profiles`. For runtimes that cap the number of skills. Generated |
 | [`runtime-evidence.md`](runtime-evidence.md) | **What was verified about each runtime, from which source, on what date** — so upstream change is detectable rather than discovered |
 | [`canonical/`](canonical/) | The collected skills, the catalogue enumerated from the manifests, and the bundle's provenance. Generated |
 | `claude-code/` · `codex/` · `gemini-cli/` · `copilot/` · `ollama-agent/` | Per-surface install and invocation, generated from verified evidence |

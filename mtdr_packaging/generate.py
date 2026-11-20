@@ -198,6 +198,8 @@ def build():
     for key, s in SURFACES.items():
         files[f"{key}/surface.yaml"] = surface_yaml(key, s, skills)
         files[f"{key}/README.md"] = surface_readme(key, s, skills)
+    from .profiles import descriptors    # one profile per record type; imported here to avoid a cycle
+    files.update(descriptors())
     return files, skills
 
 

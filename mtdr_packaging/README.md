@@ -57,3 +57,7 @@ and probes.
 ## Requirements
 
 `pyyaml`. Nothing else.
+
+## Profiles — one package per record type
+
+`python -m mtdr_packaging.profiles` builds what one recovery job needs and nothing else — a record package's recovery skills, the shared primitives it declares, its normative layer — in `job`, `compact` or `full` mode, for a named target, and refuses to build a package that exceeds the target's limits rather than drop anything. The committed descriptors and their target fit are in [`skills/packaging/profiles/`](../skills/packaging/profiles/); built packages go to `dist/`, which is not committed. Byte-identical copies only; the generated files are an index and a manifest.
