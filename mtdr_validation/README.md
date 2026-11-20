@@ -49,6 +49,33 @@ schema rather than trusting the builder. The builder is convenience; the schema 
 Results carry no standing, no repair and no inferred value. `validate()` never modifies the object
 assessed, and the caller's inputs are never mutated.
 
+## Validating a folder of recovery output
+
+An adopter who has run a recovery — in any engine — checks what it produced with one command, from a
+checkout of this repository:
+
+```bash
+uv run python -m mtdr_validation <folder>
+```
+
+It finds every historical candidate and review event under `<folder>`, and writes to
+`<folder>/validation/` (or `--out`) one validation result per artefact — each checked against the
+published schema before it is written — and a `summary.md` a person can read:
+
+| Dimension | What it reports for a candidate |
+|---|---|
+| structural | the candidate schema, and everything the candidate refers to it carries (`historical-candidate.md` integrity rules 1–5, 7, 8) |
+| semantic | the recovery roles the object's package declares (rule 6) — `indeterminate` where the package declares none |
+| relational | whether every review event naming the candidate was recorded against this exact content (its digest) |
+| transition-eligibility | always `not-applicable`: a candidate's standing is `none`, and attestation is a person's act |
+
+The summary also gives the computed contemporaneity of every context contribution, and lists what it
+did not assess. **There is no overall result**, and the exit status is operational — 0 when the folder
+was assessed, 2 when it could not be — never a conformance verdict. `tests/verify.py` calls the same
+functions (`mtdr_validation.recovery`) and checks that this command agrees with every published
+candidate fixture.
+
 ## Requirements
 
-`jsonschema`. Nothing else — no MTDR application, register or service.
+`jsonschema` (with `referencing`, which it installs) for results; `pyyaml` as well for recovery output,
+to read each package's declared vocabulary. Nothing else — no MTDR application, register or service.
