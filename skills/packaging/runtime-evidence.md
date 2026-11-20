@@ -9,12 +9,16 @@ recorded evidence, not discovered when something breaks.
 This directory is the one place in the repository where product names may appear
 ([TDR-0024](../../decisions/TDR-0024-packaging-independence.md)).
 
-**Verified:** 2026-08-18.
+**Verified:** 2026-08-18. Hermes Agent and Claude Chat with Skills **documented** 2026-11-20, not yet run.
 
 **Current standing: four verified direct surfaces, plus one provisionally verified direct surface.**
 Stated that way deliberately — the five-surface claim is not weakened, and it is not rounded up either.
 Copilot becomes the fifth verified surface when its primary documentation can be reached; until then
 the evidence says what it says.
+
+**Two further surfaces are documented and not yet verified** (20 Nov 2026): Hermes Agent, provisionally
+direct, and Claude Chat with Skills, deferred until a hands-on test. Results are recorded per surface and per
+capability; one surface's result is never read as another's.
 
 ## The falsification criterion
 
@@ -42,6 +46,8 @@ row here recording why it cannot be supported.
 | **Gemini CLI** | Four locations in precedence order: built-in, extension, user `~/.gemini/skills/` (alias `~/.agents/skills/`), workspace `.gemini/skills/` (alias `.agents/skills/`) | Yes. "Based on the Agent Skills open standard" | Yes — "Only skill metadata (name and description) is loaded initially. Detailed instructions and resources are only disclosed when the model explicitly activates the skill" | `activate_skill` tool, with a user confirmation prompt before resources enter context | Collection only | **direct** | [gemini-cli/docs/cli/skills.md](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/skills.md) · **primary** |
 | **Copilot** | Project locations reported as `.github/skills`, `.claude/skills` and `.agents/skills` | Reported yes, on the same `SKILL.md` standard | Not established | Agent mode, model-selected | Collection only, if the reported paths hold | **direct** *(provisional)* | Microsoft Learn and the GitHub changelog, **both unreachable from this environment** — recorded from secondary summaries. **Re-verify before relying on it.** |
 | **ollama-agent** (local) | `~/.ollama-agent/skills/` (global), `./skills/` (project), any `--skills-dir` path; "last wins for same-name skills" | Yes. Stated requirement is "a `SKILL.md` file with YAML frontmatter containing name and description" — and nothing else | Yes — "the agent checks skill descriptions to find relevant ones. Only when a skill matches does the agent read the full instructions" | CLI/REPL, model-selected | **None** — `--skills-dir` can be pointed at a directory directly | **direct** | [github.com/arrase/ollama-agent](https://github.com/arrase/ollama-agent) · **primary** |
+| **Hermes Agent** (CLI and desktop app) | `~/.hermes/skills/<category>/<name>/SKILL.md`; a project's `.hermes/skills/` and `.agents/skills/` only once the project is trusted (`hermes skills trust`); further folders under `skills.external_dirs` in `~/.hermes/config.yaml`. The desktop app shares the CLI's configuration and skills | Yes — follows the Agent Skills standard; a missing `name` defaults to the folder name; name and description are truncated beyond 64 and 1,024 characters (MTDR's longest description is 738) | Yes — the listing carries name, description and category; the body loads on view; bundled files open only inside the skill's own folder (`..` is refused) | A slash command per skill, or loaded by the model; *bundles* load several skills under one command with an instruction. One skill directing others in order is not documented | Collection only, as for Codex, with the reference knowledge alongside — whether the agent follows the canonical relative links with its file tool is a hands-on question | **direct** *(provisional — hands-on test pending)* | hermes-agent.nousresearch.com docs (skills, creating skills, tools, code execution, desktop) and the agent's `skills_tool.py` source, read 2026-11-20; the installed CLI (v0.23.0) · **primary** |
+| **Claude Chat with Skills** (claude.ai and the desktop app's chat) | Uploaded one skill at a time as a ZIP holding `<skill-name>/SKILL.md` (Customize › Skills); the folder name must equal `name`; code execution and file creation must be on | Names comply (lowercase, digits, hyphens, ≤ 64, not containing `claude` or `anthropic`). **The description limit is stated inconsistently — 200 characters in one help article, 1,024 elsewhere — and every MTDR description is between 346 and 738** | Bundled files inside the skill's folder are copied into a remote code-execution sandbox; nothing outside the folder is uploaded, so canonical links into the specifications cannot resolve | Model-selected by description, or chosen from the `/` menu | Per-skill ZIPs with the reference knowledge inside each; local evidence folders only through a desktop extension (e.g. the Filesystem extension) whose files the remote sandbox may not reach | **defer** *(until a hands-on upload shows the descriptions are accepted and the references reachable)* | claude.com/docs/skills, support.claude.com help articles and platform.claude.com, read 2026-11-20 · **primary** |
 
 ## What the evidence establishes
 
@@ -101,6 +107,14 @@ bundles" are largely one bundle in several places.
   six-field list above is taken from Claude Code's documentation *of* the spec — a primary source for
   Claude Code, a secondary one for the standard.
 - **Codex progressive-disclosure behaviour** is not stated in the material retrieved.
+- **Hermes:** whether the agent follows the skills' relative links into the specifications with its file
+  tool (its skill loader refuses them); whether an orchestrating skill reliably runs the named stages in
+  order; whether `uv run` works under its default command approval; whether the desktop app's tools
+  equal the CLI's.
+- **Claude Chat with Skills:** whether descriptions over 200 characters are accepted at upload; the real
+  ZIP size and file-count limits; whether `pyyaml`, `jsonschema` or `uv` are available in its sandbox;
+  whether files read through a desktop filesystem extension can reach that sandbox. If supporting it
+  would mean shortening a canonical description, it stays **defer** — the falsification criterion above.
 - **No runtime has been executed.** Everything here is documented behaviour. Whether the semantics
   survive execution is the recovery experiment's question, and *"translate packaging and invocation,
   never semantics"* is one of the things it should try to falsify.
