@@ -2,6 +2,8 @@
 
     uv run python -m mtdr_packaging.profiles list
     uv run python -m mtdr_packaging.profiles build <profile> [--mode job|compact|full] [--target T] [--out DIR] [--zip]
+    uv run python -m mtdr_packaging.profiles install <profile> --runtime R --project DIR
+    uv run python -m mtdr_packaging.profiles verify <installed package folder> [--json REPORT]
 
 A profile is what one recovery job needs, and nothing else: the package's own recovery skills — the
 closure of its orchestration entry over skill-to-skill links — the shared primitives the package
@@ -60,6 +62,29 @@ TARGETS = {
 
 MODES = ('job', 'compact', 'full')
 
+#: Runtimes the installer places a folder package into. A runtime is offered only where it is shown to
+#: discover the canonical layout in place, so that every skill's relative links resolve from where the
+#: runtime finds it. A runtime that scans one level deep would need a flat collection — which takes the
+#: record-package skills' links out of the install — or a vendor descriptor no disposition has yet
+#: claimed: it is refused, never installed broken (owner, 22 Nov 2026: fix the installer, not the
+#: agent's instructions).
+RUNTIMES = {
+    'hermes': {
+        'title': 'Hermes Agent', 'root': '.agents/skills', 'installable': True,
+        'discovery': 'recursive — every SKILL.md below a trusted project skills directory '
+                     '(agent/skill_utils.py, iter_skill_index_files: os.walk, following links; v0.23.0, '
+                     'read 2026-11-22)'},
+    'claude-code': {
+        'title': 'Claude Code', 'root': '.claude/skills', 'installable': False,
+        'discovery': 'one level — .claude/skills/<name>/SKILL.md or a symlink there; a skill nested deeper '
+                     'is not discovered, and a symlinked skill reports the link path as its base directory '
+                     '(2.1.316, probed 2026-11-20)',
+        'refusal': 'the canonical layout is discoverable only through a plugin descriptor '
+                   '(.claude-plugin/plugin.json naming the skill directories), a vendor manifest awaiting '
+                   "disposition; a flat or symlinked install would take the record-package skills' links "
+                   'out of the install'},
+}
+
 
 PROFILES_README = """# Profiles — one distribution package per record type
 
@@ -86,6 +111,28 @@ uv run python -m mtdr_packaging.profiles list
 uv run python -m mtdr_packaging.profiles build decision --mode job --target folder
 uv run python -m mtdr_packaging.profiles build value --mode compact --target m365-agent-builder --zip
 ```
+
+## Install, then verify before every execution
+
+A folder package keeps the repository's layout, so each skill's relative links resolve inside it. Install
+it where the runtime discovers skills **without moving any file relative to another**, and verify it
+where it sits:
+
+```
+uv run python -m mtdr_packaging.profiles install decision --runtime hermes --project <your project>
+uv run python -m mtdr_packaging.profiles verify <your project>/.agents/skills/mtdr-decision
+```
+
+`verify` exits non-zero unless every file matches the manifest's digest, nothing else is present, exactly
+the package's skills are discoverable at their canonical paths, and every link in every skill resolves
+inside the package or is one the manifest declares under `not_packaged`. **A flat collection is not an
+install**: the record-package skills sit one or two levels deeper than a flat directory, so collected
+flat, their links leave the install.
+
+`install` offers a runtime only where it is shown to discover that layout in place — Hermes Agent walks
+its trusted project skills directory recursively. Claude Code discovers one level deep, so the layout
+reaches it only through a plugin descriptor, a vendor manifest awaiting disposition; until then `install`
+refuses it rather than install it broken. Runtimes not yet tested are not offered.
 
 A package that exceeds a target's limit is **not built** — nothing is trimmed, merged or dropped to fit.
 Every built package carries `mtdr-package.json`: version, commit, skills and references with digests,
@@ -229,7 +276,7 @@ def layout(members, mode, target):
     files, generated, discoverable, companions = {}, {}, [], {}
     if delivery == 'folder':
         for n, src in members['skills'].items():
-            files[src] = src                              # canonical layout: every link resolves in the package
+            files[src] = src          # canonical layout: links resolve in the package, but for `not_packaged`
         for r in members['references']:
             files[r] = r
         discoverable = sorted(members['skills']) if mode != 'compact' else list(members['entries'])
@@ -349,6 +396,122 @@ def build(profile, mode='job', target='folder', out=None, make_zip=False):
     return dest, None, m
 
 
+def _tree_sha(root, paths):
+    """One digest over the package: the sha256 of `<sha256>  <path>` lines, sorted by path."""
+    lines = ''.join(f'{hashlib.sha256(open(os.path.join(root, p), "rb").read()).hexdigest()}  {p}\n'
+                    for p in sorted(paths))
+    return hashlib.sha256(lines.encode('utf-8')).hexdigest()
+
+
+def verify(root):
+    """Check an installed folder package where it sits, before anything executes from it:
+
+    - every file the manifest lists is present with the manifest's digest, and nothing else is there;
+    - the SKILL.md files discoverable below the root are exactly the package's skills, at their
+      canonical paths;
+    - every relative link in every skill, resolved lexically from where the skill sits, lands inside the
+      root — or is one the manifest declares under `not_packaged`, with its class.
+
+    Links in the reference files are counted and reported, not failed: the skills are the instructions.
+    Returns a report whose `failures` is empty only when the package is intact."""
+    failures = []
+    try:
+        man = json.load(open(os.path.join(root, 'mtdr-package.json'), encoding='utf-8'))
+    except (OSError, ValueError) as e:
+        return {'root': root, 'failures': [f'no readable mtdr-package.json: {e}']}
+    if (man.get('mode'), man.get('target')) != ('job', 'folder'):
+        failures.append(f"verify checks folder job packages; this one is {man.get('mode')} for {man.get('target')}")
+    expected = {s['source']: s['sha256'] for s in man['skills']}
+    expected.update({r['source']: r['sha256'] for r in man['references']})
+    for path, sha in sorted(expected.items()):
+        full = os.path.join(root, path)
+        if not os.path.isfile(full):
+            failures.append(f'{path}: missing')
+        elif hashlib.sha256(open(full, 'rb').read()).hexdigest() != sha:
+            failures.append(f'{path}: digest differs from the manifest')
+    present = {os.path.relpath(os.path.join(d, f), root) for d, _, fs in os.walk(root) for f in fs}
+    for extra in sorted(present - set(expected) - {'mtdr-package.json'}):
+        failures.append(f'{extra}: present but not in the manifest')
+
+    found = {}
+    for p in sorted(x for x in present if os.path.basename(x) == 'SKILL.md'):
+        try:
+            name = yaml.safe_load(open(os.path.join(root, p), encoding='utf-8').read().split('---')[1])['name']
+        except Exception:                                  # noqa: BLE001 — any unreadable skill is a failure
+            failures.append(f'{p}: a SKILL.md whose name cannot be read')
+            continue
+        found[name] = os.path.dirname(p)
+    want = {s['name']: os.path.dirname(s['source']) for s in man['skills']}
+    for name in sorted(set(found) | set(want)):
+        if name not in want:
+            failures.append(f'{name}: discoverable at {found[name]} but not in the package')
+        elif name not in found:
+            failures.append(f'{name}: in the package but not discoverable')
+        elif found[name] != want[name]:
+            failures.append(f'{name}: discoverable at {found[name]}, not at its canonical path {want[name]}')
+
+    declared = {(x['from'], x['link']) for x in man['not_packaged']}
+    links = {'resolved': 0, 'declared_not_packaged': [], 'broken': []}
+    for name, base in sorted(found.items()):
+        for link in LINK.findall(open(os.path.join(root, base, 'SKILL.md'), encoding='utf-8').read()):
+            target = os.path.normpath(os.path.join(base, link))
+            inside = not (target == '..' or target.startswith('../') or os.path.isabs(target))
+            if inside and os.path.exists(os.path.join(root, target)):
+                links['resolved'] += 1
+            elif (name, target) in declared:
+                links['declared_not_packaged'].append({'from': name, 'link': target})
+            else:
+                links['broken'].append({'from': name, 'link': link, 'resolves_to': target})
+                failures.append(f'{name}: link {link} resolves to {target}, outside the package and undeclared')
+
+    reference_links = {'resolved': 0, 'outside': {}}
+    for path in sorted(r['source'] for r in man['references'] if r['source'].endswith('.md')):
+        full = os.path.join(root, path)
+        if not os.path.isfile(full):
+            continue
+        for link in LINK.findall(open(full, encoding='utf-8').read()):
+            target = os.path.normpath(os.path.join(os.path.dirname(path), link))
+            if not target.startswith('..') and os.path.exists(os.path.join(root, target)):
+                reference_links['resolved'] += 1
+            else:
+                top = target.split('/')[0] if not target.startswith('..') else '(outside the root)'
+                reference_links['outside'][top] = reference_links['outside'].get(top, 0) + 1
+
+    listed = list(expected) + (['mtdr-package.json'] if 'mtdr-package.json' in present else [])
+    return {'root': os.path.abspath(root), 'profile': man.get('profile'), 'commit': man.get('commit'),
+            'mtdr_version': man.get('mtdr_version'),
+            'tree_sha256': _tree_sha(root, [p for p in listed if os.path.isfile(os.path.join(root, p))]),
+            'files': len(expected) + 1, 'skills_discoverable': sorted(found),
+            'skill_links': {'resolved': links['resolved'],
+                            'declared_not_packaged': len(links['declared_not_packaged']),
+                            'broken': len(links['broken'])},
+            'declared_not_packaged': links['declared_not_packaged'], 'broken': links['broken'],
+            'reference_links': reference_links, 'failures': failures}
+
+
+def install(profile, runtime, project):
+    """Build `profile` as a folder job package, place it where `runtime` discovers skills with every file
+    in its canonical position relative to every other, and verify it there. Refuses a runtime not shown
+    to discover that layout, and an occupied destination; never repairs a skill to make it resolve."""
+    rt = RUNTIMES.get(runtime)
+    if rt is None:
+        raise PackagingError(f'unknown runtime {runtime!r}; known: {", ".join(sorted(RUNTIMES))}')
+    if not rt['installable']:
+        raise PackagingError(f"{rt['title']}: not installed — {rt['refusal']}")
+    dest = os.path.join(project, rt['root'], f'mtdr-{profile}')
+    if os.path.exists(dest):
+        raise PackagingError(f'{dest} already exists — install into a clean location')
+    import tempfile
+    with tempfile.TemporaryDirectory() as tmp:
+        built, _, _ = build(profile, 'job', 'folder', out=tmp)
+        os.makedirs(os.path.dirname(dest), exist_ok=True)
+        shutil.copytree(built, dest)
+    report = verify(dest)
+    if report['failures']:
+        raise PackagingError(f'installed at {dest} but verification failed: ' + '; '.join(report['failures'][:5]))
+    return dest, report
+
+
 def descriptor_yaml(pkg):
     """The committed profile descriptor: members and, per target and mode, whether the package fits."""
     members = resolve(pkg)
@@ -389,7 +552,37 @@ def main(argv=None):
     b.add_argument('--target', default='folder', choices=sorted(TARGETS))
     b.add_argument('--out')
     b.add_argument('--zip', action='store_true')
+    i = sub.add_parser('install', help='place a folder package where a runtime discovers it, then verify it')
+    i.add_argument('profile')
+    i.add_argument('--runtime', required=True, choices=sorted(RUNTIMES))
+    i.add_argument('--project', required=True, help='the project the runtime runs in')
+    v = sub.add_parser('verify', help='check an installed folder package before executing from it')
+    v.add_argument('root', help='the installed package folder (the one holding mtdr-package.json)')
+    v.add_argument('--json', help='also write the full report here')
     args = p.parse_args(argv)
+    if args.cmd in ('install', 'verify'):
+        try:
+            if args.cmd == 'install':
+                dest, report = install(args.profile, args.runtime, args.project)
+                print(f'installed {dest}')
+            else:
+                report = verify(args.root)
+        except PackagingError as e:
+            print(f'not installed: {e}', file=sys.stderr)
+            return 1
+        if getattr(args, 'json', None):
+            with open(args.json, 'w', encoding='utf-8') as fh:
+                json.dump(report, fh, indent=2, ensure_ascii=False)
+                fh.write('\n')
+        for f in report['failures']:
+            print(f'FAIL {f}')
+        if 'skill_links' in report:
+            l = report['skill_links']
+            print(f"{report['profile']} @ {report['commit']}: {report['files']} files, tree {report['tree_sha256'][:16]}; "
+                  f"{len(report['skills_discoverable'])} skills discoverable; skill links: {l['resolved']} resolve, "
+                  f"{l['declared_not_packaged']} declared not packaged, {l['broken']} broken")
+        print('verified' if not report['failures'] else f"{len(report['failures'])} failure(s)")
+        return 0 if not report['failures'] else 1
     if args.cmd == 'list':
         found, none = profiles()
         for pkg in found:

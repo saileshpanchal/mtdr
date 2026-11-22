@@ -833,6 +833,69 @@ except _profiles.PackagingError:
 note('profiles', f"{len(_found)} record-type profiles; {_built} packages built across targets and modes, copies "
                  f"byte-identical; every one that exceeds a limit refused")
 
+# 12b'' — install, then verify where it sits (owner, 22 Nov 2026: fix the installer, not the agent's
+# instructions). Every profile installs for a runtime that discovers the canonical layout and verifies
+# there; each way the 20 Nov install went wrong — a flat collection — and each tampering must fail.
+import json as _ijson  # noqa: E402
+import shutil as _ishutil  # noqa: E402
+_installed = 0
+for _pkg in _found:
+    with _ptemp.TemporaryDirectory() as _proj:
+        try:
+            _root, _rep = _profiles.install(_pkg, 'hermes', _proj)
+        except _profiles.PackagingError as e:
+            fail('install', f"{_pkg}: {e}")
+            continue
+        _installed += 1
+        if _rep['skill_links']['broken']:
+            fail('install', f"{_pkg}: {_rep['skill_links']['broken']} broken skill link(s) in a verified install")
+        if _pkg != 'decision':
+            continue
+        _rel = lambda p: os.path.relpath(p, _root)  # noqa: E731
+        _man = _ijson.load(open(os.path.join(_root, 'mtdr-package.json'), encoding='utf-8'))
+
+        def _mutant(change):
+            with _ptemp.TemporaryDirectory() as _m:
+                _copy = os.path.join(_m, 'pkg')
+                _ishutil.copytree(_root, _copy)
+                change(_copy)
+                return _profiles.verify(_copy)
+
+        def _flatten(copy):                    # the 20 Nov install: every skill one level below one folder
+            for _s in _man['skills']:
+                _ishutil.move(os.path.join(copy, os.path.dirname(_s['source'])), os.path.join(copy, 'flat', _s['name']))
+        _flat = _mutant(_flatten)
+        if not _flat['broken']:
+            fail('install', "a flat collection verified with no broken link — the check does not see the 20 Nov defect")
+
+        def _tamper(copy):
+            with open(os.path.join(copy, _man['references'][0]['source']), 'ab') as fh:
+                fh.write(b'\n')
+        if not any('digest differs' in f for f in _mutant(_tamper)['failures']):
+            fail('install', "a reference file altered after install still verified")
+
+        def _intrude(copy):
+            _other = next(i['path'] for n, i in _canon.items() if i['package'] not in ('decision', 'shared'))
+            os.makedirs(os.path.join(copy, 'intruder'), exist_ok=True)
+            _ishutil.copyfile(_other, os.path.join(copy, 'intruder', 'SKILL.md'))
+        if not any('not in the package' in f for f in _mutant(_intrude)['failures']):
+            fail('install', "a skill from another record type became discoverable and still verified")
+
+        def _undeclare(copy):
+            _gone = (_man['not_packaged'][0]['from'], _man['not_packaged'][0]['link'])
+            _m2 = dict(_man, not_packaged=[x for x in _man['not_packaged'] if (x['from'], x['link']) != _gone])
+            with open(os.path.join(copy, 'mtdr-package.json'), 'w', encoding='utf-8') as fh:
+                _ijson.dump(_m2, fh)
+        if not _mutant(_undeclare)['broken']:
+            fail('install', "a link the manifest stopped declaring still verified")
+try:
+    _profiles.install('decision', 'claude-code', '/nonexistent')
+    fail('install', "Claude Code was installed although it discovers one level deep and no descriptor is disposed")
+except _profiles.PackagingError:
+    pass
+note('install', f"{_installed} profile(s) installed for a recursive-discovery runtime and verified in place; "
+                "flat collection, tampering, an intruding skill and an undeclared link each fail")
+
 # 12c — surface descriptors describe exactly what is generated, and nothing unclaimed is emitted.
 # The standards boundary puts Agent plugin packaging at `interoperate`, whose foreclosure column
 # says a packaging "may explain how to invoke a skill. It may add no record semantics." Every
@@ -1107,7 +1170,7 @@ DIMENSION_OF = {
     'vr-negative': Dim.STRUCTURAL, 'skill-frontmatter': Dim.STRUCTURAL, 'skill-name': Dim.STRUCTURAL,
     'skill-description': Dim.STRUCTURAL, 'skill-count': Dim.SEMANTIC, 'manifest': Dim.STRUCTURAL, 'result-fixture': Dim.STRUCTURAL, 'projection-fixture': Dim.STRUCTURAL,
     'candidate': Dim.SEMANTIC, 'admission': Dim.SEMANTIC, 'recovery-fixture': Dim.STRUCTURAL,
-    'recovery-binding': Dim.RELATIONAL, 'adopter-validator': Dim.STRUCTURAL, 'profiles': Dim.STRUCTURAL, 'contemporaneity': Dim.SEMANTIC, 'boundary': Dim.SEMANTIC, 'neutrality': Dim.SEMANTIC,
+    'recovery-binding': Dim.RELATIONAL, 'adopter-validator': Dim.STRUCTURAL, 'profiles': Dim.STRUCTURAL, 'install': Dim.STRUCTURAL, 'contemporaneity': Dim.SEMANTIC, 'boundary': Dim.SEMANTIC, 'neutrality': Dim.SEMANTIC,
     'consumer-name': Dim.SEMANTIC, 'fixture': Dim.SEMANTIC, 'must-not': Dim.SEMANTIC,
     'untyped-claim': Dim.SEMANTIC, 'state-relative': Dim.SEMANTIC, 'obligations': Dim.SEMANTIC,
     'standards': Dim.SEMANTIC,

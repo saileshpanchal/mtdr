@@ -127,6 +127,19 @@ def surface_yaml(key, s, skills):
     )
 
 
+def _install_status(key, s):
+    """What the installer does for this surface, from the runtime evidence it holds — never assumed."""
+    from .profiles import RUNTIMES    # imported here to avoid a cycle
+    rt = RUNTIMES.get(key)
+    if rt and rt['installable']:
+        return f"**{s['title']}:** `install --runtime {key}` — discovery is {rt['discovery']}."
+    if rt:
+        return (f"**{s['title']}: not installable yet.** Discovery is {rt['discovery']}. So {rt['refusal']}. "
+                f"`install` refuses it rather than install it broken.")
+    return (f"**{s['title']}: not tested.** Whether it discovers a skill nested below its skills directory has "
+            f"not been shown, so `install` does not offer it; a flat collection would break the links above.")
+
+
 def surface_readme(key, s, skills):
     paths = s["project_paths"] or s["personal_paths"]
     place = paths[0] if paths else "the runtime's skills directory"
@@ -145,11 +158,20 @@ a defect ([TDR-0024](../../../decisions/TDR-0024-packaging-independence.md)).
 {caution}
 ## Install
 
-Copy or link the {len(skills)} collected skills into `{place}`:
+Install one record type's package with the repository's layout intact, and verify it where it sits
+before executing from it ([`profiles/README.md`](../profiles/README.md)):
 
 ```
-cp -r skills/packaging/canonical/skills/* {place}
+uv run python -m mtdr_packaging.profiles install <record-type> --runtime <runtime> --project <your project>
+uv run python -m mtdr_packaging.profiles verify <installed package folder>
 ```
+
+**Do not collect the skills flat into `{place}`.** The record-package skills sit one or two levels deeper
+than a flat directory, so collected flat their relative links leave the install — 66 of the catalogue's
+107 skill links, in every Decision and Value lifecycle skill (22 Nov 2026). The flat collection in
+[`canonical/skills/`](../canonical/skills/) is the catalogue's byte-identical copies, not an install.
+
+{_install_status(key, s)}
 
 Discovery paths this runtime reads:
 
@@ -165,14 +187,14 @@ Progressive disclosure: {s['progressive_disclosure']}
 
 ## Reference knowledge
 
-**Required, not optional.** The collected skills carry their canonical relative links, which resolve
-against the repository layout rather than inside this directory — deliberately: rewriting them would
-modify a canonical artefact, which packaging may never do. Deploy the reference knowledge alongside
-and the references resolve for the reader; deploy the skills alone and they will not.
-
-The skills point back into the normative layer. Make available the paths listed under
-`reference_knowledge` in [`provenance.yaml`](../canonical/provenance.yaml) — the substrate
-specifications, and each deployed package's specification and templates.
+**Required, not optional, and it travels in the package.** The skills carry their canonical relative
+links, written against the repository layout; rewriting them would modify a canonical artefact, which
+packaging may never do. A folder package therefore keeps that layout — the skills, the substrate
+specifications and schemas they use, and the record package's normative layer — so the links resolve
+inside it. The links that point outside on purpose (decision records, practice notes, another record
+type's specification) are listed under `not_packaged` in the package's `mtdr-package.json`, each with
+its class; `verify` fails on any other. [`provenance.yaml`](../canonical/provenance.yaml) lists the
+reference knowledge for the whole catalogue.
 
 ## The catalogue
 

@@ -24,6 +24,28 @@ uv run python -m mtdr_packaging.profiles build decision --mode job --target fold
 uv run python -m mtdr_packaging.profiles build value --mode compact --target m365-agent-builder --zip
 ```
 
+## Install, then verify before every execution
+
+A folder package keeps the repository's layout, so each skill's relative links resolve inside it. Install
+it where the runtime discovers skills **without moving any file relative to another**, and verify it
+where it sits:
+
+```
+uv run python -m mtdr_packaging.profiles install decision --runtime hermes --project <your project>
+uv run python -m mtdr_packaging.profiles verify <your project>/.agents/skills/mtdr-decision
+```
+
+`verify` exits non-zero unless every file matches the manifest's digest, nothing else is present, exactly
+the package's skills are discoverable at their canonical paths, and every link in every skill resolves
+inside the package or is one the manifest declares under `not_packaged`. **A flat collection is not an
+install**: the record-package skills sit one or two levels deeper than a flat directory, so collected
+flat, their links leave the install.
+
+`install` offers a runtime only where it is shown to discover that layout in place — Hermes Agent walks
+its trusted project skills directory recursively. Claude Code discovers one level deep, so the layout
+reaches it only through a plugin descriptor, a vendor manifest awaiting disposition; until then `install`
+refuses it rather than install it broken. Runtimes not yet tested are not offered.
+
 A package that exceeds a target's limit is **not built** — nothing is trimmed, merged or dropped to fit.
 Every built package carries `mtdr-package.json`: version, commit, skills and references with digests,
 counts, the limits checked, required capabilities, omitted skills and unpackaged links. Nothing in a
