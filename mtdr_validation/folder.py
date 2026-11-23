@@ -10,6 +10,7 @@ import json
 import os
 import re
 
+from .fidelity import candidate_fidelity
 from .recovery import (ROOT, candidate_references, candidate_roles, contribution_grades, jcs_digest,
                        load_vocabulary, shared_registry)
 from .result import FAIL, INDETERMINATE, NOT_APPLICABLE, PASS, Dim, ValidationResult
@@ -43,9 +44,11 @@ def _kind(doc):
     return None
 
 
-def assess_folder(folder, root=ROOT, exclude=()):
+def assess_folder(folder, root=ROOT, exclude=(), sources=None):
     """Assess every candidate and review event under `folder`. Returns (assessments, not_assessed): each
-    assessment is a dict with the ValidationResult and what a reader needs beside it."""
+    assessment is a dict with the ValidationResult and what a reader needs beside it. With `sources`, the
+    folder of original material, each fragment is re-read against its source (`fidelity.py`) and reported
+    in the relational dimension; without it, the summary says that source fidelity was not checked."""
     from jsonschema import Draft202012Validator
     registry, vocabulary = shared_registry(root), load_vocabulary(root)
     check = {k: Draft202012Validator(json.load(open(os.path.join(root, p), encoding='utf-8')), registry=registry)
@@ -53,6 +56,9 @@ def assess_folder(folder, root=ROOT, exclude=()):
     spec = (CANDIDATE_SPEC, _spec_version(root, CANDIDATE_SPEC))
     validator = {'name': 'mtdr_validation', 'version': _validator_version(root)}
     context = {'id': 'output-folder', 'description': 'the candidates and review events found in the folder assessed'}
+    if sources:
+        context = {'id': 'output-folder-and-sources', 'description': 'the candidates and review events found in the '
+                   'folder assessed, and the source material supplied with it, which every fragment is re-read against'}
     exclude = [os.path.abspath(e) for e in exclude]
 
     found, not_assessed = {'candidate': [], 'review-event': []}, []
@@ -113,20 +119,27 @@ def assess_folder(folder, root=ROOT, exclude=()):
                 grades = {}
         events = events_for.get(cid, [])
         if not events:
-            r.report(Dim.RELATIONAL, NOT_APPLICABLE, reasons=[('no-review-event', 'No review event names this candidate.')])
+            rel_result, rel_reasons = NOT_APPLICABLE, [('no-review-event', 'No review event names this candidate.')]
         elif errors:
-            r.report(Dim.RELATIONAL, INDETERMINATE, reasons=[('structure-failed', 'The candidate cannot be digested.')])
+            rel_result, rel_reasons = INDETERMINATE, [('structure-failed', 'The candidate cannot be digested.')]
         else:
             mine = jcs_digest(doc)
             stale = [e_rel for e_rel, e in events if e['candidate_digest'] != mine]
-            if stale:
-                r.report(Dim.RELATIONAL, FAIL, reasons=[(
-                    'digest-mismatch', f"{e_rel} was recorded against different content: the candidate changed after "
-                    f"review, or the event names another candidate") for e_rel in stale])
-            else:
-                r.report(Dim.RELATIONAL, PASS)
+            rel_result, rel_reasons = (FAIL, [(
+                'digest-mismatch', f"{e_rel} was recorded against different content: the candidate changed after "
+                f"review, or the event names another candidate") for e_rel in stale]) if stale else (PASS, [])
+        fidelity = None
+        if sources and not errors:
+            fidelity, why = candidate_fidelity(doc, sources)
+            rel_reasons = (rel_reasons if rel_result != NOT_APPLICABLE else []) + why
+            rel_result = (FAIL if FAIL in (rel_result, fidelity) else
+                          INDETERMINATE if INDETERMINATE in (rel_result, fidelity) else PASS)
+        elif sources:
+            rel_result, rel_reasons = INDETERMINATE, [('structure-failed', 'The candidate does not have the '
+                                                      "contract's shape, so its fragments were not re-read.")]
+        r.report(Dim.RELATIONAL, rel_result, reasons=rel_reasons)
         r.report(Dim.TRANSITION, NOT_APPLICABLE, reasons=[NO_TRANSITION])
-        assessments.append({'kind': 'candidate', 'ref': rel, 'result': r, 'grades': grades})
+        assessments.append({'kind': 'candidate', 'ref': rel, 'result': r, 'grades': grades, 'fidelity': fidelity})
 
     for rel, doc, errors in found['review-event']:
         eid = str(doc.get('event_id', rel))
@@ -154,10 +167,13 @@ def assess_folder(folder, root=ROOT, exclude=()):
     return assessments, not_assessed
 
 
-def summary_markdown(folder, assessments, not_assessed):
+def summary_markdown(folder, assessments, not_assessed, sources=None):
     """A human summary: every artefact, every dimension, no aggregate verdict."""
     lines = ['# Validation summary', '',
              f"Assessed by the MTDR reference validator (non-normative), over `{folder}`.", '',
+             (f"Source fidelity: every fragment re-read against the material in `{sources}` (relational)." if sources
+              else "**Source fidelity was not checked**: no source material was supplied (`--sources`), so no "
+                   "fragment was compared with what its source says."), '',
              '**There is no overall result.** Each artefact is reported in four dimensions that are read '
              'independently (TDR-0033). Nothing here confers standing: a candidate stays a candidate.', '']
     for kind, title in (('candidate', 'Candidates'), ('review-event', 'Review events')):
@@ -185,7 +201,7 @@ def summary_markdown(folder, assessments, not_assessed):
     return '\n'.join(lines) + '\n'
 
 
-def write_results(folder, out, assessments, not_assessed):
+def write_results(folder, out, assessments, not_assessed, sources=None):
     """One validation result per artefact, each checked against the published schema before it is
     written, and the summary beside them."""
     os.makedirs(out, exist_ok=True)
@@ -197,4 +213,4 @@ def write_results(folder, out, assessments, not_assessed):
         with open(os.path.join(out, f'{name}.validation.json'), 'w', encoding='utf-8') as fh:
             fh.write(a['result'].to_json(indent=2, ensure_ascii=False) + '\n')
     with open(os.path.join(out, 'summary.md'), 'w', encoding='utf-8') as fh:
-        fh.write(summary_markdown(folder, assessments, not_assessed))
+        fh.write(summary_markdown(folder, assessments, not_assessed, sources))

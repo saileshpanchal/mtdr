@@ -706,6 +706,45 @@ for f, (doc, _, exp) in candidates.items():
         agreed += 1
 note('adopter-validator', f"{agreed} of {len(candidates)} candidate fixtures assessed by the folder validator as published")
 
+# 11e — source fidelity (owner, 23 Nov 2026: "Add validation of quoted evidence against the original
+# source"). A candidate from the 7 Nov trial is re-read against its own sources and passes; each mutation
+# a recovery run has actually made, or could, must fail or stay indeterminate. Never a pass by default.
+import copy as _copy  # noqa: E402
+from mtdr_validation.fidelity import candidate_fidelity, fragment_fidelity  # noqa: E402
+_TRIAL = 'decisions/evidence/DAC-0048-adopter-trial-2026-11-07'
+_base = json.load(open(os.path.join(_TRIAL, 'out', 'CASE-021-1.hdc.json'), encoding='utf-8'))
+_src = os.path.join(_TRIAL, 'sources')
+if candidate_fidelity(_base, _src)[0] != 'pass':
+    fail('source-fidelity', f"{_TRIAL}/out/CASE-021-1.hdc.json no longer passes against its own sources")
+_f0 = next(f for f in _base['fragments'] if '**' in f['content'] and ' ' in f['content'])
+def _mut(edit):
+    f = _copy.deepcopy(_f0); edit(f); return fragment_fidelity(f, _src)
+def _shift(f):
+    lo = f['locator']
+    for k in ('start', 'line_start'):
+        if isinstance(lo.get(k), int):
+            lo[k] += 1
+    for k in ('end', 'line_end'):
+        if isinstance(lo.get(k), int):
+            lo[k] += 1
+    if isinstance(lo.get('lines'), str):
+        a, _, b = lo['lines'].partition('-'); lo['lines'] = f"{int(a) + 1}-{int(b or a) + 1}"
+_fidelity_mutations = [
+    ('content reflowed', lambda f: f.update(content=' '.join(f['content'].split()) + ' '), 'fail', 'not-verbatim'),
+    ('markup removed (the 22 Nov defect)', lambda f: f.update(content=f['content'].replace('**', '')), 'fail', 'not-verbatim'),
+    ('first word dropped', lambda f: f.update(content=f['content'].split(' ', 1)[1]), 'fail', 'locator-mismatch'),
+    ('content paraphrased', lambda f: f.update(content='The meeting agreed the change.'), 'fail', 'not-verbatim'),
+    ('locator one line out', _shift, 'fail', None),
+    ('source hash altered', lambda f: f.update(source_hash='sha256:' + '0' * 64), 'fail', 'source-hash-mismatch'),
+    ('source outside the context', lambda f: f.update(source_ref='elsewhere/not-supplied.md'), 'indeterminate', 'source-not-in-context'),
+    ('locator kind unknown', lambda f: f.update(locator={'kind': 'page-span', 'page': 1}), 'indeterminate', 'locator-not-applied'),
+]
+for _name, _edit, _want, _code in _fidelity_mutations:
+    _got, _why = _mut(_edit)
+    if _got != _want or (_code and _code not in [c for c, _ in _why]):
+        fail('source-fidelity', f"mutation '{_name}': expected {_want}{' / ' + _code if _code else ''}, got {_got} {_why}")
+note('source-fidelity', f"trial candidate passes against its sources; {len(_fidelity_mutations)} mutations caught")
+
 # 12 — classified normative closure (TDR-0032; DAC-0032 constraint 3). Role metadata, not a trust
 # hierarchy — historical material can be authoritative evidence while being non-normative about
 # current behaviour. The closure test: no outward reference may go undeclared.
@@ -1170,7 +1209,7 @@ DIMENSION_OF = {
     'vr-negative': Dim.STRUCTURAL, 'skill-frontmatter': Dim.STRUCTURAL, 'skill-name': Dim.STRUCTURAL,
     'skill-description': Dim.STRUCTURAL, 'skill-count': Dim.SEMANTIC, 'manifest': Dim.STRUCTURAL, 'result-fixture': Dim.STRUCTURAL, 'projection-fixture': Dim.STRUCTURAL,
     'candidate': Dim.SEMANTIC, 'admission': Dim.SEMANTIC, 'recovery-fixture': Dim.STRUCTURAL,
-    'recovery-binding': Dim.RELATIONAL, 'adopter-validator': Dim.STRUCTURAL, 'profiles': Dim.STRUCTURAL, 'install': Dim.STRUCTURAL, 'contemporaneity': Dim.SEMANTIC, 'boundary': Dim.SEMANTIC, 'neutrality': Dim.SEMANTIC,
+    'recovery-binding': Dim.RELATIONAL, 'adopter-validator': Dim.STRUCTURAL, 'source-fidelity': Dim.RELATIONAL, 'profiles': Dim.STRUCTURAL, 'install': Dim.STRUCTURAL, 'contemporaneity': Dim.SEMANTIC, 'boundary': Dim.SEMANTIC, 'neutrality': Dim.SEMANTIC,
     'consumer-name': Dim.SEMANTIC, 'fixture': Dim.SEMANTIC, 'must-not': Dim.SEMANTIC,
     'untyped-claim': Dim.SEMANTIC, 'state-relative': Dim.SEMANTIC, 'obligations': Dim.SEMANTIC,
     'standards': Dim.SEMANTIC,

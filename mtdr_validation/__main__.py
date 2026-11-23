@@ -21,13 +21,18 @@ def main(argv=None):
     p.add_argument('--out', help='where to write the results (default: <folder>/validation)')
     p.add_argument('--standard', default=ROOT, help='the MTDR checkout whose schemas and manifests apply '
                                                     '(default: the one this module ships in)')
+    p.add_argument('--sources', help='the folder of original material the fragments were read from; with it, '
+                                     'every fragment is re-read and compared with its source (relational)')
     args = p.parse_args(argv)
     if not os.path.isdir(args.folder):
         print(f'not a folder: {args.folder}', file=sys.stderr)
         return 2
     out = args.out or os.path.join(args.folder, 'validation')
-    assessments, not_assessed = assess_folder(args.folder, root=args.standard, exclude=[out])
-    write_results(args.folder, out, assessments, not_assessed)
+    if args.sources and not os.path.isdir(args.sources):
+        print(f'not a folder: {args.sources}', file=sys.stderr)
+        return 2
+    assessments, not_assessed = assess_folder(args.folder, root=args.standard, exclude=[out], sources=args.sources)
+    write_results(args.folder, out, assessments, not_assessed, args.sources)
     print(f'{len(assessments)} artefact(s) assessed, {len(not_assessed)} file(s) not assessed; '
           f'results and summary in {out}')
     return 0
