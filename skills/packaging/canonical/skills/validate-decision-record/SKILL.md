@@ -18,8 +18,12 @@ of them as data has validated the author, not the artefact.
 
 ## The decision-specific checks
 
-1. **The TDR schema, at the bound version.** A recovered or drafted TDR resolves its schema from
-   `conforms_to` through the package manifest. `status: proposed` on anything a skill produced.
+1. **The TDR schema, at the bound version, for a TDR.** A drafted or recovered TDR resolves its schema
+   from `conforms_to` through the package manifest, with `status: proposed` on anything a skill
+   produced. A **candidate view** ([`draft-tdr`](../draft-tdr/) §7) is not a TDR and is never
+   validated against the TDR schema. Its header must show `candidate_id` (naming a candidate that
+   exists), `status: candidate`, `standing: none` and `retrospective: true`. A view that shows a TDR
+   status (`proposed` included), or names its candidate as `id`, fails.
 2. **The historical candidate contract.** The schema — loaded with
    [`schemas/shared/`](../../../../schemas/shared/) as a registry — and the integrity rules of
    [`historical-candidate.md`](../../../../specification/historical-candidate.md): every reference

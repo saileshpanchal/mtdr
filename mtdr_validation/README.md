@@ -66,7 +66,7 @@ published schema before it is written — and a `summary.md` a person can read:
 |---|---|
 | structural | the candidate schema, and everything the candidate refers to it carries (`historical-candidate.md` integrity rules 1–5, 7, 8) |
 | semantic | the recovery roles the object's package declares (rule 6) — `indeterminate` where the package declares none |
-| relational | whether every review event naming the candidate was recorded against this exact content (its digest); with `--sources`, whether every fragment says what its source says, where it says it (below) |
+| relational | whether every review event naming the candidate was recorded against this exact content (its digest); with `--sources`, whether every fragment says what its source says, where it says it (below); and whether any Markdown rendering naming the candidate is a candidate view (`status: candidate`, `standing: none`, `retrospective: true`, `candidate_id`), never a record's frontmatter (`draft-tdr` §7) |
 | transition-eligibility | always `not-applicable`: a candidate's standing is `none`, and attestation is a person's act |
 
 The summary also gives the computed contemporaneity of every context contribution, and lists what it

@@ -44,6 +44,31 @@ def _kind(doc):
     return None
 
 
+VIEW_HEADER = {'status': 'candidate', 'standing': 'none', 'retrospective': True}
+
+
+def _frontmatter(path):
+    import yaml
+    text = open(path, encoding='utf-8').read()
+    if not text.startswith('---'):
+        return None
+    try:
+        meta = yaml.safe_load(text.split('---', 2)[1])
+    except Exception:                                      # noqa: BLE001 — unreadable frontmatter is no view
+        return None
+    return meta if isinstance(meta, dict) else None
+
+
+def view_findings(meta, rel):
+    """A Markdown rendering of a historical candidate is a candidate view (`draft-tdr` §7; owner, 23 Nov 2026):
+    it shows the candidate's status and standing as they are, and never a record's lifecycle status."""
+    out = [f"{rel} shows {k}: {meta.get(k)!r}; a view of a candidate shows {k}: {v!r}"
+           for k, v in VIEW_HEADER.items() if meta.get(k) != v]
+    if 'candidate_id' not in meta:
+        out.append(f"{rel} names the candidate as `id`, a record's identifier; a view names it as `candidate_id`")
+    return out
+
+
 def assess_folder(folder, root=ROOT, exclude=(), sources=None):
     """Assess every candidate and review event under `folder`. Returns (assessments, not_assessed): each
     assessment is a dict with the ValidationResult and what a reader needs beside it. With `sources`, the
@@ -62,6 +87,14 @@ def assess_folder(folder, root=ROOT, exclude=(), sources=None):
     exclude = [os.path.abspath(e) for e in exclude]
 
     found, not_assessed = {'candidate': [], 'review-event': []}, []
+    views = {}                                     # candidate id -> [(rel, frontmatter)] of its renderings
+    for path in sorted(glob.glob(os.path.join(folder, '**', '*.md'), recursive=True)):
+        if any(os.path.abspath(path).startswith(e + os.sep) for e in exclude):
+            continue
+        meta = _frontmatter(path)
+        if meta and (meta.get('candidate_id') or meta.get('id')):
+            views.setdefault(str(meta.get('candidate_id') or meta.get('id')), []).append(
+                (os.path.relpath(path, folder), meta))
     for path in sorted(glob.glob(os.path.join(folder, '**', '*.json'), recursive=True)):
         if any(os.path.abspath(path).startswith(e + os.sep) for e in exclude):
             continue
@@ -137,6 +170,11 @@ def assess_folder(folder, root=ROOT, exclude=(), sources=None):
         elif sources:
             rel_result, rel_reasons = INDETERMINATE, [('structure-failed', 'The candidate does not have the '
                                                       "contract's shape, so its fragments were not re-read.")]
+        misstated = [f for v_rel, meta in views.get(cid, []) for f in view_findings(meta, v_rel)]
+        if misstated:
+            rel_reasons = (rel_reasons if rel_result != NOT_APPLICABLE else []) + [
+                ('view-misstates-standing', f) for f in misstated]
+            rel_result = FAIL
         r.report(Dim.RELATIONAL, rel_result, reasons=rel_reasons)
         r.report(Dim.TRANSITION, NOT_APPLICABLE, reasons=[NO_TRANSITION])
         assessments.append({'kind': 'candidate', 'ref': rel, 'result': r, 'grades': grades, 'fidelity': fidelity})

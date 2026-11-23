@@ -15,7 +15,7 @@ skills:
   - reconcile-decision-contributions  # 99729c09aa734743
   - reconcile-record-fragments  # bfb1da127b331506
   - recover-decision-records  # b6929878f26c294d
-  - validate-decision-record  # c7859c70fe5a7cc6
+  - validate-decision-record  # 2c3cd71a8ac29200
   - validate-record  # a9a295929ca4a48e
 reference_count: 29
 references:

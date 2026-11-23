@@ -745,6 +745,27 @@ for _name, _edit, _want, _code in _fidelity_mutations:
         fail('source-fidelity', f"mutation '{_name}': expected {_want}{' / ' + _code if _code else ''}, got {_got} {_why}")
 note('source-fidelity', f"trial candidate passes against its sources; {len(_fidelity_mutations)} mutations caught")
 
+# 11f — a candidate's rendering is a candidate view (owner, 23 Nov 2026; draft-tdr §7). A view showing the
+# candidate's header passes; a rendering with TDR frontmatter (the 20 and 22 Nov runs' `status: proposed`)
+# fails the candidate's relational dimension.
+def _view_result(header):
+    with _tempfile.TemporaryDirectory() as _vt:
+        json.dump(_base, open(os.path.join(_vt, 'c.json'), 'w', encoding='utf-8'), ensure_ascii=False)
+        with open(os.path.join(_vt, 'c.md'), 'w', encoding='utf-8') as _fh:
+            _fh.write('---\n' + ''.join(f'{k}: {v}\n' for k, v in header.items()) + '---\n\n# view\n')
+        _a, _ = assess_folder(_vt, root='.')
+    return {d['dimension']: d['result'] for d in _a[0]['result'].to_dict()['dimensions']}['relational']
+_cid = _base['candidate_id']
+_good = {'candidate_id': _cid, 'status': 'candidate', 'standing': 'none', 'retrospective': 'true'}
+if _view_result(_good) == 'fail':
+    fail('candidate-view', 'a view showing the candidate header failed')
+for _why, _hdr in (('status: proposed', dict(_good, status='proposed')),
+                   ('standing claimed', dict(_good, standing='ratified')),
+                   ('named as a record id', {'id': _cid, 'status': 'candidate', 'standing': 'none', 'retrospective': 'true'})):
+    if _view_result(_hdr) != 'fail':
+        fail('candidate-view', f'a rendering with {_why} did not fail')
+note('candidate-view', 'a candidate view passes; three renderings that misstate the candidate fail')
+
 # 12 — classified normative closure (TDR-0032; DAC-0032 constraint 3). Role metadata, not a trust
 # hierarchy — historical material can be authoritative evidence while being non-normative about
 # current behaviour. The closure test: no outward reference may go undeclared.
@@ -1222,7 +1243,7 @@ DIMENSION_OF = {
     'vr-negative': Dim.STRUCTURAL, 'skill-frontmatter': Dim.STRUCTURAL, 'skill-name': Dim.STRUCTURAL,
     'skill-description': Dim.STRUCTURAL, 'skill-count': Dim.SEMANTIC, 'manifest': Dim.STRUCTURAL, 'result-fixture': Dim.STRUCTURAL, 'projection-fixture': Dim.STRUCTURAL,
     'candidate': Dim.SEMANTIC, 'admission': Dim.SEMANTIC, 'recovery-fixture': Dim.STRUCTURAL,
-    'recovery-binding': Dim.RELATIONAL, 'adopter-validator': Dim.STRUCTURAL, 'source-fidelity': Dim.RELATIONAL, 'profiles': Dim.STRUCTURAL, 'install': Dim.STRUCTURAL, 'contemporaneity': Dim.SEMANTIC, 'boundary': Dim.SEMANTIC, 'neutrality': Dim.SEMANTIC,
+    'recovery-binding': Dim.RELATIONAL, 'adopter-validator': Dim.STRUCTURAL, 'source-fidelity': Dim.RELATIONAL, 'candidate-view': Dim.RELATIONAL, 'profiles': Dim.STRUCTURAL, 'install': Dim.STRUCTURAL, 'contemporaneity': Dim.SEMANTIC, 'boundary': Dim.SEMANTIC, 'neutrality': Dim.SEMANTIC,
     'consumer-name': Dim.SEMANTIC, 'fixture': Dim.SEMANTIC, 'must-not': Dim.SEMANTIC,
     'untyped-claim': Dim.SEMANTIC, 'state-relative': Dim.SEMANTIC, 'obligations': Dim.SEMANTIC,
     'standards': Dim.SEMANTIC,
