@@ -5,54 +5,42 @@ ask: what was known at the time, who was accountable, how confident they were, w
 and what the decision closed off.
 
 **TDR**, the Transformation Decision Record, is the standard. **MTDR** is its markdown reference
-format, as MADR is to ADR. A TDR is one markdown file with a short YAML header. Writing one needs no
-tool, no platform and no AI assistant.
+format, as MADR is to ADR. A TDR is one markdown file with a short YAML header.
 
 MIT licensed. Tool-neutral. Regulator-neutral. Works alongside what you already run.
 
 ## What you can do with it
 
-- **Answer "who decided this, on what evidence, and what did they rule out?"** after the people who
-  held the context have moved on.
-- **Decide what not to record.** The test is reversibility: if reversing a decision would cost less
-  than writing the record, do not write the record.
-- **Keep the reasoning when the judgement changes.** An accepted record is never edited. A changed
-  judgement is a new record that supersedes the old one and states what is now known that was not
-  known at the time.
+- **Decide what not to record.** If reversing a decision would cost less than writing the record, do
+  not write the record.
+- **Keep the reasoning when the judgement changes.** An accepted record is never edited; a changed
+  judgement is a new record that supersedes it.
 - **Let an assistant draft while a named person decides.** The skills are written for humans and
-  structured so AI assistants can apply them directly. The judgement is always a named individual's.
+  structured so AI assistants can apply them directly.
 
 ## Write your first TDR
 
-Take a decision your organisation made in the last month.
+**Follow the [quick start](practice/quickstart.md).** It is the procedure for a first record: three
+rules that never bend, and the loop you follow for each decision.
 
-1. **Read the [quick start](practice/quickstart.md).** It gives the three rules that never bend and
-   the loop you follow for each decision.
-2. **Choose a template by how hard the decision is to reverse.**
+The loop has you draft at a proportional template. These are the three, each with a record to copy
+from:
 
-   | The decision is | Template | A record to copy from |
-   |---|---|---|
-   | Irreversible, or costly to reverse | [Full](records/decision/templates/tdr-full.md) | [Retaining a servicing channel](records/decision/examples/example-full-consumer-duty-channel-decision.md) (fictional) |
-   | Significant, but revisable at tolerable cost | [Minimal](records/decision/templates/tdr-minimal.md) | [Migrating a data platform](records/decision/examples/example-minimal-data-platform-migration.md) (fictional) |
-   | Reversible and low-stakes | [Bare](records/decision/templates/tdr-bare.md), or no record at all | [TDR-0004](decisions/TDR-0004-markdown-yaml-serialisation.md), one of this standard's own |
+| The decision is | Template | A record to copy from |
+|---|---|---|
+| Irreversible, or costly to reverse | [Full](records/decision/templates/tdr-full.md) | [Retaining a servicing channel](records/decision/examples/example-full-consumer-duty-channel-decision.md) (fictional) |
+| Significant, but revisable at tolerable cost | [Minimal](records/decision/templates/tdr-minimal.md) | [Migrating a data platform](records/decision/examples/example-minimal-data-platform-migration.md) (fictional) |
+| Reversible and low-stakes | [Bare](records/decision/templates/tdr-bare.md), or no record at all | [TDR-0004](decisions/TDR-0004-markdown-yaml-serialisation.md), one of this standard's own |
 
-3. **Copy the template and fill it in.** Name one accountable individual; a committee can endorse a
-   decision but cannot own it. Write the context as it stood when the decision was made. Leave the
-   template's `conforms_to` line as it is: it states which version of the specification the record
-   follows ([record identity](specification/record-identity.md)).
-4. **Have the named owner confirm it**, then save it where you keep records.
+The [TDR specification](records/decision/specification/tdr.md) is the authority; §4.1 defines every
+field in the templates.
 
-The [TDR specification](records/decision/specification/tdr.md) is the authority when you want the
-detail. §3 to §7 cover when to write a record, what goes in it and how its status changes. §10 and
-§11 state what the format does not do.
+### Two routes to the same record
 
-**Working with an AI assistant.** Work from a clone of this repository and point the assistant at
-the skill files where they sit, starting with
-[`decision-identification`](records/decision/skills/decision-identification/SKILL.md) and then
-[`problem-framing-and-decision-capture`](records/decision/skills/problem-framing-and-decision-capture/SKILL.md).
-To reconstruct decisions from material you already hold, such as minutes, board papers and decision
-logs, see [using MTDR with your framework](practice/using-mtdr-with-your-framework.md). Deploying the
-skills through a particular runtime is covered in [`skills/packaging/`](skills/packaging/).
+The decision package names two: an **authoring path**, for a person who holds the reasoning, and an
+**interpretation path**, for reconstruction from material. [Its README](records/decision/README.md#skills)
+lists the skills on each. [Using MTDR with your framework](practice/using-mtdr-with-your-framework.md)
+walks through reconstruction across a body of existing documents.
 
 ## Why
 
@@ -68,9 +56,7 @@ The TDR has two sibling records:
   commitment and its settlement as one record. See [the VR specification](records/value/specification/vr.md).
 - **Decision Assurance Case (DAC)** — a TDR preserves the judgement, it does not prove the
   consequences are acceptable; the DAC records the reasoning that challenges them, before execution.
-  [The DAC specification](records/decision/specification/dac.md) (§4) says when one is required: for
-  a one-way door, before execution; for a revisable decision, when routed; for a bare decision,
-  never.
+  [The DAC specification](records/decision/specification/dac.md) sets out when one is required (§4).
 
 ## What's here
 
