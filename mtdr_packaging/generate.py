@@ -184,8 +184,9 @@ this release there are two ways to run them, and neither is complete:
 - **Collected flat for discovery: links break.** Copying the {len(skills)} collected skills into `{place}`
   (`cp -r skills/packaging/canonical/skills/* {place}`) makes them discoverable, but **{in_clone} of their
   {links} relative links no longer resolve, in {affected} of the {len(skills)} skills, even inside a full
-  clone**: every link a record-package skill makes into its own package. In a project without the
-  repository, {alone} of {links} break. An agent that cannot open a link may search for the file and find
+  clone**. A record-package skill sits deeper in the repository than in a flat directory, so both its
+  links into its own package and its links up to the repository's shared layers miss. In a project
+  without the repository, {alone} of {links} break. An agent that cannot open a link may search for the file and find
   another copy.
 
 Discovery paths this runtime reads:

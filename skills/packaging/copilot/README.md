@@ -20,8 +20,9 @@ this release there are two ways to run them, and neither is complete:
 - **Collected flat for discovery: links break.** Copying the 25 collected skills into `.github/skills/`
   (`cp -r skills/packaging/canonical/skills/* .github/skills/`) makes them discoverable, but **33 of their
   64 relative links no longer resolve, in 10 of the 25 skills, even inside a full
-  clone**: every link a record-package skill makes into its own package. In a project without the
-  repository, 56 of 64 break. An agent that cannot open a link may search for the file and find
+  clone**. A record-package skill sits deeper in the repository than in a flat directory, so both its
+  links into its own package and its links up to the repository's shared layers miss. In a project
+  without the repository, 56 of 64 break. An agent that cannot open a link may search for the file and find
   another copy.
 
 Discovery paths this runtime reads:
