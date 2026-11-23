@@ -186,6 +186,15 @@ instead of what**. Each package names those roles; a contribution to one of them
 does not exist, and its absence is a missing semantic. Recovering an actor, an authority, a rationale
 or an alternative by inference is the reconstruction of reasoning this specification forbids.
 
+## A candidate renders as a view of a candidate
+
+A historical candidate's Markdown rendering is a **candidate view**, never a draft record. It carries
+the candidate's header (`candidate_id`, `status: candidate`, `standing: none`, `retrospective: true`)
+and the record-shaped body its package's drafting skill writes. It is deliberately not valid against
+the record's schema, so no reader or tool can take it for a record someone proposes now. A record's
+lifecycle begins only when a named individual proposes it, prospectively and as their own act.
+Rendering confers nothing: a view shows status and standing as they are (owner's ruling, 23 Nov 2026).
+
 ## A candidate may stay a candidate
 
 **An incomplete historical candidate is a legitimate terminal state.** There is no obligation to

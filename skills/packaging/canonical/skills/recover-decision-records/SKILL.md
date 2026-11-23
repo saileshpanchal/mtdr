@@ -26,8 +26,9 @@ Run the stages in order, handing each output to the next unmodified:
    applicability and persistence — and `unclassified` outcomes; possibly nothing, which is success.
 2. **[`reconcile-decision-contributions`](../reconcile-decision-contributions/)** — one assembly per
    decision, with reasons.
-3. **[`draft-tdr`](../draft-tdr/)** — a draft at the routed tier, with its completeness view; or the
-   finding that no record is warranted.
+3. **[`draft-tdr`](../draft-tdr/)** — a **candidate view** at the routed tier (the candidate's header,
+   `status: candidate`, `standing: none`, never TDR frontmatter; `draft-tdr` §7), with its completeness
+   view; or the finding that no record is warranted.
 4. **[`challenge-decision-record`](../challenge-decision-record/)** — the shared structural challenge,
    then the decision language's; one **recommendation** per candidate. Split and merge route back to
    stage 2 with the challenge's reasons.

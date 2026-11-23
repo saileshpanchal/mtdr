@@ -25,6 +25,11 @@ confirmed_by_outcome: pending — confirm when an implementation outside this re
 >
 > **Returned on 7 November 2026 and amended** ([the return](evidence/TDR-0048-0049-owner-return-2026-11-07.md)): a shared calendar date is not an order, and
 > the contemporaneity rules now say so. The record stays proposed.
+>
+> **Amended again on 23 November 2026, by the owner's ruling** on the status mismatch the 20 and
+> 22 November engine runs reproduced: *"Render recovered candidates as candidate views, not as
+> proposed TDRs."* A candidate's rendering carried TDR frontmatter, so it said `status: proposed`
+> beside a candidate that says `status: candidate` and `standing: none`. The record stays proposed.
 
 ## Context — what was known at the time
 
@@ -150,6 +155,14 @@ canonical form: who acted, on what authority, when, with what scope, and where t
 `governs` is always `false`. The candidate is never changed, a candidate altered after review no longer
 matches its review, and the disposition is a view computed from the events. **The pipeline that
 produces candidates produces no events.**
+
+**A candidate renders as a candidate view, never as a TDR draft** — the owner's ruling of 23 November.
+The rendering carries the candidate's header (`status: candidate`, `standing: none`) and the TDR-shaped
+body, and is deliberately not TDR-valid. `status: proposed` names a prospective act nobody has
+performed. A TDR draft exists only when a named individual proposes the record, as their own act.
+Rejected beside it: extending the TDR frontmatter to carry recovery (a change to the decision language
+for one use, against the sixth ruling), and keeping `proposed` with a checkable notice (frontmatter
+readers would still see a proposal).
 
 ### How this answers the texts that constrain it
 

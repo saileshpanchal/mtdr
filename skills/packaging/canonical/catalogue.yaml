@@ -50,7 +50,7 @@ skills:
     package: decision
     group: drafting
     source: records/decision/skills/draft-tdr/SKILL.md
-    sha256_16: 53fbfa052f0bdade
+    sha256_16: 70fcc69678f8b0b8
   - name: draft-value-record
     package: value
     group: lifecycle
@@ -110,7 +110,7 @@ skills:
     package: decision
     group: orchestration
     source: records/decision/skills/recover-decision-records/SKILL.md
-    sha256_16: 4eb90145a22d7d9a
+    sha256_16: b6929878f26c294d
   - name: recover-value-records
     package: value
     group: orchestration
