@@ -22,6 +22,7 @@ All notable changes to the TDR standard (and its MTDR markdown reference format)
 - **Redirect-only directories say so.** `templates/`, `examples/`, `schema/` and `shared/schema/` gain a README mapping each stub to where its content now lives, and the existing README stubs in `agents/`, `conformance/` and `shared/` gain the same map beneath their original redirect. No stub is removed and no old link changes.
 
 ### Fixed
+- The TDR specification's field table (§4.1) omitted `conforms_to`, although [TDR-0043](decisions/TDR-0043-version-bound-detached-records.md) decided the field, the schema accepts it and every template carries it. The table now lists it as optional and cites that decision. The specification stays at 1.15.0, the version TDR-0043 issued for the field; nothing a record must contain changes.
 - The skill-count check read spelled-out totals only up to thirty: a count such as *thirty-two* was taken for ordinary prose and went unchecked. It now composes any count up to ninety-nine, and a count it cannot read (*a hundred*) fails instead of passing silently.
 - Checks with no dimension mapping (`identity`, `extraction`, `agent-skills`, `surfaces`) reported a failure as `indeterminate` in all three dimensions instead of failing the one they belong to. Mapped, and a guard now fails the run if any check is left unmapped.
 
