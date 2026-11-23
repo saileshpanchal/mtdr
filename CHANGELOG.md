@@ -18,6 +18,7 @@ All notable changes to the TDR standard (and its MTDR markdown reference format)
 
 ### Changed
 - The umbrella specification ([`specification/organisational-records.md`](specification/organisational-records.md)) moves to **1.1.0**: the package map names the three states — candidate, experimental, normative — and lists `records/work/` as experimental rather than candidate, which since TDR-0047 it no longer is. Additive; no record's validity changes.
+- **The README leads with what an adopter can do and a short path to a first TDR**: the quick start, a template chosen by reversibility, a record to copy from, and the named owner's confirmation. The sibling records and the reasoning behind the standard follow it. No specification, schema, template or skill changes.
 
 ### Fixed
 - The skill-count check read spelled-out totals only up to thirty: a count such as *thirty-two* was taken for ordinary prose and went unchecked. It now composes any count up to ninety-nine, and a count it cannot read (*a hundred*) fails instead of passing silently.

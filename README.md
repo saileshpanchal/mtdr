@@ -1,8 +1,58 @@
 # MTDR — Markdown Transformation Decision Record
 
-**TDR** is a standard for recording significant organisational decisions with accountability semantics: what was known at the time, by whom, with what confidence. **MTDR** is its markdown reference format — as MADR is to ADR. The TDR has two sibling records: the **Value Record (VR)** — the governed memory of an Operational Value Commitment, holding the commitment and its settlement as one record (since v1.3.0; v2.0.0 since 1.14.0) — and the **Decision Assurance Case (DAC)** — a TDR preserves the judgement, it does not prove the consequences are acceptable; the DAC records the reasoning that challenges them, before execution (since v1.4.0).
+Record the judgement behind a significant decision while the people who made it are still there to
+ask: what was known at the time, who was accountable, how confident they were, what they rejected,
+and what the decision closed off.
+
+**TDR**, the Transformation Decision Record, is the standard. **MTDR** is its markdown reference
+format, as MADR is to ADR. A TDR is one markdown file with a short YAML header. Writing one needs no
+tool, no platform and no AI assistant.
 
 MIT licensed. Tool-neutral. Regulator-neutral. Works alongside what you already run.
+
+## What you can do with it
+
+- **Answer "who decided this, on what evidence, and what did they rule out?"** after the people who
+  held the context have moved on.
+- **Decide what not to record.** The test is reversibility: if reversing a decision would cost less
+  than writing the record, do not write the record.
+- **Keep the reasoning when the judgement changes.** An accepted record is never edited. A changed
+  judgement is a new record that supersedes the old one and states what is now known that was not
+  known at the time.
+- **Let an assistant draft while a named person decides.** The skills are written for humans and
+  structured so AI assistants can apply them directly. The judgement is always a named individual's.
+
+## Write your first TDR
+
+Take a decision your organisation made in the last month.
+
+1. **Read the [quick start](practice/quickstart.md).** It gives the three rules that never bend and
+   the loop you follow for each decision.
+2. **Choose a template by how hard the decision is to reverse.**
+
+   | The decision is | Template | A record to copy from |
+   |---|---|---|
+   | Irreversible, or costly to reverse | [Full](records/decision/templates/tdr-full.md) | [Retaining a servicing channel](records/decision/examples/example-full-consumer-duty-channel-decision.md) (fictional) |
+   | Significant, but revisable at tolerable cost | [Minimal](records/decision/templates/tdr-minimal.md) | [Migrating a data platform](records/decision/examples/example-minimal-data-platform-migration.md) (fictional) |
+   | Reversible and low-stakes | [Bare](records/decision/templates/tdr-bare.md), or no record at all | [TDR-0004](decisions/TDR-0004-markdown-yaml-serialisation.md), one of this standard's own |
+
+3. **Copy the template and fill it in.** Name one accountable individual; a committee can endorse a
+   decision but cannot own it. Write the context as it stood when the decision was made. Leave the
+   template's `conforms_to` line as it is: it states which version of the specification the record
+   follows ([record identity](specification/record-identity.md)).
+4. **Have the named owner confirm it**, then save it where you keep records.
+
+The [TDR specification](records/decision/specification/tdr.md) is the authority when you want the
+detail. §3 to §7 cover when to write a record, what goes in it and how its status changes. §10 and
+§11 state what the format does not do.
+
+**Working with an AI assistant.** Work from a clone of this repository and point the assistant at
+the skill files where they sit, starting with
+[`decision-identification`](records/decision/skills/decision-identification/SKILL.md) and then
+[`problem-framing-and-decision-capture`](records/decision/skills/problem-framing-and-decision-capture/SKILL.md).
+To reconstruct decisions from material you already hold, such as minutes, board papers and decision
+logs, see [using MTDR with your framework](practice/using-mtdr-with-your-framework.md). Deploying the
+skills through a particular runtime is covered in [`skills/packaging/`](skills/packaging/).
 
 ## Why
 
@@ -10,11 +60,17 @@ Organisations record the outcomes of decisions, rarely the judgement behind them
 
 A TDR preserves the judgement at the moment it is exercised: context as it stood, a named accountable owner, stated confidence, evidence assessed across seven dimensions, alternatives rejected, options foreclosed, and lineage connecting each decision to those before and after it.
 
-## Quick start
+## Beyond the decision record
 
-1. Read [the TDR specification](records/decision/specification/tdr.md) — ten minutes.
-2. Take a decision your organisation made in the last month. Apply the proportionality rule (spec §3) and copy the matching template from [`records/decision/templates/`](records/decision/templates/).
-3. Better: use the skills at your **next** decision — they are written for humans and structured so AI assistants can apply them directly. Start from your language's package under [`records/`](records/).
+The TDR has two sibling records:
+
+- **Value Record (VR)** — the governed memory of an Operational Value Commitment, holding the
+  commitment and its settlement as one record. See [the VR specification](records/value/specification/vr.md).
+- **Decision Assurance Case (DAC)** — a TDR preserves the judgement, it does not prove the
+  consequences are acceptable; the DAC records the reasoning that challenges them, before execution.
+  [The DAC specification](records/decision/specification/dac.md) (§4) says when one is required: for
+  a one-way door, before execution; for a revisable decision, when routed; for a bare decision,
+  never.
 
 ## What's here
 
