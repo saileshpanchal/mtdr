@@ -22,6 +22,8 @@ All notable changes to the TDR standard (and its MTDR markdown reference format)
 ### Fixed
 - The skill-count check read spelled-out totals only up to thirty: a count such as *thirty-two* was taken for ordinary prose and went unchecked. It now composes any count up to ninety-nine, and a count it cannot read (*a hundred*) fails instead of passing silently.
 - Checks with no dimension mapping (`identity`, `extraction`, `agent-skills`, `surfaces`) reported a failure as `indeterminate` in all three dimensions instead of failing the one they belong to. Mapped, and a guard now fails the run if any check is left unmapped.
+- **Install guidance overstated what a flat collection preserves.** The generated surface READMEs told adopters to copy the collected skills into the runtime's skills directory and said the references would resolve once the reference knowledge was deployed alongside. Measured on the 25 skills: collected flat inside a full clone, 33 of 64 relative links still do not resolve, in 10 skills (every link a record-package skill makes into its own package); without the repository, 56 of 64. The READMEs now compute and state these figures, and give the route that keeps every link: run each skill in place from a clone. [`runtime-evidence.md`](skills/packaging/runtime-evidence.md) carries the correction. No skill changes.
+- The README listed `records/work/` among the **candidate** packages. Since TDR-0047 it is **experimental**, published for review and not part of the standard.
 
 ## Experimental — not part of the standard
 
