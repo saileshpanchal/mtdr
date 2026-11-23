@@ -8,16 +8,43 @@ This repository's own design decisions live in [`/decisions`](decisions/) as TDR
 
 To challenge a decision:
 
-1. Copy the appropriate template from [`/templates`](records/decision/templates/).
+1. Copy the appropriate template from [`records/decision/templates/`](records/decision/templates/).
 2. Write a superseding TDR: set `supersedes:` to the record you are challenging, and make the **Context** section state *what is now known that was not known at the time* of the original decision.
 3. Open a pull request containing the new record. Discussion happens on the PR — in the standard's own format.
 4. If accepted, the new record's status becomes `accepted`, the original's becomes `superseded`, and both remain in the folder permanently. The reasoning trail survives its own corrections.
 
 Status transitions (`proposed → accepted`, `accepted → superseded`) and `confirmed_by_outcome` updates are made in place; they are lifecycle facts. Changes to decision *content* always require supersession.
 
-## Spec and template changes
+## Editorial or normative?
 
-Improvements to `spec.md`, the templates, or the skills follow the same rule when they change meaning: a superseding TDR in `/decisions` accompanies the change. Typo and clarity fixes need no ceremony — proportionality applies to contributions too.
+Every other change follows one rule: **a change that alters meaning is accompanied by a superseding TDR
+in [`decisions/`](decisions/); a change that does not needs no ceremony.** Proportionality applies to
+contributions too.
+
+Meaning lives in the specifications ([`specification/`](specification/) and each package's
+`specification/` under [`records/`](records/)), the schemas, the templates, the skills, and each
+package's `validation/` rules and fixtures. To tell which kind of change you have, ask whether a
+record, a validation result or a skill's output could come out differently because of it. If it
+could, the change is normative.
+
+| Normative: bring a TDR | Editorial: a pull request is enough |
+|---|---|
+| Adding, removing or renaming a record field, or changing whether it is required | Typos, grammar, formatting and broken links |
+| Changing a schema, an allowed value, a status or a lifecycle transition | Rewording for clarity that leaves every requirement as it was |
+| Changing what a specification requires for conformance or validation | Navigation: READMEs, indexes and pointers to where something lives |
+| Changing what a skill does, what it refuses, or what it hands to the next stage | Bringing a document level with a decision already accepted, citing that decision |
+
+If you cannot tell which it is, say so in the pull request rather than guessing.
+
+Three kinds of file are not edited in place, whichever kind of change it is:
+
+- **Accepted records in [`decisions/`](decisions/).** They are superseded, as above.
+- **Redirect stubs** (files headed `# Moved`, and the directories that hold only those). They exist
+  so that old links keep resolving, and say only where something went. New material goes to the
+  location the stub names.
+- **Generated bundles** under [`skills/packaging/`](skills/packaging/): `canonical/` and the
+  per-runtime directories. Edit the skill or the package manifest and regenerate, as that directory's
+  README describes.
 
 ## Worked examples
 
