@@ -43,8 +43,11 @@ flat, their links leave the install.
 
 `install` offers a runtime only where it is shown to discover that layout in place — Hermes Agent walks
 its trusted project skills directory recursively. Claude Code discovers one level deep, so the layout
-reaches it only through a plugin descriptor, a vendor manifest awaiting disposition; until then `install`
-refuses it rather than install it broken. Runtimes not yet tested are not offered.
+reaches it only through a plugin descriptor: `install --runtime claude-code` places the package outside
+`.claude/skills/` and generates `.claude-plugin/plugin.json` beside it. It is a thin engine adapter
+(owner, 23 Nov 2026) holding only the name, the version and the canonical skill directories.
+`verify` fails a descriptor that carries anything else; run `claude --plugin-dir <package>`. Its
+standards disposition is governed separately. Runtimes not yet tested are not offered.
 
 A package that exceeds a target's limit is **not built** — nothing is trimmed, merged or dropped to fit.
 Every built package carries `mtdr-package.json`: version, commit, skills and references with digests,

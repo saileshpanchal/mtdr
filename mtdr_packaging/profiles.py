@@ -75,15 +75,25 @@ RUNTIMES = {
                      '(agent/skill_utils.py, iter_skill_index_files: os.walk, following links; v0.23.0, '
                      'read 2026-11-22)'},
     'claude-code': {
-        'title': 'Claude Code', 'root': '.claude/skills', 'installable': False,
-        'discovery': 'one level — .claude/skills/<name>/SKILL.md or a symlink there; a skill nested deeper '
-                     'is not discovered, and a symlinked skill reports the link path as its base directory '
-                     '(2.1.316, probed 2026-11-20)',
-        'refusal': 'the canonical layout is discoverable only through a plugin descriptor '
-                   '(.claude-plugin/plugin.json naming the skill directories), a vendor manifest awaiting '
-                   "disposition; a flat or symlinked install would take the record-package skills' links "
-                   'out of the install'},
+        'title': 'Claude Code', 'root': '.mtdr/plugins', 'installable': True, 'adapter': 'claude-plugin',
+        'discovery': 'through a generated plugin descriptor only — .claude/skills/ is one level deep and a '
+                     'symlinked skill reports the link path as its base directory, but a plugin descriptor '
+                     'naming the canonical skill directories gives each skill its canonical base directory '
+                     '(2.1.316, probed 2026-11-20 and 2026-11-22). Run `claude --plugin-dir <package>`. The '
+                     'descriptor is a thin engine adapter (owner, 23 Nov 2026), generated at install and never '
+                     'committed; its standards disposition is governed separately'},
 }
+
+ADAPTER = '.claude-plugin/plugin.json'
+ADAPTER_FIELDS = ('name', 'version', 'skills')      # identification and discovery; nothing a record means
+
+
+def claude_plugin(man):
+    """The descriptor for one installed record-type package: its name, the standard's version, and the
+    canonical directories its skills sit in. No description, instruction, status or rule — a field that
+    carried meaning would make the adapter a second source of the skills' semantics."""
+    dirs = sorted({'./' + os.path.dirname(os.path.dirname(s['source'])) + '/' for s in man['skills']})
+    return {'name': f"mtdr-{man['profile']}", 'version': man['mtdr_version'], 'skills': dirs}
 
 
 PROFILES_README = """# Profiles — one distribution package per record type
@@ -131,8 +141,11 @@ flat, their links leave the install.
 
 `install` offers a runtime only where it is shown to discover that layout in place — Hermes Agent walks
 its trusted project skills directory recursively. Claude Code discovers one level deep, so the layout
-reaches it only through a plugin descriptor, a vendor manifest awaiting disposition; until then `install`
-refuses it rather than install it broken. Runtimes not yet tested are not offered.
+reaches it only through a plugin descriptor: `install --runtime claude-code` places the package outside
+`.claude/skills/` and generates `.claude-plugin/plugin.json` beside it. It is a thin engine adapter
+(owner, 23 Nov 2026) holding only the name, the version and the canonical skill directories.
+`verify` fails a descriptor that carries anything else; run `claude --plugin-dir <package>`. Its
+standards disposition is governed separately. Runtimes not yet tested are not offered.
 
 A package that exceeds a target's limit is **not built** — nothing is trimmed, merged or dropped to fit.
 Every built package carries `mtdr-package.json`: version, commit, skills and references with digests,
@@ -430,6 +443,18 @@ def verify(root):
         elif hashlib.sha256(open(full, 'rb').read()).hexdigest() != sha:
             failures.append(f'{path}: digest differs from the manifest')
     present = {os.path.relpath(os.path.join(d, f), root) for d, _, fs in os.walk(root) for f in fs}
+    if ADAPTER in present:                                 # a generated thin adapter, checked, never trusted
+        try:
+            adapter = json.load(open(os.path.join(root, ADAPTER), encoding='utf-8'))
+        except ValueError as e:
+            adapter = None
+            failures.append(f'{ADAPTER}: unreadable: {e}')
+        if adapter is not None and adapter != claude_plugin(man):
+            extra_fields = sorted(set(adapter) - set(ADAPTER_FIELDS)) if isinstance(adapter, dict) else []
+            failures.append(f'{ADAPTER}: not the generated descriptor' +
+                            (f" — it carries {', '.join(extra_fields)}, which an adapter may not" if extra_fields else
+                             ' — its name, version or skill directories differ from the package'))
+        present = present - {ADAPTER}
     for extra in sorted(present - set(expected) - {'mtdr-package.json'}):
         failures.append(f'{extra}: present but not in the manifest')
 
@@ -506,6 +531,12 @@ def install(profile, runtime, project):
         built, _, _ = build(profile, 'job', 'folder', out=tmp)
         os.makedirs(os.path.dirname(dest), exist_ok=True)
         shutil.copytree(built, dest)
+    if rt.get('adapter') == 'claude-plugin':
+        man = json.load(open(os.path.join(dest, 'mtdr-package.json'), encoding='utf-8'))
+        os.makedirs(os.path.join(dest, os.path.dirname(ADAPTER)), exist_ok=True)
+        with open(os.path.join(dest, ADAPTER), 'w', encoding='utf-8') as fh:
+            json.dump(claude_plugin(man), fh, indent=2)
+            fh.write('\n')
     report = verify(dest)
     if report['failures']:
         raise PackagingError(f'installed at {dest} but verification failed: ' + '; '.join(report['failures'][:5]))

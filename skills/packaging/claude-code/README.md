@@ -21,7 +21,7 @@ than a flat directory, so collected flat their relative links leave the install 
 107 skill links, in every Decision and Value lifecycle skill (22 Nov 2026). The flat collection in
 [`canonical/skills/`](../canonical/skills/) is the catalogue's byte-identical copies, not an install.
 
-**Claude Code: not installable yet.** Discovery is one level — .claude/skills/<name>/SKILL.md or a symlink there; a skill nested deeper is not discovered, and a symlinked skill reports the link path as its base directory (2.1.316, probed 2026-11-20). So the canonical layout is discoverable only through a plugin descriptor (.claude-plugin/plugin.json naming the skill directories), a vendor manifest awaiting disposition; a flat or symlinked install would take the record-package skills' links out of the install. `install` refuses it rather than install it broken.
+**Claude Code:** `install --runtime claude-code` — discovery is through a generated plugin descriptor only — .claude/skills/ is one level deep and a symlinked skill reports the link path as its base directory, but a plugin descriptor naming the canonical skill directories gives each skill its canonical base directory (2.1.316, probed 2026-11-20 and 2026-11-22). Run `claude --plugin-dir <package>`. The descriptor is a thin engine adapter (owner, 23 Nov 2026), generated at install and never committed; its standards disposition is governed separately.
 
 Discovery paths this runtime reads:
 

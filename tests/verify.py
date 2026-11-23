@@ -927,13 +927,26 @@ for _pkg in _found:
                 _ijson.dump(_m2, fh)
         if not _mutant(_undeclare)['broken']:
             fail('install', "a link the manifest stopped declaring still verified")
-try:
-    _profiles.install('decision', 'claude-code', '/nonexistent')
-    fail('install', "Claude Code was installed although it discovers one level deep and no descriptor is disposed")
-except _profiles.PackagingError:
-    pass
+# Claude Code reaches the canonical layout only through a plugin descriptor (owner, 23 Nov 2026: vendor
+# manifests are thin engine adapters). Generated at install, never committed; identification and
+# discovery only. A descriptor carrying any other field, or naming other directories, fails verify.
+with _ptemp.TemporaryDirectory() as _proj:
+    _cdest, _crep = _profiles.install('decision', 'claude-code', _proj)
+    _adapter = os.path.join(_cdest, _profiles.ADAPTER)
+    _plug = _ijson.load(open(_adapter, encoding='utf-8'))
+    if _crep['failures'] or sorted(_plug) != sorted(_profiles.ADAPTER_FIELDS):
+        fail('install', f"the Claude Code install did not verify as a thin adapter: {_crep['failures'][:2]} {sorted(_plug)}")
+    if os.path.relpath(_cdest, _proj).startswith('.claude'):
+        fail('install', "the Claude Code package was placed where Claude Code collects skills flat")
+    for _why, _bad in (('a description field', dict(_plug, description='Recover decisions.')),
+                       ('an instruction field', dict(_plug, instructions='Always draft a TDR.')),
+                       ('a directory outside the package layout', dict(_plug, skills=['./skills/']))):
+        _ijson.dump(_bad, open(_adapter, 'w', encoding='utf-8'))
+        if not _profiles.verify(_cdest)['failures']:
+            fail('install', f"a plugin descriptor with {_why} still verified")
 note('install', f"{_installed} profile(s) installed for a recursive-discovery runtime and verified in place; "
-                "flat collection, tampering, an intruding skill and an undeclared link each fail")
+                "flat collection, tampering, an intruding skill and an undeclared link each fail; the Claude Code "
+                "plugin descriptor verifies as a thin adapter and three non-thin variants fail")
 
 # 12c — surface descriptors describe exactly what is generated, and nothing unclaimed is emitted.
 # The standards boundary puts Agent plugin packaging at `interoperate`, whose foreclosure column
