@@ -1,6 +1,6 @@
 # Engineering controls
 
-**Version:** 0.1.0 · **Status:** proposed, not ratified · **Non-normative**
+**Version:** 0.1.0 · **Status:** proposed; not adopted · **Non-normative**
 
 This file says how engineering work on this repository is controlled: when work is committed, pushed,
 reviewed, ratified and released, and what evidence each of those acts leaves. It is about how the
@@ -20,7 +20,7 @@ time.
   out; and in a third passage only the name of that system is left out. Nothing else is changed.
 - **Part B** records three proposed amendments, which came from a review of that proposal. They are
   kept apart from Part A so that each can be accepted or dropped on its own.
-- **Part C** says where this repository implements each control.
+- **Part C** says how this repository implements each control, or would, and marks which is which.
 
 ## Part A — The proposal, as submitted on 25 November 2026
 
@@ -114,31 +114,32 @@ I would also audit the existing Git histories of MTDR and *[the name of a privat
 
 Each row is marked **recorded** where it restates a rule that an accepted record of this repository
 already states, and **proposed** where it is new here. A proposed row describes what would happen
-once the controls are adopted. It does not describe what has happened so far: most of the commits on
-`main` to date were made directly on it, not through a reviewed branch.
+once the controls are adopted. It does not describe what has happened so far: none of the ten pull
+requests merged to date records a review, and part of `main`'s history, the release commit and the
+current tip among it, was committed without a pull request at all.
 
 | Control | Here | Standing |
 |---|---|---|
-| Baseline | A work package would start with a statement of its scope, its sources and its acceptance criteria, given in the pull request that carries it and committed in its evidence record. | proposed |
+| Baseline | A work package would start with a statement of its scope, its sources and its acceptance criteria, committed on the working branch before the first implementation commit. | proposed |
 | Frequent commits | One commit for each coherent change, on a working branch. A checkpoint commit may be marked work in progress; it conveys no review or approval. | proposed |
 | Remote visibility | Working branches would be pushed, and work would no longer be committed directly to `main`. | proposed |
 | Review checkpoints | A review would name the exact commit it reviewed. If the commit changes afterwards, the new commit would be reviewed again. | proposed |
 | Evidence | Evidence would be committed under [`decisions/evidence/`](decisions/evidence/), in a commit of its own that follows the commit it verifies, recording the exact commit, the commands, the versions used, the exit codes and the output. That folder already holds ratification evidence and the release record. | proposed |
-| Rejected work | A decision is never edited or deleted, only superseded ([`CONTRIBUTING.md`](CONTRIBUTING.md)). A candidate that fails admission keeps its record ([`specification/record-admission-test.md`](specification/record-admission-test.md)). An identifier published on a branch is never reused ([`decisions/ALLOCATION.md`](decisions/ALLOCATION.md)). | recorded |
+| Rejected work | An accepted decision is never edited or deleted, only superseded ([`CONTRIBUTING.md`](CONTRIBUTING.md)). A candidate that fails admission keeps its record ([`specification/record-admission-test.md`](specification/record-admission-test.md)). A `TDR-*` or `DAC-*` identifier published on a branch is never reused ([`decisions/ALLOCATION.md`](decisions/ALLOCATION.md)). | recorded |
 | | A rejected approach in other work would also stay in the history, with the reason for its rejection. | proposed |
 | History protection | No force-push to any shared branch, and no rewriting of history that has been reviewed. | proposed |
 | Ratification | "Standing is conferred by an authorised human ratification of a defined candidate judgement. MTDR requires durable, attributable evidence sufficient to establish that ratification before a record may represent the judgement's standing as `accepted`." ([TDR-0027](decisions/TDR-0027-human-ratification-confers-standing.md)). No tool ratifies anything ([`GOVERNANCE.md`](GOVERNANCE.md)). A status changes in place; a change of meaning needs a superseding record ([`CONTRIBUTING.md`](CONTRIBUTING.md)). | recorded |
 | Release | Eligibility computed from the obligations register ([TDR-0037](decisions/TDR-0037-release-eligibility-from-standing-governance.md)), an authorised human act, and then one tag, one release record and one changelog entry that says which commit and which generated catalogue it describes ([TDR-0042](decisions/TDR-0042-changelog-headings-are-not-releases.md)). | recorded |
 
-**The five acts are separate, and each has its own authority:**
+**The five acts are separate, and each would have its own authority:**
 
-| Act | Who | What it establishes |
-|---|---|---|
-| Commit | whoever is doing the work | what changed |
-| Push | whoever is doing the work, to a working branch | that others can see it |
-| Review | someone who did not write the change | whether it conforms, at a named commit |
-| Ratify | an authorised person; for this repository, the maintainer | standing. The record may be shown as `accepted` only once durable, attributable evidence of that act exists (TDR-0027). A commit, a merge, or a tool writing `accepted` establishes none of this |
-| Release | an authorised human act, by the maintainer | that it is available as a version of the standard |
+| Act | Who | What it establishes | Standing |
+|---|---|---|---|
+| Commit | whoever is doing the work | what changed | proposed |
+| Push | whoever is doing the work, to a working branch | that others can see it | proposed |
+| Review | someone who did not write the change | whether it conforms, at a named commit | proposed |
+| Ratify | an authorised person; for this repository, the maintainer | standing. The record may be shown as `accepted` only once durable, attributable evidence of that act exists. A commit, a merge, or a tool writing `accepted` does not by itself confer standing, though any of them may carry evidence of the act | recorded ([TDR-0027](decisions/TDR-0027-human-ratification-confers-standing.md)) |
+| Release | an authorised human act; the maintainer cuts releases | that it is available as a version of the standard | recorded ([`GOVERNANCE.md`](GOVERNANCE.md), [TDR-0042](decisions/TDR-0042-changelog-headings-are-not-releases.md)) |
 
 "MTDR closure", in Part A, refers to the completion of the current programme of work on the standard.
 
