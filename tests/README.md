@@ -13,7 +13,8 @@ exactly what `uv.lock` pins:
 uv run tests/verify.py
 ```
 
-The same command runs on Linux and macOS on every push. That proves the suite is reproducible, not
+A workflow, `.github/workflows/verify.yml`, is provided to run the same command on Linux and macOS.
+No run of it has yet completed. A green run would show that the suite is reproducible on both, not
 that anyone outside this repository has validated anything.
 
 | Directory | Holds |
