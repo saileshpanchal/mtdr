@@ -15,6 +15,10 @@ To challenge a decision:
 
 Status transitions (`proposed → accepted`, `accepted → superseded`) and `confirmed_by_outcome` updates are made in place; they are lifecycle facts. Changes to decision *content* always require supersession.
 
+## Engineering controls
+
+How work on this repository is committed, pushed, reviewed, ratified and released is set out in [`ENGINEERING-CONTROLS.md`](ENGINEERING-CONTROLS.md). It is a proposal, not yet ratified, and it is not part of the standard. A commit, a push, a review and a merge are none of them ratification.
+
 ## Spec and template changes
 
 Improvements to `spec.md`, the templates, or the skills follow the same rule when they change meaning: a superseding TDR in `/decisions` accompanies the change. Typo and clarity fixes need no ceremony — proportionality applies to contributions too.
