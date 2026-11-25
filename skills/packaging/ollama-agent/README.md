@@ -8,11 +8,20 @@ a defect ([TDR-0024](../../../decisions/TDR-0024-packaging-independence.md)).
 
 ## Install
 
-Copy or link the 25 collected skills into `./skills/`:
+The skills live two levels deep, beside the record semantics they serve, and link into them by
+relative path. The discovery paths listed below are flat skill directories, not that layout, so on
+this release there are two ways to run them, and neither is complete:
 
-```
-cp -r skills/packaging/canonical/skills/* ./skills/
-```
+- **In place: every link resolves, discovery by name is lost.** Work from a clone of this repository
+  and have the agent follow a skill at its repository path, e.g.
+  `records/decision/skills/<name>/SKILL.md` or `skills/shared/<name>/SKILL.md`.
+- **Collected flat for discovery: links break.** Copying the 25 collected skills into `./skills/`
+  (`cp -r skills/packaging/canonical/skills/* ./skills/`) makes them discoverable, but **33 of their
+  64 relative links no longer resolve, in 10 of the 25 skills, even inside a full
+  clone**. A record-package skill sits deeper in the repository than in a flat directory, so both its
+  links into its own package and its links up to the repository's shared layers miss. In a project
+  without the repository, 56 of 64 break. An agent that cannot open a link may search for the file and find
+  another copy.
 
 Discovery paths this runtime reads:
 
@@ -31,8 +40,8 @@ Progressive disclosure: Yes — descriptions are checked first; full instruction
 
 **Required, not optional.** The collected skills carry their canonical relative links, which resolve
 against the repository layout rather than inside this directory — deliberately: rewriting them would
-modify a canonical artefact, which packaging may never do. Deploy the reference knowledge alongside
-and the references resolve for the reader; deploy the skills alone and they will not.
+modify a canonical artefact, which packaging may never do. Deploying the reference knowledge alongside
+a flat collection does not make those links resolve (see Install); only the canonical layout does.
 
 The skills point back into the normative layer. Make available the paths listed under
 `reference_knowledge` in [`provenance.yaml`](../canonical/provenance.yaml) — the substrate
