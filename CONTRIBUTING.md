@@ -17,7 +17,7 @@ Status transitions (`proposed → accepted`, `accepted → superseded`) and `con
 
 ## Engineering controls
 
-How work on this repository is committed, pushed, reviewed, ratified and released is set out in [`ENGINEERING-CONTROLS.md`](ENGINEERING-CONTROLS.md). It is a proposal, not yet ratified, and it is not part of the standard. A commit, a push, a review and a merge are none of them ratification.
+How work on this repository is committed, pushed, reviewed, ratified and released is set out in [`ENGINEERING-CONTROLS.md`](ENGINEERING-CONTROLS.md). It is a proposal and it is not part of the standard: it becomes this repository's practice only when a decision record in [`/decisions`](decisions/) adopts it. A commit, a push, a review and a merge are none of them ratification.
 
 ## Spec and template changes
 
