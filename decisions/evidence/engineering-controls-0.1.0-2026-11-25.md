@@ -44,11 +44,20 @@ That leaves one helper the suite imports, `tests/adoption/disclosure.py`, at the
 it is not quite the release's tests unmodified. For `94e2d0c` the whole folder was also taken,
 `git archive v1.30.0 tests | tar -x -C <second tree>`, with the same result.
 
-The history scan reads every version of every file in every commit of the branch, and each commit's
-message, author and committer. It looks for credentials, local paths, identifiers of private records,
-the names of private systems or clients, and e-mail addresses other than two it does not report: the
-maintainer's own address as author and committer, and the no-reply address in co-author trailers.
-Every commit on this branch carries both, as `main`'s history already does.
+The history scan reads every version of every text file that a commit on the branch adds or changes
+(binary files are skipped), and each commit's message, author and committer. In all of those it looks
+for credentials, local paths, identifiers of private records, and the names of private systems or
+clients. For e-mail addresses it does two different things:
+
+- In file contents and commit messages it reports any address except those it passes over everywhere:
+  no-reply addresses at `github.com` and `anthropic.com`, addresses at `example.com`, `example.org` or
+  a `.example` domain, and addresses at the fictional Brackwell domains the adoption fixtures use.
+- In the author and committer fields it does not test for e-mail addresses at all. It lists the
+  identities it finds there, for a person to read. On this branch it lists one, the maintainer's,
+  which `main`'s history already carries.
+
+So "no hit" below does not mean that no commit carries an e-mail address: every commit carries the
+maintainer's as author and committer, and a no-reply address in its co-author trailer.
 
 | Commit | Suite | `v1.30.0`'s tests in this tree | Files changed against `main` (`ea1c3ba`) | History scan |
 |---|---|---|---|---|
@@ -108,10 +117,22 @@ fix; three notes.
 | # | Finding | Response |
 |---|---|---|
 | T1 | This file said the baseline "was stated in the pull request's description when the work began". The pull request was opened after the first implementation commit, and its description already reported results at that commit. | Corrected above. |
-| T2 | This file said the scan reads author, committer and messages for e-mail addresses and reported no hit, although every commit carries the maintainer's address and a no-reply trailer. | The two exclusions are now stated above. |
+| T2 | This file said the scan reads author, committer and messages for e-mail addresses and reported no hit, although every commit carries the maintainer's address and a no-reply trailer. | The scan's treatment of e-mail addresses is stated above, exactly, after the fourth check below. |
 | T3 (note) | Taking three paths from the tag is not quite "the release's tests, unmodified": one imported helper stays at the branch's version. | Stated above. The whole of the release's `tests/` was also run over `94e2d0c`: the same 13 failures. |
 | T4 (note) | In the table of acts, the ratification row cites only TDR-0027 for "for this repository, the maintainer"; the maintainer's role is recorded in `GOVERNANCE.md`. | Not changed here. `ENGINEERING-CONTROLS.md` stays at the reviewed commit `94e2d0c`; the citation is to be completed when the file next changes. |
 | T5 (note) | The pull request's description still carries two earlier wordings that the files have since corrected. | The description is corrected. It is not part of the merge content. |
+
+## Fourth check, of `11ada9e`
+
+Reviewer: an AI reviewer running a different model from the author's, which had not written the change.
+It re-ran the suite at `11ada9e` (exit 0, 992 links checked), reproduced the run of the whole of the
+release's `tests/` over `94e2d0c` (the same 13 failures: 7 `bundle`, 4 `skill-count`, 1 `manifest`,
+1 `identity`), confirmed that `ENGINEERING-CONTROLS.md` and `CONTRIBUTING.md` are unchanged from
+`94e2d0c`, and read the scan's code. Result: T1 and T3 answered; one sentence to fix.
+
+| # | Finding | Response |
+|---|---|---|
+| F-A | The description of the scan said it passes over only two e-mail addresses. The scan does not test the author and committer fields for addresses at all, and it passes over no-reply and example-domain addresses everywhere, so the sentence claimed more coverage than the scan has. Its "no hit" result still stands on this branch. | The description above now states what the scan does with e-mail addresses, exactly. |
 
 The commit that carries this revision changes this file only. It needs a check of its own before the
 pull request can be put forward for a merge decision.
