@@ -15,7 +15,7 @@ To challenge a decision:
 
 Status transitions (`proposed → accepted`, `accepted → superseded`) and `confirmed_by_outcome` updates are made in place; they are lifecycle facts. Changes to decision *content* always require supersession.
 
-## Editorial or normative?
+## Spec and template changes
 
 Improvements to the specifications, the templates, or the skills follow the same rule when they change meaning: a superseding TDR in [`decisions/`](decisions/) accompanies the change. Typo and clarity fixes need no ceremony — proportionality applies to contributions too.
 
