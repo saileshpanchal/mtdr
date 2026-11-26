@@ -17,6 +17,7 @@ import filecmp
 import glob
 import hashlib
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -127,32 +128,105 @@ def surface_yaml(key, s, skills):
     )
 
 
-def flat_collection_links(skills):
-    """Measure, never assert, what collecting the skills flat does to their relative links. Returns
-    (links, broken inside a full clone, skills affected there, broken without the repository). A
-    collected skill sits at <dir>/<name>/SKILL.md, two levels below the repository root when <dir> is a
-    project skills directory such as .claude/skills/ inside a clone."""
-    import re
-    link = re.compile(r"\]\(([^)#\s]+)(?:#[^)]*)?\)")
-    names = set(skills)
-    total = in_clone = alone = 0
-    hit = set()
+LINK = re.compile(r"\]\(([^)#\s]+)(?:#[^)]*)?\)")
+NUMBER_WORDS = "zero one two three four five six seven eight nine".split()
+
+
+def in_words(numbers):
+    """`[3, 4]` as "three or four". Directory depths: small numbers, read in a sentence."""
+    return " or ".join(NUMBER_WORDS[n] if n < len(NUMBER_WORDS) else str(n) for n in sorted(set(numbers)))
+
+
+def project_directories(place):
+    """The directories a project skills directory puts above each skill it holds: two for
+    `.claude/skills/`, one for `./skills/`. None when `place` is not a directory inside a project (a
+    personal path such as `~/.claude/skills/`, or a description in words): no clone surrounds a copy
+    made there."""
+    norm = os.path.normpath(place)
+    if os.path.isabs(norm) or norm.startswith(("~", "..")) or " " in norm:
+        return None
+    return [d for d in norm.split(os.sep) if d != os.curdir]
+
+
+def flat_collection_links(skills, place):
+    """Measure, never assert, what copying the collected skills flat into `place` does to their
+    relative links. A copied skill sits at <place>/<name>/SKILL.md and each of its links is resolved
+    from there, twice: inside a full clone, where the whole repository is within reach, and in a
+    project without the repository, where the other copied skills are all there is.
+
+    `place` decides the answer. `.claude/skills/` and `./skills/` hold a skill at different depths, so
+    the same link lands somewhere different from each; one figure for every surface would be wrong
+    for some of them.
+
+    A link is *broken* when nothing is where it lands, and *wrong* when something is, and it is not
+    what the same link reaches from the skill's canonical location. The two are counted apart: a
+    reader handed a different file is given no sign that anything failed."""
+    above = project_directories(place)
+    base = os.path.join(ROOT, *above) if above is not None else None
+    found = {"links": 0, "depth": None if above is None else len(above),
+             "broken": 0, "wrong": 0, "alone_broken": 0, "alone_wrong": 0}
+    broken_in, wrong_in = set(), set()
     for name, s in skills.items():
-        for m in link.finditer(open(s["path"], encoding="utf-8").read()):
+        for m in LINK.finditer(open(s["path"], encoding="utf-8").read()):
             target = m.group(1)
             if re.match(r"^[a-z]+:", target):
                 continue
-            total += 1
-            here = os.path.join(ROOT, ".flat", "skills", name)
-            resolved = os.path.normpath(os.path.join(here, target))
-            sibling = os.path.relpath(resolved, os.path.join(ROOT, ".flat", "skills")).split(os.sep)[0]
-            if sibling in names and not os.path.relpath(resolved, os.path.join(ROOT, ".flat", "skills")).startswith(".."):
-                continue                                   # a link to another collected skill resolves
-            if not os.path.exists(resolved):
-                in_clone += 1
-                hit.add(name)
-            alone += 1                                     # without the repository, nothing else is there
-    return total, in_clone, len(hit), alone
+            found["links"] += 1
+            meant = os.path.normpath(os.path.join(os.path.dirname(s["path"]), target))
+            landing = os.path.normpath(os.path.join(name, target))     # relative to the flat directory
+            parts = landing.split(os.sep)
+            if parts[0] in skills and parts[1:] in ([], ["SKILL.md"]):
+                # Another copied skill, or its file: present with or without the repository.
+                original = os.path.normpath(os.path.join(os.path.dirname(skills[parts[0]]["path"]), *parts[1:]))
+                alone = clone = "right" if original == meant else "wrong"
+            elif landing == os.curdir:
+                alone = clone = "wrong"                                # the flat directory itself
+            else:
+                alone = clone = "broken"                               # nothing else was copied
+                if base is not None:
+                    reached = os.path.normpath(os.path.join(base, landing))
+                    outside = os.path.relpath(reached, ROOT).split(os.sep)[0] == os.pardir
+                    if not outside and os.path.exists(reached):        # above the clone is not the clone
+                        clone = "right" if reached == meant else "wrong"
+            if alone != "right":
+                found["alone_" + alone] += 1
+            if base is not None and clone != "right":
+                found[clone] += 1
+                (broken_in if clone == "broken" else wrong_in).add(name)
+    found["broken_skills"], found["wrong_skills"] = len(broken_in), len(wrong_in)
+    return found
+
+
+def flat_install_figures(skills, place):
+    """The measured half of the README's flat-install paragraph, in words, for one surface."""
+    f = flat_collection_links(skills, place)
+
+    def wrong_file(n, in_skills=None):
+        """Always said, including when it is none: a wrong file is the failure a reader cannot see."""
+        if not n:
+            return "The links that still resolve all reach the file the skill means."
+        where = "" if in_skills is None else f", in {in_skills} skill{'' if in_skills == 1 else 's'}"
+        return (f"**A further {n} resolve{'s' if n == 1 else ''} to a different file from the one the "
+                f"skill means**{where}.")
+
+    if f["depth"] is None:
+        return (f"makes them discoverable, but that\n"
+                f"  directory is outside any clone of this repository, so nothing a link points to is there except\n"
+                f"  the other copied skills: **{f['alone_broken']} of their {f['links']} relative links no longer "
+                f"resolve**.\n"
+                f"  {wrong_file(f['alone_wrong'])}")
+    return (
+        f"makes them discoverable, but puts\n"
+        f"  every skill {in_words([f['depth']])} {'directory' if f['depth'] == 1 else 'directories'} below the "
+        f"project root. Each relative link is written for the depth at\n"
+        f"  which its skill sits in the repository, so from any other depth a link to anything but a\n"
+        f"  neighbouring skill lands somewhere else. **{f['broken']} of their {f['links']} relative links no "
+        f"longer resolve, in\n"
+        f"  {f['broken_skills']} of the {len(skills)} skills, even inside a full clone**.\n"
+        f"  {wrong_file(f['wrong'], f['wrong_skills'])}\n"
+        f"  In a project without the repository, {f['alone_broken']} of {f['links']} break."
+        + (f"\n  {wrong_file(f['alone_wrong'])}" if f["alone_wrong"] else "")
+    )
 
 
 def surface_readme(key, s, skills):
@@ -163,7 +237,6 @@ def surface_readme(key, s, skills):
         caution = ("\n> **Not fully verified.** " + "; ".join(s["unverified"]) +
                    ". Confirm against the runtime's own documentation before relying on this, and "
                    "update [`runtime-evidence.md`](../runtime-evidence.md) with what you find.\n")
-    links, in_clone, affected, alone = flat_collection_links(skills)
     return f"""# {s['title']} — distribution bundle
 
 *Generated by `mtdr_packaging`. Do not edit; regenerate.*
@@ -182,12 +255,8 @@ this release there are two ways to run them, and neither is complete:
   and have the agent follow a skill at its repository path, e.g.
   `records/decision/skills/<name>/SKILL.md` or `skills/shared/<name>/SKILL.md`.
 - **Collected flat for discovery: links break.** Copying the {len(skills)} collected skills into `{place}`
-  (`cp -r skills/packaging/canonical/skills/* {place}`) makes them discoverable, but **{in_clone} of their
-  {links} relative links no longer resolve, in {affected} of the {len(skills)} skills, even inside a full
-  clone**. A record-package skill sits deeper in the repository than in a flat directory, so both its
-  links into its own package and its links up to the repository's shared layers miss. In a project
-  without the repository, {alone} of {links} break. An agent that cannot open a link may search for the file and find
-  another copy.
+  (`cp -r skills/packaging/canonical/skills/* {place}`) {flat_install_figures(skills, place)}
+  An agent that cannot open a link may search for the file and find another copy.
 
 Discovery paths this runtime reads:
 
