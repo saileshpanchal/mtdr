@@ -300,7 +300,7 @@ note('typed-claims', "no untyped conformance claim on a normative surface")
 fixtures = glob.glob('records/*/fixtures/**/FIX-*.md', recursive=True) \
          + glob.glob('tests/conformance/FIX-*.md') + glob.glob('tests/corpus/CORPUS-*.md') \
          + glob.glob('tests/validation/FIX-*.md') + glob.glob('tests/inspectability/FIX-*.md') \
-         + glob.glob('tests/adoption/FIX-*.md')
+         + glob.glob('tests/adoption/FIX-*.md') + glob.glob('tests/recovery/**/FIX-*.md', recursive=True)
 for f in fixtures:
     if '## Must not' not in open(f, encoding='utf-8').read():
         fail('fixture', f"{f}: no must-not section — a fixture without one is non-conforming")
@@ -376,11 +376,30 @@ note('preregistration', f"{prereg} pre-registered experiment(s); frozen criteria
 # the resolver's reach, and resolve its type, specification and schema from `conforms_to` alone.
 import tempfile, shutil                                                       # noqa: E402
 BIND_RE = re.compile(r'^mtdr/([a-z][a-z-]*)/(tdr|dac|vr|oir)@([0-9]+\.[0-9]+\.[0-9]+)$')
-MANIFEST_VERSION = {}
+MANIFEST_VERSION, PRIOR_VERSIONS = {}, {}
 for mpath in glob.glob('records/*/package.yaml'):
     man = yaml.safe_load(open(mpath, encoding='utf-8'))
     for entry in man.get('records') or []:
-        MANIFEST_VERSION[(man['name'], entry['id'].lower())] = entry['specification_version']
+        key = (man['name'], entry['id'].lower())
+        MANIFEST_VERSION[key] = entry['specification_version']
+        PRIOR_VERSIONS[key] = {str(p['version']) for p in entry.get('prior_versions') or []}
+
+
+def binding_agrees(ver, shipped, prior):
+    """TDR-0043 gives specifications additive minor versions, so a record bound to a version its
+    package has moved past stays a record of a version the distribution ships, if the manifest says
+    so. Comparing with the current version alone would fail every immutable record on any bump."""
+    return ver == shipped or ver in prior
+
+
+# Known answers, on every run: the rule is what stands between a version bump and the whole register.
+for _ver, _shipped, _prior, _want, _case in (
+        ('1.15.0', '1.15.0', set(), True, 'the current version'),
+        ('1.15.0', '1.16.0', {'1.15.0'}, True, 'a listed prior version'),
+        ('1.14.0', '1.16.0', {'1.15.0'}, False, 'an unlisted version'),
+        ('1.15.0', '1.16.0', set(), False, 'a bump that lists no prior version')):
+    if binding_agrees(_ver, _shipped, _prior) is not _want:
+        fail('identity', f"the binding rule gives the wrong answer for {_case}")
 
 governed = (sorted(glob.glob('decisions/TDR-*.md')) + sorted(glob.glob('decisions/DAC-*.md'))
             + sorted(glob.glob('records/*/examples/*.md')))
@@ -400,8 +419,9 @@ for f in governed:
     shipped = MANIFEST_VERSION.get((pkg, rec))
     if shipped is None:
         fail('identity', f"{f}: claims package/record {pkg}/{rec}, which this distribution does not ship")
-    elif shipped != ver:
-        fail('identity', f"{f}: claims {rec}@{ver}; the {pkg} manifest ships {shipped}")
+    elif not binding_agrees(ver, shipped, PRIOR_VERSIONS[(pkg, rec)]):
+        fail('identity', f"{f}: claims {rec}@{ver}; the {pkg} manifest ships {shipped}"
+                         f" and declares no such prior version")
     bound += 1
 
 # the detached proof itself, over one record of each family
@@ -523,9 +543,19 @@ for pkg_dir in sorted(glob.glob('records/*')):
 note('extraction', f"{trials} packages extracted with only their declared dependencies "
                    f"({len(EXPERIMENTAL)} experimental), and passed their conformance contract there")
 
-# 11 — contract fixtures: each carries a complete document and what the contract must do with it
-def run_contract_fixtures(check, schema_path, pattern):
-    schema = Validator(json.load(open(schema_path)))
+# 11 — contract fixtures: each carries a complete document and what the contract must do with it.
+# Shared schemas refer to their siblings by $id, so every one is loaded into one registry: a bare
+# validator fails on the first $ref, at run time rather than at authoring.
+from referencing import Registry, Resource  # noqa: E402
+from referencing.exceptions import Unresolvable  # noqa: E402
+SHARED = Registry().with_resources(
+    (doc['$id'], Resource.from_contents(doc))
+    for doc in (json.load(open(p)) for p in sorted(glob.glob('schemas/shared/*.schema.json'))))
+
+
+def run_contract_fixtures(check, schema_path, pattern, integrity=None, into=None):
+    """`integrity` adds the rules a schema cannot express; a document either rule refuses is refused."""
+    schema = Validator(json.load(open(schema_path)), registry=SHARED)
     accepted = rejected = 0
     for f in sorted(glob.glob(pattern)):
         text = open(f, encoding='utf-8').read()
@@ -534,11 +564,20 @@ def run_contract_fixtures(check, schema_path, pattern):
         if not exp or len(blocks) != 1:
             fail(check, f"{f}: needs one contract expectation and exactly one json block")
             continue
-        errors = list(schema.iter_errors(json.loads(blocks[0])))
+        doc = json.loads(blocks[0])
+        try:
+            errors = [e.message for e in schema.iter_errors(doc)]
+        except Unresolvable as e:                 # a sibling schema missing: fail the check, not the run
+            fail(check, f"{f}: {schema_path} refers to {e.ref}, which the registry does not hold")
+            continue
+        if not errors and integrity:
+            errors = integrity(doc)
+        if into is not None:
+            into[f] = (doc, text, exp.group(1))
         if exp.group(1) == 'accepted':
             accepted += 1
             for e in errors:
-                fail(check, f"{f}: expected accepted, contract rejected it — {e.message}")
+                fail(check, f"{f}: expected accepted, contract rejected it — {e}")
         else:
             rejected += 1
             if not errors:
@@ -553,6 +592,179 @@ note('result-contract', f"{a} accepted, {r} rejected as published")
 a, r = run_contract_fixtures('projection-fixture', 'schemas/shared/derivation-projection.schema.json',
                              'tests/inspectability/FIX-*.md')
 note('projection-contract', f"{a} accepted, {r} rejected as published")
+
+# 11c — the historical candidate and its review events (proposed under TDR-0048;
+# specification/historical-candidate.md). A candidate never acquires standing because something
+# reconstructed it: the constants are the schema's, the cross-references are checked here, and review
+# is bound to the exact candidate by digest rather than written into it.
+# A package that supplies recovery vocabulary names it in its manifest; the roles it declares there —
+# its event role, its context roles, the roles never filled by inference — are enforced on every
+# candidate for its object, from the package's own declaration rather than a copy.
+# The checks themselves live in the reference validator, so the suite and an adopter running
+# `python -m mtdr_validation` apply one implementation (non-normative; the contract is the specification).
+sys.path.insert(0, os.getcwd())
+from mtdr_validation.recovery import (candidate_integrity as _candidate_integrity,  # noqa: E402
+                                      contemporaneity, contribution_grades, jcs_digest, load_vocabulary)
+VOCABULARY = load_vocabulary('.')
+
+
+def candidate_integrity(c):
+    return _candidate_integrity(c, VOCABULARY)
+
+
+candidates, events = {}, {}
+a, r = run_contract_fixtures('recovery-fixture', 'schemas/shared/historical-candidate.schema.json',
+                             'tests/recovery/candidate/FIX-*.md', candidate_integrity, candidates)
+note('candidate-contract', f"{a} accepted, {r} rejected as published")
+a, r = run_contract_fixtures('recovery-fixture', 'schemas/shared/candidate-review-event.schema.json',
+                             'tests/recovery/review/FIX-*.md', into=events)
+note('review-contract', f"{a} accepted, {r} rejected as published")
+
+by_id = {doc['candidate_id']: (f, doc) for f, (doc, _, exp) in candidates.items() if exp == 'accepted'}
+for f, (doc, text, _) in candidates.items():          # a known answer, so a reimplementation can check itself
+    stated = re.search(r'\*\*Digest:\*\*\s*`(sha256:[0-9a-f]{64})`', text)
+    if stated and stated.group(1) != jcs_digest(doc):
+        fail('recovery-binding', f"{f}: states digest {stated.group(1)[:19]}…, the candidate hashes to "
+                                 f"{jcs_digest(doc)[:19]}…")
+bound = 0
+for f, (doc, text, _) in events.items():
+    want = re.search(r'\*\*Binding expectation:\*\*\s*(binds|does-not-bind)', text)
+    if not want:
+        continue
+    target = by_id.get(doc.get('candidate_id'))
+    if not target:
+        fail('recovery-binding', f"{f}: names candidate {doc.get('candidate_id')}, which no accepted fixture carries")
+        continue
+    binds = doc.get('candidate_digest') == jcs_digest(target[1])
+    if binds != (want.group(1) == 'binds'):
+        fail('recovery-binding', f"{f}: expected the event {'to bind' if want.group(1) == 'binds' else 'not to bind'} "
+                                 f"to {target[0]}, and it does the opposite")
+    bound += 1
+note('recovery-binding', f"{bound} review events checked against the digest of the candidate they name")
+
+
+for _cap, _cre, _ev, _con, _want in (
+        ('2019-03-01', 'unknown', '2019-03-14', 'unknown', 'contemporaneous'),
+        ('2019-03-13', 'unknown', '2019-03-14', 'unlinked', 'contemporaneous'),   # an earlier day orders it
+        ('2019-03-14', 'unknown', '2019-03-14', 'unknown', 'indeterminate'),      # a shared date is not an order
+        ('2019-03-14', 'unknown', '2019-03-14', 'unlinked', 'indeterminate'),
+        ('2019-03-14', 'unknown', '2019-03-14', 'evidenced', 'contemporaneous'),  # before whoever acted
+        ('2019-03-15', 'unknown', '2019-03-14', 'evidenced', 'later'),            # never overridden
+        ('2019-03', 'unknown', '2019-03-14', 'unknown', 'indeterminate'),         # March spans the 14th
+        ('2019-03', 'unknown', '2019-03-14', 'evidenced', 'contemporaneous'),     # the span's order closed
+        ('2019-02', 'unknown', '2019-03-14', 'unknown', 'contemporaneous'),
+        ('2020', 'unknown', '2019-03', 'evidenced', 'later'),
+        ('2019-12', 'unknown', '2019', 'unknown', 'indeterminate'),
+        ('unknown', '2019-03-10', '2019-03-14', 'unknown', 'contemporaneous'),
+        ('unknown', '2019-03-14', '2019-03-14', 'unknown', 'indeterminate'),
+        ('unknown', '2019-03-14', '2019-03-14', 'evidenced', 'contemporaneous'),
+        ('unknown', '2019-04-02', '2019-03-14', 'evidenced', 'indeterminate'),    # written up later, captured when?
+        ('unknown', 'unknown', '2019-03-14', 'evidenced', 'indeterminate'),       # a time-less artefact stays open
+        ('2019-03-01', '2019-03-01', 'unknown', 'evidenced', 'indeterminate')):   # no event, no grade
+    if contemporaneity(_cap, _cre, _ev, _con) != _want:
+        fail('contemporaneity', f"capture {_cap}, creation {_cre}, event {_ev}, considered {_con}: expected "
+                                f"{_want}, computed {contemporaneity(_cap, _cre, _ev, _con)}")
+note('contemporaneity', "computed from capture, creation and event times and consideration; known answers hold")
+
+graded = 0
+for f, (doc, text, exp) in candidates.items():     # a fixture may state the grades it expects; recompute them
+    want = re.search(r'\*\*Contemporaneity:\*\*\s*(.+)', text)
+    if not want or exp != 'accepted':
+        continue
+    stated = dict(re.findall(r'`([^`]+)` (contemporaneous|later|indeterminate)', want.group(1)))
+    computed = contribution_grades(doc)
+    if stated != computed:
+        fail('contemporaneity', f"{f}: states {stated}, the candidate's times compute {computed}")
+    graded += len(computed)
+note('contemporaneity-fixtures', f"{graded} context contributions graded from their times, as stated")
+
+# 11d — the reference validator, run on a folder as an adopter runs it, agrees with every published
+# candidate fixture: accepted ones pass structurally and semantically, rejected ones fail one or the
+# other, and every result it issues satisfies the published validation-result schema.
+import tempfile as _tempfile  # noqa: E402
+from mtdr_validation.folder import assess_folder  # noqa: E402
+with _tempfile.TemporaryDirectory() as _tmp:
+    for f, (doc, _, _) in candidates.items():
+        with open(os.path.join(_tmp, os.path.basename(f)[:-3] + '.json'), 'w', encoding='utf-8') as _fh:
+            json.dump(doc, _fh, ensure_ascii=False)
+    _assessed, _ = assess_folder(_tmp, root='.')
+_by_ref = {a['ref']: a['result'] for a in _assessed}
+agreed = 0
+for f, (doc, _, exp) in candidates.items():
+    res = _by_ref.get(os.path.basename(f)[:-3] + '.json')
+    if res is None:
+        fail('adopter-validator', f"{f}: the validator did not assess it as a candidate")
+        continue
+    for problem in res.validate():
+        fail('adopter-validator', f"{f}: the validator issued a result the published schema refuses — {problem}")
+    dims = {d['dimension']: d['result'] for d in res.to_dict()['dimensions']}
+    refused = 'fail' in (dims['structural'], dims['semantic'])
+    if refused != (exp == 'rejected'):
+        fail('adopter-validator', f"{f}: published {exp}; the validator reports structural {dims['structural']}, "
+                                  f"semantic {dims['semantic']}")
+    else:
+        agreed += 1
+note('adopter-validator', f"{agreed} of {len(candidates)} candidate fixtures assessed by the folder validator as published")
+
+# 11e — source fidelity (owner, 23 Nov 2026: "Add validation of quoted evidence against the original
+# source"). A candidate from the 7 Nov trial is re-read against its own sources and passes; each mutation
+# a recovery run has actually made, or could, must fail or stay indeterminate. Never a pass by default.
+import copy as _copy  # noqa: E402
+from mtdr_validation.fidelity import candidate_fidelity, fragment_fidelity  # noqa: E402
+_TRIAL = 'decisions/evidence/DAC-0048-adopter-trial-2026-11-07'
+_base = json.load(open(os.path.join(_TRIAL, 'out', 'CASE-021-1.hdc.json'), encoding='utf-8'))
+_src = os.path.join(_TRIAL, 'sources')
+if candidate_fidelity(_base, _src)[0] != 'pass':
+    fail('source-fidelity', f"{_TRIAL}/out/CASE-021-1.hdc.json no longer passes against its own sources")
+_f0 = next(f for f in _base['fragments'] if '**' in f['content'] and ' ' in f['content'])
+def _mut(edit):
+    f = _copy.deepcopy(_f0); edit(f); return fragment_fidelity(f, _src)
+def _shift(f):
+    lo = f['locator']
+    for k in ('start', 'line_start'):
+        if isinstance(lo.get(k), int):
+            lo[k] += 1
+    for k in ('end', 'line_end'):
+        if isinstance(lo.get(k), int):
+            lo[k] += 1
+    if isinstance(lo.get('lines'), str):
+        a, _, b = lo['lines'].partition('-'); lo['lines'] = f"{int(a) + 1}-{int(b or a) + 1}"
+_fidelity_mutations = [
+    ('content reflowed', lambda f: f.update(content=' '.join(f['content'].split()) + ' '), 'fail', 'not-verbatim'),
+    ('markup removed (the 22 Nov defect)', lambda f: f.update(content=f['content'].replace('**', '')), 'fail', 'not-verbatim'),
+    ('first word dropped', lambda f: f.update(content=f['content'].split(' ', 1)[1]), 'fail', 'locator-mismatch'),
+    ('content paraphrased', lambda f: f.update(content='The meeting agreed the change.'), 'fail', 'not-verbatim'),
+    ('locator one line out', _shift, 'fail', None),
+    ('source hash altered', lambda f: f.update(source_hash='sha256:' + '0' * 64), 'fail', 'source-hash-mismatch'),
+    ('source outside the context', lambda f: f.update(source_ref='elsewhere/not-supplied.md'), 'indeterminate', 'source-not-in-context'),
+    ('locator kind unknown', lambda f: f.update(locator={'kind': 'page-span', 'page': 1}), 'indeterminate', 'locator-not-applied'),
+]
+for _name, _edit, _want, _code in _fidelity_mutations:
+    _got, _why = _mut(_edit)
+    if _got != _want or (_code and _code not in [c for c, _ in _why]):
+        fail('source-fidelity', f"mutation '{_name}': expected {_want}{' / ' + _code if _code else ''}, got {_got} {_why}")
+note('source-fidelity', f"trial candidate passes against its sources; {len(_fidelity_mutations)} mutations caught")
+
+# 11f — a candidate's rendering is a candidate view (owner, 23 Nov 2026; draft-tdr §7). A view showing the
+# candidate's header passes; a rendering with TDR frontmatter (the 20 and 22 Nov runs' `status: proposed`)
+# fails the candidate's relational dimension.
+def _view_result(header):
+    with _tempfile.TemporaryDirectory() as _vt:
+        json.dump(_base, open(os.path.join(_vt, 'c.json'), 'w', encoding='utf-8'), ensure_ascii=False)
+        with open(os.path.join(_vt, 'c.md'), 'w', encoding='utf-8') as _fh:
+            _fh.write('---\n' + ''.join(f'{k}: {v}\n' for k, v in header.items()) + '---\n\n# view\n')
+        _a, _ = assess_folder(_vt, root='.')
+    return {d['dimension']: d['result'] for d in _a[0]['result'].to_dict()['dimensions']}['relational']
+_cid = _base['candidate_id']
+_good = {'candidate_id': _cid, 'status': 'candidate', 'standing': 'none', 'retrospective': 'true'}
+if _view_result(_good) == 'fail':
+    fail('candidate-view', 'a view showing the candidate header failed')
+for _why, _hdr in (('status: proposed', dict(_good, status='proposed')),
+                   ('standing claimed', dict(_good, standing='ratified')),
+                   ('named as a record id', {'id': _cid, 'status': 'candidate', 'standing': 'none', 'retrospective': 'true'})):
+    if _view_result(_hdr) != 'fail':
+        fail('candidate-view', f'a rendering with {_why} did not fail')
+note('candidate-view', 'a candidate view passes; three renderings that misstate the candidate fail')
 
 # 12 — classified normative closure (TDR-0032; DAC-0032 constraint 3). Role metadata, not a trust
 # hierarchy — historical material can be authoritative evidence while being non-normative about
@@ -627,6 +839,135 @@ for key in SURFACES:
 if len(set(counts.values()) | {len(bundled)}) != 1:
     fail('bundle', f"surfaces advertise different catalogues: {counts} against {len(bundled)} collected")
 note('bundles', f"{len(SURFACES)} surfaces, one catalogue of {len(bundled)}, canonical files byte-identical")
+
+# 12b' — profiles: one distribution package per record type (owner, 20 Nov 2026). Every profile stays
+# inside its own package and the shared primitives it declares; every package that fits a target is
+# built and its copies checked byte-identical; one that does not fit refuses to build rather than drop.
+import tempfile as _ptemp  # noqa: E402
+from mtdr_packaging import profiles as _profiles  # noqa: E402
+_found, _ = _profiles.profiles()
+from mtdr_packaging.generate import canonical_skills as _canonical_skills  # noqa: E402
+_canon = _canonical_skills()
+_built = 0
+for _pkg in _found:
+    try:
+        _m = _profiles.resolve(_pkg)
+    except _profiles.PackagingError as e:
+        fail('profiles', f"{_pkg}: {e}")
+        continue
+    for _n in _m['skills']:
+        if _canon[_n]['package'] not in (_pkg, 'shared'):
+            fail('profiles', f"{_pkg}: {_n} belongs to {_canon[_n]['package']} — one bundle per record type")
+    for _t in _profiles.TARGETS:
+        for _mode in ('job', 'compact'):
+            *_, _exceeded = _profiles.plan(_pkg, _mode, _t)
+            with _ptemp.TemporaryDirectory() as _out:
+                try:
+                    _dest, _, _man = _profiles.build(_pkg, _mode, _t, out=_out)
+                except _profiles.PackagingError:
+                    if not _exceeded:
+                        fail('profiles', f"{_pkg} {_mode} {_t}: refused to build although every limit is met")
+                    continue
+                if _exceeded:
+                    fail('profiles', f"{_pkg} {_mode} {_t}: built although {_exceeded[0]}")
+                _, _files, _gen, *_ = _profiles.plan(_pkg, _mode, _t)
+                for _packaged, _src in _files.items():
+                    if open(os.path.join(_dest, _packaged), 'rb').read() != open(_src, 'rb').read():
+                        fail('profiles', f"{_pkg} {_mode} {_t}: {_packaged} differs from {_src}")
+                for _idx in _gen:
+                    for _ref in re.findall(r'`(references/[^`]+)`', open(os.path.join(_dest, _idx), encoding='utf-8').read()):
+                        if not os.path.exists(os.path.join(_dest, os.path.dirname(_idx), os.path.basename(_ref))):
+                            fail('profiles', f"{_pkg} {_mode} {_t}: {_idx} names {_ref}, which the package lacks")
+                if set(_man['entry_skills']) - set(_m['skills']):
+                    fail('profiles', f"{_pkg} {_mode} {_t}: the manifest names an entry skill the profile lacks")
+                _built += 1
+# A known answer for the boundary itself: the decision package, made to declare none of the shared
+# primitives it uses, must refuse to profile rather than pull them in undeclared.
+_bare = dict(_found['decision']['manifest'])
+_bare['dependencies'] = [d for d in _bare.get('dependencies') or [] if not d['ref'].startswith('skills/shared/')]
+try:
+    _profiles.resolve('decision', manifest=_bare)
+    fail('profiles', "decision, declaring no shared primitives, still profiled — the package boundary is not enforced")
+except _profiles.PackagingError:
+    pass
+note('profiles', f"{len(_found)} record-type profiles; {_built} packages built across targets and modes, copies "
+                 f"byte-identical; every one that exceeds a limit refused")
+
+# 12b'' — install, then verify where it sits (owner, 22 Nov 2026: fix the installer, not the agent's
+# instructions). Every profile installs for a runtime that discovers the canonical layout and verifies
+# there; each way the 20 Nov install went wrong — a flat collection — and each tampering must fail.
+import json as _ijson  # noqa: E402
+import shutil as _ishutil  # noqa: E402
+_installed = 0
+for _pkg in _found:
+    with _ptemp.TemporaryDirectory() as _proj:
+        try:
+            _root, _rep = _profiles.install(_pkg, 'hermes', _proj)
+        except _profiles.PackagingError as e:
+            fail('install', f"{_pkg}: {e}")
+            continue
+        _installed += 1
+        if _rep['skill_links']['broken']:
+            fail('install', f"{_pkg}: {_rep['skill_links']['broken']} broken skill link(s) in a verified install")
+        if _pkg != 'decision':
+            continue
+        _rel = lambda p: os.path.relpath(p, _root)  # noqa: E731
+        _man = _ijson.load(open(os.path.join(_root, 'mtdr-package.json'), encoding='utf-8'))
+
+        def _mutant(change):
+            with _ptemp.TemporaryDirectory() as _m:
+                _copy = os.path.join(_m, 'pkg')
+                _ishutil.copytree(_root, _copy)
+                change(_copy)
+                return _profiles.verify(_copy)
+
+        def _flatten(copy):                    # the 20 Nov install: every skill one level below one folder
+            for _s in _man['skills']:
+                _ishutil.move(os.path.join(copy, os.path.dirname(_s['source'])), os.path.join(copy, 'flat', _s['name']))
+        _flat = _mutant(_flatten)
+        if not _flat['broken']:
+            fail('install', "a flat collection verified with no broken link — the check does not see the 20 Nov defect")
+
+        def _tamper(copy):
+            with open(os.path.join(copy, _man['references'][0]['source']), 'ab') as fh:
+                fh.write(b'\n')
+        if not any('digest differs' in f for f in _mutant(_tamper)['failures']):
+            fail('install', "a reference file altered after install still verified")
+
+        def _intrude(copy):
+            _other = next(i['path'] for n, i in _canon.items() if i['package'] not in ('decision', 'shared'))
+            os.makedirs(os.path.join(copy, 'intruder'), exist_ok=True)
+            _ishutil.copyfile(_other, os.path.join(copy, 'intruder', 'SKILL.md'))
+        if not any('not in the package' in f for f in _mutant(_intrude)['failures']):
+            fail('install', "a skill from another record type became discoverable and still verified")
+
+        def _undeclare(copy):
+            _gone = (_man['not_packaged'][0]['from'], _man['not_packaged'][0]['link'])
+            _m2 = dict(_man, not_packaged=[x for x in _man['not_packaged'] if (x['from'], x['link']) != _gone])
+            with open(os.path.join(copy, 'mtdr-package.json'), 'w', encoding='utf-8') as fh:
+                _ijson.dump(_m2, fh)
+        if not _mutant(_undeclare)['broken']:
+            fail('install', "a link the manifest stopped declaring still verified")
+# Claude Code reaches the canonical layout only through a plugin descriptor (owner, 23 Nov 2026: vendor
+# manifests are thin engine adapters). Generated at install, never committed; identification and
+# discovery only. A descriptor carrying any other field, or naming other directories, fails verify.
+with _ptemp.TemporaryDirectory() as _proj:
+    _cdest, _crep = _profiles.install('decision', 'claude-code', _proj)
+    _adapter = os.path.join(_cdest, _profiles.ADAPTER)
+    _plug = _ijson.load(open(_adapter, encoding='utf-8'))
+    if _crep['failures'] or sorted(_plug) != sorted(_profiles.ADAPTER_FIELDS):
+        fail('install', f"the Claude Code install did not verify as a thin adapter: {_crep['failures'][:2]} {sorted(_plug)}")
+    if os.path.relpath(_cdest, _proj).startswith('.claude'):
+        fail('install', "the Claude Code package was placed where Claude Code collects skills flat")
+    for _why, _bad in (('a description field', dict(_plug, description='Recover decisions.')),
+                       ('an instruction field', dict(_plug, instructions='Always draft a TDR.')),
+                       ('a directory outside the package layout', dict(_plug, skills=['./skills/']))):
+        _ijson.dump(_bad, open(_adapter, 'w', encoding='utf-8'))
+        if not _profiles.verify(_cdest)['failures']:
+            fail('install', f"a plugin descriptor with {_why} still verified")
+note('install', f"{_installed} profile(s) installed for a recursive-discovery runtime and verified in place; "
+                "flat collection, tampering, an intruding skill and an undeclared link each fail; the Claude Code "
+                "plugin descriptor verifies as a thin adapter and three non-thin variants fail")
 
 # 12c — surface descriptors describe exactly what is generated, and nothing unclaimed is emitted.
 # The standards boundary puts Agent plugin packaging at `interoperate`, whose foreclosure column
@@ -901,7 +1242,8 @@ DIMENSION_OF = {
     'record-schema': Dim.STRUCTURAL, 'id-filename': Dim.STRUCTURAL, 'vr-example': Dim.STRUCTURAL,
     'vr-negative': Dim.STRUCTURAL, 'skill-frontmatter': Dim.STRUCTURAL, 'skill-name': Dim.STRUCTURAL,
     'skill-description': Dim.STRUCTURAL, 'skill-count': Dim.SEMANTIC, 'manifest': Dim.STRUCTURAL, 'result-fixture': Dim.STRUCTURAL, 'projection-fixture': Dim.STRUCTURAL,
-    'candidate': Dim.SEMANTIC, 'admission': Dim.SEMANTIC, 'boundary': Dim.SEMANTIC, 'neutrality': Dim.SEMANTIC,
+    'candidate': Dim.SEMANTIC, 'admission': Dim.SEMANTIC, 'recovery-fixture': Dim.STRUCTURAL,
+    'recovery-binding': Dim.RELATIONAL, 'adopter-validator': Dim.STRUCTURAL, 'source-fidelity': Dim.RELATIONAL, 'candidate-view': Dim.RELATIONAL, 'profiles': Dim.STRUCTURAL, 'install': Dim.STRUCTURAL, 'contemporaneity': Dim.SEMANTIC, 'boundary': Dim.SEMANTIC, 'neutrality': Dim.SEMANTIC,
     'consumer-name': Dim.SEMANTIC, 'fixture': Dim.SEMANTIC, 'must-not': Dim.SEMANTIC,
     'untyped-claim': Dim.SEMANTIC, 'state-relative': Dim.SEMANTIC, 'obligations': Dim.SEMANTIC,
     'standards': Dim.SEMANTIC,

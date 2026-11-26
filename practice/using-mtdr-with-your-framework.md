@@ -28,7 +28,7 @@ You almost certainly have an agent stack. MTDR does not replace any of it:
 
 | Layer | You probably have this |
 |---|---|
-| Procedural capability | Skills — MTDR ships twenty-five and uses the same open format |
+| Procedural capability | Skills — MTDR ships thirty and uses the same open format |
 | Packaging and distribution | Plugins, extensions, however your runtime installs things |
 | Interaction | A protocol, a chat surface, an API |
 | **Governed semantics and lifecycle** | **This is the gap** |

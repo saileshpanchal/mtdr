@@ -1,0 +1,182 @@
+{
+  "contract_version": "1.0.0",
+  "candidate_id": "CASE-025-1",
+  "retrospective": true,
+  "standing": "none",
+  "status": "candidate",
+  "event_time_ref": "CASE-025-C2",
+  "fragments": [
+    {
+      "fragment_id": "CASE-025-F2",
+      "source_ref": "sources/CASE-025.md",
+      "source_hash": "sha256:98e1073da37716cfae3504ebf6d576faceddb6f21b14e35e6679300661740ccf",
+      "locator": {
+        "kind": "char-offset",
+        "start": 183,
+        "end": 342,
+        "line_start": 6,
+        "line_end": 8,
+        "item": "A",
+        "document": "capital-board/2024-02-06-transcript.md"
+      },
+      "content": "> **Chair:** I'm comfortable we go with the phased replacement at Hollins.\n> **Dev Anand:** I'll own the phasing — first pumps in May.\n> **Chair:** Good. Done.",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "CASE-025-F1",
+      "source_ref": "sources/CASE-025.md",
+      "source_hash": "sha256:98e1073da37716cfae3504ebf6d576faceddb6f21b14e35e6679300661740ccf",
+      "locator": {
+        "kind": "char-offset",
+        "start": 38,
+        "end": 181,
+        "line_start": 3,
+        "line_end": 4,
+        "item": "A",
+        "document": "capital-board/2024-02-06-transcript.md"
+      },
+      "content": "**A — Meeting transcript, `capital-board/2024-02-06-transcript.md`**, recording started 6 February\n2024, 14:00; the chair speaks for most of it",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "CASE-025-F3",
+      "source_ref": "sources/CASE-025.md",
+      "source_hash": "sha256:98e1073da37716cfae3504ebf6d576faceddb6f21b14e35e6679300661740ccf",
+      "locator": {
+        "kind": "char-offset",
+        "start": 344,
+        "end": 420,
+        "line_start": 10,
+        "line_end": 10,
+        "item": "B",
+        "document": "Email, 2024-02-20"
+      },
+      "content": "**B — Email, 2024-02-20** — *\"Dev owns the Hollins phasing, per the board.\"*",
+      "source_time": "2024-02-20",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    }
+  ],
+  "contributions": [
+    {
+      "contribution_id": "CASE-025-C1",
+      "fragment_refs": [
+        "CASE-025-F2"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-statement",
+      "interpreted_value": "I'm comfortable we go with the phased replacement at Hollins (the chair), closed 'Good. Done.'; first pumps in May (year not stated).",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-025-C2",
+      "fragment_refs": [
+        "CASE-025-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-date",
+      "interpreted_value": "2024-02-06",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "inferred"
+    },
+    {
+      "contribution_id": "CASE-025-C3",
+      "fragment_refs": [
+        "CASE-025-F2",
+        "CASE-025-F3"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "accountable-owner",
+      "interpreted_value": "Dev Anand ('I'll own the phasing')",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    }
+  ],
+  "assembly": {
+    "assembly_id": "CASE-025-1-assembly",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "CASE-025-C1",
+      "CASE-025-C2",
+      "CASE-025-C3"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "One transcript (item A): its opening 'recording started 6 February 2024, 14:00' and the exchange it records."
+      },
+      {
+        "basis": "ownership",
+        "evidence": "Transcript: 'Dev Anand: I'll own the phasing'; email (item B): 'Dev owns the Hollins phasing, per the board.'"
+      }
+    ],
+    "assembly_confidence": "high",
+    "missing_semantics": [
+      "context"
+    ],
+    "conflicts": [],
+    "supersessions": [],
+    "unresolved": [
+      "The chair voices the choice and speaks for most of the meeting; that is not ownership. Dev Anand accepts ownership of 'the phasing'. Whether owning the phasing is owning the decision to go with phased replacement is not settled by the span.",
+      "The email of 2024-02-20 restates the transcript's assignment and is counted once with it. Its 'per the board' is the only naming of a forum outside the path ('capital-board'); no authority is contributed.",
+      "No context or alternatives are evidenced. 'first pumps in May' carries no year."
+    ],
+    "status": "candidate"
+  },
+  "fragment_annotations": [
+    {
+      "fragment_ref": "CASE-025-F2",
+      "capture_time": "2024-02-06",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "CASE-025-F1",
+      "capture_time": "2024-02-06",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "CASE-025-F3",
+      "capture_time": "2024-02-20",
+      "creation_time": "2024-02-20",
+      "evidence_kind": "restatement",
+      "restates": "CASE-025-F2"
+    }
+  ],
+  "contribution_annotations": []
+}

@@ -37,8 +37,10 @@ own failure.
   `option-foreclosed`, `confidence`, `consequence`, and `reversal-cost`.
 - **Exactly 1 CandidateAssembly**, `target_object: consequential-decision`.
 - **`missing_semantics` is empty**, and that empty list is a claim the skill is making.
-- **`grouping_basis` may cite a single source** — where all contributions come from one fragment or
-  one contiguous document, grouping is trivially evidenced and should say so plainly.
+- **`grouping_basis` cites the `singleton` basis** — every contribution comes from one entry of one
+  source, the decision paper, and the evidence names it. *Proposed under
+  [TDR-0050](../../../decisions/TDR-0050-singleton-grouping-basis.md)*; before it, the enum had no value
+  for what this fixture always expected.
 - **The proportionality outcome is `full`**, with the reversal-cost reasoning naming the foreclosure
   and the £340k alternative. This is expensive to reverse.
 - **`alternative-rejected` appears three times**, not once. Roles are repeatable.

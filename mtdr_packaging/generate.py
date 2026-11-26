@@ -235,6 +235,19 @@ def flat_install_figures(skills, place):
     )
 
 
+def _install_status(key, s):
+    """What the installer does for this surface, from the runtime evidence it holds — never assumed."""
+    from .profiles import RUNTIMES    # imported here to avoid a cycle
+    rt = RUNTIMES.get(key)
+    if rt and rt['installable']:
+        return f"**{s['title']}:** `install --runtime {key}` — discovery is {rt['discovery']}."
+    if rt:
+        return (f"**{s['title']}: not installable yet.** Discovery is {rt['discovery']}. So {rt['refusal']}. "
+                f"`install` refuses it rather than install it broken.")
+    return (f"**{s['title']}: not tested.** Whether it discovers a skill nested below its skills directory has "
+            f"not been shown, so `install` does not offer it; a flat collection would break the links above.")
+
+
 def surface_readme(key, s, skills):
     paths = s["project_paths"] or s["personal_paths"]
     place = paths[0] if paths else "the runtime's skills directory"
@@ -256,17 +269,22 @@ a defect ([TDR-0024](../../../decisions/TDR-0024-packaging-independence.md)).
 {caution}
 ## Install
 
-The skills live beside the record semantics they serve, and link into them by relative path: a
-record-package skill sits {package_depths} directories below the repository root, a shared skill
-{shared_depths}, counting the directories that contain the skill's own folder. The discovery paths listed below are flat skill directories, not that layout, so there are
-two ways to run them, and neither is complete:
+Install one record type's package with the repository's layout intact, and verify it where it sits
+before executing from it ([`profiles/README.md`](../profiles/README.md)):
 
-- **In place: every link resolves, discovery by name is lost.** Work from a clone of this repository
-  and have the agent follow a skill at its repository path, e.g.
-  `records/decision/skills/<name>/SKILL.md` or `skills/shared/<name>/SKILL.md`.
-- **Collected flat for discovery: links break.** Copying the {len(skills)} collected skills into `{place}`
-  (`cp -r skills/packaging/canonical/skills/* {place}`) {flat_install_figures(skills, place)}
-  An agent that cannot open a link may search for the file and find another copy.
+```
+uv run python -m mtdr_packaging.profiles install <record-type> --runtime <runtime> --project <your project>
+uv run python -m mtdr_packaging.profiles verify <installed package folder>
+```
+
+**Do not collect the skills flat into `{place}`.** The skills live beside the record semantics they
+serve, and link into them by relative path: a record-package skill sits {package_depths} directories
+below the repository root, a shared skill {shared_depths}, counting the directories that contain the
+skill's own folder. Copying the {len(skills)} collected skills flat into `{place}` {flat_install_figures(skills, place)}
+The flat collection in [`canonical/skills/`](../canonical/skills/) is the catalogue's byte-identical
+copies, not an install.
+
+{_install_status(key, s)}
 
 Discovery paths this runtime reads:
 
@@ -282,14 +300,14 @@ Progressive disclosure: {s['progressive_disclosure']}
 
 ## Reference knowledge
 
-**Required, not optional.** The collected skills carry their canonical relative links, which resolve
-against the repository layout rather than inside this directory — deliberately: rewriting them would
-modify a canonical artefact, which packaging may never do. Deploying the reference knowledge alongside
-a flat collection does not make those links resolve (see Install); only the canonical layout does.
-
-The skills point back into the normative layer. Make available the paths listed under
-`reference_knowledge` in [`provenance.yaml`](../canonical/provenance.yaml) — the substrate
-specifications, and each deployed package's specification and templates.
+**Required, not optional, and it travels in the package.** The skills carry their canonical relative
+links, written against the repository layout; rewriting them would modify a canonical artefact, which
+packaging may never do. A folder package therefore keeps that layout — the skills, the substrate
+specifications and schemas they use, and the record package's normative layer — so the links resolve
+inside it. The links that point outside on purpose (decision records, practice notes, another record
+type's specification) are listed under `not_packaged` in the package's `mtdr-package.json`, each with
+its class; `verify` fails on any other. [`provenance.yaml`](../canonical/provenance.yaml) lists the
+reference knowledge for the whole catalogue. A flat collection cannot do this (see Install).
 
 ## The catalogue
 
@@ -315,6 +333,8 @@ def build():
     for key, s in SURFACES.items():
         files[f"{key}/surface.yaml"] = surface_yaml(key, s, skills)
         files[f"{key}/README.md"] = surface_readme(key, s, skills)
+    from .profiles import descriptors    # one profile per record type; imported here to avoid a cycle
+    files.update(descriptors())
     return files, skills
 
 

@@ -21,7 +21,7 @@ The default is that two contributions concern different objects. **Grouping is a
 
 ### 2. Find an admissible basis, and name its evidence
 
-Admissible: explicit cross-reference · entity match · ownership · temporal continuity · authority lineage. Record the *actual* identifier, cross-reference or named owner — not the basis type alone. "Entity match" is not a basis; "both name commitment OVC-Retail-14" is.
+Admissible: explicit cross-reference · entity match · ownership · temporal continuity · authority lineage · singleton — every contribution from one entry of one source, never one document (proposed under TDR-0050). Record the *actual* identifier, cross-reference or named owner — not the basis type alone. "Entity match" is not a basis; "both name commitment OVC-Retail-14" is.
 
 Not admissible on its own: same document, folder, meeting, programme, author or period, and semantic similarity. Each is satisfied by two genuinely different objects discussed in one place, which is the normal condition of organisational material.
 

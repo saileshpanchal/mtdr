@@ -58,9 +58,10 @@
               "entity-match",
               "ownership",
               "temporal-continuity",
-              "authority-lineage"
+              "authority-lineage",
+              "singleton"
             ],
-            "description": "Same document, folder, meeting, programme, author, period or semantic similarity are NOT admissible bases. Each is satisfied by two genuinely different objects discussed in one place, which is the normal condition of organisational material."
+            "description": "Same document, folder, meeting, programme, author, period or semantic similarity are NOT admissible bases. Each is satisfied by two genuinely different objects discussed in one place, which is the normal condition of organisational material. `singleton` (proposed under TDR-0050) is the entry, never the container: every contribution from one fragment or one contiguous entry of one source."
           },
           "evidence": {
             "type": "string",

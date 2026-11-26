@@ -14,7 +14,14 @@ things at once:
 Counts are ranges where span boundaries are a judgement. What is *not* a range is the list below of
 things that must not happen.
 
-## Expected — decisions
+**Amended 7 November 2026 on the owner's rulings**
+([the return](../../decisions/evidence/TDR-0048-0049-owner-return-2026-11-07.md)): D1's authority is
+recorded as applicability, not invocation; D1 is one composite candidate with three traceable
+resolutions; SRC-06 is persistence, not a decision; and the scheme's own adoption is assessed rather
+than passed over. These answers are proposed with
+[TDR-0049](../../decisions/TDR-0049-decision-recovery-vocabulary.md) and take effect with it.
+
+## Expected — decisions and findings
 
 **D1 · Depot consolidation approved in principle.** From SRC-02. A consequential decision: the service
 footprint across four wards changes, and money follows.
@@ -24,27 +31,52 @@ footprint across four wards changes, and money follows.
   of those is a named individual accepting accountability. The gap is reported, with what would close
   it.
 - `decision_date` 2026-02-18, explicit.
-- Authority traces to SRC-01 §3.2 — above-threshold and multi-ward, therefore reserved to Cabinet — so
-  the approval is competent. That is a *relational* finding about authority, not a judgement about the
-  decision's merits.
+- **One composite candidate.** Cabinet passed three resolutions on one motion, carried 8–3: one
+  authoritative act, so one candidate. Each resolution stays individually traceable — its own span
+  and its own `consequence` contribution: approval in principle (res. 1), the Director's authority to
+  bring forward schemes within the capital line (res. 2), and a further report on site selection
+  before contracts are let (res. 3). D2 later narrows what res. 1 approved and leaves res. 2 and 3
+  untouched — which is why they are kept apart.
+- **Authority: applicability, not invocation.** SRC-01 §3.2 reserves any commitment altering the
+  service footprint in more than one ward to Cabinet, and the minute records that the scheme affects
+  four wards: the instrument applies, and the body that acted is the body it names. That is an
+  `applicability` finding, reported beside D1. The minute does not cite the scheme, so **no authority
+  contribution is recorded**, and nothing says Cabinet relied on it. Neither finding is a judgement
+  that the approval was competent.
 
 **D2 · Northgate retained; consolidation narrowed to two depots.** From SRC-05.
 
 - A decision, though the board recorded it as a note. It changes what was committed to.
 - **It supersedes part of D1's scope**, and the supersession is stated rather than the earlier record
   edited.
-- **An authority question is recorded, not adjudicated**: SRC-01 §3.2 reserves footprint changes across
-  more than one ward to Cabinet, and this was taken at a programme board. MTDR records the tension and
-  the evidence for it; whether the board acted within its powers is Brackwell's question, not the
-  standard's.
+- **An authority question is recorded, not adjudicated**: SRC-01 §3.2 applies — a footprint change
+  across more than one ward — and names Cabinet, while the act was the programme board's. The
+  `applicability` finding states that mismatch and the evidence for it; the board's notes cite no
+  authority, so none is recorded. Whether the board acted within its powers is Brackwell's question,
+  not the standard's.
 
-**D3 · Eastern rounds run permanently from Northgate.** From SRC-06. A decision nobody wrote down as
-one: a temporary arrangement whose stated trigger passed, which the organisation has since committed
-maintenance budget to through FY28.
+**SRC-06 · Persistence, not a decision to make it permanent.** The two eastern rounds still run from
+Northgate on 30 June, past the April–May period the temporary measure was set up for, and no move is
+scheduled.
 
-- `decision_date` is **unknown and bounded** — after the September slip was known, before the FY28
-  maintenance schedule was set. The fuzziness is the honest value.
-- Crew preference is context, not authority.
+- **A `persistence` finding** — behaviour observed at the note's date — with its **authority for
+  continuation flagged `not-evidenced`**. Nothing in the set authorises the arrangement beyond May, and
+  nothing records who set up the temporary measure.
+- **No decision to make the arrangement permanent is recovered.** Continued operation, stable rounds,
+  crew preference and the absence of a scheduled move do not establish one. They travel with the
+  finding as the note's account of why nothing moved; crew preference is not authority.
+- **The FY28 maintenance inclusion is reported, not recovered.** The note says Northgate *has been
+  included* in the depot maintenance schedule through FY28 — an account, after the fact, of a
+  commitment of money whose act is not in the set. It evidences that a commitment occurred. Its act,
+  date, owner and authority are missing, and a candidate for it needs the record of the commitment.
+
+**SRC-01 · The scheme's own adoption — assessed, not passed over.** The extract states its own adoption
+date, 2025-04-01, which is a basis for the time, and it is **not set aside because the only evidence of
+the adoption is the instrument itself**. A candidate needs authentication and evidence of effect as
+well. In this set nothing authenticates the extract — no adopting resolution, signature, seal or
+register entry — and no later act relies on it by citation: Cabinet's reservation and the Section 151
+counter-signature are consistent with its terms, and cite nothing. **No candidate**: the adoption is
+reported with the condition met (contemporaneity) and the evidence that would establish the other two.
 
 ## Expected — value
 
@@ -97,11 +129,20 @@ carry, and that is the most important thing the exercise could tell you.
   not revised; recomputing it would replace an organisational fact with an interpreter's arithmetic.
 - **Draw attribution from the 4% figure**, or drop it because attribution is unavailable. It is
   evidence of an observation and travels as one.
-- **Report SRC-06 as "no decision present".** The organisation has committed maintenance budget through
-  FY28; that is a decision whatever the document calls itself.
+- **Recover a decision to make the eastern rounds permanent** from continued operation, crew
+  preference or the maintenance schedule. Persistence is observed behaviour; its authority for
+  continuation is flagged, not supplied.
+- **Report SRC-06 as silent.** It evidences persistence, and that a maintenance commitment was made.
+- **Record SRC-01 §3.2 as D1's authority.** The minute does not cite it. Record the applicability,
+  beside D1.
+- **Split D1's resolutions into three candidates**, or fold them into one undivided statement. One
+  vote, one candidate, three traceable resolutions.
+- **Set aside the scheme's adoption solely because its only evidence is the scheme**, or draft a
+  candidate for it without stating the evidence of authentication and effect.
 - **Adjudicate the D2 authority question.** Record the delegation, the act and the tension. Deciding
   whether the board had the power is Brackwell's judgement.
-- **Invent a decision date for D3** from any single document's date.
+- **Date the maintenance commitment from the note.** 30 June is when the commitment was reported, not
+  when it was made.
 - **Add local-government semantics to the standard.** No ward, delegation, portfolio-holder or
   Section-151 role may become a field, an enum value or a semantic role. If reconstruction seems to
   need one, the finding is that the *record package* is missing something general — and it goes through

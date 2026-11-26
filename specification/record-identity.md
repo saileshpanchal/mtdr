@@ -1,6 +1,6 @@
 # Record identity — what a detached record must be able to say about itself
 
-**Version:** 1.0.0 · **Licence:** MIT
+**Version:** 1.0.1 · **Licence:** MIT
 
 A record is frequently read alone: attached to a ticket, pasted into a paper, exported into a
 different estate, recovered from a backup years later. In that condition the repository around it is
@@ -37,12 +37,14 @@ Given `mtdr/decision/tdr@1.15.0` and no repository:
 | What kind of object is this? | `tdr` — a Transformation Decision Record |
 | Which language does it belong to? | `decision` |
 | Which document defines its meaning? | The TDR specification at version `1.15.0` |
-| Which schema validates it? | `records/decision/schema/tdr.schema.json`, in an MTDR distribution whose decision package declares `specification_version: 1.15.0` |
+| Which schema validates it? | `records/decision/schema/tdr.schema.json`, in an MTDR distribution whose decision package declares version `1.15.0`, as its `specification_version` or among its `prior_versions` |
 
 **The last row is a rule, not a lookup.** The path is derivable from the identifier —
 `records/<package>/schema/<record>.schema.json` — so no registry file has to be fetched, hosted or
 kept alive for a record to remain resolvable. A registry is a service; a rule is not, and a record
-that needed a service to be interpretable would have failed the constraint rather than met it.
+that needed a service to be interpretable would have failed the constraint rather than met it. A
+prior version a package declares with `schema: null` has no schema to resolve to, and its records are
+never run against the current one.
 
 ## Why the field is optional in the schema
 

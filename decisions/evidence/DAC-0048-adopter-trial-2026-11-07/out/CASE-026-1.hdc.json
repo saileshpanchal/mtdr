@@ -1,0 +1,124 @@
+{
+  "contract_version": "1.0.0",
+  "candidate_id": "CASE-026-1",
+  "retrospective": true,
+  "standing": "none",
+  "status": "candidate",
+  "event_time_ref": "CASE-026-C2",
+  "fragments": [
+    {
+      "fragment_id": "CASE-026-F1",
+      "source_ref": "sources/CASE-026.md",
+      "source_hash": "sha256:e39f49102732dcedfbd7abbcf2f94b7e41782ff8903f9c34497cb2d340f0e239",
+      "locator": {
+        "kind": "char-offset",
+        "start": 38,
+        "end": 131,
+        "line_start": 3,
+        "line_end": 3,
+        "item": "A",
+        "document": "Board minute, 2019-03-14"
+      },
+      "content": "**A — Board minute, 2019-03-14** — the board agreed a single repairs line. No owner is named.",
+      "source_time": "2019-03-14",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    }
+  ],
+  "contributions": [
+    {
+      "contribution_id": "CASE-026-C1",
+      "fragment_refs": [
+        "CASE-026-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-statement",
+      "interpreted_value": "The board agreed a single repairs line.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-026-C2",
+      "fragment_refs": [
+        "CASE-026-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-date",
+      "interpreted_value": "2019-03-14",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-026-C3",
+      "fragment_refs": [
+        "CASE-026-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "authority",
+      "interpreted_value": "the board",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    }
+  ],
+  "assembly": {
+    "assembly_id": "CASE-026-1-assembly",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "CASE-026-C1",
+      "CASE-026-C2",
+      "CASE-026-C3"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "One act-record (item A): the minute dated 2019-03-14 records 'the board agreed a single repairs line'."
+      }
+    ],
+    "assembly_confidence": "high",
+    "missing_semantics": [
+      "context",
+      "accountable-owner"
+    ],
+    "conflicts": [],
+    "supersessions": [],
+    "unresolved": [
+      "No owner is named (the material says so). Today's structure (item B) names the present Director of Operations, in post since 2024; whoever holds such a role now is not the historical owner, and that material post-dates the decision. Not used.",
+      "No context or alternatives are evidenced; the minute is supplied only as the case file's summary."
+    ],
+    "status": "candidate"
+  },
+  "fragment_annotations": [
+    {
+      "fragment_ref": "CASE-026-F1",
+      "capture_time": "2019-03-14",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    }
+  ],
+  "contribution_annotations": []
+}

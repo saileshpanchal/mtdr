@@ -33,12 +33,15 @@ The specification governs wherever an overlay appears to differ from it.
 [`problem-framing-and-decision-capture`](skills/problem-framing-and-decision-capture/) →
 [`evidence-review`](skills/evidence-review/) → [`governance-review`](skills/governance-review/)
 
-**Interpretation path** (reconstruction from material): the shared
-[`identify-record-contributions`](../../skills/shared/identify-record-contributions/) and
-[`reconcile-record-fragments`](../../skills/shared/reconcile-record-fragments/), then
-[`draft-tdr`](skills/draft-tdr/) here, then the shared
-[`challenge-record`](../../skills/shared/challenge-record/) and
-[`validate-record`](../../skills/shared/validate-record/).
+**Interpretation path** (reconstruction from material): [`recover-decision-records`](skills/recover-decision-records/)
+runs it end to end — [`identify-decision-contributions`](skills/identify-decision-contributions/) →
+[`reconcile-decision-contributions`](skills/reconcile-decision-contributions/) →
+[`draft-tdr`](skills/draft-tdr/) → [`challenge-decision-record`](skills/challenge-decision-record/) →
+[`validate-decision-record`](skills/validate-decision-record/), each specialising the shared stage of
+the same name. Its vocabulary is [`decision-contribution.md`](specification/decision-contribution.md);
+material recovered after the event follows [`historical-recovery.md`](../../specification/historical-recovery.md),
+and what it hands on is a retrospective candidate with no standing. *Proposed under TDR-0048 and
+TDR-0049.*
 
 **Assurance** ([`skills/assurance/`](skills/assurance/)) — routing is normative in the DAC spec §4:
 `systems-thinking`, `counterfactual-and-evidence` and `accumulated-and-resultant-risk` always run;

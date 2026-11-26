@@ -4,7 +4,7 @@ title: Copilot
 class: direct
 confidence: secondary — provisional, re-verify before relying on it
 source: Microsoft Learn and the GitHub changelog, both unreachable from the verifying environment
-skill_count: 25
+skill_count: 30
 project_paths:
   - .github/skills/
   - .claude/skills/

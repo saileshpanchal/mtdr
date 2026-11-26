@@ -8,23 +8,28 @@ a defect ([TDR-0024](../../../decisions/TDR-0024-packaging-independence.md)).
 
 ## Install
 
-The skills live beside the record semantics they serve, and link into them by relative path: a
-record-package skill sits three or four directories below the repository root, a shared skill
-two, counting the directories that contain the skill's own folder. The discovery paths listed below are flat skill directories, not that layout, so there are
-two ways to run them, and neither is complete:
+Install one record type's package with the repository's layout intact, and verify it where it sits
+before executing from it ([`profiles/README.md`](../profiles/README.md)):
 
-- **In place: every link resolves, discovery by name is lost.** Work from a clone of this repository
-  and have the agent follow a skill at its repository path, e.g.
-  `records/decision/skills/<name>/SKILL.md` or `skills/shared/<name>/SKILL.md`.
-- **Collected flat for discovery: links break.** Copying the 25 collected skills into `.claude/skills/`
-  (`cp -r skills/packaging/canonical/skills/* .claude/skills/`) makes them discoverable, but puts
+```
+uv run python -m mtdr_packaging.profiles install <record-type> --runtime <runtime> --project <your project>
+uv run python -m mtdr_packaging.profiles verify <installed package folder>
+```
+
+**Do not collect the skills flat into `.claude/skills/`.** The skills live beside the record semantics they
+serve, and link into them by relative path: a record-package skill sits three or four directories
+below the repository root, a shared skill two, counting the directories that contain the
+skill's own folder. Copying the 30 collected skills flat into `.claude/skills/` makes them discoverable, but puts
   every skill two directories below the project root. Each relative link is written for the depth at
   which its skill sits in the repository, so from any other depth a link to anything but a
-  neighbouring skill lands somewhere else. **33 of their 64 relative links no longer resolve, in
-  10 of the 25 skills, even inside a full clone**.
+  neighbouring skill lands somewhere else. **66 of their 108 relative links no longer resolve, in
+  15 of the 30 skills, even inside a full clone**.
   The links that still resolve all reach the file the skill means.
-  In a project without the repository, 56 of 64 break.
-  An agent that cannot open a link may search for the file and find another copy.
+  In a project without the repository, 92 of 108 break.
+The flat collection in [`canonical/skills/`](../canonical/skills/) is the catalogue's byte-identical
+copies, not an install.
+
+**Claude Code:** `install --runtime claude-code` — discovery is through a generated plugin descriptor only — .claude/skills/ is one level deep and a symlinked skill reports the link path as its base directory, but a plugin descriptor naming the canonical skill directories gives each skill its canonical base directory (2.1.316, probed 2026-11-20 and 2026-11-22). Run `claude --plugin-dir <package>`. The descriptor is a thin engine adapter (owner, 23 Nov 2026), generated at install and never committed; its standards disposition is governed separately.
 
 Discovery paths this runtime reads:
 
@@ -41,18 +46,18 @@ Progressive disclosure: Yes — a skill's body loads only when it is used.
 
 ## Reference knowledge
 
-**Required, not optional.** The collected skills carry their canonical relative links, which resolve
-against the repository layout rather than inside this directory — deliberately: rewriting them would
-modify a canonical artefact, which packaging may never do. Deploying the reference knowledge alongside
-a flat collection does not make those links resolve (see Install); only the canonical layout does.
-
-The skills point back into the normative layer. Make available the paths listed under
-`reference_knowledge` in [`provenance.yaml`](../canonical/provenance.yaml) — the substrate
-specifications, and each deployed package's specification and templates.
+**Required, not optional, and it travels in the package.** The skills carry their canonical relative
+links, written against the repository layout; rewriting them would modify a canonical artefact, which
+packaging may never do. A folder package therefore keeps that layout — the skills, the substrate
+specifications and schemas they use, and the record package's normative layer — so the links resolve
+inside it. The links that point outside on purpose (decision records, practice notes, another record
+type's specification) are listed under `not_packaged` in the package's `mtdr-package.json`, each with
+its class; `verify` fails on any other. [`provenance.yaml`](../canonical/provenance.yaml) lists the
+reference knowledge for the whole catalogue. A flat collection cannot do this (see Install).
 
 ## The catalogue
 
-25 skills, enumerated from the package manifests rather than a hand-maintained list:
+30 skills, enumerated from the package manifests rather than a hand-maintained list:
 [`catalogue.yaml`](../canonical/catalogue.yaml). Every surface ships the same catalogue; a surface
 shipping a subset would be a different capability wearing the same name.
 
