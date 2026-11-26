@@ -32,8 +32,8 @@ from:
 | Significant, but revisable at tolerable cost | [Minimal](records/decision/templates/tdr-minimal.md) | [Migrating a data platform](records/decision/examples/example-minimal-data-platform-migration.md) (fictional) |
 | Reversible and low-stakes | [Bare](records/decision/templates/tdr-bare.md), or no record at all | [TDR-0004](decisions/TDR-0004-markdown-yaml-serialisation.md), one of this standard's own |
 
-The [TDR specification](records/decision/specification/tdr.md) is the authority; §4.1 defines every
-field in the templates.
+The [TDR specification](records/decision/specification/tdr.md) is the authority; its field table is
+§4.1. The templates' `conforms_to` line is explained in [record identity](specification/record-identity.md).
 
 ### Two routes to the same record
 
