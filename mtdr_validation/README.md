@@ -14,6 +14,17 @@ The distinction is the one JSON Schema itself makes between a validation vocabul
 particular validator's console output, and it matters directly: the recovery experiment compares
 independent runtimes, and a runtime is not being measured against this Python.
 
+## Which check you want
+
+Run as a command, this module assesses the output of a recovery: historical candidates and their review
+events. Start at [Validating a folder of recovery output](#validating-a-folder-of-recovery-output) for
+the command.
+
+The command does not assess a TDR you have authored. For that, the shared
+[`validate-record`](../skills/shared/validate-record/SKILL.md) skill checks a record against its own
+specification. To run this repository's own suite, use `uv run tests/verify.py`
+([`tests/`](../tests/README.md)).
+
 ## What it does
 
 Builds validation results, serialises them to JSON, validates them against the published schema, and
@@ -51,16 +62,18 @@ assessed, and the caller's inputs are never mutated.
 
 ## Validating a folder of recovery output
 
-An adopter who has run a recovery — in any engine — checks what it produced with one command, from a
+An adopter who has run a recovery, in any engine, checks what it produced with one command, from a
 checkout of this repository:
 
 ```bash
 uv run python -m mtdr_validation <folder> [--sources <evidence-folder>]
 ```
 
-It finds every historical candidate and review event under `<folder>`, and writes to
-`<folder>/validation/` (or `--out`) one validation result per artefact — each checked against the
-published schema before it is written — and a `summary.md` a person can read:
+`<folder>` holds the recovery output. `--sources`, if given, is the folder of original material the
+recovery read. The command finds every historical candidate and review event under `<folder>` and writes
+two things to `<folder>/validation/` (or `--out`): one validation result per artefact, each checked
+against the published schema before it is written, and a `summary.md` a person can read. For a candidate,
+the four dimensions report:
 
 | Dimension | What it reports for a candidate |
 |---|---|
@@ -69,11 +82,10 @@ published schema before it is written — and a `summary.md` a person can read:
 | relational | whether every review event naming the candidate was recorded against this exact content (its digest); with `--sources`, whether every fragment says what its source says, where it says it (below); and whether any Markdown rendering naming the candidate is a candidate view (`status: candidate`, `standing: none`, `retrospective: true`, `candidate_id`), never a record's frontmatter (`draft-tdr` §7) |
 | transition-eligibility | always `not-applicable`: a candidate's standing is `none`, and attestation is a person's act |
 
-The summary also gives the computed contemporaneity of every context contribution, and lists what it
-did not assess. **There is no overall result**, and the exit status is operational — 0 when the folder
-was assessed, 2 when it could not be — never a conformance verdict. `tests/verify.py` calls the same
-functions (`mtdr_validation.recovery`) and checks that this command agrees with every published
-candidate fixture.
+The summary also gives the computed contemporaneity of every context contribution, and lists what it did
+not assess. **There is no overall result.** The exit status is operational, never a conformance verdict:
+0 when the folder was assessed, 2 when it could not be. `tests/verify.py` calls the same functions
+(`mtdr_validation.recovery`) and checks that this command agrees with every published candidate fixture.
 
 ### Source fidelity (`--sources`)
 

@@ -5,6 +5,11 @@
 You have an architecture, an operating model, a governance framework or a standards project of your
 own, spread across documents that were written for other purposes. This is how you apply MTDR to it.
 
+This is the interpretation path: reconstruction from material. To record a decision at the time it is
+made, use the [quick start](quickstart.md) instead. Where your material records decisions taken in the
+past, [historical recovery](../specification/historical-recovery.md) (proposed under TDR-0048) says what
+a recovery may and may not claim.
+
 Runtime-neutral. Where a step depends on your reasoning environment, it says so and points at
 [`skills/packaging/`](../skills/packaging/).
 
@@ -12,15 +17,14 @@ Runtime-neutral. Where a step depends on your reasoning environment, it says so 
 
 **Your framework is source material. It is not something MTDR is configured to match.**
 
-That inverts the usual expectation, and everything else here follows from it. You do not adapt the
-record semantics to your terminology, add your document types as fields, or write your governance
-model into a prompt. MTDR reads what your material *says* and reconstructs candidate organisational
-records from it, preserving provenance, gaps, conflicts and uncertainty on the way.
+You do not adapt the record semantics to your terminology, add your document types as fields, or write
+your governance model into a prompt. MTDR reads what your material *says* and reconstructs candidate
+organisational records from it, preserving provenance, gaps, conflicts and uncertainty on the way.
 
-If your framework genuinely needs record semantics MTDR does not have, that is not a customisation
-question — it is a proposal, and it goes through the
-[language admission test](../specification/record-admission-test.md). Editing the standard to fit one
-adopter is how a portable standard stops being portable.
+If your framework genuinely needs record semantics MTDR does not have, that is a proposal, not a
+customisation, and it goes through the [language admission
+test](../specification/record-admission-test.md). Editing the standard to fit one adopter is how a
+portable standard stops being portable.
 
 ## What MTDR adds to what you already have
 
@@ -52,8 +56,8 @@ One pass, in that order.
 files unmodified, so this is a matter of where files go rather than what they say.
 
 **2. Identify what is there.** `decision-identification` first, then the shared
-`identify-record-contributions`. The question is not "which documents are decisions" — documents are
-containers, and a decision is often spread across four of them or buried in a note nobody labelled.
+`identify-record-contributions`. Documents are containers: a decision is often spread across four of
+them or buried in a note nobody labelled.
 
 **3. Reconcile.** `reconcile-record-fragments` groups contributions that concern one object and refuses
 to group ones that merely appear together. **Proximity is never identity.** Expect it to record

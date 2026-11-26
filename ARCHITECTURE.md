@@ -4,7 +4,7 @@ The TDR standard is deliberately layered, and the layers are separable. This pag
 whole shape in one picture so an architect can see, at a glance, what the standard *is*,
 what merely *implements* it, and what optionally *consumes* it.
 
-The load-bearing claim is a boundary, not a stack:
+The claim everything else rests on is a boundary, not a stack:
 
 > **The standard ends at the decision register.** Everything above the register is the
 > standard; everything below it is an optional consumer of the standard's output. A
@@ -100,7 +100,7 @@ Three properties of the standard already draw this line; this page only makes it
   is required to. The lineage lives in the records, not in a database.
 - **The record is never the runtime object.** A decision *record* captures judgement; whatever
   executes, monitors or reasons over decisions is a separate, downstream thing. The standard is
-  careful never to conflate them — which is precisely what lets the graph and everything above it
+  careful never to conflate them, which is what lets the graph and everything above it
   be optional and vendor-independent.
 
 ## Two consequences for adopters

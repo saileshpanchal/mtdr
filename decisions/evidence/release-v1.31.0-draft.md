@@ -45,9 +45,9 @@ Under [DAC-0045](../DAC-0045-external-validation-follows-publication.md) constra
 README or announcement may claim external validation, proven adoption, ease of installation or
 usability while `DAC-0032#4` is outstanding.
 
-## Standing of each capability
+## Status of each capability
 
-| Capability | Standing |
+| Capability | Status |
 |---|---|
 | Decision (TDR, DAC) | Normative |
 | Value (VR) | Normative |

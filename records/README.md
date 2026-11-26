@@ -1,9 +1,9 @@
 # Record packages
 
-**The architectural unit of this standard is the record package, and top-level packages correspond to
-organisational languages** — one class of organisational meaning, one primary record type, one
-package. Decided in [TDR-0021](../decisions/TDR-0021-record-package-architecture.md); the umbrella
-specification is [`specification/organisational-records.md`](../specification/organisational-records.md).
+**The architectural unit of this standard is the record package.** Each top-level package
+corresponds to one organisational language: one class of organisational meaning, one primary record
+type, one package. This was decided in [TDR-0021](../decisions/TDR-0021-record-package-architecture.md);
+the umbrella specification is [`specification/organisational-records.md`](../specification/organisational-records.md).
 
 | Package | Primary record | Status | Associated artefacts / practice |
 |---|---|---|---|
@@ -34,9 +34,11 @@ records/<language>/
 └── skills/            the language's portable skills
 ```
 
-A **candidate** package contains a README only — identity, semantic scope, `status: candidate`, and a
-statement that the [record admission test](../specification/record-admission-test.md) has not been
-passed. A directory confers no maturity.
+A **candidate** package contains a README only — identity, semantic scope, `status: candidate`, and
+a statement that the [record admission test](../specification/record-admission-test.md) has not been
+passed. A directory confers no maturity. A candidate *package* is not a candidate *record*, which is
+a proposed, unratified record ([candidacy and
+ratification](../specification/candidacy-and-ratification.md)).
 
 ## The two structural rules
 
@@ -51,10 +53,10 @@ decision.
 
 One refinement, forced by a real relationship: a package's specification may make a **normative
 cross-reference to a sibling package's specification** — the value language's mandatory
-`linked_decisions` genuinely refers to the decision language (TDR-0008), and on extraction such a
-reference becomes a URL to the sibling standard, exactly as a reference to ISO 8601 would. What a
-package may never reach sideways for is a sibling's **schemas, skills, templates, validation or
-fixtures** — those are dependencies, and dependencies break extraction.
+`linked_decisions` refers to the decision language (TDR-0008), and on extraction such a reference
+becomes a URL to the sibling standard, exactly as a reference to ISO 8601 would. What a package may
+never reach sideways for is a sibling's **schemas, skills, templates, validation or fixtures** —
+those are dependencies, and dependencies break extraction.
 
 ## Adding a language
 

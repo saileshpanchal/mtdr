@@ -8,8 +8,9 @@ a defect ([TDR-0024](../../../decisions/TDR-0024-packaging-independence.md)).
 
 ## Install
 
-Install one record type's package with the repository's layout intact, and verify it where it sits
-before executing from it ([`profiles/README.md`](../profiles/README.md)):
+Where the installer offers this runtime (its status is stated below), install one record type's package
+with the repository's layout intact, and verify it where it sits before executing from it.
+[`profiles/README.md`](../profiles/README.md) explains both commands:
 
 ```
 uv run python -m mtdr_packaging.profiles install <record-type> --runtime <runtime> --project <your project>

@@ -63,8 +63,9 @@ the search itself be tested.
 
 ## The deterministic validator
 
-Run these checks in code, on every save and on a schedule — never delegate binary conditions to the
-assistant:
+Run these checks in code, on every save and on a schedule. Never delegate binary conditions to the assistant.
+The `mtdr_validation` folder command is not this validator: it assesses the output of a recovery
+([`mtdr_validation/`](../mtdr_validation/README.md)).
 
 - schema and frontmatter validity; required fields present; enum values legal;
 - ID uniqueness; filename and ID agree;

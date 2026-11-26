@@ -5,8 +5,8 @@
 
 The value language: the record that preserves what the organisation committed to pursue or preserve,
 for whom, under what authority, and how the commitment settled. The object is the commitment; the
-record is its governed memory. *Operational Value Record* and *OVR* are deprecated drift names,
-retained only in migration and alias tests.
+record is its governed memory. *Operational Value Record* and *OVR* are deprecated names, retained
+only in migration and alias tests.
 
 ## Contents
 
@@ -23,19 +23,25 @@ retained only in migration and alias tests.
 
 The specification governs wherever an overlay appears to differ from it.
 
-## The load-bearing semantics
+## The semantics everything else rests on
 
-**The commitment is an accountable pursuit, not a prediction** — the record never claims an outcome
-will occur. **`beneficiary` is identity-bearing**: two commitments differing only in whose outcome is
-pursued are two commitments, and FIX-003 demonstrates why. **Two independent state axes**: `status`
-(`candidate → ratified → settled → superseded`) is what is known about the record; `realisation`
-(`not-started → observing → realised | partially-realised | not-realised | attribution-unresolved |
-written-off`) is what is known about the value. **Measurement is not attribution** — an observed
-movement is never evidence that this commitment caused it, and `attribution-unresolved` is a
-legitimate settlement. The **counterfactual is deliberately optional** (spec §5.2); its absence is
-never reported as a gap and never inferred.
+- **The commitment is an accountable pursuit, not a prediction.** The record never claims an outcome
+  will occur.
+- **`beneficiary` is identity-bearing.** Two commitments differing only in whose outcome is pursued
+  are two commitments, and FIX-003 demonstrates why.
+- **Two independent state axes.** `status` (`candidate → ratified → settled → superseded`) is what is
+  known about the record; `realisation` (`not-started → observing → realised | partially-realised |
+  not-realised | attribution-unresolved | written-off`) is what is known about the value.
+- **Measurement is not attribution.** An observed movement is never evidence that this commitment
+  caused it, and `attribution-unresolved` is a legitimate settlement.
+- **The counterfactual is deliberately optional** (spec §5.2). Its absence is never reported as a gap
+  and never inferred.
 
 ## Skills
+
+As in the decision package, there are two routes to the record: authoring with a human who holds the
+commitment, and interpretation, which reconstructs candidates from material and ends in human
+ratification.
 
 **Authoring path**: [`value-record`](skills/value-record/) — raise, ratify and settle with a human
 who holds the commitment.

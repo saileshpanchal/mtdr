@@ -3,12 +3,15 @@
 **Language:** decision · **Object:** `consequential-decision` — the unit of judgement
 **Primary record:** `TDR` — Transformation Decision Record · **Status:** Normative
 
-The decision language, complete: the record that preserves organisational judgement, and the
-assurance discipline that challenges a decision's consequences before execution. The **Decision
-Assurance Case (DAC)** lives here as a dependent artefact, not a sixth language — its `tdr_id` is
-mandatory, its lifecycle is coupled to the TDR's, and its purpose is assurance over the decision
-([TDR-0021](../../decisions/TDR-0021-record-package-architecture.md)). Extracting this package yields
-a full decision-language implementation, assurance included.
+This package is the decision language, complete: the TDR, the record that preserves organisational
+judgement, and the assurance discipline that challenges a decision's consequences before execution.
+The **Decision Assurance Case (DAC)** lives here as a dependent artefact, not a sixth language: its
+`tdr_id` is mandatory, its lifecycle is coupled to the TDR's, and its purpose is assurance over the
+decision ([TDR-0021](../../decisions/TDR-0021-record-package-architecture.md)). Extracting this
+package yields a full decision-language implementation, assurance included.
+
+To write a first record, start at the repository's quick start, `practice/quickstart.md`. This page
+is the package's index.
 
 ## Contents
 
@@ -28,6 +31,10 @@ The specification governs wherever an overlay appears to differ from it.
 
 ## Skills
 
+There are two routes to a TDR. The authoring path records a decision at the time it is made. The
+interpretation path recovers a decision from the material that survives it. The record is the same
+by either route: there is no interpreted variant of a TDR and an authored variant.
+
 **Authoring path** (a human who holds the reasoning):
 [`decision-identification`](skills/decision-identification/) →
 [`problem-framing-and-decision-capture`](skills/problem-framing-and-decision-capture/) →
@@ -38,17 +45,18 @@ runs it end to end — [`identify-decision-contributions`](skills/identify-decis
 [`reconcile-decision-contributions`](skills/reconcile-decision-contributions/) →
 [`draft-tdr`](skills/draft-tdr/) → [`challenge-decision-record`](skills/challenge-decision-record/) →
 [`validate-decision-record`](skills/validate-decision-record/), each specialising the shared stage of
-the same name. Its vocabulary is [`decision-contribution.md`](specification/decision-contribution.md);
-material recovered after the event follows [`historical-recovery.md`](../../specification/historical-recovery.md),
-and what it hands on is a retrospective candidate with no standing. *Proposed under TDR-0048 and
-TDR-0049.*
+the same name. Its vocabulary is [`decision-contribution.md`](specification/decision-contribution.md).
+
+Material recovered after the event follows
+[`historical-recovery.md`](../../specification/historical-recovery.md), whose one rule is: "Recover
+what can be evidenced. Preserve what cannot. Never turn a contemporary interpretation into
+historical authority." What the interpretation path hands on is a retrospective candidate with no
+standing: a proposal that no named individual has ratified. *Proposed under TDR-0048 and TDR-0049.*
 
 **Assurance** ([`skills/assurance/`](skills/assurance/)) — routing is normative in the DAC spec §4:
 `systems-thinking`, `counterfactual-and-evidence` and `accumulated-and-resultant-risk` always run;
 `fraud-and-adversarial-thinking`, `customer-outcomes`, `systems-dynamics` and `adaptive-capacity` run
 on their declared triggers; `assurance-synthesis` always closes.
-
-One record, two routes to it — there is no interpreted variant of a TDR and an authored variant.
 
 ## The proportionality rule applies to candidates
 

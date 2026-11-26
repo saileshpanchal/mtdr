@@ -1,17 +1,18 @@
 # Packaging — distribution adapters
 
-How the standard's portable artefacts ship through specific runtimes. **Adapters are assembled
-from the normative artefacts and never constrain them**
-([TDR-0024](../../decisions/TDR-0024-packaging-independence.md)) — this directory is the one place
-in the repository where product names may appear, and a change to any specification, schema,
-template or skill justified only by a packaging surface's requirement is inadmissible.
+This directory is how the standard's skills reach the AI runtime you already use. To install them,
+go to [Install and verify](#install-and-verify).
 
-The skills are written for humans and structured so AI assistants
-can apply them directly. Since mid-2026 the major agent runtimes load that structure
-natively — a skill is a `SKILL.md` with YAML frontmatter (`name`, `description`) and
-markdown instructions — which means the standard is now **machine-deployable**: an
-organisation can stand up its own decision-record and assurance agent from this repository
-alone, on the runtime it already runs.
+**Adapters are assembled from the normative artefacts and never constrain them**
+([TDR-0024](../../decisions/TDR-0024-packaging-independence.md)). This directory is the one place in
+the repository where product names may appear, and a change to any specification, schema, template
+or skill justified only by a packaging surface's requirement is inadmissible.
+
+The skills are written for humans and structured so AI assistants can apply them directly. Since
+mid-2026 the major agent runtimes load that structure natively: a skill is a `SKILL.md` with YAML
+frontmatter (`name`, `description`) and markdown instructions. The standard is therefore
+**machine-deployable**: an organisation can stand up its own decision-record and assurance agent
+from this repository alone, on the runtime it already runs.
 
 This directory is the deployment pack:
 
@@ -38,6 +39,32 @@ specifications apply to regulators. The skills load unmodified in any runtime th
 supports the open skill format (among others: Claude Code and claude.ai projects,
 Microsoft Copilot Studio, Visual Studio's Copilot, the Microsoft Agent Framework);
 in a runtime without native skills, the same files work as retrieval knowledge.
+
+## Install and verify
+
+The installer places one record type's package where a runtime discovers skills, with the
+repository's layout intact. `verify` then checks the package where it sits:
+
+```
+uv run python -m mtdr_packaging.profiles install <record-type> --runtime <runtime> --project <your project>
+uv run python -m mtdr_packaging.profiles verify <installed package folder>
+```
+
+`<record-type>` is `decision` or `value`, the two record types that have a profile. `<runtime>` is
+`hermes` or `claude-code`: the installer offers a runtime only where it is shown to discover that
+layout in place. Each package is built for recovery: its recovery skill and every skill that skill links to. The
+`decision` package therefore leaves out `problem-framing-and-decision-capture`, `governance-review`
+and the assurance lenses, and the `value` package leaves out `value-record`; follow those from the
+repository ([#15](https://github.com/saileshpanchal/mtdr/issues/15)).
+
+After that:
+
+1. Read [`profiles/`](profiles/) for what the two commands do and what `verify` refuses.
+2. Read your runtime's directory here, where there is one, for where it discovers skills and how you
+   invoke one.
+3. Run the ten [agent probes](../../tests/conformance/agent-probes.md) before trusting the deployment.
+
+Do not copy the skills flat into a runtime's skills folder: their relative links break.
 
 ## The deployment model
 
@@ -173,5 +200,5 @@ the specialists, and produces the one disposition — whose owner is always a na
 
 ## Prove it
 
-Run the ten probes in [`conformance.md`](../../tests/conformance/agent-probes.md) before trusting any deployment.
-An agent that fails one is not applying the standard, whatever its instructions say.
+Run the ten probes in [`agent-probes.md`](../../tests/conformance/agent-probes.md) before trusting
+any deployment. An agent that fails one is not applying the standard, whatever its instructions say.

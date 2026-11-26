@@ -17,10 +17,12 @@ A governing document is dense with different kinds of statement. Classify before
 | **Control / management information** | evidence | whether the implementation operated as intended |
 | **Contract** | delegated behaviour | third-party obligations, monitored and evidenced |
 
-Only an organisational judgement becomes a record. External requirements keep their own provenance and
-become constraints or evidence a record cites. Making a *current* policy's decisions explicit is not the
-retro-mining the [identification skill](../records/decision/skills/decision-identification/SKILL.md) warns against: a policy
-in force is the organisation's present position, not an old debate to reconstruct.
+Only an organisational judgement becomes a record. External requirements keep their own provenance and become
+constraints or evidence a record cites. Making a *current* policy's decisions explicit is not the hindsight
+reconstruction the [identification skill](../records/decision/skills/decision-identification/SKILL.md) warns
+against: a policy in force is the organisation's present position, not an old debate to reconstruct.
+Recovering what old material evidences is a different act with its own rules ([historical
+recovery](../specification/historical-recovery.md), proposed under TDR-0048).
 
 ## The two loops
 
@@ -41,7 +43,7 @@ confirm, save. While a record set is small, link related decisions by hand; once
 **Immutability and discovered relationships.** Accepted records are never edited. A new decision may point
 backwards; a changed judgement becomes a superseding record; a relationship discovered later *between two
 existing records* is recorded in a separate, human-confirmed **relationship index**, not written into either
-record. Note that a discovered contradiction has nowhere to live *inside* a record in any case: the
+record. A discovered contradiction has nowhere to live *inside* a record in any case: the
 lineage fields are [`supersedes`, `derived_from` and `confirmed_by_outcome`](../records/decision/specification/tdr.md#6-lineage) — there is
 no `contradicts` field. Contradiction is a review finding and an index entry, never record frontmatter.
 
