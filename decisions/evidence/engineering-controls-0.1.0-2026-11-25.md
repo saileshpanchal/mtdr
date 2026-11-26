@@ -63,8 +63,9 @@ addresses it does two different things:
 So "no hit" below does not mean that no commit carries an e-mail address: every commit carries the
 maintainer's as author and committer, and a no-reply address in its co-author trailer.
 
-As first run on this branch, the scan tested only the first address on each line of a file, matched
-the pass-over list more loosely, and did not read files changed only by a merge commit. It was
+As first run on this branch, the scan tested only the first address on each line of a file, stopped
+an address short of a domain of more than three labels, matched the pass-over list more loosely, and
+did not read files changed only by a merge commit. It was
 corrected on 26 November 2026 and run again over the branch as it then stood (`ea1c3ba..c7feb69`,
 seven commits): no hit.
 
@@ -147,17 +148,34 @@ release's `tests/` over `94e2d0c` (the same 13 failures: 7 `bundle`, 4 `skill-co
 
 Reviewer: an AI reviewer running a different model from the author's, which had not written the change.
 It compared the description of the scan with the scan's code clause by clause, ran the scan, and re-ran
-the suite at `c7feb69` (exit 0, 992 links checked). Result: two clauses to fix; nothing else.
+the suite at `c7feb69` (exit 0, 992 links checked). Result: two clauses to fix and one note; no
+blocking finding.
 
 | # | Finding | Response |
 |---|---|---|
 | S-1 | The description said the adoption fixtures use Brackwell e-mail domains. They contain no e-mail address. | The clause now says only what the scan passes over: an address at a domain beginning `brackwell.`. |
 | S-2 | "Reports any address" was not true of file contents: the scan tested only the first address on each line of a file. | The scan was corrected to test every address on a line, and the description says what it now does and what it did when first run. |
+| N-1 (note) | The example-domain pass-over was not anchored, so it also passed domains such as `example.community`. | The scan now matches the whole address against the pass-over list, for every entry in it. |
 
-While checking the description against the code, the author found three more places where the scan
+While checking the description against the code, the author found two further places where the scan
 was looser than the description, and corrected the scan in each: the address pattern stopped short of
-the whole domain, the pass-over list matched part of an address and not the whole of it, and files
-changed only by a merge commit were not read. This branch has no merge commit.
+a domain of more than three labels, and files changed only by a merge commit were not read. This
+branch has no merge commit.
+
+## Sixth check, of `d698ec7`
+
+Reviewer: an AI reviewer running a different model from the author's, which had not written the change.
+It compared the description of the scan with the scan's corrected code clause by clause, tested
+fourteen addresses against the pass-over list, ran the scan over `ea1c3ba..c7feb69` and
+`ea1c3ba..d698ec7` (exit 0, no hit, seven and eight commits), confirmed that the commit changes this
+file only and that the branch has no merge commit, and re-ran the suite at `d698ec7` (exit 0, 992
+links checked). Result: the description of the scan is true of its code, clause by clause; one
+sentence of this file's record of the fifth check to fix; one note; no blocking finding.
+
+| # | Finding | Response |
+|---|---|---|
+| S-3 | The account of the fifth check said "two clauses to fix; nothing else", although that check also raised a note (N-1), and it credited the author with finding the looseness that N-1 had reported. | The account above now gives the fifth check's result as it was, carries N-1 as a row, and credits the author with two further finds, not three. |
+| N-2 (note) | The paragraph on how the scan was first run left out that the address pattern stopped short of a long domain. | Added. |
 
 The commit that carries this revision changes this file only. It needs a check of its own before the
 pull request can be put forward for a merge decision.
