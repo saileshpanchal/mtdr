@@ -36,7 +36,10 @@ uv run python -m mtdr_packaging.profiles verify <your project>/.agents/skills/mt
 ```
 
 In these commands `decision` and `hermes` are examples. `profiles list` shows which record types
-have a profile, and `install` accepts `--runtime hermes` or `--runtime claude-code`.
+have a profile, and `install` accepts `--runtime hermes` or `--runtime claude-code`. Run them from the
+root of a clone of this repository. `install` prints the folder it created, which is what `verify`
+takes: `<your project>/.agents/skills/mtdr-<record-type>` for Hermes, and
+`<your project>/.mtdr/plugins/mtdr-<record-type>` for Claude Code.
 
 `verify` exits non-zero unless every file matches the manifest's digest, nothing else is present, exactly
 the package's skills are discoverable at their canonical paths, and every link in every skill resolves
@@ -48,7 +51,8 @@ flat, their links leave the install.
 its trusted project skills directory recursively. Claude Code discovers one level deep, so the layout
 reaches it only through a plugin descriptor: `install --runtime claude-code` places the package outside
 `.claude/skills/` and generates `.claude-plugin/plugin.json` beside it. The descriptor is a thin engine
-adapter (owner, 23 Nov 2026) holding only the name, the version and the canonical skill directories.
+adapter, on the maintainer's ruling of 23 November 2026, holding only the name, the version and the
+canonical skill directories.
 `verify` fails a descriptor that carries anything else. Run `claude --plugin-dir <package>`. The
 descriptor's standards disposition is governed separately. Runtimes not yet tested are not offered.
 

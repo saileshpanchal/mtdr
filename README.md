@@ -5,7 +5,8 @@ ask: what was known at the time, who was accountable, how confident they were, w
 and what the decision closed off.
 
 **TDR**, the Transformation Decision Record, is the standard. **MTDR** is its markdown reference
-format, as MADR is to ADR. A TDR is one markdown file with a short YAML header.
+format, as MADR (Markdown Architectural Decision Records) is to the architecture decision record
+(ADR). A TDR is one markdown file with a short YAML header.
 
 MIT licensed. Tool-neutral. Regulator-neutral. Works alongside what you already run.
 
@@ -31,6 +32,10 @@ fuller the record. There are three, each with a record to copy from:
 | Irreversible, or costly to reverse | [Full](records/decision/templates/tdr-full.md) | [Retaining a servicing channel](records/decision/examples/example-full-consumer-duty-channel-decision.md) (fictional) |
 | Significant, but revisable at tolerable cost | [Minimal](records/decision/templates/tdr-minimal.md) | [Migrating a data platform](records/decision/examples/example-minimal-data-platform-migration.md) (fictional) |
 | Reversible and low-stakes | [Bare](records/decision/templates/tdr-bare.md), or no record at all | [TDR-0004](decisions/TDR-0004-markdown-yaml-serialisation.md), one of this standard's own |
+
+The examples are accepted records. If you start from one, change its `id`, `title`, `decision_date`
+and `accountable_owner`, set `status: proposed` until the named owner confirms it, and keep
+`conforms_to` as it is.
 
 The [TDR specification](records/decision/specification/tdr.md) is the authority; §4.1 defines the
 fields in the templates, all but `conforms_to`, which [record identity](specification/record-identity.md)
@@ -67,16 +72,26 @@ existing documents.
 ### Installing, invoking and validating
 
 A person can read a skill and follow it without any tool. To have an AI assistant apply the skills,
-install one record type's package into your project and verify it where it sits:
+install one record type's package into your project and verify it where it sits. Run both commands
+from the root of a clone of this repository, with [uv](https://docs.astral.sh/uv/) installed; uv
+creates a `.venv` there on the first run.
 
 ```
 uv run python -m mtdr_packaging.profiles install <record-type> --runtime <runtime> --project <your project>
 uv run python -m mtdr_packaging.profiles verify <installed package folder>
 ```
 
-The installer supports Claude Code and Hermes. Each package is built for recovery, so it leaves out
-the skill that captures a new decision (`problem-framing-and-decision-capture`) and governance review. [`skills/packaging/`](skills/packaging/) explains both commands and says how each
-runtime discovers and invokes a skill.
+`<runtime>` is `claude-code` or `hermes` (Hermes Agent). `install` prints the folder it created, which
+is what `verify` takes: `<your project>/.mtdr/plugins/mtdr-<record-type>` for Claude Code, and
+`<your project>/.agents/skills/mtdr-<record-type>` for Hermes.
+[`skills/packaging/`](skills/packaging/) explains both commands and says how each runtime discovers and
+invokes a skill.
+
+Each package is built for recovering decisions from existing documents, the interpretation path
+above. It leaves out the skill that writes a new record and the governance review. To have an
+assistant write a new record, point it at
+[`problem-framing-and-decision-capture`](records/decision/skills/problem-framing-and-decision-capture/SKILL.md)
+in the repository.
 
 Two further commands check two different things:
 
@@ -86,6 +101,13 @@ Two further commands check two different things:
   result ([`mtdr_validation/`](mtdr_validation/README.md)).
 - `uv run tests/verify.py` runs this repository's own suite. Contributors run it before opening a pull
   request ([`tests/`](tests/README.md)).
+
+**No command yet checks a TDR you have written.** Work through the
+[`validate-record`](skills/shared/validate-record/SKILL.md) checklist by hand, or have an assistant
+apply it. The record's YAML header must also satisfy
+[`tdr.schema.json`](records/decision/schema/tdr.schema.json), which any JSON Schema validator can check
+once the header is converted to JSON. Run on a folder of TDRs, `mtdr_validation` reports
+`0 artefact(s) assessed`: that is not a pass.
 
 The installer and the folder validator belong to decision recovery, which is proposed and not yet
 ratified (see [What this release contains](#what-this-release-contains)).
@@ -118,9 +140,9 @@ The TDR has two sibling records:
 | Decision | TDR, with the DAC | Normative |
 | Value | VR | Normative |
 | Decision recovery | Retrospective candidates, the recovery skills, the installer and the folder validator | **Proposed** under TDR-0048, TDR-0049, TDR-0050 and DAC-0048. It is published only once those records are ratified |
-| Inheritance | OIR | Experimental: published for review, not part of the standard ([TDR-0047](decisions/TDR-0047-experimental-packages.md)) |
-| Authority | OAR | Candidate: scope only, not yet admitted |
-| Evidence | OER | Candidate: scope only, not yet admitted |
+| Inheritance | OIR, the Operational Inheritance Record | Experimental: published for review, not part of the standard ([TDR-0047](decisions/TDR-0047-experimental-packages.md)) |
+| Authority | OAR, the Operational Authority Record | Candidate: scope only, not yet admitted |
+| Evidence | OER, the Operational Evidence Record | Candidate: scope only, not yet admitted |
 
 **Normative** means part of the standard. **Proposed** means the records that would govern the capability are not yet ratified. **Experimental** and **candidate** in this table describe packages, not records: an experimental package is published for review and is not part of the standard, and a candidate package holds a statement of scope only and has not passed the [record admission test](specification/record-admission-test.md).
 
@@ -132,8 +154,11 @@ Those claims wait for independent practitioners to test it ([DAC-0045](decisions
 - A proposed TDR that honestly leaves the owner's confidence unstated fails the TDR schema: the field
   has no value for "not yet stated" ([#14](https://github.com/saileshpanchal/mtdr/issues/14)).
 - The quick start teaches writing a record at the time of a decision. It does not yet route someone
-  holding minutes of a past decision to historical recovery, and the installed `decision` package leaves out the skill that captures a new decision
-([#15](https://github.com/saileshpanchal/mtdr/issues/15)).
+  holding minutes of a past decision to historical recovery, and the installed `decision` package
+  leaves out the skill that writes a new record
+  ([#15](https://github.com/saileshpanchal/mtdr/issues/15)).
+- No command checks a TDR you have written; the `validate-record` checklist is applied by hand or by
+  an assistant (see [Installing, invoking and validating](#installing-invoking-and-validating)).
 - Four smaller questions are open: what `status: proposed` means for a decision already approved
   ([#16](https://github.com/saileshpanchal/mtdr/issues/16)); what `confirmed_by_outcome` holds when
   no review was set ([#17](https://github.com/saileshpanchal/mtdr/issues/17)); a manifest dependency

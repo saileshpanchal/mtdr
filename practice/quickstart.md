@@ -41,26 +41,38 @@ This page does not yet route someone holding minutes of a past decision to histo
 
 ## The loop, per decision
 
-Each skill named below is a `SKILL.md` file. You can read it and follow it by hand, or have an AI assistant
-apply it; [deploying the standard as an agent](../skills/packaging/) covers the second. The installed `decision` package is built for recovery: it includes
-decision-identification and validate-record, but not problem-framing-and-decision-capture, the skill
-this loop uses to write the record ([#15](https://github.com/saileshpanchal/mtdr/issues/15)).
+Each skill named below is a `SKILL.md` file: a written procedure you can follow by hand, or have an AI
+assistant apply ([deploying the standard as an agent](../skills/packaging/)).
 
-1. Give the source — meeting minutes, a board paper, a policy, a business case — to the
-   [decision-identification](../records/decision/skills/decision-identification/SKILL.md) skill. Do not rewrite it; paste or
-   attach it as it is.
+If you install the `decision` package for an assistant, note that it is built for recovering past
+decisions. It includes decision-identification and validate-record, but not
+problem-framing-and-decision-capture, the skill step 3 uses to write the record. Point the assistant at
+that skill in the repository instead ([#15](https://github.com/saileshpanchal/mtdr/issues/15)).
+
+1. Give the source for the decision being made now — the paper going to the meeting, the draft
+   minutes, the business case, the policy being changed — to the
+   [decision-identification](../records/decision/skills/decision-identification/SKILL.md) skill. Do not
+   rewrite it; paste or attach it as it is. If the decision was taken in the past and you are working
+   only from what survives, this is the interpretation path, above, not this loop.
 2. Confirm which of the decisions it proposes are real. Status updates, plans, action lists and opinions are not
    decisions; if reversing something costs less than recording it, do not record it.
 3. Draft each record at the template that matches what the decision would cost to reverse
    ([full, minimal or bare](../records/decision/templates/)), with the
-   [capture](../records/decision/skills/problem-framing-and-decision-capture/SKILL.md) skill.
+   [capture](../records/decision/skills/problem-framing-and-decision-capture/SKILL.md) skill. The full
+   template asks for the evidence considered under seven headings: business, architecture, regulatory,
+   operations, customer, data and external. For a full record, collect what you have under each before
+   you draft.
 4. **Review** it: is it actually a decision; is the title right; is the owner identified; is enough context
    captured; is anything assumed that was not stated; would a stranger understand it in two years?
 5. **Improve, do not just approve** — this is where the value is. Ask: what evidence is missing; what
    assumptions have we made; what alternatives were rejected; what risks did we accept; what would
    invalidate this decision?
-6. Have the named owner confirm, then save the accepted record. Records are never edited afterwards; a
-   changed judgement is a [superseding record](../records/decision/specification/tdr.md#7-status-and-lifecycle).
+6. Have the named owner confirm the record. Confirming changes its `status` from `proposed` to
+   `accepted`. Save it with the next free identifier in your organisation (`TDR-0001`, `TDR-0002`, …)
+   at the start of its file name, as in `TDR-0001-retain-the-servicing-channel.md`: an identifier is
+   unique within an organisation, not globally, and must match the file name. Records are never edited
+   afterwards; a changed judgement is a
+   [superseding record](../records/decision/specification/tdr.md#7-status-and-lifecycle).
 
 ## Check the record
 
@@ -68,8 +80,14 @@ The shared [`validate-record`](../skills/shared/validate-record/SKILL.md) skill 
 specification: required fields, allowed values, lineage references that resolve, and agreement between
 identifier and filename. It checks conformance only. A record can validate and still be wrong.
 
+No command yet checks a record written by this loop. Work through the `validate-record` checklist by
+hand, or have an assistant apply it. The record's YAML header must also satisfy
+[`tdr.schema.json`](../records/decision/schema/tdr.schema.json), which any JSON Schema validator can
+check once the header is converted to JSON.
+
 The command `uv run python -m mtdr_validation <folder>` does a different job: it assesses the output of a
-recovery, not a record written by this loop ([`mtdr_validation/`](../mtdr_validation/README.md)).
+recovery ([`mtdr_validation/`](../mtdr_validation/README.md)). Run on a folder of TDRs, it reports
+`0 artefact(s) assessed`, which is not a pass.
 
 ## Start with one bounded area
 

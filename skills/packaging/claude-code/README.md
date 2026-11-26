@@ -30,7 +30,7 @@ skill's own folder. Copying the 30 collected skills flat into `.claude/skills/` 
 The flat collection in [`canonical/skills/`](../canonical/skills/) is the catalogue's byte-identical
 copies, not an install.
 
-**Claude Code:** `install --runtime claude-code` — discovery is through a generated plugin descriptor only — .claude/skills/ is one level deep and a symlinked skill reports the link path as its base directory, but a plugin descriptor naming the canonical skill directories gives each skill its canonical base directory (2.1.316, probed 2026-11-20 and 2026-11-22). Run `claude --plugin-dir <package>`. The descriptor is a thin engine adapter (owner, 23 Nov 2026), generated at install and never committed; its standards disposition is governed separately.
+**Claude Code:** `install --runtime claude-code` — discovery is through a generated plugin descriptor only — .claude/skills/ is one level deep and a symlinked skill reports the link path as its base directory, but a plugin descriptor naming the canonical skill directories gives each skill its canonical base directory (2.1.316, probed 2026-11-20 and 2026-11-22). Run `claude --plugin-dir <package>`. The descriptor is a thin engine adapter (a ruling of the maintainer, 23 November 2026), generated at install and never committed; its standards disposition is governed separately.
 
 Discovery paths this runtime reads:
 

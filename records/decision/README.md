@@ -10,8 +10,9 @@ The **Decision Assurance Case (DAC)** lives here as a dependent artefact, not a 
 decision ([TDR-0021](../../decisions/TDR-0021-record-package-architecture.md)). Extracting this
 package yields a full decision-language implementation, assurance included.
 
-To write a first record, start at the repository's quick start, `practice/quickstart.md`. This page
-is the package's index.
+To write a first record, follow the quick start, `practice/quickstart.md` at the root of the
+repository (not this package's own `practice/` folder). It uses the [templates](templates/) and the
+[worked examples](examples/) in this package. This page is the package's index.
 
 ## Contents
 
@@ -60,7 +61,7 @@ on their declared triggers; `assurance-synthesis` always closes.
 
 ## The proportionality rule applies to candidates
 
-Spec §3 routes a decision to full, minimal or bare by reversal cost, and identification adds the
+[The TDR specification, §3](specification/tdr.md), routes a decision to full, minimal or bare by reversal cost, and identification adds the
 outcome that matters most — **no record at all**. Interpretation does not suspend this: a candidate
 assembled from material describing something cheap to reverse is proposed at the bare tier, or
 reported as not warranting a record. A skill producing a full-template candidate for every decision
