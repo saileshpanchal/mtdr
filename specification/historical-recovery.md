@@ -65,6 +65,9 @@ Each package designates the semantic role whose value is its object's event time
 candidate points at that contribution rather than copying its value
 ([`historical-candidate.md`](historical-candidate.md)).
 
+*The owner's same-day correction named three times: event, source creation and interpretation.
+Capture time as a fourth is the drafter's (E11 in [TDR-0048](../decisions/TDR-0048-historical-recovery-doctrine.md#where-this-record-goes-beyond-the-owners-rulings)).*
+
 **Capture is not creation, and neither is interpretation.** A minute written up after the meeting is
 still evidence of the meeting and of its day: its capture is the meeting, its creation the write-up,
 and the day it is read for recovery is neither.
@@ -112,6 +115,11 @@ about it can be authored:
    `later` if any is later, otherwise `indeterminate` if any is indeterminate. A fragment marked as a
    restatement is graded as the fragment it restates, where the candidate carries it: repeating a
    source adds no time of its own.
+
+*Two parts of these rules are the drafter's, not the owner's correction: a partial date that spans the
+event leaves the order open (rule 3, E9), and what a creation time shows when the capture time is
+`unknown` (rule 4, E10). Both are listed in [TDR-0048](../decisions/TDR-0048-historical-recovery-doctrine.md#where-this-record-goes-beyond-the-owners-rulings) for the
+owner's decision.*
 
 **Consideration closes an open order; it never overrides one.** It does not lift a time-less artefact
 — the link shows that some version of the material was before whoever acted, not when this artefact

@@ -37,9 +37,14 @@ seventeen files are in `out/`; the friction log's closing check says *all 17 can
 
 The agent's report to the drafter opened *"I ran the recovery over all 13 runs and got 16 candidates"*.
 The same report's own file list (eleven case candidates and six Brackwell) and its per-run counts both
-total seventeen. The sixteen is an arithmetic slip in one sentence, not an earlier stage of the trial:
-there was one run, one report and one set of files. The drafter repeated the sixteen in a first summary
+total seventeen, and seventeen files are preserved. The drafter repeated the sixteen in a first summary
 before counting the files.
+
+**Why the report said sixteen is not established** (corrected 26 November 2026). The drafter read it
+as an arithmetic slip in one sentence, on the ground that there was one run, one report and one set of
+files. That is the drafter's reading, not something an artefact here shows: the report is not
+preserved beyond its opening sentence, and the checkout moved during the run, so the owner's
+alternative, different stages of the trial, is not excluded by evidence.
 
 ## The checks
 
@@ -52,7 +57,9 @@ before counting the files.
 Contract conformance is not historical correctness. The check against the amended contract shows it
 most plainly: the three candidates that split the Cabinet's single vote (`brackwell-2` to `-4`) still
 pass, because whether a vote is one act is a judgement no schema can see. The owner's ruling on it
-reaches them only through review.
+reaches them only through review. Under the amended FIX-301, two more are wrong answers that the
+contract cannot see: `brackwell-1`, a candidate for the scheme's adoption, which FIX-301 now reports
+without one, and `brackwell-6`, a decision drawn from persistence.
 
 ## What the trial changed
 

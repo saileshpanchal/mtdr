@@ -5,6 +5,9 @@
 **Proves** that an instrument whose terms cover an act establishes applicability, not invocation: it is
 recorded beside the decision as a finding, never as its authority.
 
+*It applies the owner's ruling R1 of 7 November. The test for applicability it uses is the drafter's
+(E2 in [TDR-0049](../../../../decisions/TDR-0049-decision-recovery-vocabulary.md#where-this-record-goes-beyond-the-owners-rulings)).*
+
 ## Sources
 
 **A — Scheme of delegation, `governance/scheme-2022.md`**, *adopted 12 January 2022*

@@ -214,7 +214,7 @@
       "enum": [
         "authority"
       ],
-      "description": "Roles and classes a contribution may fill only from material made in the act, or shown to have been before whoever acted — never from unlinked or retrospective material. An instrument the act does not cite supports applicability, a finding."
+      "description": "Roles and classes a contribution may fill only from the act's own citation of the instrument — never from unlinked or retrospective material, which validation refuses. An instrument the act does not cite supports applicability, a finding, even where material before whoever acted names it."
     }
   }
 }

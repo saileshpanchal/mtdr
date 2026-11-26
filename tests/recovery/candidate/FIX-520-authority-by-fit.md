@@ -5,8 +5,8 @@
 The association's scheme of delegation reserves changes to repairs reporting to the Board, and
 the Board made one. The candidate records §4.1 as the decision's authority. Nothing in the minute cites
 the scheme: the instrument *applies*, and nothing shows the Board relied on it. Authority is what the act
-invokes — in the act, or in material shown to have been before whoever acted — so an `authority`
-contribution resting on unlinked material is refused. What the scheme supports is an `applicability`
+invokes — the act cites the instrument — so an `authority` contribution resting on unlinked material is
+refused. What the scheme supports is an `applicability`
 finding, reported beside the candidate.
 
 ## Document

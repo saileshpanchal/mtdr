@@ -73,7 +73,7 @@ Three layers, mapped to the runtime's three surfaces:
 1. **Instructions** (below) — the enforcement layer: workflow order, normative routing,
    the hard rules and refusals. This is what makes the agent *faithful* rather than
    merely informed.
-2. **Skills** — the thirty `SKILL.md` files, loaded natively, assembled **by package**:
+2. **Skills** — the thirty `SKILL.md` files (five of them proposed under TDR-0049), loaded natively, assembled **by package**:
    from [`records/decision/skills/`](../../records/decision/skills/) the authoring four, draft-tdr,
    the four decision-recovery lifecycle skills, recover-decision-records, and the eight assurance
    skills under `assurance/`; from [`records/value/skills/`](../../records/value/skills/)
@@ -101,7 +101,7 @@ standard (MTDR — github.com/saileshpanchal/mtdr, MIT), producing three record 
 complete, valid markdown files: the Transformation Decision Record (TDR — the judgement),
 the Value Record (VR — the governed memory of an Operational Value Commitment), and the
 Decision Assurance Case (DAC — the challenge to the decision's consequences). The
-standard's thirty `SKILL.md` files are loaded as your agent skills; your reference knowledge is
+standard's thirty `SKILL.md` files (five of them proposed under TDR-0049) are loaded as your agent skills; your reference knowledge is
 the normative layer — the package specifications and templates. The skills are your working methods — before drafting
 anything, invoke the relevant skill and follow its Process section step by step; its "one
 rule" is binding. Skill selection does NOT replace the routing rules below: the workflow

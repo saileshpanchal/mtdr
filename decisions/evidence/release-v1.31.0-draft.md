@@ -25,6 +25,12 @@
   records validate. Their specifications, schemas, templates and worked examples are byte-identical
   to `v1.30.0`. A probe of the identity check (a Value Record bound to `vr@1.3.0`) is rejected
   exactly as `v1.30.0` rejects it.
+- **Some existing text was edited in place for decision recovery**: the decision package's admission
+  test and semantic roles, five existing skills (three of them shared with the value language), and
+  three shared specifications. These edits change how a candidate is interpreted, not how a record
+  validates. They belong to the four recovery records and stand only if those are ratified; each record
+  lists what a return would revert. One reaches authored candidates: admission criterion 2 now treats
+  same-day context as indeterminate unless it is shown to have been before whoever acted.
 - **Decision recovery is new.** It brings new specifications (`historical-recovery.md`,
   `historical-candidate.md`), a new schema, five new decision-language skills, a new grouping basis
   in `candidate-assembly.md` (1.1.0), the installer and the folder validator. It is part of the

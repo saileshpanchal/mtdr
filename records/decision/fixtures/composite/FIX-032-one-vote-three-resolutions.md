@@ -5,6 +5,9 @@
 **Proves** that the unit of a candidate is the authoritative act: one motion carried on one vote is
 one composite candidate with each resolution traceable, and a separate vote is a separate candidate.
 
+*It applies the owner's ruling R2 of 7 November. What establishes a single act is the drafter's (E4 in
+[TDR-0049](../../../../decisions/TDR-0049-decision-recovery-vocabulary.md#where-this-record-goes-beyond-the-owners-rulings)).*
+
 ## Sources
 
 **A — Board minute, `board/2025-03-19.md`**, *Ostley Harbour Board, 19 March 2025*

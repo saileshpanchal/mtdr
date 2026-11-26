@@ -30,7 +30,8 @@ recovered only from evidence of that act.
   its **authority for continuation flagged `not-evidenced`**.
 - **C is reported, not recovered.** It is an account of a commitment of money already made; the act
   that made it is not in the material, so it evidences that a commitment occurred and supports no
-  candidate. Its act, date, owner and authority are missing.
+  candidate. Its act, date, owner and authority are missing. *This treatment is the drafter's, not the
+  ruling's (E6 in [TDR-0049](../../../../decisions/TDR-0049-decision-recovery-vocabulary.md#where-this-record-goes-beyond-the-owners-rulings)).*
 - **No decision to make the desk permanent** is recovered.
 
 ## Must not

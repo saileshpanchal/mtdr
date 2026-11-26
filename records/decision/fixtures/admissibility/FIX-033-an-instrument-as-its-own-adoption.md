@@ -6,6 +6,10 @@
 only because it is the evidence — while a candidate still needs contemporaneity, authentication and
 evidence of effect.
 
+*It applies the owner's ruling R3 of 7 November. What counts as authentication and as effect is the
+drafter's, and the Standing Orders below pass on signatures and a register entry that the instrument
+states about itself: whether that is enough is open (E5 in [TDR-0049](../../../../decisions/TDR-0049-decision-recovery-vocabulary.md#where-this-record-goes-beyond-the-owners-rulings)).*
+
 ## Sources
 
 **A — Standing Orders, `governance/standing-orders-2022.md`**

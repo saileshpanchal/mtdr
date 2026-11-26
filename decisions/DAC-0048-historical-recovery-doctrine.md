@@ -5,7 +5,7 @@ tdr_id: TDR-0048
 title: Assure the historical recovery doctrine
 status: proposed
 disposition: proceed-with-constraints
-assessed_at: 2026-11-07
+assessed_at: 2026-11-26
 accountable_owner: Sailesh Panchal
 review_date: 2027-05-07
 confidence: medium
@@ -21,6 +21,13 @@ supersedes: none
 > **Returned on 7 November 2026 and amended** ([the return](evidence/TDR-0048-0049-owner-return-2026-11-07.md)): the same-day correction carried into
 > constraint 3; the trial preserved as evidence ([the trial evidence](evidence/DAC-0048-adopter-trial-2026-11-07/)) and its count reconciled; a further
 > independent confirmation recorded as debt. It stays proposed.
+>
+> **Re-assessed on 26 November 2026, after an [independent review](evidence/recovery-records-review-2026-11-26.md)**
+> (first assessed 7 November). It now assesses what followed the first assessment: TDR-0049's four
+> authority-bearing rulings, which have no case of their own; the amendment of 23 November; and the
+> corrections of 26 November ([Re-assessment](#re-assessment-26-november-2026)). The identity check is
+> described as this candidate carries it, and the trial's count no longer asserts a cause the evidence
+> does not show. It stays proposed.
 
 ## Routing
 
@@ -39,22 +46,28 @@ closes.
 
 **Known:** the substrate already carries everything recovery needs, unchanged; most recovered
 candidates will be incomplete (the adopter's corpus assessment, July 2026); the TDR format cannot carry
-recovery metadata without a version, and the identity check that would have blocked one is repaired.
+recovery metadata without a version, and the identity check, as released in v1.30.0 and as this
+candidate carries it, would fail every record bound to the earlier version on a version bump. The
+change that would prevent it is held out for its own decision ([evaluation](evidence/identity-check-0650856-evaluation-2026-11-26.md)).
 
 **Tested once, and what it showed** ([the trial evidence](evidence/DAC-0048-adopter-trial-2026-11-07/)). An AI agent ran the published recovery
 instructions over twelve fictional cases and a six-document corpus on 7 November 2026, without sight of
 any expected answer, from the standard at `665aa6e` — and `7b2fb20`, which changed two specification
 files it read, landed two minutes into the run. It produced **seventeen** candidates: eleven from the
-cases and six from the corpus. Its report opened with *sixteen*, but its own file list and per-run
-counts total seventeen; there was one run and one set of files, and the sixteen is a slip in a
-sentence. All seventeen meet the suite's own contract at the pin, rechecked independently of the
-agent — but in several places only by conventions the standard did not supply. Its friction log found
+cases and six from the corpus. Seventeen files are preserved, and the report's own file list and
+per-run counts total seventeen, but its opening sentence said *sixteen*. **Why it said sixteen is not
+established**: the report is not preserved beyond that sentence, and the checkout moved during the
+run. All seventeen meet the suite's own contract at the pin, as rechecked by the drafter, separately
+from the agent — but in several places only by conventions the standard did not supply. **Five of
+them would now be wrong answers** under the amended FIX-301: `brackwell-1`, a candidate for the
+scheme's adoption, which FIX-301 now reports without one; `brackwell-2` to `-4`, the Cabinet's single
+vote split three ways; and `brackwell-6`, a decision drawn from persistence. Its friction log found
 rules the suite enforced and the specifications did not state, fixtures that broke the doctrine they
 illustrate, and a hindsight loophole through the `evidence-*` roles; those were corrected. Four of its
 calls diverged from the accepted Brackwell answers, and the owner ruled on them; one correction made in
 answer to it — same-day material as contemporaneous — the owner replaced. **Contract conformance is not
-historical correctness**, and it was one run, by an agent, over material this repository's author
-wrote: it is not the evidence TDR-0049's confirmation asks for, and a further independent confirmation
+historical correctness**, and it was one run, by an agent of the same model as the drafter, over material this
+repository's author wrote: it is not the evidence TDR-0049's confirmation asks for, and a further independent confirmation
 is required.
 
 **Unknown:** whether reviewers grade the six evidence kinds consistently; whether the four times are
@@ -128,8 +141,10 @@ recovered record is cited as current authority within a year. Any of these reope
   experiment's corpus is hash-frozen, and its independent-source control makes any reconstruction
   that populates other records from it inadmissible. Decision recovery run over that corpus would
   contaminate the experiment. Constraint 7.
-- **[TDR-0043](TDR-0043-version-bound-detached-records.md)** — the repaired identity check is what
-  keeps a future recovered-record provision possible. Nothing here relies on using it.
+- **[TDR-0043](TDR-0043-version-bound-detached-records.md)** — as released in v1.30.0, the identity
+  check would fail every record bound to an earlier version on a version bump, so a future
+  recovered-record provision needs the held-out prior-version decision first
+  ([evaluation](evidence/identity-check-0650856-evaluation-2026-11-26.md)). Nothing here relies on it.
 
 **Resultant position:** stabilising, provided constraints 3 and 6 hold. Deteriorating if recovered
 records begin to be cited as authority.
@@ -203,9 +218,53 @@ specifications are proposed and travel with this case. The mind-changing evidenc
 alternative keeps a recovered-record provision open.
 
 **Execution capability.** One maintainer; no independent human reviewer of recovery practice; one
-agent trial over self-authored fixtures; no
-implementation yet consuming the contract. The case is proportionate to a doctrine that has not yet met
+agent trial over self-authored fixtures, and one independent confirmation by an agent over material a
+third agent wrote; no implementation yet consuming the contract. The case is proportionate to a doctrine that has not yet met
 an adopter, and its review date is set for that reason.
+
+## Re-assessment, 26 November 2026
+
+**What the first assessment did not cover.** TDR-0049's rulings R1 to R4 were applied after it. They
+decide who or what may be recorded as authority, so they are assessed here; whether TDR-0049 needs a
+case of its own is the owner's decision. The amendment of 23 November and the corrections of
+26 November followed it too. Where the records go beyond a ruling is listed in
+[TDR-0049](TDR-0049-decision-recovery-vocabulary.md#where-this-record-goes-beyond-the-owners-rulings) and in
+[TDR-0048](TDR-0048-historical-recovery-doctrine.md#where-this-record-goes-beyond-the-owners-rulings).
+
+**Fraud and adversarial thinking, ruling by ruling.**
+
+- **Authority by fit (R1).** The exploit is the reader connecting an instrument to an act. Mitigated:
+  an applicability finding never joins the candidate; validation refuses an authority contribution on
+  `unlinked` or `retrospective` material; and under the single definition of invocation, an instrument
+  the act does not cite never fills `authority`, whatever was put before whoever acted. Residual: the
+  suite cannot tell the instrument an act cites from a paper that was before whoever acted, because
+  both are `cited-material`. Challenge must. Owned by the challenger.
+- **An instrument as its own adoption (R3).** As written, an instrument's statement of its own
+  signatures and register entry authenticates it (FIX-033). A forged or later-consolidated extract
+  that asserts its own adoption, signatures and register entry passes authentication, and fails only
+  if no later act cites it. **Not mitigated.** The owner decides between requiring authentication from
+  material other than the instrument's own text, and accepting the risk, recorded here and owned by the
+  attester. Added to the decision debt.
+- **One act, one candidate (R2).** The exploit is folding a contested resolution into an uncontested
+  one, so that one attestation carries both. Mitigated: each resolution stays traceable and can be
+  superseded alone, and separate votes, approvals, people or times split. Residual: a single vote that
+  carried a contested resolution is, correctly, one candidate.
+- **Persistence (R4).** The exploit is turning continued operation into a decision nobody took.
+  Mitigated: no `persistence` finding becomes a decision, by any route (TDR-0049). The drafter's
+  treatment of a reported commitment (E6) is the conservative side. If the owner reverses it, a
+  reported commitment becomes a candidate with its date unknown, and constraint 3 applies to it.
+- **Candidate views (23 November).** A rendering carries `status: candidate` and is not TDR-valid, so
+  it is not read as a proposal. Residual: someone who copies the body without the header.
+- **Undetermined proportionality (E8).** A historical candidate may reach attestation with no tier.
+  The tier is then settled by the named individual who attests the account.
+
+**Systems dynamics.** Each ruling adds a finding or a condition, so recovered candidates become more
+incomplete, not less. That is the conservative path (A2) working as intended, and it adds to the
+pressure, under *Systems thinking*, to treat candidates as fact outside the standard.
+
+**Result.** The disposition stands: proceed with constraints. One risk is newly identified and not
+mitigated (an instrument authenticating itself). It is decision debt, not a constraint, until the
+owner decides it.
 
 ## Contradictions, and how each is handled
 
@@ -221,12 +280,19 @@ an adopter, and its review date is set for that reason.
 
 | Item | Owner | By |
 |---|---|---|
-| The decision package's instance of the evidence matrix and its never-inferred roles | Sailesh Panchal | with TDR-0049, before this case is accepted |
-| Fixtures testing constraint 3 — a capture time not evidenced by its fragment or source is `unknown` | Sailesh Panchal | with TDR-0049 |
+| The decision package's instance of the evidence matrix and its never-inferred roles | Sailesh Panchal | drafted in `decision-contribution.md`; normative only when TDR-0049 is ratified (see the order, below) |
+| Fixtures testing constraint 3 — a capture time not evidenced by its fragment or source is `unknown` | Sailesh Panchal | drafted as FIX-029 and FIX-030; normative with TDR-0049 |
 | A two-reviewer grading of evidence kinds over a sample, to test consistency | Sailesh Panchal | before TDR-0048 is confirmed |
 | An independent reviewer of the doctrine, who is not its author | Sailesh Panchal | before confirmation |
-| A further independent confirmation of decision recovery, by an adopter who is not the drafter, over material the drafter did not write | Sailesh Panchal | before TDR-0049's confirmation gate is met |
+| A further independent confirmation of decision recovery, by an adopter who is not the drafter, over material the drafter did not write | Sailesh Panchal | before TDR-0049's confirmation gate is met. One ran on 26 November, by an AI agent over a corpus a third agent wrote; whether it meets this row is the owner's judgement ([commitment](evidence/DAC-0048-confirmation-2026-11-26-commitment.json)) |
+| Whether an instrument's own text may authenticate it, and conduct show its effect (E5 in [TDR-0049](TDR-0049-decision-recovery-vocabulary.md#where-this-record-goes-beyond-the-owners-rulings)) | Sailesh Panchal | before TDR-0049 is ratified |
 | Order within a day: times carry no time of day, so same-day material is ordered only by evidence of consideration — kept deliberately, not broadened in this increment | Sailesh Panchal | revisit on a demonstrated need |
+
+**The order of acceptance.** The owner fixed it: this case, then TDR-0048, then TDR-0049, with TDR-0050
+on its own merits. Once TDR-0048 is ratified, `historical-recovery.md` requires every package to state
+a matrix, and the decision package's matrix stays proposed until TDR-0049 is. TDR-0048 also relies on
+TDR-0050's `singleton` basis. Whether to ratify them in one sitting, in that order with TDR-0050 before
+TDR-0048, or to accept the interval, is the owner's decision.
 
 ## Monitoring contract
 

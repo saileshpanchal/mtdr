@@ -10,7 +10,7 @@ confidence: medium
 maturity: proposed
 supersedes: none
 derived_from: TDR-0018, TDR-0022, TDR-0027, TDR-0033, TDR-0036, TDR-0043
-confirmed_by_outcome: pending — confirm when an implementation outside this repository has produced historical candidates from real material, consumed this contract as published, and a named individual has attested or rejected at least one of them; or 2027-05-07, whichever is sooner
+confirmed_by_outcome: pending — confirm only when an implementation outside this repository has produced historical candidates from real material, consumed this contract as published, and a named individual has attested or rejected at least one of them. 2027-05-07 is the review date; reaching it confirms nothing
 ---
 
 # TDR-0048 — Recover what can be evidenced, preserve what cannot, and never turn a contemporary interpretation into historical authority
@@ -26,10 +26,19 @@ confirmed_by_outcome: pending — confirm when an implementation outside this re
 > **Returned on 7 November 2026 and amended** ([the return](evidence/TDR-0048-0049-owner-return-2026-11-07.md)): a shared calendar date is not an order, and
 > the contemporaneity rules now say so. The record stays proposed.
 >
-> **Amended again on 23 November 2026, by the owner's ruling** on the status mismatch the 20 and
-> 22 November engine runs reproduced: *"Render recovered candidates as candidate views, not as
-> proposed TDRs."* A candidate's rendering carried TDR frontmatter, so it said `status: proposed`
-> beside a candidate that says `status: candidate` and `standing: none`. The record stays proposed.
+> **Amended again on 23 November 2026, by the owner's ruling** ([as preserved](evidence/TDR-0048-owner-ruling-2026-11-23.md))
+> on the status mismatch the 20 and 22 November engine runs reproduced: *"Render recovered candidates
+> as candidate views, not as proposed TDRs."* A candidate's rendering carried TDR frontmatter, so it
+> said `status: proposed` beside a candidate that says `status: candidate` and `standing: none`. The
+> ruling's only record is a commit message, and the owner is asked to confirm its words. The record
+> stays proposed.
+>
+> **Corrected on 26 November 2026, after an [independent review](evidence/recovery-records-review-2026-11-26.md)**:
+> the identity check is described as this candidate carries it, as released in v1.30.0; the six
+> approach rulings are numbered A1 to A6, apart from the return's R1 to R5; where this record goes
+> beyond the owner's same-day correction is [listed](#where-this-record-goes-beyond-the-owners-rulings);
+> and so are its dependence on [TDR-0050](TDR-0050-singleton-grouping-basis.md) and what a return would
+> [revert](#if-this-record-is-returned). It stays proposed.
 
 ## Context — what was known at the time
 
@@ -66,9 +75,11 @@ What the standard said, in November 2026:
   requires durable, attributable evidence of the human act before a record represents standing, and
   forbids any agent or technical state from conferring it.
 - **The record format cannot carry recovery metadata.** The TDR schema is closed, and its `confidence`
-  is the owner's confidence at the time of decision. Adding a field means a specification version, and
-  until this branch's earlier repair the identity check would have failed every immutable record on any
-  version bump.
+  is the owner's confidence at the time of decision. Adding a field means a specification version, and the
+  identity check, as released in v1.30.0 and as this candidate carries it, fails every record bound to
+  the earlier version on any version bump. A change that would let a record bind to a declared prior
+  version (`0650856`) is held out of this candidate for a governed decision of its own
+  ([evaluation](evidence/identity-check-0650856-evaluation-2026-11-26.md)).
 - **The adopter's own evidence.** Its corpus assessment of a structured decision log (July 2026) found
   accountable owners named in few entries and decision dates evidenced only at folder level. Whatever
   this record decides, most recovered candidates will be incomplete.
@@ -76,6 +87,8 @@ What the standard said, in November 2026:
 The owner reviewed a draft of this record's approach on 6–7 November 2026 and set the principle it
 must serve — *recover what can be evidenced; preserve what cannot; never turn a contemporary
 interpretation into historical authority* — with five amendments and six rulings, recorded below.
+The six are numbered A1 to A6 here, to keep them apart from the five rulings of the return of
+7 November, R1 to R5. The review of 6–7 November is preserved only as this record states it.
 
 **Unknown at the time:** whether the four times and the evidence kinds are the right granularity for
 material beyond minutes, papers and transcripts; whether a reviewer can apply the matrix consistently;
@@ -110,23 +123,23 @@ carries a banner: *recovered; attested as the organisation's account on a date, 
 whether the decision still governs is not established by this attestation.* Its Evidence section
 names the candidate it was recovered from.
 
-### The six rulings
+### The six approach rulings, A1 to A6
 
-1. **The attester is not the owner.** `accountable_owner` is the historical owner as evidenced, or
+- **A1. The attester is not the owner.** `accountable_owner` is the historical owner as evidenced, or
    missing — and missing is the finding. The attester accepts accountability for the record as an
    account of the past, not for the decision it describes.
-2. **An incomplete candidate is a legitimate terminal state.** There is no obligation to promote it.
-3. **A recovered record is a TDR — conditionally.** Only with complete admissible evidence, and with
+- **A2. An incomplete candidate is a legitimate terminal state.** There is no obligation to promote it.
+- **A3. A recovered record is a TDR — conditionally.** Only with complete admissible evidence, and with
    historical recognition kept distinct from current governance.
-4. **Outcome knowledge is never decision-time evidence.** Retrospective material may corroborate that
+- **A4. Outcome knowledge is never decision-time evidence.** Retrospective material may corroborate that
    a decision occurred; it never supplies its context, alternatives, rationale or owner.
-5. **Contemporaneity is computed, from four times, at the precision the evidence gives.** Event,
+- **A5. Contemporaneity is computed, from four times, at the precision the evidence gives.** Event,
    capture, creation and interpretation time; partial dates never completed; a missing event moment
    makes every grade `indeterminate`, never assumed. Pre-dating shows that material existed, not that
    it was considered, and the second is graded separately. **A shared date is not an order** (the
    owner's same-day correction): the times order material across days, never within one, and an order
    they leave open is closed only by evidence that the material was before whoever acted.
-6. **The conservative path.** The TDR specification stays at 1.15.0. Most mined candidates will stay
+- **A6. The conservative path.** The TDR specification stays at 1.15.0. Most mined candidates will stay
    candidates, and the doctrine is written for that. A recovered-record provision in the TDR format is
    revisited only on a demonstrated semantic need.
 
@@ -161,7 +174,7 @@ The rendering carries the candidate's header (`status: candidate`, `standing: no
 body, and is deliberately not TDR-valid. `status: proposed` names a prospective act nobody has
 performed. A TDR draft exists only when a named individual proposes the record, as their own act.
 Rejected beside it: extending the TDR frontmatter to carry recovery (a change to the decision language
-for one use, against the sixth ruling), and keeping `proposed` with a checkable notice (frontmatter
+for one use, against A6), and keeping `proposed` with a checkable notice (frontmatter
 readers would still see a proposal).
 
 ### How this answers the texts that constrain it
@@ -214,9 +227,11 @@ doctrine as read-only consumers above the artefact boundary, and none of them is
 2. **Make the historical candidate a record type.** Rejected: a candidate is not organisational
    memory, has no accountable owner, and the contribution model and [TDR-0018](TDR-0018-interpretation-skills-and-the-artefact-boundary.md)
    refuse exactly this.
-3. **Add a recovered-record provision to the TDR format now.** Rejected on the owner's sixth ruling:
-   no demonstrated semantic need yet. The identity check that would have made a version bump fail every
-   record has been repaired, so the option stays open.
+3. **Add a recovered-record provision to the TDR format now.** Rejected on A6: no demonstrated
+   semantic need yet. The option stays open, but it is not free. As released in v1.30.0, the identity
+   check would fail every record bound to the earlier TDR version on a version bump, and the change
+   that would prevent it is held out for its own decision ([evaluation](evidence/identity-check-0650856-evaluation-2026-11-26.md)).
+   Taking up this option needs that decision first.
 4. **Carry the disposition in the candidate.** Rejected on the third amendment: a candidate that can
    record its own ratification can be made to claim one, and could no longer be shown to be the thing
    reviewed.
@@ -257,6 +272,42 @@ attestation read as an account of the past and nothing more. Failure looks like 
 cited as current authority, an inferred owner in a candidate, or the contract being copied and
 reshaped rather than consumed.
 
-Review on that evidence, or 2027-05-07, whichever is sooner. Assurance must test laundering of
+Review on that evidence, or on 2027-05-07, whichever comes first; the date opens a review and
+confirms nothing. Assurance must test laundering of
 reconstructed context into fact, manufactured authority, attestation read as renewal, the attester
 recorded as owner, and corroboration by repetition of one source.
+
+## Where this record goes beyond the owner's rulings
+
+The return asks that an amendment applying a ruling to a case the ruling did not name say so. For the
+same-day correction, these are those places. Each is the **drafter's**, written while the records were
+amended, and none is the owner's until the owner decides it. The extensions of rulings R1 to R4 are
+listed in [TDR-0049](TDR-0049-decision-recovery-vocabulary.md#where-this-record-goes-beyond-the-owners-rulings).
+
+- **E9 — A partial date that spans the event leaves the order open** (rule 3 of the contemporaneity
+  rules). **Owner's question:** should evidence that a minute cited a paper close the order for a
+  paper dated only to the month that contains the meeting, when the paper may have been finalised
+  after it? No published fixture covers the case; the suite's known answers do.
+- **E10 — What a creation time shows when the capture time is `unknown`** (rule 4). The text does not
+  say whether `considered: evidenced` can lift a later creation time; the code does not lift it.
+- **E11 — Capture time as a fourth time.** The correction named three: event, source creation and
+  interpretation.
+- **E12 — Admission criterion 2 applies the correction to every candidate**, not only to recovered
+  ones. A same-day contribution that is not shown to have been before whoever acted is reported as
+  indeterminate, and the candidate stays admissible.
+
+**What this record relies on.** Integrity rule 8 of
+[`historical-candidate.md`](../specification/historical-candidate.md), and the check that enforces it,
+use the `singleton` grouping basis that [TDR-0050](TDR-0050-singleton-grouping-basis.md) admits. The
+two are therefore decided together, or TDR-0050 first.
+
+## If this record is returned
+
+These edits to text that existed in v1.30.0 were made for this record and are reverted with it:
+`admission.md` criterion 2 and `semantic-roles.md` (contemporaneity as the doctrine computes it);
+`decision-identification` (retro-mining renamed); the shared `identify-record-contributions` and
+`challenge-record` skills, which the value language also uses (their pointers to the doctrine and its
+times); `contribution-model.md` 1.1.0 and `organisational-records.md` 1.2.0 (their rows for the two
+specifications); `draft-tdr` §3 and §7 (the candidate view); and the decision package's `package.yaml`
+(its normative dependencies on the two specifications). The additions — the two specifications, their
+schemas, the recovery contract fixtures and their checks — are removed.
