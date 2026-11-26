@@ -87,8 +87,9 @@ TDR-0048's text and an accepted fixture use this basis already: integrity rule 8
 the recovery fixtures FIX-522 and FIX-523; the `singleton` value in
 [`candidate-assembly.schema.json`](../schemas/shared/candidate-assembly.schema.json); the shared
 [`reconcile-record-fragments`](../skills/shared/reconcile-record-fragments/) skill; and
-[FIX-004](../records/decision/fixtures/FIX-004-complete-in-one-source.md), which now expects it. It is
-therefore decided before TDR-0048, or with it.
+[FIX-004](../records/decision/fixtures/FIX-004-complete-in-one-source.md), which now expects it. So it
+would be decided before TDR-0048, or with it. That is the assistant's reading of the dependency; the
+order is the owner's decision ([DAC-0048](DAC-0048-historical-recovery-doctrine.md#decision-debt)).
 
 ## If this record is returned
 

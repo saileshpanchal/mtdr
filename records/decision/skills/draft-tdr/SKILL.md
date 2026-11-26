@@ -38,7 +38,9 @@ revisable → minimal · cheap → bare · cheaper to reverse than to record →
 
 Defaulting to the full template because the evidence is plentiful is a misreading. Volume of material
 is not reversal cost. With no `reversal-cost` contribution at all, the outcome is **undetermined**, and
-the draft says so ([`admission.md`](../../validation/admission.md) criterion 6).
+the draft says so. For a historical candidate that satisfies
+[`admission.md`](../../validation/admission.md) criterion 6; any other draft still needs a tier, or a
+recommendation of no record, before it is admissible.
 
 ### 3. Render frontmatter from contributions only
 

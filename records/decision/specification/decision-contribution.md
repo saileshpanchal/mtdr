@@ -198,6 +198,9 @@ arrangement has lasted, and how settled it looks, add nothing.
 
 ## Findings
 
+*That `applicability` and `persistence` take this form is the drafter's (E14 in
+[TDR-0049](../../../decisions/TDR-0049-decision-recovery-vocabulary.md#where-this-record-goes-beyond-the-owners-rulings)).*
+
 A `not-a-decision`, `non-decision`, `applicability` or `persistence` finding is reported as the
 fragment it rests on, with a classification object valid against the machine-readable form:
 

@@ -298,8 +298,9 @@ listed in [TDR-0049](TDR-0049-decision-recovery-vocabulary.md#where-this-record-
 
 **What this record relies on.** Integrity rule 8 of
 [`historical-candidate.md`](../specification/historical-candidate.md), and the check that enforces it,
-use the `singleton` grouping basis that [TDR-0050](TDR-0050-singleton-grouping-basis.md) admits. The
-two are therefore decided together, or TDR-0050 first.
+use the `singleton` grouping basis that [TDR-0050](TDR-0050-singleton-grouping-basis.md) admits. So the
+two would be decided together, or TDR-0050 first. That is the assistant's reading of the dependency;
+the order is the owner's decision ([DAC-0048](DAC-0048-historical-recovery-doctrine.md#decision-debt)).
 
 ## If this record is returned
 

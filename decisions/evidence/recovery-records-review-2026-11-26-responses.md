@@ -14,7 +14,7 @@ kept and each application beyond the ruling's words is labelled.
 
 | | Response | Where |
 |---|---|---|
-| **RR1** Extensions unlabelled | **Fixed.** Each extension is listed, numbered E1 to E13, with whose it is and the owner's question, and marked in italics where it applies | TDR-0049 and TDR-0048, *Where this record goes beyond the owner's rulings*; TDR-0050 (E13); `decision-contribution.md`, `historical-recovery.md`, `admission.md`, FIX-031 to FIX-034, FIX-301 |
+| **RR1** Extensions unlabelled | **Fixed.** Each extension is listed, numbered E1 to E14, with whose it is and the owner's question, and marked in italics where it applies | TDR-0049 and TDR-0048, *Where this record goes beyond the owner's rulings*; TDR-0050 (E13); `decision-contribution.md`, `historical-recovery.md`, `admission.md`, FIX-031 to FIX-034, FIX-301 |
 | **RR2** "The identity check is repaired" | **Fixed**, without reintroducing `0650856`. The records say the check is as released in v1.30.0, that the prior-version change is held out for its own decision, and that Alternative 3 stays rejected on A6 alone, with the option open only once that decision is made | DAC-0048 *Uncertainty* and *Declared interactions*; TDR-0048 *Context* and Alternative 3; [evaluation](identity-check-0650856-evaluation-2026-11-26.md) |
 | **RR3** Invocation defined two ways | **Fixed: one definition, the act's own citation** (E1, the assistant's resolution). This is TDR-0049's own text and that of both recovery skills, and ruling R1 says "never invent an authority contribution". Material before whoever acted that names an instrument the act does not cite is evidence for the applicability finding. The validator is unchanged: it enforces the floor (never `unlinked` or `retrospective`), and the specification says challenge checks the rest. The broader reading is put to the owner | `decision-contribution.md` (classes, roles, matrix, *Applicability is not invocation*); its schema's description; FIX-520 |
 
@@ -66,3 +66,23 @@ records do not answer; and V1's `committed_by` (E7).
   joint owner.
 - **The readability review's findings** are on the public documentation, not on these records, and are
   answered separately.
+
+## After the re-review of `240b4d0`
+
+The [targeted re-review](recovery-records-re-review-2026-11-26.md) found RR2 and RR3 closed and RR1
+partly closed, no new blocking issue, one new should-fix and three unlabelled semantic changes. They
+were dealt with in the commit that adds this section. **These follow-ups were not reviewed again.**
+
+| | Response |
+|---|---|
+| **B1** `draft-tdr` still states the unlimited *undetermined* rule | **Fixed.** `draft-tdr` §2 says that undetermined satisfies criterion 6 for a historical candidate, and that any other draft still needs a tier or a recommendation of no record. E8 names it. This completes RR11 |
+| **U1** "and the finding says so" is in no E item | **Labelled.** E1 now includes it: the applicability finding records that the instrument was put before whoever acted |
+| **U2** The order of TDR-0050 and TDR-0048 is stated without a label | **Labelled.** TDR-0050 and TDR-0048 call it the assistant's reading of the dependency, and say the order is the owner's decision |
+| **U3** The finding form of `applicability` and `persistence` is the drafter's and unlisted | **Labelled** as E14 in TDR-0049, and marked in `decision-contribution.md` *Findings* |
+| Note: "authority-bearing" overstates R2 | **Fixed.** TDR-0049 and DAC-0048 say the rulings bear on authority and on what makes one candidate |
+| Note: the E1 example cannot be checked from the repository | **Stated.** E1 says the confirmation's evidence is committed by hash and held by the maintainer. Publishing it is the owner's decision |
+| Note: the confirmation's other findings are only in this file | **Kept here.** No change was made on them; they go to the owner with the ratification package |
+| Note: "five amendments and six rulings" beside "first/second/third amendment" | **Kept.** The two sets are kept apart in the text, as the reviewer says |
+
+With these, RR1 is closed in the maintainer's reading: every semantic change the re-review found is
+listed. That reading has not been reviewed.

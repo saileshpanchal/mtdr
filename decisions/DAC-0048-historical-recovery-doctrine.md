@@ -24,7 +24,7 @@ supersedes: none
 >
 > **Re-assessed on 26 November 2026, after an [independent review](evidence/recovery-records-review-2026-11-26.md)**
 > (first assessed 7 November). It now assesses what followed the first assessment: TDR-0049's four
-> authority-bearing rulings, which have no case of their own; the amendment of 23 November; and the
+> rulings, which bear on authority and on what makes one candidate and have no case of their own; the amendment of 23 November; and the
 > corrections of 26 November ([Re-assessment](#re-assessment-26-november-2026)). The identity check is
 > described as this candidate carries it, and the trial's count no longer asserts a cause the evidence
 > does not show. It stays proposed.

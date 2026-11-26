@@ -27,8 +27,8 @@ confirmed_by_outcome: pending — confirm only when an implementation outside th
 > specification go beyond a ruling is listed [below](#where-this-record-goes-beyond-the-owners-rulings);
 > the *undetermined* proportionality outcome is limited to historical candidates; and what a return
 > would revert is [listed](#if-this-record-is-returned). It has no assurance case of its own: its four
-> authority-bearing rulings are assessed in [DAC-0048](DAC-0048-historical-recovery-doctrine.md). It
-> stays proposed.
+> rulings, which bear on authority and on what makes one candidate, are assessed in
+> [DAC-0048](DAC-0048-historical-recovery-doctrine.md). It stays proposed.
 
 ## Context — what was known at the time
 
@@ -128,10 +128,11 @@ until the owner decides it.
   also allowed an instrument named in "material shown to have been before whoever acted"; this record
   and both recovery skills said "the act cites the instrument". The narrower reading is kept, because it
   is this record's text and because ruling R1 says to "never invent an authority contribution". Material
-  before whoever acted that names the instrument is evidence for the applicability finding. Where:
+  before whoever acted that names the instrument is evidence for the applicability finding, and the
+  finding records that it was put before them. Where:
   `decision-contribution.md`, its schema's description, FIX-520. **Owner's question:** may such
   material support an authority contribution? The independent confirmation of 26 November met the case
-  (advice that "4.5 covers a change of date", before an act that did not cite it).
+  (advice that "4.5 covers a change of date", before an act that did not cite it). That evidence is committed by hash and held by the maintainer.
 - **E2 — The test for applicability** (R1). *The drafter's.* A span of the instrument and a span of the
   act that brings the act within its terms, and a statement of whether the body that acted is the body
   the instrument names. Where: `decision-contribution.md`, FIX-031, FIX-301 D1.
@@ -163,7 +164,13 @@ until the owner decides it.
   requires the outcome to be stated, and [TDR-0017](TDR-0017-language-admission-test.md) already holds
   that an honest "undetermined, because …" discharges a criterion that silence fails. Limiting it to
   historical candidates leaves every other candidate's admission as v1.30.0 had it. **Owner's
-  question:** keep it for historical candidates, or revert criterion 6 to its v1.30.0 text?
+  question:** keep it for historical candidates, or revert criterion 6 to its v1.30.0 text? Where:
+  `admission.md` criterion 6, and `draft-tdr` §2, which says the same.
+- **E14 — Applicability and persistence are findings** (R1, R4). *The drafter's.* The return said to
+  record evidenced applicability separately, and persistence as observed behaviour. That both are
+  findings, reported by fragment and never inside a candidate, and that `continuation_authority` is
+  either `evidenced` or `not-evidenced`, is the drafter's form. Numbered last because the re-review of
+  26 November found it unlisted. Where: `decision-contribution.md` *Findings*, its schema.
 
 ## If this record is returned
 

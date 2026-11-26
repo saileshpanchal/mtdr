@@ -50,7 +50,7 @@ skills:
     package: decision
     group: drafting
     source: records/decision/skills/draft-tdr/SKILL.md
-    sha256_16: 70fcc69678f8b0b8
+    sha256_16: e11baf8ab76d998e
   - name: draft-value-record
     package: value
     group: lifecycle
