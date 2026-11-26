@@ -64,7 +64,7 @@ So "no hit" below does not mean that no commit carries an e-mail address: every 
 maintainer's as author and committer, and a no-reply address in its co-author trailer.
 
 As first run on this branch, the scan tested only the first address on each line of a file, stopped
-an address short of a domain of more than three labels, matched the pass-over list more loosely, and
+an address short of the whole domain (for example a domain of more than three labels), matched the pass-over list more loosely, and
 did not read files changed only by a merge commit. It was
 corrected on 26 November 2026 and run again over the branch as it then stood (`ea1c3ba..c7feb69`,
 seven commits): no hit.
@@ -127,7 +127,7 @@ fix; three notes.
 | # | Finding | Response |
 |---|---|---|
 | T1 | This file said the baseline "was stated in the pull request's description when the work began". The pull request was opened after the first implementation commit, and its description already reported results at that commit. | Corrected above. |
-| T2 | This file said the scan reads author, committer and messages for e-mail addresses and reported no hit, although every commit carries the maintainer's address and a no-reply trailer. | The scan's treatment of e-mail addresses is stated above. That statement was corrected twice more, after the fourth and fifth checks below. |
+| T2 | This file said the scan reads author, committer and messages for e-mail addresses and reported no hit, although every commit carries the maintainer's address and a no-reply trailer. | The scan's treatment of e-mail addresses is stated above. It was corrected again after later checks, each recorded below. |
 | T3 (note) | Taking three paths from the tag is not quite "the release's tests, unmodified": one imported helper stays at the branch's version. | Stated above. The whole of the release's `tests/` was also run over `94e2d0c`: the same 13 failures. |
 | T4 (note) | In the table of acts, the ratification row cites only TDR-0027 for "for this repository, the maintainer"; the maintainer's role is recorded in `GOVERNANCE.md`. | Not changed here. `ENGINEERING-CONTROLS.md` stays at the reviewed commit `94e2d0c`; the citation is to be completed when the file next changes. |
 | T5 (note) | The pull request's description still carries two earlier wordings that the files have since corrected. | The description is corrected. It is not part of the merge content. |
@@ -142,7 +142,7 @@ release's `tests/` over `94e2d0c` (the same 13 failures: 7 `bundle`, 4 `skill-co
 
 | # | Finding | Response |
 |---|---|---|
-| F-A | The description of the scan said it passes over only two e-mail addresses. The scan does not test the author and committer fields for addresses at all, and it passes over no-reply and example-domain addresses everywhere, so the sentence claimed more coverage than the scan has. Its "no hit" result still stands on this branch. | The description was rewritten. It was corrected once more after the fifth check below. |
+| F-A | The description of the scan said it passes over only two e-mail addresses. The scan does not test the author and committer fields for addresses at all, and it passes over no-reply and example-domain addresses everywhere, so the sentence claimed more coverage than the scan has. Its "no hit" result still stands on this branch. | The description was rewritten. It was corrected again after later checks, each recorded below. |
 
 ## Fifth check, of `c7feb69`
 
@@ -159,7 +159,7 @@ blocking finding.
 
 While checking the description against the code, the author found two further places where the scan
 was looser than the description, and corrected the scan in each: the address pattern stopped short of
-a domain of more than three labels, and files changed only by a merge commit were not read. This
+the whole domain (for example a domain of more than three labels), and files changed only by a merge commit were not read. This
 branch has no merge commit.
 
 ## Sixth check, of `d698ec7`
@@ -170,12 +170,23 @@ fourteen addresses against the pass-over list, ran the scan over `ea1c3ba..c7feb
 `ea1c3ba..d698ec7` (exit 0, no hit, seven and eight commits), confirmed that the commit changes this
 file only and that the branch has no merge commit, and re-ran the suite at `d698ec7` (exit 0, 992
 links checked). Result: the description of the scan is true of its code, clause by clause; one
-sentence of this file's record of the fifth check to fix; one note; no blocking finding.
+finding in this file's record of the fifth check to fix; one note; no blocking finding.
 
 | # | Finding | Response |
 |---|---|---|
 | S-3 | The account of the fifth check said "two clauses to fix; nothing else", although that check also raised a note (N-1), and it credited the author with finding the looseness that N-1 had reported. | The account above now gives the fifth check's result as it was, carries N-1 as a row, and credits the author with two further finds, not three. |
 | N-2 (note) | The paragraph on how the scan was first run left out that the address pattern stopped short of a long domain. | Added. |
+
+## Seventh check, of `190263c`
+
+Reviewer: an AI reviewer running a different model from the author's, which had not written the change.
+Its own summary, in full:
+
+> Seventh check, of 190263c. The suite passes from a clean tree (exit 0, 992 links). The controls files are unchanged and there is no merge commit. The fifth check's record is now correct and every scan change is attributed correctly. One fix remains: the sixth check's account says "one sentence" to fix, but its finding named two.
+
+It also gave two optional notes, N-3 and N-4. S-4 (the fix its summary names) and N-4 are answered with
+the reviewer's suggested wording. N-3 is answered by removing two counts: the cells concerned now say
+only that the statement was corrected again after later checks.
 
 The commit that carries this revision changes this file only. It needs a check of its own before the
 pull request can be put forward for a merge decision.
