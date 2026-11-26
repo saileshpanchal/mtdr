@@ -1,0 +1,31 @@
+{
+  "purpose": "A public, timestamped commitment to the evidence of the independent confirmation of decision recovery run on 26 November 2026, made without publishing it. It discloses no corpus content, answer or output -- only provenance and hashes -- so the evidence can be checked later without spoiling the corpus for any run that may still use it. The evidence is held by the maintainer and is published on the maintainer's decision.",
+  "evidence_for": ["DAC-0048 decision debt row 5", "the owner's return of 7 November: a further independent confirmation before TDR-0049's gate"],
+  "standing": "none -- evidence for a decision, not ratification evidence, and it satisfies no gate by itself",
+  "run": {
+    "date": "2026-11-26",
+    "mtdr_commit": "57d68c00406f2260b832be0fc8c14a0ddbc9d692",
+    "adopter": "an AI agent, Claude Fable 5.2, not a person and not the drafter of the records",
+    "corpus_author": "an AI agent, Claude Sonnet 5.5, with no access to MTDR",
+    "comparison_with_key": "the maintainer's assistant, Claude Opus 5.5, after the adopter had finished",
+    "coaching": "none",
+    "known_weakness": "the adopter read the folder validator's source before producing output, because its input format is not documented"
+  },
+  "corpus": {
+    "file_count": 11,
+    "contents": "nine fictional source documents and a two-file answer key",
+    "pre_run_hash_list_sha256": "aa866e4d84d1ce9bdda0bb48f84d7586ffe038a1c686a70250f803565afc62ca",
+    "aggregate_sha256": "1a4db08bf0734ac165cd2dd02f6b283e3a79b77fd0b22c183ca67872b0442c9d"
+  },
+  "adopter_outputs": {
+    "file_count": 34,
+    "aggregate_sha256": "396d8c2df4bbca022735f6109c71fcf341540084d3c331ce69b3c45f3aeeb915",
+    "note": "local paths replaced by <run> and <scratch>; nothing else changed"
+  },
+  "confirmation_record": {
+    "README.md": "e75b1d98956f9fda8de52469095bdd467fb6cbc9235268651dcdd8234a73d8c8",
+    "comparison.md": "30849820153ea595668b5824c36f1923a33774fc6229bc8de5bf68120e1bf1a3",
+    "SHA256SUMS": "bd9567d2fbf870c1e96fb41d9bf48badef5816d3167e4db2a5c58d32f73837c6"
+  },
+  "aggregate_method": "sha256 of the sorted output of `find . -type f | sort | xargs sha256sum`, run inside the folder"
+}
