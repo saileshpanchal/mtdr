@@ -94,10 +94,10 @@ standard is not going to acquire a flat shape to suit them. The bundle resolves 
 both and rewriting neither.
 
 > **Correction, 23 Nov 2026: shipping both does not resolve it.** Measured on this release's 25 skills:
-> collected flat inside a full clone, into a skills directory two levels below the root, **33 of 64**
-> relative links still do not resolve, in 10 record-package skills. 17 go into the skill's own package
-> (`../../specification/…`, `../../templates/…`). 16 go up to the repository's shared layers
-> (`../../../../specification/…`, `../../../../decisions/…`), which from that depth resolve above the
+> collected flat inside a full clone, **33 of 64** relative links still do not resolve, in 10
+> record-package skills. 17 go into the skill's own package (`../../specification/…`,
+> `../../templates/…`). 16 go up to the repository's shared layers (`../../../../specification/…`,
+> `../../../../decisions/…`), which from a flat directory two levels below the root resolve above the
 > clone. In a project without the repository, 56 of 64. The generated surface READMEs compute and
 > state these figures, and name the route that keeps every link: run each skill in place, at its
 > repository path, from a clone.

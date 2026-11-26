@@ -18,8 +18,9 @@ uv run python -m mtdr_packaging.generate --check   # report drift without writin
 > be a reason to change MTDR.
 
 The generator performs exactly one transformation, and it is not semantic: **collection**. MTDR stores
-skills two levels deep because they live with the record semantics they serve
-([TDR-0023](../decisions/TDR-0023-portable-skill-architecture.md)), and no runtime scans that shape.
+skills beside the record semantics they serve
+([TDR-0023](../decisions/TDR-0023-portable-skill-architecture.md)), at paths such as
+`records/<language>/skills/<name>/`, and no runtime scans that shape.
 Every `SKILL.md` is copied byte-identical, and the suite compares them byte for byte.
 
 ## What it produces
