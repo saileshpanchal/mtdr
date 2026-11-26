@@ -6,13 +6,7 @@ keep resolving; do not add content here.
 
 ## Everything in this directory moved
 
-Every file here is a redirect. Single-language fixtures now live with their record package, and
-cross-language fixtures under [`tests/conformance/`](../tests/conformance/).
-
-| This stub | Now lives at |
-|---|---|
-| `README.md` | [`tests/conformance/README.md`](../tests/conformance/README.md) |
-| `FIX-001-value-commitment-across-six-sources.md` | [`records/value/fixtures/quantified/FIX-001-value-commitment-across-six-sources.md`](../records/value/fixtures/quantified/FIX-001-value-commitment-across-six-sources.md) |
-| `FIX-002-one-fragment-two-objects.md` | [`tests/conformance/FIX-002-one-fragment-two-objects.md`](../tests/conformance/FIX-002-one-fragment-two-objects.md) |
-| `FIX-003-two-commitments-not-one.md` | [`records/value/fixtures/conflicting/FIX-003-two-commitments-not-one.md`](../records/value/fixtures/conflicting/FIX-003-two-commitments-not-one.md) |
-| `FIX-004-complete-in-one-source.md` | [`records/decision/fixtures/FIX-004-complete-in-one-source.md`](../records/decision/fixtures/FIX-004-complete-in-one-source.md) |
+Every file here is a redirect. Cross-language fixtures are now in
+[`tests/conformance/`](../tests/conformance/). Each single-language fixture is with its record
+package, under [`records/decision/fixtures/`](../records/decision/fixtures/) or
+[`records/value/fixtures/`](../records/value/fixtures/).

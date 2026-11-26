@@ -6,11 +6,6 @@ keep resolving; do not add content here.
 
 ## Everything in this directory moved
 
-Every file here is a redirect. This was the agent deployment pack; it now lives under
-[`skills/packaging/`](../skills/packaging/), and its probes under [`tests/`](../tests/).
-
-| This stub | Now lives at |
-|---|---|
-| `README.md` | [`skills/packaging/README.md`](../skills/packaging/README.md) |
-| `copilot-studio.md` | [`skills/packaging/copilot-studio.md`](../skills/packaging/copilot-studio.md) |
-| `conformance.md` | [`tests/conformance/agent-probes.md`](../tests/conformance/agent-probes.md) |
+Every file here is a redirect. The agent deployment pack is now
+[`skills/packaging/`](../skills/packaging/), and its probes are
+[`tests/conformance/agent-probes.md`](../tests/conformance/agent-probes.md).

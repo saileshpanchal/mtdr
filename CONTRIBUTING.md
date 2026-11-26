@@ -17,34 +17,9 @@ Status transitions (`proposed → accepted`, `accepted → superseded`) and `con
 
 ## Editorial or normative?
 
-Every other change follows one rule: **a change that alters meaning is accompanied by a superseding TDR
-in [`decisions/`](decisions/); a change that does not needs no ceremony.** Proportionality applies to
-contributions too.
+Improvements to the specifications, the templates, or the skills follow the same rule when they change meaning: a superseding TDR in [`decisions/`](decisions/) accompanies the change. Typo and clarity fixes need no ceremony — proportionality applies to contributions too.
 
-Meaning lives in the specifications ([`specification/`](specification/) and each package's
-`specification/` under [`records/`](records/)), the schemas, the templates, the skills, and each
-package's `validation/` rules and fixtures. To tell which kind of change you have, ask whether a
-record, a validation result or a skill's output could come out differently because of it. If it
-could, the change is normative.
-
-| Normative: bring a TDR | Editorial: a pull request is enough |
-|---|---|
-| Adding, removing or renaming a record field, or changing whether it is required | Typos, grammar, formatting and broken links |
-| Changing a schema, an allowed value, a status or a lifecycle transition | Rewording for clarity that leaves every requirement as it was |
-| Changing what a specification requires for conformance or validation | Navigation: READMEs, indexes and pointers to where something lives |
-| Changing what a skill does, what it refuses, or what it hands to the next stage | Bringing a document level with a decision already accepted, citing that decision |
-
-If you cannot tell which it is, say so in the pull request rather than guessing.
-
-Three kinds of file are not edited in place, whichever kind of change it is:
-
-- **Accepted records in [`decisions/`](decisions/).** They are superseded, as above.
-- **Redirect stubs** (files headed `# Moved`, and the directories that hold only those). They exist
-  so that old links keep resolving, and say only where something went. New material goes to the
-  location the stub names.
-- **Generated bundles** under [`skills/packaging/`](skills/packaging/): `canonical/` and the
-  per-runtime directories. Edit the skill or the package manifest and regenerate, as that directory's
-  README describes.
+The line is meaning, not size. A one-word change to what a field requires is normative; a rewritten paragraph that leaves every requirement as it was is editorial. If you cannot tell which you have, say so in the pull request.
 
 ## Before you open a pull request
 
