@@ -73,6 +73,11 @@ No runtime scans that shape. A bundle therefore **collects** the twenty-five ski
 flat directory, byte-identical, and places it where the runtime looks. Collection is packaging; nothing
 is rewritten, and the falsification criterion is not engaged.
 
+> **Correction, 26 Nov 2026.** Not "two levels deep". A record-package skill sits at
+> `records/<language>/skills/<name>/`, the eight assurance skills one level further down at
+> `records/decision/skills/assurance/<name>/`, and a shared skill at `skills/shared/<name>/`. The rest
+> of this finding stands.
+
 **5. Collection breaks the skills' relative links, and that is the right outcome.** MTDR skills link
 back into the semantics they serve — `../../../specification/candidacy-and-ratification.md` and the
 like — which resolve at the canonical depth and not inside a flat bundle directory.

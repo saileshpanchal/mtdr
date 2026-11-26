@@ -7,8 +7,8 @@ into `skills/packaging/canonical/`, and writes one descriptor and one set of ins
 surface. `--check` regenerates into memory and reports drift instead of writing.
 
 **Adapters translate packaging and invocation, never semantics.** The only transformation performed
-here is *collection*: MTDR stores skills two levels deep because they live with the record semantics
-they serve (TDR-0023), and no runtime scans that shape. Every `SKILL.md` is copied byte-identical; if
+here is *collection*: MTDR stores skills beside the record semantics they serve (TDR-0023), at paths
+such as `records/<language>/skills/<name>/`, and no runtime scans that shape. Every `SKILL.md` is copied byte-identical; if
 supporting a runtime ever required editing one, the runtime would be unsupported instead.
 
 This module is not normative and defines nothing. See `mtdr_packaging/README.md`.
