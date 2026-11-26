@@ -59,6 +59,47 @@ The TDR has two sibling records:
   consequences are acceptable; the DAC records the reasoning that challenges them, before execution.
   [The DAC specification](records/decision/specification/dac.md) sets out when one is required (§4).
 
+## What this release contains
+
+| Capability | Record | Standing |
+|---|---|---|
+| Decision | TDR, with the DAC | Normative |
+| Value | VR | Normative |
+| Decision recovery | Retrospective candidates, the recovery skills, the installer and the folder validator | **Proposed** under TDR-0048, TDR-0049, TDR-0050 and DAC-0048. It is published only once those records are ratified |
+| Inheritance | OIR | Experimental: published for review, not part of the standard ([TDR-0047](decisions/TDR-0047-experimental-packages.md)) |
+| Authority | OAR | Candidate: scope only, not yet admitted |
+| Evidence | OER | Candidate: scope only, not yet admitted |
+
+This release does not claim external validation, proven adoption, ease of installation or usability.
+Those claims wait for independent practitioners to test it ([DAC-0045](decisions/DAC-0045-external-validation-follows-publication.md)).
+
+## Known limitations
+
+- A proposed TDR that honestly leaves the owner's confidence unstated fails the TDR schema: the field
+  has no value for "not yet stated" ([#14](https://github.com/saileshpanchal/mtdr/issues/14)).
+- The quick start teaches writing a record at the time of a decision. It does not yet route someone
+  holding minutes of a past decision to historical recovery, and the installer packages the recovery
+  skills, not the authoring ones ([#15](https://github.com/saileshpanchal/mtdr/issues/15)).
+- Four smaller questions are open: what `status: proposed` means for a decision already approved
+  ([#16](https://github.com/saileshpanchal/mtdr/issues/16)); what `confirmed_by_outcome` holds when
+  no review was set ([#17](https://github.com/saileshpanchal/mtdr/issues/17)); a manifest dependency
+  on `specification/record-identity.md` ([#18](https://github.com/saileshpanchal/mtdr/issues/18));
+  and whether an editorial change to a specification changes its version
+  ([#19](https://github.com/saileshpanchal/mtdr/issues/19)).
+- Copying the skills flat into an agent's skills folder breaks their links. Use the installer, which
+  supports Claude Code and Hermes ([`skills/packaging/profiles/`](skills/packaging/profiles/)).
+- If a specification's version is raised in a later release, records bound to the earlier version
+  would fail the identity check. A fix was held out of this release for a governed decision.
+- The tests that shipped with v1.30.0 report 13 failures against this release. All 13 come from the
+  experimental package state, which v1.30.0 predates.
+
+## Feedback
+
+If you try MTDR without help from its authors, please tell us what happened:
+[open an independent trial report](https://github.com/saileshpanchal/mtdr/issues/new?template=independent-trial-report.md).
+Report a defect with the [defect template](https://github.com/saileshpanchal/mtdr/issues/new?template=defect.md),
+and challenge a design decision with the [challenge template](https://github.com/saileshpanchal/mtdr/issues/new?template=challenge-a-decision.md).
+
 ## What's here
 
 The repository is organised as **record packages** — one per organisational language — over a
