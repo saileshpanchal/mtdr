@@ -12,7 +12,7 @@ a defect ([TDR-0024](../../../decisions/TDR-0024-packaging-independence.md)).
 
 The skills live beside the record semantics they serve, and link into them by relative path: a
 record-package skill sits three or four directories below the repository root, a shared skill
-two. The discovery paths listed below are flat skill directories, not that layout, so there are
+two, counting the directories that contain the skill's own folder. The discovery paths listed below are flat skill directories, not that layout, so there are
 two ways to run them, and neither is complete:
 
 - **In place: every link resolves, discovery by name is lost.** Work from a clone of this repository
