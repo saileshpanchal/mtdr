@@ -44,20 +44,29 @@ That leaves one helper the suite imports, `tests/adoption/disclosure.py`, at the
 it is not quite the release's tests unmodified. For `94e2d0c` the whole folder was also taken,
 `git archive v1.30.0 tests | tar -x -C <second tree>`, with the same result.
 
-The history scan reads every version of every text file that a commit on the branch adds or changes
-(binary files are skipped), and each commit's message, author and committer. In all of those it looks
-for credentials, local paths, identifiers of private records, and the names of private systems or
-clients. For e-mail addresses it does two different things:
+The history scan is a private script, so its result cannot be reproduced from this repository alone.
+It reads every version of every file that a commit on the branch adds, modifies or renames (for a
+merge commit, against each parent), skipping a file whose first 2,000 characters contain a NUL byte,
+and it reads each commit's message, author and committer. In all of those it looks for credentials,
+local paths, identifiers of private records, and the names of private systems or clients. For e-mail
+addresses it does two different things:
 
-- In file contents and commit messages it reports any address except those it passes over everywhere:
-  no-reply addresses at `github.com` and `anthropic.com`, addresses at `example.com`, `example.org` or
-  a `.example` domain, and addresses at the fictional Brackwell domains the adoption fixtures use.
+- In file contents and commit messages it reports every line carrying an address other than those it
+  passes over: `noreply@anthropic.com`, `noreply@github.com`, any address at
+  `users.noreply.github.com`, `example.com` or `example.org`, any address whose domain ends in
+  `.example`, and any address at a domain beginning `brackwell.`, the fictional organisation of the
+  adoption fixtures.
 - In the author and committer fields it does not test for e-mail addresses at all. It lists the
   identities it finds there, for a person to read. On this branch it lists one, the maintainer's,
   which `main`'s history already carries.
 
 So "no hit" below does not mean that no commit carries an e-mail address: every commit carries the
 maintainer's as author and committer, and a no-reply address in its co-author trailer.
+
+As first run on this branch, the scan tested only the first address on each line of a file, matched
+the pass-over list more loosely, and did not read files changed only by a merge commit. It was
+corrected on 26 November 2026 and run again over the branch as it then stood (`ea1c3ba..c7feb69`,
+seven commits): no hit.
 
 | Commit | Suite | `v1.30.0`'s tests in this tree | Files changed against `main` (`ea1c3ba`) | History scan |
 |---|---|---|---|---|
@@ -117,7 +126,7 @@ fix; three notes.
 | # | Finding | Response |
 |---|---|---|
 | T1 | This file said the baseline "was stated in the pull request's description when the work began". The pull request was opened after the first implementation commit, and its description already reported results at that commit. | Corrected above. |
-| T2 | This file said the scan reads author, committer and messages for e-mail addresses and reported no hit, although every commit carries the maintainer's address and a no-reply trailer. | The scan's treatment of e-mail addresses is stated above, exactly, after the fourth check below. |
+| T2 | This file said the scan reads author, committer and messages for e-mail addresses and reported no hit, although every commit carries the maintainer's address and a no-reply trailer. | The scan's treatment of e-mail addresses is stated above. That statement was corrected twice more, after the fourth and fifth checks below. |
 | T3 (note) | Taking three paths from the tag is not quite "the release's tests, unmodified": one imported helper stays at the branch's version. | Stated above. The whole of the release's `tests/` was also run over `94e2d0c`: the same 13 failures. |
 | T4 (note) | In the table of acts, the ratification row cites only TDR-0027 for "for this repository, the maintainer"; the maintainer's role is recorded in `GOVERNANCE.md`. | Not changed here. `ENGINEERING-CONTROLS.md` stays at the reviewed commit `94e2d0c`; the citation is to be completed when the file next changes. |
 | T5 (note) | The pull request's description still carries two earlier wordings that the files have since corrected. | The description is corrected. It is not part of the merge content. |
@@ -132,7 +141,23 @@ release's `tests/` over `94e2d0c` (the same 13 failures: 7 `bundle`, 4 `skill-co
 
 | # | Finding | Response |
 |---|---|---|
-| F-A | The description of the scan said it passes over only two e-mail addresses. The scan does not test the author and committer fields for addresses at all, and it passes over no-reply and example-domain addresses everywhere, so the sentence claimed more coverage than the scan has. Its "no hit" result still stands on this branch. | The description above now states what the scan does with e-mail addresses, exactly. |
+| F-A | The description of the scan said it passes over only two e-mail addresses. The scan does not test the author and committer fields for addresses at all, and it passes over no-reply and example-domain addresses everywhere, so the sentence claimed more coverage than the scan has. Its "no hit" result still stands on this branch. | The description was rewritten. It was corrected once more after the fifth check below. |
+
+## Fifth check, of `c7feb69`
+
+Reviewer: an AI reviewer running a different model from the author's, which had not written the change.
+It compared the description of the scan with the scan's code clause by clause, ran the scan, and re-ran
+the suite at `c7feb69` (exit 0, 992 links checked). Result: two clauses to fix; nothing else.
+
+| # | Finding | Response |
+|---|---|---|
+| S-1 | The description said the adoption fixtures use Brackwell e-mail domains. They contain no e-mail address. | The clause now says only what the scan passes over: an address at a domain beginning `brackwell.`. |
+| S-2 | "Reports any address" was not true of file contents: the scan tested only the first address on each line of a file. | The scan was corrected to test every address on a line, and the description says what it now does and what it did when first run. |
+
+While checking the description against the code, the author found three more places where the scan
+was looser than the description, and corrected the scan in each: the address pattern stopped short of
+the whole domain, the pass-over list matched part of an address and not the whole of it, and files
+changed only by a merge commit were not read. This branch has no merge commit.
 
 The commit that carries this revision changes this file only. It needs a check of its own before the
 pull request can be put forward for a merge decision.
