@@ -51,7 +51,6 @@ A TDR is a single markdown file: YAML frontmatter for machine-readable fields, m
 | Field | Required | Values / format |
 |---|---|---|
 | `id` | Yes | `TDR-nnnn`, unique within the owning organisation or repository |
-| `conforms_to` | Optional | `mtdr/decision/tdr@<version>` — the specification version the record is presented as conforming to. See [TDR-0043](../../../decisions/TDR-0043-version-bound-detached-records.md) |
 | `title` | Yes | Imperative or declarative statement of the decision |
 | `status` | Yes | `proposed` \| `accepted` \| `superseded` \| `rejected` |
 | `template` | Yes | `full` \| `minimal` \| `bare` |
