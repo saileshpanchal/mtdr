@@ -93,12 +93,16 @@ both and rewriting neither.
 > relative links still do not resolve, in 10 record-package skills. 17 go into the skill's own package
 > (`../../specification/…`, `../../templates/…`). 16 go up to the repository's shared layers
 > (`../../../../specification/…`, `../../../../decisions/…`), which from that depth resolve above the
-> clone. In a project without the repository, 56 of 64. A directory at another depth gives other
-> figures: copied into `./skills/`, one level below the root, 53 of 64 do not resolve, in 12 skills,
-> and 3 more reach a different file from the one the skill means. Each generated surface README now
-> computes and states the figures for the directory it names, and names the route that keeps every
-> link: run each skill in place, at its repository path, from a clone. Finding 5 stands — rewriting
-> the links remains forbidden — but the tension is **not** resolved by this bundle.
+> clone. In a project without the repository, 56 of 64. The generated surface READMEs compute and
+> state these figures, and name the route that keeps every link: run each skill in place, at its
+> repository path, from a clone.
+>
+> **Added 26 Nov 2026.** A directory at another depth gives other figures: copied into `./skills/`,
+> one level below the root, 53 of 64 do not resolve, in 12 skills, and 3 more reach a different file
+> from the one the skill means. Each generated surface README now computes the figures for the
+> directory it names. Of finding 5, the rule stands: rewriting the links remains forbidden. Its remedy
+> does not: deploying the reference-knowledge layer beside a flat collection leaves these links
+> unresolved. The tension is **not** resolved by this bundle.
 
 **6. `.agents/skills/` is a converging neutral path.** Codex scans it, Gemini aliases both its user and
 workspace paths to it, and Copilot is reported to read it. A single `.agents/skills/` directory
