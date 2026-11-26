@@ -5,8 +5,8 @@ constrains nothing, and is not part of any conformance claim — the files it co
 and this module only decides where they are put.
 
 ```bash
-python3 -m mtdr_packaging.generate           # write the bundles
-python3 -m mtdr_packaging.generate --check   # report drift without writing
+uv run python -m mtdr_packaging.generate           # write the bundles
+uv run python -m mtdr_packaging.generate --check   # report drift without writing
 ```
 
 `tests/verify.py` runs `--check` on every run, so a bundle cannot silently fall behind the manifests.

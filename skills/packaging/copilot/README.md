@@ -10,11 +10,23 @@ a defect ([TDR-0024](../../../decisions/TDR-0024-packaging-independence.md)).
 
 ## Install
 
-Copy or link the 25 collected skills into `.github/skills/`:
+The skills live beside the record semantics they serve, and link into them by relative path: a
+record-package skill sits three or four directories below the repository root, a shared skill
+two. The discovery paths listed below are flat skill directories, not that layout, so there are
+two ways to run them, and neither is complete:
 
-```
-cp -r skills/packaging/canonical/skills/* .github/skills/
-```
+- **In place: every link resolves, discovery by name is lost.** Work from a clone of this repository
+  and have the agent follow a skill at its repository path, e.g.
+  `records/decision/skills/<name>/SKILL.md` or `skills/shared/<name>/SKILL.md`.
+- **Collected flat for discovery: links break.** Copying the 25 collected skills into `.github/skills/`
+  (`cp -r skills/packaging/canonical/skills/* .github/skills/`) makes them discoverable, but puts
+  every skill two directories below the project root. Each relative link is written for the depth at
+  which its skill sits in the repository, so from any other depth a link to anything but a
+  neighbouring skill lands somewhere else. **33 of their 64 relative links no longer resolve, in
+  10 of the 25 skills, even inside a full clone**.
+  The links that still resolve all reach the file the skill means.
+  In a project without the repository, 56 of 64 break.
+  An agent that cannot open a link may search for the file and find another copy.
 
 Discovery paths this runtime reads:
 
@@ -34,8 +46,8 @@ Progressive disclosure: Not established.
 
 **Required, not optional.** The collected skills carry their canonical relative links, which resolve
 against the repository layout rather than inside this directory — deliberately: rewriting them would
-modify a canonical artefact, which packaging may never do. Deploy the reference knowledge alongside
-and the references resolve for the reader; deploy the skills alone and they will not.
+modify a canonical artefact, which packaging may never do. Deploying the reference knowledge alongside
+a flat collection does not make those links resolve (see Install); only the canonical layout does.
 
 The skills point back into the normative layer. Make available the paths listed under
 `reference_knowledge` in [`provenance.yaml`](../canonical/provenance.yaml) — the substrate

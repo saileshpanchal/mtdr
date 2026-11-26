@@ -3,11 +3,12 @@
 
 Validates the repository against its own rules — run from the repository root:
 
-    uv run --with pyyaml --with jsonschema python tests/verify.py
+    uv run tests/verify.py
 
-That form needs nothing installed first, which is the point: a conformance suite an adopter cannot
-run from a clean clone proves less than it claims. Where the dependencies are already present,
-`python3 tests/verify.py` is equivalent.
+That form needs nothing installed first and resolves exactly what `uv.lock` pins, which is the
+point: a conformance suite an adopter cannot run from a clean clone proves less than it claims.
+Without the lockfile in reach, `uv run --with pyyaml --with jsonschema python tests/verify.py` is
+equivalent, and so is `python3 tests/verify.py` where the dependencies are already present.
 
 Checks: record schema validity · lineage resolution · id/filename agreement · skill frontmatter
 discipline · relative-link resolution (stubs included) · package manifests coherent · candidate
@@ -38,7 +39,7 @@ try:
     from jsonschema import Draft202012Validator as Validator
 except ImportError:
     sys.exit("verify.py requires pyyaml and jsonschema — run:\n"
-             "    uv run --with pyyaml --with jsonschema python tests/verify.py")
+             "    uv run tests/verify.py")
 
 FAILS = []
 def fail(check, msg): FAILS.append((check, msg))

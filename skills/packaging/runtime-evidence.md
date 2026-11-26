@@ -88,6 +88,18 @@ deliberately puts skills next to the record semantics they serve. Runtimes want 
 standard is not going to acquire a flat shape to suit them. The bundle resolves the tension by shipping
 both and rewriting neither.
 
+> **Correction, 23 Nov 2026: shipping both does not resolve it.** Measured on this release's 25 skills:
+> collected flat inside a full clone, into a skills directory two levels below the root, **33 of 64**
+> relative links still do not resolve, in 10 record-package skills. 17 go into the skill's own package
+> (`../../specification/…`, `../../templates/…`). 16 go up to the repository's shared layers
+> (`../../../../specification/…`, `../../../../decisions/…`), which from that depth resolve above the
+> clone. In a project without the repository, 56 of 64. A directory at another depth gives other
+> figures: copied into `./skills/`, one level below the root, 53 of 64 do not resolve, in 12 skills,
+> and 3 more reach a different file from the one the skill means. Each generated surface README now
+> computes and states the figures for the directory it names, and names the route that keeps every
+> link: run each skill in place, at its repository path, from a clone. Finding 5 stands — rewriting
+> the links remains forbidden — but the tension is **not** resolved by this bundle.
+
 **6. `.agents/skills/` is a converging neutral path.** Codex scans it, Gemini aliases both its user and
 workspace paths to it, and Copilot is reported to read it. A single `.agents/skills/` directory
 plausibly serves three of the five without per-surface work — which, if it holds, means the "five

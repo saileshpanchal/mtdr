@@ -8,7 +8,7 @@ This repository's own design decisions live in [`/decisions`](decisions/) as TDR
 
 To challenge a decision:
 
-1. Copy the appropriate template from [`/templates`](records/decision/templates/).
+1. Copy the appropriate template from [`records/decision/templates/`](records/decision/templates/).
 2. Write a superseding TDR: set `supersedes:` to the record you are challenging, and make the **Context** section state *what is now known that was not known at the time* of the original decision.
 3. Open a pull request containing the new record. Discussion happens on the PR — in the standard's own format.
 4. If accepted, the new record's status becomes `accepted`, the original's becomes `superseded`, and both remain in the folder permanently. The reasoning trail survives its own corrections.
@@ -19,9 +19,19 @@ Status transitions (`proposed → accepted`, `accepted → superseded`) and `con
 
 How work on this repository is committed, pushed, reviewed, ratified and released is set out in [`ENGINEERING-CONTROLS.md`](ENGINEERING-CONTROLS.md). It is a proposal and it is not part of the standard: it becomes this repository's practice only when a decision record in [`/decisions`](decisions/) adopts it. A commit, a push, a review and a merge are none of them ratification.
 
-## Spec and template changes
+## Editorial or normative?
 
-Improvements to `spec.md`, the templates, or the skills follow the same rule when they change meaning: a superseding TDR in `/decisions` accompanies the change. Typo and clarity fixes need no ceremony — proportionality applies to contributions too.
+Improvements to the specifications, the templates, or the skills follow the same rule when they change meaning: a superseding TDR in [`decisions/`](decisions/) accompanies the change. Typo and clarity fixes need no ceremony — proportionality applies to contributions too.
+
+The line is meaning, not size. A one-word change to what a field requires is normative; a rewritten paragraph that leaves every requirement as it was is editorial. If you cannot tell which you have, say so in the pull request.
+
+## Before you open a pull request
+
+Run the repository's suite from the root of your clone. `uv` is the only prerequisite:
+
+```bash
+uv run tests/verify.py
+```
 
 ## Worked examples
 

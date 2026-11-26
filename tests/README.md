@@ -6,6 +6,17 @@ package may never depend sideways on another ([TDR-0021](../decisions/TDR-0021-r
 What conformance means, and why schema validation is only its floor, is
 [`specification/conformance.md`](../specification/conformance.md) ([TDR-0025](../decisions/TDR-0025-conformance-architecture.md)).
 
+Run the repository's suite from the root of a clean clone. `uv` is the only prerequisite; it resolves
+exactly what `uv.lock` pins:
+
+```bash
+uv run tests/verify.py
+```
+
+A workflow, `.github/workflows/verify.yml`, is provided to run the same command on Linux and macOS.
+No run of it has yet completed. A green run would show that the suite is reproducible on both, not
+that anyone outside this repository has validated anything.
+
 | Directory | Holds |
 |---|---|
 | [`conformance/`](conformance/) | Cross-language fixtures (FIX-002: one fragment, two objects) and the deployed-agent probes |
