@@ -19,31 +19,27 @@ permissions:
 
 jobs:
   verify:
-    name: verify (${{ matrix.os }})
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
+    env:
+      SHA: ${{ inputs.sha }}
     steps:
       - name: Require a full commit SHA
-        shell: bash
-        env:
-          SHA: ${{ inputs.sha }}
         run: '[[ "$SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "Not a full 40-character commit SHA: $SHA"; exit 1; }'
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
         with:
           ref: ${{ inputs.sha }}
           persist-credentials: false
       - name: Confirm the commit checked out
-        shell: bash
-        env:
-          SHA: ${{ inputs.sha }}
         run: |
           test "$(git rev-parse HEAD)" = "$SHA"
           git log -1 --format='Verifying %H — %s'
       - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2  # v10.3.3
         with:
           version: "0.13.9"  # the same tool version verify.yml pins
+          enable-cache: false  # a fresh install from the commit's own lockfile, every run
       - run: uv sync --locked
       - run: uv run tests/verify.py
