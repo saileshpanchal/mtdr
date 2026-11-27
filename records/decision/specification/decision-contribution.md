@@ -18,7 +18,7 @@ are: `semantic_role` takes a class name where field-level assignment is prematur
 fragment can make several contributions.
 
 Recovering decisions from historical material follows
-[`specification/historical-recovery.md`](../../../specification/historical-recovery.md) (proposed under
+[`specification/historical-recovery.md`](../../../specification/historical-recovery.md) (accepted under
 TDR-0048). This file is the decision language's part of it.
 
 ## The classes

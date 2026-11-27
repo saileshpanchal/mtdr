@@ -38,7 +38,7 @@ own failure.
 - **Exactly 1 CandidateAssembly**, `target_object: consequential-decision`.
 - **`missing_semantics` is empty**, and that empty list is a claim the skill is making.
 - **`grouping_basis` cites the `singleton` basis** — every contribution comes from one entry of one
-  source, the decision paper, and the evidence names it. *Proposed under
+  source, the decision paper, and the evidence names it. *Accepted under
   [TDR-0050](../../../decisions/TDR-0050-singleton-grouping-basis.md)*; before it, the enum had no value
   for what this fixture always expected.
 - **The proportionality outcome is `full`**, with the reversal-cost reasoning naming the foreclosure

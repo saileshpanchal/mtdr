@@ -16,7 +16,7 @@ must-not section ([TDR-0025](../../../decisions/TDR-0025-conformance-architectur
 | [`no-decision/`](no-decision/) | the five reasons by identifier; silence and deferral are different findings | FIX-027 · FIX-028 |
 | [`persistence/`](persistence/) | continued operation is observed behaviour, never a decision to continue | FIX-034 |
 
-The recovery fixtures (FIX-018 onwards) are **proposed under
+The recovery fixtures (FIX-018 onwards) are **accepted under
 [TDR-0048](../../../decisions/TDR-0048-historical-recovery-doctrine.md) and
 [TDR-0049](../../../decisions/TDR-0049-decision-recovery-vocabulary.md)**. The contract the
 retrospective candidate itself must meet is tested in [`tests/recovery/`](../../../tests/recovery/).

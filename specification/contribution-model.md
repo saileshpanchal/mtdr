@@ -43,7 +43,7 @@ SourceFragment  →  RecordContribution  →  CandidateAssembly
 | **CandidateAssembly** | A proposal: these contributions appear to concern one object. | [`candidate-assembly.md`](candidate-assembly.md) |
 
 For an object recovered after the event, a [**historical candidate**](historical-candidate.md) carries
-all three, unchanged, with the retrospective facts they cannot carry beside them — *proposed under
+all three, unchanged, with the retrospective facts they cannot carry beside them — *accepted under
 [TDR-0048](../decisions/TDR-0048-historical-recovery-doctrine.md)*.
 
 The separation is load-bearing. A structure that carried both the verbatim evidence and the
