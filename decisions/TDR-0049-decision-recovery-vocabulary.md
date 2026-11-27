@@ -2,12 +2,12 @@
 id: TDR-0049
 conforms_to: mtdr/decision/tdr@1.15.0
 title: Adopt the decision-recovery vocabulary — contribution classes, the canonical not-a-decision reasons, and the recovery pipeline
-status: proposed
+status: accepted
 template: minimal
 decision_date: 2026-11-07
 accountable_owner: Sailesh Panchal
 confidence: medium
-maturity: proposed
+maturity: adopted
 supersedes: none
 derived_from: TDR-0023, TDR-0026, TDR-0048
 confirmed_by_outcome: pending — confirm only when an implementation outside this repository loads the not-a-decision reasons and the recovery roles from the published vocabulary instead of restating them, and a further independent confirmation, by an adopter who is not the drafter over material the drafter did not write, has run the recovery pipeline end to end. 2027-05-07 is the review date; reaching it confirms nothing
@@ -15,8 +15,8 @@ confirmed_by_outcome: pending — confirm only when an implementation outside th
 
 # TDR-0049 — Adopt the decision-recovery vocabulary — contribution classes, the canonical not-a-decision reasons, and the recovery pipeline
 
-> **Proposed. No standing.** Depends on [TDR-0048](TDR-0048-historical-recovery-doctrine.md), and is
-> ratified only after it. Like it, nothing here reaches `main` while it is proposed.
+> **Accepted on 2026-11-27** by the owner's ratification ([evidence](evidence/TDR-0049-ratification-2026-11-27.md)), after
+> [TDR-0048](TDR-0048-historical-recovery-doctrine.md).
 >
 > **Returned on 7 November 2026 and amended** ([the return](evidence/TDR-0048-0049-owner-return-2026-11-07.md)) on the owner's rulings R1 to R4 — decision 6 below —
 > and the fixtures they affect, FIX-301 among them. It stays proposed, and its confirmation needs a
@@ -192,14 +192,6 @@ an item became the owner's decision only when the owner ratified this record.
   either `evidenced` or `not-evidenced`, is the drafter's form. Numbered last because the re-review of
   26 November found it unlisted. Where: `decision-contribution.md` *Findings*, its schema.
 
-## If this record is returned
-
-These edits to text that existed in v1.30.0 were made for this record and are reverted with it:
-`admission.md` criterion 6 (E8); `draft-tdr` (the completeness view and the undetermined outcome; its
-candidate view goes with TDR-0048); `decision-identification` (citing the five
-reasons); the decision package's `package.yaml` (`lifecycle` and `orchestration`); and FIX-301's
-expected answers. The additions — the vocabulary, its schema, the five skills and the fixtures — are
-removed.
 
 ## Review
 

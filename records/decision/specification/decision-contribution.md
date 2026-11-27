@@ -1,8 +1,8 @@
 # Decision contributions — the recovery vocabulary
 
 **Version:** 1.0.0 · **Licence:** MIT · **Author:** Sailesh Panchal
-**Status:** **Proposed under [TDR-0049](../../../decisions/TDR-0049-decision-recovery-vocabulary.md) —
-no standing until ratified.** Normative for interpretation of the decision language once accepted.
+**Status:** **Accepted under [TDR-0049](../../../decisions/TDR-0049-decision-recovery-vocabulary.md) on
+2026-11-27.** Normative for interpretation of the decision language.
 **Not a record schema.** Machine-readable form:
 [`../schema/decision-contribution.schema.json`](../schema/decision-contribution.schema.json).
 

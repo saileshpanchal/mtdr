@@ -15,7 +15,7 @@
 | Act | *To be completed: authorise publication of the release candidate as v1.31.0* |
 | Commit | *To be completed: the exact release-candidate commit approved* |
 | Tag | `v1.31.0`, proposed |
-| Preceded by | *To be completed: ratification of DAC-0048, TDR-0048, TDR-0049 and TDR-0050, each a separate act with its own evidence* |
+| Preceded by | Ratification of TDR-0050, DAC-0048, TDR-0048 and TDR-0049 on 2026-11-27, four separate acts, each with its evidence note in `decisions/evidence/` |
 
 ## The version, and why it is a minor one
 
@@ -74,7 +74,7 @@ usability while `DAC-0032#4` is outstanding.
 |---|---|
 | Decision (TDR, DAC) | Normative |
 | Value (VR) | Normative |
-| Decision recovery | Normative within the decision language, **only once** DAC-0048, TDR-0048, TDR-0049 and TDR-0050 are ratified |
+| Decision recovery | Normative within the decision language: DAC-0048, TDR-0048, TDR-0049 and TDR-0050 ratified on 2026-11-27 |
 | Inheritance (OIR) | Experimental: published for review, excluded from every claim |
 | Authority (OAR) | Candidate: scope only |
 | Evidence (OER) | Candidate: scope only |

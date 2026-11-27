@@ -52,7 +52,7 @@ decision package names the two routes, and they follow different rules:
 | It works from | "A human who holds the reasoning" | "Reconstruction from material": the documents that survive the decision |
 | Its rules | The quick start's three rules that never bend | One rule: "Recover what can be evidenced. Preserve what cannot. Never turn a contemporary interpretation into historical authority" |
 | It produces | A TDR that its named owner confirms | "A retrospective candidate with no standing" |
-| Status in this release | Part of the normative decision package | Proposed under TDR-0048 and TDR-0049 |
+| Status in this release | Part of the normative decision package | Accepted under TDR-0048 and TDR-0049 |
 | Start at | The [quick start](practice/quickstart.md) | The [`recover-decision-records`](records/decision/skills/recover-decision-records/) skill and [historical recovery](specification/historical-recovery.md) |
 
 Three terms recur throughout the repository. A **candidate** is a proposal: unratified, with no
@@ -109,8 +109,8 @@ apply it. The record's YAML header must also satisfy
 once the header is converted to JSON. Run on a folder of TDRs, `mtdr_validation` reports
 `0 artefact(s) assessed`: that is not a pass.
 
-The installer and the folder validator belong to decision recovery, which is proposed and not yet
-ratified (see [What this release contains](#what-this-release-contains)).
+The installer and the folder validator belong to decision recovery, which is normative
+(see [What this release contains](#what-this-release-contains)).
 
 ## Why
 
@@ -139,7 +139,7 @@ The TDR has two sibling records:
 |---|---|---|
 | Decision | TDR, with the DAC | Normative |
 | Value | VR | Normative |
-| Decision recovery | Retrospective candidates, the recovery skills, the installer and the folder validator | **Proposed** under TDR-0048, TDR-0049, TDR-0050 and DAC-0048. It is published only once those records are ratified |
+| Decision recovery | Retrospective candidates, the recovery skills, the installer and the folder validator | Normative: DAC-0048, TDR-0048, TDR-0049 and TDR-0050 ratified on 2026-11-27 |
 | Inheritance | OIR, the Operational Inheritance Record | Experimental: published for review, not part of the standard ([TDR-0047](decisions/TDR-0047-experimental-packages.md)) |
 | Authority | OAR, the Operational Authority Record | Candidate: scope only, not yet admitted |
 | Evidence | OER, the Operational Evidence Record | Candidate: scope only, not yet admitted |

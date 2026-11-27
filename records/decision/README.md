@@ -52,7 +52,7 @@ Material recovered after the event follows
 [`historical-recovery.md`](../../specification/historical-recovery.md), whose one rule is: "Recover
 what can be evidenced. Preserve what cannot. Never turn a contemporary interpretation into
 historical authority." What the interpretation path hands on is a retrospective candidate with no
-standing: a proposal that no named individual has ratified. *Proposed under TDR-0048 and TDR-0049.*
+standing: a proposal that no named individual has ratified. *Accepted under TDR-0048 and TDR-0049.*
 
 **Assurance** ([`skills/assurance/`](skills/assurance/)) — routing is normative in the DAC spec §4:
 `systems-thinking`, `counterfactual-and-evidence` and `accumulated-and-resultant-risk` always run;

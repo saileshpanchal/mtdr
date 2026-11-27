@@ -45,7 +45,7 @@ skills:
     package: decision
     group: authoring
     source: records/decision/skills/decision-identification/SKILL.md
-    sha256_16: daf9fd8ddf0c0dba
+    sha256_16: 4b4ecad457c1582e
   - name: draft-tdr
     package: decision
     group: drafting

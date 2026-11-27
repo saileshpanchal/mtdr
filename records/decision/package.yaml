@@ -5,7 +5,7 @@ primary_record: TDR
 object: consequential-decision   # the organisational object a TDR is the governed memory of
 specifications:
   supporting:
-    - specification/decision-contribution.md   # the recovery vocabulary (proposed under TDR-0049)
+    - specification/decision-contribution.md   # the recovery vocabulary (accepted under TDR-0049)
 vocabulary: schema/decision-contribution.schema.json   # its machine-readable form, read by the suite
 records:
   - id: TDR
