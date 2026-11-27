@@ -92,7 +92,7 @@ counter-signature are consistent with its terms, and cite nothing. **No candidat
 reported with the condition met (contemporaneity) and the evidence that would establish the other two.
 Its authenticity is recorded as unresolved. *(E5: what counts as authentication and as effect is the
 drafter's; that an instrument never authenticates itself by an unverified assertion is the owner's
-disposition of 27 November.)*
+condition of 27 November.)*
 
 ## Expected — value
 

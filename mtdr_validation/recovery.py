@@ -136,7 +136,7 @@ def contemporaneity(capture, creation, event, considered='unknown'):
     order material across days, never within one; an order they leave open is closed only by
     `considered: evidenced`, which never lifts a time-less artefact and never overrides `later`. A partial
     date that spans the event cannot prove the order or show which version existed (the owner's
-    disposition of 27 November), so an order such a date leaves open is never closed. A partial date
+    condition of 27 November), so an order such a date leaves open is never closed. A partial date
     wholly before or after the event still orders it."""
     if event == 'unknown':
         return 'indeterminate'                 # a missing event moment is never assumed

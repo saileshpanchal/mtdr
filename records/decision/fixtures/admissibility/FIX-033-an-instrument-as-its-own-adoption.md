@@ -6,7 +6,7 @@
 only because it is the evidence — while a candidate still needs contemporaneity, authentication and
 evidence of effect.
 
-*It applies the owner's ruling R3 of 7 November and the owner's disposition of 27 November: an
+*It applies the owner's ruling R3 of 7 November and the owner's condition of 27 November: an
 instrument does not authenticate itself by an unverified assertion ([preserved](../../../../decisions/evidence/TDR-0048-0049-0050-owner-dispositions-2026-11-27.md);
 E5 in [TDR-0049](../../../../decisions/TDR-0049-decision-recovery-vocabulary.md#where-this-record-goes-beyond-the-owners-rulings)).
 Corrected on 27 November: the Standing Orders were a candidate on signatures and a register entry

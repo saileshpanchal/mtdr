@@ -167,7 +167,7 @@ scheme of delegation, a policy or standing orders that state when they were adop
 aside solely because the evidence of the adoption is the instrument adopted** (the owner's ruling R3). A
 candidate for the adoption needs, as well as the instrument, three conditions. *What counts as
 authentication and as effect is the drafter's; that an instrument never authenticates itself by an
-unverified assertion is the owner's disposition of 27 November (E5 in [TDR-0049](../../../decisions/TDR-0049-decision-recovery-vocabulary.md#where-this-record-goes-beyond-the-owners-rulings);
+unverified assertion is the owner's condition of 27 November (E5 in [TDR-0049](../../../decisions/TDR-0049-decision-recovery-vocabulary.md#where-this-record-goes-beyond-the-owners-rulings);
 [preserved](../../../decisions/evidence/TDR-0048-0049-0050-owner-dispositions-2026-11-27.md)).*
 
 - **contemporaneity** — the instrument as adopted, its adoption time stated by the instrument itself or

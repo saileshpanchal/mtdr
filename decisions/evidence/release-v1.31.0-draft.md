@@ -39,10 +39,10 @@
   of the standard.
 
 The version stays proposed until it is confirmed against compatibility and governance requirements,
-and the owner's disposition of 27 November keeps it proposed until compatibility checks establish that
+and the owner's condition of 27 November keeps it proposed until compatibility checks establish that
 no breaking change has been introduced.
 
-**Compatibility checks, 27 November 2026.** Run on the candidate after the owner's dispositions.
+**Compatibility checks, 27 November 2026.** Run on the candidate after the owner's direction of 27 November was applied.
 
 | Check | Result |
 |---|---|

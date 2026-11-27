@@ -27,9 +27,10 @@ confirmed_by_outcome: pending — confirm only when a recovery outside this repo
 > the ruling is quoted rather than glossed, and this record says what already relies on it. It stays
 > proposed.
 >
-> **On 27 November 2026 the owner disposed** ([preserved](evidence/TDR-0048-0049-0050-owner-dispositions-2026-11-27.md)) that this is the governing record
-> ruling R5 asked for, and that its confidence is medium: one trial, and an entry boundary no
-> validator can check. The disposition ratifies nothing. It stays proposed.
+> **On 27 November 2026 the owner directed** ([preserved](evidence/TDR-0048-0049-0050-owner-dispositions-2026-11-27.md)) that the assistant's
+> recommendations proceed: that this is the governing record ruling R5 asked for, and that its
+> confidence be medium, given one trial and an entry boundary no validator can check. The direction
+> was an engineering instruction and decided nothing. It stays proposed.
 
 ## Context — what was known at the time
 
@@ -92,8 +93,8 @@ the recovery fixtures FIX-522 and FIX-523; the `singleton` value in
 [`candidate-assembly.schema.json`](../schemas/shared/candidate-assembly.schema.json); the shared
 [`reconcile-record-fragments`](../skills/shared/reconcile-record-fragments/) skill; and
 [FIX-004](../records/decision/fixtures/FIX-004-complete-in-one-source.md), which now expects it. So it is
-decided first: the owner's disposition of 27 November orders the four acts TDR-0050, DAC-0048,
-TDR-0048, TDR-0049 ([DAC-0048](DAC-0048-historical-recovery-doctrine.md#decision-debt)).
+ratified first, in the order the assistant recommended and the owner set on 27 November: TDR-0050,
+DAC-0048, TDR-0048, TDR-0049 ([DAC-0048](DAC-0048-historical-recovery-doctrine.md#decision-debt)).
 
 ## If this record is returned
 
