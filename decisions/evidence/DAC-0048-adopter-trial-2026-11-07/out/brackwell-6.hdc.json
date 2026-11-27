@@ -1,0 +1,267 @@
+{
+  "contract_version": "1.0.0",
+  "candidate_id": "brackwell-6",
+  "retrospective": true,
+  "standing": "none",
+  "status": "candidate",
+  "event_time_ref": "unknown",
+  "fragments": [
+    {
+      "fragment_id": "brackwell-S06-F2",
+      "source_ref": "sources/brackwell/SRC-06-ops-note-2026-06-30.md",
+      "source_hash": "sha256:38d742d99c7cbb6338d33a0c69333cb0d02abcc6843dedd0daf0c7ea118a52c8",
+      "locator": {
+        "kind": "char-offset",
+        "start": 108,
+        "end": 289,
+        "line_start": 5,
+        "line_end": 6
+      },
+      "content": "Since the Southway transfer in April, the two eastern rounds have been running out of Northgate rather\nthan Calder Road, because the wash bay at Calder Road is not yet commissioned.",
+      "source_time": "2026-06-30",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "brackwell-S06-F4",
+      "source_ref": "sources/brackwell/SRC-06-ops-note-2026-06-30.md",
+      "source_hash": "sha256:38d742d99c7cbb6338d33a0c69333cb0d02abcc6843dedd0daf0c7ea118a52c8",
+      "locator": {
+        "kind": "char-offset",
+        "start": 398,
+        "end": 507,
+        "line_start": 9,
+        "line_end": 10
+      },
+      "content": "Rounds have been stable and crews prefer the shorter yard exit at Northgate, so we have not\nscheduled a move.",
+      "source_time": "2026-06-30",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "brackwell-S06-F5",
+      "source_ref": "sources/brackwell/SRC-06-ops-note-2026-06-30.md",
+      "source_hash": "sha256:38d742d99c7cbb6338d33a0c69333cb0d02abcc6843dedd0daf0c7ea118a52c8",
+      "locator": {
+        "kind": "char-offset",
+        "start": 509,
+        "end": 598,
+        "line_start": 12,
+        "line_end": 12
+      },
+      "content": "Northgate has been included in the depot maintenance schedule through FY28 on that basis.",
+      "source_time": "2026-06-30",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "brackwell-S06-F3",
+      "source_ref": "sources/brackwell/SRC-06-ops-note-2026-06-30.md",
+      "source_hash": "sha256:38d742d99c7cbb6338d33a0c69333cb0d02abcc6843dedd0daf0c7ea118a52c8",
+      "locator": {
+        "kind": "char-offset",
+        "start": 291,
+        "end": 397,
+        "line_start": 8,
+        "line_end": 9
+      },
+      "content": "This was set up as a temporary measure for April and May. The wash bay commissioning slipped to\nSeptember.",
+      "source_time": "2026-06-30",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    }
+  ],
+  "contributions": [
+    {
+      "contribution_id": "brackwell-C601",
+      "fragment_refs": [
+        "brackwell-S06-F2",
+        "brackwell-S06-F4"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-statement",
+      "interpreted_value": "The two eastern rounds have been running out of Northgate rather than Calder Road, and 'we have not scheduled a move'.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "brackwell-C602",
+      "fragment_refs": [
+        "brackwell-S06-F5"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "consequence",
+      "interpreted_value": "Northgate has been included in the depot maintenance schedule through FY28 on that basis.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "brackwell-C603",
+      "fragment_refs": [
+        "brackwell-S06-F2"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "The wash bay at Calder Road is not yet commissioned.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "brackwell-C604",
+      "fragment_refs": [
+        "brackwell-S06-F3"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "This was set up as a temporary measure for April and May. The wash bay commissioning slipped to September.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "brackwell-C605",
+      "fragment_refs": [
+        "brackwell-S06-F4"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "Rounds have been stable and crews prefer the shorter yard exit at Northgate.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    }
+  ],
+  "assembly": {
+    "assembly_id": "brackwell-6-assembly",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "brackwell-C601",
+      "brackwell-C602",
+      "brackwell-C603",
+      "brackwell-C604",
+      "brackwell-C605"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "One operations note (SRC-06, 30 June 2026): its sentences refer to one another — 'This was set up as a temporary measure', 'so we have not scheduled a move', 'on that basis'."
+      }
+    ],
+    "assembly_confidence": "high",
+    "missing_semantics": [
+      "decision-date",
+      "accountable-owner"
+    ],
+    "conflicts": [],
+    "supersessions": [],
+    "unresolved": [
+      "The note is the only evidence. When the arrangement stopped being temporary, and when Northgate was added to the maintenance schedule, are not stated; the note's date (30 June 2026) is not the decision date.",
+      "'we' is not named. The note's author (Head of Fleet, a role) is not thereby the owner.",
+      "All context is captured 2026-06-30 against an unknown event time, so its contemporaneity is indeterminate and it cannot be presented as contemporaneous context.",
+      "Whether this is a decision (a temporary arrangement that became the way things work, with a maintenance commitment made 'on that basis') or an execution event of brackwell-5 is a reading for the attester. Recorded as a candidate because the note states a choice and a binding consequence.",
+      "The note is recorded as act-record: it is the only record of the choice, written by those making it. Read as retrospective, it would support only that something occurred, and there would be no candidate.",
+      "The note does not refer to the programme board of 12 May 2026, which agreed Northgate 'retained for vehicle storage' with Southway and Riverside consolidating onto Calder Road. No lineage or conflict is contributed.",
+      "The temporary measure set up for April and May is an earlier act whose record is not in the material."
+    ],
+    "status": "candidate"
+  },
+  "fragment_annotations": [
+    {
+      "fragment_ref": "brackwell-S06-F2",
+      "capture_time": "2026-06-30",
+      "creation_time": "2026-06-30",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "brackwell-S06-F4",
+      "capture_time": "2026-06-30",
+      "creation_time": "2026-06-30",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "brackwell-S06-F5",
+      "capture_time": "2026-06-30",
+      "creation_time": "2026-06-30",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "brackwell-S06-F3",
+      "capture_time": "2026-06-30",
+      "creation_time": "2026-06-30",
+      "evidence_kind": "act-record"
+    }
+  ],
+  "contribution_annotations": [
+    {
+      "contribution_ref": "brackwell-C603",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "brackwell-S06-F2"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "brackwell-C604",
+      "considered": {
+        "state": "unknown",
+        "fragment_refs": []
+      }
+    },
+    {
+      "contribution_ref": "brackwell-C605",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "brackwell-S06-F4"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+# The standard's own tooling: the conformance suite and the bundle generator. This repository is a
+# specification, not a package — nothing is built from it, so it has no build-system. `version` is
+# a placeholder uv requires: `CHANGELOG.md` is the one place the standard's version is stated.
+[project]
+name = "mtdr"
+version = "0.0.0"
+description = "Tooling for the MTDR standard's repository. Not a distribution of the standard."
+requires-python = ">=3.12"
+dependencies = [
+    "jsonschema>=4.22",
+    "pyyaml>=6.0",
+    "referencing>=0.35",
+]
+
+[tool.uv]
+package = false

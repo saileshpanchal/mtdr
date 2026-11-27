@@ -4,7 +4,7 @@ The TDR standard is deliberately layered, and the layers are separable. This pag
 whole shape in one picture so an architect can see, at a glance, what the standard *is*,
 what merely *implements* it, and what optionally *consumes* it.
 
-The load-bearing claim is a boundary, not a stack:
+The claim everything else rests on is a boundary, not a stack:
 
 > **The standard ends at the decision register.** Everything above the register is the
 > standard; everything below it is an optional consumer of the standard's output. A
@@ -38,7 +38,7 @@ flowchart TD
 | Layer | What it is | In the standard? | What it enforces |
 |---|---|---|---|
 | **AI runtime** | The environment that applies the skills — any agent runtime that loads the open skill format, or a human with the templates. Interchangeable by design (see [`skills/packaging/`](skills/packaging/)). | No — the standard is runtime-neutral | Nothing; it receives a projection and acts within it |
-| **Skills** | The [twenty-five skills](skills/) as a portable execution model: each transforms the artefact — a raw transcript becomes an identified decision, becomes a framed record, becomes an evidenced and governed one, becomes (where material) an assured one. The six interpretation skills enter the same model one step earlier, from arbitrary organisational material ([TDR-0018](decisions/TDR-0018-interpretation-skills-and-the-artefact-boundary.md)). Passes, not prompts. | **Yes** | Nothing — method, not control |
+| **Skills** | The [thirty skills](skills/) as a portable execution model: each transforms the artefact — a raw transcript becomes an identified decision, becomes a framed record, becomes an evidenced and governed one, becomes (where material) an assured one. The six interpretation skills enter the same model one step earlier, from arbitrary organisational material ([TDR-0018](decisions/TDR-0018-interpretation-skills-and-the-artefact-boundary.md)). Passes, not prompts. | **Yes** | Nothing — method, not control |
 | **Records** | The three record types — [TDR](records/decision/specification/tdr.md), [VR](records/value/specification/vr.md), [DAC](records/decision/specification/dac.md) — as complete, valid markdown files. | **Yes** | **Nothing.** A record carries judgement, not controls (spec §10) |
 | **Decision register** | The records held as a versioned body with lineage — a git repository, a documents system, a wiki. This is where a conforming implementation ends. | **Yes — the boundary** | Storage, existence visibility, retrieval, direct access and compartments — *within its administrative domain* |
 | **Decision graph** | An optional consumer that assembles the register's records (via the `supersedes` / `derived_from` / `confirmed_by_outcome` lineage fields, spec §6) into a queryable graph — to answer "what did this decision govern?", "what would superseding it invalidate?", "what is the accumulated risk position?". | No — an implementation choice that *enhances* the standard | Nothing by itself; it is a consumer, and is itself served through projections |
@@ -100,7 +100,7 @@ Three properties of the standard already draw this line; this page only makes it
   is required to. The lineage lives in the records, not in a database.
 - **The record is never the runtime object.** A decision *record* captures judgement; whatever
   executes, monitors or reasons over decisions is a separate, downstream thing. The standard is
-  careful never to conflate them — which is precisely what lets the graph and everything above it
+  careful never to conflate them, which is what lets the graph and everything above it
   be optional and vendor-independent.
 
 ## Two consequences for adopters

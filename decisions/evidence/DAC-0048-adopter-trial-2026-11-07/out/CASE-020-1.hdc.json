@@ -1,0 +1,274 @@
+{
+  "contract_version": "1.0.0",
+  "candidate_id": "CASE-020-1",
+  "retrospective": true,
+  "standing": "none",
+  "status": "candidate",
+  "event_time_ref": "CASE-020-C2",
+  "fragments": [
+    {
+      "fragment_id": "CASE-020-F1",
+      "source_ref": "sources/CASE-020.md",
+      "source_hash": "sha256:4ee8ffb8443c6cda5f313f05f5a55937532d63696e669a724dc7bb6423240050",
+      "locator": {
+        "kind": "char-offset",
+        "start": 38,
+        "end": 183,
+        "line_start": 3,
+        "line_end": 4,
+        "item": "A",
+        "document": "Board minute, 2019-03-14"
+      },
+      "content": "**A — Board minute, 2019-03-14** — the board agreed a single repairs line, as set out in paper\nB/19/07. Owner: R. Okafor, Director of Operations.",
+      "source_time": "2019-03-14",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "CASE-020-F2",
+      "source_ref": "sources/CASE-020.md",
+      "source_hash": "sha256:4ee8ffb8443c6cda5f313f05f5a55937532d63696e669a724dc7bb6423240050",
+      "locator": {
+        "kind": "char-offset",
+        "start": 185,
+        "end": 275,
+        "line_start": 6,
+        "line_end": 6,
+        "item": "B",
+        "document": "Paper B/19/07"
+      },
+      "content": "**B — Paper B/19/07, dated 2019-03-01** — the cost of four local offices against one line.",
+      "source_time": "2019-03-01",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "CASE-020-F3",
+      "source_ref": "sources/CASE-020.md",
+      "source_hash": "sha256:4ee8ffb8443c6cda5f313f05f5a55937532d63696e669a724dc7bb6423240050",
+      "locator": {
+        "kind": "char-offset",
+        "start": 277,
+        "end": 457,
+        "line_start": 8,
+        "line_end": 10,
+        "item": "C",
+        "document": "operations/2019-02-20-staffing-review.md"
+      },
+      "content": "**C — Operations memo, `operations/2019-02-20-staffing-review.md`, dated 2019-02-20**\n\n> Call-centre staffing could absorb repairs calls if the evening rota moves to a later shift.",
+      "source_time": "2019-02-20",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    }
+  ],
+  "contributions": [
+    {
+      "contribution_id": "CASE-020-C1",
+      "fragment_refs": [
+        "CASE-020-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-statement",
+      "interpreted_value": "The board agreed a single repairs line, as set out in paper B/19/07.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-020-C2",
+      "fragment_refs": [
+        "CASE-020-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-date",
+      "interpreted_value": "2019-03-14",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-020-C3",
+      "fragment_refs": [
+        "CASE-020-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "accountable-owner",
+      "interpreted_value": "R. Okafor, Director of Operations",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-020-C4",
+      "fragment_refs": [
+        "CASE-020-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "authority",
+      "interpreted_value": "the board",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-020-C5",
+      "fragment_refs": [
+        "CASE-020-F2"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "Paper B/19/07 (2019-03-01): the cost of four local offices against one line.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-020-C6",
+      "fragment_refs": [
+        "CASE-020-F2",
+        "CASE-020-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "alternative-rejected",
+      "interpreted_value": "Four local offices, as costed against one line in paper B/19/07.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-020-C7",
+      "fragment_refs": [
+        "CASE-020-F3"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "Call-centre staffing could absorb repairs calls if the evening rota moves to a later shift (operations memo, 2019-02-20).",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "low",
+      "derivation": "explicit"
+    }
+  ],
+  "assembly": {
+    "assembly_id": "CASE-020-1-assembly",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "CASE-020-C1",
+      "CASE-020-C2",
+      "CASE-020-C3",
+      "CASE-020-C4",
+      "CASE-020-C5",
+      "CASE-020-C6",
+      "CASE-020-C7"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "Minute (item A): 'as set out in paper B/19/07'; item B is identified as 'Paper B/19/07'."
+      },
+      {
+        "basis": "entity-match",
+        "evidence": "Memo (item C): 'Call-centre staffing could absorb repairs calls'; minute: 'a single repairs line'. Both concern taking repairs calls on one line. This basis is subject matter only; see unresolved."
+      }
+    ],
+    "assembly_confidence": "medium",
+    "missing_semantics": [],
+    "conflicts": [],
+    "supersessions": [],
+    "unresolved": [
+      "The memo (item C) joins this candidate on subject matter alone; nothing in the material links it to the board or to paper B/19/07. It is circumstance (considered: unlinked), not what the board knew.",
+      "The paper's and the minute's content is supplied only as the case file's summary of them; the originals were not supplied.",
+      "Whether 'four local offices' was the existing arrangement or a proposed option is not stated; either way it is the option the paper set against the single line."
+    ],
+    "status": "candidate"
+  },
+  "fragment_annotations": [
+    {
+      "fragment_ref": "CASE-020-F1",
+      "capture_time": "2019-03-14",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "CASE-020-F2",
+      "capture_time": "2019-03-01",
+      "creation_time": "2019-03-01",
+      "evidence_kind": "cited-material"
+    },
+    {
+      "fragment_ref": "CASE-020-F3",
+      "capture_time": "2019-02-20",
+      "creation_time": "2019-02-20",
+      "evidence_kind": "prior-unlinked"
+    }
+  ],
+  "contribution_annotations": [
+    {
+      "contribution_ref": "CASE-020-C5",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "CASE-020-F1"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "CASE-020-C7",
+      "considered": {
+        "state": "unlinked",
+        "fragment_refs": []
+      }
+    }
+  ]
+}

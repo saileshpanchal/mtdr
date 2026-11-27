@@ -1,0 +1,132 @@
+[
+  {
+    "outcome": "unclassified",
+    "id": "UNC-01",
+    "fragment_refs": [
+      "F09-QUOTE"
+    ],
+    "fragments": [
+      {
+        "fragment_id": "F09-QUOTE",
+        "source_ref": "SRC-09-project-status-report-october.md",
+        "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1410,
+          "end": 1614
+        },
+        "content": "Kestrel need to interface with Vantry for repairs bookings. This was not in the original Kestrel scope and Kestrel have quoted for it. Helen Strudwick is considering the quote. No decision has been taken.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "recognised": "A pending choice: Kestrel have quoted for an interface to Vantry; 'Helen Strudwick is considering the quote. No decision has been taken.'",
+    "why_classification_failed": "The material says in terms that no decision has been made, which is evidence that no decision was made, not silence. The vocabulary's three non-decision kinds are deferred, not-reached and withdrawn; a question that is open and under consideration is none of them, and none of the five not-a-decision reasons fits."
+  },
+  {
+    "outcome": "unclassified",
+    "id": "UNC-02",
+    "fragment_refs": [
+      "F09-NEEDED"
+    ],
+    "fragments": [
+      {
+        "fragment_id": "F09-NEEDED",
+        "source_ref": "SRC-09-project-status-report-october.md",
+        "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1718,
+          "end": 1858
+        },
+        "content": "## 4. Decisions needed\n- Agree whether to ask the OIC to move go-live to 15 February.\n- Agree whether to accept the Kestrel interface quote.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "recognised": "A list of 'Decisions needed': whether to ask the OIC to move go-live to 15 February, and whether to accept the Kestrel interface quote.",
+    "why_classification_failed": "Decisions asked for, not taken. Not deferred, not-reached or withdrawn; not a status update, action, preference, restatement or operational routine."
+  },
+  {
+    "outcome": "unclassified",
+    "id": "UNC-03",
+    "fragment_refs": [
+      "F07-HEAD",
+      "F07-REDEPLOY"
+    ],
+    "fragments": [
+      {
+        "fragment_id": "F07-HEAD",
+        "source_ref": "SRC-07-chat-transcript.md",
+        "source_hash": "sha256:0f330918c7545cf580d0f783b94417dc31e006ca510cf1fefca1fb8ec9c7444d",
+        "locator": {
+          "kind": "char-offset",
+          "start": 0,
+          "end": 81
+        },
+        "content": "Teams chat: Gareth Pemberton (Head of Repairs) / Helen Strudwick\n\n**Thu 23 July**",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      },
+      {
+        "fragment_id": "F07-REDEPLOY",
+        "source_ref": "SRC-07-chat-transcript.md",
+        "source_hash": "sha256:0f330918c7545cf580d0f783b94417dc31e006ca510cf1fefca1fb8ec9c7444d",
+        "locator": {
+          "kind": "char-offset",
+          "start": 881,
+          "end": 1069
+        },
+        "content": "**14:20 Gareth:** also, do we know if the two redeployments are going to my team? Only asking cos of desk space\n**14:31 Helen:** not decided, Marcus is doing the matching. One probably yes",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "recognised": "Where the two redeployed staff will go: 'not decided, Marcus is doing the matching. One probably yes'.",
+    "why_classification_failed": "The material says the matter is not decided. As UNC-01: an open question fits none of the three non-decision kinds."
+  },
+  {
+    "outcome": "unclassified",
+    "id": "UNC-04",
+    "fragment_refs": [
+      "F01-HEAD"
+    ],
+    "fragments": [
+      {
+        "fragment_id": "F01-HEAD",
+        "source_ref": "SRC-01-scheme-of-delegation.md",
+        "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+        "locator": {
+          "kind": "char-offset",
+          "start": 0,
+          "end": 118
+        },
+        "content": "# Tarnmere Homes: Scheme of Delegation (extract)\n\nVersion 3, adopted by the Board January 2025. Sections 4 and 6 only.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "recognised": "An instrument that states its own adoption: 'Version 3, adopted by the Board January 2025'.",
+    "why_classification_failed": "The vocabulary allows an instrument to be the act-record of its own adoption given contemporaneity, authentication and evidence of effect, and says an instrument lacking one is 'reported with the conditions that are met', without naming a class for that report. Contemporaneity: the adoption time is stated by the instrument, to the month; but the material is an 'extract' of 'Sections 4 and 6 only' and nothing shows it is the text as adopted rather than a later copy. Authentication: not evidenced — no adopting resolution, signature, or register entry is in the material; a Board minute of January 2025 would supply it. Effect: evidenced — a later act relies on it by paragraph number ('4.5', email of 14 July 2026; 'Para 4.5', decision log), and the file note's '12 mths / £150k' matches 4.4. No candidate is drafted."
+  }
+]

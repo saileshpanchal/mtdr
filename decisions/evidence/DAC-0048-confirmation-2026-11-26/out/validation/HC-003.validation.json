@@ -1,0 +1,45 @@
+{
+  "contract_version": "1.0.0",
+  "subject": {
+    "type": "interchange-structure",
+    "id": "HC-003",
+    "ref": "candidates/HC-003.json"
+  },
+  "specification": {
+    "id": "specification/historical-candidate.md",
+    "version": "1.0.0"
+  },
+  "dimensions": [
+    {
+      "dimension": "structural",
+      "result": "pass"
+    },
+    {
+      "dimension": "semantic",
+      "result": "pass"
+    },
+    {
+      "dimension": "relational",
+      "result": "pass"
+    },
+    {
+      "dimension": "transition-eligibility",
+      "result": "not-applicable",
+      "reasons": [
+        {
+          "code": "no-transition-requested",
+          "detail": "A candidate's standing is none; attesting its account is a named individual's act, which no validator performs."
+        }
+      ]
+    }
+  ],
+  "assessed_state": "candidate",
+  "context": {
+    "id": "output-folder-and-sources",
+    "description": "the candidates and review events found in the folder assessed, and the source material supplied with it, which every fragment is re-read against"
+  },
+  "validator": {
+    "name": "mtdr_validation",
+    "version": "1.30.0+unreleased"
+  }
+}

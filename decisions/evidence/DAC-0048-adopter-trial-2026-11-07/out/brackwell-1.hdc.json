@@ -1,0 +1,302 @@
+{
+  "contract_version": "1.0.0",
+  "candidate_id": "brackwell-1",
+  "retrospective": true,
+  "standing": "none",
+  "status": "candidate",
+  "event_time_ref": "brackwell-C102",
+  "fragments": [
+    {
+      "fragment_id": "brackwell-S01-F1",
+      "source_ref": "sources/brackwell/SRC-01-scheme-of-delegation-v4.md",
+      "source_hash": "sha256:b56929a324065cf937b3216006695667cb24a993a115b7194d937e78208f1f1c",
+      "locator": {
+        "kind": "char-offset",
+        "start": 0,
+        "end": 100,
+        "line_start": 1,
+        "line_end": 3,
+        "document": "Scheme of Delegation — v4 (extract)"
+      },
+      "content": "# Scheme of Delegation — v4 (extract)\n\n*Brackwell District Council · adopted 2025-04-01 · fictional*",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "brackwell-S01-F2",
+      "source_ref": "sources/brackwell/SRC-01-scheme-of-delegation-v4.md",
+      "source_hash": "sha256:b56929a324065cf937b3216006695667cb24a993a115b7194d937e78208f1f1c",
+      "locator": {
+        "kind": "char-offset",
+        "start": 158,
+        "end": 290,
+        "line_start": 7,
+        "line_end": 8
+      },
+      "content": "3.1 The Director of Environment and Place may approve operational expenditure to £250,000 within an\napproved capital programme line.",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "brackwell-S01-F3",
+      "source_ref": "sources/brackwell/SRC-01-scheme-of-delegation-v4.md",
+      "source_hash": "sha256:b56929a324065cf937b3216006695667cb24a993a115b7194d937e78208f1f1c",
+      "locator": {
+        "kind": "char-offset",
+        "start": 292,
+        "end": 419,
+        "line_start": 10,
+        "line_end": 11
+      },
+      "content": "3.2 Expenditure above £250,000, or any commitment altering the service footprint in more than one\nward, is reserved to Cabinet.",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "brackwell-S01-F4",
+      "source_ref": "sources/brackwell/SRC-01-scheme-of-delegation-v4.md",
+      "source_hash": "sha256:b56929a324065cf937b3216006695667cb24a993a115b7194d937e78208f1f1c",
+      "locator": {
+        "kind": "char-offset",
+        "start": 421,
+        "end": 614,
+        "line_start": 13,
+        "line_end": 14
+      },
+      "content": "3.3 Where Cabinet has approved a programme in principle, the Director of Environment and Place is the\ncommitting officer for individual schemes within it, and is accountable for their delivery.",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "brackwell-S01-F5",
+      "source_ref": "sources/brackwell/SRC-01-scheme-of-delegation-v4.md",
+      "source_hash": "sha256:b56929a324065cf937b3216006695667cb24a993a115b7194d937e78208f1f1c",
+      "locator": {
+        "kind": "char-offset",
+        "start": 647,
+        "end": 813,
+        "line_start": 18,
+        "line_end": 19
+      },
+      "content": "5.2 Any claimed saving above £100,000 per annum must be counter-signed by the Section 151 Officer\nbefore it is reported as a saving in the Medium Term Financial Plan.",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "brackwell-S01-F6",
+      "source_ref": "sources/brackwell/SRC-01-scheme-of-delegation-v4.md",
+      "source_hash": "sha256:b56929a324065cf937b3216006695667cb24a993a115b7194d937e78208f1f1c",
+      "locator": {
+        "kind": "char-offset",
+        "start": 815,
+        "end": 907,
+        "line_start": 21,
+        "line_end": 21
+      },
+      "content": "5.4 Counter-signature is a personal act of the Section 151 Officer and may not be delegated.",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    }
+  ],
+  "contributions": [
+    {
+      "contribution_id": "brackwell-C101",
+      "fragment_refs": [
+        "brackwell-S01-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-statement",
+      "interpreted_value": "Scheme of Delegation v4 adopted (Brackwell District Council).",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "brackwell-C102",
+      "fragment_refs": [
+        "brackwell-S01-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-date",
+      "interpreted_value": "2025-04-01",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "brackwell-C103",
+      "fragment_refs": [
+        "brackwell-S01-F2"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "consequence",
+      "interpreted_value": "The Director of Environment and Place may approve operational expenditure to £250,000 within an approved capital programme line (3.1).",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "brackwell-C104",
+      "fragment_refs": [
+        "brackwell-S01-F3"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "consequence",
+      "interpreted_value": "Expenditure above £250,000, or any commitment altering the service footprint in more than one ward, is reserved to Cabinet (3.2).",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "brackwell-C105",
+      "fragment_refs": [
+        "brackwell-S01-F4"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "consequence",
+      "interpreted_value": "Where Cabinet has approved a programme in principle, the Director of Environment and Place is the committing officer for individual schemes within it, and is accountable for their delivery (3.3).",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "brackwell-C106",
+      "fragment_refs": [
+        "brackwell-S01-F5",
+        "brackwell-S01-F6"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "consequence",
+      "interpreted_value": "A claimed saving above £100,000 per annum must be counter-signed by the Section 151 Officer before it is reported as a saving in the Medium Term Financial Plan (5.2); counter-signature is a personal act and may not be delegated (5.4).",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    }
+  ],
+  "assembly": {
+    "assembly_id": "brackwell-1-assembly",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "brackwell-C101",
+      "brackwell-C102",
+      "brackwell-C103",
+      "brackwell-C104",
+      "brackwell-C105",
+      "brackwell-C106"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "One instrument (SRC-01): its heading 'Scheme of Delegation — v4', its statement 'adopted 2025-04-01', and the numbered paragraphs 3.1–3.3, 5.2 and 5.4 of the same scheme."
+      }
+    ],
+    "assembly_confidence": "high",
+    "missing_semantics": [
+      "context",
+      "accountable-owner"
+    ],
+    "conflicts": [],
+    "supersessions": [],
+    "unresolved": [
+      "The extract states that the scheme was adopted on 2025-04-01 but not by whom or in what act; no adopting body, owner or context is evidenced.",
+      "Whether an instrument's own statement of its adoption is the act-record of the adoption, or only the instrument that act produced, is a reading for the attester. Recorded as a candidate because 'adopted' with a date fills We decide and the delegations fill This means.",
+      "The material is an extract (Parts 3 and 5 only).",
+      "No other source cites the scheme, so none of its paragraphs is contributed as authority to any other candidate."
+    ],
+    "status": "candidate"
+  },
+  "fragment_annotations": [
+    {
+      "fragment_ref": "brackwell-S01-F1",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "brackwell-S01-F2",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "brackwell-S01-F3",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "brackwell-S01-F4",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "brackwell-S01-F5",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "brackwell-S01-F6",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    }
+  ],
+  "contribution_annotations": []
+}

@@ -1,0 +1,1390 @@
+[
+  {
+    "finding_id": "FND-01",
+    "fragments": [
+      {
+        "fragment_id": "F03-2",
+        "source_ref": "SRC-03-oic-minutes-9-april.md",
+        "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+        "locator": {
+          "kind": "char-offset",
+          "start": 447,
+          "end": 505
+        },
+        "content": "2. **Minutes of 12 February.** Agreed as a correct record.",
+        "source_time": "2026-04-09",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "operational-routine"
+    },
+    "reading": "Approval of the previous meeting's minutes as a correct record."
+  },
+  {
+    "finding_id": "FND-02",
+    "fragments": [
+      {
+        "fragment_id": "F03-3",
+        "source_ref": "SRC-03-oic-minutes-9-april.md",
+        "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+        "locator": {
+          "kind": "char-offset",
+          "start": 507,
+          "end": 579
+        },
+        "content": "3. **Matters arising.** The void property dashboard is now live. Closed.",
+        "source_time": "2026-04-09",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "status-update"
+    },
+    "reading": "Report that the void property dashboard is live."
+  },
+  {
+    "finding_id": "FND-03",
+    "fragments": [
+      {
+        "fragment_id": "F03-4-ACT1",
+        "source_ref": "SRC-03-oic-minutes-9-april.md",
+        "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1083,
+          "end": 1171
+        },
+        "content": "Action: Alison Reddy to review the draft contract and report to Tobias Wren by 30 April.",
+        "source_time": "2026-04-09",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "action"
+    },
+    "reading": "Task: Alison Reddy to review the draft contract and report to Tobias Wren by 30 April. It follows from the condition on HC-001."
+  },
+  {
+    "finding_id": "FND-04",
+    "fragments": [
+      {
+        "fragment_id": "F03-4-ACT2",
+        "source_ref": "SRC-03-oic-minutes-9-april.md",
+        "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1175,
+          "end": 1241
+        },
+        "content": "Action: Ngozi Eze to complete scoping of the remaining interfaces.",
+        "source_time": "2026-04-09",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "action"
+    },
+    "reading": "Task: Ngozi Eze to complete scoping of the remaining interfaces."
+  },
+  {
+    "finding_id": "FND-05",
+    "fragments": [
+      {
+        "fragment_id": "F03-5-PREF",
+        "source_ref": "SRC-03-oic-minutes-9-april.md",
+        "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1531,
+          "end": 1627
+        },
+        "content": "The Committee was supportive in principle and asked that a full paper go to the Board on 21 May.",
+        "source_time": "2026-04-09",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "preference"
+    },
+    "reading": "The OIC was 'supportive in principle' of moving repairs call handling to Kestrel and asked for a full paper to the Board. Support in principle commits nothing; the decision was the Board's on 21 May (HC-002)."
+  },
+  {
+    "finding_id": "FND-06",
+    "fragments": [
+      {
+        "fragment_id": "F03-5-ACT",
+        "source_ref": "SRC-03-oic-minutes-9-april.md",
+        "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1632,
+          "end": 1729
+        },
+        "content": "Action: Helen Strudwick to take forward the paper for the Board, including staffing implications.",
+        "source_time": "2026-04-09",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "action"
+    },
+    "reading": "Task: Helen Strudwick to take forward the paper for the Board."
+  },
+  {
+    "finding_id": "FND-07",
+    "fragments": [
+      {
+        "fragment_id": "F02-REC",
+        "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+        "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1649,
+          "end": 1873
+        },
+        "content": "The Committee is asked to:\n1. approve the award of a five-year contract to Vantry Systems Ltd;\n2. note the implementation call-off and contingency;\n3. note that the Orchard extension will be arranged by the Finance Director.",
+        "source_time": "2026-03-26",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "preference"
+    },
+    "reading": "Paper 4's recommendation. A paper recommends; it does not decide. The decision is in the OIC minute (HC-001). The vocabulary has no reason for 'recommendation'; 'preference' is the nearest."
+  },
+  {
+    "finding_id": "FND-08",
+    "fragments": [
+      {
+        "fragment_id": "F04-6-NOTE",
+        "source_ref": "SRC-04-board-minutes-21-may.md",
+        "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+        "locator": {
+          "kind": "char-offset",
+          "start": 304,
+          "end": 529
+        },
+        "content": "**6. Report from the Operations & Investment Committee.** Tobias Wren reported on the meeting of 9 April. The Board noted the Committee's approval of the contract with Vantry Systems Ltd for the new housing management system.",
+        "source_time": "2026-05-21",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "restatement"
+    },
+    "reading": "The Board 'noted' the OIC's approval of the Vantry contract. Noting repeats the Committee's decision (HC-001) in a new setting; no approval by the Board is recorded."
+  },
+  {
+    "finding_id": "FND-09",
+    "fragments": [
+      {
+        "fragment_id": "F04-7-ACT",
+        "source_ref": "SRC-04-board-minutes-21-may.md",
+        "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1612,
+          "end": 1717
+        },
+        "content": "Helen Strudwick was asked to take forward the staff consultation and to report to the Board in September.",
+        "source_time": "2026-05-21",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "action"
+    },
+    "reading": "Task: Helen Strudwick to take forward the staff consultation and report to the Board in September."
+  },
+  {
+    "finding_id": "FND-10",
+    "fragments": [
+      {
+        "fragment_id": "F05-TODO",
+        "source_ref": "SRC-05-file-note-orchard-extension.md",
+        "source_hash": "sha256:fc6cb981bc7ada89a10c7691644103b1fc54b1c4542c9ac7e184fac75678ba09",
+        "locator": {
+          "kind": "char-offset",
+          "start": 443,
+          "end": 718
+        },
+        "content": "To do:\n- tell Sunil / Ngozi so the plan can say end March\n- report to OIC (11 June meeting, or Sept if I miss it)\n- budget code 4410, not the project line. Check with Karen\n- ask Calder to confirm in the letter whether data export tools stay licensed. Important for migration",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "action"
+    },
+    "reading": "The file note's to-do list: tasks following the Orchard extension (HC-004)."
+  },
+  {
+    "finding_id": "FND-11",
+    "fragments": [
+      {
+        "fragment_id": "F07-HEAD",
+        "source_ref": "SRC-07-chat-transcript.md",
+        "source_hash": "sha256:0f330918c7545cf580d0f783b94417dc31e006ca510cf1fefca1fb8ec9c7444d",
+        "locator": {
+          "kind": "char-offset",
+          "start": 0,
+          "end": 81
+        },
+        "content": "Teams chat: Gareth Pemberton (Head of Repairs) / Helen Strudwick\n\n**Thu 23 July**",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      },
+      {
+        "fragment_id": "F07-EXTEND",
+        "source_ref": "SRC-07-chat-transcript.md",
+        "source_hash": "sha256:0f330918c7545cf580d0f783b94417dc31e006ca510cf1fefca1fb8ec9c7444d",
+        "locator": {
+          "kind": "char-offset",
+          "start": 266,
+          "end": 685
+        },
+        "content": "**14:05 Gareth:** ok. I've got the agency lot booked to 11 Sept. Can I get them to the end of Sept?\n**14:06 Helen:** I think so, it was in the Board discussion that cover stays. Who pays though?\n**14:07 Gareth:** comes out of the repairs budget as before, about £7k a month for the three of them\n**14:09 Helen:** go ahead and extend, I'll square it with Priya. Put it in writing to the agency\n**14:10 Gareth:** will do.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "action"
+    },
+    "reading": "Helen Strudwick tells Gareth Pemberton to 'go ahead and extend' the agency booking from 11 Sept to the end of Sept (about £7k a month for three staff, from the repairs budget). Read as carrying out 'keep the agency cover going until then' (HC-003) and the Board's 'agency cover would be kept on hand' (HC-002), not a further judgement. It does commit money, and who pays is left open ('I'll square it with Priya'); a reader could dispute this classification."
+  },
+  {
+    "finding_id": "FND-12",
+    "fragments": [
+      {
+        "fragment_id": "F07-LEAFLET",
+        "source_ref": "SRC-07-chat-transcript.md",
+        "source_hash": "sha256:0f330918c7545cf580d0f783b94417dc31e006ca510cf1fefca1fb8ec9c7444d",
+        "locator": {
+          "kind": "char-offset",
+          "start": 754,
+          "end": 860
+        },
+        "content": "**14:12 Helen:** comms leaflet goes in the rent statements in August. I'll check it has Oct not Sept on it",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "action"
+    },
+    "reading": "Task: check the tenant leaflet carries October, not September."
+  },
+  {
+    "finding_id": "FND-13",
+    "fragments": [
+      {
+        "fragment_id": "F08-015",
+        "source_ref": "SRC-08-decision-log-extract.md",
+        "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+        "locator": {
+          "kind": "char-offset",
+          "start": 968,
+          "end": 1057
+        },
+        "content": "| DL-26-015 | 17 Sep | Repairs call handling | Board noted DL-26-014 | Board | Minute 5 |",
+        "source_time": "2026-09-30",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "restatement"
+    },
+    "reading": "Decision log row DL-26-015: on 17 Sep the Board 'noted DL-26-014'. Noting the Chair and Chief Executive's decision (HC-003) creates no new decision. The minute itself is not in the material."
+  },
+  {
+    "finding_id": "FND-14",
+    "fragments": [
+      {
+        "fragment_id": "F08-011",
+        "source_ref": "SRC-08-decision-log-extract.md",
+        "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+        "locator": {
+          "kind": "char-offset",
+          "start": 265,
+          "end": 450
+        },
+        "content": "| DL-26-011 | 9 Apr | Housing management system | Award five-year contract to Vantry Systems Ltd, subject to exit clauses | OIC | OIC minute 4. Contract signature date not yet entered |",
+        "source_time": "2026-09-30",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "restatement"
+    },
+    "reading": "Decision log row DL-26-011 restates OIC minute 4 (HC-001)."
+  },
+  {
+    "finding_id": "FND-15",
+    "fragments": [
+      {
+        "fragment_id": "F08-012",
+        "source_ref": "SRC-08-decision-log-extract.md",
+        "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+        "locator": {
+          "kind": "char-offset",
+          "start": 451,
+          "end": 624
+        },
+        "content": "| DL-26-012 | 21 May | Repairs call handling | Transfer to Kestrel Customer Hub from 1 Sept; £120k from planned maintenance reserve for transition | Board | Board minute 7 |",
+        "source_time": "2026-09-30",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "restatement"
+    },
+    "reading": "Decision log row DL-26-012 restates Board minute 7 (HC-002)."
+  },
+  {
+    "finding_id": "FND-16",
+    "fragments": [
+      {
+        "fragment_id": "F08-013",
+        "source_ref": "SRC-08-decision-log-extract.md",
+        "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+        "locator": {
+          "kind": "char-offset",
+          "start": 625,
+          "end": 782
+        },
+        "content": "| DL-26-013 | June | Orchard licence | Six-month extension, 1 Oct 2026 to 31 Mar 2027 | Finance Director | File note, not yet seen by OIC. Cost approx £51k |",
+        "source_time": "2026-09-30",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "restatement"
+    },
+    "reading": "Decision log row DL-26-013 restates the file note (HC-004)."
+  },
+  {
+    "finding_id": "FND-17",
+    "fragments": [
+      {
+        "fragment_id": "F08-014",
+        "source_ref": "SRC-08-decision-log-extract.md",
+        "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+        "locator": {
+          "kind": "char-offset",
+          "start": 783,
+          "end": 967
+        },
+        "content": "| DL-26-014 | 22 Jul | Repairs call handling | Transfer date moved from 1 Sept to 1 Oct | Chair and Chief Executive | Email thread 13 to 22 July. Para 4.5. To report to Board 17 Sept |",
+        "source_time": "2026-09-30",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "restatement"
+    },
+    "reading": "Decision log row DL-26-014 restates the email thread (HC-003)."
+  },
+  {
+    "finding_id": "FND-18",
+    "fragments": [
+      {
+        "fragment_id": "F08-A031",
+        "source_ref": "SRC-08-decision-log-extract.md",
+        "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1148,
+          "end": 1233
+        },
+        "content": "| A-26-031 | Review Vantry draft contract exit clauses | A. Reddy | 30 Apr | Closed |",
+        "source_time": "2026-09-30",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "status-update"
+    },
+    "reading": "Open-actions row: review of Vantry exit clauses, closed."
+  },
+  {
+    "finding_id": "FND-19",
+    "fragments": [
+      {
+        "fragment_id": "F08-A034",
+        "source_ref": "SRC-08-decision-log-extract.md",
+        "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1234,
+          "end": 1325
+        },
+        "content": "| A-26-034 | Scope remaining Orchard interfaces | N. Eze | 31 May | Open: 29 of 31 scoped |",
+        "source_time": "2026-09-30",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "status-update"
+    },
+    "reading": "Open-actions row: interface scoping, open, 29 of 31."
+  },
+  {
+    "finding_id": "FND-20",
+    "fragments": [
+      {
+        "fragment_id": "F08-A040",
+        "source_ref": "SRC-08-decision-log-extract.md",
+        "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1326,
+          "end": 1432
+        },
+        "content": "| A-26-040 | Consultation on repairs call handling and report to Board | H. Strudwick | 17 Sept | Closed |",
+        "source_time": "2026-09-30",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "status-update"
+    },
+    "reading": "Open-actions row: consultation and report to Board, closed."
+  },
+  {
+    "finding_id": "FND-21",
+    "fragments": [
+      {
+        "fragment_id": "F08-A042",
+        "source_ref": "SRC-08-decision-log-extract.md",
+        "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1433,
+          "end": 1536
+        },
+        "content": "| A-26-042 | Agency cover for repairs calls to continue until hub live | G. Pemberton | n/a | Ongoing |",
+        "source_time": "2026-09-30",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "status-update"
+    },
+    "reading": "Open-actions row: agency cover to continue until hub live, ongoing."
+  },
+  {
+    "finding_id": "FND-22",
+    "fragments": [
+      {
+        "fragment_id": "F08-A045",
+        "source_ref": "SRC-08-decision-log-extract.md",
+        "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1537,
+          "end": 1616
+        },
+        "content": "| A-26-045 | Report Orchard extension to OIC | P. Nandakumar | 11 June | Open |",
+        "source_time": "2026-09-30",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "status-update"
+    },
+    "reading": "Open-actions row: report Orchard extension to OIC, due 11 June, open as at 30 September 2026."
+  },
+  {
+    "finding_id": "FND-23",
+    "fragments": [
+      {
+        "fragment_id": "F09-SIGNED",
+        "source_ref": "SRC-09-project-status-report-october.md",
+        "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+        "locator": {
+          "kind": "char-offset",
+          "start": 193,
+          "end": 251
+        },
+        "content": "The Board-approved Vantry contract was signed in late May.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "status-update"
+    },
+    "reading": "Report that the Vantry contract was signed in late May. Signature is an execution event; the act of signing, by whom and when, is not in the material."
+  },
+  {
+    "finding_id": "FND-24",
+    "fragments": [
+      {
+        "fragment_id": "F09-MIGTEST",
+        "source_ref": "SRC-09-project-status-report-october.md",
+        "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+        "locator": {
+          "kind": "char-offset",
+          "start": 252,
+          "end": 365
+        },
+        "content": "The build is on track for configuration, but data migration test 2 failed on tenancy history and is being re-run.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "status-update"
+    },
+    "reading": "Report on build and data migration test 2."
+  },
+  {
+    "finding_id": "FND-25",
+    "fragments": [
+      {
+        "fragment_id": "F09-GOLIVE",
+        "source_ref": "SRC-09-project-status-report-october.md",
+        "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+        "locator": {
+          "kind": "char-offset",
+          "start": 366,
+          "end": 572
+        },
+        "content": "The target go-live remains 11 January 2027, although the project team now believe 15 February 2027 is more realistic. This has not been put to any committee. If agreed it would go to the OIC on 12 November.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "preference"
+    },
+    "reading": "The project team 'now believe 15 February 2027 is more realistic'; the target remains 11 January 2027 and the change 'has not been put to any committee'. A belief not attached to a commitment. The same span also says no decision has been made, in a way none of the three non-decision kinds describes (see unclassified UNC-02)."
+  },
+  {
+    "finding_id": "FND-26",
+    "fragments": [
+      {
+        "fragment_id": "F09-FURTHER",
+        "source_ref": "SRC-09-project-status-report-october.md",
+        "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+        "locator": {
+          "kind": "char-offset",
+          "start": 698,
+          "end": 796
+        },
+        "content": "A further extension beyond March would be a bigger conversation with Finance and probably the OIC.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "preference"
+    },
+    "reading": "A view on what a further Orchard extension beyond March would involve; nothing is committed."
+  },
+  {
+    "finding_id": "FND-27",
+    "fragments": [
+      {
+        "fragment_id": "F09-INTERFACES",
+        "source_ref": "SRC-09-project-status-report-october.md",
+        "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+        "locator": {
+          "kind": "char-offset",
+          "start": 798,
+          "end": 949
+        },
+        "content": "Interfaces: 29 of 31 scoped. The two outstanding are the gas servicing contractor and the telephony platform. The telephony one now depends on Kestrel.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "status-update"
+    },
+    "reading": "Report on interface scoping."
+  },
+  {
+    "finding_id": "FND-28",
+    "fragments": [
+      {
+        "fragment_id": "F09-LIVE",
+        "source_ref": "SRC-09-project-status-report-october.md",
+        "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+        "locator": {
+          "kind": "char-offset",
+          "start": 989,
+          "end": 1160
+        },
+        "content": "The service transferred to the Kestrel Customer Hub on 1 October as agreed by the Board. Seven staff transferred with it, and two were redeployed within Customer Services.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "status-update"
+    },
+    "reading": "Report that the service transferred on 1 October and what happened to the nine staff. An execution event."
+  },
+  {
+    "finding_id": "FND-29",
+    "fragments": [
+      {
+        "fragment_id": "F09-AGENCY-END",
+        "source_ref": "SRC-09-project-status-report-october.md",
+        "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1161,
+          "end": 1196
+        },
+        "content": "Agency cover finished on 2 October.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "status-update"
+    },
+    "reading": "Report that agency cover finished on 2 October."
+  },
+  {
+    "finding_id": "FND-30",
+    "fragments": [
+      {
+        "fragment_id": "F09-PERF",
+        "source_ref": "SRC-09-project-status-report-october.md",
+        "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1198,
+          "end": 1408
+        },
+        "content": "First two weeks: average wait 41 seconds against a target of 60. Abandoned call rate 6.8 per cent, higher than the 5 per cent target and being looked at with Kestrel. Tenant complaints about the new number: 14.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "status-update"
+    },
+    "reading": "Report of the first two weeks' performance. Outcome knowledge: carried into no candidate's context."
+  },
+  {
+    "finding_id": "FND-31",
+    "fragments": [
+      {
+        "fragment_id": "F09-BUDGET",
+        "source_ref": "SRC-09-project-status-report-october.md",
+        "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1629,
+          "end": 1716
+        },
+        "content": "Transition costs to date £86,000 of the £120,000 released. IT programme spend on track.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "not-a-decision",
+      "reason": "status-update"
+    },
+    "reading": "Report of transition spend to date."
+  },
+  {
+    "finding_id": "FND-32",
+    "fragments": [
+      {
+        "fragment_id": "F03-6",
+        "source_ref": "SRC-03-oic-minutes-9-april.md",
+        "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1731,
+          "end": 1770
+        },
+        "content": "6. **Risk register.** Deferred to June.",
+        "source_time": "2026-04-09",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "non-decision",
+      "non_decision": "deferred"
+    },
+    "reading": "OIC, 9 April 2026: the risk register item was deferred to June, with nothing committed in the meantime."
+  },
+  {
+    "finding_id": "FND-33",
+    "fragments": [
+      {
+        "fragment_id": "F01-HEAD",
+        "source_ref": "SRC-01-scheme-of-delegation.md",
+        "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+        "locator": {
+          "kind": "char-offset",
+          "start": 0,
+          "end": 118
+        },
+        "content": "# Tarnmere Homes: Scheme of Delegation (extract)\n\nVersion 3, adopted by the Board January 2025. Sections 4 and 6 only.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      },
+      {
+        "fragment_id": "F01-4.2",
+        "source_ref": "SRC-01-scheme-of-delegation.md",
+        "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+        "locator": {
+          "kind": "char-offset",
+          "start": 518,
+          "end": 730
+        },
+        "content": "4.2 The Operations & Investment Committee (OIC) may approve contracts with a total value over the contract term of more than £250,000 and up to £1,000,000. Above that figure the Committee recommends to the Board.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      },
+      {
+        "fragment_id": "F03-4-DEC",
+        "source_ref": "SRC-03-oic-minutes-9-april.md",
+        "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+        "locator": {
+          "kind": "char-offset",
+          "start": 920,
+          "end": 1078
+        },
+        "content": "The Committee approved the award to Vantry Systems Ltd as recommended, subject to the Company Secretary being satisfied with the exit and data return clauses.",
+        "source_time": "2026-04-09",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      },
+      {
+        "fragment_id": "F02-COSTS",
+        "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+        "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1033,
+          "end": 1300
+        },
+        "content": "### Costs (Option B)\n| Item | £ |\n|---|---|\n| Licence, hosting and support, five years | 690,000 |\n| Implementation services (call-off) | 235,000 |\n| Contingency (held by Finance, not committed) | 90,000 |\n| **Programme total including contingency** | **1,015,000** |",
+        "source_time": "2026-03-26",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "applicability",
+      "concerns": "HC-001"
+    },
+    "reading": "Scheme of Delegation 4.2: the OIC 'may approve contracts with a total value over the contract term of more than £250,000 and up to £1,000,000'. The act: the Committee approved the award to Vantry Systems Ltd; Paper 4 costs the five-year licence, hosting and support at 690,000. The body that acted (the Operations & Investment Committee) is the body the instrument names. The act does not cite the scheme. Not shown: the contract's 'total value' as 6.1 defines it; Paper 4 also shows a 235,000 implementation call-off and a programme total including contingency of 1,015,000, 4.1 reserves a contract or commitment over 1,000,000 to the Board, and no advice under 6.2 on aggregation is in the material. This finding is not a judgement on whether the act was within the Committee's powers."
+  },
+  {
+    "finding_id": "FND-34",
+    "fragments": [
+      {
+        "fragment_id": "F01-HEAD",
+        "source_ref": "SRC-01-scheme-of-delegation.md",
+        "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+        "locator": {
+          "kind": "char-offset",
+          "start": 0,
+          "end": 118
+        },
+        "content": "# Tarnmere Homes: Scheme of Delegation (extract)\n\nVersion 3, adopted by the Board January 2025. Sections 4 and 6 only.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      },
+      {
+        "fragment_id": "F01-4.1-LEAD",
+        "source_ref": "SRC-01-scheme-of-delegation.md",
+        "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+        "locator": {
+          "kind": "char-offset",
+          "start": 163,
+          "end": 207
+        },
+        "content": "4.1 The following are reserved to the Board:",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      },
+      {
+        "fragment_id": "F01-4.1-B",
+        "source_ref": "SRC-01-scheme-of-delegation.md",
+        "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+        "locator": {
+          "kind": "char-offset",
+          "start": 287,
+          "end": 451
+        },
+        "content": "- any change to the service delivery model for repairs, rent collection, or complaints handling that alters how tenants make contact with, or receive, that service;",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      },
+      {
+        "fragment_id": "F04-7-RES-A",
+        "source_ref": "SRC-04-board-minutes-21-may.md",
+        "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1371,
+          "end": 1486
+        },
+        "content": "that the repairs call handling service be transferred to the Kestrel Customer Hub with effect from 1 September 2026",
+        "source_time": "2026-05-21",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      },
+      {
+        "fragment_id": "F04-7-TENANTS",
+        "source_ref": "SRC-04-board-minutes-21-may.md",
+        "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+        "locator": {
+          "kind": "char-offset",
+          "start": 927,
+          "end": 997
+        },
+        "content": "Tenants would see a new freephone number and the same repairs process.",
+        "source_time": "2026-05-21",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "applicability",
+      "concerns": "HC-002"
+    },
+    "reading": "Scheme of Delegation 4.1 reserves to the Board 'any change to the service delivery model for repairs ... that alters how tenants make contact with, or receive, that service'. The act: transfer of the repairs call handling service to the Kestrel Customer Hub; 'Tenants would see a new freephone number'. The body that acted (the Board) is the body the instrument names. The act does not cite the scheme."
+  },
+  {
+    "finding_id": "FND-35",
+    "fragments": [
+      {
+        "fragment_id": "F01-HEAD",
+        "source_ref": "SRC-01-scheme-of-delegation.md",
+        "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+        "locator": {
+          "kind": "char-offset",
+          "start": 0,
+          "end": 118
+        },
+        "content": "# Tarnmere Homes: Scheme of Delegation (extract)\n\nVersion 3, adopted by the Board January 2025. Sections 4 and 6 only.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      },
+      {
+        "fragment_id": "F01-4.1-LEAD",
+        "source_ref": "SRC-01-scheme-of-delegation.md",
+        "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+        "locator": {
+          "kind": "char-offset",
+          "start": 163,
+          "end": 207
+        },
+        "content": "4.1 The following are reserved to the Board:",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      },
+      {
+        "fragment_id": "F01-4.1-C",
+        "source_ref": "SRC-01-scheme-of-delegation.md",
+        "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+        "locator": {
+          "kind": "char-offset",
+          "start": 452,
+          "end": 516
+        },
+        "content": "- approval of the annual budget and any virement from a reserve.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      },
+      {
+        "fragment_id": "F04-7-RES-B",
+        "source_ref": "SRC-04-board-minutes-21-may.md",
+        "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1492,
+          "end": 1579
+        },
+        "content": "that £120,000 be released from the planned maintenance reserve to meet transition costs",
+        "source_time": "2026-05-21",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "applicability",
+      "concerns": "HC-002"
+    },
+    "reading": "Scheme of Delegation 4.1 reserves to the Board 'any virement from a reserve'. The act: 120,000 'released from the planned maintenance reserve'. The body that acted (the Board) is the body the instrument names. The act does not cite the scheme, and the minute says 'released', not 'virement'; that a release from a reserve is a virement in the scheme's sense is this reading's assumption."
+  },
+  {
+    "finding_id": "FND-36",
+    "fragments": [
+      {
+        "fragment_id": "F01-HEAD",
+        "source_ref": "SRC-01-scheme-of-delegation.md",
+        "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+        "locator": {
+          "kind": "char-offset",
+          "start": 0,
+          "end": 118
+        },
+        "content": "# Tarnmere Homes: Scheme of Delegation (extract)\n\nVersion 3, adopted by the Board January 2025. Sections 4 and 6 only.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      },
+      {
+        "fragment_id": "F01-4.5",
+        "source_ref": "SRC-01-scheme-of-delegation.md",
+        "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1088,
+          "end": 1430
+        },
+        "content": "4.5 Where an approval would otherwise be given by the Board or a committee and the next meeting is too late to avoid material harm or loss, the Chair and the Chief Executive acting jointly may take the decision. The decision must be recorded in the decision log and reported to the next meeting of the body that would ordinarily have made it.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      },
+      {
+        "fragment_id": "F06-E2-BODY",
+        "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+        "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+        "locator": {
+          "kind": "char-offset",
+          "start": 952,
+          "end": 1201
+        },
+        "content": "Margaret, see below. I think we should move it to 1 October. Waiting for the September Board would mean we either go live unprepared or stay on the wrong date in the meantime and tenants get the wrong number. Alison, is this the urgent action route?",
+        "source_time": "2026-07-13",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      },
+      {
+        "fragment_id": "F06-E4-BODY",
+        "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+        "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+        "locator": {
+          "kind": "char-offset",
+          "start": 1682,
+          "end": 1883
+        },
+        "content": "Sorry for the delay, I was away. Fine. Agreed, go with 1 October, and keep the agency cover going until then. Please make sure Kestrel and the union are told and that it's logged and goes to September.",
+        "source_time": "2026-07-22",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "applicability",
+      "concerns": "HC-003"
+    },
+    "reading": "Scheme of Delegation 4.5: where an approval would otherwise be given by the Board and the next meeting is too late to avoid material harm or loss, 'the Chair and the Chief Executive acting jointly may take the decision', to be recorded in the decision log and reported to the next meeting. The act: Duncan Faraday (Chief Executive, per the Board minute of 21 May) and Margaret Oyelaran (Chair, per the same minute) agreed 1 October by email; the stated harm of waiting is going live unprepared or tenants getting the wrong number. The persons who acted hold the posts the instrument names. Invocation is also evidenced, as a paragraph number ('4.5') given in the thread, and is carried as an authority contribution in HC-003. Later material records the log entry (DL-26-014) and the Board noting it on 17 Sep (DL-26-015). Not shown: that a change to a date the Board had itself resolved is 'an approval [that] would otherwise be given by the Board' — the Company Secretary's view was 'I think 4.5 covers a change of date, though it is the Board's resolution'."
+  },
+  {
+    "finding_id": "FND-37",
+    "fragments": [
+      {
+        "fragment_id": "F01-HEAD",
+        "source_ref": "SRC-01-scheme-of-delegation.md",
+        "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+        "locator": {
+          "kind": "char-offset",
+          "start": 0,
+          "end": 118
+        },
+        "content": "# Tarnmere Homes: Scheme of Delegation (extract)\n\nVersion 3, adopted by the Board January 2025. Sections 4 and 6 only.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      },
+      {
+        "fragment_id": "F01-4.4",
+        "source_ref": "SRC-01-scheme-of-delegation.md",
+        "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+        "locator": {
+          "kind": "char-offset",
+          "start": 883,
+          "end": 1086
+        },
+        "content": "4.4 The Finance Director may agree extensions or variations to existing contracts of up to 12 months and £150,000 where budget exists. Any such extension is to be reported to the next meeting of the OIC.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      },
+      {
+        "fragment_id": "F05-HEAD",
+        "source_ref": "SRC-05-file-note-orchard-extension.md",
+        "source_hash": "sha256:fc6cb981bc7ada89a10c7691644103b1fc54b1c4542c9ac7e184fac75678ba09",
+        "locator": {
+          "kind": "char-offset",
+          "start": 0,
+          "end": 86
+        },
+        "content": "FILE NOTE (scanned from notebook)\n\nP. Nandakumar\nTues, wk of 1 June\n\nOrchard extension",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      },
+      {
+        "fragment_id": "F05-CALL",
+        "source_ref": "SRC-05-file-note-orchard-extension.md",
+        "source_hash": "sha256:fc6cb981bc7ada89a10c7691644103b1fc54b1c4542c9ac7e184fac75678ba09",
+        "locator": {
+          "kind": "char-offset",
+          "start": 88,
+          "end": 344
+        },
+        "content": "Rang Calder (Imran, accounts). Licence ends 30 Sept. Vantry go-live won't be before Jan so we need cover. They'll do six months from 1 Oct, pro rata of current rate = £48k plus support uplift ~£3k. Cheaper than the \"rolling\" price they quoted Sunil in Feb.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      },
+      {
+        "fragment_id": "F05-AGREED",
+        "source_ref": "SRC-05-file-note-orchard-extension.md",
+        "source_hash": "sha256:fc6cb981bc7ada89a10c7691644103b1fc54b1c4542c9ac7e184fac75678ba09",
+        "locator": {
+          "kind": "char-offset",
+          "start": 346,
+          "end": 441
+        },
+        "content": "Verbally agreed. Letter to follow, they say by end of month. Within my limit (12 mths / £150k).",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "applicability",
+      "concerns": "HC-004"
+    },
+    "reading": "Scheme of Delegation 4.4: 'The Finance Director may agree extensions or variations to existing contracts of up to 12 months and £150,000 where budget exists. Any such extension is to be reported to the next meeting of the OIC.' The act: six months from 1 Oct at about £48k plus about £3k, verbally agreed, noted under the name P. Nandakumar with 'Within my limit (12 mths / £150k)'. The OIC minute of 9 April names Priya Nandakumar as Finance Director, the post the instrument names. The act names no instrument. Not shown: that 'budget exists' (the note says 'budget code 4410, not the project line. Check with Karen'); and the report to the next OIC meeting, which the decision log shows as open at 30 September 2026."
+  },
+  {
+    "finding_id": "FND-38",
+    "fragments": [
+      {
+        "fragment_id": "F09-ORCHARD",
+        "source_ref": "SRC-09-project-status-report-october.md",
+        "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+        "locator": {
+          "kind": "char-offset",
+          "start": 574,
+          "end": 697
+        },
+        "content": "Orchard remains live. Calder extended the licence by six months to the end of March 2027, so a February go-live is covered.",
+        "source_time": "unknown",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      },
+      {
+        "fragment_id": "F02-BG",
+        "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+        "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+        "locator": {
+          "kind": "char-offset",
+          "start": 302,
+          "end": 572
+        },
+        "content": "Orchard (supplied by Calder Software) has been in use since 2014. Calder will stop supporting the current version when the licence ends on 30 September 2026. Repairs, rents, tenancy and complaints records all sit in Orchard, and there are 31 interfaces to other systems.",
+        "source_time": "2026-03-26",
+        "observed_at": "2026-11-26",
+        "observed_by": {
+          "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+          "version": "claude-fable-5-2"
+        }
+      }
+    ],
+    "classification": {
+      "taxonomy_version": "1.0.0",
+      "class": "persistence",
+      "continuation_authority": "evidenced",
+      "concerns": "HC-004"
+    },
+    "reading": "Orchard 'remains live' in October 2026, after the licence end of 30 September 2026 stated in Paper 4. An act extending it beyond that term is evidenced: the six-month extension recovered as HC-004. That evidence is a note of a verbal agreement with a letter to follow; the letter is not in the material."
+  }
+]

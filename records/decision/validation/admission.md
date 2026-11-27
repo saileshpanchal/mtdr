@@ -12,15 +12,26 @@ A candidate decision is admissible when all of the following hold.
    **We decide** and **This means** can each be filled from contributions. Material describing intent,
    status or aspiration fails here, and failing is the correct outcome.
 2. **The context contributions are contemporaneous.** Every contribution to `context` traces to
-   material created at or before `decision-date`. A candidate whose context depends on later material
-   is inadmissible until that contribution is removed.
+   material shown to have preceded the decision. A candidate whose context depends on later material
+   is inadmissible until that contribution is removed. Contemporaneity is computed as
+   [`specification/historical-recovery.md`](../../../specification/historical-recovery.md) defines it
+   (accepted under TDR-0048): a `later` contribution fails this criterion; an `indeterminate` one —
+   including every one where `decision-date` is missing — is reported in `unresolved`, keeps the
+   candidate admissible, and cannot be presented as contemporaneous context. *Applying the owner's
+   same-day correction to every candidate, and not only to recovered ones, is the drafter's (E12 in
+   [TDR-0048](../../../decisions/TDR-0048-historical-recovery-doctrine.md#where-this-record-goes-beyond-the-owners-rulings)).*
 3. **Provenance is complete.** Every interpreted value traces to a locatable span. No exceptions, and
    no value carried "for completeness".
 4. **The grouping basis is admissible**, where the candidate draws on more than one source.
 5. **Missing mandatory roles are reported, not filled.** A candidate missing `accountable-owner` is
    admissible; a candidate with an invented one is not.
 6. **The proportionality outcome is stated** — the template tier, or a recommendation of no record,
-   with the reversal-cost reasoning behind it.
+   with the reversal-cost reasoning behind it. **For a historical candidate only**, where no
+   `reversal-cost` contribution exists — the usual case in material recovered after the event — the
+   outcome is stated as **undetermined**, with that reason, and satisfies this criterion. It never
+   defaults to a tier; the tier is settled when an account is attested. Every other candidate states a
+   tier or a recommendation of no record, as before. *This is the drafter's, limited to historical
+   candidates by the assistant (E8 in [TDR-0049](../../../decisions/TDR-0049-decision-recovery-vocabulary.md#where-this-record-goes-beyond-the-owners-rulings)).*
 7. **Conflicts are recorded, not resolved.**
 
 ## Inadmissible

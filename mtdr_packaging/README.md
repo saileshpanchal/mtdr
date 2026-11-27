@@ -5,8 +5,8 @@ constrains nothing, and is not part of any conformance claim — the files it co
 and this module only decides where they are put.
 
 ```bash
-python3 -m mtdr_packaging.generate           # write the bundles
-python3 -m mtdr_packaging.generate --check   # report drift without writing
+uv run python -m mtdr_packaging.generate           # write the bundles
+uv run python -m mtdr_packaging.generate --check   # report drift without writing
 ```
 
 `tests/verify.py` runs `--check` on every run, so a bundle cannot silently fall behind the manifests.
@@ -18,15 +18,16 @@ python3 -m mtdr_packaging.generate --check   # report drift without writing
 > be a reason to change MTDR.
 
 The generator performs exactly one transformation, and it is not semantic: **collection**. MTDR stores
-skills two levels deep because they live with the record semantics they serve
-([TDR-0023](../decisions/TDR-0023-portable-skill-architecture.md)), and no runtime scans that shape.
+skills beside the record semantics they serve
+([TDR-0023](../decisions/TDR-0023-portable-skill-architecture.md)), at paths such as
+`records/<language>/skills/<name>/`, and no runtime scans that shape.
 Every `SKILL.md` is copied byte-identical, and the suite compares them byte for byte.
 
 ## What it produces
 
 ```
 skills/packaging/
-  canonical/skills/<name>/SKILL.md   the 25 canonical skills, collected, unmodified
+  canonical/skills/<name>/SKILL.md   the 30 canonical skills, collected, unmodified
   canonical/catalogue.yaml           enumerated from each package.yaml, with per-file digests
   canonical/provenance.yaml          standard version, commit, source manifests, reference knowledge
   <surface>/surface.yaml             verified discovery paths, invocation, and what is unverified
@@ -57,3 +58,7 @@ and probes.
 ## Requirements
 
 `pyyaml`. Nothing else.
+
+## Profiles — one package per record type
+
+`python -m mtdr_packaging.profiles` builds what one recovery job needs and nothing else — a record package's recovery skills, the shared primitives it declares, its normative layer — in `job`, `compact` or `full` mode, for a named target, and refuses to build a package that exceeds the target's limits rather than drop anything. `profiles install` places a folder package where a runtime discovers it, and `profiles verify` checks an installed package before anything executes from it. The committed descriptors and their target fit are in [`skills/packaging/profiles/`](../skills/packaging/profiles/); built packages go to `dist/`, which is not committed. Byte-identical copies only; the generated files are an index and a manifest.

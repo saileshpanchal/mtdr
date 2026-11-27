@@ -9,12 +9,18 @@ recorded evidence, not discovered when something breaks.
 This directory is the one place in the repository where product names may appear
 ([TDR-0024](../../decisions/TDR-0024-packaging-independence.md)).
 
-**Verified:** 2026-08-18.
+**Verified:** 2026-08-18. Hermes Agent and Claude Chat with Skills **documented** 2026-11-20, not yet run.
 
 **Current standing: four verified direct surfaces, plus one provisionally verified direct surface.**
 Stated that way deliberately — the five-surface claim is not weakened, and it is not rounded up either.
 Copilot becomes the fifth verified surface when its primary documentation can be reached; until then
 the evidence says what it says.
+
+**Five further surfaces are documented and not yet verified** (20 Nov 2026): Hermes Agent, provisionally
+direct; Claude Chat with Skills, deferred until a hands-on test; Microsoft 365 Copilot's Cowork plugins and
+Agent Builder, which cap skills at 20 and 8 and so take record-type **profiles**
+([`profiles/`](profiles/)); and Copilot Studio, whose 100-skill cap the full catalogue fits. Results are recorded per surface and per
+capability; one surface's result is never read as another's.
 
 ## The falsification criterion
 
@@ -37,11 +43,16 @@ row here recording why it cannot be supported.
 
 | Runtime | Discovery | Canonical-skill compatibility | Progressive disclosure | Invocation | Transformation required | Class | Source · confidence |
 |---|---|---|---|---|---|---|---|
-| **Claude Code** | `~/.claude/skills/<name>/SKILL.md` (personal), `.claude/skills/<name>/SKILL.md` (project, plus every parent to the repo root), nested `.claude/skills/` below the working directory, and `.claude/skills/` inside any `--add-dir` directory | Yes. Accepts the six Agent Skills spec fields; MTDR uses two of them | Yes — "a skill's body loads only when it's used" | `/<directory-name>`, or loaded automatically when the description matches | Collection only — flatten the two-level MTDR layout into one directory | **direct** | [code.claude.com/docs/en/skills](https://code.claude.com/docs/en/skills) · **primary** |
+| **Claude Code** | `~/.claude/skills/<name>/SKILL.md` (personal), `.claude/skills/<name>/SKILL.md` (project, plus every parent to the repo root), nested `.claude/skills/` below the working directory, and `.claude/skills/` inside any `--add-dir` directory | Yes. Accepts the six Agent Skills spec fields; MTDR uses two of them | Yes — "a skill's body loads only when it's used" | `/<directory-name>`, or loaded automatically when the description matches | A folder package in the canonical layout, reached through a plugin descriptor (`.claude-plugin/plugin.json` naming the skill directories) — a vendor manifest awaiting disposition. Collected flat, or symlinked, the record-package skills' links leave the install (hands-on, 20 Nov 2026: nested skills are not discovered; a symlinked skill reports the link path as its base directory) | **direct** for loading; **thin-adapter** for intact references *(pending the descriptor's disposition)* | [code.claude.com/docs/en/skills](https://code.claude.com/docs/en/skills) · **primary** |
 | **Codex** | `.agents/skills` scanned "in every directory from your current working directory up to the repository root"; a user directory for personal skills | Yes. "The SKILL.md file must include name and description" | Not stated in the material retrieved | Model-selected from the description | Collection only | **direct** | developers.openai.com/codex/skills · **secondary** — primary blocked by this environment's egress proxy |
 | **Gemini CLI** | Four locations in precedence order: built-in, extension, user `~/.gemini/skills/` (alias `~/.agents/skills/`), workspace `.gemini/skills/` (alias `.agents/skills/`) | Yes. "Based on the Agent Skills open standard" | Yes — "Only skill metadata (name and description) is loaded initially. Detailed instructions and resources are only disclosed when the model explicitly activates the skill" | `activate_skill` tool, with a user confirmation prompt before resources enter context | Collection only | **direct** | [gemini-cli/docs/cli/skills.md](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/skills.md) · **primary** |
 | **Copilot** | Project locations reported as `.github/skills`, `.claude/skills` and `.agents/skills` | Reported yes, on the same `SKILL.md` standard | Not established | Agent mode, model-selected | Collection only, if the reported paths hold | **direct** *(provisional)* | Microsoft Learn and the GitHub changelog, **both unreachable from this environment** — recorded from secondary summaries. **Re-verify before relying on it.** |
 | **ollama-agent** (local) | `~/.ollama-agent/skills/` (global), `./skills/` (project), any `--skills-dir` path; "last wins for same-name skills" | Yes. Stated requirement is "a `SKILL.md` file with YAML frontmatter containing name and description" — and nothing else | Yes — "the agent checks skill descriptions to find relevant ones. Only when a skill matches does the agent read the full instructions" | CLI/REPL, model-selected | **None** — `--skills-dir` can be pointed at a directory directly | **direct** | [github.com/arrase/ollama-agent](https://github.com/arrase/ollama-agent) · **primary** |
+| **Hermes Agent** (CLI and desktop app) | `~/.hermes/skills/<category>/<name>/SKILL.md`; a project's `.hermes/skills/` and `.agents/skills/` only once the project is trusted (`hermes skills trust`); further folders under `skills.external_dirs` in `~/.hermes/config.yaml`. The desktop app shares the CLI's configuration and skills | Yes — follows the Agent Skills standard; a missing `name` defaults to the folder name; name and description are truncated beyond 64 and 1,024 characters (MTDR's longest description is 738) | Yes — the listing carries name, description and category; the body loads on view; bundled files open only inside the skill's own folder (`..` is refused) | A slash command per skill, or loaded by the model; *bundles* load several skills under one command with an instruction. One skill directing others in order is not documented | A folder package in the canonical layout at `.agents/skills/mtdr-<record-type>/`, discovered in place because the loader walks the trusted skills directory recursively (`agent/skill_utils.py`, read 2026-11-22): `profiles install --runtime hermes`, then `verify`. The 20 Nov flat collection loaded all 30 skills but broke 66 of their 107 links; the agent found the files by search | **direct** for loading and intact references *(hands-on 22 Nov, `b448432`: the 13 Decision skills discovered in place, every skill link verified before and after the run; a probe opened a skill's linked specification from the package in one call, without search. In the recovery run the agent, on a local Qwen model, opened none of the linked specifications, and the stage order was not observable)* | hermes-agent.nousresearch.com docs (skills, creating skills, tools, code execution, desktop) and the agent's `skills_tool.py` source, read 2026-11-20; the installed CLI (v0.23.0) · **primary** |
+| **Claude Chat with Skills** (claude.ai and the desktop app's chat) | Uploaded one skill at a time as a ZIP holding `<skill-name>/SKILL.md` (Customize › Skills); the folder name must equal `name`; code execution and file creation must be on | Names comply (lowercase, digits, hyphens, ≤ 64, not containing `claude` or `anthropic`). **The description limit is stated inconsistently — 200 characters in one help article, 1,024 elsewhere — and every MTDR description is between 346 and 738** | Bundled files inside the skill's folder are copied into a remote code-execution sandbox; nothing outside the folder is uploaded, so canonical links into the specifications cannot resolve | Model-selected by description, or chosen from the `/` menu | Per-skill ZIPs with the reference knowledge inside each; local evidence folders only through a desktop extension (e.g. the Filesystem extension) whose files the remote sandbox may not reach | **defer** *(until a hands-on upload shows the descriptions are accepted and the references reachable)* | claude.com/docs/skills, support.claude.com help articles and platform.claude.com, read 2026-11-20 · **primary** |
+| **Microsoft 365 Copilot — Cowork plugin** | A ZIP with `manifest.json` at its root listing `agentSkills` folders, each `skills/<name>/SKILL.md` | `name` 1–64 characters, kebab-case, equal to the folder; `description` 1–1,024 (MTDR fits). **At most 20 skills per package** and **20 companion files per skill** (5 MB each, 10 MB per skill) | Companion files under `references/` load on demand | Model-selected | A **job** profile: decision and value both fit (13 and 10 skills, at most 12 companions). Emitting `manifest.json` is a packaging artefact no disposition has claimed (the standards boundary) — **not produced** | **thin-adapter** *(provisional — not run; manifest pending a disposition)* | learn.microsoft.com/en-us/copilot/cowork/cowork-plugin-development, read 2026-11-20; the 20-skill cap via the page's summary, the companion limits verbatim · **primary** |
+| **Microsoft 365 Copilot — Agent Builder** (declarative agent skills) | A ZIP of skill directories, each with a `SKILL.md`, at most 50 MB | `SKILL.md` instructions under 20,000 characters (MTDR's longest is 8,871). **At most 8 skills per agent**; 350 files across all skills; directory depth 3 | Optional resource files alongside the skill | Model-selected | A **compact** profile only: the entry skill with the other stages and references as its companions (decision 13 and value 10 skills exceed 8). Scripts run in a sandbox with no network and no package install, so the reference validator's dependencies are not available | **thin-adapter** *(provisional — compact equivalence not shown)* | learn.microsoft.com/en-us/plugins/declarative-agent-skills, read 2026-11-20 · **primary** |
+| **Microsoft Copilot Studio** | Uploaded per skill (a `SKILL.md`, or a ZIP with resources) — the worked deployment in [`copilot-studio.md`](copilot-studio.md) | Ran unmodified in the field deployment | Not established | Model-selected | **100 skills per agent** (tenant-adjustable): the full catalogue fits | **direct** | learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-quotas, read 2026-11-20 · **primary** |
 
 ## What the evidence establishes
 
@@ -69,9 +80,14 @@ the near-absence of packaging.
 **4. There is exactly one transformation, and it is not semantic.** MTDR stores skills two levels deep
 — `records/<language>/skills/<name>/SKILL.md` and `skills/shared/<name>/SKILL.md` — because skills live
 with the record semantics they serve ([TDR-0023](../../decisions/TDR-0023-portable-skill-architecture.md)).
-No runtime scans that shape. A bundle therefore **collects** the twenty-five skill directories into one
+No runtime scans that shape. A bundle therefore **collects** the thirty skill directories into one
 flat directory, byte-identical, and places it where the runtime looks. Collection is packaging; nothing
 is rewritten, and the falsification criterion is not engaged.
+
+> **Correction, 26 Nov 2026.** Not "two levels deep". A record-package skill sits at
+> `records/<language>/skills/<name>/`, the eight assurance skills one level further down at
+> `records/decision/skills/assurance/<name>/`, and a shared skill at `skills/shared/<name>/`. The rest
+> of this finding stands.
 
 **5. Collection breaks the skills' relative links, and that is the right outcome.** MTDR skills link
 back into the semantics they serve — `../../../specification/candidacy-and-ratification.md` and the
@@ -88,10 +104,37 @@ deliberately puts skills next to the record semantics they serve. Runtimes want 
 standard is not going to acquire a flat shape to suit them. The bundle resolves the tension by shipping
 both and rewriting neither.
 
+> **Correction, 23 Nov 2026: shipping both does not resolve it.** Measured on this release's 25 skills:
+> collected flat inside a full clone, **33 of 64** relative links still do not resolve, in 10
+> record-package skills. 17 go into the skill's own package (`../../specification/…`,
+> `../../templates/…`). 16 go up to the repository's shared layers (`../../../../specification/…`,
+> `../../../../decisions/…`), which from a flat directory two levels below the root resolve above the
+> clone. In a project without the repository, 56 of 64. The generated surface READMEs compute and
+> state these figures, and name the route that keeps every link: run each skill in place, at its
+> repository path, from a clone.
+>
+> **Added 26 Nov 2026.** A directory at another depth gives other figures: copied into `./skills/`,
+> one level below the root, 53 of 64 do not resolve, in 12 skills, and 3 more reach a different file
+> from the one the skill means. Each generated surface README now computes the figures for the
+> directory it names. Of finding 5, the rule stands: rewriting the links remains forbidden. Its remedy
+> does not: deploying the reference-knowledge layer beside a flat collection leaves these links
+> unresolved. The tension is **not** resolved by this bundle.
+
 **6. `.agents/skills/` is a converging neutral path.** Codex scans it, Gemini aliases both its user and
 workspace paths to it, and Copilot is reported to read it. A single `.agents/skills/` directory
 plausibly serves three of the five without per-surface work — which, if it holds, means the "five
 bundles" are largely one bundle in several places.
+
+**7. Hands-on, 20–22 Nov 2026 — points 4 and 5 are corrected.** Point 4's "no runtime scans that
+shape" does not hold for Hermes Agent, which discovers every `SKILL.md` below a trusted project skills
+directory. Point 5's "that is the right outcome" is withdrawn: collected flat, 66 of the catalogue's
+107 skill links leave the install — every Decision and Value lifecycle skill — and an agent left to
+search for the files can land on a different checkout. The owner's ruling (22 Nov): **fix the
+installer, not the agent's instructions**. A folder package keeps the repository's layout, the
+installer places it only where a runtime discovers that layout in place, and `verify` checks digests,
+discoverability and every skill link before anything executes. Claude Code discovers one level deep,
+so it reaches the layout only through a plugin descriptor — the same class of vendor manifest as the
+Copilot Cowork `manifest.json`, routed by the owner to a proposed TDR.
 
 ## What is not established
 
@@ -101,7 +144,16 @@ bundles" are largely one bundle in several places.
   six-field list above is taken from Claude Code's documentation *of* the spec — a primary source for
   Claude Code, a secondary one for the standard.
 - **Codex progressive-disclosure behaviour** is not stated in the material retrieved.
-- **No runtime has been executed.** Everything here is documented behaviour. Whether the semantics
+- **Hermes:** whether an orchestrating skill runs the named stages in order (20 Nov: the stage skills
+  loaded in order, then one generated script produced the output — not observable); whether the desktop
+  app's tools equal the CLI's. Shown on 20 Nov: the agent opens linked files with its file tool, and
+  `uv run` works under its default approval in a one-shot session.
+- **Claude Chat with Skills:** whether descriptions over 200 characters are accepted at upload; the real
+  ZIP size and file-count limits; whether `pyyaml`, `jsonschema` or `uv` are available in its sandbox;
+  whether files read through a desktop filesystem extension can reach that sandbox. If supporting it
+  would mean shortening a canonical description, it stays **defer** — the falsification criterion above.
+- **Execution is barely begun.** One Hermes run over one fictional case (20 Nov), whose raw logs were
+  lost with a cleared scratch area; everything else here is documented behaviour. Whether the semantics
   survive execution is the recovery experiment's question, and *"translate packaging and invocation,
   never semantics"* is one of the things it should try to falsify.
 

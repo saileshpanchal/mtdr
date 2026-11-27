@@ -1,0 +1,19 @@
+contract at 7b2fb20; 17 candidates
+CASE-018-1.hdc.json    PASS | event=unknown | grades={'CASE-018-C4': 'indeterminate'}
+CASE-019-1.hdc.json    PASS | event=unknown | grades={'CASE-019-C3': 'indeterminate'}
+CASE-020-1.hdc.json    PASS | event=CASE-020-C2 | grades={'CASE-020-C5': 'contemporaneous', 'CASE-020-C7': 'contemporaneous'}
+CASE-021-1.hdc.json    PASS | event=CASE-021-C2 | grades={}
+CASE-022-1.hdc.json    PASS | event=CASE-022-C2 | grades={'CASE-022-C4': 'indeterminate'}
+CASE-023-1.hdc.json    PASS | event=CASE-023-C2 | grades={}
+CASE-024-1.hdc.json    PASS | event=unknown | grades={}
+CASE-025-1.hdc.json    PASS | event=CASE-025-C2 | grades={}
+CASE-026-1.hdc.json    PASS | event=CASE-026-C2 | grades={}
+CASE-028-1.hdc.json    PASS | event=CASE-028-C3 | grades={}
+CASE-029-1.hdc.json    PASS | event=CASE-029-C2 | grades={'CASE-029-C3': 'indeterminate'}
+brackwell-1.hdc.json   PASS | event=brackwell-C102 | grades={}
+brackwell-2.hdc.json   PASS | event=brackwell-C202 | grades={'brackwell-C204': 'contemporaneous', 'brackwell-C205': 'contemporaneous'}
+brackwell-3.hdc.json   PASS | event=brackwell-C302 | grades={'brackwell-C304': 'contemporaneous', 'brackwell-C305': 'contemporaneous'}
+brackwell-4.hdc.json   PASS | event=brackwell-C402 | grades={'brackwell-C405': 'contemporaneous', 'brackwell-C406': 'contemporaneous'}
+brackwell-5.hdc.json   PASS | event=brackwell-C503 | grades={'brackwell-C506': 'contemporaneous', 'brackwell-C507': 'contemporaneous'}
+brackwell-6.hdc.json   PASS | event=unknown | grades={'brackwell-C603': 'indeterminate', 'brackwell-C604': 'indeterminate', 'brackwell-C605': 'indeterminate'}
+17 of 17 pass the suite's own contract at 7b2fb20

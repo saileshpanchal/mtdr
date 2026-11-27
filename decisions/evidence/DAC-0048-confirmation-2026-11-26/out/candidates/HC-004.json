@@ -1,0 +1,638 @@
+{
+  "contract_version": "1.0.0",
+  "candidate_id": "HC-004",
+  "retrospective": true,
+  "standing": "none",
+  "status": "candidate",
+  "event_time_ref": "HC-004-C02",
+  "fragments": [
+    {
+      "fragment_id": "F05-HEAD",
+      "source_ref": "SRC-05-file-note-orchard-extension.md",
+      "source_hash": "sha256:fc6cb981bc7ada89a10c7691644103b1fc54b1c4542c9ac7e184fac75678ba09",
+      "locator": {
+        "kind": "char-offset",
+        "start": 0,
+        "end": 86
+      },
+      "content": "FILE NOTE (scanned from notebook)\n\nP. Nandakumar\nTues, wk of 1 June\n\nOrchard extension",
+      "source_time": "unknown",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F05-CALL",
+      "source_ref": "SRC-05-file-note-orchard-extension.md",
+      "source_hash": "sha256:fc6cb981bc7ada89a10c7691644103b1fc54b1c4542c9ac7e184fac75678ba09",
+      "locator": {
+        "kind": "char-offset",
+        "start": 88,
+        "end": 344
+      },
+      "content": "Rang Calder (Imran, accounts). Licence ends 30 Sept. Vantry go-live won't be before Jan so we need cover. They'll do six months from 1 Oct, pro rata of current rate = £48k plus support uplift ~£3k. Cheaper than the \"rolling\" price they quoted Sunil in Feb.",
+      "source_time": "unknown",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F05-AGREED",
+      "source_ref": "SRC-05-file-note-orchard-extension.md",
+      "source_hash": "sha256:fc6cb981bc7ada89a10c7691644103b1fc54b1c4542c9ac7e184fac75678ba09",
+      "locator": {
+        "kind": "char-offset",
+        "start": 346,
+        "end": 441
+      },
+      "content": "Verbally agreed. Letter to follow, they say by end of month. Within my limit (12 mths / £150k).",
+      "source_time": "unknown",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F08-HEAD",
+      "source_ref": "SRC-08-decision-log-extract.md",
+      "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+      "locator": {
+        "kind": "char-offset",
+        "start": 0,
+        "end": 174
+      },
+      "content": "# Tarnmere Homes: Decision Log 2026 (extract)\n\nMaintained by the Company Secretary. Position as at 30 September 2026. Rows relevant to the Vantry and Kestrel programmes only.",
+      "source_time": "2026-09-30",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F08-013",
+      "source_ref": "SRC-08-decision-log-extract.md",
+      "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+      "locator": {
+        "kind": "char-offset",
+        "start": 625,
+        "end": 782
+      },
+      "content": "| DL-26-013 | June | Orchard licence | Six-month extension, 1 Oct 2026 to 31 Mar 2027 | Finance Director | File note, not yet seen by OIC. Cost approx £51k |",
+      "source_time": "2026-09-30",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F05-TODO-BUD",
+      "source_ref": "SRC-05-file-note-orchard-extension.md",
+      "source_hash": "sha256:fc6cb981bc7ada89a10c7691644103b1fc54b1c4542c9ac7e184fac75678ba09",
+      "locator": {
+        "kind": "char-offset",
+        "start": 557,
+        "end": 615
+      },
+      "content": "- budget code 4410, not the project line. Check with Karen",
+      "source_time": "unknown",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F05-TODO-EXPORT",
+      "source_ref": "SRC-05-file-note-orchard-extension.md",
+      "source_hash": "sha256:fc6cb981bc7ada89a10c7691644103b1fc54b1c4542c9ac7e184fac75678ba09",
+      "locator": {
+        "kind": "char-offset",
+        "start": 616,
+        "end": 718
+      },
+      "content": "- ask Calder to confirm in the letter whether data export tools stay licensed. Important for migration",
+      "source_time": "unknown",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F05-SLIP",
+      "source_ref": "SRC-05-file-note-orchard-extension.md",
+      "source_hash": "sha256:fc6cb981bc7ada89a10c7691644103b1fc54b1c4542c9ac7e184fac75678ba09",
+      "locator": {
+        "kind": "char-offset",
+        "start": 720,
+        "end": 797
+      },
+      "content": "If go-live slips past March we go again, but then it's a bigger conversation.",
+      "source_time": "unknown",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F05-TODO-OIC",
+      "source_ref": "SRC-05-file-note-orchard-extension.md",
+      "source_hash": "sha256:fc6cb981bc7ada89a10c7691644103b1fc54b1c4542c9ac7e184fac75678ba09",
+      "locator": {
+        "kind": "char-offset",
+        "start": 501,
+        "end": 556
+      },
+      "content": "- report to OIC (11 June meeting, or Sept if I miss it)",
+      "source_time": "unknown",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F02-TIME",
+      "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+      "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+      "locator": {
+        "kind": "char-offset",
+        "start": 1389,
+        "end": 1628
+      },
+      "content": "Contract signature in May. Target go-live 11 January 2027. Because go-live falls after the Orchard licence ends, a short extension of Orchard will be needed. This is within the Finance Director's delegation and will be arranged separately.",
+      "source_time": "2026-03-26",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F09-ORCHARD",
+      "source_ref": "SRC-09-project-status-report-october.md",
+      "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+      "locator": {
+        "kind": "char-offset",
+        "start": 574,
+        "end": 697
+      },
+      "content": "Orchard remains live. Calder extended the licence by six months to the end of March 2027, so a February go-live is covered.",
+      "source_time": "unknown",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    }
+  ],
+  "contributions": [
+    {
+      "contribution_id": "HC-004-C01",
+      "fragment_refs": [
+        "F05-HEAD",
+        "F05-CALL",
+        "F05-AGREED"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-statement",
+      "interpreted_value": "File note headed 'Orchard extension': Calder will 'do six months from 1 Oct, pro rata of current rate = £48k plus support uplift ~£3k'. 'Verbally agreed. Letter to follow, they say by end of month.'",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-004-C02",
+      "fragment_refs": [
+        "F05-HEAD",
+        "F08-HEAD",
+        "F08-013"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-date",
+      "interpreted_value": "2026-06",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "medium",
+      "epistemic_confidence": "medium",
+      "derivation": "inferred"
+    },
+    {
+      "contribution_id": "HC-004-C03",
+      "fragment_refs": [
+        "F05-HEAD",
+        "F05-AGREED"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "accountable-owner",
+      "interpreted_value": "P. Nandakumar",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "medium",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-004-C04",
+      "fragment_refs": [
+        "F05-CALL"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "As noted at the time: licence ends 30 Sept; Vantry go-live won't be before Jan, so cover is needed; the six-month price is cheaper than the 'rolling' price Calder quoted Sunil in Feb.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-004-C05",
+      "fragment_refs": [
+        "F05-CALL"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "alternative-rejected",
+      "interpreted_value": "The 'rolling' price Calder quoted Sunil in Feb, noted only as dearer than the six-month price.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "medium",
+      "epistemic_confidence": "low",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-004-C06",
+      "fragment_refs": [
+        "F05-AGREED"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "The note states a limit, 'Within my limit (12 mths / £150k)', and names no instrument for it.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-004-C07",
+      "fragment_refs": [
+        "F05-TODO-BUD"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "Budget: 'budget code 4410, not the project line. Check with Karen' — the budget source was still to be checked when the note was written.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-004-C08",
+      "fragment_refs": [
+        "F05-TODO-EXPORT"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "Open when the note was written: whether data export tools stay licensed during the extension, to be confirmed by Calder in the letter; noted as important for migration.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-004-C09",
+      "fragment_refs": [
+        "F05-SLIP"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "'If go-live slips past March we go again, but then it's a bigger conversation.'",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-004-C10",
+      "fragment_refs": [
+        "F05-TODO-OIC"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "consequence",
+      "interpreted_value": "To be reported to OIC: '11 June meeting, or Sept if I miss it'.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-004-C11",
+      "fragment_refs": [
+        "F05-CALL",
+        "F08-013"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "consequence",
+      "interpreted_value": "A six-month extension of the Orchard licence from 1 Oct at about £48k plus about £3k support uplift (note); the decision log gives the period as 1 Oct 2026 to 31 Mar 2027 and the cost as approx £51k.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "medium",
+      "epistemic_confidence": "medium",
+      "derivation": "inferred"
+    },
+    {
+      "contribution_id": "HC-004-C12",
+      "fragment_refs": [
+        "F02-TIME"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "Circumstance only: OIC Paper 4, dated 26 March 2026, said a short extension of Orchard would be needed because go-live falls after the licence ends, that this 'is within the Finance Director's delegation' and that it 'will be arranged separately'. Nothing shows this paper was before whoever agreed the extension when it was agreed.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "low",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-004-C13",
+      "fragment_refs": [
+        "F08-013"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "corroboration",
+      "interpreted_value": "The decision log (position as at 30 September 2026) carries the extension as DL-26-013, 'June', taken by 'Finance Director', source 'File note, not yet seen by OIC'. A restatement of the file note, to which it adds a year, an end date and a post.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-004-C14",
+      "fragment_refs": [
+        "F09-ORCHARD"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "corroboration",
+      "interpreted_value": "A later project status report states that Orchard remains live and that Calder extended the licence by six months to the end of March 2027.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    }
+  ],
+  "assembly": {
+    "assembly_id": "HC-004-ASM",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "HC-004-C01",
+      "HC-004-C02",
+      "HC-004-C03",
+      "HC-004-C04",
+      "HC-004-C05",
+      "HC-004-C06",
+      "HC-004-C07",
+      "HC-004-C08",
+      "HC-004-C09",
+      "HC-004-C10",
+      "HC-004-C11",
+      "HC-004-C12",
+      "HC-004-C13",
+      "HC-004-C14"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "Decision log row DL-26-013, 'Orchard licence ... Six-month extension', gives its source as 'File note'; the file note is headed 'Orchard extension' and records 'six months from 1 Oct'."
+      },
+      {
+        "basis": "entity-match",
+        "evidence": "OIC Paper 4 names 'the Orchard extension', to be 'arranged by the Finance Director'; the file note is headed 'Orchard extension'."
+      },
+      {
+        "basis": "entity-match",
+        "evidence": "The October status report names the same extension: 'Calder extended the licence by six months to the end of March 2027'."
+      }
+    ],
+    "assembly_confidence": "medium",
+    "missing_semantics": [
+      "authority",
+      "reversal-cost",
+      "confidence"
+    ],
+    "conflicts": [],
+    "supersessions": [],
+    "unresolved": [
+      "The file note carries no year: it is dated 'Tues, wk of 1 June'. The year 2026 comes only from the decision log, a later restatement of the note; the month is common to both. If the year is 2026 the note's date denotes Tuesday 2 June 2026; the date is carried as 2026-06 and not completed.",
+      "Whether the day the note was written is the day the extension was agreed is not stated.",
+      "The agreement is verbal. The letter Calder was to send 'by end of month' is not in the material, so a written agreement, its date and its terms are not evidenced; that the extension took effect rests on later material only.",
+      "The owner rests on the note's heading, 'P. Nandakumar', read with its first-person 'Within my limit'. The post (Finance Director) is supplied only by the OIC minute of 9 April and the decision log.",
+      "The limit the note states names no instrument, so no authority is contributed. That the Scheme of Delegation's paragraph 4.4 has terms covering the act is reported as an applicability finding beside this candidate.",
+      "Every context contribution drawn from the file note grades indeterminate for contemporaneity: the note carries no time that has a basis (no year), and consideration does not lift a time-less artefact. They are held as evidence and are not presented as contemporaneous context.",
+      "The budget source was to be checked ('Check with Karen'); no confirmation is in the material.",
+      "Whether data export tools stay licensed during the extension is not evidenced.",
+      "The decision log, as at 30 September 2026, shows the report of the extension to the OIC as open (A-26-045, due 11 June) and the file note as 'not yet seen by OIC'.",
+      "The decision log's 'File note' is not otherwise identified; that it is this note rests on the matching subject, period and post-holder.",
+      "No statement of what reversing the extension would cost is in the material; the proportionality tier is undetermined."
+    ],
+    "status": "candidate"
+  },
+  "fragment_annotations": [
+    {
+      "fragment_ref": "F05-HEAD",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F05-CALL",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F05-AGREED",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F08-HEAD",
+      "capture_time": "unknown",
+      "creation_time": "2026-09-30",
+      "evidence_kind": "restatement",
+      "restates": "F05-AGREED"
+    },
+    {
+      "fragment_ref": "F08-013",
+      "capture_time": "unknown",
+      "creation_time": "2026-09-30",
+      "evidence_kind": "restatement",
+      "restates": "F05-AGREED"
+    },
+    {
+      "fragment_ref": "F05-TODO-BUD",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F05-TODO-EXPORT",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F05-SLIP",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F05-TODO-OIC",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F02-TIME",
+      "capture_time": "2026-03-26",
+      "creation_time": "2026-03-26",
+      "evidence_kind": "unlinked"
+    },
+    {
+      "fragment_ref": "F09-ORCHARD",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "retrospective"
+    }
+  ],
+  "contribution_annotations": [
+    {
+      "contribution_ref": "HC-004-C04",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F05-CALL"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-004-C06",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F05-AGREED"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-004-C07",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F05-TODO-BUD"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-004-C08",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F05-TODO-EXPORT"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-004-C09",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F05-SLIP"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-004-C12",
+      "considered": {
+        "state": "unlinked",
+        "fragment_refs": []
+      }
+    }
+  ]
+}

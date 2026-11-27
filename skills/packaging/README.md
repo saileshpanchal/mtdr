@@ -1,23 +1,25 @@
 # Packaging — distribution adapters
 
-How the standard's portable artefacts ship through specific runtimes. **Adapters are assembled
-from the normative artefacts and never constrain them**
-([TDR-0024](../../decisions/TDR-0024-packaging-independence.md)) — this directory is the one place
-in the repository where product names may appear, and a change to any specification, schema,
-template or skill justified only by a packaging surface's requirement is inadmissible.
+This directory is how the standard's skills reach the AI runtime you already use. To install them,
+go to [Install and verify](#install-and-verify).
 
-The skills are written for humans and structured so AI assistants
-can apply them directly. Since mid-2026 the major agent runtimes load that structure
-natively — a skill is a `SKILL.md` with YAML frontmatter (`name`, `description`) and
-markdown instructions — which means the standard is now **machine-deployable**: an
-organisation can stand up its own decision-record and assurance agent from this repository
-alone, on the runtime it already runs.
+**Adapters are assembled from the normative artefacts and never constrain them**
+([TDR-0024](../../decisions/TDR-0024-packaging-independence.md)). This directory is the one place in
+the repository where product names may appear, and a change to any specification, schema, template
+or skill justified only by a packaging surface's requirement is inadmissible.
+
+The skills are written for humans and structured so AI assistants can apply them directly. Since
+mid-2026 the major agent runtimes load that structure natively: a skill is a `SKILL.md` with YAML
+frontmatter (`name`, `description`) and markdown instructions. The standard is therefore
+**machine-deployable**: an organisation can stand up its own decision-record and assurance agent
+from this repository alone, on the runtime it already runs.
 
 This directory is the deployment pack:
 
 | File | Contents |
 |---|---|
 | This page | The vendor-neutral agent instructions and the deployment model |
+| [`profiles/`](profiles/) | **One distribution package per record type** — what each recovery job needs and nothing else, checked against each runtime's limits, built on demand by `mtdr_packaging.profiles`. For runtimes that cap the number of skills. Generated |
 | [`runtime-evidence.md`](runtime-evidence.md) | **What was verified about each runtime, from which source, on what date** — so upstream change is detectable rather than discovered |
 | [`canonical/`](canonical/) | The collected skills, the catalogue enumerated from the manifests, and the bundle's provenance. Generated |
 | `claude-code/` · `codex/` · `gemini-cli/` · `copilot/` · `ollama-agent/` | Per-surface install and invocation, generated from verified evidence |
@@ -38,6 +40,32 @@ supports the open skill format (among others: Claude Code and claude.ai projects
 Microsoft Copilot Studio, Visual Studio's Copilot, the Microsoft Agent Framework);
 in a runtime without native skills, the same files work as retrieval knowledge.
 
+## Install and verify
+
+The installer places one record type's package where a runtime discovers skills, with the
+repository's layout intact. `verify` then checks the package where it sits:
+
+```
+uv run python -m mtdr_packaging.profiles install <record-type> --runtime <runtime> --project <your project>
+uv run python -m mtdr_packaging.profiles verify <installed package folder>
+```
+
+`<record-type>` is `decision` or `value`, the two record types that have a profile. `<runtime>` is
+`hermes` or `claude-code`: the installer offers a runtime only where it is shown to discover that
+layout in place. Each package is built for recovery: its recovery skill and every skill that skill links to. The
+`decision` package therefore leaves out `problem-framing-and-decision-capture`, `governance-review`
+and the assurance lenses, and the `value` package leaves out `value-record`; follow those from the
+repository ([#15](https://github.com/saileshpanchal/mtdr/issues/15)).
+
+After that:
+
+1. Read [`profiles/`](profiles/) for what the two commands do and what `verify` refuses.
+2. Read your runtime's directory here, where there is one, for where it discovers skills and how you
+   invoke one.
+3. Run the ten [agent probes](../../tests/conformance/agent-probes.md) before trusting the deployment.
+
+Do not copy the skills flat into a runtime's skills folder: their relative links break.
+
 ## The deployment model
 
 Three layers, mapped to the runtime's three surfaces:
@@ -45,11 +73,12 @@ Three layers, mapped to the runtime's three surfaces:
 1. **Instructions** (below) — the enforcement layer: workflow order, normative routing,
    the hard rules and refusals. This is what makes the agent *faithful* rather than
    merely informed.
-2. **Skills** — the twenty-five `SKILL.md` files, loaded natively, assembled **by package**:
+2. **Skills** — the thirty `SKILL.md` files, loaded natively, assembled **by package**:
    from [`records/decision/skills/`](../../records/decision/skills/) the authoring four, draft-tdr,
-   and the eight assurance skills under `assurance/`; from
-   [`records/value/skills/`](../../records/value/skills/) value-record and the five value lifecycle
-   skills; from [`shared/`](../shared/) the record-neutral five. Each package's `package.yaml`
+   the four decision-recovery lifecycle skills, recover-decision-records, and the eight assurance
+   skills under `assurance/`; from [`records/value/skills/`](../../records/value/skills/)
+   value-record, the five value lifecycle skills and recover-value-records; from
+   [`shared/`](../shared/) the record-neutral five. Each package's `package.yaml`
    manifest is the assembly list — an adapter enumerates from the manifests, never from a
    hand-maintained list.
 3. **Reference knowledge** — the normative layer the skills point back into: each deployed
@@ -72,7 +101,7 @@ standard (MTDR — github.com/saileshpanchal/mtdr, MIT), producing three record 
 complete, valid markdown files: the Transformation Decision Record (TDR — the judgement),
 the Value Record (VR — the governed memory of an Operational Value Commitment), and the
 Decision Assurance Case (DAC — the challenge to the decision's consequences). The
-standard's twenty-five `SKILL.md` files are loaded as your agent skills; your reference knowledge is
+standard's thirty `SKILL.md` files are loaded as your agent skills; your reference knowledge is
 the normative layer — the package specifications and templates. The skills are your working methods — before drafting
 anything, invoke the relevant skill and follow its Process section step by step; its "one
 rule" is binding. Skill selection does NOT replace the routing rules below: the workflow
@@ -171,5 +200,5 @@ the specialists, and produces the one disposition — whose owner is always a na
 
 ## Prove it
 
-Run the ten probes in [`conformance.md`](../../tests/conformance/agent-probes.md) before trusting any deployment.
-An agent that fails one is not applying the standard, whatever its instructions say.
+Run the ten probes in [`agent-probes.md`](../../tests/conformance/agent-probes.md) before trusting
+any deployment. An agent that fails one is not applying the standard, whatever its instructions say.

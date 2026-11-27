@@ -1,0 +1,158 @@
+{
+  "contract_version": "1.0.0",
+  "candidate_id": "CASE-029-1",
+  "retrospective": true,
+  "standing": "none",
+  "status": "candidate",
+  "event_time_ref": "CASE-029-C2",
+  "fragments": [
+    {
+      "fragment_id": "CASE-029-F2",
+      "source_ref": "sources/CASE-029.md",
+      "source_hash": "sha256:905e3bf74f145b665b9a2f450135e74102302603aef1ed580da7a0896a9a9e8e",
+      "locator": {
+        "kind": "char-offset",
+        "start": 251,
+        "end": 317,
+        "line_start": 8,
+        "line_end": 8,
+        "item": "B",
+        "document": "Board minute, 2019-03-14"
+      },
+      "content": "**B — Board minute, 2019-03-14** — the single repairs line agreed.",
+      "source_time": "2019-03-14",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "CASE-029-F1",
+      "source_ref": "sources/CASE-029.md",
+      "source_hash": "sha256:905e3bf74f145b665b9a2f450135e74102302603aef1ed580da7a0896a9a9e8e",
+      "locator": {
+        "kind": "char-offset",
+        "start": 38,
+        "end": 249,
+        "line_start": 3,
+        "line_end": 6,
+        "item": "A",
+        "document": "operations/2019-Q1/repairs-options.md"
+      },
+      "content": "**A — Working note, `operations/2019-Q1/repairs-options.md`**, no date in the text and none in the\nfile's recorded metadata\n\n> One line for repairs would cost less than four offices, if the evening rota changes.",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    }
+  ],
+  "contributions": [
+    {
+      "contribution_id": "CASE-029-C1",
+      "fragment_refs": [
+        "CASE-029-F2"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-statement",
+      "interpreted_value": "The single repairs line agreed.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-029-C2",
+      "fragment_refs": [
+        "CASE-029-F2"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-date",
+      "interpreted_value": "2019-03-14",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-029-C3",
+      "fragment_refs": [
+        "CASE-029-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "One line for repairs would cost less than four offices, if the evening rota changes (undated working note).",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "low",
+      "derivation": "explicit"
+    }
+  ],
+  "assembly": {
+    "assembly_id": "CASE-029-1-assembly",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "CASE-029-C1",
+      "CASE-029-C2",
+      "CASE-029-C3"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "entity-match",
+        "evidence": "Working note (item A): 'One line for repairs'; minute (item B): 'the single repairs line agreed'. The note names the option the minute records as agreed."
+      }
+    ],
+    "assembly_confidence": "medium",
+    "missing_semantics": [
+      "accountable-owner"
+    ],
+    "conflicts": [],
+    "supersessions": [],
+    "unresolved": [
+      "The working note has no date in its text or its recorded metadata; its folder name ('2019-Q1') is no basis. Its capture and creation are unknown, its contemporaneity is indeterminate, and it cannot be presented as context.",
+      "Nothing shows the note was before the board (considered: unknown). Its evidence kind is recorded as prior-unlinked only because the vocabulary has no kind for undated material; pre-dating is not established.",
+      "The minute records the agreement in the passive ('the single repairs line agreed'); no agreeing body or owner is named in the span, so neither authority nor owner is contributed."
+    ],
+    "status": "candidate"
+  },
+  "fragment_annotations": [
+    {
+      "fragment_ref": "CASE-029-F2",
+      "capture_time": "2019-03-14",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "CASE-029-F1",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "prior-unlinked"
+    }
+  ],
+  "contribution_annotations": [
+    {
+      "contribution_ref": "CASE-029-C3",
+      "considered": {
+        "state": "unknown",
+        "fragment_refs": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,230 @@
+{
+  "contract_version": "1.0.0",
+  "candidate_id": "CASE-018-1",
+  "retrospective": true,
+  "standing": "none",
+  "status": "candidate",
+  "event_time_ref": "unknown",
+  "fragments": [
+    {
+      "fragment_id": "CASE-018-F1",
+      "source_ref": "sources/CASE-018.md",
+      "source_hash": "sha256:9604d66c8eca0bb1dc56285fbc0010316733890b9839a975042a30238ef9bcc7",
+      "locator": {
+        "kind": "char-offset",
+        "start": 38,
+        "end": 260,
+        "line_start": 3,
+        "line_end": 6,
+        "item": "A",
+        "document": "board/2021-05-12-minute.md"
+      },
+      "content": "**A — Board minute, `board/2021-05-12-minute.md`**\n\n> The board agreed to retire the paper ticket stock at all staffed stations from 1 September, as\n> recommended in paper 21/14. Owner: Hana Brightwell, Director of Retail.",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "CASE-018-F2",
+      "source_ref": "sources/CASE-018.md",
+      "source_hash": "sha256:9604d66c8eca0bb1dc56285fbc0010316733890b9839a975042a30238ef9bcc7",
+      "locator": {
+        "kind": "char-offset",
+        "start": 262,
+        "end": 439,
+        "line_start": 8,
+        "line_end": 10,
+        "item": "B",
+        "document": "board/papers/21-14-paper-tickets.md"
+      },
+      "content": "**B — Paper 21/14, `board/papers/21-14-paper-tickets.md`, dated 2021-04-28**\n\n> Paper stock costs £0.6m a year to print and distribute. Smartcard use at staffed stations is 71%.",
+      "source_time": "2021-04-28",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "CASE-018-F3",
+      "source_ref": "sources/CASE-018.md",
+      "source_hash": "sha256:9604d66c8eca0bb1dc56285fbc0010316733890b9839a975042a30238ef9bcc7",
+      "locator": {
+        "kind": "char-offset",
+        "start": 441,
+        "end": 631,
+        "line_start": 12,
+        "line_end": 15,
+        "item": "C",
+        "document": "risk/2021-06-01-ticketing-risk.md"
+      },
+      "content": "**C — Risk paper, `risk/2021-06-01-ticketing-risk.md`, dated 2021-06-01**\n\n> The paper stock contract carried an unhedged exposure to a single printer, which the board was\n> right to remove.",
+      "source_time": "2021-06-01",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    }
+  ],
+  "contributions": [
+    {
+      "contribution_id": "CASE-018-C1",
+      "fragment_refs": [
+        "CASE-018-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-statement",
+      "interpreted_value": "The board agreed to retire the paper ticket stock at all staffed stations from 1 September (year not stated), as recommended in paper 21/14.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-018-C2",
+      "fragment_refs": [
+        "CASE-018-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "accountable-owner",
+      "interpreted_value": "Hana Brightwell, Director of Retail",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-018-C3",
+      "fragment_refs": [
+        "CASE-018-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "authority",
+      "interpreted_value": "the board",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-018-C4",
+      "fragment_refs": [
+        "CASE-018-F2"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "Paper 21/14 (2021-04-28): paper stock costs £0.6m a year to print and distribute; smartcard use at staffed stations is 71%.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-018-C5",
+      "fragment_refs": [
+        "CASE-018-F3"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "corroboration",
+      "interpreted_value": "The paper stock contract carried an unhedged exposure to a single printer, which the board was right to remove (risk paper, 2021-06-01).",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    }
+  ],
+  "assembly": {
+    "assembly_id": "CASE-018-1-assembly",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "CASE-018-C1",
+      "CASE-018-C2",
+      "CASE-018-C3",
+      "CASE-018-C4",
+      "CASE-018-C5"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "Minute (item A): 'as recommended in paper 21/14'; item B is identified as 'Paper 21/14'."
+      },
+      {
+        "basis": "entity-match",
+        "evidence": "Risk paper (item C): 'The paper stock contract ... which the board was right to remove'; minute: 'retire the paper ticket stock'. Both name the paper (ticket) stock and an act of the board."
+      }
+    ],
+    "assembly_confidence": "medium",
+    "missing_semantics": [
+      "decision-date"
+    ],
+    "conflicts": [],
+    "supersessions": [],
+    "unresolved": [
+      "No decision date is evidenced. The minute's only date is in its filename (board/2021-05-12-minute.md), which is no basis; every context grade is therefore indeterminate and the paper's content cannot be presented as contemporaneous context.",
+      "'from 1 September' is the effective date of the retirement, with no year; it is not the decision date and is not completed.",
+      "Whether the risk paper's 'remove' refers to this decision (retiring the stock) or to a separate act on the printing contract is not settled by its words.",
+      "The risk paper's reason (an unhedged exposure to a single printer) is retrospective and is not context or rationale for this decision."
+    ],
+    "status": "candidate"
+  },
+  "fragment_annotations": [
+    {
+      "fragment_ref": "CASE-018-F1",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "CASE-018-F2",
+      "capture_time": "2021-04-28",
+      "creation_time": "2021-04-28",
+      "evidence_kind": "cited-material"
+    },
+    {
+      "fragment_ref": "CASE-018-F3",
+      "capture_time": "2021-06-01",
+      "creation_time": "2021-06-01",
+      "evidence_kind": "retrospective"
+    }
+  ],
+  "contribution_annotations": [
+    {
+      "contribution_ref": "CASE-018-C4",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "CASE-018-F1"
+        ]
+      }
+    }
+  ]
+}

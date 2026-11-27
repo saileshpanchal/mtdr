@@ -1,0 +1,844 @@
+[
+  {
+    "fragment_ref": "F01-HEAD",
+    "capture_time": "2025-01",
+    "creation_time": "unknown",
+    "basis": "own statement 'Version 3, adopted by the Board January 2025'; the extract's own production date is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F01-4.1-LEAD",
+    "capture_time": "2025-01",
+    "creation_time": "unknown",
+    "basis": "own statement 'Version 3, adopted by the Board January 2025'; the extract's own production date is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F01-4.1-A",
+    "capture_time": "2025-01",
+    "creation_time": "unknown",
+    "basis": "own statement 'Version 3, adopted by the Board January 2025'; the extract's own production date is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F01-4.1-B",
+    "capture_time": "2025-01",
+    "creation_time": "unknown",
+    "basis": "own statement 'Version 3, adopted by the Board January 2025'; the extract's own production date is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F01-4.1-C",
+    "capture_time": "2025-01",
+    "creation_time": "unknown",
+    "basis": "own statement 'Version 3, adopted by the Board January 2025'; the extract's own production date is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F01-4.2",
+    "capture_time": "2025-01",
+    "creation_time": "unknown",
+    "basis": "own statement 'Version 3, adopted by the Board January 2025'; the extract's own production date is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F01-4.3",
+    "capture_time": "2025-01",
+    "creation_time": "unknown",
+    "basis": "own statement 'Version 3, adopted by the Board January 2025'; the extract's own production date is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F01-4.4",
+    "capture_time": "2025-01",
+    "creation_time": "unknown",
+    "basis": "own statement 'Version 3, adopted by the Board January 2025'; the extract's own production date is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F01-4.5",
+    "capture_time": "2025-01",
+    "creation_time": "unknown",
+    "basis": "own statement 'Version 3, adopted by the Board January 2025'; the extract's own production date is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F01-6.1",
+    "capture_time": "2025-01",
+    "creation_time": "unknown",
+    "basis": "own statement 'Version 3, adopted by the Board January 2025'; the extract's own production date is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F01-6.2",
+    "capture_time": "2025-01",
+    "creation_time": "unknown",
+    "basis": "own statement 'Version 3, adopted by the Board January 2025'; the extract's own production date is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F01-6.3",
+    "capture_time": "2025-01",
+    "creation_time": "unknown",
+    "basis": "own statement 'Version 3, adopted by the Board January 2025'; the extract's own production date is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F02-HEAD",
+    "capture_time": "2026-03-26",
+    "creation_time": "2026-03-26",
+    "basis": "own statement 'Dated: 26 March 2026'",
+    "evidence_kind_by_candidate": {
+      "HC-001": "cited-material"
+    }
+  },
+  {
+    "fragment_ref": "F02-BG",
+    "capture_time": "2026-03-26",
+    "creation_time": "2026-03-26",
+    "basis": "own statement 'Dated: 26 March 2026'",
+    "evidence_kind_by_candidate": {
+      "HC-001": "cited-material"
+    }
+  },
+  {
+    "fragment_ref": "F02-OPT-A",
+    "capture_time": "2026-03-26",
+    "creation_time": "2026-03-26",
+    "basis": "own statement 'Dated: 26 March 2026'",
+    "evidence_kind_by_candidate": {
+      "HC-001": "cited-material"
+    }
+  },
+  {
+    "fragment_ref": "F02-OPT-B",
+    "capture_time": "2026-03-26",
+    "creation_time": "2026-03-26",
+    "basis": "own statement 'Dated: 26 March 2026'",
+    "evidence_kind_by_candidate": {
+      "HC-001": "cited-material"
+    }
+  },
+  {
+    "fragment_ref": "F02-OPT-C",
+    "capture_time": "2026-03-26",
+    "creation_time": "2026-03-26",
+    "basis": "own statement 'Dated: 26 March 2026'",
+    "evidence_kind_by_candidate": {
+      "HC-001": "cited-material"
+    }
+  },
+  {
+    "fragment_ref": "F02-EVAL",
+    "capture_time": "2026-03-26",
+    "creation_time": "2026-03-26",
+    "basis": "own statement 'Dated: 26 March 2026'",
+    "evidence_kind_by_candidate": {
+      "HC-001": "cited-material"
+    }
+  },
+  {
+    "fragment_ref": "F02-COSTS",
+    "capture_time": "2026-03-26",
+    "creation_time": "2026-03-26",
+    "basis": "own statement 'Dated: 26 March 2026'",
+    "evidence_kind_by_candidate": {
+      "HC-001": "cited-material"
+    }
+  },
+  {
+    "fragment_ref": "F02-FUND",
+    "capture_time": "2026-03-26",
+    "creation_time": "2026-03-26",
+    "basis": "own statement 'Dated: 26 March 2026'",
+    "evidence_kind_by_candidate": {
+      "HC-001": "cited-material"
+    }
+  },
+  {
+    "fragment_ref": "F02-TIME",
+    "capture_time": "2026-03-26",
+    "creation_time": "2026-03-26",
+    "basis": "own statement 'Dated: 26 March 2026'",
+    "evidence_kind_by_candidate": {
+      "HC-001": "cited-material",
+      "HC-004": "unlinked"
+    }
+  },
+  {
+    "fragment_ref": "F02-REC",
+    "capture_time": "2026-03-26",
+    "creation_time": "2026-03-26",
+    "basis": "own statement 'Dated: 26 March 2026'",
+    "evidence_kind_by_candidate": {
+      "HC-001": "cited-material"
+    }
+  },
+  {
+    "fragment_ref": "F02-RISK",
+    "capture_time": "2026-03-26",
+    "creation_time": "2026-03-26",
+    "basis": "own statement 'Dated: 26 March 2026'",
+    "evidence_kind_by_candidate": {
+      "HC-001": "cited-material"
+    }
+  },
+  {
+    "fragment_ref": "F03-HEAD",
+    "capture_time": "2026-04-09",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 9 April 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-001": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F03-PRESENT",
+    "capture_time": "2026-04-09",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 9 April 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-001": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F03-2",
+    "capture_time": "2026-04-09",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 9 April 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F03-3",
+    "capture_time": "2026-04-09",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 9 April 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F03-4-CITE",
+    "capture_time": "2026-04-09",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 9 April 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-001": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F03-4-MIG",
+    "capture_time": "2026-04-09",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 9 April 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-001": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F03-4-FUND",
+    "capture_time": "2026-04-09",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 9 April 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-001": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F03-4-INT",
+    "capture_time": "2026-04-09",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 9 April 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-001": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F03-4-DEC",
+    "capture_time": "2026-04-09",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 9 April 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-001": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F03-4-ACT1",
+    "capture_time": "2026-04-09",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 9 April 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F03-4-ACT2",
+    "capture_time": "2026-04-09",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 9 April 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F03-5-DESC",
+    "capture_time": "2026-04-09",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 9 April 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-002": "unlinked"
+    }
+  },
+  {
+    "fragment_ref": "F03-5-PREF",
+    "capture_time": "2026-04-09",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 9 April 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-002": "unlinked"
+    }
+  },
+  {
+    "fragment_ref": "F03-5-ACT",
+    "capture_time": "2026-04-09",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 9 April 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F03-6",
+    "capture_time": "2026-04-09",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 9 April 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F04-HEAD",
+    "capture_time": "2026-05-21",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 21 May 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-002": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F04-PRESENT",
+    "capture_time": "2026-05-21",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 21 May 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-002": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F04-6-NOTE",
+    "capture_time": "2026-05-21",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 21 May 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-001": "retrospective"
+    }
+  },
+  {
+    "fragment_ref": "F04-6-EXIT",
+    "capture_time": "2026-05-21",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 21 May 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-001": "retrospective"
+    }
+  },
+  {
+    "fragment_ref": "F04-7-PROP",
+    "capture_time": "2026-05-21",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 21 May 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-002": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F04-7-TENANTS",
+    "capture_time": "2026-05-21",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 21 May 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-002": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F04-7-SAVINGS",
+    "capture_time": "2026-05-21",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 21 May 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-002": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F04-7-STAFF",
+    "capture_time": "2026-05-21",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 21 May 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-002": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F04-7-CONCERN",
+    "capture_time": "2026-05-21",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 21 May 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-002": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F04-7-RES",
+    "capture_time": "2026-05-21",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 21 May 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-002": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F04-7-RES-A",
+    "capture_time": "2026-05-21",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 21 May 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-002": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F04-7-RES-B",
+    "capture_time": "2026-05-21",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 21 May 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-002": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F04-7-ACT",
+    "capture_time": "2026-05-21",
+    "creation_time": "unknown",
+    "basis": "own heading '**Date:** 21 May 2026' (the meeting); when the minutes were written up is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F05-HEAD",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement 'Tues, wk of 1 June' carries no year, and the scan date is not stated; a year from another document is not a basis",
+    "evidence_kind_by_candidate": {
+      "HC-004": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F05-CALL",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement 'Tues, wk of 1 June' carries no year, and the scan date is not stated; a year from another document is not a basis",
+    "evidence_kind_by_candidate": {
+      "HC-004": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F05-AGREED",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement 'Tues, wk of 1 June' carries no year, and the scan date is not stated; a year from another document is not a basis",
+    "evidence_kind_by_candidate": {
+      "HC-004": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F05-TODO",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement 'Tues, wk of 1 June' carries no year, and the scan date is not stated; a year from another document is not a basis",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F05-TODO-OIC",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement 'Tues, wk of 1 June' carries no year, and the scan date is not stated; a year from another document is not a basis",
+    "evidence_kind_by_candidate": {
+      "HC-004": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F05-TODO-BUD",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement 'Tues, wk of 1 June' carries no year, and the scan date is not stated; a year from another document is not a basis",
+    "evidence_kind_by_candidate": {
+      "HC-004": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F05-TODO-EXPORT",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement 'Tues, wk of 1 June' carries no year, and the scan date is not stated; a year from another document is not a basis",
+    "evidence_kind_by_candidate": {
+      "HC-004": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F05-SLIP",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement 'Tues, wk of 1 June' carries no year, and the scan date is not stated; a year from another document is not a basis",
+    "evidence_kind_by_candidate": {
+      "HC-004": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F06-E1-HDR",
+    "capture_time": "2026-07-13",
+    "creation_time": "2026-07-13",
+    "basis": "the email's own header, '**Date:**'",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F06-E1-WHY",
+    "capture_time": "2026-07-13",
+    "creation_time": "2026-07-13",
+    "basis": "the email's own header, '**Date:**'",
+    "evidence_kind_by_candidate": {
+      "HC-003": "cited-material"
+    }
+  },
+  {
+    "fragment_ref": "F06-E1-PROP",
+    "capture_time": "2026-07-13",
+    "creation_time": "2026-07-13",
+    "basis": "the email's own header, '**Date:**'",
+    "evidence_kind_by_candidate": {
+      "HC-003": "cited-material"
+    }
+  },
+  {
+    "fragment_ref": "F06-E1-ASK",
+    "capture_time": "2026-07-13",
+    "creation_time": "2026-07-13",
+    "basis": "the email's own header, '**Date:**'",
+    "evidence_kind_by_candidate": {
+      "HC-003": "cited-material"
+    }
+  },
+  {
+    "fragment_ref": "F06-E2-HDR",
+    "capture_time": "2026-07-13",
+    "creation_time": "2026-07-13",
+    "basis": "the email's own header, '**Date:**'",
+    "evidence_kind_by_candidate": {
+      "HC-003": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F06-E2-BODY",
+    "capture_time": "2026-07-13",
+    "creation_time": "2026-07-13",
+    "basis": "the email's own header, '**Date:**'",
+    "evidence_kind_by_candidate": {
+      "HC-003": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F06-E3-HDR",
+    "capture_time": "2026-07-14",
+    "creation_time": "2026-07-14",
+    "basis": "the email's own header, '**Date:**'",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F06-E3-BODY",
+    "capture_time": "2026-07-14",
+    "creation_time": "2026-07-14",
+    "basis": "the email's own header, '**Date:**'",
+    "evidence_kind_by_candidate": {
+      "HC-003": "cited-material"
+    }
+  },
+  {
+    "fragment_ref": "F06-E4-HDR",
+    "capture_time": "2026-07-22",
+    "creation_time": "2026-07-22",
+    "basis": "the email's own header, '**Date:**'",
+    "evidence_kind_by_candidate": {
+      "HC-003": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F06-E4-BODY",
+    "capture_time": "2026-07-22",
+    "creation_time": "2026-07-22",
+    "basis": "the email's own header, '**Date:**'",
+    "evidence_kind_by_candidate": {
+      "HC-003": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F06-E4-R1",
+    "capture_time": "2026-07-22",
+    "creation_time": "2026-07-22",
+    "basis": "the email's own header, '**Date:**'",
+    "evidence_kind_by_candidate": {
+      "HC-003": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F06-E4-R2",
+    "capture_time": "2026-07-22",
+    "creation_time": "2026-07-22",
+    "basis": "the email's own header, '**Date:**'",
+    "evidence_kind_by_candidate": {
+      "HC-003": "act-record"
+    }
+  },
+  {
+    "fragment_ref": "F07-HEAD",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement '**Thu 23 July**' carries no year",
+    "evidence_kind_by_candidate": {
+      "HC-003": "retrospective"
+    }
+  },
+  {
+    "fragment_ref": "F07-CONFIRM",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement '**Thu 23 July**' carries no year",
+    "evidence_kind_by_candidate": {
+      "HC-003": "retrospective"
+    }
+  },
+  {
+    "fragment_ref": "F07-EXTEND",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement '**Thu 23 July**' carries no year",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F07-LEAFLET",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement '**Thu 23 July**' carries no year",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F07-REDEPLOY",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement '**Thu 23 July**' carries no year",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F08-HEAD",
+    "capture_time": "unknown",
+    "creation_time": "2026-09-30",
+    "basis": "own statement 'Position as at 30 September 2026' for the artefact; when each row was entered is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-004": {
+        "kind": "restatement",
+        "restates": "F05-AGREED"
+      }
+    }
+  },
+  {
+    "fragment_ref": "F08-011",
+    "capture_time": "unknown",
+    "creation_time": "2026-09-30",
+    "basis": "own statement 'Position as at 30 September 2026' for the artefact; when each row was entered is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-001": {
+        "kind": "restatement",
+        "restates": "F03-4-DEC"
+      }
+    }
+  },
+  {
+    "fragment_ref": "F08-012",
+    "capture_time": "unknown",
+    "creation_time": "2026-09-30",
+    "basis": "own statement 'Position as at 30 September 2026' for the artefact; when each row was entered is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-002": {
+        "kind": "restatement",
+        "restates": "F04-7-RES"
+      }
+    }
+  },
+  {
+    "fragment_ref": "F08-013",
+    "capture_time": "unknown",
+    "creation_time": "2026-09-30",
+    "basis": "own statement 'Position as at 30 September 2026' for the artefact; when each row was entered is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-004": {
+        "kind": "restatement",
+        "restates": "F05-AGREED"
+      }
+    }
+  },
+  {
+    "fragment_ref": "F08-014",
+    "capture_time": "unknown",
+    "creation_time": "2026-09-30",
+    "basis": "own statement 'Position as at 30 September 2026' for the artefact; when each row was entered is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-003": {
+        "kind": "restatement",
+        "restates": "F06-E4-BODY"
+      }
+    }
+  },
+  {
+    "fragment_ref": "F08-015",
+    "capture_time": "unknown",
+    "creation_time": "2026-09-30",
+    "basis": "own statement 'Position as at 30 September 2026' for the artefact; when each row was entered is not stated",
+    "evidence_kind_by_candidate": {
+      "HC-003": {
+        "kind": "restatement",
+        "restates": "Board of Management minutes, 17 September 2026, minute 5 (not in the material supplied)"
+      }
+    }
+  },
+  {
+    "fragment_ref": "F08-A031",
+    "capture_time": "unknown",
+    "creation_time": "2026-09-30",
+    "basis": "own statement 'Position as at 30 September 2026' for the artefact; when each row was entered is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F08-A034",
+    "capture_time": "unknown",
+    "creation_time": "2026-09-30",
+    "basis": "own statement 'Position as at 30 September 2026' for the artefact; when each row was entered is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F08-A040",
+    "capture_time": "unknown",
+    "creation_time": "2026-09-30",
+    "basis": "own statement 'Position as at 30 September 2026' for the artefact; when each row was entered is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F08-A042",
+    "capture_time": "unknown",
+    "creation_time": "2026-09-30",
+    "basis": "own statement 'Position as at 30 September 2026' for the artefact; when each row was entered is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F08-A045",
+    "capture_time": "unknown",
+    "creation_time": "2026-09-30",
+    "basis": "own statement 'Position as at 30 September 2026' for the artefact; when each row was entered is not stated",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F09-HEAD",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement 'For: Project Board, 14 October 2026' dates the meeting it was prepared for, not its preparation",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F09-SIGNED",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement 'For: Project Board, 14 October 2026' dates the meeting it was prepared for, not its preparation",
+    "evidence_kind_by_candidate": {
+      "HC-001": "retrospective"
+    }
+  },
+  {
+    "fragment_ref": "F09-MIGTEST",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement 'For: Project Board, 14 October 2026' dates the meeting it was prepared for, not its preparation",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F09-GOLIVE",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement 'For: Project Board, 14 October 2026' dates the meeting it was prepared for, not its preparation",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F09-ORCHARD",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement 'For: Project Board, 14 October 2026' dates the meeting it was prepared for, not its preparation",
+    "evidence_kind_by_candidate": {
+      "HC-004": "retrospective"
+    }
+  },
+  {
+    "fragment_ref": "F09-FURTHER",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement 'For: Project Board, 14 October 2026' dates the meeting it was prepared for, not its preparation",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F09-INTERFACES",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement 'For: Project Board, 14 October 2026' dates the meeting it was prepared for, not its preparation",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F09-LIVE",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement 'For: Project Board, 14 October 2026' dates the meeting it was prepared for, not its preparation",
+    "evidence_kind_by_candidate": {
+      "HC-002": "retrospective",
+      "HC-003": "retrospective"
+    }
+  },
+  {
+    "fragment_ref": "F09-AGENCY-END",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement 'For: Project Board, 14 October 2026' dates the meeting it was prepared for, not its preparation",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F09-PERF",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement 'For: Project Board, 14 October 2026' dates the meeting it was prepared for, not its preparation",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F09-QUOTE",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement 'For: Project Board, 14 October 2026' dates the meeting it was prepared for, not its preparation",
+    "evidence_kind_by_candidate": {}
+  },
+  {
+    "fragment_ref": "F09-BUDGET",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement 'For: Project Board, 14 October 2026' dates the meeting it was prepared for, not its preparation",
+    "evidence_kind_by_candidate": {
+      "HC-002": "retrospective"
+    }
+  },
+  {
+    "fragment_ref": "F09-NEEDED",
+    "capture_time": "unknown",
+    "creation_time": "unknown",
+    "basis": "own statement 'For: Project Board, 14 October 2026' dates the meeting it was prepared for, not its preparation",
+    "evidence_kind_by_candidate": {}
+  }
+]

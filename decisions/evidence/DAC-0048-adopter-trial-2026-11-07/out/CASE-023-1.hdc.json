@@ -1,0 +1,105 @@
+{
+  "contract_version": "1.0.0",
+  "candidate_id": "CASE-023-1",
+  "retrospective": true,
+  "standing": "none",
+  "status": "candidate",
+  "event_time_ref": "CASE-023-C2",
+  "fragments": [
+    {
+      "fragment_id": "CASE-023-F1",
+      "source_ref": "sources/CASE-023.md",
+      "source_hash": "sha256:ca43c84135ae55836a4c6fababab31a6543ef878239bfc0c96177fe754075851",
+      "locator": {
+        "kind": "char-offset",
+        "start": 38,
+        "end": 207,
+        "line_start": 3,
+        "line_end": 6,
+        "item": "A",
+        "document": "ops-forum/minute-14-3-19.md"
+      },
+      "content": "**A — Minute, `ops-forum/minute-14-3-19.md`**\n\n> Meeting of 14/3/19. Agreed: chlorine dosing at Dunmore moves to the automated controller. The ops\n> director to oversee.",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    }
+  ],
+  "contributions": [
+    {
+      "contribution_id": "CASE-023-C1",
+      "fragment_refs": [
+        "CASE-023-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-statement",
+      "interpreted_value": "Agreed: chlorine dosing at Dunmore moves to the automated controller.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-023-C2",
+      "fragment_refs": [
+        "CASE-023-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-date",
+      "interpreted_value": "2019-03-14",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "medium",
+      "epistemic_confidence": "high",
+      "derivation": "inferred"
+    }
+  ],
+  "assembly": {
+    "assembly_id": "CASE-023-1-assembly",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "CASE-023-C1",
+      "CASE-023-C2"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "One act-record (item A): the minute's own heading 'Meeting of 14/3/19' and its entry 'Agreed: chlorine dosing at Dunmore moves to the automated controller'."
+      }
+    ],
+    "assembly_confidence": "high",
+    "missing_semantics": [
+      "context",
+      "accountable-owner"
+    ],
+    "conflicts": [],
+    "supersessions": [],
+    "unresolved": [
+      "'The ops director to oversee' names a role, not an individual, and assigns oversight, which the minute does not state as ownership. No owner is evidenced.",
+      "The organisation chart (item B) naming P. Rahman as Operations Director carries its year only in its filename (people/2019-structure.md), so it has no time basis; mapping the role to that person would infer a never-inferred role. Not used.",
+      "'14/3/19' is normalised to 2019-03-14 (day-month order; two-digit year read as 2019)."
+    ],
+    "status": "candidate"
+  },
+  "fragment_annotations": [
+    {
+      "fragment_ref": "CASE-023-F1",
+      "capture_time": "2019-03-14",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    }
+  ],
+  "contribution_annotations": []
+}

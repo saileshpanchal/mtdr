@@ -1,0 +1,1702 @@
+[
+  {
+    "fragment_id": "F01-HEAD",
+    "source_ref": "SRC-01-scheme-of-delegation.md",
+    "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+    "locator": {
+      "kind": "char-offset",
+      "start": 0,
+      "end": 118
+    },
+    "content": "# Tarnmere Homes: Scheme of Delegation (extract)\n\nVersion 3, adopted by the Board January 2025. Sections 4 and 6 only.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F01-4.1-LEAD",
+    "source_ref": "SRC-01-scheme-of-delegation.md",
+    "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+    "locator": {
+      "kind": "char-offset",
+      "start": 163,
+      "end": 207
+    },
+    "content": "4.1 The following are reserved to the Board:",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F01-4.1-A",
+    "source_ref": "SRC-01-scheme-of-delegation.md",
+    "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+    "locator": {
+      "kind": "char-offset",
+      "start": 208,
+      "end": 286
+    },
+    "content": "- any contract or commitment with a total value over £1,000,000 over its term;",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F01-4.1-B",
+    "source_ref": "SRC-01-scheme-of-delegation.md",
+    "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+    "locator": {
+      "kind": "char-offset",
+      "start": 287,
+      "end": 451
+    },
+    "content": "- any change to the service delivery model for repairs, rent collection, or complaints handling that alters how tenants make contact with, or receive, that service;",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F01-4.1-C",
+    "source_ref": "SRC-01-scheme-of-delegation.md",
+    "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+    "locator": {
+      "kind": "char-offset",
+      "start": 452,
+      "end": 516
+    },
+    "content": "- approval of the annual budget and any virement from a reserve.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F01-4.2",
+    "source_ref": "SRC-01-scheme-of-delegation.md",
+    "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+    "locator": {
+      "kind": "char-offset",
+      "start": 518,
+      "end": 730
+    },
+    "content": "4.2 The Operations & Investment Committee (OIC) may approve contracts with a total value over the contract term of more than £250,000 and up to £1,000,000. Above that figure the Committee recommends to the Board.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F01-4.3",
+    "source_ref": "SRC-01-scheme-of-delegation.md",
+    "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+    "locator": {
+      "kind": "char-offset",
+      "start": 732,
+      "end": 881
+    },
+    "content": "4.3 The Chief Executive may approve contracts up to £250,000 in total value. The Chief Executive may delegate in writing to Directors up to £100,000.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F01-4.4",
+    "source_ref": "SRC-01-scheme-of-delegation.md",
+    "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+    "locator": {
+      "kind": "char-offset",
+      "start": 883,
+      "end": 1086
+    },
+    "content": "4.4 The Finance Director may agree extensions or variations to existing contracts of up to 12 months and £150,000 where budget exists. Any such extension is to be reported to the next meeting of the OIC.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F01-4.5",
+    "source_ref": "SRC-01-scheme-of-delegation.md",
+    "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1088,
+      "end": 1430
+    },
+    "content": "4.5 Where an approval would otherwise be given by the Board or a committee and the next meeting is too late to avoid material harm or loss, the Chair and the Chief Executive acting jointly may take the decision. The decision must be recorded in the decision log and reported to the next meeting of the body that would ordinarily have made it.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F01-6.1",
+    "source_ref": "SRC-01-scheme-of-delegation.md",
+    "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1454,
+      "end": 1580
+    },
+    "content": "6.1 \"Total value\" means the whole-term cost to the Association of the contract concerned, excluding VAT that can be recovered.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F01-6.2",
+    "source_ref": "SRC-01-scheme-of-delegation.md",
+    "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1582,
+      "end": 1737
+    },
+    "content": "6.2 Where a project comprises more than one contract, the Company Secretary will advise on whether they are to be aggregated for the purposes of section 4.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F01-6.3",
+    "source_ref": "SRC-01-scheme-of-delegation.md",
+    "source_hash": "sha256:1cbbd190e9f30074bfb7d1dfb158c87a7c947e81b445d3a74acbbd88742d1be6",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1739,
+      "end": 1916
+    },
+    "content": "6.3 Delegations in this scheme are to the post, not the post-holder. A decision taken under delegation should be minuted or logged with the name of the person or body taking it.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F02-HEAD",
+    "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+    "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 0,
+      "end": 99
+    },
+    "content": "# Operations & Investment Committee, 9 April 2026\n## Paper 4: Housing management system replacement",
+    "source_time": "2026-03-26",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F02-BG",
+    "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+    "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 302,
+      "end": 572
+    },
+    "content": "Orchard (supplied by Calder Software) has been in use since 2014. Calder will stop supporting the current version when the licence ends on 30 September 2026. Repairs, rents, tenancy and complaints records all sit in Orchard, and there are 31 interfaces to other systems.",
+    "source_time": "2026-03-26",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F02-OPT-A",
+    "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+    "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 597,
+      "end": 730
+    },
+    "content": "- A. Extend Orchard on a rolling basis. Calder have said this is possible only for short periods and at rising cost. Not recommended.",
+    "source_time": "2026-03-26",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F02-OPT-B",
+    "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+    "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 731,
+      "end": 817
+    },
+    "content": "- B. Vantry Housing Platform (Vantry Systems Ltd). Scored 82 out of 100 in evaluation.",
+    "source_time": "2026-03-26",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F02-OPT-C",
+    "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+    "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 818,
+      "end": 868
+    },
+    "content": "- C. Meridian Housing Suite. Scored 74 out of 100.",
+    "source_time": "2026-03-26",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F02-EVAL",
+    "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+    "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 870,
+      "end": 1031
+    },
+    "content": "Evaluation was by a panel of six, including two from Customer Services and one from Finance. Reference visits were made to two housing associations using Vantry.",
+    "source_time": "2026-03-26",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F02-COSTS",
+    "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+    "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1033,
+      "end": 1300
+    },
+    "content": "### Costs (Option B)\n| Item | £ |\n|---|---|\n| Licence, hosting and support, five years | 690,000 |\n| Implementation services (call-off) | 235,000 |\n| Contingency (held by Finance, not committed) | 90,000 |\n| **Programme total including contingency** | **1,015,000** |",
+    "source_time": "2026-03-26",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F02-FUND",
+    "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+    "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1302,
+      "end": 1373
+    },
+    "content": "Funding is within the approved IT capital line for 2026/27 and 2027/28.",
+    "source_time": "2026-03-26",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F02-TIME",
+    "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+    "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1389,
+      "end": 1628
+    },
+    "content": "Contract signature in May. Target go-live 11 January 2027. Because go-live falls after the Orchard licence ends, a short extension of Orchard will be needed. This is within the Finance Director's delegation and will be arranged separately.",
+    "source_time": "2026-03-26",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F02-REC",
+    "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+    "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1649,
+      "end": 1873
+    },
+    "content": "The Committee is asked to:\n1. approve the award of a five-year contract to Vantry Systems Ltd;\n2. note the implementation call-off and contingency;\n3. note that the Orchard extension will be arranged by the Finance Director.",
+    "source_time": "2026-03-26",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F02-RISK",
+    "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+    "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1885,
+      "end": 2056
+    },
+    "content": "Data migration from Orchard is the main risk. Vantry's standard exit terms are weaker than we would like and the Company Secretary has not yet reviewed the draft contract.",
+    "source_time": "2026-03-26",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F03-HEAD",
+    "source_ref": "SRC-03-oic-minutes-9-april.md",
+    "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 0,
+      "end": 68
+    },
+    "content": "# Operations & Investment Committee: Minutes\n\n**Date:** 9 April 2026",
+    "source_time": "2026-04-09",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F03-PRESENT",
+    "source_ref": "SRC-03-oic-minutes-9-april.md",
+    "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 69,
+      "end": 205
+    },
+    "content": "**Present:** Tobias Wren (Chair), Anita Folorunsho, Raymond Quill, Priya Nandakumar (Finance Director), Duncan Faraday (Chief Executive)",
+    "source_time": "2026-04-09",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F03-2",
+    "source_ref": "SRC-03-oic-minutes-9-april.md",
+    "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 447,
+      "end": 505
+    },
+    "content": "2. **Minutes of 12 February.** Agreed as a correct record.",
+    "source_time": "2026-04-09",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F03-3",
+    "source_ref": "SRC-03-oic-minutes-9-april.md",
+    "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 507,
+      "end": 579
+    },
+    "content": "3. **Matters arising.** The void property dashboard is now live. Closed.",
+    "source_time": "2026-04-09",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F03-4-CITE",
+    "source_ref": "SRC-03-oic-minutes-9-april.md",
+    "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 581,
+      "end": 675
+    },
+    "content": "4. **Housing management system replacement (Paper 4).** Sunil Achterberg introduced the paper.",
+    "source_time": "2026-04-09",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F03-4-MIG",
+    "source_ref": "SRC-03-oic-minutes-9-april.md",
+    "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 676,
+      "end": 761
+    },
+    "content": "Members asked about data migration and about what happens if Vantry is sold or fails.",
+    "source_time": "2026-04-09",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F03-4-FUND",
+    "source_ref": "SRC-03-oic-minutes-9-april.md",
+    "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 762,
+      "end": 825
+    },
+    "content": "Priya Nandakumar confirmed the money is in the IT capital line.",
+    "source_time": "2026-04-09",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F03-4-INT",
+    "source_ref": "SRC-03-oic-minutes-9-april.md",
+    "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 826,
+      "end": 915
+    },
+    "content": "Raymond Quill asked whether the 31 interfaces had all been scoped; Ngozi Eze said 27 had.",
+    "source_time": "2026-04-09",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F03-4-DEC",
+    "source_ref": "SRC-03-oic-minutes-9-april.md",
+    "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 920,
+      "end": 1078
+    },
+    "content": "The Committee approved the award to Vantry Systems Ltd as recommended, subject to the Company Secretary being satisfied with the exit and data return clauses.",
+    "source_time": "2026-04-09",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F03-4-ACT1",
+    "source_ref": "SRC-03-oic-minutes-9-april.md",
+    "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1083,
+      "end": 1171
+    },
+    "content": "Action: Alison Reddy to review the draft contract and report to Tobias Wren by 30 April.",
+    "source_time": "2026-04-09",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F03-4-ACT2",
+    "source_ref": "SRC-03-oic-minutes-9-april.md",
+    "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1175,
+      "end": 1241
+    },
+    "content": "Action: Ngozi Eze to complete scoping of the remaining interfaces.",
+    "source_time": "2026-04-09",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F03-5-DESC",
+    "source_ref": "SRC-03-oic-minutes-9-april.md",
+    "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1243,
+      "end": 1530
+    },
+    "content": "5. **Repairs contact handling.** Helen Strudwick outlined an idea to move repairs call handling from the in-house team of nine to the Kestrel Customer Hub, a shared service run by Kestrel Shared Services CIC and used by three other associations. Savings and service hours were discussed.",
+    "source_time": "2026-04-09",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F03-5-PREF",
+    "source_ref": "SRC-03-oic-minutes-9-april.md",
+    "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1531,
+      "end": 1627
+    },
+    "content": "The Committee was supportive in principle and asked that a full paper go to the Board on 21 May.",
+    "source_time": "2026-04-09",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F03-5-ACT",
+    "source_ref": "SRC-03-oic-minutes-9-april.md",
+    "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1632,
+      "end": 1729
+    },
+    "content": "Action: Helen Strudwick to take forward the paper for the Board, including staffing implications.",
+    "source_time": "2026-04-09",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F03-6",
+    "source_ref": "SRC-03-oic-minutes-9-april.md",
+    "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1731,
+      "end": 1770
+    },
+    "content": "6. **Risk register.** Deferred to June.",
+    "source_time": "2026-04-09",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F04-HEAD",
+    "source_ref": "SRC-04-board-minutes-21-may.md",
+    "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+    "locator": {
+      "kind": "char-offset",
+      "start": 0,
+      "end": 63
+    },
+    "content": "# Board of Management: Minutes (extract)\n\n**Date:** 21 May 2026",
+    "source_time": "2026-05-21",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F04-PRESENT",
+    "source_ref": "SRC-04-board-minutes-21-may.md",
+    "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+    "locator": {
+      "kind": "char-offset",
+      "start": 64,
+      "end": 195
+    },
+    "content": "**Present:** Margaret Oyelaran (Chair), Tobias Wren, Anita Folorunsho, Daniel Osei, Fenella Marsh, Duncan Faraday (Chief Executive)",
+    "source_time": "2026-05-21",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F04-6-NOTE",
+    "source_ref": "SRC-04-board-minutes-21-may.md",
+    "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+    "locator": {
+      "kind": "char-offset",
+      "start": 304,
+      "end": 529
+    },
+    "content": "**6. Report from the Operations & Investment Committee.** Tobias Wren reported on the meeting of 9 April. The Board noted the Committee's approval of the contract with Vantry Systems Ltd for the new housing management system.",
+    "source_time": "2026-05-21",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F04-6-EXIT",
+    "source_ref": "SRC-04-board-minutes-21-may.md",
+    "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+    "locator": {
+      "kind": "char-offset",
+      "start": 530,
+      "end": 608
+    },
+    "content": "Alison Reddy confirmed the exit clauses had been improved and she was content.",
+    "source_time": "2026-05-21",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F04-7-PROP",
+    "source_ref": "SRC-04-board-minutes-21-may.md",
+    "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+    "locator": {
+      "kind": "char-offset",
+      "start": 610,
+      "end": 926
+    },
+    "content": "**7. Repairs call handling: transfer to Kestrel Customer Hub (Paper 7).** Helen Strudwick presented the paper. The proposal is that from 1 September 2026 the repairs call handling team (nine posts) transfers to the Kestrel Customer Hub, which would take calls from 8am to 8pm on weekdays and 9am to 1pm on Saturdays.",
+    "source_time": "2026-05-21",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F04-7-TENANTS",
+    "source_ref": "SRC-04-board-minutes-21-may.md",
+    "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+    "locator": {
+      "kind": "char-offset",
+      "start": 927,
+      "end": 997
+    },
+    "content": "Tenants would see a new freephone number and the same repairs process.",
+    "source_time": "2026-05-21",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F04-7-SAVINGS",
+    "source_ref": "SRC-04-board-minutes-21-may.md",
+    "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+    "locator": {
+      "kind": "char-offset",
+      "start": 998,
+      "end": 1048
+    },
+    "content": "Savings estimated at £96,000 a year from year two.",
+    "source_time": "2026-05-21",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F04-7-STAFF",
+    "source_ref": "SRC-04-board-minutes-21-may.md",
+    "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1050,
+      "end": 1212
+    },
+    "content": "Fenella Marsh asked about the effect on staff. Helen Strudwick said consultation would begin in June and affected staff would be offered transfer or redeployment.",
+    "source_time": "2026-05-21",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F04-7-CONCERN",
+    "source_ref": "SRC-04-board-minutes-21-may.md",
+    "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1213,
+      "end": 1346
+    },
+    "content": "Daniel Osei raised concern about the quality of service during the changeover. It was agreed that agency cover would be kept on hand.",
+    "source_time": "2026-05-21",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F04-7-RES",
+    "source_ref": "SRC-04-board-minutes-21-may.md",
+    "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1348,
+      "end": 1610
+    },
+    "content": "The Board **RESOLVED** that the repairs call handling service be transferred to the Kestrel Customer Hub with effect from 1 September 2026, and that £120,000 be released from the planned maintenance reserve to meet transition costs. One abstention (Daniel Osei).",
+    "source_time": "2026-05-21",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F04-7-RES-A",
+    "source_ref": "SRC-04-board-minutes-21-may.md",
+    "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1371,
+      "end": 1486
+    },
+    "content": "that the repairs call handling service be transferred to the Kestrel Customer Hub with effect from 1 September 2026",
+    "source_time": "2026-05-21",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F04-7-RES-B",
+    "source_ref": "SRC-04-board-minutes-21-may.md",
+    "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1492,
+      "end": 1579
+    },
+    "content": "that £120,000 be released from the planned maintenance reserve to meet transition costs",
+    "source_time": "2026-05-21",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F04-7-ACT",
+    "source_ref": "SRC-04-board-minutes-21-may.md",
+    "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1612,
+      "end": 1717
+    },
+    "content": "Helen Strudwick was asked to take forward the staff consultation and to report to the Board in September.",
+    "source_time": "2026-05-21",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F05-HEAD",
+    "source_ref": "SRC-05-file-note-orchard-extension.md",
+    "source_hash": "sha256:fc6cb981bc7ada89a10c7691644103b1fc54b1c4542c9ac7e184fac75678ba09",
+    "locator": {
+      "kind": "char-offset",
+      "start": 0,
+      "end": 86
+    },
+    "content": "FILE NOTE (scanned from notebook)\n\nP. Nandakumar\nTues, wk of 1 June\n\nOrchard extension",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F05-CALL",
+    "source_ref": "SRC-05-file-note-orchard-extension.md",
+    "source_hash": "sha256:fc6cb981bc7ada89a10c7691644103b1fc54b1c4542c9ac7e184fac75678ba09",
+    "locator": {
+      "kind": "char-offset",
+      "start": 88,
+      "end": 344
+    },
+    "content": "Rang Calder (Imran, accounts). Licence ends 30 Sept. Vantry go-live won't be before Jan so we need cover. They'll do six months from 1 Oct, pro rata of current rate = £48k plus support uplift ~£3k. Cheaper than the \"rolling\" price they quoted Sunil in Feb.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F05-AGREED",
+    "source_ref": "SRC-05-file-note-orchard-extension.md",
+    "source_hash": "sha256:fc6cb981bc7ada89a10c7691644103b1fc54b1c4542c9ac7e184fac75678ba09",
+    "locator": {
+      "kind": "char-offset",
+      "start": 346,
+      "end": 441
+    },
+    "content": "Verbally agreed. Letter to follow, they say by end of month. Within my limit (12 mths / £150k).",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F05-TODO",
+    "source_ref": "SRC-05-file-note-orchard-extension.md",
+    "source_hash": "sha256:fc6cb981bc7ada89a10c7691644103b1fc54b1c4542c9ac7e184fac75678ba09",
+    "locator": {
+      "kind": "char-offset",
+      "start": 443,
+      "end": 718
+    },
+    "content": "To do:\n- tell Sunil / Ngozi so the plan can say end March\n- report to OIC (11 June meeting, or Sept if I miss it)\n- budget code 4410, not the project line. Check with Karen\n- ask Calder to confirm in the letter whether data export tools stay licensed. Important for migration",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F05-TODO-OIC",
+    "source_ref": "SRC-05-file-note-orchard-extension.md",
+    "source_hash": "sha256:fc6cb981bc7ada89a10c7691644103b1fc54b1c4542c9ac7e184fac75678ba09",
+    "locator": {
+      "kind": "char-offset",
+      "start": 501,
+      "end": 556
+    },
+    "content": "- report to OIC (11 June meeting, or Sept if I miss it)",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F05-TODO-BUD",
+    "source_ref": "SRC-05-file-note-orchard-extension.md",
+    "source_hash": "sha256:fc6cb981bc7ada89a10c7691644103b1fc54b1c4542c9ac7e184fac75678ba09",
+    "locator": {
+      "kind": "char-offset",
+      "start": 557,
+      "end": 615
+    },
+    "content": "- budget code 4410, not the project line. Check with Karen",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F05-TODO-EXPORT",
+    "source_ref": "SRC-05-file-note-orchard-extension.md",
+    "source_hash": "sha256:fc6cb981bc7ada89a10c7691644103b1fc54b1c4542c9ac7e184fac75678ba09",
+    "locator": {
+      "kind": "char-offset",
+      "start": 616,
+      "end": 718
+    },
+    "content": "- ask Calder to confirm in the letter whether data export tools stay licensed. Important for migration",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F05-SLIP",
+    "source_ref": "SRC-05-file-note-orchard-extension.md",
+    "source_hash": "sha256:fc6cb981bc7ada89a10c7691644103b1fc54b1c4542c9ac7e184fac75678ba09",
+    "locator": {
+      "kind": "char-offset",
+      "start": 720,
+      "end": 797
+    },
+    "content": "If go-live slips past March we go again, but then it's a bigger conversation.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F06-E1-HDR",
+    "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+    "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+    "locator": {
+      "kind": "char-offset",
+      "start": 0,
+      "end": 144
+    },
+    "content": "**From:** Helen Strudwick\n**To:** Duncan Faraday\n**Cc:** Marcus Dell\n**Date:** Mon 13 July 2026, 09:12\n**Subject:** Kestrel go-live, 1 September",
+    "source_time": "2026-07-13",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F06-E1-WHY",
+    "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+    "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+    "locator": {
+      "kind": "char-offset",
+      "start": 155,
+      "end": 584
+    },
+    "content": "Consultation closed on Friday. Union has asked for the transfer to be delayed, and honestly Marcus and I think they have a point. Seven of the nine staff have chosen transfer, two want redeployment, but Kestrel can't start training our people on their scripts until the consultation outcome letters are out, which is next week. Kestrel say they need five weeks from that. 1 September isn't achievable without risking the service.",
+    "source_time": "2026-07-13",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F06-E1-PROP",
+    "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+    "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+    "locator": {
+      "kind": "char-offset",
+      "start": 586,
+      "end": 676
+    },
+    "content": "I would suggest 1 October. Agency cover continues until then, which Gareth can keep going.",
+    "source_time": "2026-07-13",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F06-E1-ASK",
+    "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+    "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+    "locator": {
+      "kind": "char-offset",
+      "start": 678,
+      "end": 768
+    },
+    "content": "The Board resolved 1 September, I know. Can we sort this out without waiting for the 17th?",
+    "source_time": "2026-07-13",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F06-E2-HDR",
+    "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+    "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+    "locator": {
+      "kind": "char-offset",
+      "start": 782,
+      "end": 950
+    },
+    "content": "**From:** Duncan Faraday\n**To:** Margaret Oyelaran\n**Cc:** Helen Strudwick, Alison Reddy\n**Date:** Mon 13 July 2026, 14:40\n**Subject:** FW: Kestrel go-live, 1 September",
+    "source_time": "2026-07-13",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F06-E2-BODY",
+    "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+    "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+    "locator": {
+      "kind": "char-offset",
+      "start": 952,
+      "end": 1201
+    },
+    "content": "Margaret, see below. I think we should move it to 1 October. Waiting for the September Board would mean we either go live unprepared or stay on the wrong date in the meantime and tenants get the wrong number. Alison, is this the urgent action route?",
+    "source_time": "2026-07-13",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F06-E3-HDR",
+    "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+    "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1216,
+      "end": 1364
+    },
+    "content": "**From:** Alison Reddy\n**To:** Duncan Faraday, Margaret Oyelaran\n**Date:** Tue 14 July 2026, 08:55\n**Subject:** RE: FW: Kestrel go-live, 1 September",
+    "source_time": "2026-07-14",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F06-E3-BODY",
+    "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+    "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1366,
+      "end": 1501
+    },
+    "content": "Yes, I think 4.5 covers a change of date, though it is the Board's resolution. It would need to go in the log and to the 17 Sept Board.",
+    "source_time": "2026-07-14",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F06-E4-HDR",
+    "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+    "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1508,
+      "end": 1680
+    },
+    "content": "**From:** Margaret Oyelaran\n**To:** Duncan Faraday\n**Cc:** Alison Reddy, Helen Strudwick\n**Date:** Wed 22 July 2026, 17:20\n**Subject:** RE: FW: Kestrel go-live, 1 September",
+    "source_time": "2026-07-22",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F06-E4-BODY",
+    "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+    "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1682,
+      "end": 1883
+    },
+    "content": "Sorry for the delay, I was away. Fine. Agreed, go with 1 October, and keep the agency cover going until then. Please make sure Kestrel and the union are told and that it's logged and goes to September.",
+    "source_time": "2026-07-22",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F06-E4-R1",
+    "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+    "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1721,
+      "end": 1746
+    },
+    "content": "Agreed, go with 1 October",
+    "source_time": "2026-07-22",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F06-E4-R2",
+    "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+    "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1729,
+      "end": 1791
+    },
+    "content": "go with 1 October, and keep the agency cover going until then.",
+    "source_time": "2026-07-22",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F07-HEAD",
+    "source_ref": "SRC-07-chat-transcript.md",
+    "source_hash": "sha256:0f330918c7545cf580d0f783b94417dc31e006ca510cf1fefca1fb8ec9c7444d",
+    "locator": {
+      "kind": "char-offset",
+      "start": 0,
+      "end": 81
+    },
+    "content": "Teams chat: Gareth Pemberton (Head of Repairs) / Helen Strudwick\n\n**Thu 23 July**",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F07-CONFIRM",
+    "source_ref": "SRC-07-chat-transcript.md",
+    "source_hash": "sha256:0f330918c7545cf580d0f783b94417dc31e006ca510cf1fefca1fb8ec9c7444d",
+    "locator": {
+      "kind": "char-offset",
+      "start": 83,
+      "end": 265
+    },
+    "content": "**14:02 Gareth:** saw the email, so 1 Oct is definite now?\n**14:03 Helen:** Yes. Margaret and Duncan signed it off yesterday. I'll tell Kestrel today and Marcus is telling the union.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F07-EXTEND",
+    "source_ref": "SRC-07-chat-transcript.md",
+    "source_hash": "sha256:0f330918c7545cf580d0f783b94417dc31e006ca510cf1fefca1fb8ec9c7444d",
+    "locator": {
+      "kind": "char-offset",
+      "start": 266,
+      "end": 685
+    },
+    "content": "**14:05 Gareth:** ok. I've got the agency lot booked to 11 Sept. Can I get them to the end of Sept?\n**14:06 Helen:** I think so, it was in the Board discussion that cover stays. Who pays though?\n**14:07 Gareth:** comes out of the repairs budget as before, about £7k a month for the three of them\n**14:09 Helen:** go ahead and extend, I'll square it with Priya. Put it in writing to the agency\n**14:10 Gareth:** will do.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F07-LEAFLET",
+    "source_ref": "SRC-07-chat-transcript.md",
+    "source_hash": "sha256:0f330918c7545cf580d0f783b94417dc31e006ca510cf1fefca1fb8ec9c7444d",
+    "locator": {
+      "kind": "char-offset",
+      "start": 754,
+      "end": 860
+    },
+    "content": "**14:12 Helen:** comms leaflet goes in the rent statements in August. I'll check it has Oct not Sept on it",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F07-REDEPLOY",
+    "source_ref": "SRC-07-chat-transcript.md",
+    "source_hash": "sha256:0f330918c7545cf580d0f783b94417dc31e006ca510cf1fefca1fb8ec9c7444d",
+    "locator": {
+      "kind": "char-offset",
+      "start": 881,
+      "end": 1069
+    },
+    "content": "**14:20 Gareth:** also, do we know if the two redeployments are going to my team? Only asking cos of desk space\n**14:31 Helen:** not decided, Marcus is doing the matching. One probably yes",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F08-HEAD",
+    "source_ref": "SRC-08-decision-log-extract.md",
+    "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+    "locator": {
+      "kind": "char-offset",
+      "start": 0,
+      "end": 174
+    },
+    "content": "# Tarnmere Homes: Decision Log 2026 (extract)\n\nMaintained by the Company Secretary. Position as at 30 September 2026. Rows relevant to the Vantry and Kestrel programmes only.",
+    "source_time": "2026-09-30",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F08-011",
+    "source_ref": "SRC-08-decision-log-extract.md",
+    "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+    "locator": {
+      "kind": "char-offset",
+      "start": 265,
+      "end": 450
+    },
+    "content": "| DL-26-011 | 9 Apr | Housing management system | Award five-year contract to Vantry Systems Ltd, subject to exit clauses | OIC | OIC minute 4. Contract signature date not yet entered |",
+    "source_time": "2026-09-30",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F08-012",
+    "source_ref": "SRC-08-decision-log-extract.md",
+    "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+    "locator": {
+      "kind": "char-offset",
+      "start": 451,
+      "end": 624
+    },
+    "content": "| DL-26-012 | 21 May | Repairs call handling | Transfer to Kestrel Customer Hub from 1 Sept; £120k from planned maintenance reserve for transition | Board | Board minute 7 |",
+    "source_time": "2026-09-30",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F08-013",
+    "source_ref": "SRC-08-decision-log-extract.md",
+    "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+    "locator": {
+      "kind": "char-offset",
+      "start": 625,
+      "end": 782
+    },
+    "content": "| DL-26-013 | June | Orchard licence | Six-month extension, 1 Oct 2026 to 31 Mar 2027 | Finance Director | File note, not yet seen by OIC. Cost approx £51k |",
+    "source_time": "2026-09-30",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F08-014",
+    "source_ref": "SRC-08-decision-log-extract.md",
+    "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+    "locator": {
+      "kind": "char-offset",
+      "start": 783,
+      "end": 967
+    },
+    "content": "| DL-26-014 | 22 Jul | Repairs call handling | Transfer date moved from 1 Sept to 1 Oct | Chair and Chief Executive | Email thread 13 to 22 July. Para 4.5. To report to Board 17 Sept |",
+    "source_time": "2026-09-30",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F08-015",
+    "source_ref": "SRC-08-decision-log-extract.md",
+    "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+    "locator": {
+      "kind": "char-offset",
+      "start": 968,
+      "end": 1057
+    },
+    "content": "| DL-26-015 | 17 Sep | Repairs call handling | Board noted DL-26-014 | Board | Minute 5 |",
+    "source_time": "2026-09-30",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F08-A031",
+    "source_ref": "SRC-08-decision-log-extract.md",
+    "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1148,
+      "end": 1233
+    },
+    "content": "| A-26-031 | Review Vantry draft contract exit clauses | A. Reddy | 30 Apr | Closed |",
+    "source_time": "2026-09-30",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F08-A034",
+    "source_ref": "SRC-08-decision-log-extract.md",
+    "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1234,
+      "end": 1325
+    },
+    "content": "| A-26-034 | Scope remaining Orchard interfaces | N. Eze | 31 May | Open: 29 of 31 scoped |",
+    "source_time": "2026-09-30",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F08-A040",
+    "source_ref": "SRC-08-decision-log-extract.md",
+    "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1326,
+      "end": 1432
+    },
+    "content": "| A-26-040 | Consultation on repairs call handling and report to Board | H. Strudwick | 17 Sept | Closed |",
+    "source_time": "2026-09-30",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F08-A042",
+    "source_ref": "SRC-08-decision-log-extract.md",
+    "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1433,
+      "end": 1536
+    },
+    "content": "| A-26-042 | Agency cover for repairs calls to continue until hub live | G. Pemberton | n/a | Ongoing |",
+    "source_time": "2026-09-30",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F08-A045",
+    "source_ref": "SRC-08-decision-log-extract.md",
+    "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1537,
+      "end": 1616
+    },
+    "content": "| A-26-045 | Report Orchard extension to OIC | P. Nandakumar | 11 June | Open |",
+    "source_time": "2026-09-30",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F09-HEAD",
+    "source_ref": "SRC-09-project-status-report-october.md",
+    "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+    "locator": {
+      "kind": "char-offset",
+      "start": 0,
+      "end": 124
+    },
+    "content": "# Housing Systems and Repairs Hub: Project Status Report\n\n**Prepared by:** Ngozi Eze\n**For:** Project Board, 14 October 2026",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F09-SIGNED",
+    "source_ref": "SRC-09-project-status-report-october.md",
+    "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+    "locator": {
+      "kind": "char-offset",
+      "start": 193,
+      "end": 251
+    },
+    "content": "The Board-approved Vantry contract was signed in late May.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F09-MIGTEST",
+    "source_ref": "SRC-09-project-status-report-october.md",
+    "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+    "locator": {
+      "kind": "char-offset",
+      "start": 252,
+      "end": 365
+    },
+    "content": "The build is on track for configuration, but data migration test 2 failed on tenancy history and is being re-run.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F09-GOLIVE",
+    "source_ref": "SRC-09-project-status-report-october.md",
+    "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+    "locator": {
+      "kind": "char-offset",
+      "start": 366,
+      "end": 572
+    },
+    "content": "The target go-live remains 11 January 2027, although the project team now believe 15 February 2027 is more realistic. This has not been put to any committee. If agreed it would go to the OIC on 12 November.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F09-ORCHARD",
+    "source_ref": "SRC-09-project-status-report-october.md",
+    "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+    "locator": {
+      "kind": "char-offset",
+      "start": 574,
+      "end": 697
+    },
+    "content": "Orchard remains live. Calder extended the licence by six months to the end of March 2027, so a February go-live is covered.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F09-FURTHER",
+    "source_ref": "SRC-09-project-status-report-october.md",
+    "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+    "locator": {
+      "kind": "char-offset",
+      "start": 698,
+      "end": 796
+    },
+    "content": "A further extension beyond March would be a bigger conversation with Finance and probably the OIC.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F09-INTERFACES",
+    "source_ref": "SRC-09-project-status-report-october.md",
+    "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+    "locator": {
+      "kind": "char-offset",
+      "start": 798,
+      "end": 949
+    },
+    "content": "Interfaces: 29 of 31 scoped. The two outstanding are the gas servicing contractor and the telephony platform. The telephony one now depends on Kestrel.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F09-LIVE",
+    "source_ref": "SRC-09-project-status-report-october.md",
+    "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+    "locator": {
+      "kind": "char-offset",
+      "start": 989,
+      "end": 1160
+    },
+    "content": "The service transferred to the Kestrel Customer Hub on 1 October as agreed by the Board. Seven staff transferred with it, and two were redeployed within Customer Services.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F09-AGENCY-END",
+    "source_ref": "SRC-09-project-status-report-october.md",
+    "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1161,
+      "end": 1196
+    },
+    "content": "Agency cover finished on 2 October.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F09-PERF",
+    "source_ref": "SRC-09-project-status-report-october.md",
+    "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1198,
+      "end": 1408
+    },
+    "content": "First two weeks: average wait 41 seconds against a target of 60. Abandoned call rate 6.8 per cent, higher than the 5 per cent target and being looked at with Kestrel. Tenant complaints about the new number: 14.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F09-QUOTE",
+    "source_ref": "SRC-09-project-status-report-october.md",
+    "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1410,
+      "end": 1614
+    },
+    "content": "Kestrel need to interface with Vantry for repairs bookings. This was not in the original Kestrel scope and Kestrel have quoted for it. Helen Strudwick is considering the quote. No decision has been taken.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F09-BUDGET",
+    "source_ref": "SRC-09-project-status-report-october.md",
+    "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1629,
+      "end": 1716
+    },
+    "content": "Transition costs to date £86,000 of the £120,000 released. IT programme spend on track.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  },
+  {
+    "fragment_id": "F09-NEEDED",
+    "source_ref": "SRC-09-project-status-report-october.md",
+    "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+    "locator": {
+      "kind": "char-offset",
+      "start": 1718,
+      "end": 1858
+    },
+    "content": "## 4. Decisions needed\n- Agree whether to ask the OIC to move go-live to 15 February.\n- Agree whether to accept the Kestrel interface quote.",
+    "source_time": "unknown",
+    "observed_at": "2026-11-26",
+    "observed_by": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    }
+  }
+]

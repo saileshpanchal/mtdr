@@ -1,0 +1,775 @@
+{
+  "contract_version": "1.0.0",
+  "candidate_id": "HC-003",
+  "retrospective": true,
+  "standing": "none",
+  "status": "candidate",
+  "event_time_ref": "HC-003-C02",
+  "fragments": [
+    {
+      "fragment_id": "F06-E2-BODY",
+      "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+      "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+      "locator": {
+        "kind": "char-offset",
+        "start": 952,
+        "end": 1201
+      },
+      "content": "Margaret, see below. I think we should move it to 1 October. Waiting for the September Board would mean we either go live unprepared or stay on the wrong date in the meantime and tenants get the wrong number. Alison, is this the urgent action route?",
+      "source_time": "2026-07-13",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F06-E4-BODY",
+      "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+      "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+      "locator": {
+        "kind": "char-offset",
+        "start": 1682,
+        "end": 1883
+      },
+      "content": "Sorry for the delay, I was away. Fine. Agreed, go with 1 October, and keep the agency cover going until then. Please make sure Kestrel and the union are told and that it's logged and goes to September.",
+      "source_time": "2026-07-22",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F06-E4-HDR",
+      "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+      "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+      "locator": {
+        "kind": "char-offset",
+        "start": 1508,
+        "end": 1680
+      },
+      "content": "**From:** Margaret Oyelaran\n**To:** Duncan Faraday\n**Cc:** Alison Reddy, Helen Strudwick\n**Date:** Wed 22 July 2026, 17:20\n**Subject:** RE: FW: Kestrel go-live, 1 September",
+      "source_time": "2026-07-22",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F06-E2-HDR",
+      "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+      "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+      "locator": {
+        "kind": "char-offset",
+        "start": 782,
+        "end": 950
+      },
+      "content": "**From:** Duncan Faraday\n**To:** Margaret Oyelaran\n**Cc:** Helen Strudwick, Alison Reddy\n**Date:** Mon 13 July 2026, 14:40\n**Subject:** FW: Kestrel go-live, 1 September",
+      "source_time": "2026-07-13",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F06-E3-BODY",
+      "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+      "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+      "locator": {
+        "kind": "char-offset",
+        "start": 1366,
+        "end": 1501
+      },
+      "content": "Yes, I think 4.5 covers a change of date, though it is the Board's resolution. It would need to go in the log and to the 17 Sept Board.",
+      "source_time": "2026-07-14",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F06-E1-WHY",
+      "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+      "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+      "locator": {
+        "kind": "char-offset",
+        "start": 155,
+        "end": 584
+      },
+      "content": "Consultation closed on Friday. Union has asked for the transfer to be delayed, and honestly Marcus and I think they have a point. Seven of the nine staff have chosen transfer, two want redeployment, but Kestrel can't start training our people on their scripts until the consultation outcome letters are out, which is next week. Kestrel say they need five weeks from that. 1 September isn't achievable without risking the service.",
+      "source_time": "2026-07-13",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F06-E1-PROP",
+      "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+      "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+      "locator": {
+        "kind": "char-offset",
+        "start": 586,
+        "end": 676
+      },
+      "content": "I would suggest 1 October. Agency cover continues until then, which Gareth can keep going.",
+      "source_time": "2026-07-13",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F06-E1-ASK",
+      "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+      "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+      "locator": {
+        "kind": "char-offset",
+        "start": 678,
+        "end": 768
+      },
+      "content": "The Board resolved 1 September, I know. Can we sort this out without waiting for the 17th?",
+      "source_time": "2026-07-13",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F06-E4-R1",
+      "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+      "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+      "locator": {
+        "kind": "char-offset",
+        "start": 1721,
+        "end": 1746
+      },
+      "content": "Agreed, go with 1 October",
+      "source_time": "2026-07-22",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F06-E4-R2",
+      "source_ref": "SRC-06-email-thread-kestrel-go-live.md",
+      "source_hash": "sha256:fde4686de84a30399181056080b31a40b235af0b690f1bcca03f4c55be855a71",
+      "locator": {
+        "kind": "char-offset",
+        "start": 1729,
+        "end": 1791
+      },
+      "content": "go with 1 October, and keep the agency cover going until then.",
+      "source_time": "2026-07-22",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F08-014",
+      "source_ref": "SRC-08-decision-log-extract.md",
+      "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+      "locator": {
+        "kind": "char-offset",
+        "start": 783,
+        "end": 967
+      },
+      "content": "| DL-26-014 | 22 Jul | Repairs call handling | Transfer date moved from 1 Sept to 1 Oct | Chair and Chief Executive | Email thread 13 to 22 July. Para 4.5. To report to Board 17 Sept |",
+      "source_time": "2026-09-30",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F07-HEAD",
+      "source_ref": "SRC-07-chat-transcript.md",
+      "source_hash": "sha256:0f330918c7545cf580d0f783b94417dc31e006ca510cf1fefca1fb8ec9c7444d",
+      "locator": {
+        "kind": "char-offset",
+        "start": 0,
+        "end": 81
+      },
+      "content": "Teams chat: Gareth Pemberton (Head of Repairs) / Helen Strudwick\n\n**Thu 23 July**",
+      "source_time": "unknown",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F07-CONFIRM",
+      "source_ref": "SRC-07-chat-transcript.md",
+      "source_hash": "sha256:0f330918c7545cf580d0f783b94417dc31e006ca510cf1fefca1fb8ec9c7444d",
+      "locator": {
+        "kind": "char-offset",
+        "start": 83,
+        "end": 265
+      },
+      "content": "**14:02 Gareth:** saw the email, so 1 Oct is definite now?\n**14:03 Helen:** Yes. Margaret and Duncan signed it off yesterday. I'll tell Kestrel today and Marcus is telling the union.",
+      "source_time": "unknown",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F08-015",
+      "source_ref": "SRC-08-decision-log-extract.md",
+      "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+      "locator": {
+        "kind": "char-offset",
+        "start": 968,
+        "end": 1057
+      },
+      "content": "| DL-26-015 | 17 Sep | Repairs call handling | Board noted DL-26-014 | Board | Minute 5 |",
+      "source_time": "2026-09-30",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F09-LIVE",
+      "source_ref": "SRC-09-project-status-report-october.md",
+      "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+      "locator": {
+        "kind": "char-offset",
+        "start": 989,
+        "end": 1160
+      },
+      "content": "The service transferred to the Kestrel Customer Hub on 1 October as agreed by the Board. Seven staff transferred with it, and two were redeployed within Customer Services.",
+      "source_time": "unknown",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    }
+  ],
+  "contributions": [
+    {
+      "contribution_id": "HC-003-C01",
+      "fragment_refs": [
+        "F06-E2-BODY",
+        "F06-E4-BODY"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-statement",
+      "interpreted_value": "Duncan Faraday to Margaret Oyelaran, 13 July 2026: 'I think we should move it to 1 October.' Margaret Oyelaran in reply, 22 July 2026: 'Fine. Agreed, go with 1 October, and keep the agency cover going until then.' The Kestrel go-live is moved to 1 October.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-003-C02",
+      "fragment_refs": [
+        "F06-E4-HDR"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-date",
+      "interpreted_value": "2026-07-22",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-003-C03",
+      "fragment_refs": [
+        "F06-E4-HDR",
+        "F06-E4-BODY"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "accountable-owner",
+      "interpreted_value": "Margaret Oyelaran",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-003-C04",
+      "fragment_refs": [
+        "F06-E2-HDR",
+        "F06-E2-BODY"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "accountable-owner",
+      "interpreted_value": "Duncan Faraday",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "medium",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-003-C05",
+      "fragment_refs": [
+        "F06-E2-BODY",
+        "F06-E3-BODY"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "authority",
+      "interpreted_value": "'4.5' — named by Alison Reddy in answer to Duncan Faraday's question 'is this the urgent action route?': 'Yes, I think 4.5 covers a change of date, though it is the Board's resolution.' A paragraph number only; the thread does not name the instrument it belongs to.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-003-C06",
+      "fragment_refs": [
+        "F06-E3-BODY"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "challenge",
+      "interpreted_value": "The view that 4.5 covers the act is hedged by the person giving it: 'I think 4.5 covers a change of date, though it is the Board's resolution.'",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-003-C07",
+      "fragment_refs": [
+        "F06-E1-WHY"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "As put by Helen Strudwick on 13 July 2026: consultation closed on Friday; the union has asked for the transfer to be delayed, and she and Marcus think they have a point; seven of the nine staff have chosen transfer, two want redeployment; Kestrel cannot start training until the consultation outcome letters are out, which is next week, and say they need five weeks from that; 1 September is not achievable without risking the service.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-003-C08",
+      "fragment_refs": [
+        "F06-E1-PROP",
+        "F06-E1-ASK"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "Helen Strudwick suggested 1 October, with agency cover continuing until then, and asked whether it could be sorted out without waiting for the 17th, noting that the Board resolved 1 September.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-003-C09",
+      "fragment_refs": [
+        "F06-E2-BODY"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "Duncan Faraday's stated view: waiting for the September Board would mean either going live unprepared or staying on the wrong date in the meantime, with tenants getting the wrong number.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-003-C10",
+      "fragment_refs": [
+        "F06-E2-BODY"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "alternative-rejected",
+      "interpreted_value": "Waiting for the September Board: 'would mean we either go live unprepared or stay on the wrong date in the meantime and tenants get the wrong number.'",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-003-C11",
+      "fragment_refs": [
+        "F06-E4-R1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "consequence",
+      "interpreted_value": "Resolution 1: go with 1 October.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-003-C12",
+      "fragment_refs": [
+        "F06-E4-R2"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "consequence",
+      "interpreted_value": "Resolution 2: keep the agency cover going until 1 October.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-003-C13",
+      "fragment_refs": [
+        "F06-E4-BODY"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "consequence",
+      "interpreted_value": "Margaret Oyelaran asked that Kestrel and the union be told and that it be logged and go to September.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-003-C14",
+      "fragment_refs": [
+        "F06-E1-ASK",
+        "F06-E3-BODY",
+        "F08-014"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "lineage",
+      "interpreted_value": "Revisits one term of an earlier decision: the transfer date of 1 September that 'the Board resolved' ('it is the Board's resolution'). The organisation's decision log carries the earlier decision as DL-26-012 and this one as DL-26-014, 'Transfer date moved from 1 Sept to 1 Oct'. The earlier decision is recovered as HC-002; neither is a recorded TDR, so no record identifier exists to cite.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "medium",
+      "epistemic_confidence": "medium",
+      "derivation": "inferred"
+    },
+    {
+      "contribution_id": "HC-003-C15",
+      "fragment_refs": [
+        "F07-HEAD",
+        "F07-CONFIRM"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "corroboration",
+      "interpreted_value": "A chat headed 'Thu 23 July' (no year) between Gareth Pemberton and Helen Strudwick: 'so 1 Oct is definite now?' — 'Yes. Margaret and Duncan signed it off yesterday.'",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-003-C16",
+      "fragment_refs": [
+        "F08-014",
+        "F08-015"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "corroboration",
+      "interpreted_value": "The decision log (position as at 30 September 2026) carries the act as DL-26-014, 22 Jul, taken by 'Chair and Chief Executive', source 'Email thread 13 to 22 July. Para 4.5. To report to Board 17 Sept', and records as DL-26-015, 17 Sep, 'Board noted DL-26-014', source 'Minute 5'. The first row restates the thread; the minute behind the second is not in the material.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-003-C17",
+      "fragment_refs": [
+        "F09-LIVE"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "corroboration",
+      "interpreted_value": "A later project status report states that the service transferred to the Kestrel Customer Hub on 1 October. Its attribution 'as agreed by the Board' is not supported by the act-record and is not carried.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    }
+  ],
+  "assembly": {
+    "assembly_id": "HC-003-ASM",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "HC-003-C01",
+      "HC-003-C02",
+      "HC-003-C03",
+      "HC-003-C04",
+      "HC-003-C05",
+      "HC-003-C06",
+      "HC-003-C07",
+      "HC-003-C08",
+      "HC-003-C09",
+      "HC-003-C10",
+      "HC-003-C11",
+      "HC-003-C12",
+      "HC-003-C13",
+      "HC-003-C14",
+      "HC-003-C15",
+      "HC-003-C16",
+      "HC-003-C17"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "The four emails are one thread: 'Kestrel go-live, 1 September', then 'FW: Kestrel go-live, 1 September' ('Margaret, see below'), then two 'RE: FW: Kestrel go-live, 1 September'."
+      },
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "Decision log row DL-26-014 gives its source as 'Email thread 13 to 22 July. Para 4.5'; row DL-26-015 names DL-26-014."
+      },
+      {
+        "basis": "temporal-continuity",
+        "evidence": "The chat headed 'Thu 23 July' refers to 'the email' and says 'Margaret and Duncan signed it off yesterday' about '1 Oct'."
+      },
+      {
+        "basis": "entity-match",
+        "evidence": "The October status report names the same transfer to the Kestrel Customer Hub and its date, 1 October."
+      }
+    ],
+    "assembly_confidence": "high",
+    "missing_semantics": [
+      "reversal-cost",
+      "confidence"
+    ],
+    "conflicts": [
+      {
+        "semantic_role": "accountable-owner",
+        "contribution_refs": [
+          "HC-003-C03",
+          "HC-003-C04"
+        ],
+        "note": "Two named individuals. The emails read as an act of both, and the decision log records it as taken by 'Chair and Chief Executive'; one named individual cannot be read off the evidence. Recorded, not resolved."
+      }
+    ],
+    "supersessions": [],
+    "unresolved": [
+      "Which of the two named individuals held the decision, or whether it was held jointly, is not settled by the evidence.",
+      "Duncan Faraday's part is his email of 13 July ('I think we should move it to 1 October'); nothing later in the thread is from him. That he 'signed it off' is stated only in the chat of the following day and in the decision log.",
+      "The authority is a paragraph number, '4.5', given with a hedge by the Company Secretary. The thread does not name the instrument, and the act-record itself (Margaret Oyelaran's email) cites nothing. That the Scheme of Delegation's paragraph 4.5 has terms covering the act is reported as an applicability finding beside this candidate.",
+      "The offices the two held (Chair; Chief Executive) are stated in the Board minute of 21 May and the decision log, not in the thread.",
+      "The Board minute of 17 September 2026 (minute 5), which the log says noted this decision, is not in the material supplied.",
+      "'keep the agency cover going until then' is carried as a second resolution of the same act (one email, one agreement). Who was to pay for the cover is not in the act; it is raised and left open in the chat of the following day.",
+      "No statement of what reversing the change would cost is in the material; the proportionality tier is undetermined."
+    ],
+    "status": "candidate"
+  },
+  "fragment_annotations": [
+    {
+      "fragment_ref": "F06-E2-BODY",
+      "capture_time": "2026-07-13",
+      "creation_time": "2026-07-13",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F06-E4-BODY",
+      "capture_time": "2026-07-22",
+      "creation_time": "2026-07-22",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F06-E4-HDR",
+      "capture_time": "2026-07-22",
+      "creation_time": "2026-07-22",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F06-E2-HDR",
+      "capture_time": "2026-07-13",
+      "creation_time": "2026-07-13",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F06-E3-BODY",
+      "capture_time": "2026-07-14",
+      "creation_time": "2026-07-14",
+      "evidence_kind": "cited-material"
+    },
+    {
+      "fragment_ref": "F06-E1-WHY",
+      "capture_time": "2026-07-13",
+      "creation_time": "2026-07-13",
+      "evidence_kind": "cited-material"
+    },
+    {
+      "fragment_ref": "F06-E1-PROP",
+      "capture_time": "2026-07-13",
+      "creation_time": "2026-07-13",
+      "evidence_kind": "cited-material"
+    },
+    {
+      "fragment_ref": "F06-E1-ASK",
+      "capture_time": "2026-07-13",
+      "creation_time": "2026-07-13",
+      "evidence_kind": "cited-material"
+    },
+    {
+      "fragment_ref": "F06-E4-R1",
+      "capture_time": "2026-07-22",
+      "creation_time": "2026-07-22",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F06-E4-R2",
+      "capture_time": "2026-07-22",
+      "creation_time": "2026-07-22",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F08-014",
+      "capture_time": "unknown",
+      "creation_time": "2026-09-30",
+      "evidence_kind": "restatement",
+      "restates": "F06-E4-BODY"
+    },
+    {
+      "fragment_ref": "F07-HEAD",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "retrospective"
+    },
+    {
+      "fragment_ref": "F07-CONFIRM",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "retrospective"
+    },
+    {
+      "fragment_ref": "F08-015",
+      "capture_time": "unknown",
+      "creation_time": "2026-09-30",
+      "evidence_kind": "restatement",
+      "restates": "Board of Management minutes, 17 September 2026, minute 5 (not in the material supplied)"
+    },
+    {
+      "fragment_ref": "F09-LIVE",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "retrospective"
+    }
+  ],
+  "contribution_annotations": [
+    {
+      "contribution_ref": "HC-003-C07",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F06-E2-HDR",
+          "F06-E2-BODY"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-003-C08",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F06-E2-HDR",
+          "F06-E2-BODY"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-003-C09",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F06-E2-BODY"
+        ]
+      }
+    }
+  ]
+}

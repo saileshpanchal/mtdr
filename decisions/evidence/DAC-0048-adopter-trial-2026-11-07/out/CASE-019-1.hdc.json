@@ -1,0 +1,161 @@
+{
+  "contract_version": "1.0.0",
+  "candidate_id": "CASE-019-1",
+  "retrospective": true,
+  "standing": "none",
+  "status": "candidate",
+  "event_time_ref": "unknown",
+  "fragments": [
+    {
+      "fragment_id": "CASE-019-F1",
+      "source_ref": "sources/CASE-019.md",
+      "source_hash": "sha256:4912c147da337b85a7bceb76cc7b9e1050d64396cb37e10de8ba410d5e0e6a1e",
+      "locator": {
+        "kind": "char-offset",
+        "start": 38,
+        "end": 214,
+        "line_start": 3,
+        "line_end": 6,
+        "item": "A",
+        "document": "board/extract-paper-tickets.md"
+      },
+      "content": "**A — Minute extract, `board/extract-paper-tickets.md`, undated**\n\n> The board agreed to retire the paper ticket stock at all staffed stations, as recommended in paper\n> 21/14.",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    },
+    {
+      "fragment_id": "CASE-019-F2",
+      "source_ref": "sources/CASE-019.md",
+      "source_hash": "sha256:4912c147da337b85a7bceb76cc7b9e1050d64396cb37e10de8ba410d5e0e6a1e",
+      "locator": {
+        "kind": "char-offset",
+        "start": 216,
+        "end": 393,
+        "line_start": 8,
+        "line_end": 10,
+        "item": "B",
+        "document": "board/papers/21-14-paper-tickets.md"
+      },
+      "content": "**B — Paper 21/14, `board/papers/21-14-paper-tickets.md`, dated 2021-04-28**\n\n> Paper stock costs £0.6m a year to print and distribute. Smartcard use at staffed stations is 71%.",
+      "source_time": "2021-04-28",
+      "observed_at": "2026-11-07",
+      "observed_by": {
+        "name": "adopter-trial",
+        "version": "1"
+      }
+    }
+  ],
+  "contributions": [
+    {
+      "contribution_id": "CASE-019-C1",
+      "fragment_refs": [
+        "CASE-019-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-statement",
+      "interpreted_value": "The board agreed to retire the paper ticket stock at all staffed stations, as recommended in paper 21/14.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-019-C2",
+      "fragment_refs": [
+        "CASE-019-F1"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "authority",
+      "interpreted_value": "the board",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "CASE-019-C3",
+      "fragment_refs": [
+        "CASE-019-F2"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "Paper 21/14 (2021-04-28): paper stock costs £0.6m a year to print and distribute; smartcard use at staffed stations is 71%.",
+      "interpreter": {
+        "name": "adopter-trial",
+        "version": "1"
+      },
+      "interpreted_at": "2026-11-07",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    }
+  ],
+  "assembly": {
+    "assembly_id": "CASE-019-1-assembly",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "CASE-019-C1",
+      "CASE-019-C2",
+      "CASE-019-C3"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "Minute extract (item A): 'as recommended in paper 21/14'; item B is identified as 'Paper 21/14'."
+      }
+    ],
+    "assembly_confidence": "high",
+    "missing_semantics": [
+      "decision-date",
+      "accountable-owner"
+    ],
+    "conflicts": [],
+    "supersessions": [],
+    "unresolved": [
+      "The minute extract is undated (stated in the material); no decision date is evidenced, so the cited paper's contemporaneity is indeterminate and it cannot be presented as contemporaneous context.",
+      "No owner is named; the board is a forum, not an owner.",
+      "The material is an extract; whether the full minute names an owner or a date is not known."
+    ],
+    "status": "candidate"
+  },
+  "fragment_annotations": [
+    {
+      "fragment_ref": "CASE-019-F1",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "CASE-019-F2",
+      "capture_time": "2021-04-28",
+      "creation_time": "2021-04-28",
+      "evidence_kind": "cited-material"
+    }
+  ],
+  "contribution_annotations": [
+    {
+      "contribution_ref": "CASE-019-C3",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "CASE-019-F1"
+        ]
+      }
+    }
+  ]
+}

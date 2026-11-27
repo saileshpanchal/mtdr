@@ -1,8 +1,8 @@
 # Skills
 
-Portable skills — each a directory holding exactly one `SKILL.md` with two frontmatter fields
-(`name`, `description`), loadable unmodified by any runtime that supports the open skill format, and
-readable by a human with no runtime at all. The architecture is decided in
+The skills are portable. Each is a directory holding exactly one `SKILL.md` with two frontmatter
+fields (`name`, `description`), loadable unmodified by any runtime that supports the open skill
+format, and readable by a human with no runtime at all. The architecture is decided in
 [TDR-0023](../decisions/TDR-0023-portable-skill-architecture.md).
 
 ## Where skills live
@@ -62,7 +62,7 @@ semantics by lookup rather than by hard-coded path.
 
 ## Distribution
 
-[`packaging/`](packaging/) holds the distribution adapters — how these same files ship through
-specific runtimes. Adapters are assembled *from* the normative artefacts and never constrain them
-([TDR-0024](../decisions/TDR-0024-packaging-independence.md)); it is the one place in the repository
-where product names may appear.
+[`packaging/`](packaging/) holds the distribution adapters: how these same files ship through
+specific runtimes, and how to install and verify them. Adapters are assembled *from* the normative
+artefacts and never constrain them ([TDR-0024](../decisions/TDR-0024-packaging-independence.md)); it
+is the one place in the repository where product names may appear.

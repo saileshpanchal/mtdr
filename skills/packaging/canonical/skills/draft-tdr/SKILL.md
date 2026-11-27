@@ -26,7 +26,10 @@ says what is missing — it does not say something plausible.
 
 Apply [`validation/admission.md`](../../validation/admission.md). An inadmissible candidate is not
 drafted; report why. In particular, a candidate whose `context` contributions post-date the decision is
-not drafted until the offending contribution is removed.
+not drafted until the offending contribution is removed. For material recovered after the event,
+contemporaneity is the grade recomputed from the times
+([`historical-recovery.md`](../../../../specification/historical-recovery.md)): a `later` contribution
+is removed; an `indeterminate` one is carried as a gap, never rendered as context.
 
 ### 2. Apply the proportionality rule
 
@@ -34,11 +37,15 @@ not drafted until the offending contribution is removed.
 revisable → minimal · cheap → bare · cheaper to reverse than to record → **no record, and say so**.
 
 Defaulting to the full template because the evidence is plentiful is a misreading. Volume of material
-is not reversal cost.
+is not reversal cost. With no `reversal-cost` contribution at all, the outcome is **undetermined**, and
+the draft says so. For a historical candidate that satisfies
+[`admission.md`](../../validation/admission.md) criterion 6; any other draft still needs a tier, or a
+recommendation of no record, before it is admissible.
 
 ### 3. Render frontmatter from contributions only
 
-`status: proposed`, always. `supersedes` and `derived_from` take only ids evidenced by
+`status: proposed`, always, for a draft someone proposes now. A rendering of a historical candidate is
+not a TDR draft and carries no TDR frontmatter (§7). `supersedes` and `derived_from` take only ids evidenced by
 `lineage-*` contributions — never a guess, never an id that does not exist. Where `accountable_owner`
 has no contribution, do not emit a value; carry the gap into the draft explicitly.
 
@@ -60,10 +67,26 @@ Every rendered value keeps its trace to the contributions and spans behind it. W
 with that provenance after ratification is their decision — see
 [`shared/provenance.md`](../../../../specification/provenance.md) — but it must exist at the moment of proposal.
 
+### 7. A historical candidate renders as a candidate view, never as a TDR draft
+
+Rendered from a historical candidate, the output is a **candidate view**: the candidate's own header,
+then the TDR-shaped body. The header is `candidate_id`, `status: candidate`, `standing: none` and
+`retrospective: true`. Then come only the TDR fields the contributions evidence, with every gap named.
+It is **deliberately not TDR-valid**. `status: proposed` names a prospective act that nobody has
+performed, and no rendering performs it. The view opens by saying what it is: *a view of historical
+candidate `<id>`; no standing; the owner is the historical owner as the evidence shows them; whether
+this decision governs now is not established.* It becomes a TDR draft only when a named individual
+proposes it prospectively, as their own act; then §3 applies. The attestation a named individual may
+later give is theirs to state, never this skill's, and it attests the account, not the decision.
+
 ## Outputs
 
 A markdown TDR at the routed template tier, with `status: proposed`, gaps marked in place, and
-provenance attached. Plus a one-paragraph statement of what the evidence did not supply.
+provenance attached (from a historical candidate, a candidate view instead, §7) — **plus the completeness view**
+([`decision-contribution.md`](../../specification/decision-contribution.md)): per mandatory role,
+`supported | partial | missing | conflicting`, state only, with each value's `derivation` reported
+alongside and never folded into the grade; and the one-sentence reading of what the evidence did not
+supply.
 
 Where the proportionality outcome is **no record**, output that finding with its reasoning instead of a
 record. This is a successful result.
@@ -92,6 +115,8 @@ record. This is a successful result.
 - **Full-template reflex** — the richest tier chosen because the material was rich.
 - **Gap laundering** — a missing field rendered as "not applicable" rather than missing.
 - **Status inflation** — anything beyond `proposed`.
+- **The unannounced recovery** — a draft from historical material that reads as though it had been
+  written at the time.
 
 ## Scope note
 
