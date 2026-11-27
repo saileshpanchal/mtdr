@@ -14,6 +14,26 @@ All notable changes to the TDR standard (and its MTDR markdown reference format)
 > [`decisions/evidence/release-v1.31.0-2026-11-27.md`](decisions/evidence/release-v1.31.0-2026-11-27.md). It was published under a one-off
 > exception the maintainer authorised: hosted CI did not run, because GitHub Actions is disabled for the
 > account. That is not a claim that CI passed.
+>
+> **v1.31.1** — one tag, one release record, at
+> [`decisions/evidence/release-v1.31.1-2026-11-27.md`](decisions/evidence/release-v1.31.1-2026-11-27.md). A patch that corrects text.
+> Hosted CI did not run for it either. The maintainer authorised its publication as that release's own
+> exception: the one given for v1.31.0 is not carried forward, and neither is a claim that CI passed.
+
+## [1.31.1] — 2026-11-27
+
+**Corrections to text, after a review of the published v1.31.0** ([#25](https://github.com/saileshpanchal/mtdr/issues/25)). What a
+record must contain, and which records validate, are unchanged, and no specification moves version.
+Verified locally, on Linux, against its own published contracts; hosted CI did not run. **External
+validation is not yet claimed**: it follows publication under TDR-0045, and `DAC-0032#4` is outstanding.
+
+### Fixed
+- [`GOVERNANCE.md`](GOVERNANCE.md) and [`decisions/README.md`](decisions/README.md) listed TDR-0048, TDR-0049, TDR-0050 and DAC-0048 as proposed. All four were ratified on 27 November 2026, and the indexes now say what the records say.
+- Six status markers said "proposed under" a ratified record: in [`decision-contribution.md`](records/decision/specification/decision-contribution.md), [`semantic-roles.md`](records/decision/validation/semantic-roles.md), [`contribution-model.md`](specification/contribution-model.md), the decision fixtures' README, FIX-004 and one comment in `tests/verify.py`. Each now says "accepted under". No requirement, expected answer or check changes.
+- TDR-0048 and TDR-0049 each linked to a section that was removed when they were ratified. The dead link is replaced by a bracketed note saying where that list stands. The dated statements around it are unchanged.
+
+### Added
+- The [v1.31.0 release record](decisions/evidence/release-v1.31.0-2026-11-27.md) names the source of the authorisation it quotes: the owner's written instruction to the maintainer's assistant, 27 November 2026 at 15:03 UTC. The row is marked as added after publication, and the record as tagged in `v1.31.0` does not carry it. The quotation was checked against that instruction and is word for word.
 
 ## [1.31.0] — 2026-11-27
 
