@@ -573,7 +573,7 @@ a, r = run_contract_fixtures('projection-fixture', 'schemas/shared/derivation-pr
                              'tests/inspectability/FIX-*.md')
 note('projection-contract', f"{a} accepted, {r} rejected as published")
 
-# 11c — the historical candidate and its review events (proposed under TDR-0048;
+# 11c — the historical candidate and its review events (accepted under TDR-0048;
 # specification/historical-candidate.md). A candidate never acquires standing because something
 # reconstructed it: the constants are the schema's, the cross-references are checked here, and review
 # is bound to the exact candidate by digest rather than written into it.

@@ -26,7 +26,8 @@ confirmed_by_outcome: pending — confirm only when an implementation outside th
 > invocation has one definition, the act's own citation; every place this record and its
 > specification go beyond a ruling is listed [below](#where-this-record-goes-beyond-the-owners-rulings);
 > the *undetermined* proportionality outcome is limited to historical candidates; and what a return
-> would revert is [listed](#if-this-record-is-returned). It has no assurance case of its own: its four
+> would revert is listed *[that list was removed when this record was ratified on 2026-11-27; it stands
+> in the record at commit `aacddb6`]*. It has no assurance case of its own: its four
 > rulings, which bear on authority and on what makes one candidate, are assessed in
 > [DAC-0048](DAC-0048-historical-recovery-doctrine.md). It stays proposed.
 >

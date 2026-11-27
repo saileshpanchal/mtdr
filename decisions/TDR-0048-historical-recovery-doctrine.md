@@ -39,7 +39,8 @@ confirmed_by_outcome: pending — confirm only when an implementation outside th
 > approach rulings are numbered A1 to A6, apart from the return's R1 to R5; where this record goes
 > beyond the owner's same-day correction is [listed](#where-this-record-goes-beyond-the-owners-rulings);
 > and so are its dependence on [TDR-0050](TDR-0050-singleton-grouping-basis.md) and what a return would
-> [revert](#if-this-record-is-returned). It stays proposed.
+> revert *[that list was removed when this record was ratified on 2026-11-27; it stands in the record
+> at commit `aacddb6`]*. It stays proposed.
 
 ## Context — what was known at the time
 
