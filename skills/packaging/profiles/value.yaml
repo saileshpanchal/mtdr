@@ -9,7 +9,7 @@ skills:
   - draft-value-record  # 90f2e1507bbaddc8
   - identify-record-contributions  # a2e3be6b103544fc
   - identify-value-contributions  # 01f75e9b77acdf0e
-  - reconcile-record-fragments  # bfb1da127b331506
+  - reconcile-record-fragments  # 8d1a36723df62220
   - reconcile-value-contributions  # 9cc7e702d2245492
   - recover-value-records  # 58adab7dfe01ee13
   - validate-record  # a9a295929ca4a48e

@@ -10,7 +10,7 @@ was not. The `singleton` basis names the entry — item 5 of the minute of 2 Apr
 the minute, not the meeting.
 
 The minute's own context was before the board by construction, so on the meeting's own day its order is
-closed: `contemporaneous`. *Proposed under TDR-0050.*
+closed: `contemporaneous`. *Accepted under TDR-0050.*
 
 ## Document
 

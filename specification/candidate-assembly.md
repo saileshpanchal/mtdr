@@ -41,8 +41,7 @@ existed, and it will look exactly as well-evidenced as a correct one.
 - **Authority lineage** — the same governing decision or delegation
 - **Singleton** — every contribution comes from one fragment, or one contiguous entry of one source —
   one minute item, one email, one numbered section — and the evidence names the source and the entry.
-  *Proposed under [TDR-0050](../decisions/TDR-0050-singleton-grouping-basis.md); admissible once it is
-  ratified.*
+  *Accepted under [TDR-0050](../decisions/TDR-0050-singleton-grouping-basis.md) on 2026-11-27.*
 
 **Not admissible on its own:** same document, same folder, same meeting, same programme, same author,
 same period, semantic similarity. Each may *support* a grouping alongside an admissible basis. None

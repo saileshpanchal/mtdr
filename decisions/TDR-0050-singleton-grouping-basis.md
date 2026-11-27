@@ -2,12 +2,12 @@
 id: TDR-0050
 conforms_to: mtdr/decision/tdr@1.15.0
 title: Admit a singleton grouping basis — one entry of one source, never one document
-status: proposed
+status: accepted
 template: minimal
 decision_date: 2026-11-07
 accountable_owner: Sailesh Panchal
 confidence: medium
-maturity: proposed
+maturity: adopted
 supersedes: none
 derived_from: TDR-0018, TDR-0022, TDR-0043
 confirmed_by_outcome: pending — confirm only when a recovery outside this repository groups single-source material on the singleton basis and no reviewed assembly uses it across two entries. 2027-05-07 is the review date; reaching it confirms nothing
@@ -15,13 +15,12 @@ confirmed_by_outcome: pending — confirm only when a recovery outside this repo
 
 # TDR-0050 — Admit a singleton grouping basis — one entry of one source, never one document
 
-> **Proposed. No standing.** Answers ruling R5 of the owner's return of 7 November
+> **Accepted on 2026-11-27** by the owner's ratification ([evidence](evidence/TDR-0050-ratification-2026-11-27.md)). Answers ruling R5 of the owner's return of 7 November
 > ([evidence](evidence/TDR-0048-0049-owner-return-2026-11-07.md)): *"Approve an explicit singleton
 > grouping basis"*, and *"Amend shared grouping semantics through the appropriate governing TDR, with
 > regression fixtures."* No existing TDR enumerates the grouping bases. This record proposes to be the
 > one that governs the singleton basis, and the owner is asked to confirm that it is the appropriate
 > one.
-> Nothing here reaches `main` while it is proposed.
 >
 > **Corrected on 26 November 2026, after an [independent review](evidence/recovery-records-review-2026-11-26.md)**:
 > the ruling is quoted rather than glossed, and this record says what already relies on it. It stays
@@ -96,12 +95,6 @@ the recovery fixtures FIX-522 and FIX-523; the `singleton` value in
 ratified first, in the order the assistant recommended and the owner set on 27 November: TDR-0050,
 DAC-0048, TDR-0048, TDR-0049 ([DAC-0048](DAC-0048-historical-recovery-doctrine.md#decision-debt)).
 
-## If this record is returned
-
-Each of those is reverted: `candidate-assembly.md` returns to 1.0.0; the schema loses `singleton`;
-`reconcile-record-fragments` and FIX-004 return to their v1.30.0 text; FIX-522 and FIX-523 and the
-check are removed; and TDR-0048's integrity rule 8 is withdrawn with it, which TDR-0048 would then
-need amending to reflect.
 
 ## Review
 

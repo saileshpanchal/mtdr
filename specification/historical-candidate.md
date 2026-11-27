@@ -88,7 +88,7 @@ A schema checks shape. These are checked by validators, and are part of the cont
 7. `restates` names the `fragment_id` of the fragment it repeats where the candidate carries it,
    otherwise the `source_ref` of what it repeats — and never the fragment itself.
 8. An assembly that cites the `singleton` basis groups contributions resting on fragments of **one**
-   `source_ref` ([`candidate-assembly.md`](candidate-assembly.md), proposed under TDR-0050).
+   `source_ref` ([`candidate-assembly.md`](candidate-assembly.md), accepted under TDR-0050).
 
 ## The digest
 
