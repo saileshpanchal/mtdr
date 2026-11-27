@@ -1,0 +1,49 @@
+# Verify one exact commit on Linux and macOS, on demand, with the repository's own locked commands.
+#
+# It checks out the commit named by `sha` -- never this branch -- and runs `uv sync --locked` and
+# `uv run tests/verify.py` from that commit's own lockfile, as `verify.yml` does on the release branch.
+# A green run shows the suite is reproducible on these platforms at that commit. It is NOT external
+# validation, it confers no standing, and it discharges nothing in the obligations register.
+name: verify-candidate
+
+on:
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: The full 40-character SHA of the commit to verify
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: verify (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Require a full commit SHA
+        shell: bash
+        env:
+          SHA: ${{ inputs.sha }}
+        run: '[[ "$SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "Not a full 40-character commit SHA: $SHA"; exit 1; }'
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          ref: ${{ inputs.sha }}
+          persist-credentials: false
+      - name: Confirm the commit checked out
+        shell: bash
+        env:
+          SHA: ${{ inputs.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$SHA"
+          git log -1 --format='Verifying %H — %s'
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2  # v10.3.3
+        with:
+          version: "0.13.9"  # the same tool version verify.yml pins
+      - run: uv sync --locked
+      - run: uv run tests/verify.py
