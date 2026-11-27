@@ -48,7 +48,7 @@ retrospective explaining why the decision was made is evidence about the decisio
 context, and importing it manufactures reasoning nobody had. See the hindsight rule in
 [`identify-record-contributions`](../../../skills/shared/identify-record-contributions/), stated
 normatively — contemporaneity computed from capture and creation times against the decision date — in
-[`specification/historical-recovery.md`](../../../specification/historical-recovery.md) (proposed under
+[`specification/historical-recovery.md`](../../../specification/historical-recovery.md) (accepted under
 TDR-0048).
 
 **`accountable-owner` must be a named individual.** Material routinely names a forum — "the Committee
