@@ -12,6 +12,7 @@ record names them and does not evidence them.
 | Actor | Sailesh Panchal |
 | Authority | Maintainer and repository authority for MTDR |
 | Date | 2026-11-27 |
+| Source | The owner's written instruction to the maintainer's assistant, 2026-11-27 at 15:03 UTC. *[Row added after publication, under [#25](https://github.com/saileshpanchal/mtdr/issues/25); the record as tagged in `v1.31.0` does not carry it.]* |
 | Act | Authorised publication of MTDR v1.31.0, **with a one-off exception to the agreed CI requirement**: GitHub Actions is disabled for the account, so hosted Ubuntu and macOS CI could not run. The exception is not a claim that CI passed |
 | Release content | `c649049bb45bdc8f8317534d1b551aa7fffef86d`, the ratified release candidate (`release/next-candidate`), merged into `main` by `b6a91a62f1c36abacd80efa1d1b4b68480f7b8d0`, which keeps the CI bootstrap from #24 |
 | Commit | The commit on `main` that adds this record |
