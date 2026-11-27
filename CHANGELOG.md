@@ -9,8 +9,20 @@ All notable changes to the TDR standard (and its MTDR markdown reference format)
 >
 > **v1.30.0 is the first governed release** — one tag, one release record, at
 > [`decisions/evidence/release-v1.30.0-2026-08-27.md`](decisions/evidence/release-v1.30.0-2026-08-27.md).
+>
+> **v1.31.0** — one tag, one release record, at
+> [`decisions/evidence/release-v1.31.0-2026-11-27.md`](decisions/evidence/release-v1.31.0-2026-11-27.md). It was published under a one-off
+> exception the maintainer authorised: hosted CI did not run, because GitHub Actions is disabled for the
+> account. That is not a claim that CI passed.
 
-## Unreleased — changes since v1.30.0, proposed for v1.31.0; a release candidate, not a release
+## [1.31.0] — 2026-11-27
+
+**Decision recovery joins the decision language.** DAC-0048, TDR-0048, TDR-0049 and TDR-0050 were
+ratified on 27 November 2026, by four separate acts. Decision and Value are normative and unchanged in
+what a record must contain; decision recovery is normative within the decision language; Authority and
+Evidence remain candidates; the Operational Inheritance Record is experimental. Verified locally, on
+Linux, against its own published contracts; hosted CI did not run. **External validation is not yet
+claimed**: it follows publication under TDR-0045, and `DAC-0032#4` is outstanding.
 
 ### Added
 - **DAC-0048, TDR-0048, TDR-0049 and TDR-0050 ratified on 27 November 2026**, by four separate acts of the owner, in the order TDR-0050, DAC-0048, TDR-0048, TDR-0049, each with its evidence note in `decisions/evidence/` quoting the owner's approval. Decision recovery is normative within the decision language. Every confirmation gate stays pending: the confirmation of 26 November is limited internal confirmation evidence, DAC-0048's debt row 5 stays open, and `DAC-0032#4` is outstanding. No external validation is claimed.
