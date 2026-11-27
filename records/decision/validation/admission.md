@@ -15,7 +15,7 @@ A candidate decision is admissible when all of the following hold.
    material shown to have preceded the decision. A candidate whose context depends on later material
    is inadmissible until that contribution is removed. Contemporaneity is computed as
    [`specification/historical-recovery.md`](../../../specification/historical-recovery.md) defines it
-   (proposed under TDR-0048): a `later` contribution fails this criterion; an `indeterminate` one —
+   (accepted under TDR-0048): a `later` contribution fails this criterion; an `indeterminate` one —
    including every one where `decision-date` is missing — is reported in `unresolved`, keeps the
    candidate admissible, and cannot be presented as contemporaneous context. *Applying the owner's
    same-day correction to every candidate, and not only to recovered ones, is the drafter's (E12 in

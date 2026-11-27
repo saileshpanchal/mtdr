@@ -7,7 +7,7 @@ own, spread across documents that were written for other purposes. This is how y
 
 This is the interpretation path: reconstruction from material. To record a decision at the time it is
 made, use the [quick start](quickstart.md) instead. Where your material records decisions taken in the
-past, [historical recovery](../specification/historical-recovery.md) (proposed under TDR-0048) says what
+past, [historical recovery](../specification/historical-recovery.md) (accepted under TDR-0048) says what
 a recovery may and may not claim.
 
 Runtime-neutral. Where a step depends on your reasoning environment, it says so and points at

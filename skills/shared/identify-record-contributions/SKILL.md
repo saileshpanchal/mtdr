@@ -20,7 +20,7 @@ This skill reads organisational material and identifies **contributions** — sp
 
 The test is whether every value traces to material created at the time. Where the contemporaneous sources are silent, the answer is `missing_semantics`, never an inference. **Outcome knowledge is not evidence**: if a fact is known only because of what happened afterwards, it does not belong in a contribution to the decision's context.
 
-The rule is stated normatively — the four times, contemporaneity computed rather than asserted, what claim each kind of material can support, and the retrospective candidate a recovery hands on — in [`specification/historical-recovery.md`](../../../specification/historical-recovery.md), proposed under [TDR-0048](../../../decisions/TDR-0048-historical-recovery-doctrine.md).
+The rule is stated normatively — the four times, contemporaneity computed rather than asserted, what claim each kind of material can support, and the retrospective candidate a recovery hands on — in [`specification/historical-recovery.md`](../../../specification/historical-recovery.md), accepted under [TDR-0048](../../../decisions/TDR-0048-historical-recovery-doctrine.md).
 
 ## Process
 

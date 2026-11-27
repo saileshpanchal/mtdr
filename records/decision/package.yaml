@@ -58,10 +58,10 @@ dependencies:
     why: How a record's evidence is bound to its source.
   - ref: specification/historical-recovery.md
     class: normative
-    why: What recovery from material that survives a decision may claim, and the contemporaneity rule the admissibility test applies (proposed under TDR-0048).
+    why: What recovery from material that survives a decision may claim, and the contemporaneity rule the admissibility test applies (accepted under TDR-0048).
   - ref: specification/historical-candidate.md
     class: normative
-    why: The retrospective candidate the recovery pipeline hands on (proposed under TDR-0048).
+    why: The retrospective candidate the recovery pipeline hands on (accepted under TDR-0048).
   - ref: schemas/shared
     class: normative
     why: The interchange contracts validation applies — the historical candidate refers to its siblings by $id, so it resolves only with all of them.

@@ -2,12 +2,12 @@
 id: TDR-0048
 conforms_to: mtdr/decision/tdr@1.15.0
 title: Recover what can be evidenced, preserve what cannot, and never turn a contemporary interpretation into historical authority
-status: proposed
+status: accepted
 template: full
 decision_date: 2026-11-07
 accountable_owner: Sailesh Panchal
 confidence: medium
-maturity: proposed
+maturity: adopted
 supersedes: none
 derived_from: TDR-0018, TDR-0022, TDR-0027, TDR-0033, TDR-0036, TDR-0043
 confirmed_by_outcome: pending — confirm only when an implementation outside this repository has produced historical candidates from real material, consumed this contract as published, and a named individual has attested or rejected at least one of them. 2027-05-07 is the review date; reaching it confirms nothing
@@ -15,13 +15,13 @@ confirmed_by_outcome: pending — confirm only when an implementation outside th
 
 # TDR-0048 — Recover what can be evidenced, preserve what cannot, and never turn a contemporary interpretation into historical authority
 
-> **Proposed. No standing.** Assured by [DAC-0048](DAC-0048-historical-recovery-doctrine.md), which
-> must be accepted before this record is.
+> **Accepted on 2026-11-27** by the owner's ratification ([evidence](evidence/TDR-0048-ratification-2026-11-27.md)). Assured by
+> [DAC-0048](DAC-0048-historical-recovery-doctrine.md), accepted before it.
 >
 > This record and the specification text it introduces travel together. **None of it reaches `main`
 > while this record is proposed**: if it is returned, the branch is revised, and the standard is
-> untouched. Every file it adds is headed *proposed under TDR-0048*, and those headings change in place
-> only on ratification.
+> untouched. Every file it adds was headed *proposed under TDR-0048*; those headings changed in place on
+> 2026-11-27.
 >
 > **Returned on 7 November 2026 and amended** ([the return](evidence/TDR-0048-0049-owner-return-2026-11-07.md)): a shared calendar date is not an order, and
 > the contemporaneity rules now say so. The record stays proposed.
@@ -313,13 +313,3 @@ use the `singleton` grouping basis that [TDR-0050](TDR-0050-singleton-grouping-b
 TDR-0050 is ratified first, in the order the assistant recommended and the owner set on 27 November:
 TDR-0050, DAC-0048, this record, TDR-0049 ([DAC-0048](DAC-0048-historical-recovery-doctrine.md#decision-debt)).
 
-## If this record is returned
-
-These edits to text that existed in v1.30.0 were made for this record and are reverted with it:
-`admission.md` criterion 2 and `semantic-roles.md` (contemporaneity as the doctrine computes it);
-`decision-identification` (retro-mining renamed); the shared `identify-record-contributions` and
-`challenge-record` skills, which the value language also uses (their pointers to the doctrine and its
-times); `contribution-model.md` 1.1.0 and `organisational-records.md` 1.2.0 (their rows for the two
-specifications); `draft-tdr` §3 and §7 (the candidate view); and the decision package's `package.yaml`
-(its normative dependencies on the two specifications). The additions — the two specifications, their
-schemas, the recovery contract fixtures and their checks — are removed.

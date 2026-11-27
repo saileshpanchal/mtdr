@@ -45,7 +45,7 @@ skills:
     package: decision
     group: authoring
     source: records/decision/skills/decision-identification/SKILL.md
-    sha256_16: 7375f83c2e756625
+    sha256_16: daf9fd8ddf0c0dba
   - name: draft-tdr
     package: decision
     group: drafting
@@ -80,7 +80,7 @@ skills:
     package: shared
     group: record-neutral
     source: skills/shared/identify-record-contributions/SKILL.md
-    sha256_16: a2e3be6b103544fc
+    sha256_16: 2738d7df5e6ff58a
   - name: identify-value-contributions
     package: value
     group: lifecycle

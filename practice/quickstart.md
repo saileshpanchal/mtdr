@@ -22,8 +22,7 @@ reconstruction from the material that survives. It has its own rule, "Recover wh
 what cannot. Never turn a contemporary interpretation into historical authority", and what it produces is "a
 retrospective candidate with no standing": a proposal nobody has ratified, never a record by default. For that
 route, start at the [`recover-decision-records`](../records/decision/skills/recover-decision-records/SKILL.md)
-skill and [historical recovery](../specification/historical-recovery.md), which is proposed under TDR-0048 and
-not yet ratified.
+skill and [historical recovery](../specification/historical-recovery.md), which is accepted under TDR-0048.
 
 This page does not yet route someone holding minutes of a past decision to historical recovery
 ([#15](https://github.com/saileshpanchal/mtdr/issues/15)). The

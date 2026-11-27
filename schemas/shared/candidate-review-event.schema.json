@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/saileshpanchal/mtdr/blob/main/schemas/shared/candidate-review-event.schema.json",
-  "title": "CandidateReviewEvent — one act on a historical candidate (proposed under TDR-0048)",
+  "title": "CandidateReviewEvent — one act on a historical candidate (accepted under TDR-0048)",
   "description": "Schema for a review event, per specification/historical-candidate.md. Appended beside a candidate, never applied to it, and bound to the exact candidate by its RFC 8785 digest. An event identifies an act; it does not capture, authorise or evidence it, and a well-formed event is never proof that a valid human act occurred (TDR-0027). `governs` is always false: no review act, attestation included, establishes that the object governs now.",
   "type": "object",
   "additionalProperties": false,

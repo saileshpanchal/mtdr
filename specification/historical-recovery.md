@@ -1,8 +1,8 @@
 # Historical recovery
 
 **Version:** 1.0.0 · **Licence:** MIT · **Author:** Sailesh Panchal
-**Status:** **Proposed under [TDR-0048](../decisions/TDR-0048-historical-recovery-doctrine.md) — no
-standing until ratified.** Normative for skill interchange once accepted. Not a record specification.
+**Status:** **Accepted under [TDR-0048](../decisions/TDR-0048-historical-recovery-doctrine.md) on
+2026-11-27.** Normative for skill interchange. Not a record specification.
 
 How an organisational object that was never recorded at the time — a decision taken in a meeting, a
 commitment made in a paper — may be recovered from the material that survives it, and what the

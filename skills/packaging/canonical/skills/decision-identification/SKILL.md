@@ -87,7 +87,7 @@ These five are defined, with stable identifiers and a machine-readable form, in 
 ## Anti-patterns
 
 - **Record hunger** — turning every agenda item into a candidate; the proportionality test exists to stop this.
-- **Hindsight reconstruction** — trawling old minutes to mass-produce records after outcomes are known, writing what people must have meant as what they said. Identification here serves capture at the moment of decision. Recovering what old material actually evidences is a different act with its own rules — [`specification/historical-recovery.md`](../../../../specification/historical-recovery.md), proposed under TDR-0048 — and what it produces is a retrospective candidate with no standing, never a record by default.
+- **Hindsight reconstruction** — trawling old minutes to mass-produce records after outcomes are known, writing what people must have meant as what they said. Identification here serves capture at the moment of decision. Recovering what old material actually evidences is a different act with its own rules — [`specification/historical-recovery.md`](../../../../specification/historical-recovery.md), accepted under TDR-0048 — and what it produces is a retrospective candidate with no standing, never a record by default.
 - **Guessed lineage** — inventing supersedes links to records that do not exist.
 - **Silent splitting** — quietly recording one slice of a compound decision and losing the rest.
 

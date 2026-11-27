@@ -67,8 +67,8 @@ This directory and its companions are the record-neutral layer every package bui
 | Temporal semantics | [`temporal-semantics.md`](temporal-semantics.md) |
 | Uncertainty — three confidences, never collapsed | [`uncertainty.md`](uncertainty.md) |
 | Candidacy and ratification — the skill proposes, the organisation ratifies | [`candidacy-and-ratification.md`](candidacy-and-ratification.md) |
-| Historical recovery — recover what can be evidenced, preserve what cannot *(proposed, TDR-0048)* | [`historical-recovery.md`](historical-recovery.md) |
-| The historical candidate — a retrospective candidate that never acquires standing *(proposed, TDR-0048)* | [`historical-candidate.md`](historical-candidate.md) |
+| Historical recovery — recover what can be evidenced, preserve what cannot *(accepted, TDR-0048)* | [`historical-recovery.md`](historical-recovery.md) |
+| The historical candidate — a retrospective candidate that never acquires standing *(accepted, TDR-0048)* | [`historical-candidate.md`](historical-candidate.md) |
 | Admission of new languages and artefacts | [`record-admission-test.md`](record-admission-test.md) |
 | What conformance means | [`conformance.md`](conformance.md) |
 | Interchange schemas | [`schemas/shared/`](../schemas/shared/) |

@@ -22,7 +22,7 @@ constraints or evidence a record cites. Making a *current* policy's decisions ex
 reconstruction the [identification skill](../records/decision/skills/decision-identification/SKILL.md) warns
 against: a policy in force is the organisation's present position, not an old debate to reconstruct.
 Recovering what old material evidences is a different act with its own rules ([historical
-recovery](../specification/historical-recovery.md), proposed under TDR-0048).
+recovery](../specification/historical-recovery.md), accepted under TDR-0048).
 
 ## The two loops
 

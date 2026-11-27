@@ -1,8 +1,8 @@
 # Historical candidate
 
 **Version:** 1.0.0 · **Licence:** MIT · **Author:** Sailesh Panchal
-**Status:** **Proposed under [TDR-0048](../decisions/TDR-0048-historical-recovery-doctrine.md) — no
-standing until ratified.** Normative for skill interchange once accepted. Not a record specification.
+**Status:** **Accepted under [TDR-0048](../decisions/TDR-0048-historical-recovery-doctrine.md) on
+2026-11-27.** Normative for skill interchange. Not a record specification.
 
 The structure a [historical recovery](historical-recovery.md) hands on: a retrospective candidate for
 an organisational object, carrying everything its claims rest on. It is a **profile over the existing

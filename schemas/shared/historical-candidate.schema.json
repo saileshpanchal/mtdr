@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/saileshpanchal/mtdr/blob/main/schemas/shared/historical-candidate.schema.json",
-  "title": "HistoricalCandidate — retrospective candidate profile (proposed under TDR-0048)",
+  "title": "HistoricalCandidate — retrospective candidate profile (accepted under TDR-0048)",
   "description": "Schema for a historical candidate, per specification/historical-candidate.md. A profile over the existing interchange structures, carried unchanged, with the retrospective facts they cannot carry added beside them and keyed by identifier. Its standing is `none` and its status `candidate`, as constants: a historical candidate never acquires standing because someone, or something, reconstructed it. Closed, so a disposition, a forward link to a record, a rationale or a score is refused rather than discouraged. Contemporaneity is computed from the times, never stored. Sibling schemas are referenced by $id: load schemas/shared/ as a registry. Integrity rules a schema cannot express are part of the contract and listed in the specification.",
   "type": "object",
   "additionalProperties": false,
