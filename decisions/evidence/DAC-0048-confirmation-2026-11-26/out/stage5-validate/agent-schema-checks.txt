@@ -1,0 +1,4 @@
+stage1 fragments vs source-fragment.schema.json: 100 checked, 0 with schema errors
+stage1 contributions vs record-contribution.schema.json: 64 checked, 0 with schema errors
+stage2 assemblies vs candidate-assembly.schema.json: 4 checked, 0 with schema errors
+finding classifications vs decision-contribution.schema.json: 38 checked, 0 with schema errors

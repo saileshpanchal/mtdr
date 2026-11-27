@@ -30,8 +30,9 @@ confirmed_by_outcome: pending — confirm only when an implementation outside th
 > on the status mismatch the 20 and 22 November engine runs reproduced: *"Render recovered candidates
 > as candidate views, not as proposed TDRs."* A candidate's rendering carried TDR frontmatter, so it
 > said `status: proposed` beside a candidate that says `status: candidate` and `standing: none`. The
-> ruling's only record is a commit message, and the owner is asked to confirm its words. The record
-> stays proposed.
+> ruling's only record is a commit message. On 27 November the owner directed that the rule be
+> preserved, and that nothing be read as evidence of an earlier ratification
+> ([dispositions](evidence/TDR-0048-0049-0050-owner-dispositions-2026-11-27.md)). The record stays proposed.
 >
 > **Corrected on 26 November 2026, after an [independent review](evidence/recovery-records-review-2026-11-26.md)**:
 > the identity check is described as this candidate carries it, as released in v1.30.0; the six
@@ -138,7 +139,9 @@ names the candidate it was recovered from.
    makes every grade `indeterminate`, never assumed. Pre-dating shows that material existed, not that
    it was considered, and the second is graded separately. **A shared date is not an order** (the
    owner's same-day correction): the times order material across days, never within one, and an order
-   they leave open is closed only by evidence that the material was before whoever acted.
+   they leave open is closed only by evidence that the material was before whoever acted. A partial date
+   that spans the event cannot prove the order or show which version existed, so consideration never
+   closes the order it leaves open (the owner's disposition of 27 November, E9).
 - **A6. The conservative path.** The TDR specification stays at 1.15.0. Most mined candidates will stay
    candidates, and the doctrine is written for that. A recovered-record provision in the TDR format is
    revisited only on a demonstrated semantic need.
@@ -281,15 +284,21 @@ recorded as owner, and corroboration by repetition of one source.
 
 The return asks that an amendment applying a ruling to a case the ruling did not name say so. For the
 same-day correction, these are those places. Each is the **drafter's**, written while the records were
-amended, and none is the owner's until the owner decides it. The extensions of rulings R1 to R4 are
+amended, and none is the owner's until the owner decides it. The owner's dispositions of 27 November
+([preserved](evidence/TDR-0048-0049-0050-owner-dispositions-2026-11-27.md)) are recorded against each; they direct the text and ratify nothing. The
+extensions of rulings R1 to R4 are
 listed in [TDR-0049](TDR-0049-decision-recovery-vocabulary.md#where-this-record-goes-beyond-the-owners-rulings).
 
 - **E9 — A partial date that spans the event leaves the order open** (rule 3 of the contemporaneity
   rules). **Owner's question:** should evidence that a minute cited a paper close the order for a
   paper dated only to the month that contains the meeting, when the paper may have been finalised
-  after it? No published fixture covers the case; the suite's known answers do.
+  after it? No published fixture covers the case; the suite's known answers do. **Owner's disposition,
+  27 November:** no. A partial date cannot prove ordering or establish which version of a document
+  existed at the time, so consideration does not close an order a partial date leaves open, and the
+  grade stays `indeterminate`. The code and the known answers follow.
 - **E10 — What a creation time shows when the capture time is `unknown`** (rule 4). The text does not
   say whether `considered: evidenced` can lift a later creation time; the code does not lift it.
+  **Owner's disposition, 27 November:** it does not, and rule 5 now says so.
 - **E11 — Capture time as a fourth time.** The correction named three: event, source creation and
   interpretation.
 - **E12 — Admission criterion 2 applies the correction to every candidate**, not only to recovered
@@ -298,9 +307,9 @@ listed in [TDR-0049](TDR-0049-decision-recovery-vocabulary.md#where-this-record-
 
 **What this record relies on.** Integrity rule 8 of
 [`historical-candidate.md`](../specification/historical-candidate.md), and the check that enforces it,
-use the `singleton` grouping basis that [TDR-0050](TDR-0050-singleton-grouping-basis.md) admits. So the
-two would be decided together, or TDR-0050 first. That is the assistant's reading of the dependency;
-the order is the owner's decision ([DAC-0048](DAC-0048-historical-recovery-doctrine.md#decision-debt)).
+use the `singleton` grouping basis that [TDR-0050](TDR-0050-singleton-grouping-basis.md) admits. So
+TDR-0050 is decided first, as the owner's disposition of 27 November orders the four acts: TDR-0050,
+DAC-0048, this record, TDR-0049 ([DAC-0048](DAC-0048-historical-recovery-doctrine.md#decision-debt)).
 
 ## If this record is returned
 

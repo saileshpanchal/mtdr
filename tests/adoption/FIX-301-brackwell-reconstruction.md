@@ -90,7 +90,9 @@ well. In this set nothing authenticates the extract — no adopting resolution, 
 register entry — and no later act relies on it by citation: Cabinet's reservation and the Section 151
 counter-signature are consistent with its terms, and cite nothing. **No candidate**: the adoption is
 reported with the condition met (contemporaneity) and the evidence that would establish the other two.
-*(E5: what counts as authentication and as effect is the drafter's.)*
+Its authenticity is recorded as unresolved. *(E5: what counts as authentication and as effect is the
+drafter's; that an instrument never authenticates itself by an unverified assertion is the owner's
+disposition of 27 November.)*
 
 ## Expected — value
 

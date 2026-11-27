@@ -1,0 +1,245 @@
+[
+  {
+    "contribution_ref": "HC-001-C03",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F03-4-DEC"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-001-C04",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F03-4-CITE",
+        "F03-4-DEC"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-001-C05",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F03-4-CITE"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-001-C08",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F03-4-CITE"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-001-C09",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F03-4-FUND"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-001-C10",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F03-4-CITE"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-001-C11",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F03-4-CITE",
+        "F03-4-MIG"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-001-C12",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F03-4-INT"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-001-C13",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F03-4-CITE"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-001-C14",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F03-4-CITE"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-001-C15",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F03-4-MIG"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-002-C03",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F04-7-RES"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-002-C06",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F04-7-PROP"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-002-C07",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F04-7-TENANTS"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-002-C08",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F04-7-SAVINGS"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-002-C09",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F04-7-STAFF"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-002-C10",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F04-7-CONCERN"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-002-C11",
+    "considered": {
+      "state": "unknown",
+      "fragment_refs": []
+    }
+  },
+  {
+    "contribution_ref": "HC-003-C07",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F06-E2-HDR",
+        "F06-E2-BODY"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-003-C08",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F06-E2-HDR",
+        "F06-E2-BODY"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-003-C09",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F06-E2-BODY"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-004-C04",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F05-CALL"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-004-C06",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F05-AGREED"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-004-C07",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F05-TODO-BUD"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-004-C08",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F05-TODO-EXPORT"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-004-C09",
+    "considered": {
+      "state": "evidenced",
+      "fragment_refs": [
+        "F05-SLIP"
+      ]
+    }
+  },
+  {
+    "contribution_ref": "HC-004-C12",
+    "considered": {
+      "state": "unlinked",
+      "fragment_refs": []
+    }
+  }
+]

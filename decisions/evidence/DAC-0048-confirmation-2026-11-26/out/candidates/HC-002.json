@@ -1,0 +1,716 @@
+{
+  "contract_version": "1.0.0",
+  "candidate_id": "HC-002",
+  "retrospective": true,
+  "standing": "none",
+  "status": "candidate",
+  "event_time_ref": "HC-002-C02",
+  "fragments": [
+    {
+      "fragment_id": "F04-7-RES",
+      "source_ref": "SRC-04-board-minutes-21-may.md",
+      "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+      "locator": {
+        "kind": "char-offset",
+        "start": 1348,
+        "end": 1610
+      },
+      "content": "The Board **RESOLVED** that the repairs call handling service be transferred to the Kestrel Customer Hub with effect from 1 September 2026, and that £120,000 be released from the planned maintenance reserve to meet transition costs. One abstention (Daniel Osei).",
+      "source_time": "2026-05-21",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F04-HEAD",
+      "source_ref": "SRC-04-board-minutes-21-may.md",
+      "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+      "locator": {
+        "kind": "char-offset",
+        "start": 0,
+        "end": 63
+      },
+      "content": "# Board of Management: Minutes (extract)\n\n**Date:** 21 May 2026",
+      "source_time": "2026-05-21",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F04-PRESENT",
+      "source_ref": "SRC-04-board-minutes-21-may.md",
+      "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+      "locator": {
+        "kind": "char-offset",
+        "start": 64,
+        "end": 195
+      },
+      "content": "**Present:** Margaret Oyelaran (Chair), Tobias Wren, Anita Folorunsho, Daniel Osei, Fenella Marsh, Duncan Faraday (Chief Executive)",
+      "source_time": "2026-05-21",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F04-7-RES-A",
+      "source_ref": "SRC-04-board-minutes-21-may.md",
+      "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+      "locator": {
+        "kind": "char-offset",
+        "start": 1371,
+        "end": 1486
+      },
+      "content": "that the repairs call handling service be transferred to the Kestrel Customer Hub with effect from 1 September 2026",
+      "source_time": "2026-05-21",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F04-7-RES-B",
+      "source_ref": "SRC-04-board-minutes-21-may.md",
+      "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+      "locator": {
+        "kind": "char-offset",
+        "start": 1492,
+        "end": 1579
+      },
+      "content": "that £120,000 be released from the planned maintenance reserve to meet transition costs",
+      "source_time": "2026-05-21",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F04-7-PROP",
+      "source_ref": "SRC-04-board-minutes-21-may.md",
+      "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+      "locator": {
+        "kind": "char-offset",
+        "start": 610,
+        "end": 926
+      },
+      "content": "**7. Repairs call handling: transfer to Kestrel Customer Hub (Paper 7).** Helen Strudwick presented the paper. The proposal is that from 1 September 2026 the repairs call handling team (nine posts) transfers to the Kestrel Customer Hub, which would take calls from 8am to 8pm on weekdays and 9am to 1pm on Saturdays.",
+      "source_time": "2026-05-21",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F04-7-TENANTS",
+      "source_ref": "SRC-04-board-minutes-21-may.md",
+      "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+      "locator": {
+        "kind": "char-offset",
+        "start": 927,
+        "end": 997
+      },
+      "content": "Tenants would see a new freephone number and the same repairs process.",
+      "source_time": "2026-05-21",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F04-7-SAVINGS",
+      "source_ref": "SRC-04-board-minutes-21-may.md",
+      "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+      "locator": {
+        "kind": "char-offset",
+        "start": 998,
+        "end": 1048
+      },
+      "content": "Savings estimated at £96,000 a year from year two.",
+      "source_time": "2026-05-21",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F04-7-STAFF",
+      "source_ref": "SRC-04-board-minutes-21-may.md",
+      "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+      "locator": {
+        "kind": "char-offset",
+        "start": 1050,
+        "end": 1212
+      },
+      "content": "Fenella Marsh asked about the effect on staff. Helen Strudwick said consultation would begin in June and affected staff would be offered transfer or redeployment.",
+      "source_time": "2026-05-21",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F04-7-CONCERN",
+      "source_ref": "SRC-04-board-minutes-21-may.md",
+      "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+      "locator": {
+        "kind": "char-offset",
+        "start": 1213,
+        "end": 1346
+      },
+      "content": "Daniel Osei raised concern about the quality of service during the changeover. It was agreed that agency cover would be kept on hand.",
+      "source_time": "2026-05-21",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F03-5-DESC",
+      "source_ref": "SRC-03-oic-minutes-9-april.md",
+      "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+      "locator": {
+        "kind": "char-offset",
+        "start": 1243,
+        "end": 1530
+      },
+      "content": "5. **Repairs contact handling.** Helen Strudwick outlined an idea to move repairs call handling from the in-house team of nine to the Kestrel Customer Hub, a shared service run by Kestrel Shared Services CIC and used by three other associations. Savings and service hours were discussed.",
+      "source_time": "2026-04-09",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F03-5-PREF",
+      "source_ref": "SRC-03-oic-minutes-9-april.md",
+      "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+      "locator": {
+        "kind": "char-offset",
+        "start": 1531,
+        "end": 1627
+      },
+      "content": "The Committee was supportive in principle and asked that a full paper go to the Board on 21 May.",
+      "source_time": "2026-04-09",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F08-012",
+      "source_ref": "SRC-08-decision-log-extract.md",
+      "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+      "locator": {
+        "kind": "char-offset",
+        "start": 451,
+        "end": 624
+      },
+      "content": "| DL-26-012 | 21 May | Repairs call handling | Transfer to Kestrel Customer Hub from 1 Sept; £120k from planned maintenance reserve for transition | Board | Board minute 7 |",
+      "source_time": "2026-09-30",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F09-LIVE",
+      "source_ref": "SRC-09-project-status-report-october.md",
+      "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+      "locator": {
+        "kind": "char-offset",
+        "start": 989,
+        "end": 1160
+      },
+      "content": "The service transferred to the Kestrel Customer Hub on 1 October as agreed by the Board. Seven staff transferred with it, and two were redeployed within Customer Services.",
+      "source_time": "unknown",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F09-BUDGET",
+      "source_ref": "SRC-09-project-status-report-october.md",
+      "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+      "locator": {
+        "kind": "char-offset",
+        "start": 1629,
+        "end": 1716
+      },
+      "content": "Transition costs to date £86,000 of the £120,000 released. IT programme spend on track.",
+      "source_time": "unknown",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    }
+  ],
+  "contributions": [
+    {
+      "contribution_id": "HC-002-C01",
+      "fragment_refs": [
+        "F04-7-RES"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-statement",
+      "interpreted_value": "The Board RESOLVED that the repairs call handling service be transferred to the Kestrel Customer Hub with effect from 1 September 2026, and that 120,000 GBP be released from the planned maintenance reserve to meet transition costs. One abstention (Daniel Osei).",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-002-C02",
+      "fragment_refs": [
+        "F04-HEAD"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-date",
+      "interpreted_value": "2026-05-21",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-002-C03",
+      "fragment_refs": [
+        "F04-HEAD",
+        "F04-PRESENT",
+        "F04-7-RES"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "The resolution is recorded as the act of a forum, the Board of Management, at its meeting of 21 May 2026. Present: Margaret Oyelaran (Chair), Tobias Wren, Anita Folorunsho, Daniel Osei, Fenella Marsh, Duncan Faraday (Chief Executive). One abstention (Daniel Osei). The minute names no individual as holding the decision.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-002-C04",
+      "fragment_refs": [
+        "F04-7-RES-A"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "consequence",
+      "interpreted_value": "Resolution 1: the repairs call handling service transfers to the Kestrel Customer Hub with effect from 1 September 2026.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-002-C05",
+      "fragment_refs": [
+        "F04-7-RES-B"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "consequence",
+      "interpreted_value": "Resolution 2: 120,000 GBP is released from the planned maintenance reserve to meet transition costs.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-002-C06",
+      "fragment_refs": [
+        "F04-7-PROP"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "The proposal presented by Helen Strudwick (Paper 7): from 1 September 2026 the repairs call handling team (nine posts) transfers to the Kestrel Customer Hub, which would take calls from 8am to 8pm on weekdays and 9am to 1pm on Saturdays.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-002-C07",
+      "fragment_refs": [
+        "F04-7-TENANTS"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "evidence-customer",
+      "interpreted_value": "Tenants would see a new freephone number and the same repairs process.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-002-C08",
+      "fragment_refs": [
+        "F04-7-SAVINGS"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "evidence-business",
+      "interpreted_value": "Savings estimated at 96,000 GBP a year from year two. An estimate; no baseline or basis is given in the minute.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "low",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-002-C09",
+      "fragment_refs": [
+        "F04-7-STAFF"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "evidence-operations",
+      "interpreted_value": "Asked about the effect on staff, Helen Strudwick said consultation would begin in June and affected staff would be offered transfer or redeployment.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-002-C10",
+      "fragment_refs": [
+        "F04-7-CONCERN"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "Daniel Osei raised concern about the quality of service during the changeover. It was agreed that agency cover would be kept on hand.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-002-C11",
+      "fragment_refs": [
+        "F03-5-DESC",
+        "F03-5-PREF"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "Circumstance: on 9 April 2026 Helen Strudwick outlined to the Operations & Investment Committee an idea to move repairs call handling from the in-house team of nine to the Kestrel Customer Hub, a shared service run by Kestrel Shared Services CIC and used by three other associations; savings and service hours were discussed; the Committee was supportive in principle and asked that a full paper go to the Board on 21 May. Nothing shows that this discussion was put before the Board.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-002-C12",
+      "fragment_refs": [
+        "F08-012"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "corroboration",
+      "interpreted_value": "The decision log (position as at 30 September 2026) carries the resolution as DL-26-012, 21 May, taken by Board, source 'Board minute 7'. A restatement of the minute; it adds nothing independent.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "low",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-002-C13",
+      "fragment_refs": [
+        "F09-LIVE",
+        "F09-BUDGET"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "corroboration",
+      "interpreted_value": "A later project status report states that the service transferred to the Kestrel Customer Hub on 1 October, and that transition costs to date were 86,000 of the 120,000 released. The transfer date it reports is not the date resolved here.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    }
+  ],
+  "assembly": {
+    "assembly_id": "HC-002-ASM",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "HC-002-C01",
+      "HC-002-C02",
+      "HC-002-C03",
+      "HC-002-C04",
+      "HC-002-C05",
+      "HC-002-C06",
+      "HC-002-C07",
+      "HC-002-C08",
+      "HC-002-C09",
+      "HC-002-C10",
+      "HC-002-C11",
+      "HC-002-C12",
+      "HC-002-C13"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "Decision log row DL-26-012 gives its source as 'Board minute 7'."
+      },
+      {
+        "basis": "temporal-continuity",
+        "evidence": "OIC minute 5 of 9 April 2026 'asked that a full paper go to the Board on 21 May' on moving repairs call handling to the Kestrel Customer Hub; Board minute 7 of 21 May 2026 is that item, 'transfer to Kestrel Customer Hub (Paper 7)', presented by Helen Strudwick."
+      },
+      {
+        "basis": "entity-match",
+        "evidence": "The October status report names the transfer to 'the Kestrel Customer Hub' and 'the £120,000 released', the two resolutions of Board minute 7."
+      }
+    ],
+    "assembly_confidence": "high",
+    "missing_semantics": [
+      "accountable-owner",
+      "authority",
+      "alternative-rejected",
+      "reversal-cost",
+      "confidence"
+    ],
+    "conflicts": [],
+    "supersessions": [],
+    "unresolved": [
+      "No individual is named as holding the decision; the act is the Board's. Helen Strudwick presented the paper, which does not make her its owner.",
+      "The act cites no delegation or instrument. Whether the Scheme of Delegation's reserved matters cover it is reported as applicability findings beside this candidate, not as authority.",
+      "Paper 7, which the minute cites, is not in the material supplied; what it put before the Board beyond what the minute records is unknown.",
+      "No alternative is recorded as having been considered.",
+      "The minute records 'It was agreed that agency cover would be kept on hand' before the resolution and outside its text. Whether that is a separate act of the Board is not settled; splitting it out as its own candidate would be defensible on the same evidence.",
+      "The transfer date resolved here (1 September 2026) was later moved to 1 October by a different act, recovered as HC-003. This candidate records the resolution as made.",
+      "Whether the OIC discussion of 9 April was before the Board is not shown: the Board minute records a report on the meeting of 9 April only under the Vantry item.",
+      "No statement of what reversing the transfer would cost is in the material; the proportionality tier is undetermined."
+    ],
+    "status": "candidate"
+  },
+  "fragment_annotations": [
+    {
+      "fragment_ref": "F04-7-RES",
+      "capture_time": "2026-05-21",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F04-HEAD",
+      "capture_time": "2026-05-21",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F04-PRESENT",
+      "capture_time": "2026-05-21",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F04-7-RES-A",
+      "capture_time": "2026-05-21",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F04-7-RES-B",
+      "capture_time": "2026-05-21",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F04-7-PROP",
+      "capture_time": "2026-05-21",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F04-7-TENANTS",
+      "capture_time": "2026-05-21",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F04-7-SAVINGS",
+      "capture_time": "2026-05-21",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F04-7-STAFF",
+      "capture_time": "2026-05-21",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F04-7-CONCERN",
+      "capture_time": "2026-05-21",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F03-5-DESC",
+      "capture_time": "2026-04-09",
+      "creation_time": "unknown",
+      "evidence_kind": "unlinked"
+    },
+    {
+      "fragment_ref": "F03-5-PREF",
+      "capture_time": "2026-04-09",
+      "creation_time": "unknown",
+      "evidence_kind": "unlinked"
+    },
+    {
+      "fragment_ref": "F08-012",
+      "capture_time": "unknown",
+      "creation_time": "2026-09-30",
+      "evidence_kind": "restatement",
+      "restates": "F04-7-RES"
+    },
+    {
+      "fragment_ref": "F09-LIVE",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "retrospective"
+    },
+    {
+      "fragment_ref": "F09-BUDGET",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "retrospective"
+    }
+  ],
+  "contribution_annotations": [
+    {
+      "contribution_ref": "HC-002-C03",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F04-7-RES"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-002-C06",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F04-7-PROP"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-002-C07",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F04-7-TENANTS"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-002-C08",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F04-7-SAVINGS"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-002-C09",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F04-7-STAFF"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-002-C10",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F04-7-CONCERN"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-002-C11",
+      "considered": {
+        "state": "unknown",
+        "fragment_refs": []
+      }
+    }
+  ]
+}

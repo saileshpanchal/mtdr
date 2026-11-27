@@ -1,0 +1,247 @@
+[
+  {
+    "assembly_id": "HC-001-ASM",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "HC-001-C01",
+      "HC-001-C02",
+      "HC-001-C03",
+      "HC-001-C04",
+      "HC-001-C05",
+      "HC-001-C06",
+      "HC-001-C07",
+      "HC-001-C08",
+      "HC-001-C09",
+      "HC-001-C10",
+      "HC-001-C11",
+      "HC-001-C12",
+      "HC-001-C13",
+      "HC-001-C14",
+      "HC-001-C15",
+      "HC-001-C16",
+      "HC-001-C17",
+      "HC-001-C18",
+      "HC-001-C19",
+      "HC-001-C20"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "OIC minute item 4 is headed 'Housing management system replacement (Paper 4)' and approves the award 'as recommended'; the paper is headed 'Operations & Investment Committee, 9 April 2026 / Paper 4: Housing management system replacement'."
+      },
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "Board minute 6 of 21 May 2026 refers to 'the meeting of 9 April' and 'the Committee's approval of the contract with Vantry Systems Ltd'."
+      },
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "Decision log row DL-26-011 gives its source as 'OIC minute 4'."
+      },
+      {
+        "basis": "entity-match",
+        "evidence": "The October status report names 'the ... Vantry contract', the same named contract with Vantry Systems Ltd."
+      }
+    ],
+    "assembly_confidence": "high",
+    "missing_semantics": [
+      "accountable-owner",
+      "authority",
+      "reversal-cost",
+      "confidence"
+    ],
+    "conflicts": [],
+    "supersessions": [],
+    "unresolved": [
+      "No individual is named as holding the decision; the act is the Committee's.",
+      "The act cites no delegation or instrument. Whether the Scheme of Delegation's terms cover it is reported as an applicability finding beside this candidate, not as authority.",
+      "The minute states neither the contract's term nor its value; 'five-year' and 690,000 come from Paper 4 by way of 'as recommended'. Paper 4 also shows an implementation call-off of 235,000 and a programme total including contingency of 1,015,000; which of these is the contract's 'total value' is not evidenced.",
+      "Whether the condition was discharged is evidenced only by later material: the Board minute of 21 May says the exit clauses had been improved and the Company Secretary was content; nothing mentions the data return clauses, and no report to Tobias Wren by 30 April is in the material.",
+      "Who signed the contract, and on what date, is not evidenced. The decision log (as at 30 September 2026) says 'Contract signature date not yet entered'; the status report says 'late May'.",
+      "The status report calls the contract 'Board-approved'; the Board minute records the Board as noting the Committee's approval.",
+      "No answers are minuted to the members' questions on data migration and on Vantry being sold or failing.",
+      "No statement of what reversing the award would cost is in the material; the proportionality tier is undetermined."
+    ],
+    "status": "candidate"
+  },
+  {
+    "assembly_id": "HC-002-ASM",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "HC-002-C01",
+      "HC-002-C02",
+      "HC-002-C03",
+      "HC-002-C04",
+      "HC-002-C05",
+      "HC-002-C06",
+      "HC-002-C07",
+      "HC-002-C08",
+      "HC-002-C09",
+      "HC-002-C10",
+      "HC-002-C11",
+      "HC-002-C12",
+      "HC-002-C13"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "Decision log row DL-26-012 gives its source as 'Board minute 7'."
+      },
+      {
+        "basis": "temporal-continuity",
+        "evidence": "OIC minute 5 of 9 April 2026 'asked that a full paper go to the Board on 21 May' on moving repairs call handling to the Kestrel Customer Hub; Board minute 7 of 21 May 2026 is that item, 'transfer to Kestrel Customer Hub (Paper 7)', presented by Helen Strudwick."
+      },
+      {
+        "basis": "entity-match",
+        "evidence": "The October status report names the transfer to 'the Kestrel Customer Hub' and 'the £120,000 released', the two resolutions of Board minute 7."
+      }
+    ],
+    "assembly_confidence": "high",
+    "missing_semantics": [
+      "accountable-owner",
+      "authority",
+      "alternative-rejected",
+      "reversal-cost",
+      "confidence"
+    ],
+    "conflicts": [],
+    "supersessions": [],
+    "unresolved": [
+      "No individual is named as holding the decision; the act is the Board's. Helen Strudwick presented the paper, which does not make her its owner.",
+      "The act cites no delegation or instrument. Whether the Scheme of Delegation's reserved matters cover it is reported as applicability findings beside this candidate, not as authority.",
+      "Paper 7, which the minute cites, is not in the material supplied; what it put before the Board beyond what the minute records is unknown.",
+      "No alternative is recorded as having been considered.",
+      "The minute records 'It was agreed that agency cover would be kept on hand' before the resolution and outside its text. Whether that is a separate act of the Board is not settled; splitting it out as its own candidate would be defensible on the same evidence.",
+      "The transfer date resolved here (1 September 2026) was later moved to 1 October by a different act, recovered as HC-003. This candidate records the resolution as made.",
+      "Whether the OIC discussion of 9 April was before the Board is not shown: the Board minute records a report on the meeting of 9 April only under the Vantry item.",
+      "No statement of what reversing the transfer would cost is in the material; the proportionality tier is undetermined."
+    ],
+    "status": "candidate"
+  },
+  {
+    "assembly_id": "HC-003-ASM",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "HC-003-C01",
+      "HC-003-C02",
+      "HC-003-C03",
+      "HC-003-C04",
+      "HC-003-C05",
+      "HC-003-C06",
+      "HC-003-C07",
+      "HC-003-C08",
+      "HC-003-C09",
+      "HC-003-C10",
+      "HC-003-C11",
+      "HC-003-C12",
+      "HC-003-C13",
+      "HC-003-C14",
+      "HC-003-C15",
+      "HC-003-C16",
+      "HC-003-C17"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "The four emails are one thread: 'Kestrel go-live, 1 September', then 'FW: Kestrel go-live, 1 September' ('Margaret, see below'), then two 'RE: FW: Kestrel go-live, 1 September'."
+      },
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "Decision log row DL-26-014 gives its source as 'Email thread 13 to 22 July. Para 4.5'; row DL-26-015 names DL-26-014."
+      },
+      {
+        "basis": "temporal-continuity",
+        "evidence": "The chat headed 'Thu 23 July' refers to 'the email' and says 'Margaret and Duncan signed it off yesterday' about '1 Oct'."
+      },
+      {
+        "basis": "entity-match",
+        "evidence": "The October status report names the same transfer to the Kestrel Customer Hub and its date, 1 October."
+      }
+    ],
+    "assembly_confidence": "high",
+    "missing_semantics": [
+      "reversal-cost",
+      "confidence"
+    ],
+    "conflicts": [
+      {
+        "semantic_role": "accountable-owner",
+        "contribution_refs": [
+          "HC-003-C03",
+          "HC-003-C04"
+        ],
+        "note": "Two named individuals. The emails read as an act of both, and the decision log records it as taken by 'Chair and Chief Executive'; one named individual cannot be read off the evidence. Recorded, not resolved."
+      }
+    ],
+    "supersessions": [],
+    "unresolved": [
+      "Which of the two named individuals held the decision, or whether it was held jointly, is not settled by the evidence.",
+      "Duncan Faraday's part is his email of 13 July ('I think we should move it to 1 October'); nothing later in the thread is from him. That he 'signed it off' is stated only in the chat of the following day and in the decision log.",
+      "The authority is a paragraph number, '4.5', given with a hedge by the Company Secretary. The thread does not name the instrument, and the act-record itself (Margaret Oyelaran's email) cites nothing. That the Scheme of Delegation's paragraph 4.5 has terms covering the act is reported as an applicability finding beside this candidate.",
+      "The offices the two held (Chair; Chief Executive) are stated in the Board minute of 21 May and the decision log, not in the thread.",
+      "The Board minute of 17 September 2026 (minute 5), which the log says noted this decision, is not in the material supplied.",
+      "'keep the agency cover going until then' is carried as a second resolution of the same act (one email, one agreement). Who was to pay for the cover is not in the act; it is raised and left open in the chat of the following day.",
+      "No statement of what reversing the change would cost is in the material; the proportionality tier is undetermined."
+    ],
+    "status": "candidate"
+  },
+  {
+    "assembly_id": "HC-004-ASM",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "HC-004-C01",
+      "HC-004-C02",
+      "HC-004-C03",
+      "HC-004-C04",
+      "HC-004-C05",
+      "HC-004-C06",
+      "HC-004-C07",
+      "HC-004-C08",
+      "HC-004-C09",
+      "HC-004-C10",
+      "HC-004-C11",
+      "HC-004-C12",
+      "HC-004-C13",
+      "HC-004-C14"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "Decision log row DL-26-013, 'Orchard licence ... Six-month extension', gives its source as 'File note'; the file note is headed 'Orchard extension' and records 'six months from 1 Oct'."
+      },
+      {
+        "basis": "entity-match",
+        "evidence": "OIC Paper 4 names 'the Orchard extension', to be 'arranged by the Finance Director'; the file note is headed 'Orchard extension'."
+      },
+      {
+        "basis": "entity-match",
+        "evidence": "The October status report names the same extension: 'Calder extended the licence by six months to the end of March 2027'."
+      }
+    ],
+    "assembly_confidence": "medium",
+    "missing_semantics": [
+      "authority",
+      "reversal-cost",
+      "confidence"
+    ],
+    "conflicts": [],
+    "supersessions": [],
+    "unresolved": [
+      "The file note carries no year: it is dated 'Tues, wk of 1 June'. The year 2026 comes only from the decision log, a later restatement of the note; the month is common to both. If the year is 2026 the note's date denotes Tuesday 2 June 2026; the date is carried as 2026-06 and not completed.",
+      "Whether the day the note was written is the day the extension was agreed is not stated.",
+      "The agreement is verbal. The letter Calder was to send 'by end of month' is not in the material, so a written agreement, its date and its terms are not evidenced; that the extension took effect rests on later material only.",
+      "The owner rests on the note's heading, 'P. Nandakumar', read with its first-person 'Within my limit'. The post (Finance Director) is supplied only by the OIC minute of 9 April and the decision log.",
+      "The limit the note states names no instrument, so no authority is contributed. That the Scheme of Delegation's paragraph 4.4 has terms covering the act is reported as an applicability finding beside this candidate.",
+      "Every context contribution drawn from the file note grades indeterminate for contemporaneity: the note carries no time that has a basis (no year), and consideration does not lift a time-less artefact. They are held as evidence and are not presented as contemporaneous context.",
+      "The budget source was to be checked ('Check with Karen'); no confirmation is in the material.",
+      "Whether data export tools stay licensed during the extension is not evidenced.",
+      "The decision log, as at 30 September 2026, shows the report of the extension to the OIC as open (A-26-045, due 11 June) and the file note as 'not yet seen by OIC'.",
+      "The decision log's 'File note' is not otherwise identified; that it is this note rests on the matching subject, period and post-holder.",
+      "No statement of what reversing the extension would cost is in the material; the proportionality tier is undetermined."
+    ],
+    "status": "candidate"
+  }
+]

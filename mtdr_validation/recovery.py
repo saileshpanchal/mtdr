@@ -134,7 +134,10 @@ def _interval(t):
 def contemporaneity(capture, creation, event, considered='unknown'):
     """`historical-recovery.md` §Contemporaneity — computed from the times, never asserted. The times
     order material across days, never within one; an order they leave open is closed only by
-    `considered: evidenced`, which never lifts a time-less artefact and never overrides `later`."""
+    `considered: evidenced`, which never lifts a time-less artefact and never overrides `later`. A partial
+    date that spans the event cannot prove the order or show which version existed (the owner's
+    disposition of 27 November), so an order such a date leaves open is never closed. A partial date
+    wholly before or after the event still orders it."""
     if event == 'unknown':
         return 'indeterminate'                 # a missing event moment is never assumed
     ev = _interval(event)
@@ -144,12 +147,18 @@ def contemporaneity(capture, creation, event, considered='unknown'):
             return 'contemporaneous'
         if cap[0] > ev[1]:
             return 'later'
-        left_open = True                       # the event's own day, or a span that includes it
+        if len(capture) < 10:
+            return 'indeterminate'             # a partial date spans the event: no version, no order
+        left_open = True                       # the event's own day
     elif creation != 'unknown':
         cre = _interval(creation)
         if cre[1] < ev[0]:
             return 'contemporaneous'           # the content existed by then, so it was captured by then
-        left_open = cre[0] <= ev[1]            # written up later says nothing about capture
+        if cre[0] > ev[1]:
+            return 'indeterminate'             # written up later says nothing about capture
+        if len(creation) < 10:
+            return 'indeterminate'             # a partial date spans the event: no version, no order
+        left_open = True                       # created on the event's own day
     else:
         left_open = False                      # no time at all: nothing to order
     return 'contemporaneous' if left_open and considered == 'evidenced' else 'indeterminate'

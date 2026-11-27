@@ -23,10 +23,10 @@ below the repository root, a shared skill two, counting the directories that con
 skill's own folder. Copying the 30 collected skills flat into `.gemini/skills/` makes them discoverable, but puts
   every skill two directories below the project root. Each relative link is written for the depth at
   which its skill sits in the repository, so from any other depth a link to anything but a
-  neighbouring skill lands somewhere else. **66 of their 108 relative links no longer resolve, in
+  neighbouring skill lands somewhere else. **66 of their 109 relative links no longer resolve, in
   15 of the 30 skills, even inside a full clone**.
   The links that still resolve all reach the file the skill means.
-  In a project without the repository, 92 of 108 break.
+  In a project without the repository, 92 of 109 break.
 The flat collection in [`canonical/skills/`](../canonical/skills/) is the catalogue's byte-identical
 copies, not an install.
 

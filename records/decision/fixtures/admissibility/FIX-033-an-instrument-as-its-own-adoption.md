@@ -6,9 +6,11 @@
 only because it is the evidence — while a candidate still needs contemporaneity, authentication and
 evidence of effect.
 
-*It applies the owner's ruling R3 of 7 November. What counts as authentication and as effect is the
-drafter's, and the Standing Orders below pass on signatures and a register entry that the instrument
-states about itself: whether that is enough is open (E5 in [TDR-0049](../../../../decisions/TDR-0049-decision-recovery-vocabulary.md#where-this-record-goes-beyond-the-owners-rulings)).*
+*It applies the owner's ruling R3 of 7 November and the owner's disposition of 27 November: an
+instrument does not authenticate itself by an unverified assertion ([preserved](../../../../decisions/evidence/TDR-0048-0049-0050-owner-dispositions-2026-11-27.md);
+E5 in [TDR-0049](../../../../decisions/TDR-0049-decision-recovery-vocabulary.md#where-this-record-goes-beyond-the-owners-rulings)).
+Corrected on 27 November: the Standing Orders were a candidate on signatures and a register entry
+that only the instrument states.*
 
 ## Sources
 
@@ -30,11 +32,14 @@ states about itself: whether that is enough is open (E5 in [TDR-0049](../../../.
 
 ## Expected
 
-- **One candidate**, for the adoption of the Standing Orders, dated `2022-03-03` from the instrument's
-  own statement. The instrument is the act-record: contemporaneous by its own statement,
-  authenticated by its signatures and its register entry, and shown to have effect by B, a later act
-  that relies on it by citation. B supports that effect and nothing else. The owner is **missing** —
-  the Board is the forum, not an owner.
+- **No candidate for the Standing Orders' adoption, and the instrument is not set aside.** It is the
+  act-record of its adoption, contemporaneous by its own statement (`2022-03-03`), and shown to have
+  effect by B, a later act that relies on it by citation; B supports that effect and nothing else.
+  Its signatures and register entry SO-22 are stated only by the instrument itself, and nothing in the
+  material supports them, so **its authenticity is recorded as unresolved**. It is reported with the
+  two conditions met and the evidence that would settle the third: the register of instruments'
+  entry SO-22, or the Board's minute of 3 March 2022. With that evidence it would be a candidate,
+  dated `2022-03-03`, its owner **missing** — the Board is the forum, not an owner.
 - **No candidate for the procurement policy.** Its adoption month is its own statement, but nothing
   authenticates the extract and nothing shows it had effect. It is **reported**, with the condition
   met and the evidence that would establish the other two: an adopting resolution, signature or
@@ -43,6 +48,8 @@ states about itself: whether that is enough is open (E5 in [TDR-0049](../../../.
 ## Must not
 
 - **Set aside the Standing Orders' adoption because the only record of the act is the instrument.**
+- **Treat the instrument's own statement of its signatures and register entry as authentication**, or
+  record its unsettled authenticity as failed rather than unresolved.
 - **Draft a candidate for the procurement policy** on its own statement that it was adopted.
 - **Date the adoption from B**, or complete the procurement policy's `2024-01` to a day.
 - **Treat B as context for the adoption.** It is later material, and evidences effect only.

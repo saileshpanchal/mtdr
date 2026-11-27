@@ -225,8 +225,9 @@ an adopter, and its review date is set for that reason.
 ## Re-assessment, 26 November 2026
 
 **What the first assessment did not cover.** TDR-0049's rulings R1 to R4 were applied after it. They
-decide who or what may be recorded as authority, so they are assessed here; whether TDR-0049 needs a
-case of its own is the owner's decision. The amendment of 23 November and the corrections of
+decide who or what may be recorded as authority, so they are assessed here; on 27 November the owner
+disposed that TDR-0049 needs no case of its own, this one covering them
+([dispositions](evidence/TDR-0048-0049-0050-owner-dispositions-2026-11-27.md)). The amendment of 23 November and the corrections of
 26 November followed it too. Where the records go beyond a ruling is listed in
 [TDR-0049](TDR-0049-decision-recovery-vocabulary.md#where-this-record-goes-beyond-the-owners-rulings) and in
 [TDR-0048](TDR-0048-historical-recovery-doctrine.md#where-this-record-goes-beyond-the-owners-rulings).
@@ -239,12 +240,13 @@ case of its own is the owner's decision. The amendment of 23 November and the co
   the act does not cite never fills `authority`, whatever was put before whoever acted. Residual: the
   suite cannot tell the instrument an act cites from a paper that was before whoever acted, because
   both are `cited-material`. Challenge must. Owned by the challenger.
-- **An instrument as its own adoption (R3).** As written, an instrument's statement of its own
-  signatures and register entry authenticates it (FIX-033). A forged or later-consolidated extract
-  that asserts its own adoption, signatures and register entry passes authentication, and fails only
-  if no later act cites it. **Not mitigated.** The owner decides between requiring authentication from
-  material other than the instrument's own text, and accepting the risk, recorded here and owned by the
-  attester. Added to the decision debt.
+- **An instrument as its own adoption (R3).** As first written, an instrument's statement of its own
+  signatures and register entry authenticated it (FIX-033), so a forged or later-consolidated extract
+  that asserted them would pass. **Mitigated by the owner's disposition of 27 November**: an
+  instrument does not establish its own authenticity through an unverified assertion, and
+  authenticity the supporting evidence does not settle is recorded as unresolved. Residual: forged
+  supporting evidence, such as a fabricated register entry, which challenge and the attester must
+  test. Owned by the attester.
 - **One act, one candidate (R2).** The exploit is folding a contested resolution into an uncontested
   one, so that one attestation carries both. Mitigated: each resolution stays traceable and can be
   superseded alone, and separate votes, approvals, people or times split. Residual: a single vote that
@@ -262,9 +264,8 @@ case of its own is the owner's decision. The amendment of 23 November and the co
 incomplete, not less. That is the conservative path (A2) working as intended, and it adds to the
 pressure, under *Systems thinking*, to treat candidates as fact outside the standard.
 
-**Result.** The disposition stands: proceed with constraints. One risk is newly identified and not
-mitigated (an instrument authenticating itself). It is decision debt, not a constraint, until the
-owner decides it.
+**Result.** The disposition stands: proceed with constraints. The one risk newly identified, an
+instrument authenticating itself, is mitigated by the owner's disposition of 27 November.
 
 ## Contradictions, and how each is handled
 
@@ -284,15 +285,16 @@ owner decides it.
 | Fixtures testing constraint 3 — a capture time not evidenced by its fragment or source is `unknown` | Sailesh Panchal | drafted as FIX-029 and FIX-030; normative with TDR-0049 |
 | A two-reviewer grading of evidence kinds over a sample, to test consistency | Sailesh Panchal | before TDR-0048 is confirmed |
 | An independent reviewer of the doctrine, who is not its author | Sailesh Panchal | before confirmation |
-| A further independent confirmation of decision recovery, by an adopter who is not the drafter, over material the drafter did not write | Sailesh Panchal | before TDR-0049's confirmation gate is met. One ran on 26 November, by an AI agent over a corpus a third agent wrote; whether it meets this row is the owner's judgement ([commitment](evidence/DAC-0048-confirmation-2026-11-26-commitment.json)) |
-| Whether an instrument's own text may authenticate it, and conduct show its effect (E5 in [TDR-0049](TDR-0049-decision-recovery-vocabulary.md#where-this-record-goes-beyond-the-owners-rulings)) | Sailesh Panchal | before TDR-0049 is ratified |
+| A further independent confirmation of decision recovery, by an adopter who is not the drafter, over material the drafter did not write | Sailesh Panchal | before TDR-0049's confirmation gate is met. One ran on 26 November, by an AI agent over a corpus a third agent wrote. On 27 November the owner directed that it be treated as **limited internal confirmation evidence**: it claims no external validation, and this row stays open ([the confirmation](evidence/DAC-0048-confirmation-2026-11-26/); [commitment](evidence/DAC-0048-confirmation-2026-11-26-commitment.json)) |
+| Whether an instrument's own text may authenticate it, and conduct show its effect (E5 in [TDR-0049](TDR-0049-decision-recovery-vocabulary.md#where-this-record-goes-beyond-the-owners-rulings)) | Sailesh Panchal | decided on 27 November: an unverified assertion does not authenticate, and unsettled authenticity is recorded as unresolved ([dispositions](evidence/TDR-0048-0049-0050-owner-dispositions-2026-11-27.md)) |
 | Order within a day: times carry no time of day, so same-day material is ordered only by evidence of consideration — kept deliberately, not broadened in this increment | Sailesh Panchal | revisit on a demonstrated need |
 
 **The order of acceptance.** The owner fixed it: this case, then TDR-0048, then TDR-0049, with TDR-0050
 on its own merits. Once TDR-0048 is ratified, `historical-recovery.md` requires every package to state
 a matrix, and the decision package's matrix stays proposed until TDR-0049 is. TDR-0048 also relies on
-TDR-0050's `singleton` basis. Whether to ratify them in one sitting, in that order with TDR-0050 before
-TDR-0048, or to accept the interval, is the owner's decision.
+TDR-0050's `singleton` basis. On 27 November the owner disposed that the four are ratified by
+separate acts in this order: TDR-0050, this case, TDR-0048, TDR-0049
+([dispositions](evidence/TDR-0048-0049-0050-owner-dispositions-2026-11-27.md)).
 
 ## Monitoring contract
 

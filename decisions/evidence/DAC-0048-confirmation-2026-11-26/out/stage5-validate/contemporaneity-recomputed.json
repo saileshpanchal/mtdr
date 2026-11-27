@@ -1,0 +1,49 @@
+{
+  "HC-001": {
+    "event_time": "2026-04-09",
+    "grades": {
+      "HC-001-C03": "contemporaneous",
+      "HC-001-C04": "contemporaneous",
+      "HC-001-C05": "contemporaneous",
+      "HC-001-C08": "contemporaneous",
+      "HC-001-C09": "contemporaneous",
+      "HC-001-C10": "contemporaneous",
+      "HC-001-C11": "contemporaneous",
+      "HC-001-C12": "contemporaneous",
+      "HC-001-C13": "contemporaneous",
+      "HC-001-C14": "contemporaneous",
+      "HC-001-C15": "contemporaneous"
+    }
+  },
+  "HC-002": {
+    "event_time": "2026-05-21",
+    "grades": {
+      "HC-002-C03": "contemporaneous",
+      "HC-002-C06": "contemporaneous",
+      "HC-002-C07": "contemporaneous",
+      "HC-002-C08": "contemporaneous",
+      "HC-002-C09": "contemporaneous",
+      "HC-002-C10": "contemporaneous",
+      "HC-002-C11": "contemporaneous"
+    }
+  },
+  "HC-003": {
+    "event_time": "2026-07-22",
+    "grades": {
+      "HC-003-C07": "contemporaneous",
+      "HC-003-C08": "contemporaneous",
+      "HC-003-C09": "contemporaneous"
+    }
+  },
+  "HC-004": {
+    "event_time": "2026-06",
+    "grades": {
+      "HC-004-C04": "indeterminate",
+      "HC-004-C06": "indeterminate",
+      "HC-004-C07": "indeterminate",
+      "HC-004-C08": "indeterminate",
+      "HC-004-C09": "indeterminate",
+      "HC-004-C12": "contemporaneous"
+    }
+  }
+}

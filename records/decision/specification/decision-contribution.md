@@ -166,19 +166,25 @@ act, below, is the drafter's (E4 in [TDR-0049](../../../decisions/TDR-0049-decis
 scheme of delegation, a policy or standing orders that state when they were adopted. It is **never set
 aside solely because the evidence of the adoption is the instrument adopted** (the owner's ruling R3). A
 candidate for the adoption needs, as well as the instrument, three conditions. *What counts as
-authentication and as effect is the drafter's, and whether an instrument's own text may authenticate
-it is open (E5 in [TDR-0049](../../../decisions/TDR-0049-decision-recovery-vocabulary.md#where-this-record-goes-beyond-the-owners-rulings)).*
+authentication and as effect is the drafter's; that an instrument never authenticates itself by an
+unverified assertion is the owner's disposition of 27 November (E5 in [TDR-0049](../../../decisions/TDR-0049-decision-recovery-vocabulary.md#where-this-record-goes-beyond-the-owners-rulings);
+[preserved](../../../decisions/evidence/TDR-0048-0049-0050-owner-dispositions-2026-11-27.md)).*
 
 - **contemporaneity** — the instrument as adopted, its adoption time stated by the instrument itself or
   by its source's recorded metadata, not a later consolidation;
 - **authentication** — evidence that this is the instrument as issued: an adopting resolution, a
-  signature or seal, a publication or register entry by the adopting body;
+  signature or seal, a publication or register entry by the adopting body. **An instrument does not
+  authenticate itself by an unverified assertion**: a signature, seal or register entry that only the
+  instrument's own text states is an assertion, and authenticates it only where other evidence
+  supports it — the adopting resolution, the register or publication itself, or the source's recorded
+  metadata;
 - **evidence of its legal or organisational effect** — a commencement provision that has passed, or a
   later act that relies on it by citation. Later material may evidence effect, as it may evidence that
   any act occurred, and supplies nothing else.
 
 Where a condition is not evidenced, the instrument is reported with the conditions that are met and
-the evidence that would establish the rest. Its terms stay usable as the instrument they are — for
+the evidence that would establish the rest. **Authenticity that the supporting evidence does not
+settle is recorded as unresolved**, not as failed. Its terms stay usable as the instrument they are — for
 applicability, or as authority where an act cites them.
 
 ## Persistence is not a decision

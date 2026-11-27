@@ -43,3 +43,11 @@ As commit `4aa7d5f` applied it:
 
 The commit message also records that this named change to canonical skills was the owner's ruling, and
 that it overrode the instruction not to alter canonical skills for this change only.
+
+## The owner's disposition of 27 November
+
+Asked to confirm the words, the owner directed: *"Preserve the current rule that retrospective
+candidates remain candidate views, without inventing evidence of earlier ratification."*
+([dispositions](TDR-0048-0049-0050-owner-dispositions-2026-11-27.md)). The rule is therefore kept as
+TDR-0048 states it. This note remains the record of a ruling quoted in a commit message. It is not
+evidence that anything was ratified on 23 November, and nothing here is read as such.

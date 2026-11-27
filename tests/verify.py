@@ -631,7 +631,8 @@ for _cap, _cre, _ev, _con, _want in (
         ('2019-03-14', 'unknown', '2019-03-14', 'evidenced', 'contemporaneous'),  # before whoever acted
         ('2019-03-15', 'unknown', '2019-03-14', 'evidenced', 'later'),            # never overridden
         ('2019-03', 'unknown', '2019-03-14', 'unknown', 'indeterminate'),         # March spans the 14th
-        ('2019-03', 'unknown', '2019-03-14', 'evidenced', 'contemporaneous'),     # the span's order closed
+        ('2019-03', 'unknown', '2019-03-14', 'evidenced', 'indeterminate'),       # a partial date proves no order
+        ('unknown', '2019-03', '2019-03-14', 'evidenced', 'indeterminate'),       # nor which version existed
         ('2019-02', 'unknown', '2019-03-14', 'unknown', 'contemporaneous'),
         ('2020', 'unknown', '2019-03', 'evidenced', 'later'),
         ('2019-12', 'unknown', '2019', 'unknown', 'indeterminate'),

@@ -110,16 +110,21 @@ about it can be authored:
 5. **An order the times leave open is closed only by evidence that the material was before whoever
    acted** — `considered: evidenced` (below). That material preceded the act, and grades
    `contemporaneous`. Nothing else closes it: matching dates do not, and neither does the material's
-   subject. Otherwise the grade is `indeterminate`.
+   subject. Otherwise the grade is `indeterminate`. **A partial date cannot prove the order, or show
+   which version of a document existed at the time**: where the time that leaves the order open is a
+   partial date spanning the event, evidence of consideration shows that some version of the material
+   was before whoever acted, not that this artefact is that version, and the grade stays
+   `indeterminate`. Nor does consideration lift a later creation time.
 6. A contribution resting on several fragments takes the **least** contemporaneous grade among them:
    `later` if any is later, otherwise `indeterminate` if any is indeterminate. A fragment marked as a
    restatement is graded as the fragment it restates, where the candidate carries it: repeating a
    source adds no time of its own.
 
-*Two parts of these rules are the drafter's, not the owner's correction: a partial date that spans the
-event leaves the order open (rule 3, E9), and what a creation time shows when the capture time is
-`unknown` (rule 4, E10). Both are listed in [TDR-0048](../decisions/TDR-0048-historical-recovery-doctrine.md#where-this-record-goes-beyond-the-owners-rulings) for the
-owner's decision.*
+*Two parts of these rules went beyond the owner's same-day correction: partial dates that span the
+event (rules 3 and 5, E9), and what a creation time shows when the capture time is `unknown` (rules 4
+and 5, E10). Both now follow the owner's disposition of 27 November
+([preserved](../decisions/evidence/TDR-0048-0049-0050-owner-dispositions-2026-11-27.md)), recorded in
+[TDR-0048](../decisions/TDR-0048-historical-recovery-doctrine.md#where-this-record-goes-beyond-the-owners-rulings).*
 
 **Consideration closes an open order; it never overrides one.** It does not lift a time-less artefact
 — the link shows that some version of the material was before whoever acted, not when this artefact

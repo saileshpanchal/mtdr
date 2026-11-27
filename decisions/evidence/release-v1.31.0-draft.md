@@ -38,7 +38,24 @@
 - **The experimental package state** (TDR-0047) and the Inheritance package are new, and are not part
   of the standard.
 
-The version stays proposed until it is confirmed against compatibility and governance requirements.
+The version stays proposed until it is confirmed against compatibility and governance requirements,
+and the owner's disposition of 27 November keeps it proposed until compatibility checks establish that
+no breaking change has been introduced.
+
+**Compatibility checks, 27 November 2026.** Run on the candidate after the owner's dispositions.
+
+| Check | Result |
+|---|---|
+| Governed records present at `v1.30.0` | None modified; six added (TDR-0046 to TDR-0050, DAC-0048) |
+| Decision and Value specifications, schemas, templates and worked examples | Byte-identical to `v1.30.0` |
+| `record-identity.md` and the identity check | Identical to `v1.30.0`; the `vr@1.3.0` probe is rejected as `v1.30.0` rejects it |
+| The shared candidate-assembly schema | One enumeration value added (`singleton`); every assembly valid under 1.0.0 stays valid |
+| `v1.30.0`'s tests over the candidate | The same 13 known failures, all from the experimental package state |
+
+**What does change is interpretation, not validity.** Admission criteria 2 and 6, five existing skills and
+FIX-301's expected answers change how a candidate is interpreted, and only if the recovery records are
+ratified. No record valid under `v1.30.0` becomes invalid. On this evidence no breaking change has
+been found. The version stays proposed until the owner authorises publication.
 
 ## What is claimed
 
@@ -95,7 +112,8 @@ Each is tracked, and none is resolved by wording in this release.
 - the bundle check and the installer's verification of the `decision` and `value` packages;
 - the history scan of the commits the release adds to `main`;
 - the independent reviews: PR #22 and its follow-ups, the review of the recovery records, the
-  independent confirmation of decision recovery, and the readability review.
+  confirmation of decision recovery of 26 November, which is limited internal confirmation evidence
+  and not external validation, and the readability review.
 
 ## After publication
 

@@ -29,6 +29,12 @@ confirmed_by_outcome: pending — confirm only when an implementation outside th
 > would revert is [listed](#if-this-record-is-returned). It has no assurance case of its own: its four
 > rulings, which bear on authority and on what makes one candidate, are assessed in
 > [DAC-0048](DAC-0048-historical-recovery-doctrine.md). It stays proposed.
+>
+> **Corrected again on 27 November 2026, on the owner's dispositions** ([preserved](evidence/TDR-0048-0049-0050-owner-dispositions-2026-11-27.md)) of
+> the choices listed [below](#where-this-record-goes-beyond-the-owners-rulings): an instrument never
+> authenticates itself by an unverified assertion; `taxonomy_version` 1.0.0 is the vocabulary as
+> ratified; and no separate assurance case is needed, DAC-0048 covering its rulings. The dispositions
+> direct the text and ratify nothing. It stays proposed.
 
 ## Context — what was known at the time
 
@@ -55,6 +61,8 @@ specification, not in a skill.**
    `status-update`, `action`, `preference`, `restatement`, `operational-routine` — defined in the
    specification and published in a versioned machine-readable form,
    [`decision-contribution.schema.json`](../records/decision/schema/decision-contribution.schema.json).
+   Its `taxonomy_version` 1.0.0 is the vocabulary as this record ratifies it; artefacts made before
+   ratification, the trial of 7 November among them, carried 1.0.0 as a draft.
    `decision-identification` and every recovery skill cite it; a consumer loads it.
 3. **No decision evidenced, and evidence that no decision was made, are different findings.** The
    second has kinds — `deferred`, `not-reached`, `withdrawn` — and a deferral that commits is a
@@ -86,7 +94,8 @@ specification, not in a skill.**
      separate candidates.
    - **An instrument may record its own adoption** (R3) — contemporaneous, authenticated, with evidence of
      its legal or organisational effect — and is never set aside solely because the instrument is the
-     evidence.
+     evidence. It never authenticates itself by an unverified assertion, and authenticity the evidence
+     does not settle is recorded as unresolved (E5).
    - **Persistence is not a decision** (R4). Continued operation is a `persistence` finding, with its
      authority for continuation flagged; a decision to continue is recovered only from evidence of
      that act.
@@ -122,7 +131,8 @@ specification, not in a skill.**
 The return asks that an amendment applying a ruling to a case the ruling did not name say so. These
 are those places. Each is the **drafter's** (written while the records were amended) or the
 **assistant's** (a correction of 26 November, after the independent review), and none is the owner's
-until the owner decides it.
+until the owner decides it. The owner's dispositions of 27 November ([preserved](evidence/TDR-0048-0049-0050-owner-dispositions-2026-11-27.md)) are
+recorded against each question; they direct the text while it is proposed, and ratify nothing.
 
 - **E1 — Invocation is the act's own citation** (R1). *The assistant's resolution.* The specification
   also allowed an instrument named in "material shown to have been before whoever acted"; this record
@@ -132,7 +142,8 @@ until the owner decides it.
   finding records that it was put before them. Where:
   `decision-contribution.md`, its schema's description, FIX-520. **Owner's question:** may such
   material support an authority contribution? The independent confirmation of 26 November met the case
-  (advice that "4.5 covers a change of date", before an act that did not cite it). That evidence is committed by hash and held by the maintainer.
+  (advice that "4.5 covers a change of date", before an act that did not cite it). That evidence is published as [limited internal confirmation evidence](evidence/DAC-0048-confirmation-2026-11-26/). **Owner's disposition, 27 November:**
+  accepted as written.
 - **E2 — The test for applicability** (R1). *The drafter's.* A span of the instrument and a span of the
   act that brings the act within its terms, and a statement of whether the body that acted is the body
   the instrument names. Where: `decision-contribution.md`, FIX-031, FIX-301 D1.
@@ -147,24 +158,29 @@ until the owner decides it.
   has passed or a later act citing it. As written, an instrument's statement of its own signatures and
   register entry authenticates it (FIX-033), so a forged extract would pass. **Owner's question:** may
   authentication and effect be evidenced by the instrument's own text and by consistent conduct, or
-  only by independent material and acts that cite it? Where: `decision-contribution.md`, FIX-033,
+  only by independent material and acts that cite it? **Owner's disposition, 27 November:** an instrument
+  may record its own adoption, but does not establish its own authenticity through an unverified
+  assertion; where the supporting evidence is insufficient, authenticity is recorded as unresolved.
+  FIX-033's Standing Orders are therefore reported, not a candidate. Where: `decision-contribution.md`, FIX-033,
   FIX-301 SRC-01.
 - **E6 — A reported commitment is not recovered** (R4). *The drafter's.* A note that money "has been
   included" evidences that a commitment occurred and supports no candidate. It reverses FIX-301's
   answer accepted in v1.30.0. **Owner's question:** is such a report evidence of a decision to recover,
-  with its date unknown, or only evidence that some commitment occurred? Where:
+  with its date unknown, or only evidence that some commitment occurred? **Owner's disposition, 27 November:** accepted
+  as written; at ratification, v1.30.0's FIX-301 answer is superseded. Where:
   `decision-contribution.md`, FIX-034, FIX-301 SRC-06.
 - **E7 — Ruling R1 and the value language.** *The assistant's statement of scope.* FIX-301's V1 keeps
   `committed_by` and the counter-signatory as v1.30.0 accepted them, although they rest in part on
   scheme paragraphs no act cites. **Owner's question:** does R1 extend to the value language's
-  inference of `committed_by`?
+  inference of `committed_by`? **Owner's disposition, 27 November:** not in this release.
 - **E8 — An undetermined proportionality outcome satisfies admission criterion 6.** *The drafter's,
   limited to historical candidates by the assistant.* No ruling covers it. It is not a relaxation of the
   kind [TDR-0048](TDR-0048-historical-recovery-doctrine.md) forecloses, on this reasoning: the criterion
   requires the outcome to be stated, and [TDR-0017](TDR-0017-language-admission-test.md) already holds
   that an honest "undetermined, because …" discharges a criterion that silence fails. Limiting it to
   historical candidates leaves every other candidate's admission as v1.30.0 had it. **Owner's
-  question:** keep it for historical candidates, or revert criterion 6 to its v1.30.0 text? Where:
+  question:** keep it for historical candidates, or revert criterion 6 to its v1.30.0 text? **Owner's disposition, 27 November:** keep it for historical
+  candidates. Where:
   `admission.md` criterion 6, and `draft-tdr` §2, which says the same.
 - **E14 — Applicability and persistence are findings** (R1, R4). *The drafter's.* The return said to
   record evidenced applicability separately, and persistence as observed behaviour. That both are

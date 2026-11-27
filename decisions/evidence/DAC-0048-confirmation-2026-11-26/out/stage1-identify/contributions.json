@@ -1,0 +1,1182 @@
+[
+  {
+    "contribution_id": "HC-001-C01",
+    "fragment_refs": [
+      "F03-4-DEC"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "decision-statement",
+    "interpreted_value": "The Committee approved the award to Vantry Systems Ltd as recommended, subject to the Company Secretary being satisfied with the exit and data return clauses.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-001-C02",
+    "fragment_refs": [
+      "F03-HEAD"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "decision-date",
+    "interpreted_value": "2026-04-09",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-001-C03",
+    "fragment_refs": [
+      "F03-HEAD",
+      "F03-PRESENT",
+      "F03-4-DEC"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "context",
+    "interpreted_value": "The approval is recorded as the act of a forum, the Operations & Investment Committee, at its meeting of 9 April 2026. Present: Tobias Wren (Chair), Anita Folorunsho, Raymond Quill, Priya Nandakumar (Finance Director), Duncan Faraday (Chief Executive). The minute names no individual as holding the decision.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-001-C04",
+    "fragment_refs": [
+      "F02-HEAD",
+      "F02-REC"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "context",
+    "interpreted_value": "The recommendation before the Committee in Paper 4 was to (1) approve the award of a five-year contract to Vantry Systems Ltd, (2) note the implementation call-off and contingency, and (3) note that the Orchard extension will be arranged by the Finance Director.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-001-C05",
+    "fragment_refs": [
+      "F02-BG"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "context",
+    "interpreted_value": "Orchard (supplied by Calder Software) has been in use since 2014; Calder will stop supporting the current version when the licence ends on 30 September 2026; repairs, rents, tenancy and complaints records all sit in Orchard; there are 31 interfaces to other systems.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-001-C06",
+    "fragment_refs": [
+      "F02-OPT-A"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "alternative-rejected",
+    "interpreted_value": "Option A: extend Orchard on a rolling basis. Paper 4: Calder have said this is possible only for short periods and at rising cost. Not recommended.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-001-C07",
+    "fragment_refs": [
+      "F02-OPT-C"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "alternative-rejected",
+    "interpreted_value": "Option C: Meridian Housing Suite, presented in Paper 4 with an evaluation score of 74 out of 100. The paper states no reason beyond the score.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-001-C08",
+    "fragment_refs": [
+      "F02-COSTS",
+      "F02-FUND"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "evidence-business",
+    "interpreted_value": "Paper 4 costs for Option B: licence, hosting and support, five years, 690,000; implementation services (call-off), 235,000; contingency (held by Finance, not committed), 90,000; programme total including contingency, 1,015,000 (GBP). Funding is stated to be within the approved IT capital line for 2026/27 and 2027/28.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-001-C09",
+    "fragment_refs": [
+      "F03-4-FUND"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "evidence-business",
+    "interpreted_value": "At the meeting Priya Nandakumar confirmed the money is in the IT capital line.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-001-C10",
+    "fragment_refs": [
+      "F02-OPT-B",
+      "F02-EVAL"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "evidence-external",
+    "interpreted_value": "Vantry Housing Platform scored 82 out of 100 in evaluation by a panel of six, including two from Customer Services and one from Finance; reference visits were made to two housing associations using Vantry.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-001-C11",
+    "fragment_refs": [
+      "F02-RISK",
+      "F03-4-MIG"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "evidence-data",
+    "interpreted_value": "Paper 4 names data migration from Orchard as the main risk; members asked about data migration at the meeting. No answer is minuted.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "low",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-001-C12",
+    "fragment_refs": [
+      "F03-4-INT"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "evidence-architecture",
+    "interpreted_value": "Asked whether the 31 interfaces had all been scoped, Ngozi Eze said 27 had.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-001-C13",
+    "fragment_refs": [
+      "F02-RISK"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "context",
+    "interpreted_value": "As at the paper, Vantry's standard exit terms were weaker than the authors would like and the Company Secretary had not yet reviewed the draft contract.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-001-C14",
+    "fragment_refs": [
+      "F02-TIME"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "context",
+    "interpreted_value": "Paper 4 timetable: contract signature in May; target go-live 11 January 2027; because go-live falls after the Orchard licence ends, a short extension of Orchard will be needed, described as within the Finance Director's delegation and to be arranged separately.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-001-C15",
+    "fragment_refs": [
+      "F03-4-MIG"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "context",
+    "interpreted_value": "Members asked what happens if Vantry is sold or fails. No answer is minuted.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "low",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-001-C16",
+    "fragment_refs": [
+      "F03-4-DEC",
+      "F02-REC",
+      "F02-COSTS"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "consequence",
+    "interpreted_value": "Award of a five-year contract to Vantry Systems Ltd (the minute approves the award 'as recommended'; the recommendation is for a five-year contract; Paper 4 costs licence, hosting and support over five years at 690,000 GBP). The minute itself states neither term nor value.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "medium",
+    "epistemic_confidence": "medium",
+    "derivation": "inferred"
+  },
+  {
+    "contribution_id": "HC-001-C17",
+    "fragment_refs": [
+      "F03-4-DEC"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "consequence",
+    "interpreted_value": "The approval is conditional: subject to the Company Secretary being satisfied with the exit and data return clauses.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-001-C18",
+    "fragment_refs": [
+      "F04-6-NOTE",
+      "F04-6-EXIT"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "corroboration",
+    "interpreted_value": "The Board minute of 21 May 2026 records that Tobias Wren reported on the meeting of 9 April, that the Board noted the Committee's approval of the contract with Vantry Systems Ltd, and that Alison Reddy confirmed the exit clauses had been improved and she was content. The Board is recorded as noting, not approving. Data return clauses are not mentioned.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-001-C19",
+    "fragment_refs": [
+      "F08-011"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "corroboration",
+    "interpreted_value": "The decision log (position as at 30 September 2026) carries the approval as DL-26-011, 9 Apr, taken by OIC, source 'OIC minute 4': 'Award five-year contract to Vantry Systems Ltd, subject to exit clauses'. A restatement of the minute; it adds nothing independent.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "low",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-001-C20",
+    "fragment_refs": [
+      "F09-SIGNED"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "corroboration",
+    "interpreted_value": "A later project status report states that the Vantry contract was signed in late May. Its description of the contract as 'Board-approved' is not supported by the act-record and is not carried.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "low",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-002-C01",
+    "fragment_refs": [
+      "F04-7-RES"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "decision-statement",
+    "interpreted_value": "The Board RESOLVED that the repairs call handling service be transferred to the Kestrel Customer Hub with effect from 1 September 2026, and that 120,000 GBP be released from the planned maintenance reserve to meet transition costs. One abstention (Daniel Osei).",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-002-C02",
+    "fragment_refs": [
+      "F04-HEAD"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "decision-date",
+    "interpreted_value": "2026-05-21",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-002-C03",
+    "fragment_refs": [
+      "F04-HEAD",
+      "F04-PRESENT",
+      "F04-7-RES"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "context",
+    "interpreted_value": "The resolution is recorded as the act of a forum, the Board of Management, at its meeting of 21 May 2026. Present: Margaret Oyelaran (Chair), Tobias Wren, Anita Folorunsho, Daniel Osei, Fenella Marsh, Duncan Faraday (Chief Executive). One abstention (Daniel Osei). The minute names no individual as holding the decision.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-002-C04",
+    "fragment_refs": [
+      "F04-7-RES-A"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "consequence",
+    "interpreted_value": "Resolution 1: the repairs call handling service transfers to the Kestrel Customer Hub with effect from 1 September 2026.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-002-C05",
+    "fragment_refs": [
+      "F04-7-RES-B"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "consequence",
+    "interpreted_value": "Resolution 2: 120,000 GBP is released from the planned maintenance reserve to meet transition costs.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-002-C06",
+    "fragment_refs": [
+      "F04-7-PROP"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "context",
+    "interpreted_value": "The proposal presented by Helen Strudwick (Paper 7): from 1 September 2026 the repairs call handling team (nine posts) transfers to the Kestrel Customer Hub, which would take calls from 8am to 8pm on weekdays and 9am to 1pm on Saturdays.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-002-C07",
+    "fragment_refs": [
+      "F04-7-TENANTS"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "evidence-customer",
+    "interpreted_value": "Tenants would see a new freephone number and the same repairs process.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-002-C08",
+    "fragment_refs": [
+      "F04-7-SAVINGS"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "evidence-business",
+    "interpreted_value": "Savings estimated at 96,000 GBP a year from year two. An estimate; no baseline or basis is given in the minute.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "low",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-002-C09",
+    "fragment_refs": [
+      "F04-7-STAFF"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "evidence-operations",
+    "interpreted_value": "Asked about the effect on staff, Helen Strudwick said consultation would begin in June and affected staff would be offered transfer or redeployment.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-002-C10",
+    "fragment_refs": [
+      "F04-7-CONCERN"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "context",
+    "interpreted_value": "Daniel Osei raised concern about the quality of service during the changeover. It was agreed that agency cover would be kept on hand.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-002-C11",
+    "fragment_refs": [
+      "F03-5-DESC",
+      "F03-5-PREF"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "context",
+    "interpreted_value": "Circumstance: on 9 April 2026 Helen Strudwick outlined to the Operations & Investment Committee an idea to move repairs call handling from the in-house team of nine to the Kestrel Customer Hub, a shared service run by Kestrel Shared Services CIC and used by three other associations; savings and service hours were discussed; the Committee was supportive in principle and asked that a full paper go to the Board on 21 May. Nothing shows that this discussion was put before the Board.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-002-C12",
+    "fragment_refs": [
+      "F08-012"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "corroboration",
+    "interpreted_value": "The decision log (position as at 30 September 2026) carries the resolution as DL-26-012, 21 May, taken by Board, source 'Board minute 7'. A restatement of the minute; it adds nothing independent.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "low",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-002-C13",
+    "fragment_refs": [
+      "F09-LIVE",
+      "F09-BUDGET"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "corroboration",
+    "interpreted_value": "A later project status report states that the service transferred to the Kestrel Customer Hub on 1 October, and that transition costs to date were 86,000 of the 120,000 released. The transfer date it reports is not the date resolved here.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-003-C01",
+    "fragment_refs": [
+      "F06-E2-BODY",
+      "F06-E4-BODY"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "decision-statement",
+    "interpreted_value": "Duncan Faraday to Margaret Oyelaran, 13 July 2026: 'I think we should move it to 1 October.' Margaret Oyelaran in reply, 22 July 2026: 'Fine. Agreed, go with 1 October, and keep the agency cover going until then.' The Kestrel go-live is moved to 1 October.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-003-C02",
+    "fragment_refs": [
+      "F06-E4-HDR"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "decision-date",
+    "interpreted_value": "2026-07-22",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-003-C03",
+    "fragment_refs": [
+      "F06-E4-HDR",
+      "F06-E4-BODY"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "accountable-owner",
+    "interpreted_value": "Margaret Oyelaran",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-003-C04",
+    "fragment_refs": [
+      "F06-E2-HDR",
+      "F06-E2-BODY"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "accountable-owner",
+    "interpreted_value": "Duncan Faraday",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "medium",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-003-C05",
+    "fragment_refs": [
+      "F06-E2-BODY",
+      "F06-E3-BODY"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "authority",
+    "interpreted_value": "'4.5' — named by Alison Reddy in answer to Duncan Faraday's question 'is this the urgent action route?': 'Yes, I think 4.5 covers a change of date, though it is the Board's resolution.' A paragraph number only; the thread does not name the instrument it belongs to.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-003-C06",
+    "fragment_refs": [
+      "F06-E3-BODY"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "challenge",
+    "interpreted_value": "The view that 4.5 covers the act is hedged by the person giving it: 'I think 4.5 covers a change of date, though it is the Board's resolution.'",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-003-C07",
+    "fragment_refs": [
+      "F06-E1-WHY"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "context",
+    "interpreted_value": "As put by Helen Strudwick on 13 July 2026: consultation closed on Friday; the union has asked for the transfer to be delayed, and she and Marcus think they have a point; seven of the nine staff have chosen transfer, two want redeployment; Kestrel cannot start training until the consultation outcome letters are out, which is next week, and say they need five weeks from that; 1 September is not achievable without risking the service.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-003-C08",
+    "fragment_refs": [
+      "F06-E1-PROP",
+      "F06-E1-ASK"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "context",
+    "interpreted_value": "Helen Strudwick suggested 1 October, with agency cover continuing until then, and asked whether it could be sorted out without waiting for the 17th, noting that the Board resolved 1 September.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-003-C09",
+    "fragment_refs": [
+      "F06-E2-BODY"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "context",
+    "interpreted_value": "Duncan Faraday's stated view: waiting for the September Board would mean either going live unprepared or staying on the wrong date in the meantime, with tenants getting the wrong number.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-003-C10",
+    "fragment_refs": [
+      "F06-E2-BODY"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "alternative-rejected",
+    "interpreted_value": "Waiting for the September Board: 'would mean we either go live unprepared or stay on the wrong date in the meantime and tenants get the wrong number.'",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-003-C11",
+    "fragment_refs": [
+      "F06-E4-R1"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "consequence",
+    "interpreted_value": "Resolution 1: go with 1 October.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-003-C12",
+    "fragment_refs": [
+      "F06-E4-R2"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "consequence",
+    "interpreted_value": "Resolution 2: keep the agency cover going until 1 October.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-003-C13",
+    "fragment_refs": [
+      "F06-E4-BODY"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "consequence",
+    "interpreted_value": "Margaret Oyelaran asked that Kestrel and the union be told and that it be logged and go to September.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-003-C14",
+    "fragment_refs": [
+      "F06-E1-ASK",
+      "F06-E3-BODY",
+      "F08-014"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "lineage",
+    "interpreted_value": "Revisits one term of an earlier decision: the transfer date of 1 September that 'the Board resolved' ('it is the Board's resolution'). The organisation's decision log carries the earlier decision as DL-26-012 and this one as DL-26-014, 'Transfer date moved from 1 Sept to 1 Oct'. The earlier decision is recovered as HC-002; neither is a recorded TDR, so no record identifier exists to cite.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "medium",
+    "epistemic_confidence": "medium",
+    "derivation": "inferred"
+  },
+  {
+    "contribution_id": "HC-003-C15",
+    "fragment_refs": [
+      "F07-HEAD",
+      "F07-CONFIRM"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "corroboration",
+    "interpreted_value": "A chat headed 'Thu 23 July' (no year) between Gareth Pemberton and Helen Strudwick: 'so 1 Oct is definite now?' — 'Yes. Margaret and Duncan signed it off yesterday.'",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-003-C16",
+    "fragment_refs": [
+      "F08-014",
+      "F08-015"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "corroboration",
+    "interpreted_value": "The decision log (position as at 30 September 2026) carries the act as DL-26-014, 22 Jul, taken by 'Chair and Chief Executive', source 'Email thread 13 to 22 July. Para 4.5. To report to Board 17 Sept', and records as DL-26-015, 17 Sep, 'Board noted DL-26-014', source 'Minute 5'. The first row restates the thread; the minute behind the second is not in the material.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-003-C17",
+    "fragment_refs": [
+      "F09-LIVE"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "corroboration",
+    "interpreted_value": "A later project status report states that the service transferred to the Kestrel Customer Hub on 1 October. Its attribution 'as agreed by the Board' is not supported by the act-record and is not carried.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-004-C01",
+    "fragment_refs": [
+      "F05-HEAD",
+      "F05-CALL",
+      "F05-AGREED"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "decision-statement",
+    "interpreted_value": "File note headed 'Orchard extension': Calder will 'do six months from 1 Oct, pro rata of current rate = £48k plus support uplift ~£3k'. 'Verbally agreed. Letter to follow, they say by end of month.'",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-004-C02",
+    "fragment_refs": [
+      "F05-HEAD",
+      "F08-HEAD",
+      "F08-013"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "decision-date",
+    "interpreted_value": "2026-06",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "medium",
+    "epistemic_confidence": "medium",
+    "derivation": "inferred"
+  },
+  {
+    "contribution_id": "HC-004-C03",
+    "fragment_refs": [
+      "F05-HEAD",
+      "F05-AGREED"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "accountable-owner",
+    "interpreted_value": "P. Nandakumar",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "medium",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-004-C04",
+    "fragment_refs": [
+      "F05-CALL"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "context",
+    "interpreted_value": "As noted at the time: licence ends 30 Sept; Vantry go-live won't be before Jan, so cover is needed; the six-month price is cheaper than the 'rolling' price Calder quoted Sunil in Feb.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-004-C05",
+    "fragment_refs": [
+      "F05-CALL"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "alternative-rejected",
+    "interpreted_value": "The 'rolling' price Calder quoted Sunil in Feb, noted only as dearer than the six-month price.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "medium",
+    "epistemic_confidence": "low",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-004-C06",
+    "fragment_refs": [
+      "F05-AGREED"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "context",
+    "interpreted_value": "The note states a limit, 'Within my limit (12 mths / £150k)', and names no instrument for it.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-004-C07",
+    "fragment_refs": [
+      "F05-TODO-BUD"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "context",
+    "interpreted_value": "Budget: 'budget code 4410, not the project line. Check with Karen' — the budget source was still to be checked when the note was written.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-004-C08",
+    "fragment_refs": [
+      "F05-TODO-EXPORT"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "context",
+    "interpreted_value": "Open when the note was written: whether data export tools stay licensed during the extension, to be confirmed by Calder in the letter; noted as important for migration.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-004-C09",
+    "fragment_refs": [
+      "F05-SLIP"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "context",
+    "interpreted_value": "'If go-live slips past March we go again, but then it's a bigger conversation.'",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-004-C10",
+    "fragment_refs": [
+      "F05-TODO-OIC"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "consequence",
+    "interpreted_value": "To be reported to OIC: '11 June meeting, or Sept if I miss it'.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "high",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-004-C11",
+    "fragment_refs": [
+      "F05-CALL",
+      "F08-013"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "consequence",
+    "interpreted_value": "A six-month extension of the Orchard licence from 1 Oct at about £48k plus about £3k support uplift (note); the decision log gives the period as 1 Oct 2026 to 31 Mar 2027 and the cost as approx £51k.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "medium",
+    "epistemic_confidence": "medium",
+    "derivation": "inferred"
+  },
+  {
+    "contribution_id": "HC-004-C12",
+    "fragment_refs": [
+      "F02-TIME"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "context",
+    "interpreted_value": "Circumstance only: OIC Paper 4, dated 26 March 2026, said a short extension of Orchard would be needed because go-live falls after the licence ends, that this 'is within the Finance Director's delegation' and that it 'will be arranged separately'. Nothing shows this paper was before whoever agreed the extension when it was agreed.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "low",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-004-C13",
+    "fragment_refs": [
+      "F08-013"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "corroboration",
+    "interpreted_value": "The decision log (position as at 30 September 2026) carries the extension as DL-26-013, 'June', taken by 'Finance Director', source 'File note, not yet seen by OIC'. A restatement of the file note, to which it adds a year, an end date and a post.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  },
+  {
+    "contribution_id": "HC-004-C14",
+    "fragment_refs": [
+      "F09-ORCHARD"
+    ],
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "semantic_role": "corroboration",
+    "interpreted_value": "A later project status report states that Orchard remains live and that Calder extended the licence by six months to the end of March 2027.",
+    "interpreter": {
+      "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+      "version": "claude-fable-5-2"
+    },
+    "interpreted_at": "2026-11-26",
+    "extraction_confidence": "high",
+    "epistemic_confidence": "medium",
+    "derivation": "explicit"
+  }
+]

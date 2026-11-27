@@ -1,0 +1,1058 @@
+{
+  "contract_version": "1.0.0",
+  "candidate_id": "HC-001",
+  "retrospective": true,
+  "standing": "none",
+  "status": "candidate",
+  "event_time_ref": "HC-001-C02",
+  "fragments": [
+    {
+      "fragment_id": "F03-4-DEC",
+      "source_ref": "SRC-03-oic-minutes-9-april.md",
+      "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+      "locator": {
+        "kind": "char-offset",
+        "start": 920,
+        "end": 1078
+      },
+      "content": "The Committee approved the award to Vantry Systems Ltd as recommended, subject to the Company Secretary being satisfied with the exit and data return clauses.",
+      "source_time": "2026-04-09",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F03-HEAD",
+      "source_ref": "SRC-03-oic-minutes-9-april.md",
+      "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+      "locator": {
+        "kind": "char-offset",
+        "start": 0,
+        "end": 68
+      },
+      "content": "# Operations & Investment Committee: Minutes\n\n**Date:** 9 April 2026",
+      "source_time": "2026-04-09",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F03-PRESENT",
+      "source_ref": "SRC-03-oic-minutes-9-april.md",
+      "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+      "locator": {
+        "kind": "char-offset",
+        "start": 69,
+        "end": 205
+      },
+      "content": "**Present:** Tobias Wren (Chair), Anita Folorunsho, Raymond Quill, Priya Nandakumar (Finance Director), Duncan Faraday (Chief Executive)",
+      "source_time": "2026-04-09",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F02-HEAD",
+      "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+      "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+      "locator": {
+        "kind": "char-offset",
+        "start": 0,
+        "end": 99
+      },
+      "content": "# Operations & Investment Committee, 9 April 2026\n## Paper 4: Housing management system replacement",
+      "source_time": "2026-03-26",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F02-REC",
+      "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+      "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+      "locator": {
+        "kind": "char-offset",
+        "start": 1649,
+        "end": 1873
+      },
+      "content": "The Committee is asked to:\n1. approve the award of a five-year contract to Vantry Systems Ltd;\n2. note the implementation call-off and contingency;\n3. note that the Orchard extension will be arranged by the Finance Director.",
+      "source_time": "2026-03-26",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F02-BG",
+      "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+      "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+      "locator": {
+        "kind": "char-offset",
+        "start": 302,
+        "end": 572
+      },
+      "content": "Orchard (supplied by Calder Software) has been in use since 2014. Calder will stop supporting the current version when the licence ends on 30 September 2026. Repairs, rents, tenancy and complaints records all sit in Orchard, and there are 31 interfaces to other systems.",
+      "source_time": "2026-03-26",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F02-OPT-A",
+      "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+      "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+      "locator": {
+        "kind": "char-offset",
+        "start": 597,
+        "end": 730
+      },
+      "content": "- A. Extend Orchard on a rolling basis. Calder have said this is possible only for short periods and at rising cost. Not recommended.",
+      "source_time": "2026-03-26",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F02-OPT-C",
+      "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+      "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+      "locator": {
+        "kind": "char-offset",
+        "start": 818,
+        "end": 868
+      },
+      "content": "- C. Meridian Housing Suite. Scored 74 out of 100.",
+      "source_time": "2026-03-26",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F02-COSTS",
+      "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+      "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+      "locator": {
+        "kind": "char-offset",
+        "start": 1033,
+        "end": 1300
+      },
+      "content": "### Costs (Option B)\n| Item | £ |\n|---|---|\n| Licence, hosting and support, five years | 690,000 |\n| Implementation services (call-off) | 235,000 |\n| Contingency (held by Finance, not committed) | 90,000 |\n| **Programme total including contingency** | **1,015,000** |",
+      "source_time": "2026-03-26",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F02-FUND",
+      "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+      "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+      "locator": {
+        "kind": "char-offset",
+        "start": 1302,
+        "end": 1373
+      },
+      "content": "Funding is within the approved IT capital line for 2026/27 and 2027/28.",
+      "source_time": "2026-03-26",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F03-4-FUND",
+      "source_ref": "SRC-03-oic-minutes-9-april.md",
+      "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+      "locator": {
+        "kind": "char-offset",
+        "start": 762,
+        "end": 825
+      },
+      "content": "Priya Nandakumar confirmed the money is in the IT capital line.",
+      "source_time": "2026-04-09",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F02-OPT-B",
+      "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+      "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+      "locator": {
+        "kind": "char-offset",
+        "start": 731,
+        "end": 817
+      },
+      "content": "- B. Vantry Housing Platform (Vantry Systems Ltd). Scored 82 out of 100 in evaluation.",
+      "source_time": "2026-03-26",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F02-EVAL",
+      "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+      "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+      "locator": {
+        "kind": "char-offset",
+        "start": 870,
+        "end": 1031
+      },
+      "content": "Evaluation was by a panel of six, including two from Customer Services and one from Finance. Reference visits were made to two housing associations using Vantry.",
+      "source_time": "2026-03-26",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F02-RISK",
+      "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+      "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+      "locator": {
+        "kind": "char-offset",
+        "start": 1885,
+        "end": 2056
+      },
+      "content": "Data migration from Orchard is the main risk. Vantry's standard exit terms are weaker than we would like and the Company Secretary has not yet reviewed the draft contract.",
+      "source_time": "2026-03-26",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F03-4-MIG",
+      "source_ref": "SRC-03-oic-minutes-9-april.md",
+      "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+      "locator": {
+        "kind": "char-offset",
+        "start": 676,
+        "end": 761
+      },
+      "content": "Members asked about data migration and about what happens if Vantry is sold or fails.",
+      "source_time": "2026-04-09",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F03-4-INT",
+      "source_ref": "SRC-03-oic-minutes-9-april.md",
+      "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+      "locator": {
+        "kind": "char-offset",
+        "start": 826,
+        "end": 915
+      },
+      "content": "Raymond Quill asked whether the 31 interfaces had all been scoped; Ngozi Eze said 27 had.",
+      "source_time": "2026-04-09",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F02-TIME",
+      "source_ref": "SRC-02-oic-paper-hms-replacement.md",
+      "source_hash": "sha256:6c7bdc740a8099819fa14c244ad82e7947e5c5d3e04eb685411ef4807632021a",
+      "locator": {
+        "kind": "char-offset",
+        "start": 1389,
+        "end": 1628
+      },
+      "content": "Contract signature in May. Target go-live 11 January 2027. Because go-live falls after the Orchard licence ends, a short extension of Orchard will be needed. This is within the Finance Director's delegation and will be arranged separately.",
+      "source_time": "2026-03-26",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F04-6-NOTE",
+      "source_ref": "SRC-04-board-minutes-21-may.md",
+      "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+      "locator": {
+        "kind": "char-offset",
+        "start": 304,
+        "end": 529
+      },
+      "content": "**6. Report from the Operations & Investment Committee.** Tobias Wren reported on the meeting of 9 April. The Board noted the Committee's approval of the contract with Vantry Systems Ltd for the new housing management system.",
+      "source_time": "2026-05-21",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F04-6-EXIT",
+      "source_ref": "SRC-04-board-minutes-21-may.md",
+      "source_hash": "sha256:9165dadbeffb0a5b7732388eed69de125ec9e428e959b08156cf8745ea4e62b3",
+      "locator": {
+        "kind": "char-offset",
+        "start": 530,
+        "end": 608
+      },
+      "content": "Alison Reddy confirmed the exit clauses had been improved and she was content.",
+      "source_time": "2026-05-21",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F08-011",
+      "source_ref": "SRC-08-decision-log-extract.md",
+      "source_hash": "sha256:1f7ef25eb6db3b1b6c875b1de4ef38faebb6c5b91ea7a163fb5f2b2f3e195cf5",
+      "locator": {
+        "kind": "char-offset",
+        "start": 265,
+        "end": 450
+      },
+      "content": "| DL-26-011 | 9 Apr | Housing management system | Award five-year contract to Vantry Systems Ltd, subject to exit clauses | OIC | OIC minute 4. Contract signature date not yet entered |",
+      "source_time": "2026-09-30",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F09-SIGNED",
+      "source_ref": "SRC-09-project-status-report-october.md",
+      "source_hash": "sha256:3e8142a539553cbe5688f441c28c43397347f26ab1acd85cc0140fbafa73e7f4",
+      "locator": {
+        "kind": "char-offset",
+        "start": 193,
+        "end": 251
+      },
+      "content": "The Board-approved Vantry contract was signed in late May.",
+      "source_time": "unknown",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    },
+    {
+      "fragment_id": "F03-4-CITE",
+      "source_ref": "SRC-03-oic-minutes-9-april.md",
+      "source_hash": "sha256:909a37c685c93f47f35a2441882e3960052aabeb09fd0c43c8ba840f6704170a",
+      "locator": {
+        "kind": "char-offset",
+        "start": 581,
+        "end": 675
+      },
+      "content": "4. **Housing management system replacement (Paper 4).** Sunil Achterberg introduced the paper.",
+      "source_time": "2026-04-09",
+      "observed_at": "2026-11-26",
+      "observed_by": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      }
+    }
+  ],
+  "contributions": [
+    {
+      "contribution_id": "HC-001-C01",
+      "fragment_refs": [
+        "F03-4-DEC"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-statement",
+      "interpreted_value": "The Committee approved the award to Vantry Systems Ltd as recommended, subject to the Company Secretary being satisfied with the exit and data return clauses.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-001-C02",
+      "fragment_refs": [
+        "F03-HEAD"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "decision-date",
+      "interpreted_value": "2026-04-09",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-001-C03",
+      "fragment_refs": [
+        "F03-HEAD",
+        "F03-PRESENT",
+        "F03-4-DEC"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "The approval is recorded as the act of a forum, the Operations & Investment Committee, at its meeting of 9 April 2026. Present: Tobias Wren (Chair), Anita Folorunsho, Raymond Quill, Priya Nandakumar (Finance Director), Duncan Faraday (Chief Executive). The minute names no individual as holding the decision.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-001-C04",
+      "fragment_refs": [
+        "F02-HEAD",
+        "F02-REC"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "The recommendation before the Committee in Paper 4 was to (1) approve the award of a five-year contract to Vantry Systems Ltd, (2) note the implementation call-off and contingency, and (3) note that the Orchard extension will be arranged by the Finance Director.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-001-C05",
+      "fragment_refs": [
+        "F02-BG"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "Orchard (supplied by Calder Software) has been in use since 2014; Calder will stop supporting the current version when the licence ends on 30 September 2026; repairs, rents, tenancy and complaints records all sit in Orchard; there are 31 interfaces to other systems.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-001-C06",
+      "fragment_refs": [
+        "F02-OPT-A"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "alternative-rejected",
+      "interpreted_value": "Option A: extend Orchard on a rolling basis. Paper 4: Calder have said this is possible only for short periods and at rising cost. Not recommended.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-001-C07",
+      "fragment_refs": [
+        "F02-OPT-C"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "alternative-rejected",
+      "interpreted_value": "Option C: Meridian Housing Suite, presented in Paper 4 with an evaluation score of 74 out of 100. The paper states no reason beyond the score.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-001-C08",
+      "fragment_refs": [
+        "F02-COSTS",
+        "F02-FUND"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "evidence-business",
+      "interpreted_value": "Paper 4 costs for Option B: licence, hosting and support, five years, 690,000; implementation services (call-off), 235,000; contingency (held by Finance, not committed), 90,000; programme total including contingency, 1,015,000 (GBP). Funding is stated to be within the approved IT capital line for 2026/27 and 2027/28.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-001-C09",
+      "fragment_refs": [
+        "F03-4-FUND"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "evidence-business",
+      "interpreted_value": "At the meeting Priya Nandakumar confirmed the money is in the IT capital line.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-001-C10",
+      "fragment_refs": [
+        "F02-OPT-B",
+        "F02-EVAL"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "evidence-external",
+      "interpreted_value": "Vantry Housing Platform scored 82 out of 100 in evaluation by a panel of six, including two from Customer Services and one from Finance; reference visits were made to two housing associations using Vantry.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "medium",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-001-C11",
+      "fragment_refs": [
+        "F02-RISK",
+        "F03-4-MIG"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "evidence-data",
+      "interpreted_value": "Paper 4 names data migration from Orchard as the main risk; members asked about data migration at the meeting. No answer is minuted.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "low",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-001-C12",
+      "fragment_refs": [
+        "F03-4-INT"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "evidence-architecture",
+      "interpreted_value": "Asked whether the 31 interfaces had all been scoped, Ngozi Eze said 27 had.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-001-C13",
+      "fragment_refs": [
+        "F02-RISK"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "As at the paper, Vantry's standard exit terms were weaker than the authors would like and the Company Secretary had not yet reviewed the draft contract.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-001-C14",
+      "fragment_refs": [
+        "F02-TIME"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "Paper 4 timetable: contract signature in May; target go-live 11 January 2027; because go-live falls after the Orchard licence ends, a short extension of Orchard will be needed, described as within the Finance Director's delegation and to be arranged separately.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-001-C15",
+      "fragment_refs": [
+        "F03-4-MIG"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "context",
+      "interpreted_value": "Members asked what happens if Vantry is sold or fails. No answer is minuted.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "low",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-001-C16",
+      "fragment_refs": [
+        "F03-4-DEC",
+        "F02-REC",
+        "F02-COSTS"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "consequence",
+      "interpreted_value": "Award of a five-year contract to Vantry Systems Ltd (the minute approves the award 'as recommended'; the recommendation is for a five-year contract; Paper 4 costs licence, hosting and support over five years at 690,000 GBP). The minute itself states neither term nor value.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "medium",
+      "epistemic_confidence": "medium",
+      "derivation": "inferred"
+    },
+    {
+      "contribution_id": "HC-001-C17",
+      "fragment_refs": [
+        "F03-4-DEC"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "consequence",
+      "interpreted_value": "The approval is conditional: subject to the Company Secretary being satisfied with the exit and data return clauses.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-001-C18",
+      "fragment_refs": [
+        "F04-6-NOTE",
+        "F04-6-EXIT"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "corroboration",
+      "interpreted_value": "The Board minute of 21 May 2026 records that Tobias Wren reported on the meeting of 9 April, that the Board noted the Committee's approval of the contract with Vantry Systems Ltd, and that Alison Reddy confirmed the exit clauses had been improved and she was content. The Board is recorded as noting, not approving. Data return clauses are not mentioned.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "high",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-001-C19",
+      "fragment_refs": [
+        "F08-011"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "corroboration",
+      "interpreted_value": "The decision log (position as at 30 September 2026) carries the approval as DL-26-011, 9 Apr, taken by OIC, source 'OIC minute 4': 'Award five-year contract to Vantry Systems Ltd, subject to exit clauses'. A restatement of the minute; it adds nothing independent.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "low",
+      "derivation": "explicit"
+    },
+    {
+      "contribution_id": "HC-001-C20",
+      "fragment_refs": [
+        "F09-SIGNED"
+      ],
+      "target_object": "consequential-decision",
+      "target_record_type": "TDR",
+      "semantic_role": "corroboration",
+      "interpreted_value": "A later project status report states that the Vantry contract was signed in late May. Its description of the contract as 'Board-approved' is not supported by the act-record and is not carried.",
+      "interpreter": {
+        "name": "Claude (AI agent) executing mtdr-decision/recover-decision-records",
+        "version": "claude-fable-5-2"
+      },
+      "interpreted_at": "2026-11-26",
+      "extraction_confidence": "high",
+      "epistemic_confidence": "low",
+      "derivation": "explicit"
+    }
+  ],
+  "assembly": {
+    "assembly_id": "HC-001-ASM",
+    "target_object": "consequential-decision",
+    "target_record_type": "TDR",
+    "contribution_refs": [
+      "HC-001-C01",
+      "HC-001-C02",
+      "HC-001-C03",
+      "HC-001-C04",
+      "HC-001-C05",
+      "HC-001-C06",
+      "HC-001-C07",
+      "HC-001-C08",
+      "HC-001-C09",
+      "HC-001-C10",
+      "HC-001-C11",
+      "HC-001-C12",
+      "HC-001-C13",
+      "HC-001-C14",
+      "HC-001-C15",
+      "HC-001-C16",
+      "HC-001-C17",
+      "HC-001-C18",
+      "HC-001-C19",
+      "HC-001-C20"
+    ],
+    "grouping_basis": [
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "OIC minute item 4 is headed 'Housing management system replacement (Paper 4)' and approves the award 'as recommended'; the paper is headed 'Operations & Investment Committee, 9 April 2026 / Paper 4: Housing management system replacement'."
+      },
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "Board minute 6 of 21 May 2026 refers to 'the meeting of 9 April' and 'the Committee's approval of the contract with Vantry Systems Ltd'."
+      },
+      {
+        "basis": "explicit-cross-reference",
+        "evidence": "Decision log row DL-26-011 gives its source as 'OIC minute 4'."
+      },
+      {
+        "basis": "entity-match",
+        "evidence": "The October status report names 'the ... Vantry contract', the same named contract with Vantry Systems Ltd."
+      }
+    ],
+    "assembly_confidence": "high",
+    "missing_semantics": [
+      "accountable-owner",
+      "authority",
+      "reversal-cost",
+      "confidence"
+    ],
+    "conflicts": [],
+    "supersessions": [],
+    "unresolved": [
+      "No individual is named as holding the decision; the act is the Committee's.",
+      "The act cites no delegation or instrument. Whether the Scheme of Delegation's terms cover it is reported as an applicability finding beside this candidate, not as authority.",
+      "The minute states neither the contract's term nor its value; 'five-year' and 690,000 come from Paper 4 by way of 'as recommended'. Paper 4 also shows an implementation call-off of 235,000 and a programme total including contingency of 1,015,000; which of these is the contract's 'total value' is not evidenced.",
+      "Whether the condition was discharged is evidenced only by later material: the Board minute of 21 May says the exit clauses had been improved and the Company Secretary was content; nothing mentions the data return clauses, and no report to Tobias Wren by 30 April is in the material.",
+      "Who signed the contract, and on what date, is not evidenced. The decision log (as at 30 September 2026) says 'Contract signature date not yet entered'; the status report says 'late May'.",
+      "The status report calls the contract 'Board-approved'; the Board minute records the Board as noting the Committee's approval.",
+      "No answers are minuted to the members' questions on data migration and on Vantry being sold or failing.",
+      "No statement of what reversing the award would cost is in the material; the proportionality tier is undetermined."
+    ],
+    "status": "candidate"
+  },
+  "fragment_annotations": [
+    {
+      "fragment_ref": "F03-4-DEC",
+      "capture_time": "2026-04-09",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F03-HEAD",
+      "capture_time": "2026-04-09",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F03-PRESENT",
+      "capture_time": "2026-04-09",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F02-HEAD",
+      "capture_time": "2026-03-26",
+      "creation_time": "2026-03-26",
+      "evidence_kind": "cited-material"
+    },
+    {
+      "fragment_ref": "F02-REC",
+      "capture_time": "2026-03-26",
+      "creation_time": "2026-03-26",
+      "evidence_kind": "cited-material"
+    },
+    {
+      "fragment_ref": "F02-BG",
+      "capture_time": "2026-03-26",
+      "creation_time": "2026-03-26",
+      "evidence_kind": "cited-material"
+    },
+    {
+      "fragment_ref": "F02-OPT-A",
+      "capture_time": "2026-03-26",
+      "creation_time": "2026-03-26",
+      "evidence_kind": "cited-material"
+    },
+    {
+      "fragment_ref": "F02-OPT-C",
+      "capture_time": "2026-03-26",
+      "creation_time": "2026-03-26",
+      "evidence_kind": "cited-material"
+    },
+    {
+      "fragment_ref": "F02-COSTS",
+      "capture_time": "2026-03-26",
+      "creation_time": "2026-03-26",
+      "evidence_kind": "cited-material"
+    },
+    {
+      "fragment_ref": "F02-FUND",
+      "capture_time": "2026-03-26",
+      "creation_time": "2026-03-26",
+      "evidence_kind": "cited-material"
+    },
+    {
+      "fragment_ref": "F03-4-FUND",
+      "capture_time": "2026-04-09",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F02-OPT-B",
+      "capture_time": "2026-03-26",
+      "creation_time": "2026-03-26",
+      "evidence_kind": "cited-material"
+    },
+    {
+      "fragment_ref": "F02-EVAL",
+      "capture_time": "2026-03-26",
+      "creation_time": "2026-03-26",
+      "evidence_kind": "cited-material"
+    },
+    {
+      "fragment_ref": "F02-RISK",
+      "capture_time": "2026-03-26",
+      "creation_time": "2026-03-26",
+      "evidence_kind": "cited-material"
+    },
+    {
+      "fragment_ref": "F03-4-MIG",
+      "capture_time": "2026-04-09",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F03-4-INT",
+      "capture_time": "2026-04-09",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    },
+    {
+      "fragment_ref": "F02-TIME",
+      "capture_time": "2026-03-26",
+      "creation_time": "2026-03-26",
+      "evidence_kind": "cited-material"
+    },
+    {
+      "fragment_ref": "F04-6-NOTE",
+      "capture_time": "2026-05-21",
+      "creation_time": "unknown",
+      "evidence_kind": "retrospective"
+    },
+    {
+      "fragment_ref": "F04-6-EXIT",
+      "capture_time": "2026-05-21",
+      "creation_time": "unknown",
+      "evidence_kind": "retrospective"
+    },
+    {
+      "fragment_ref": "F08-011",
+      "capture_time": "unknown",
+      "creation_time": "2026-09-30",
+      "evidence_kind": "restatement",
+      "restates": "F03-4-DEC"
+    },
+    {
+      "fragment_ref": "F09-SIGNED",
+      "capture_time": "unknown",
+      "creation_time": "unknown",
+      "evidence_kind": "retrospective"
+    },
+    {
+      "fragment_ref": "F03-4-CITE",
+      "capture_time": "2026-04-09",
+      "creation_time": "unknown",
+      "evidence_kind": "act-record"
+    }
+  ],
+  "contribution_annotations": [
+    {
+      "contribution_ref": "HC-001-C03",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F03-4-DEC"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-001-C04",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F03-4-CITE",
+          "F03-4-DEC"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-001-C05",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F03-4-CITE"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-001-C08",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F03-4-CITE"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-001-C09",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F03-4-FUND"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-001-C10",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F03-4-CITE"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-001-C11",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F03-4-CITE",
+          "F03-4-MIG"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-001-C12",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F03-4-INT"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-001-C13",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F03-4-CITE"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-001-C14",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F03-4-CITE"
+        ]
+      }
+    },
+    {
+      "contribution_ref": "HC-001-C15",
+      "considered": {
+        "state": "evidenced",
+        "fragment_refs": [
+          "F03-4-MIG"
+        ]
+      }
+    }
+  ]
+}
