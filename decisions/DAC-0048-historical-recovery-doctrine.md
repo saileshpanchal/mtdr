@@ -3,7 +3,7 @@ id: DAC-0048
 conforms_to: mtdr/decision/dac@1.12.0
 tdr_id: TDR-0048
 title: Assure the historical recovery doctrine
-status: proposed
+status: accepted
 disposition: proceed-with-constraints
 assessed_at: 2026-11-26
 accountable_owner: Sailesh Panchal
@@ -14,8 +14,8 @@ supersedes: none
 
 # DAC-0048 — Assure the historical recovery doctrine
 
-> **Proposed. No standing.** Must be accepted before [TDR-0048](TDR-0048-historical-recovery-doctrine.md)
-> is. Routed in full because TDR-0048 decides who and what may confer standing on a past decision that
+> **Accepted on 2026-11-27** by the owner's ratification ([evidence](evidence/DAC-0048-ratification-2026-11-27.md)), before
+> [TDR-0048](TDR-0048-historical-recovery-doctrine.md). Routed in full because TDR-0048 decides who and what may confer standing on a past decision that
 > nobody recorded — authority and delegation are its subject, not its side-effect. Its constraints bind.
 >
 > **Returned on 7 November 2026 and amended** ([the return](evidence/TDR-0048-0049-owner-return-2026-11-07.md)): the same-day correction carried into
